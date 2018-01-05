@@ -1,6 +1,7 @@
 if !isMouseInMenu {
 	
 	if  !rightHandItem.isTwoHanded
+		&& leftHandItem.type != HandItemTypes.Shield
 		&& stamina > 0 
 		&& (state == CombatantStates.Idle || state == CombatantStates.Moving) {
 			isShielding = false;

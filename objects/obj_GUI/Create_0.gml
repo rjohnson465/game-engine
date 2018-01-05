@@ -54,6 +54,16 @@ for (var i = 0; i < array_length_1d(menuTypes); i++) {
 instance_deactivate_object(obj_menucategory);
 
 // inventory specific stuff
+enum InventoryFilters {
+	None,
+	Melee,
+	Magic,
+	Ranged,
+	Shields,
+	Other
+}
+
+inventoryFilter = InventoryFilters.None;
 inventoryScrollLevel = 0; // display items 0 - 14
 inventorySelectedItem = noone;
 global.scrollDirection = "up";

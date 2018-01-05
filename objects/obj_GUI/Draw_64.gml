@@ -119,7 +119,7 @@ if isShowingMenus {
 	draw_set_font(font_main);
 	var s = currentMenu +  " (" +ds_map_find_value(menuHotKeys,currentMenu) + ")";
 	draw_text(512,138,s);
-	//script_execute(scr_draw_text_outline,512,138,s,c_black);
+	draw_sprite(spr_close_button,1,892,134);
 	
 	// menu categories
 	var init_y = 154;
@@ -138,6 +138,16 @@ if isShowingMenus {
 			// tabs /filters TODO
 			draw_set_color(c_gray);
 			draw_rectangle(212,154,562,184,false);
+			// none filter
+			draw_sprite(spr_filter_none,1,212,154);
+			// melee filter
+			draw_sprite(spr_filter_melee,1,242,154);
+			// ranged filter
+			draw_sprite(spr_filter_ranged,1,272,154);
+			// shields filter
+			draw_sprite(spr_filter_shields,1,302,154);
+			// magic filter
+			draw_sprite(spr_filter_magic,1,332,154);
 			
 			// division line
 			draw_set_color(c_black);
@@ -156,8 +166,9 @@ if isShowingMenus {
 			
 			// inventory itself
 			var inventory = global.player.inventory;
-			// move all inventory items offscreen to start (accounts for not displayed items) -- TODO
+			// move all inventory items offscreen to start (accounts for not displayed items) -- TODO maybe?
 			// ALSO only display unequipped items in inventory
+			// ALSO filter according to current inventory filter
 			var inv = ds_list_create();
 			for (var i = 0; i < ds_list_size(inventory); i++) {
 				var el = ds_list_find_value(inventory,i);
@@ -165,6 +176,36 @@ if isShowingMenus {
 				//el.y1 = -50;
 				if !el.isEquipped {
 					ds_list_add(inv,el);
+				}
+				switch inventoryFilter {
+					case InventoryFilters.Melee: {
+						if el.type != HandItemTypes.Melee {
+							var pos = ds_list_find_index(inv,el);
+							ds_list_delete(inv,pos);
+						}
+						break;
+					}
+					case InventoryFilters.Shields: {
+						if el.type != HandItemTypes.Shield {
+							var pos = ds_list_find_index(inv,el);
+							ds_list_delete(inv,pos);
+						}
+						break;
+					}
+					case InventoryFilters.Ranged: {
+						if el.type != HandItemTypes.Ranged {
+							var pos = ds_list_find_index(inv,el);
+							ds_list_delete(inv,pos);
+						}
+						break;
+					}
+					case InventoryFilters.Magic: {
+						if el.totalCharges == 0 {
+							var pos = ds_list_find_index(inv,el);
+							ds_list_delete(inv,pos);
+						}
+						break;
+					}
 				}
 			}
 			

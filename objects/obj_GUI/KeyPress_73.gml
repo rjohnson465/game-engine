@@ -13,3 +13,5 @@ if isShowingMenus {
 		el.y1 = -50;
 	}
 }
+
+cursor_sprite = -1;

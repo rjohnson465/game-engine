@@ -250,6 +250,7 @@ switch(state) {
 				}  
 				else if 
 					stamina > 0 
+					&& !attackAgainSameSide
 					&& nonAttackingHandItem.type != HandItemTypes.Shield
 					&& !currentAttackingHandItem.isTwoHanded
 				{

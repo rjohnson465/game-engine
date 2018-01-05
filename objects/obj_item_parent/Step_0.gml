@@ -21,5 +21,5 @@ if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY {
 	visible = false;
 	//x = -50;
 	//y = -50;
-	cursor_sprite = -1;
+	//cursor_sprite = -1;
 }

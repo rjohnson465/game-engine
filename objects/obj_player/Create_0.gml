@@ -120,30 +120,6 @@ ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-
 // gui
 isMouseInMenu = false;
 instance_create_depth(x,y,1,obj_GUI);
