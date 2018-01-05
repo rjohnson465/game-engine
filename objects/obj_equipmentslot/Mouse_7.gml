@@ -5,6 +5,7 @@ if global.ui.grabbedItem {
 	var rightHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand1);
 	var rightHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2);
 	var equippedItems = global.player.equippedItems;
+	var unarmed = global.player.unarmed;
 	
 	// if dropped item is already equipped anywhere else, unequip it from that slot
 	var currentKey = ds_map_find_first(equippedItems);
@@ -19,35 +20,69 @@ if global.ui.grabbedItem {
 	if  key == EquipmentSlots.LeftHand1 || key == EquipmentSlots.LeftHand2 
 	|| key == EquipmentSlots.RightHand1 || key == EquipmentSlots.RightHand2 
 	{
-		ds_map_replace(equippedItems, key, global.player.unarmed);
+		ds_map_replace(equippedItems, key, unarmed);
 	} else {
 		ds_map_replace(equippedItems, key, noone);
 	}
-	//isEquipped = false;
 	
+	// equip dropped item (if dropped in proper slot)
 	if slot == EquipmentSlots.LeftHand1 || slot == EquipmentSlots.LeftHand2 {
 		if	(droppedItem.type == HandItemTypes.Shield 
 			|| droppedItem.type == HandItemTypes.Melee 
 			|| droppedItem.type == HandItemTypes.Ranged)
-			&& !droppedItem.isTwoHanded 
+			//&& !droppedItem.isTwoHanded 
 			{	
-				if slot == EquipmentSlots.LeftHand1 {
-					leftHandItem.isEquipped = false;
-					ds_map_replace(equippedItems,EquipmentSlots.LeftHand1,droppedItem);
-					droppedItem.isEquipped = true;
-					droppedItem.x1 = x1;
-					droppedItem.y1 = y1;
-					if rightHandItem.isTwoHanded {
-						rightHandItem.isEquipped = false;
-						ds_map_replace(equippedItems,EquipmentSlots.RightHand1,global.player.unarmed);
+				if !droppedItem.isTwoHanded {
+					if slot == EquipmentSlots.LeftHand1 {
+						leftHandItem.isEquipped = false;
+						ds_map_replace(equippedItems,EquipmentSlots.LeftHand1,droppedItem);
+						droppedItem.isEquipped = true;
+						droppedItem.x1 = x1;
+						droppedItem.y1 = y1;
+						if rightHandItem.isTwoHanded {
+							rightHandItem.isEquipped = false;
+							ds_map_replace(equippedItems,EquipmentSlots.RightHand1,unarmed);
+						}
+					} else {
+						leftHandItem2.isEquipped = false;
+						ds_map_replace(equippedItems,EquipmentSlots.LeftHand2,droppedItem);
+						droppedItem.isEquipped = true;
+						droppedItem.x1 = x1;
+						droppedItem.y1 = y1;
+						droppedItem.isEquipped = true;
+						if rightHandItem2.isTwoHanded {
+							rightHandItem2.isEquipped = false;
+							ds_map_replace(equippedItems,EquipmentSlots.RightHand2,unarmed);
+						}
 					}
-				} else {
-					leftHandItem2.isEquipped = false;
-					ds_map_replace(equippedItems,EquipmentSlots.LeftHand2,droppedItem);
-					droppedItem.isEquipped = true;
-					if rightHandItem2.isTwoHanded {
+				} else if droppedItem.isTwoHanded {
+					if slot == EquipmentSlots.LeftHand1 {
+						leftHandItem.isEquipped = false;
+						ds_map_replace(equippedItems,EquipmentSlots.LeftHand1,unarmed);
+						rightHandItem.isEquipped = false;
+						ds_map_replace(equippedItems,EquipmentSlots.RightHand1,droppedItem);
+						droppedItem.isEquipped = true;
+						droppedItem.x1 = global.ui.rightHandItem1Slot.x1;
+						droppedItem.y1 = global.ui.rightHandItem1Slot.y1;
+						// TODO -- have a copy item in the leftHandItem1Slot so users can still drag from there
+						
+						/*var droppedClone = noone;
+						with (droppedItem) {
+							var droppedItemClone = instance_copy(false);
+							droppedItemClone.cloneOf = droppedItem;
+						}
+						droppedItemClone.x1 = x1;
+						droppedItemClone.y1 = y1;*/
+					}
+					else {
+						leftHandItem2.isEquipped = false;
+						ds_map_replace(equippedItems,EquipmentSlots.LeftHand2,unarmed);
 						rightHandItem2.isEquipped = false;
-						ds_map_replace(equippedItems,EquipmentSlots.RightHand2,global.player.unarmed);
+						ds_map_replace(equippedItems,EquipmentSlots.RightHand2,droppedItem);
+						droppedItem.isEquipped = true;
+						// item object needs to go to righthand2 slot coordinates, not lefthand2 coordinates
+						droppedItem.x1 = global.ui.rightHandItem2Slot.x1;
+						droppedItem.y1 = global.ui.rightHandItem2Slot.y1;
 					}
 				}
 			}
@@ -72,10 +107,10 @@ if global.ui.grabbedItem {
 				if droppedItem.isTwoHanded {
 					if slot == EquipmentSlots.RightHand1 {
 						leftHandItem.isEquipped = false;
-						ds_map_replace(equippedItems,EquipmentSlots.LeftHand1,global.player.unarmed);
+						ds_map_replace(equippedItems,EquipmentSlots.LeftHand1,unarmed);
 					} else {
 						leftHandItem2.isEquipped = false;
-						ds_map_replace(equippedItems,EquipmentSlots.LeftHand2,global.player.unarmed);
+						ds_map_replace(equippedItems,EquipmentSlots.LeftHand2,unarmed);
 					}
 				}
 			}

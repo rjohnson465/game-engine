@@ -1,4 +1,4 @@
-if !position_meeting(mouse_x,mouse_y, obj_GUI_element) {
+if !isMouseInMenu {
 	if leftHandItem && leftHandItem.type == HandItemTypes.Shield && 
 		(state == CombatantStates.Idle || state == CombatantStates.Moving) {
 		isShielding = true;

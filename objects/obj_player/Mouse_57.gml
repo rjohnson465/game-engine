@@ -1,4 +1,4 @@
-if !position_meeting(mouse_x,mouse_y, obj_GUI_element) {
+if !isMouseInMenu {
 
 	if rightHandItem.type == HandItemTypes.Ranged && rightHandItem.isTwoHanded {
 		isReadyToFire = false;

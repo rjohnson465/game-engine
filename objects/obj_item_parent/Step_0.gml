@@ -16,3 +16,10 @@ if grabFrame == grabFrames {
 	y = mouse_y;
 	global.ui.grabbedItem = id;
 }
+
+if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY {
+	visible = false;
+	//x = -50;
+	//y = -50;
+	cursor_sprite = -1;
+}

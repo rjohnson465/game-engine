@@ -66,7 +66,7 @@ if !isMoveInputReceived && state == CombatantStates.Moving {
 	state = CombatantStates.Idle;
 }
 
-if state != CombatantStates.Staggering && !isAttacking && !isRecovering {
+if state != CombatantStates.Staggering && !isAttacking && !isRecovering && !isMouseInMenu {
 	// player faces mouse if not locked on
 	facingDirection = point_direction(x,y,mouse_x,mouse_y);
 	// otherwise, player always faces locked on enemy

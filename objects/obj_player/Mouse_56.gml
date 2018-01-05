@@ -1,8 +1,8 @@
-if !position_meeting(mouse_x,mouse_y, obj_GUI_element) {
+if !isMouseInMenu {
 	
-	if  
-		stamina > 0 &&
-		(state == CombatantStates.Idle || state == CombatantStates.Moving) {
+	if  !rightHandItem.isTwoHanded
+		&& stamina > 0 
+		&& (state == CombatantStates.Idle || state == CombatantStates.Moving) {
 			isShielding = false;
 			currentAttackingHand = "l";
 			state = CombatantStates.Attacking;

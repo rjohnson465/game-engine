@@ -184,7 +184,14 @@ if isShowingMenus {
 				if !is_undefined(item) && !item.isEquipped {
 					item.x1 = x1;
 					item.y1 = y1;
-					draw_sprite(spr_item_slot,1,x1,y1);
+					
+					// draw slot darker if mouse over and its the nearest one to mouse
+					if position_meeting(mouse_x,mouse_y,item) {
+						draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,c_gray,.25);
+					} else if inventorySelectedItem == item {
+						draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,c_gray,.75);
+					}
+					else draw_sprite(spr_item_slot,1,x1,y1);
 					draw_sprite(item.itemSprite,1,x1,y1);
 				} 
 				if inventorySelectedItem == item {
@@ -198,8 +205,8 @@ if isShowingMenus {
 			draw_rectangle(212,440,562,634,false);
 			
 			if inventorySelectedItem {
-				draw_set_color(c_red);
-				draw_rectangle(inventorySelectedItem.x1,inventorySelectedItem.y1,inventorySelectedItem.x1+64,inventorySelectedItem.y1+64,true);
+				//draw_set_color(c_white);
+				//draw_rectangle(inventorySelectedItem.x1,inventorySelectedItem.y1,inventorySelectedItem.x1+64,inventorySelectedItem.y1+64,true);
 				
 				draw_set_color(c_olive);
 				draw_rectangle(212,440,562,465,false);
@@ -287,13 +294,19 @@ if isShowingMenus {
 			// left hand 1
 			draw_sprite(spr_item_slot,1,570,235);
 			if leftHandItem != global.player.unarmed {
-				draw_sprite(global.player.leftHandItem.itemSprite,1,570,235);
+				draw_sprite(leftHandItem.itemSprite,1,570,235);
+			}
+			if rightHandItem.isTwoHanded {
+				draw_sprite_ext(rightHandItem.itemSprite,1,570,235,1,1,0,c_black,.75);
 			}
 			draw_text(570,225,"1");
 			// left hand 2
 			draw_sprite(spr_item_slot,1,635,235);
 			if leftHandItem2 != global.player.unarmed {
 				draw_sprite(leftHandItem2.itemSprite,1,635,235);
+			}
+			if rightHandItem2.isTwoHanded {
+				draw_sprite_ext(rightHandItem2.itemSprite,1,635,235,1,1,0,c_black,.75);
 			}
 			draw_text(635,225,"2");
 			// left ring 1 

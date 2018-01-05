@@ -1,4 +1,4 @@
-if !position_meeting(mouse_x,mouse_y, obj_GUI_element) {
+if !isMouseInMenu {
 
 	// if using a 2h ranged weapon, holding right allows for aiming
 	if rightHandItem.type == HandItemTypes.Ranged && rightHandItem.isTwoHanded {

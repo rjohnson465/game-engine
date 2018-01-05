@@ -25,6 +25,7 @@ if id == global.ui.grabbedItem {
 		&& (mouse_x > vx + 212 && mouse_x < vx + 562) 
 		&& (mouse_y > vy + 184 && mouse_y < vy + 400) 
 		{
+			
 			isEquipped = false;
 			var equippedItems = global.player.equippedItems;
 			var currentKey = ds_map_find_first(equippedItems);
@@ -36,6 +37,18 @@ if id == global.ui.grabbedItem {
 				}
 			    currentKey = ds_map_find_next(equippedItems, currentKey);
 			}
+			// TODO if it was a two handed item, need to delete its clone
+			/*if !is_undefined(isTwoHanded) && isTwoHanded {
+				// find its clone
+				var clone = noone;
+				var original = id;
+				with(obj_hand_item_parent) {
+					if cloneOf == original {
+						clone = id;
+					}
+				}
+				instance_destroy(clone,false);
+			}*/
 			if  key == EquipmentSlots.LeftHand1 || key == EquipmentSlots.LeftHand2 
 				|| key == EquipmentSlots.RightHand1 || key == EquipmentSlots.RightHand2 
 				{

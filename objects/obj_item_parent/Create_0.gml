@@ -8,6 +8,8 @@ itemSprite = "";
 value = 0;
 description = "Sample description";
 
+cloneOf = noone;
+
 isEquipped = false;
 
 mightGrab = false;

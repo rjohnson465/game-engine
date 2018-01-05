@@ -37,12 +37,6 @@ leftHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.Left
 leftHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand2);
 rightHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand1);
 rightHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2);
-/*
-rightHandItem = unarmed;
-rightHandItem2 = unarmed;
-leftHandItem = unarmed;
-leftHandItem2 = unarmed;
-*/
 
 // attack states
 global.playerAttackNumberInChain = 1; // in chain
@@ -101,6 +95,7 @@ currentSpell = ds_map_find_first(knownSpells);
 currentUsingSpell = noone;
 
 // use macros for elements rather than enums (helps with sprite getting)
+#macro PHYSICAL "physical"
 #macro MAGIC "magic"
 #macro FIRE "fire"
 #macro ICE "ice"
@@ -125,6 +120,31 @@ ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+
 // gui
+isMouseInMenu = false;
 instance_create_depth(x,y,1,obj_GUI);
 
