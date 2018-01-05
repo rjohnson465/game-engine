@@ -1,0 +1,1 @@
+currentSpellAttunement = MAGIC;
