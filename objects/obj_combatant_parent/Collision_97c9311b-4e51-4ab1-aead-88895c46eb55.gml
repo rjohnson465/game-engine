@@ -16,78 +16,85 @@ if	state != CombatantStates.Dodging &&
 	if ds_list_find_index(beenHitWith,other.id) == -1 {
 		
 		var assailant = other.owner;
-		var itemHitWith;
-		if assailant.hasHands {
-			if other.weapon && other.weapon.type == HandItemTypes.Ranged {
+		var damage = 0;
+		var damagesMap = noone;
+		// find damages map for the attack received (Player damage map dependent on item, enemy / ally damage map is hardcoded)
+		if assailant.type == CombatantTypes.Player {
+			// this could be a melee weapon, ranged weapon, or spell (I think??) -- Check attack_parent
+			var itemHitWith;
+			if !assailant.currentUsingSpell {
 				itemHitWith = other.weapon;
-			} else if !other.isSpell {
-				itemHitWith = assailant.currentAttackingHand == "l" ? assailant.leftHandItem : assailant.rightHandItem;
-			} else {
-				itemHitWith = other.spell;
-			}
-		}
-		
-		var baseDamage;
-		if itemHitWith.type != SpellTypes.Martial {
+			} else itemHitWith = other.spell;
+			// calculate damage, given this weapon / spell
+			damagesMap = itemHitWith.damages;
+		} 
+		// enemies / allies have their attack damages pre-loaded
+		else {
 			var attackNumber = other.attackNumber;
 			var attackNumberInChain = other.attackNumberInChain;
-			var isRanged = false;
-			if assailant.type != CombatantTypes.Player {
-				isRanged = assailant.currentRangedAttack == noone ? false : true;
-			} 
+			var isRanged = assailant.currentRangedAttack == noone ? false : true;
+			var damagesArray = isRanged ? assailant.rangedDamages : assailant.meleeDamages;
+			damagesMap = damagesArray[attackNumber-1];
+		}
 		
-			// calc base damage
-			// these damage calculations are a mess and you really shoulds be fed dog
-			var baseDamageMin; var baseDamageMax;
-		
-			// Enemy or Ally is assailant
-			if assailant.type != CombatantTypes.Player {
-			
-				var a;
-				// if assailant has hands, base damage on their weapons
-				if assailant.hasHands {
-					// this will not work for Ranged attacks, since currentAttackingHand is reset after recover
-					a = itemHitWith.physicalDamageArray;
-				}
-				// if assailant does not have hands, base damage on their meleeAttacksDamage and rangedAttacksDamage Arrays
-				else {
-					if !isRanged {
-						a = assailant.meleeAttacksDamages[attackNumber-1];
-					} else {
-						a = assailant.rangedAttacksDamages[attackNumber-1];
-					}
-				}
-				baseDamageMin = a[attackNumberInChain-1];     
-				baseDamageMax = a[attackNumberInChain];
+		var currentDamageType = ds_map_find_first(damagesMap);
+		var size = ds_map_size(damagesMap);
+		for (var i = 0; i < size; i++) {
+			var damageArray = ds_map_find_value(damagesMap,currentDamageType);
+			var damageMin; var damageMax;
+			// physical damage is dependent on attack number
+			if currentDamageType == PHYSICAL {
+				var index = (other.attackNumber - 1)*2;
+				damageMin = damageArray[index];
+				damageMax = damageArray[index+1];
 			}
-			// Player is assailant
+			// any elemental / bleed damage
 			else {
-				var i = (attackNumber - 1)*2;
-				baseDamageMin = itemHitWith.physicalDamageArray[i];
-				baseDamageMax = itemHitWith.physicalDamageArray[i+1];
+				// same amount of elemental damage on each attack in chain (for player attacks)
+				if type != CombatantTypes.Player {
+					damageMin = damageArray[0];
+					damageMax = damageArray[1];
+				}
+				// enemy/ally attacks may have various elemental bonuses per attack in chain
+				else {
+					var index = (other.attackNumber - 1)*2;
+					damageMin = damageArray[index];
+					damageMax = damageArray[index+1];
+				}
 			}
-		
-			baseDamage = random_range(baseDamageMin, baseDamageMax);
+			randomize();
+			var damageBase = random_range(damageMin,damageMax);
+			// account for defense against this damageType
+			var defense = ds_map_find_value(defenses,currentDamageType);
+			
+			// positive defense will offset x% of damageBase
+			if defense >= 0 {
+				damageBase -= (defense/100)*damageBase;
+			}
+			// negative defense will increase damageBase by abs(x)%
+			else {
+				damageBase += (defense/100)*damageBase;
+			}
+			damage += round(damageBase);
+				
+			// TODO -- account for elemental-specific effects
+			
+			// go to the next damageType in array
+			currentDamageType = ds_map_find_next(damagesMap, currentDamageType);
 		}
-		// hit with a martial spell
-		else {	
-			var key = ds_map_find_first(itemHitWith.damages);
-			baseDamage = ds_map_find_value(itemHitWith.damages,key);
-			baseDamage = other.percentCharged * baseDamage;
-		}
 		
-		// run to get __x and __y (collision point)
+		// run to get __x and __y (collision point where attack meet this combatant)
 		script_execute(scr_collision_point,id,other.id);
 		if	isShielding 
 			&& script_execute(scr_is_facing,assailant,id)
 			{
 				global.hitType = "yellow";
 				instance_create_depth(__x,__y,1,obj_hit);
-				stamina -= baseDamage;
+				stamina -= damage;
 				// shields are only ever held in left hand
-				hp -= baseDamage*((100-leftHandItem.blockPercentage)/100);
+				hp -= damage*((100-leftHandItem.blockPercentage)/100);
 				if type != CombatantTypes.Player {
-					global.damageAmount = baseDamage;
+					global.damageAmount = damage;
 					global.damageType = other.damageType;
 					global.victim = id;
 					instance_create_depth(x,y,1,obj_damage);
@@ -98,17 +105,16 @@ if	state != CombatantStates.Dodging &&
 					path_end();
 					state = CombatantStates.Staggering;
 					staggerFrame = 0;
-					staggerDuration = 25; // fix later
+					staggerDuration = 25; // TODO fix later
 					staggerSpeed = 1;
 				}		
 			}
 		else {
-			//global.hitType = type == CombatantTypes.Player ? "white" : "red";
 			global.hitType = "red";
 			instance_create_depth(__x,__y,1,obj_hit);
-			hp -= baseDamage;
+			hp -= damage;
 			if type != CombatantTypes.Player {
-				global.damageAmount = baseDamage;
+				global.damageAmount = damage;
 				global.damageType = other.damageType;
 				global.victim = id;
 				instance_create_depth(x,y,1,obj_damage);
@@ -121,8 +127,8 @@ if	state != CombatantStates.Dodging &&
 	
 		if state != CombatantStates.Staggering {
 			// calc force of the hit and tell whether or not to stagger
-			// TODO:  Attack force is item weight + damage
-			var force = baseDamage + assailant.strength;
+			// TODO:  Attack force is item weight + damage (what about attacks that do not come from items?)
+			var force = damage; // + assailant.strength;
 			if (force > poise) {
 				// if player, reset global attackNumberInChain
 				if type == CombatantTypes.Player {
@@ -142,8 +148,9 @@ if	state != CombatantStates.Dodging &&
 			}
 		}
 		
+		/*
 		if itemHitWith.type == HandItemTypes.Ranged || itemHitWith.type == SpellTypes.Martial {
 			instance_destroy(other,false);
-		}
+		}*/
 	}
 }

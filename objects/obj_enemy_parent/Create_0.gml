@@ -44,7 +44,7 @@ prepAnimationTotalFrames = 0;
 recoverAnimationFrame = -1;
 recoverAnimationTotalFrames = 0;
 
-// meelee attacks info
+// melee attacks info
 // meleeAttacksCount is number of separate attack chains, not individual attacks
 meleeAttacksCount = 1;
 if meleeAttacksCount == 0 {
@@ -70,19 +70,32 @@ if (hasHands) {
 // TODO -- handle these with hand item stats (unless no hands for enemy)
 // 2d array needs to be set manually for EVERY enemy
 // attack 1 move 1 min, attack 1 move 1 max, attack 1 move 2 min, attack 1 move 2 max..
-meleeAttacksDamages[0] = [10,20,25,35]; 
+//meleeAttacksDamages[0] = [10,20,25,35]; 
+// melee damages is array of maps
+//meleeDamages = [];
+var meleeDamages0 = ds_map_create();
+ds_map_add(meleeDamages0,PHYSICAL,[10,20,25,25]);
+meleeDamages[0] = meleeDamages0;
+
+// melee attack chain 1 damages
+//ds_map_add(damages,PHYSICAL+"1",[10,20,25,25]);
+
 // 2d array needs to be set manually for EVERY enemy
 // attack 1 move 1 min, attack 1 move 1 max, attack 1 move 2 min, attack 1 move 2 max..
 meleeAttacksStaggerDuration[0] = [15,30];
 
 // ranged attacks info
-rangedAttacksCount = 1;
+rangedAttacksCount = 0; //TODO change back to 1
 if rangedAttacksCount == 0 {
 	rangedAggroRange = noone;
 }
 // currently chosen ranged attack
 currentRangedAttack = noone;
 rangedRangeArray=[300];
+//rangedDamages = [];
+var rangedDamages0 = ds_map_create();
+ds_map_add(rangedDamages0,PHYSICAL,[10,20]);
+rangedDamages[0] = rangedDamages0;
 
 strength = 10; // used in calculating stagger against player
 

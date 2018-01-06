@@ -44,7 +44,6 @@ if state == CombatantStates.Attacking {
 			if attackNumberInChain == noone {
 				attackNumberInChain = 1; // ??? -- BANDAID, need to improve
 			}
-			show_debug_message(attackNumberInChain);
 			var prepSprite = asset_get_index("spr_"+spriteString+currentAttackingHandItemSprite+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));
 			// right hand 
 			if (currentAttackingHand == "r") {

@@ -1,4 +1,15 @@
 depth = -1;
+// use macros for elements rather than enums (helps with sprite getting)
+#macro PHYSICAL "physical"
+#macro MAGIC "magic"
+#macro FIRE "fire"
+#macro ICE "ice"
+#macro POISON "poison"
+#macro LIGHTNING "lightning"
+#macro BLEED "bleed"
+global.All_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
+global.ALL_DAMAGE_TYPES = [PHYSICAL, MAGIC,FIRE,ICE,POISON,LIGHTNING, BLEED];
+
 event_inherited();
 global.player = id;
 functionalSpeed = 8;
@@ -114,13 +125,3 @@ ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 isMouseInMenu = false;
 instance_create_depth(x,y,1,obj_GUI);
 
-// use macros for elements rather than enums (helps with sprite getting)
-#macro PHYSICAL "physical"
-#macro MAGIC "magic"
-#macro FIRE "fire"
-#macro ICE "ice"
-#macro POISON "poison"
-#macro LIGHTNING "lightning"
-#macro BLEED "bleed"
-global.All_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
-global.ALL_DAMAGE_TYPES = [PHYSICAL, MAGIC,FIRE,ICE,POISON,LIGHTNING, BLEED];

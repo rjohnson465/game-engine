@@ -20,6 +20,7 @@ isSpell = false;
 spell = noone;
 combatantsHit = ds_list_create();
 
+// spell logic
 if owner.currentUsingSpell != noone {
 	isSpell = true;
 	percentCharged = owner.prepAnimationFrame / owner.prepAnimationTotalFrames;
