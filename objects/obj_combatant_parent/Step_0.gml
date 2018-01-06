@@ -25,10 +25,45 @@ if hp < maxHp {
 	hp += hpRegen/30;
 }
 
-/*
-if hasHands && rightHandItem.isTwoHanded {
-	leftHandItem = noone;
-}*/
+// conditionPercentages drain every step
+// TODO Devin fix calculations
+var currentCondition = ds_map_find_first(conditionPercentages);
+var size = ds_map_size(conditionPercentages);
+for (var i = 0; i < size; i++){
+	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
+	if conditionPercent > 0 {
+		var decrementAmount = 1/30;
+		var defense = ds_map_find_value(defenses,currentCondition);
+		decrementAmount += 1*(defense/100);
+		conditionPercent -= decrementAmount;
+		ds_map_replace(conditionPercentages,currentCondition,conditionPercent);
+	} if conditionPercent < 0 {
+		ds_map_replace(conditionPercentages,currentCondition,0);
+		// set condition level to 0
+		ds_map_replace(conditionLevels,currentCondition,0);
+	}
+	
+	// if condition is ice and it just dropped below 50 (coming from condition level 2, frozen), reset to condition level 1 (slow)
+	if conditionPercent < 50 && currentCondition == ICE {
+		if ds_map_find_value(conditionLevels,currentCondition) == 2 {
+			ds_map_replace(conditionLevels,currentCondition,1);
+		}
+	}
+	
+	// generally, if conditionPercent exceeds 100, condition level becomes 1
+	// except for ice, in which condition level becomes 2 (frozen)
+	if conditionPercent > 100 {
+		if currentCondition == ICE {
+			ds_map_replace(conditionLevels,currentCondition,2);
+		} else {
+			ds_map_replace(conditionLevels,currentCondition,1);
+		}
+	} else if conditionPercent > 50 && currentCondition == ICE {
+		ds_map_replace(conditionLevels,currentCondition,1);
+	}
+	
+	currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
+}
 
 // huge state machine
 switch(state) {

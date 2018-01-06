@@ -124,8 +124,25 @@ knownSpells = ds_map_create();
 currentSpell = noone;
 currentUsingSpell = noone;
 
-// resistances -- all are initially 0
+// defenses -- all are initially 0
 defenses = ds_map_create();
 for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 	ds_map_add(defenses,global.ALL_DAMAGE_TYPES[i],0);
+}
+
+// condition percentages
+// burning for fire
+// slowed / frozen for ice
+// posioned for poison
+// electrified for lightning
+// bleed for physical
+conditionPercentages = ds_map_create();
+for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
+	ds_map_add(conditionPercentages,global.ALL_DAMAGE_TYPES[i],0);
+}
+
+// only 0 or 1 for most conditions, but Ice slows during level 1 and freeze during level 2
+conditionLevels = ds_map_create();
+for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
+	ds_map_add(conditionLevels,global.ALL_DAMAGE_TYPES[i],0);
 }

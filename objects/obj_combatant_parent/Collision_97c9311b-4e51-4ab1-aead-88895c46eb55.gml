@@ -85,10 +85,28 @@ if	state != CombatantStates.Dodging &&
 				damageBase += (defense/100)*damageBase;
 			}
 			// account for charge amount (spells, mostly)
-			damageBase = damageBase*percentCharged;
-			damage += round(damageBase);
+			damageBase = round(damageBase*percentCharged);
+			damage += damageBase;
 				
 			// TODO -- account for elemental-specific effects
+			// apply baseDamage amount to conditionPercentage 
+			var currentConditionPercent = ds_map_find_value(conditionPercentages,currentDamageType);
+			ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+damageBase);
+			
+			// if theres not already a condition handler for this, show the condition bar
+			if type == CombatantTypes.Player {
+				var conditionBar = noone;
+				with (obj_condition_bar) {
+					if condition == currentDamageType && owner == global.player.id {
+						conditionBar = id;
+					}
+				}
+				if !conditionBar {
+					global.owner = global.player.id;
+					global.condition = currentDamageType;
+					instance_create_depth(x,y,1,obj_condition_bar);
+				}
+			}
 			
 			// go to the next damageType in array
 			currentDamageType = ds_map_find_next(damagesMap, currentDamageType);
