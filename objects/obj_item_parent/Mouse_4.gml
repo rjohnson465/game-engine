@@ -1,2 +1,4 @@
-global.ui.inventorySelectedItem = id;
+if !isEquipped {
+	global.ui.inventorySelectedItem = id;
+}
 mightGrab = true;

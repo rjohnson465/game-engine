@@ -2,6 +2,7 @@ x1 = -50;
 y1 = -50;
 sprite_index = spr_item_slot;
 visible = false;
+depth = -2;
 name = "";
 spriteName = "";
 itemSprite = "";
@@ -14,4 +15,4 @@ isEquipped = false;
 
 mightGrab = false;
 grabFrame = 0;
-grabFrames = 10;
+grabFrames = 5;

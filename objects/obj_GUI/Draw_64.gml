@@ -139,15 +139,25 @@ if isShowingMenus {
 			draw_set_color(c_gray);
 			draw_rectangle(212,154,562,184,false);
 			// none filter
-			draw_sprite(spr_filter_none,1,212,154);
+			if inventoryFilter != InventoryFilters.None {
+				draw_sprite(spr_filter_none,1,212,154);
+			} else draw_sprite_ext(spr_filter_none,1,212,154,1,1,0,c_gray,.75);
 			// melee filter
-			draw_sprite(spr_filter_melee,1,242,154);
+			if inventoryFilter != InventoryFilters.Melee {
+				draw_sprite(spr_filter_melee,1,242,154);
+			} else draw_sprite_ext(spr_filter_melee,1,242,154,1,1,0,c_gray,.75);
 			// ranged filter
-			draw_sprite(spr_filter_ranged,1,272,154);
+			if inventoryFilter != InventoryFilters.Ranged {
+				draw_sprite(spr_filter_ranged,1,272,154);
+			} else draw_sprite_ext(spr_filter_ranged,1,272,154,1,1,0,c_gray,.75);
 			// shields filter
-			draw_sprite(spr_filter_shields,1,302,154);
+			if inventoryFilter != InventoryFilters.Shields {
+				draw_sprite(spr_filter_shields,1,302,154);
+			} else draw_sprite_ext(spr_filter_shields,1,302,154,1,1,0,c_gray,.75);
 			// magic filter
-			draw_sprite(spr_filter_magic,1,332,154);
+			if inventoryFilter != InventoryFilters.Magic {
+				draw_sprite(spr_filter_magic,1,332,154);
+			} else draw_sprite_ext(spr_filter_magic,1,332,154,1,1,0,c_gray,.75);
 			
 			// division line
 			draw_set_color(c_black);
@@ -246,8 +256,6 @@ if isShowingMenus {
 			draw_rectangle(212,440,562,634,false);
 			
 			if inventorySelectedItem {
-				//draw_set_color(c_white);
-				//draw_rectangle(inventorySelectedItem.x1,inventorySelectedItem.y1,inventorySelectedItem.x1+64,inventorySelectedItem.y1+64,true);
 				
 				draw_set_color(c_olive);
 				draw_rectangle(212,440,562,465,false);

@@ -46,7 +46,8 @@ if (keyboard_check_released(vk_tab)) {
 }
 
 // if too far from current lockon target, or esc pressed, no more lock on
-if isLockedOn && (keyboard_check(vk_escape) || distance_to_object(lockOnTarget) > LOCK_ON_DISTANCE) {
+if	isLockedOn && ((keyboard_check(vk_escape) && !global.ui.isShowingMenus) 
+	|| distance_to_object(lockOnTarget) > LOCK_ON_DISTANCE) {
 	lockOnTarget = noone;
 	isLockedOn = false;
 }

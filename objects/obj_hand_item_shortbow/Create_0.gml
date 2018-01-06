@@ -11,5 +11,5 @@ isTwoHanded = true;
 weight = 3;
 staggerDuration = 2; // frames
 physicalDamageArray = [7,13];
-staminaCostArray=[7];
+staminaCostArray=[10];
 physicalDamageTypeArray = ["piercing"];
