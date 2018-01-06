@@ -18,20 +18,29 @@ if	state != CombatantStates.Dodging &&
 		var assailant = other.owner;
 		var damage = 0;
 		var damagesMap = noone;
+		var attackNumber; var attackNumberInChain;
+		var percentCharged = 1;
 		// find damages map for the attack received (Player damage map dependent on item, enemy / ally damage map is hardcoded)
 		if assailant.type == CombatantTypes.Player {
 			// this could be a melee weapon, ranged weapon, or spell (I think??) -- Check attack_parent
 			var itemHitWith;
-			if !assailant.currentUsingSpell {
+			if !other.spell {
 				itemHitWith = other.weapon;
-			} else itemHitWith = other.spell;
+				attackNumber = other.attackNumber;
+				attackNumberInChain = other.attackNumberInChain;
+			} else {
+				itemHitWith = other.spell;
+				attackNumber = 1;
+				attackNumberInChain = 1;
+				percentCharged = other.percentCharged;
+			}
 			// calculate damage, given this weapon / spell
 			damagesMap = itemHitWith.damages;
 		} 
 		// enemies / allies have their attack damages pre-loaded
 		else {
-			var attackNumber = other.attackNumber;
-			var attackNumberInChain = other.attackNumberInChain;
+			attackNumber = other.attackNumber;
+			attackNumberInChain = other.attackNumberInChain;
 			var isRanged = assailant.currentRangedAttack == noone ? false : true;
 			var damagesArray = isRanged ? assailant.rangedDamages : assailant.meleeDamages;
 			damagesMap = damagesArray[attackNumber-1];
@@ -44,7 +53,7 @@ if	state != CombatantStates.Dodging &&
 			var damageMin; var damageMax;
 			// physical damage is dependent on attack number
 			if currentDamageType == PHYSICAL {
-				var index = (other.attackNumber - 1)*2;
+				var index = (attackNumber - 1)*2;
 				damageMin = damageArray[index];
 				damageMax = damageArray[index+1];
 			}
@@ -57,7 +66,7 @@ if	state != CombatantStates.Dodging &&
 				}
 				// enemy/ally attacks may have various elemental bonuses per attack in chain
 				else {
-					var index = (other.attackNumber - 1)*2;
+					var index = (attackNumber - 1)*2;
 					damageMin = damageArray[index];
 					damageMax = damageArray[index+1];
 				}
@@ -75,6 +84,8 @@ if	state != CombatantStates.Dodging &&
 			else {
 				damageBase += (defense/100)*damageBase;
 			}
+			// account for charge amount (spells, mostly)
+			damageBase = damageBase*percentCharged;
 			damage += round(damageBase);
 				
 			// TODO -- account for elemental-specific effects
@@ -95,7 +106,7 @@ if	state != CombatantStates.Dodging &&
 				hp -= damage*((100-leftHandItem.blockPercentage)/100);
 				if type != CombatantTypes.Player {
 					global.damageAmount = damage;
-					global.damageType = other.damageType;
+					//global.damageType = other.damageType;
 					global.victim = id;
 					instance_create_depth(x,y,1,obj_damage);
 				}
@@ -115,7 +126,7 @@ if	state != CombatantStates.Dodging &&
 			hp -= damage;
 			if type != CombatantTypes.Player {
 				global.damageAmount = damage;
-				global.damageType = other.damageType;
+				//global.damageType = other.damageType;
 				global.victim = id;
 				instance_create_depth(x,y,1,obj_damage);
 			}

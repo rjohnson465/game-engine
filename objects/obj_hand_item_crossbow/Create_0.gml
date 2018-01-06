@@ -8,6 +8,6 @@ weaponSpeed = "Medium";
 projectileSpeed = 25;
 weight = 4;
 staggerDuration = 2; // frames
-physicalDamageArray = [5,10];
+ds_map_set(damages,PHYSICAL,[5,10]);
 staminaCostArray=[10];
 physicalDamageTypeArray = ["piercing"];

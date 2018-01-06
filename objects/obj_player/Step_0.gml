@@ -194,6 +194,7 @@ switch(state) {
 					for (var i = 0; i < currentSpell.numberOfProjectiles; i++) {
 						global.owner = id;
 						global.projectileNumber = i+1;
+						global.percentCharged = percentCharged;
 						if currentUsingSpell != "aoe" {
 							instance_create_depth(x,y,1,obj_attack_parent);	
 						} else {

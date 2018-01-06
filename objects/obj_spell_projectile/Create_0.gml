@@ -10,4 +10,8 @@ staminaCost = 25;
 
 maxChargeCost = level*4;
 
-ds_map_add(damages,DamageTypes.Magic,3+(10*level));
+// per projectile
+minDamage = 20;
+maxDamage = 30;
+//ds_map_add(damages,MAGIC,[20,30]); 
+//ds_map_add(damages,DamageTypes.Magic,3+(10*level));

@@ -85,7 +85,7 @@ meleeDamages[0] = meleeDamages0;
 meleeAttacksStaggerDuration[0] = [15,30];
 
 // ranged attacks info
-rangedAttacksCount = 0; //TODO change back to 1
+rangedAttacksCount = 1; 
 if rangedAttacksCount == 0 {
 	rangedAggroRange = noone;
 }
@@ -137,3 +137,4 @@ totalShieldingFrames = 130 - cautiousness; // how regularly can we check to shie
 
 lockOnTargetType = obj_goodguy_parent;
 
+ds_map_replace(defenses,FIRE,100);

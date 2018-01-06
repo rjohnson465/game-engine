@@ -10,6 +10,6 @@ projectileSpeed = 25;
 isTwoHanded = true;
 weight = 3;
 staggerDuration = 2; // frames
-physicalDamageArray = [7,13];
+ds_map_set(damages,PHYSICAL,[7,15]);
 staminaCostArray=[10];
 physicalDamageTypeArray = ["piercing"];

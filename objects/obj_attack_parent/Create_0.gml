@@ -1,14 +1,3 @@
-enum DamageTypes {
-	Physical,
-	Magic,
-	Fire,
-	Ice,
-	Lightning,
-	Poison,
-	Bleed
-}
-
-damageType = DamageTypes.Physical; // TODO probably need many damage types
 owner = global.owner;
 x = owner.x;
 y = owner.y;
@@ -17,15 +6,19 @@ originalDirection = owner.facingDirection;
 facingDirection = owner.facingDirection;
 weapon = noone;
 isSpell = false;
+isRanged = false;
 spell = noone;
+percentCharged = 0;
 combatantsHit = ds_list_create();
 
 // spell logic
 if owner.currentUsingSpell != noone {
+	isRanged = true;
 	isSpell = true;
+	percentCharged = global.percentCharged;
 	percentCharged = owner.prepAnimationFrame / owner.prepAnimationTotalFrames;
 	var currentSpell = ds_map_find_value(owner.knownSpells,owner.currentUsingSpell);
-	spell = currentSpell
+	spell = currentSpell;
 	
 	//var casterAttunement = owner.currentSpellAttunement;
 	var attunementSpriteName = owner.currentSpellAttunement;
@@ -61,6 +54,7 @@ if owner.currentUsingSpell != noone {
 
 	// get attack number
 	if owner.type != CombatantTypes.Player {
+		isRanged = owner.currentMeleeAttack == noone ? true: false;
 		attackNumber = owner.currentMeleeAttack == noone ? owner.currentRangedAttack : owner.currentMeleeAttack;
 		attackNumberInChain = owner.attackNumberInChain;
 	} else {
@@ -91,7 +85,7 @@ if owner.currentUsingSpell != noone {
 	sprite_index = asset_get_index(sprStr);
 
 	if weapon && weapon.type == HandItemTypes.Ranged {
-	
+		isRanged = true;
 		speed = weapon.projectileSpeed;
 		direction = owner.facingDirection;
 		facingDirection = direction; // facingDirection property needed for is_facing script
