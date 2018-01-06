@@ -12,5 +12,5 @@ totalCharges = 200;
 
 weight = 6;
 staggerDuration = 20; // frames
-physicalDamageArray = [12,18];
+ds_map_set(damages,PHYSICAL,[12,18]);
 staminaCostArray=[10];

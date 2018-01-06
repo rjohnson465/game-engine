@@ -94,6 +94,9 @@ if	state != CombatantStates.Dodging &&
 			currentDamageType = ds_map_find_next(damagesMap, currentDamageType);
 		}
 		
+		if damage > hp {
+			damage = hp;
+		}
 		// run to get __x and __y (collision point where attack meet this combatant)
 		script_execute(scr_collision_point,id,other.id);
 		if	isShielding 

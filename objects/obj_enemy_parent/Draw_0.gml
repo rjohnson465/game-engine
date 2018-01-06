@@ -11,7 +11,7 @@ if showHp {
 	draw_rectangle(x1,y1,x2,y2,true);
 	// current hp
 	var percentHpLeft = hp / maxHp;
-	var x2 = x1 + (sprite_width * percentHpLeft)
+	var x2 = x1 + (sprite_width * percentHpLeft);
 	if (x2 < x1) x2 = x1;
 	draw_set_color(c_red);
 	draw_rectangle(
@@ -20,6 +20,28 @@ if showHp {
 		x2,
 		y2,
 		false);
+		
+	// show currently lost / losing hp in yellow?
+	var sustainingDamageObj = noone;
+	var enemyId = id;
+	with (obj_damage) {
+		if victim == enemyId {
+			sustainingDamageObj = id;
+		}
+	}
+	if sustainingDamageObj {
+		var sustainingDamage = sustainingDamageObj.amount;
+		// top left corner of current hp bar's right side
+		var x1 = x2;
+		//var y1 = y1;
+		var percentOfTotal = sustainingDamage / maxHp;
+		var x2 = x1 + (sprite_width * percentOfTotal);
+		//if (xx2 > x2) xx2 = x2;
+		draw_set_color(c_ltgray);
+		draw_rectangle(x1,y1,x2,y2,false);
+	}
+	
+	
 		
 	// total stamina bar outline
 	var x1 = x-(.5*sprite_width);
