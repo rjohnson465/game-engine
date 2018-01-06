@@ -351,23 +351,26 @@ if isShowingMenus {
 			draw_text(570,225,"1");
 			// left hand 2
 			draw_sprite(spr_item_slot,1,635,235);
-			if leftHandItem2 != global.player.unarmed {
-				draw_sprite(leftHandItem2.itemSprite,1,635,235);
+			if rightHandItem != global.player.unarmed {
+				draw_sprite(rightHandItem.itemSprite,1,635,235);
 			}
-			if rightHandItem2.isTwoHanded {
+			/*if rightHandItem2.isTwoHanded {
 				draw_sprite_ext(rightHandItem2.itemSprite,1,635,235,1,1,0,c_black,.75);
-			}
-			draw_text(635,225,"2");
+			}*/
+			draw_text(635,225,"1");
 			// left ring 1 
 			draw_sprite(spr_item_slot,1,602,300);
 			// left ring 2
 			draw_sprite(spr_item_slot,1,602,365);
 			// right hand 1
 			draw_sprite(spr_item_slot,1,775,235);
-			if rightHandItem != global.player.unarmed {
-				draw_sprite(rightHandItem.itemSprite,1,775,235);
+			if leftHandItem2 != global.player.unarmed {
+				draw_sprite(leftHandItem2.itemSprite,1,775,235);
 			}
-			draw_text(775,225,"1");
+			if rightHandItem2.isTwoHanded {
+				draw_sprite_ext(rightHandItem2.itemSprite,1,775,235,1,1,0,c_black,.75);
+			}
+			draw_text(775,225,"2");
 			// right hand 2
 			draw_sprite(spr_item_slot,1,840,235);
 			if rightHandItem2 != global.player.unarmed {

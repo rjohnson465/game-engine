@@ -93,8 +93,8 @@ leftHandItem1Slot = instance_create_depth(global.x1,global.y1,1,obj_equipmentslo
 
 global.x1 = 635;
 global.y1 = 235;
-global.equipmentSlot = EquipmentSlots.LeftHand2;
-leftHandItem2Slot = instance_create_depth(global.x1,global.y1,1,obj_equipmentslot);
+global.equipmentSlot = EquipmentSlots.RightHand1;
+rightHandItem1Slot = instance_create_depth(global.x1,global.y1,1,obj_equipmentslot);
 
 global.x1 = 602;
 global.y1 = 300;
@@ -108,8 +108,8 @@ leftRing2Slot = instance_create_depth(global.x1,global.y1,1,obj_equipmentslot);
 
 global.x1 = 775;
 global.y1 = 235;
-global.equipmentSlot = EquipmentSlots.RightHand1;
-rightHandItem1Slot = instance_create_depth(global.x1,global.y1,1,obj_equipmentslot);
+global.equipmentSlot = EquipmentSlots.LeftHand2;
+leftHandItem2Slot = instance_create_depth(global.x1,global.y1,1,obj_equipmentslot);
 
 global.x1 = 840;
 global.y1 = 235;
