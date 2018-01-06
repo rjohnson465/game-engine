@@ -1,11 +1,25 @@
 // draw dodge sprite if dodging
 if state == CombatantStates.Dodging {
 	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,1);
-} else {
-	if type != CombatantTypes.Player {
-		// normally draw base sprite + hands (if applicable) 
-		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_white, 1);
+	if ds_map_find_value(conditionLevels,ICE) == 1 {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_blue, .5);
+	} else if ds_map_find_value(conditionLevels,ICE) == 2 {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_blue, .75);
+	}
 	
+} else {
+	
+	// normally draw base sprite + hands (if applicable) 
+	draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_white, 1);
+	
+	if ds_map_find_value(conditionLevels,ICE) == 1 {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_blue, .5);
+	} else if ds_map_find_value(conditionLevels,ICE) == 2 {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_blue, .75);
+	}
+	
+	if type != CombatantTypes.Player {
+		
 		if hasHands {
 			
 			// two handed items always go in right hand

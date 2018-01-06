@@ -6,6 +6,7 @@ spriteType = "enemy";
 spriteString = "enemy_dummy";
 
 functionalSpeed = 3;
+normalSpeed = 5;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
@@ -75,6 +76,7 @@ if (hasHands) {
 //meleeDamages = [];
 var meleeDamages0 = ds_map_create();
 ds_map_add(meleeDamages0,PHYSICAL,[10,20,25,25]);
+ds_map_add(meleeDamages0,ICE,[50,75,25,25]);
 meleeDamages[0] = meleeDamages0;
 
 // melee attack chain 1 damages
@@ -113,7 +115,6 @@ staminaRegen = 4;
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
-enemySpeed = 3;
 facingDirection = 0;
 
 // stagger stuff

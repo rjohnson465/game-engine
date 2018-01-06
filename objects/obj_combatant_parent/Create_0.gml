@@ -9,6 +9,7 @@ personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
 mp_grid_add_instances(personalGrid, obj_wall_parent, true);
 
 functionalSpeed = 5;
+normalSpeed = 5;
 facingDirection = 0;
 // player | enemy | ally
 spriteType = ""; 

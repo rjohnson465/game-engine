@@ -1,5 +1,7 @@
 global.ui = id;
 
+global.conditionBarCount = 0;
+
 // UI menus
 isShowingMenus = false;
 #macro INVENTORY "Inventory"

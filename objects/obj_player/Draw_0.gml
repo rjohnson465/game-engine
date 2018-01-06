@@ -1,10 +1,14 @@
 event_inherited();
 // draw dodge sprite if dodging
 if state == CombatantStates.Dodging {
-	draw_sprite_ext(asset_get_index("spr_player_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,1);
+	//draw_sprite_ext(asset_get_index("spr_player_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,1);
 } else {
+	//draw_sprite_ext(spr_player, 1, x, y, 1, 1, facingDirection, c_white, 1);
 	// draw base player sprite if not dodging
-	draw_sprite_ext(spr_player, 1, x, y, 1, 1, facingDirection, c_white, 1);
+	// account for possible damage conditions
+	//draw_set_alpha(.5);
+	//draw_set_alpha(1);
+	
 	
 	// two handed items always go in right hand
 	if !rightHandItem.isTwoHanded {

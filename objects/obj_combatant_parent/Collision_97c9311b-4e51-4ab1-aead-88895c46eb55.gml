@@ -91,10 +91,15 @@ if	state != CombatantStates.Dodging &&
 			// TODO -- account for elemental-specific effects
 			// apply baseDamage amount to conditionPercentage 
 			var currentConditionPercent = ds_map_find_value(conditionPercentages,currentDamageType);
-			ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+damageBase);
+			var addToCondition = damageBase;
+			if currentConditionPercent + damageBase > 100 {
+				addToCondition = 100-currentConditionPercent;
+			}
+			ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+addToCondition);
 			
 			// if theres not already a condition handler for this, show the condition bar
-			if type == CombatantTypes.Player {
+			// this does not appear for mere physical damage
+			if type == CombatantTypes.Player && currentDamageType != PHYSICAL {
 				var conditionBar = noone;
 				with (obj_condition_bar) {
 					if condition == currentDamageType && owner == global.player.id {
@@ -104,6 +109,7 @@ if	state != CombatantStates.Dodging &&
 				if !conditionBar {
 					global.owner = global.player.id;
 					global.condition = currentDamageType;
+					global.conditionBarCount += 1;
 					instance_create_depth(x,y,1,obj_condition_bar);
 				}
 			}

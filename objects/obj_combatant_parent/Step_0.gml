@@ -32,12 +32,12 @@ var size = ds_map_size(conditionPercentages);
 for (var i = 0; i < size; i++){
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
 	if conditionPercent > 0 {
-		var decrementAmount = 1/30;
+		var decrementAmount = 1;
 		var defense = ds_map_find_value(defenses,currentCondition);
 		decrementAmount += 1*(defense/100);
 		conditionPercent -= decrementAmount;
 		ds_map_replace(conditionPercentages,currentCondition,conditionPercent);
-	} if conditionPercent < 0 {
+	} if conditionPercent <= 0 {
 		ds_map_replace(conditionPercentages,currentCondition,0);
 		// set condition level to 0
 		ds_map_replace(conditionLevels,currentCondition,0);
@@ -52,7 +52,7 @@ for (var i = 0; i < size; i++){
 	
 	// generally, if conditionPercent exceeds 100, condition level becomes 1
 	// except for ice, in which condition level becomes 2 (frozen)
-	if conditionPercent > 100 {
+	if conditionPercent > 75 {
 		if currentCondition == ICE {
 			ds_map_replace(conditionLevels,currentCondition,2);
 		} else {
@@ -60,6 +60,40 @@ for (var i = 0; i < size; i++){
 		}
 	} else if conditionPercent > 50 && currentCondition == ICE {
 		ds_map_replace(conditionLevels,currentCondition,1);
+	}
+	
+	currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
+}
+
+// account for any current conditions
+var currentCondition = ds_map_find_first(conditionLevels);
+var size = ds_map_size(conditionLevels);
+for (var i = 0; i < size; i++){
+	var conditionLevel = ds_map_find_value(conditionLevels,currentCondition);
+	
+	// set back old properties when conditions expire
+	if conditionLevel <= 0 {
+		switch currentCondition {
+			case ICE: {
+				functionalSpeed = normalSpeed;
+			}
+		}
+	}
+	
+	
+	else {
+		switch currentCondition {
+			case ICE: {
+				// slowed
+				if conditionLevel == 1 {
+					functionalSpeed = .5*normalSpeed;
+				}
+				// frozen
+				else {
+					functionalSpeed = 0;
+				}
+			}
+		}
 	}
 	
 	currentCondition = ds_map_find_next(conditionPercentages, currentCondition);

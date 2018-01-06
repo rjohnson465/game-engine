@@ -13,6 +13,7 @@ global.ALL_DAMAGE_TYPES = [PHYSICAL, MAGIC,FIRE,ICE,POISON,LIGHTNING, BLEED];
 event_inherited();
 global.player = id;
 functionalSpeed = 8;
+normalSpeed = 8;
 facingDirection = 0;
 
 spriteType = "player";
@@ -124,4 +125,3 @@ ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 // gui
 isMouseInMenu = false;
 instance_create_depth(x,y,1,obj_GUI);
-
