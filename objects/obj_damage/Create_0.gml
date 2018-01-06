@@ -3,6 +3,7 @@ type = global.damageType;
 victim = global.victim;
 frame = 0;
 totalFrames = 30;
+depth = -1;
 
 // TODO display only one damage count for each victim
 var damagesCount = instance_number(obj_damage);

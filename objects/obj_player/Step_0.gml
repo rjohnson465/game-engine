@@ -1,6 +1,6 @@
 event_inherited();
 // lock on logic
-if (keyboard_check_released(vk_tab)) {
+if (keyboard_check_released(vk_control)) {
 	// always refresh lockOnList (enemies could have left radius or entered
 	lockOnList = script_execute(scr_collision_circle_list,x,y,LOCK_ON_DISTANCE,obj_enemy_parent, true, true);
 	if (lockOnList == noone) {
@@ -44,10 +44,14 @@ if (keyboard_check_released(vk_tab)) {
 		}
 	}
 }
-
-// if too far from current lockon target, or esc pressed, no more lock on
+var wallsBetweenLockOnTarget = noone;
+if lockOnTarget {
+	wallsBetweenLockOnTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
+}
+// if too far from current lockon target, or esc pressed, or cannot see lockOnTarget no more lock on
 if	isLockedOn && ((keyboard_check(vk_escape) && !global.ui.isShowingMenus) 
-	|| distance_to_object(lockOnTarget) > LOCK_ON_DISTANCE) {
+	|| distance_to_object(lockOnTarget) > LOCK_ON_DISTANCE
+	|| wallsBetweenLockOnTarget != noone ) {
 	lockOnTarget = noone;
 	isLockedOn = false;
 }

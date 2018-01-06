@@ -182,10 +182,11 @@ if isShowingMenus {
 			var inv = ds_list_create();
 			for (var i = 0; i < ds_list_size(inventory); i++) {
 				var el = ds_list_find_value(inventory,i);
-				//el.x1 = -50;
-				//el.y1 = -50;
+				
 				if !el.isEquipped {
 					ds_list_add(inv,el);
+					el.x1 = -50;
+					el.y1 = -50;
 				}
 				switch inventoryFilter {
 					case InventoryFilters.Melee: {
