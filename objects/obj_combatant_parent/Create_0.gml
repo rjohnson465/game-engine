@@ -123,3 +123,9 @@ onAlert = false;
 knownSpells = ds_map_create();
 currentSpell = noone;
 currentUsingSpell = noone;
+
+// resistances -- all are initially 0
+defenses = ds_map_create();
+for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
+	ds_map_add(defenses,global.ALL_DAMAGE_TYPES[i],0);
+}

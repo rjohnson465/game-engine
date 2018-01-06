@@ -20,8 +20,12 @@ physicalDamageArray = [-1,-1,-1,-1,-1,-1]
 physicalDamageTypeArray = ["","",""];
 staminaCostArray=[];
 
-bonusMagic = 0;
-bonusFire = 0;
-bonusIce = 0;
-bonusPoison = 0;
-bonusLightning = 0;
+// damages of each type
+// keys are the damage type
+// values are arrays with 2 elements damage range of that type
+// physical damage array can have more than 2 elements -- each attack in a combo 
+// can have different damage ranges
+damages = ds_map_create();
+for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
+	ds_map_add(damages,global.ALL_DAMAGE_TYPES[i],0);
+}

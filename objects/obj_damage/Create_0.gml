@@ -5,7 +5,7 @@ frame = 0;
 totalFrames = 30;
 depth = -1;
 
-// TODO display only one damage count for each victim
+// TODO display only one damage count for each victim -- is this cumulative?
 var damagesCount = instance_number(obj_damage);
 for (var i = 0; i < damagesCount; i++) {
 	var d = instance_find(obj_damage,i);

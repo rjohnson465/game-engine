@@ -94,16 +94,6 @@ ds_map_add(knownSpells, "aoe", instance_create_depth(x,y,1,obj_spell_aoe));
 currentSpell = ds_map_find_first(knownSpells);
 currentUsingSpell = noone;
 
-// use macros for elements rather than enums (helps with sprite getting)
-#macro PHYSICAL "physical"
-#macro MAGIC "magic"
-#macro FIRE "fire"
-#macro ICE "ice"
-#macro POISON "poison"
-#macro LIGHTNING "lightning"
-//#macro 
-ALL_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING]
-
 attunementLevels = ds_map_create();
 ds_map_add(attunementLevels,MAGIC,1);
 ds_map_add(attunementLevels,FIRE,1);
@@ -124,3 +114,13 @@ ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 isMouseInMenu = false;
 instance_create_depth(x,y,1,obj_GUI);
 
+// use macros for elements rather than enums (helps with sprite getting)
+#macro PHYSICAL "physical"
+#macro MAGIC "magic"
+#macro FIRE "fire"
+#macro ICE "ice"
+#macro POISON "poison"
+#macro LIGHTNING "lightning"
+#macro BLEED "bleed"
+global.All_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
+global.ALL_DAMAGE_TYPES = [PHYSICAL, MAGIC,FIRE,ICE,POISON,LIGHTNING, BLEED];

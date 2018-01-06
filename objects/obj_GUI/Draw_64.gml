@@ -88,8 +88,8 @@ if rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0 {
 	
 	var init_x = 12; // changes on each iteration
 	global.y1 = 660; // used for attunement instance creation
-	for (var i = 0; i < array_length_1d(global.player.ALL_ELEMENTS); i++) {
-		var el = global.player.ALL_ELEMENTS[i];
+	for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
+		var el = global.ALL_ELEMENTS[i];
 		var attunementSpriteIndex = asset_get_index("spr_attunement_"+el);
 		var x1 = init_x + (i*40);
 		
