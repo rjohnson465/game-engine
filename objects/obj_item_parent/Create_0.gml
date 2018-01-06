@@ -15,4 +15,4 @@ isEquipped = false;
 
 mightGrab = false;
 grabFrame = 0;
-grabFrames = 5;
+grabFrames = 1;

@@ -21,8 +21,10 @@ if global.ui.grabbedItem {
 	|| key == EquipmentSlots.RightHand1 || key == EquipmentSlots.RightHand2 
 	{
 		ds_map_replace(equippedItems, key, unarmed);
+		droppedItem.isEquipped = false;
 	} else {
 		ds_map_replace(equippedItems, key, noone);
+		droppedItem.isEquipped = false;
 	}
 	
 	// equip dropped item (if dropped in proper slot)
@@ -114,6 +116,27 @@ if global.ui.grabbedItem {
 					}
 				}
 			}
+	}
+	// final else (wrong item / wrong slot)
+	else {
+		// if dropped item is already equipped anywhere else, unequip it from that slot
+		/*var currentKey = ds_map_find_first(equippedItems);
+		var key = noone;
+		var size = ds_map_size(equippedItems);
+		for (var i = 0; i < size; i++){
+			if ds_map_find_value(equippedItems,currentKey) == droppedItem.id {
+				key = currentKey
+			}
+			currentKey = ds_map_find_next(equippedItems, currentKey);
+		}
+		if  key == EquipmentSlots.LeftHand1 || key == EquipmentSlots.LeftHand2 
+		|| key == EquipmentSlots.RightHand1 || key == EquipmentSlots.RightHand2 
+		{
+			ds_map_replace(equippedItems, key, unarmed);
+		} else {
+			ds_map_replace(equippedItems, key, noone);
+		}
+		droppedItem.isEquipped = false;*/
 	}
 	
 } 
