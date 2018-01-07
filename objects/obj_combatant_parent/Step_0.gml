@@ -466,7 +466,7 @@ switch(state) {
 					isPreparingAttack = true;
 					isRecovering = false;
 				} 
-				else /*if stamina < 0*/ {
+				/*else  {
 					recoverAnimationFrame = -1;
 					recoverAnimationTotalFrames = 0
 					isRecovering = false;
@@ -478,7 +478,7 @@ switch(state) {
 					state = CombatantStates.Idle;
 					hasCalculatedNextAttack = false;
 					break;
-				}
+				}*/
 			} 
 		
 			// basic attack sequence 

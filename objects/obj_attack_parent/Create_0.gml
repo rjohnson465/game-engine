@@ -7,6 +7,7 @@ facingDirection = owner.facingDirection;
 weapon = noone;
 isSpell = false;
 isRanged = false;
+isMelee = false;
 spell = noone;
 percentCharged = 0;
 combatantsHit = ds_list_create();
@@ -61,13 +62,16 @@ else {
 	} else {
 		attackNumber = global.playerAttackNumberInChain;
 		attackNumberInChain = global.playerAttackNumberInChain;
+		weapon = owner.currentAttackingHand == "l" ? owner.leftHandItem : owner.rightHandItem;
+		isRanged = weapon.type == HandItemTypes.Ranged;
+		isMelee = weapon.type == HandItemTypes.Melee;
 	}
 
 	// get current attacking hand item sprite name (or "")
 	if owner.hasHands {
-		weapon = owner.currentAttackingHand == "l" ? owner.leftHandItem : owner.rightHandItem;
+		//weapon = owner.currentAttackingHand == "l" ? owner.leftHandItem : owner.rightHandItem;
 		currentAttackingHandItemSprite = owner.currentAttackingHand == "l" ? "_"+owner.leftHandItem.spriteName : "_"+owner.rightHandItem.spriteName;
-	} else currentAttackingHandItemSprite = "";
+	} else currentAttackingHandItemSprite = ""; // TODO for enemies without hands
 
 
 	// get sprite string -- physical attacks
@@ -82,8 +86,10 @@ else {
 	}
 
 	sprite_index = asset_get_index(sprStr);
-
-	if (weapon && weapon.type == HandItemTypes.Ranged) || isRanged {
+	
+	
+	//if (weapon && weapon.type == HandItemTypes.Ranged) || isRanged {
+	if isRanged {
 		if weapon {
 			speed = weapon.projectileSpeed;
 		} else {
