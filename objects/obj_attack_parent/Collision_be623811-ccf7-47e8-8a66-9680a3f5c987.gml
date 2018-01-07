@@ -1,3 +1,3 @@
-if isSpell || (weapon && weapon.type == HandItemTypes.Ranged) {
+if isSpell || isRanged {
 	instance_destroy(id,false);
 }

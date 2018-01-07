@@ -20,7 +20,6 @@ if owner.currentUsingSpell != noone {
 	var currentSpell = ds_map_find_value(owner.knownSpells,owner.currentUsingSpell);
 	spell = currentSpell;
 	
-	//var casterAttunement = owner.currentSpellAttunement;
 	var attunementSpriteName = owner.currentSpellAttunement;
 	if spell.spriteName != "aoe" {
 		sprite_index = asset_get_index("spr_spell_"+spell.spriteName+"_"+attunementSpriteName);
@@ -50,11 +49,13 @@ if owner.currentUsingSpell != noone {
 		direction = spread*global.projectileNumber;
 		facingDirection = direction;
 	}
-} else {
-
+}
+// ranged or melee: NOT A SPELL
+else {
 	// get attack number
 	if owner.type != CombatantTypes.Player {
 		isRanged = owner.currentMeleeAttack == noone ? true: false;
+		isMelee = owner.currentMeleeAttack == noone ? false : true;
 		attackNumber = owner.currentMeleeAttack == noone ? owner.currentRangedAttack : owner.currentMeleeAttack;
 		attackNumberInChain = owner.attackNumberInChain;
 	} else {
@@ -76,17 +77,18 @@ if owner.currentUsingSpell != noone {
 	}
 
 	// if this is a left hand attack, flip yscale
-	if owner.hasHands {
-		if owner.currentAttackingHand == "l" {
-			image_yscale = -1;
-		}
+	if owner.hasHands && owner.currentAttackingHand == "l" {
+		image_yscale = -1;
 	}
 
 	sprite_index = asset_get_index(sprStr);
 
-	if weapon && weapon.type == HandItemTypes.Ranged {
-		isRanged = true;
-		speed = weapon.projectileSpeed;
+	if (weapon && weapon.type == HandItemTypes.Ranged) || isRanged {
+		if weapon {
+			speed = weapon.projectileSpeed;
+		} else {
+			speed = owner.rangedSpeeds[attackNumber-1];
+		}
 		direction = owner.facingDirection;
 		facingDirection = direction; // facingDirection property needed for is_facing script
 	

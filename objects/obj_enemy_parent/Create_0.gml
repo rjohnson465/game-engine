@@ -76,7 +76,7 @@ if (hasHands) {
 //meleeDamages = [];
 var meleeDamages0 = ds_map_create();
 ds_map_add(meleeDamages0,PHYSICAL,[10,20,25,25]);
-ds_map_add(meleeDamages0,ICE,[50,75,25,25]);
+//ds_map_add(meleeDamages0,ICE,[50,75,25,25]);
 meleeDamages[0] = meleeDamages0;
 
 // melee attack chain 1 damages
@@ -94,10 +94,11 @@ if rangedAttacksCount == 0 {
 // currently chosen ranged attack
 currentRangedAttack = noone;
 rangedRangeArray=[300];
-//rangedDamages = [];
 var rangedDamages0 = ds_map_create();
 ds_map_add(rangedDamages0,PHYSICAL,[10,20]);
 rangedDamages[0] = rangedDamages0;
+// need to know how fast each ranged attack projectile is
+rangedSpeeds[0] = 20;
 
 strength = 10; // used in calculating stagger against player
 

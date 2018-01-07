@@ -27,11 +27,6 @@ if isSpell {
 					direction = 270;
 				}
 				facingDirection = direction;
-				
-				//direction = ((arcsin(yn / speed))/pi)*180;
-				var b = 1 + 1;
-				//x = x1+ax;
-				//y = y1+ay;
 			}
 		}
 	}
