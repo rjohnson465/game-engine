@@ -11,3 +11,5 @@ if	!owner.isShielding
 	owner.isShielding = false;
 	instance_destroy(id,false);
 }
+
+

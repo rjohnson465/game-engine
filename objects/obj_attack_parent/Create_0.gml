@@ -67,6 +67,10 @@ else {
 		isMelee = weapon.type == HandItemTypes.Melee;
 	}
 
+	if isMelee && owner.isSlowed {
+		image_speed = .5;
+	}
+	
 	// get current attacking hand item sprite name (or "")
 	if owner.hasHands {
 		//weapon = owner.currentAttackingHand == "l" ? owner.leftHandItem : owner.rightHandItem;

@@ -46,8 +46,6 @@ if state == CombatantStates.Attacking {
 	}
 	// physical attack (ranged or melee)
 	else {
-	
-		
 		var currentAttackingHandItem = currentAttackingHand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
 		var currentAttackingHandItemSpriteString = "spr_player_"+currentAttackingHandItem;
 	
@@ -64,7 +62,11 @@ if state == CombatantStates.Attacking {
 				draw_sprite_ext(prepSprite,prepAnimationFrame,x,y,1,-1,facingDirection,c_white,1);
 			}
 			if !isReadyToFire {
-				prepAnimationFrame++;
+				if isSlowed {
+					prepAnimationFrame += .5;
+				} else {
+					prepAnimationFrame++;
+				}
 			}
 		}
 	
@@ -81,7 +83,11 @@ if state == CombatantStates.Attacking {
 			else{
 				draw_sprite_ext(recoverSprite,recoverAnimationFrame,x,y,1,-1,facingDirection,c_white,1);
 			}
-			recoverAnimationFrame++;
+			if isSlowed {
+				recoverAnimationFrame += .5;
+			} else {
+				recoverAnimationFrame++;
+			}
 		}
 	}
 }

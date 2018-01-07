@@ -18,6 +18,7 @@ if	state != CombatantStates.Dodging &&
 		var assailant = other.owner;
 		var damage = 0;
 		var damagesMap = noone;
+		var spell = noone;
 		var attackNumber; var attackNumberInChain;
 		var percentCharged = 1;
 		// find damages map for the attack received (Player damage map dependent on item, enemy / ally damage map is hardcoded)
@@ -30,6 +31,7 @@ if	state != CombatantStates.Dodging &&
 				attackNumberInChain = other.attackNumberInChain;
 			} else {
 				itemHitWith = other.spell;
+				spell = other.spell;
 				attackNumber = 1;
 				attackNumberInChain = 1;
 				percentCharged = other.percentCharged;
@@ -88,10 +90,33 @@ if	state != CombatantStates.Dodging &&
 			damageBase = round(damageBase*percentCharged);
 			damage += damageBase;
 				
-			// TODO -- account for elemental-specific effects
+			// elemental conditions effected
+			// TODO -- get a math major; Devin. How to add to conditionPercent 
+			// while being fair and respecting defenses???
+			// idea: add the percent of hp the elemental attack had to condition percent
+			// caveat: if this percent is under 15%, just add 25-33%
+			// then adjust this based on elemental defense
 			// apply baseDamage amount to conditionPercentage 
 			var currentConditionPercent = ds_map_find_value(conditionPercentages,currentDamageType);
-			var addToCondition = damageBase;
+			var addToCondition = 0;
+			var damagePercentOfHp = damageBase / maxHp;
+			if damagePercentOfHp < .15 && damagePercentOfHp != 0 {
+				randomize();
+				addToCondition = random_range(25,33);
+			} else {
+				addToCondition = damagePercentOfHp*100;
+			}
+			// adjust for elemental defense
+			// positive defense will offset x% of damageBase
+			if defense >= 0 {
+				addToCondition -= (defense/100)*addToCondition;
+			}
+			// negative defense will increase damageBase by abs(x)%
+			else {
+				addToCondition += (defense/100)*addToCondition;
+			}
+			//var addToCondition = damageBase;
+			
 			if currentConditionPercent + damageBase > 100 {
 				addToCondition = 100-currentConditionPercent;
 			}
@@ -128,7 +153,10 @@ if	state != CombatantStates.Dodging &&
 			{
 				global.hitType = "yellow";
 				instance_create_depth(__x,__y,1,obj_hit);
-				stamina -= actualDamage;
+				// remove the same percentage of stamina as it would have removed health
+				var percentageOfHealth = actualDamage / maxHp;
+				stamina -= maxStamina*percentageOfHealth;
+				//stamina -= actualDamage;
 				// shields are only ever held in left hand
 				hp -= damage*((100-leftHandItem.blockPercentage)/100);
 				if type != CombatantTypes.Player {
@@ -183,6 +211,11 @@ if	state != CombatantStates.Dodging &&
 				staggerDuration = 25;
 				staggerDirection = assailant.facingDirection;
 			}
+		}
+		
+		// destroy most ranged projectiles on impact
+		if other.isRanged || (other.isSpell && spell.name != "aoe") {
+			instance_destroy(other,false);
 		}
 		
 	}

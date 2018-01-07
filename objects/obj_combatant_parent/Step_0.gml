@@ -32,7 +32,7 @@ var size = ds_map_size(conditionPercentages);
 for (var i = 0; i < size; i++){
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
 	if conditionPercent > 0 {
-		var decrementAmount = 1;
+		var decrementAmount = 1/3;
 		var defense = ds_map_find_value(defenses,currentCondition);
 		decrementAmount += 1*(defense/100);
 		conditionPercent -= decrementAmount;
@@ -87,7 +87,7 @@ for (var i = 0; i < size; i++){
 				isElectrified = true; break;
 			}
 			case ICE: {
-			isSlowed = true; break;
+				isSlowed = true; break;
 			}
 		}
 	}

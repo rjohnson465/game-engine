@@ -2,7 +2,7 @@
 //ds_list_add(other.beenHitWith,id);
 ds_list_add(combatantsHit,other.id);
 
-if	(isRanged || (isSpell && spell.spriteName != "aoe"))
+/*if	(isRanged || (isSpell && spell.spriteName != "aoe"))
 	&& 
 	(owner.type == CombatantTypes.Player && other.type == CombatantTypes.Enemy
 	|| owner.type == CombatantTypes.Ally && other.type == CombatantTypes.Enemy 
@@ -10,5 +10,5 @@ if	(isRanged || (isSpell && spell.spriteName != "aoe"))
 	|| owner.type == CombatantTypes.Enemy && other.type == CombatantTypes.Player) 	
 	&& other.state != CombatantStates.Dodging
 	{
-	instance_destroy(id,false);
-}
+	instance_destroy(id,true);
+}*/

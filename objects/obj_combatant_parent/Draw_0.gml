@@ -77,7 +77,11 @@ if state == CombatantStates.Attacking {
 			else {
 				draw_sprite_ext(prepSprite,prepAnimationFrame,x,y,1,-1,facingDirection,c_white,1);
 			}
-			prepAnimationFrame++;
+			if isSlowed {
+				prepAnimationFrame += .5;
+			} else {
+				prepAnimationFrame++;
+			}
 		}
 	
 		// draw recover hand animation
@@ -93,7 +97,11 @@ if state == CombatantStates.Attacking {
 			else {
 				draw_sprite_ext(recoverSprite,recoverAnimationFrame,x,y,1,-1,facingDirection,c_white,1);
 			}
-			recoverAnimationFrame++;
+			if isSlowed {
+				recoverAnimationFrame += .5;
+			} else {
+				recoverAnimationFrame++;
+			}
 		}
 	}
 }
@@ -101,7 +109,8 @@ if state == CombatantStates.Attacking {
 if state == CombatantStates.Staggering {
 	var staggerSprite = asset_get_index("spr_staggering");
 	var staggerSpriteFrames = sprite_get_number(staggerSprite);
-	draw_sprite(staggerSprite,staggerFrame%staggerSpriteFrames,mean(x-.5*sprite_width,x+.5*sprite_width),y-.5*sprite_height);
+	//draw_sprite(staggerSprite,staggerFrame%staggerSpriteFrames,mean(x-.5*sprite_width,x+.5*sprite_width),y-.5*sprite_height);
+	draw_sprite(staggerSprite,staggerFrame%staggerSpriteFrames,x,y);
 }
 
 

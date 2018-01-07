@@ -983,6 +983,14 @@
             }
         },
         {
+            "Key": "9c9ec9fd-ed1c-4c6d-ba91-5424eba47aeb",
+            "Value": {
+                "id": "2226b161-ef58-4143-a677-3c8fe410a328",
+                "resourcePath": "objects\\obj_condition_particles\\obj_condition_particles.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "9e0777e2-84c9-4202-9d7f-7b4098e94e86",
             "Value": {
                 "id": "7148538a-9885-4fd4-a162-38abd66201ac",
