@@ -14,7 +14,7 @@ if	state != CombatantStates.Dodging &&
 {
 	// if combatant has not been hit with this instance before (only get hit with an attack once)
 	if ds_list_find_index(beenHitWith,other.id) == -1 {
-		
+		ds_list_add(beenHitWith,other.id);
 		var assailant = other.owner;
 		var damage = 0;
 		var damagesMap = noone;
@@ -41,7 +41,7 @@ if	state != CombatantStates.Dodging &&
 		else {
 			attackNumber = other.attackNumber;
 			attackNumberInChain = other.attackNumberInChain;
-			var isRanged = assailant.currentRangedAttack == noone ? false : true;
+			var isRanged = other.isRanged;
 			var damagesArray = isRanged ? assailant.rangedDamages : assailant.meleeDamages;
 			damagesMap = damagesArray[attackNumber-1];
 		}
@@ -117,7 +117,7 @@ if	state != CombatantStates.Dodging &&
 			// go to the next damageType in array
 			currentDamageType = ds_map_find_next(damagesMap, currentDamageType);
 		}
-		
+		var actualDamage = damage;
 		if damage > hp {
 			damage = hp;
 		}
@@ -128,12 +128,11 @@ if	state != CombatantStates.Dodging &&
 			{
 				global.hitType = "yellow";
 				instance_create_depth(__x,__y,1,obj_hit);
-				stamina -= damage;
+				stamina -= actualDamage;
 				// shields are only ever held in left hand
 				hp -= damage*((100-leftHandItem.blockPercentage)/100);
 				if type != CombatantTypes.Player {
 					global.damageAmount = damage;
-					//global.damageType = other.damageType;
 					global.victim = id;
 					instance_create_depth(x,y,1,obj_damage);
 				}
@@ -166,7 +165,7 @@ if	state != CombatantStates.Dodging &&
 		if state != CombatantStates.Staggering {
 			// calc force of the hit and tell whether or not to stagger
 			// TODO:  Attack force is item weight + damage (what about attacks that do not come from items?)
-			var force = damage; // + assailant.strength;
+			var force = actualDamage; // + assailant.strength;
 			if (force > poise) {
 				// if player, reset global attackNumberInChain
 				if type == CombatantTypes.Player {
@@ -186,9 +185,5 @@ if	state != CombatantStates.Dodging &&
 			}
 		}
 		
-		/*
-		if itemHitWith.type == HandItemTypes.Ranged || itemHitWith.type == SpellTypes.Martial {
-			instance_destroy(other,false);
-		}*/
 	}
 }

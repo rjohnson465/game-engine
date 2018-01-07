@@ -1,10 +1,13 @@
 // draw dodge sprite if dodging
 if state == CombatantStates.Dodging {
 	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,1);
+	// slowed
 	if ds_map_find_value(conditionLevels,ICE) == 1 {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_blue, .5);
-	} else if ds_map_find_value(conditionLevels,ICE) == 2 {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_blue, .75);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, .5);
+	}
+	// frozen
+	else if ds_map_find_value(conditionLevels,ICE) == 2 {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, .75);
 	}
 	
 } else {
@@ -12,10 +15,13 @@ if state == CombatantStates.Dodging {
 	// normally draw base sprite + hands (if applicable) 
 	draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_white, 1);
 	
-	if ds_map_find_value(conditionLevels,ICE) == 1 {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_blue, .5);
-	} else if ds_map_find_value(conditionLevels,ICE) == 2 {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_blue, .75);
+	//if ds_map_find_value(conditionLevels,ICE) == 1 {
+	if isSlowed {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .5);
+	} 
+	//else if ds_map_find_value(conditionLevels,ICE) == 2 {
+	else if isFrozen {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .75);
 	}
 	
 	if type != CombatantTypes.Player {
@@ -27,16 +33,19 @@ if state == CombatantStates.Dodging {
 				// right hand
 				if (currentAttackingHand != "r") {
 					draw_sprite_ext(asset_get_index("spr_"+spriteString+"_"+rightHandItem.spriteName),1,x,y,1,1,facingDirection,c_white,1);
+					//draw_sprite_ext(asset_get_index("spr_"+spriteString+"_"+rightHandItem),1,x,y,1,1,facingDirection,c_white,1);
 				}
 				// left hand -- only left hands can hold shields. 
 				//if isShielding is true, a block object will be created in front of the combatant
 				if (currentAttackingHand != "l" && !isShielding) {
 					draw_sprite_ext(asset_get_index("spr_"+spriteString+"_"+leftHandItem.spriteName),1,x,y,1,-1,facingDirection,c_white,1);
+					//draw_sprite_ext(asset_get_index("spr_"+spriteString+"_"+leftHandItem),1,x,y,1,-1,facingDirection,c_white,1);
 				}
 			} else {
 				// right hand -- sprite should include both hands
 				if (currentAttackingHand != "r") {
 					draw_sprite_ext(asset_get_index("spr_"+spriteString+"_"+rightHandItem.spriteName),1,x,y,1,1,facingDirection,c_white,1);
+					//draw_sprite_ext(asset_get_index("spr_"+spriteString+"_"+rightHandItem),1,x,y,1,1,facingDirection,c_white,1);
 				}
 			}
 		}
@@ -49,6 +58,7 @@ if state == CombatantStates.Attacking {
 		
 		if hasHands {
 			var currentAttackingHandItemSprite = currentAttackingHand == "l" ? "_"+leftHandItem.spriteName : "_"+rightHandItem.spriteName;
+			//var currentAttackingHandItemSprite = currentAttackingHand == "l" ? "_"+leftHandItem : "_"+rightHandItem;
 		} else var currentAttackingHandItemSprite = "";
 		
 		// draw attack prep hand animation

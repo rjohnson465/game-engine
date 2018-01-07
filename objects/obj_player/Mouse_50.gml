@@ -1,5 +1,5 @@
 if !isMouseInMenu {
-	if leftHandItem && leftHandItem.type == HandItemTypes.Shield && 
+	if leftHandItem && leftHandItem.type == HandItemTypes.Shield && stamina > 0 &&
 		(state == CombatantStates.Idle || state == CombatantStates.Moving) {
 		isShielding = true;
 		global.owner = id;

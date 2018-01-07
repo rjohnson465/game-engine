@@ -20,6 +20,8 @@ ds_map_add(handItems,"lm1",woodshield);
 ds_map_add(handItems, "rr1",shortbow);
 ds_map_add(handItems, "lr1", unarmed);
 
+//leftHandItem = "unarmed";
+//rightHandItem = "unarmed";
 leftHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 rightHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 
@@ -71,12 +73,11 @@ if (hasHands) {
 // TODO -- handle these with hand item stats (unless no hands for enemy)
 // 2d array needs to be set manually for EVERY enemy
 // attack 1 move 1 min, attack 1 move 1 max, attack 1 move 2 min, attack 1 move 2 max..
-//meleeAttacksDamages[0] = [10,20,25,35]; 
-// melee damages is array of maps
-//meleeDamages = [];
 var meleeDamages0 = ds_map_create();
 ds_map_add(meleeDamages0,PHYSICAL,[10,20,25,25]);
-//ds_map_add(meleeDamages0,ICE,[50,75,25,25]);
+ds_map_add(meleeDamages0,ICE,[50,75,25,25]);
+ds_map_add(meleeDamages0,FIRE,[50,75,25,25]);
+ds_map_add(meleeDamages0,POISON,[50,75,25,25]);
 meleeDamages[0] = meleeDamages0;
 
 // melee attack chain 1 damages

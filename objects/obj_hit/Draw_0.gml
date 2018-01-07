@@ -1,0 +1,1 @@
+draw_sprite_ext(asset_get_index("spr_hit_"+hitType),frame,x,y,2,2,0,c_white,.75);

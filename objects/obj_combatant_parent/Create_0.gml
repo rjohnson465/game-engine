@@ -136,7 +136,7 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 // slowed / frozen for ice
 // posioned for poison
 // electrified for lightning
-// bleed for physical
+// bleed for physical? perhaps not
 conditionPercentages = ds_map_create();
 for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 	ds_map_add(conditionPercentages,global.ALL_DAMAGE_TYPES[i],0);
@@ -147,3 +147,9 @@ conditionLevels = ds_map_create();
 for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 	ds_map_add(conditionLevels,global.ALL_DAMAGE_TYPES[i],0);
 }
+
+isSlowed = false;
+isFrozen = false;
+isPoisoned = false; 
+isBurning = false;
+isElectrified = false;

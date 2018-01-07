@@ -41,25 +41,55 @@ for (var i = 0; i < size; i++){
 		ds_map_replace(conditionPercentages,currentCondition,0);
 		// set condition level to 0
 		ds_map_replace(conditionLevels,currentCondition,0);
+		switch currentCondition {
+			case FIRE: {
+				isBurning = false; break;
+			}
+			case ICE: {
+				isSlowed = false; isFrozen = false; break;
+			}
+			case POISON: {
+				isPoisoned = false; break;
+			}
+			case LIGHTNING: {
+				isElectrified = false; break;
+			}
+		}
 	}
 	
 	// if condition is ice and it just dropped below 50 (coming from condition level 2, frozen), reset to condition level 1 (slow)
 	if conditionPercent < 50 && currentCondition == ICE {
 		if ds_map_find_value(conditionLevels,currentCondition) == 2 {
+			isFrozen = false;
+			isSlowed = true;
 			ds_map_replace(conditionLevels,currentCondition,1);
 		}
 	}
 	
-	// generally, if conditionPercent exceeds 100, condition level becomes 1
+	// generally, if conditionPercent exceeds 50, condition level becomes 1
 	// except for ice, in which condition level becomes 2 (frozen)
 	if conditionPercent > 75 {
 		if currentCondition == ICE {
 			ds_map_replace(conditionLevels,currentCondition,2);
-		} else {
-			ds_map_replace(conditionLevels,currentCondition,1);
-		}
-	} else if conditionPercent > 50 && currentCondition == ICE {
+			isSlowed = false;
+			isFrozen = true;
+		} 
+	} else if conditionPercent > 50 {
 		ds_map_replace(conditionLevels,currentCondition,1);
+		switch currentCondition {
+			case POISON: {
+				isPoisoned = true; break;
+			}
+			case FIRE: {
+				isBurning = true; break;
+			}
+			case LIGHTNING: {
+				isElectrified = true; break;
+			}
+			case ICE: {
+			isSlowed = true; break;
+			}
+		}
 	}
 	
 	currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
@@ -318,7 +348,9 @@ switch(state) {
 					path_end();
 					hasCalculatedWillDodge = false;
 					stupidityFrame = 100 - aggressiveness;
-					state = CombatantStates.Attacking;
+					if !isFrozen {
+						state = CombatantStates.Attacking;
+					}
 					break;
 				}
 			}
@@ -466,19 +498,12 @@ switch(state) {
 					isPreparingAttack = true;
 					isRecovering = false;
 				} 
-				/*else  {
-					recoverAnimationFrame = -1;
-					recoverAnimationTotalFrames = 0
-					isRecovering = false;
-					currentAttackingHand = noone;
-					currentMeleeAttack = noone;
-					currentRangedAttack = noone;
-					attackNumberInChain = noone;
-					stupidityFrame = 0;
-					state = CombatantStates.Idle;
-					hasCalculatedNextAttack = false;
-					break;
-				}*/
+				else if recoverAnimationTotalFrames == 0 {
+					var recoverSprite = asset_get_index("spr_"+spriteString+currentAttackingHandItemSprite+"_recover_"+string(attackNumber));
+					recoverAnimationTotalFrames = sprite_get_number(recoverSprite);
+					recoverAnimationFrame = 0;
+					isRecovering = true;
+				}
 			} 
 		
 			// basic attack sequence 
@@ -574,17 +599,20 @@ switch(state) {
 	}
 }
 
+// SHIELDING STUFF
+
 // if has a shield, every totalShieldingFrames, decide if should shield (based on cautiousness + some luck)
 // this does not affect Player
 if hasHands && type != CombatantTypes.Player {
 	if	leftHandItem.type == HandItemTypes.Shield 
 		&& state == CombatantStates.Moving 
 		&& !isShielding
+		&& stamina > 0
 		{
 		if shieldingFrame >= totalShieldingFrames {
 			randomize();
 			rand = random_range(1,100)
-			// if close to player, chance o shield increases 
+			// if close to player, chance to shield increases 
 			if rand <= cautiousness {
 				global.owner = id;
 				instance_create_depth(x,y,1,obj_shield_parent);
