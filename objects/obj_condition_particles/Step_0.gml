@@ -9,6 +9,7 @@ if conditionLevel == 0 {
 	var y2 = owner.y + (.5*owner.sprite_height);
 	part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,0);
 	var num = 1;
+	var num2 = -10;
 	switch condition {
 		case FIRE: {
 			var conditionPercent = ds_map_find_value(owner.conditionPercentages,condition);
@@ -27,6 +28,9 @@ if conditionLevel == 0 {
 			} else num = 1;
 			//show_debug_message(num);
 			part_emitter_region(system,emitter,owner.x,owner.x,owner.y,owner.y,0,0);
+			
+			// cinders
+			num2 = -10;
 			break;
 		}
 		case POISON: {
@@ -34,4 +38,7 @@ if conditionLevel == 0 {
 		}
 	}
 	part_emitter_burst(system,emitter,particle, num);
+	if particle2 {
+		part_emitter_burst(system,emitter,particle2, num2);
+	}
 }

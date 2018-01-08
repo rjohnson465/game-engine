@@ -3,6 +3,7 @@ owner = global.owner;
 emitter = noone;
 system = noone;
 particle = noone;
+particle2 = noone;
 
 system = part_system_create();
 part_system_depth(system,-4);
@@ -20,6 +21,18 @@ switch condition {
 		part_type_life(snowflake,10,20);
 		part_type_alpha3(snowflake,1,.75,.5);
 		particle = snowflake;
+		
+		// tiny snowflake Particle
+		var smallflake = part_type_create();
+		part_type_shape(smallflake,pt_shape_sphere);
+		part_type_size(smallflake,0,.1,0,0);
+		part_type_color2(smallflake,c_white,c_ltgray);
+		part_type_alpha3(smallflake,1,.75,.5); 
+		part_type_speed(smallflake,1,2,0,0);
+		part_type_direction(smallflake,0,360,0,0);
+		part_type_blend(smallflake,1);
+		part_type_life(smallflake,15,25);
+		particle2 = smallflake;
 		break;
 	}
 	case FIRE: {
@@ -35,6 +48,18 @@ switch condition {
 		part_type_blend(fire,1);
 		part_type_life(fire,8,12);
 		particle = fire;
+		
+		// cinder Particle
+		var cinder = part_type_create();
+		part_type_shape(cinder,pt_shape_flare);
+		part_type_size(cinder,0,.1,0,0);
+		part_type_color2(cinder,c_orange,c_red);
+		part_type_alpha3(cinder,1,1,0); 
+		part_type_speed(cinder,1,2,0,0);
+		part_type_direction(cinder,85,95,0,0);
+		part_type_blend(cinder,1);
+		part_type_life(cinder,25,50);
+		particle2 = cinder;
 		break;
 	}
 	case POISON: {

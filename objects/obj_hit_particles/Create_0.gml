@@ -55,6 +55,7 @@ switch type {
 		part_type_alpha3(poison,.95,.85,.75);
 		particle = poison;
 		num = 2;
+		break;
 	}
 	case FIRE: {
 		// fire particle
@@ -69,7 +70,6 @@ switch type {
 		part_type_blend(fire,1);
 		part_type_life(fire,10,20);
 		particle = fire;
-		
 		break;
 	}
 	case ICE: {

@@ -142,7 +142,6 @@ for (var i = 0; i < size; i++){
 				if conditionLevel == 1 {
 					//functionalSpeed = .5*normalSpeed;
 					functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
-					show_debug_message(functionalSpeed);
 				}
 				// frozen
 				else if conditionLevel == 2{
