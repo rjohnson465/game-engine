@@ -40,16 +40,15 @@ switch condition {
 var conditionLevel = ds_map_find_value(owner.conditionLevels,condition);
 switch conditionLevel {
 	case 0: {
-		draw_set_alpha(.25);
+		draw_set_alpha(.1);
 	}
 	case 1: {
-		draw_set_alpha(.75);
+		draw_set_alpha(.9);
 	}
 	case 2: {
 		draw_set_alpha(1);
 	}
 }
-
 draw_rectangle(x1,y1,x2,y2,false);
 
 

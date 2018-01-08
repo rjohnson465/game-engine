@@ -31,31 +31,6 @@ var currentCondition = ds_map_find_first(conditionPercentages);
 var size = ds_map_size(conditionPercentages);
 for (var i = 0; i < size; i++){
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
-	if conditionPercent > 0 {
-		var decrementAmount = 1/3;
-		var defense = ds_map_find_value(defenses,currentCondition);
-		decrementAmount += 1*(defense/100);
-		conditionPercent -= decrementAmount;
-		ds_map_replace(conditionPercentages,currentCondition,conditionPercent);
-	} if conditionPercent <= 0 {
-		ds_map_replace(conditionPercentages,currentCondition,0);
-		// set condition level to 0
-		ds_map_replace(conditionLevels,currentCondition,0);
-		switch currentCondition {
-			case FIRE: {
-				isBurning = false; break;
-			}
-			case ICE: {
-				isSlowed = false; isFrozen = false; break;
-			}
-			case POISON: {
-				isPoisoned = false; break;
-			}
-			case LIGHTNING: {
-				isElectrified = false; break;
-			}
-		}
-	}
 	
 	// if condition is ice and it just dropped below 50 (coming from condition level 2, frozen), reset to condition level 1 (slow)
 	if conditionPercent < 50 && currentCondition == ICE {
@@ -66,15 +41,13 @@ for (var i = 0; i < size; i++){
 		}
 	}
 	
-	// generally, if conditionPercent exceeds 50, condition level becomes 1
+	// generally, if conditionPercent exceeds 99, condition level becomes 1
 	// except for ice, in which condition level becomes 2 (frozen)
-	if conditionPercent > 75 {
-		if currentCondition == ICE {
-			ds_map_replace(conditionLevels,currentCondition,2);
-			isSlowed = false;
-			isFrozen = true;
-		} 
-	} else if conditionPercent > 50 {
+	if conditionPercent > 75 && currentCondition == ICE {
+		ds_map_replace(conditionLevels,currentCondition,2);
+		isSlowed = false;
+		isFrozen = true;
+	} else if conditionPercent > 95 {
 		ds_map_replace(conditionLevels,currentCondition,1);
 		switch currentCondition {
 			case POISON: {
@@ -92,14 +65,61 @@ for (var i = 0; i < size; i++){
 		}
 	}
 	
+	// drain condition levels
+	if conditionPercent > 0 {
+		var decrementAmount = 1/3;
+		var defense = ds_map_find_value(defenses,currentCondition);
+		decrementAmount += 1*(defense/100);
+		conditionPercent -= decrementAmount;
+		ds_map_replace(conditionPercentages,currentCondition,conditionPercent);
+	} if conditionPercent <= 0 {
+		ds_map_replace(conditionPercentages,currentCondition,0);
+		// set condition level to 0
+		ds_map_replace(conditionLevels,currentCondition,0);
+		switch currentCondition {
+			case FIRE: {
+				isBurning = false; burnDamage = 0; break;
+			}
+			case ICE: {
+				isSlowed = false; isFrozen = false; break;
+			}
+			case POISON: {
+				isPoisoned = false; poisonDamage = 0; break;
+			}
+			case LIGHTNING: {
+				isElectrified = false; break;
+			}
+		}
+	}
+	
 	currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
 }
 
-// account for any current conditions
+// account for any currently active conditions (slowed/frozen, burning, poisoned, electrified)
 var currentCondition = ds_map_find_first(conditionLevels);
 var size = ds_map_size(conditionLevels);
 for (var i = 0; i < size; i++){
 	var conditionLevel = ds_map_find_value(conditionLevels,currentCondition);
+	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
+	var defense = ds_map_find_value(defenses,currentCondition);
+	
+	// particle effects for conditions
+	// TODO this might get ridiculous is someone has a shitzillion different particles all over them
+	if conditionLevel > 0 && currentCondition != MAGIC {
+		var condParticlesExist = false;
+		var c = currentCondition;
+		var o = id;
+		with (obj_condition_particles) {
+			if condition == c && owner == o {
+				condParticlesExist = true;
+			}
+		}
+		if !condParticlesExist {
+			global.condition = currentCondition;
+			global.owner = id;
+			instance_create_depth(x,y,1,obj_condition_particles);
+		}
+	}
 	
 	// set back old properties when conditions expire
 	if conditionLevel <= 0 {
@@ -109,7 +129,6 @@ for (var i = 0; i < size; i++){
 			}
 		}
 	}
-	
 	
 	else {
 		switch currentCondition {
@@ -122,6 +141,27 @@ for (var i = 0; i < size; i++){
 				else {
 					functionalSpeed = 0;
 				}
+			}
+			// burning
+			case FIRE: {
+				// burn damage taken every 2 seconds by default
+				// if fire defense is positive, defense% of 60 is added to burn frames
+				burnFrames = (defense >= 0) ? burnFrames + burnFrames*(defense/100) : burnFrames - burnFrames*(defense/100);
+				if burnFrame >= burnFrames {
+					burnDamage = defense >= 0 ? (burnDamage - burnDamage*defense) : (burnDamage + burnDamage*defense);
+					if burnDamage > hp {
+						burnDamage = hp;
+					}
+					hp -= burnDamage;
+					if type != CombatantTypes.Player {
+						global.damageAmount = burnDamage;
+						global.victim = id;
+						instance_create_depth(x,y,1,obj_damage);
+					}
+					burnFrame = 0;
+				}
+				burnFrame++;
+				break;
 			}
 		}
 	}
@@ -297,7 +337,7 @@ switch(state) {
 					}
 					var willDodgeOnThisFrame = willDodge && shouldDodgeOnThisFrame;
 				
-					if willDodgeOnThisFrame && stamina > 0{
+					if willDodgeOnThisFrame && stamina > 0 && !isFrozen {
 						facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 						hasCalculatedWillDodge = false;
 						dodgeDirection = (facingDirection+180)%360;
@@ -311,7 +351,7 @@ switch(state) {
 				// ranged dodges TODO
 				// if within range of a ranged attack object (projectile), time dodge based on agility (and if combatant can see the projectile)
 				else if distance_to_object(obj_attack_parent) < 200 - agility && script_execute(scr_is_facing,id,attackObj) && willDodge {
-					if stamina > 0 {
+					if stamina > 0 && !isFrozen {
 						facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 						hasCalculatedWillDodge = false;
 						randomize();

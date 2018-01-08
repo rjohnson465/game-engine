@@ -3,12 +3,13 @@ owner = global.owner;
 emitter = noone;
 system = noone;
 particle = noone;
+
+system = part_system_create();
+part_system_depth(system,-4);
+emitter = part_emitter_create(system);
+
 switch condition {
 	case ICE: {
-		var snow = part_system_create();
-		part_system_depth(snow,-4);
-		system = snow;
-		
 		// snowflake particle
 		var snowflake = part_type_create();
 		part_type_shape(snowflake, pt_shape_snow);
@@ -18,15 +19,21 @@ switch condition {
 		part_type_direction(snowflake,0,360,0,4);
 		part_type_life(snowflake,10,20);
 		particle = snowflake;
-		// emit
-		var snow_emitter = part_emitter_create(snow);
-		/*var x1 = owner.x - (owner.sprite_width*.5);
-		var y1 = owner.y - (owner.sprite_height*.5);
-		var x2 = owner.x + (owner.sprite_width*.5);
-		var y2 = owner.y + (owner.sprite_height*.5);*/
-		//part_emitter_region(snow,snow_emitter,x1,y1,x2,y2,ps_shape_ellipse,ps_distr_linear);
-		//part_emitter_stream(snow,snow_emitter,snowflake,-500);
-		emitter = snow_emitter;
+		
 		break;
+	}
+	case FIRE: {
+		// fire part
+		var fire = part_type_create();
+		part_type_sprite(fire,spr_particle_fire,0,0,1);
+		part_type_size(fire,.2,.5,0,0);
+		part_type_color2(fire,c_orange,c_red);
+		part_type_alpha3(fire,1,1,0);
+		part_type_speed(fire,4,10,0,0);
+		part_type_direction(fire,85,95,0,5);
+		part_type_orientation(fire,0,359,0,0,0);
+		part_type_blend(fire,1);
+		part_type_life(fire,8,12);
+		particle = fire;
 	}
 }

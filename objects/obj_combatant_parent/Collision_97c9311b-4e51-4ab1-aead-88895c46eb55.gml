@@ -62,7 +62,7 @@ if	state != CombatantStates.Dodging &&
 			// any elemental / bleed damage
 			else {
 				// same amount of elemental damage on each attack in chain (for player attacks)
-				if type != CombatantTypes.Player {
+				if other.owner.type == CombatantTypes.Player {
 					damageMin = damageArray[0];
 					damageMax = damageArray[1];
 				}
@@ -120,6 +120,15 @@ if	state != CombatantStates.Dodging &&
 			if currentConditionPercent + damageBase > 100 {
 				addToCondition = 100-currentConditionPercent;
 			}
+			
+			// if this was fire or poison damage, record an altered version of the base amount in case this is the attack that burns or poisons 
+			// TODO get a math major Devin. Need to figure out how much damage should be set to burn damage (or added to?)
+			if currentDamageType == FIRE {
+				burnDamage += .5*damageBase;
+			} else if currentDamageType == POISON {
+				poisonDamage += .5*damageBase;
+			}
+			
 			ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+addToCondition);
 			
 			// if theres not already a condition handler for this, show the condition bar

@@ -5,8 +5,8 @@ if state == CombatantStates.Dodging {
 	if ds_map_find_value(conditionLevels,ICE) == 1 {
 		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, .5);
 	}
-	// frozen
-	else if ds_map_find_value(conditionLevels,ICE) == 2 {
+	// frozen -- can't dodge when frozen so this shouldnt do anything?
+	else if isFrozen == 2 {
 		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, .75);
 	}
 	
