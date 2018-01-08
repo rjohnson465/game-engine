@@ -82,7 +82,8 @@ if state == CombatantStates.Attacking {
 				draw_sprite_ext(prepSprite,prepAnimationFrame,x,y,1,-1,facingDirection,c_white,1);
 			}
 			if isSlowed {
-				prepAnimationFrame += .5;
+				var percentSpeed = functionalSpeed / normalSpeed;
+				prepAnimationFrame += percentSpeed;
 			} else {
 				prepAnimationFrame++;
 			}
@@ -102,7 +103,8 @@ if state == CombatantStates.Attacking {
 				draw_sprite_ext(recoverSprite,recoverAnimationFrame,x,y,1,-1,facingDirection,c_white,1);
 			}
 			if isSlowed {
-				recoverAnimationFrame += .5;
+				var percentSpeed = functionalSpeed / normalSpeed;
+				recoverAnimationFrame += percentSpeed;
 			} else {
 				recoverAnimationFrame++;
 			}

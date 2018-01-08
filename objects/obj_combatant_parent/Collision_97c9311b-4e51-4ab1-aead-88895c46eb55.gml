@@ -96,46 +96,48 @@ if	state != CombatantStates.Dodging &&
 			
 			// create particles for the hit
 			// blood for physical, elemental particles otherwise
-			if damageBase > 1 {
+			if	damageBase > 1 {
 				global.damageType = currentDamageType;
 				global.x1 = __x;
 				global.y1 = __y;
 				global.shieldDirection = noone;
-				instance_create_depth(0,0,1,obj_hit_particles);
+				if (!(currentDamageType == PHYSICAL && isShielding)) {
+					instance_create_depth(0,0,1,obj_hit_particles);
+				}
 			}
 				
-			// elemental conditions effected
+			// elemental conditions applied?
 			// TODO -- get a math major; Devin. How to add to conditionPercent 
-			// while being fair and respecting defenses???
-			// idea: add the percent of hp the elemental attack had to condition percent
-			// caveat: if this percent is under 15%, just add 25-33%
-			// then adjust this based on elemental defense
-			// apply baseDamage amount to conditionPercentage 
-			var currentConditionPercent = ds_map_find_value(conditionPercentages,currentDamageType);
-			var addToCondition = 0;
-			var damagePercentOfHp = damageBase / maxHp;
-			if damagePercentOfHp < .25 && damagePercentOfHp != 0 {
+			// while being fair and respecting defenses???					
+			// NEW IDEA -- roll random and compare against defense
+			if damageBase > 1 {
 				randomize();
-				addToCondition = random_range(25,33);
-			} else {
-				addToCondition = damagePercentOfHp*100;
-			}
-			// adjust for elemental defense
-			addToCondition = defense >= 0 ? addToCondition - (defense/100)*addToCondition : addToCondition + (defense/100)*addToCondition;
-			//show_debug_message(addToCondition);
-			if currentConditionPercent + damageBase > 100 {
-				addToCondition = 100-currentConditionPercent;
+				var top = 1000;
+				var percentChance = .2;
+				if spell != noone && spell.name == "magicmissile" {
+					// every misile has a 20/numProjectiles% chance
+					var percentChance = (20/spell.numberOfProjectiles)/100;
+				}
+				var rand = random_range(1,top);
+				// TODO apply buffs?
+				rand -= defense;
+				var topNum = 1000-(percentChance*1000);
+				show_debug_message(string(rand) + " " + string(topNum));
+				// only apply the condition if the condition is not currently ongoing
+				if rand > topNum && ds_map_find_value(conditionPercentages,currentDamageType) == 0{
+					ds_map_replace(conditionPercentages,currentDamageType,100);
+				}
 			}
 			
 			// if this was fire or poison damage, record an altered version of the base amount in case this is the attack that burns or poisons 
 			// TODO get a math major Devin. Need to figure out how much damage should be set to burn damage (or added to?)
 			if currentDamageType == FIRE {
-				burnDamage += .5*damageBase;
+				burnDamage += .75*damageBase;
 			} else if currentDamageType == POISON {
 				poisonDamage += .5*damageBase;
 			}
 			
-			ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+addToCondition);
+			//ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+addToCondition);
 			
 			// if theres not already a condition handler for this, show the condition bar
 			// this does not appear for mere physical damage

@@ -152,7 +152,7 @@ isSlowed = false;
 isFrozen = false;
 isPoisoned = false; 
 isBurning = false;
-isElectrified = false;
+isShocked = false;
 
 // by default, burn occurs every second, poison every 2 seconds
 // burn does the same small amount of damage each second, while poison damage builds every time it occurs

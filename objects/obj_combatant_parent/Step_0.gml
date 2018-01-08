@@ -63,7 +63,7 @@ for (var i = 0; i < size; i++){
 				isBurning = true; break;
 			}
 			case LIGHTNING: {
-				isElectrified = true; break;
+				isShocked = true; break;
 			}
 			case ICE: {
 				isFrozen = true; isSlowed = false; break;
@@ -93,7 +93,7 @@ for (var i = 0; i < size; i++){
 				isPoisoned = false; poisonDamage = 0; break;
 			}
 			case LIGHTNING: {
-				isElectrified = false; break;
+				isShocked = false; break;
 			}
 		}
 	}
@@ -155,7 +155,9 @@ for (var i = 0; i < size; i++){
 				// if fire defense is positive, defense% of 60 is added to burn frames
 				burnFrames = (defense >= 0) ? burnFrames + burnFrames*(defense/100) : burnFrames - burnFrames*(defense/100);
 				if burnFrame >= burnFrames {
-					burnDamage = defense >= 0 ? (burnDamage - burnDamage*(defense/100)) : (burnDamage + burnDamage*(defense/100));
+					// is this needed? defense was already accounted for when burnDamage was set first, right?
+					//burnDamage = defense >= 0 ? (burnDamage - burnDamage*(defense/100)) : (burnDamage + burnDamage*(defense/100));
+					var originalBurnDamage = burnDamage;
 					if burnDamage > hp {
 						burnDamage = hp;
 					}
@@ -164,6 +166,15 @@ for (var i = 0; i < size; i++){
 						global.damageAmount = burnDamage;
 						global.victim = id;
 						instance_create_depth(x,y,1,obj_damage);
+					}
+					// diminishes every pulse
+					// TODO math major DEVIN
+					burnDamage = originalBurnDamage;
+					burnDamage = defense >= 0 ? 
+						burnDamage - ((.25*burnDamage)-((.25*burnDamage)*(defense/100))) : 
+						burnDamage - ((.25*burnDamage)+((.25*burnDamage)*(defense/100)));
+					if burnDamage < 1 {
+						burnDamage = 1;
 					}
 					burnFrame = 0;
 				}
