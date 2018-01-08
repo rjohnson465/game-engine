@@ -74,9 +74,9 @@ if (hasHands) {
 // 2d array needs to be set manually for EVERY enemy
 // attack 1 move 1 min, attack 1 move 1 max, attack 1 move 2 min, attack 1 move 2 max..
 var meleeDamages0 = ds_map_create();
-ds_map_add(meleeDamages0,PHYSICAL,[10,20,25,25]);
-//ds_map_add(meleeDamages0,ICE,[75,76,0,0]);
-//ds_map_add(meleeDamages0,FIRE,[50,75,25,25]);
+//ds_map_add(meleeDamages0,PHYSICAL,[10,20,25,25]);
+ds_map_add(meleeDamages0,LIGHTNING,[1,1,1,1]);
+ds_map_add(meleeDamages0,ICE,[1,1,1,1]);
 //ds_map_add(meleeDamages0,POISON,[50,75,25,25]);
 meleeDamages[0] = meleeDamages0;
 
@@ -140,4 +140,5 @@ totalShieldingFrames = 130 - cautiousness; // how regularly can we check to shie
 
 lockOnTargetType = obj_goodguy_parent;
 
-//ds_map_replace(defenses,FIRE,100);
+//ds_map_replace(defenses,PHYSICAL,-2000);
+//ds_map_replace(defenses,ICE,100);

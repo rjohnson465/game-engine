@@ -21,14 +21,7 @@ if conditionLevel == 0 {
 			} else if conditionPercent > 25 {
 				num = 2;
 			} else num = 1;
-			//num = -100;
-			// linear
-			//num = ((51/20)*conditionPercent)-250;
-			// exponential
-			// TODO get a math major DEVIN
-			//num = (((conditionPercent-100)*((conditionPercent-100)*.001)) * -1)+4;
-			
-			//show_debug_message(num);
+
 			part_emitter_region(system,emitter,owner.x,owner.x,owner.y,owner.y,0,0);
 			
 			// cinders
@@ -55,6 +48,17 @@ if conditionLevel == 0 {
 				num = 3;
 			} else if conditionPercent > 25 {
 				num = 1;
+			} else num = -3;
+			break;
+		}
+		case LIGHTNING: {
+			// starts with many sparks but as freeze fades, less
+			if conditionPercent > 90 {
+				num = 2;
+			} else if conditionPercent > 50 {
+				num = 1;
+			} else if conditionPercent > 25 {
+				num = -1;
 			} else num = -3;
 			break;
 		}

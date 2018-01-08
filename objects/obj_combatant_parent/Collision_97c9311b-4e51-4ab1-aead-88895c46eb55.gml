@@ -83,15 +83,14 @@ if	state != CombatantStates.Dodging &&
 			var defense = ds_map_find_value(defenses,currentDamageType);
 			
 			// positive defense will offset x% of damageBase
-			if defense >= 0 {
-				damageBase -= (defense/100)*damageBase;
-			}
 			// negative defense will increase damageBase by abs(x)%
-			else {
-				damageBase += (defense/100)*damageBase;
-			}
+			damageBase = defense >= 0 ? damageBase - (defense/100)*damageBase : damageBase + abs((defense/100))*damageBase;
 			// account for charge amount (spells, mostly)
 			damageBase = round(damageBase*percentCharged);
+			// this could happen if defense is over 100
+			if damageBase < 0 {
+				damageBase = 0;
+			}
 			damage += damageBase;
 			
 			// create particles for the hit
@@ -110,7 +109,7 @@ if	state != CombatantStates.Dodging &&
 			// TODO -- get a math major; Devin. How to add to conditionPercent 
 			// while being fair and respecting defenses???					
 			// NEW IDEA -- roll random and compare against defense
-			if damageBase > 1 {
+			if damageBase > 0 {
 				randomize();
 				var top = 1000;
 				var percentChance = .2;
@@ -126,6 +125,20 @@ if	state != CombatantStates.Dodging &&
 				// only apply the condition if the condition is not currently ongoing
 				if rand > topNum && ds_map_find_value(conditionPercentages,currentDamageType) == 0{
 					ds_map_replace(conditionPercentages,currentDamageType,100);
+					if type == CombatantTypes.Player {
+						var conditionBar = noone;
+						with (obj_condition_bar) {
+							if condition == currentDamageType && owner == global.player.id {
+								conditionBar = id;
+							}
+						}
+						if !conditionBar {
+							global.owner = global.player.id;
+							global.condition = currentDamageType;
+							global.conditionBarCount += 1;
+							instance_create_depth(x,y,1,obj_condition_bar);
+						}
+					}
 				}
 			}
 			
@@ -141,7 +154,7 @@ if	state != CombatantStates.Dodging &&
 			
 			// if theres not already a condition handler for this, show the condition bar
 			// this does not appear for mere physical damage
-			if type == CombatantTypes.Player && currentDamageType != PHYSICAL {
+			/*if type == CombatantTypes.Player && currentDamageType != PHYSICAL {
 				var conditionBar = noone;
 				with (obj_condition_bar) {
 					if condition == currentDamageType && owner == global.player.id {
@@ -154,7 +167,7 @@ if	state != CombatantStates.Dodging &&
 					global.conditionBarCount += 1;
 					instance_create_depth(x,y,1,obj_condition_bar);
 				}
-			}
+			}*/
 			
 			// go to the next damageType in array
 			currentDamageType = ds_map_find_next(damagesMap, currentDamageType);

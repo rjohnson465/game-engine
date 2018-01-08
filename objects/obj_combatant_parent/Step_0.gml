@@ -60,13 +60,34 @@ for (var i = 0; i < size; i++){
 				isPoisoned = true; break;
 			}
 			case FIRE: {
+				// if burn applied on a slowed or frozen target, slow / frozen is removed
+				if !isBurning && (isSlowed || isFrozen) {
+					ds_map_replace(conditionPercentages,ICE,0);
+					isSlowed = false;
+					isFrozen = false;
+				}
 				isBurning = true; break;
 			}
 			case LIGHTNING: {
-				isShocked = true; break;
+				if !isShocked {
+					// lower all defenses by a static (ha) amount
+					var currentDefense = ds_map_find_first(defenses);
+					for (var i = 0; i < ds_map_size(defenses); i++) {
+						var defense = ds_map_find_value(defenses,currentDefense);
+						ds_map_replace(defenses,currentDefense,defense-25);
+						currentDefense = ds_map_find_next(defenses,currentDefense);
+					}
+				}
+				isShocked = true; 				
+				break;
 			}
 			case ICE: {
-				isFrozen = true; isSlowed = false; break;
+				// freeze applied on a burning target, burn is removed
+				if !isFrozen && isBurning {
+					ds_map_replace(conditionPercentages,FIRE,0);
+				}
+				isFrozen = true; 
+				isSlowed = false; break;
 			}
 		}
 	}
@@ -75,7 +96,11 @@ for (var i = 0; i < size; i++){
 	if conditionPercent > 0 {
 		var decrementAmount = 1/3;
 		var defense = ds_map_find_value(defenses,currentCondition);
-		decrementAmount += 1*(defense/100);
+		//decrementAmount += 1-abs((defense/100));
+		decrementAmount = defense > 0 ? decrementAmount + 1-(defense/100) : decrementAmount - 1-(defense/100);
+		if decrementAmount < 0 {
+			decrementAmount = .2;
+		}
 		conditionPercent -= decrementAmount;
 		ds_map_replace(conditionPercentages,currentCondition,conditionPercent);
 	} if conditionPercent <= 0 {
@@ -93,7 +118,17 @@ for (var i = 0; i < size; i++){
 				isPoisoned = false; poisonDamage = 0; break;
 			}
 			case LIGHTNING: {
-				isShocked = false; break;
+				if isShocked {
+					// reset all defenses to normal values
+					var currentDefense = ds_map_find_first(defenses);
+					for (var i = 0; i < ds_map_size(defenses); i++) {
+						var defense = ds_map_find_value(defenses,currentDefense);
+						ds_map_replace(defenses,currentDefense,defense+25);
+						currentDefense = ds_map_find_next(defenses,currentDefense);
+					}
+				}
+				isShocked = false; 
+				break;
 			}
 		}
 	}
@@ -209,6 +244,9 @@ for (var i = 0; i < size; i++){
 				}
 				poisonFrame++;
 				break;
+			}
+			case LIGHTNING: {
+				// shock lowers defenses; this is handled just once, when lightning percent is set to 100; i.e. not here
 			}
 		}
 	}

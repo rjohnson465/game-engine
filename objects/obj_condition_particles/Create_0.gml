@@ -74,5 +74,19 @@ switch condition {
 		part_type_color2(poison,c_green,c_olive);
 		part_type_alpha3(poison,.75,.5,.25);
 		particle = poison;
+		break;
+	}
+	case LIGHTNING: {
+		var spark = part_type_create();
+		part_type_shape(spark, pt_shape_spark);
+		part_type_orientation(spark,0,359,0,15,1);
+		part_type_size(spark,0.25,.35,0,0);
+		part_type_speed(spark,8,12,0,0);
+		part_type_direction(spark,0,360,0,4);
+		part_type_life(spark,3,6);
+		part_type_color2(spark,c_blue,c_white);
+		part_type_alpha3(spark,1,.85,.75);
+		particle = spark;
+		break;
 	}
 }
