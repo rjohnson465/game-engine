@@ -53,8 +53,8 @@ if	state != CombatantStates.Dodging &&
 		for (var i = 0; i < size; i++) {
 			var damageArray = ds_map_find_value(damagesMap,currentDamageType);
 			var damageMin; var damageMax;
-			// physical damage is dependent on attack number
-			if currentDamageType == PHYSICAL {
+			// physical damage is dependent on attack number -- assuming the damage array is specified as such
+			if currentDamageType == PHYSICAL && array_length_1d(damageArray) > (attackNumber - 1)*2 {
 				var index = (attackNumber - 1)*2;
 				damageMin = damageArray[index];
 				damageMax = damageArray[index+1];

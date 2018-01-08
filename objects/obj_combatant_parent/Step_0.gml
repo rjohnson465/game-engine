@@ -32,7 +32,13 @@ var size = ds_map_size(conditionPercentages);
 for (var i = 0; i < size; i++){
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
 	
-	// if condition is ice and it just dropped below 75 (coming from condition level 2, frozen), reset to condition level 1 (slow)
+	// if condition is ice and just went over 50, apply slow
+	if conditionPercent > 50 && currentCondition == ICE && ds_map_find_value(conditionLevels,currentCondition) == 0 {
+		isSlowed = true;
+		ds_map_replace(conditionLevels,currentCondition,1);
+	}
+	
+	// if condition is ice and it just dropped below 85 (coming from condition level 2, frozen), reset to condition level 1 (slow)
 	if conditionPercent < 85 && currentCondition == ICE {
 		if ds_map_find_value(conditionLevels,currentCondition) == 2 {
 			isFrozen = false;
@@ -58,6 +64,9 @@ for (var i = 0; i < size; i++){
 			}
 			case LIGHTNING: {
 				isElectrified = true; break;
+			}
+			case ICE: {
+				isFrozen = true; isSlowed = false; break;
 			}
 		}
 	}
@@ -126,16 +135,17 @@ for (var i = 0; i < size; i++){
 			}
 		}
 	}
-	
 	else {
 		switch currentCondition {
 			case ICE: {
 				// slowed
 				if conditionLevel == 1 {
-					functionalSpeed = .5*normalSpeed;
+					//functionalSpeed = .5*normalSpeed;
+					functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
+					show_debug_message(functionalSpeed);
 				}
 				// frozen
-				else {
+				else if conditionLevel == 2{
 					functionalSpeed = 0;
 				}
 				break;
@@ -168,10 +178,17 @@ for (var i = 0; i < size; i++){
 				poisonFrames = (defense >= 0) ? poisonFrames + poisonFrames*(defense/100) : poisonFrames - poisonFrames*(defense/100);
 				if poisonFrame >= poisonFrames {
 					poisonDamage = defense >= 0 ? (poisonDamage - poisonDamage*(defense/100)) : (poisonDamage + poisonDamage*(defense/100));
+					var originalPoisonDamage = poisonDamage;
 					if poisonDamage > hp {
 						poisonDamage = hp;
 					}
 					hp -= poisonDamage;
+					// builds every pulse
+					// TODO math major DEVIN
+					poisonDamage = originalPoisonDamage;
+					poisonDamage = defense >= 0 ? 
+						poisonDamage + ((.25*poisonDamage)-((.25*poisonDamage)*(defense/100))) : 
+						poisonDamage + ((.25*poisonDamage)+((.25*poisonDamage)*(defense/100)));
 					if type != CombatantTypes.Player {
 						global.damageAmount = poisonDamage;
 						global.victim = id;

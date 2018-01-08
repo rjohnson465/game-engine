@@ -154,9 +154,10 @@ isPoisoned = false;
 isBurning = false;
 isElectrified = false;
 
-// by default, poison and burn damage occurs (when burning or poisoned) every 2 seconds
+// by default, burn occurs every second, poison every 2 seconds
+// burn does the same small amount of damage each second, while poison damage builds every time it occurs
 // this can be effected by poison and fire defenses, and is recalculated every step when a condition is active
-burnFrames = 60;
+burnFrames = 30;
 burnFrame = 0;
 burnDamage = 0;
 poisonFrames = 60;
