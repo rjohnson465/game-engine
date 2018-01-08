@@ -75,7 +75,7 @@ if (hasHands) {
 // attack 1 move 1 min, attack 1 move 1 max, attack 1 move 2 min, attack 1 move 2 max..
 var meleeDamages0 = ds_map_create();
 ds_map_add(meleeDamages0,PHYSICAL,[10,20,25,25]);
-ds_map_add(meleeDamages0,FIRE,[50,75,0,0]);
+ds_map_add(meleeDamages0,ICE,[75,76,0,0]);
 //ds_map_add(meleeDamages0,FIRE,[50,75,25,25]);
 //ds_map_add(meleeDamages0,POISON,[50,75,25,25]);
 meleeDamages[0] = meleeDamages0;
@@ -128,7 +128,7 @@ staggerDirection = 0;
 // dodge stuff
 hasCalculatedWillDodge = false;
 willDodge = noone;
-agility = 50; // 0 - 100% chance to try a dodge
+agility = 0; // 0 - 100% chance to try a dodge
 dodgeFrame = 0;
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 

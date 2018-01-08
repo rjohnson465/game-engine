@@ -1,5 +1,5 @@
 global.ui = id;
-
+display_set_gui_size(1024, 768);
 global.conditionBarCount = 0;
 
 // UI menus

@@ -26,14 +26,14 @@ if hp < maxHp {
 }
 
 // conditionPercentages drain every step
-// TODO Devin fix calculations
+// TODO Devin fix calculations for draining
 var currentCondition = ds_map_find_first(conditionPercentages);
 var size = ds_map_size(conditionPercentages);
 for (var i = 0; i < size; i++){
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
 	
-	// if condition is ice and it just dropped below 50 (coming from condition level 2, frozen), reset to condition level 1 (slow)
-	if conditionPercent < 50 && currentCondition == ICE {
+	// if condition is ice and it just dropped below 75 (coming from condition level 2, frozen), reset to condition level 1 (slow)
+	if conditionPercent < 85 && currentCondition == ICE {
 		if ds_map_find_value(conditionLevels,currentCondition) == 2 {
 			isFrozen = false;
 			isSlowed = true;
@@ -43,7 +43,7 @@ for (var i = 0; i < size; i++){
 	
 	// generally, if conditionPercent exceeds 99, condition level becomes 1
 	// except for ice, in which condition level becomes 2 (frozen)
-	if conditionPercent > 75 && currentCondition == ICE {
+	if conditionPercent > 95 && currentCondition == ICE {
 		ds_map_replace(conditionLevels,currentCondition,2);
 		isSlowed = false;
 		isFrozen = true;
@@ -58,9 +58,6 @@ for (var i = 0; i < size; i++){
 			}
 			case LIGHTNING: {
 				isElectrified = true; break;
-			}
-			case ICE: {
-				isSlowed = true; break;
 			}
 		}
 	}
@@ -105,7 +102,7 @@ for (var i = 0; i < size; i++){
 	
 	// particle effects for conditions
 	// TODO this might get ridiculous is someone has a shitzillion different particles all over them
-	if conditionLevel > 0 && currentCondition != MAGIC {
+	if conditionLevel > 0 && currentCondition != MAGIC && currentCondition != PHYSICAL {
 		var condParticlesExist = false;
 		var c = currentCondition;
 		var o = id;
@@ -141,6 +138,7 @@ for (var i = 0; i < size; i++){
 				else {
 					functionalSpeed = 0;
 				}
+				break;
 			}
 			// burning
 			case FIRE: {
@@ -148,7 +146,7 @@ for (var i = 0; i < size; i++){
 				// if fire defense is positive, defense% of 60 is added to burn frames
 				burnFrames = (defense >= 0) ? burnFrames + burnFrames*(defense/100) : burnFrames - burnFrames*(defense/100);
 				if burnFrame >= burnFrames {
-					burnDamage = defense >= 0 ? (burnDamage - burnDamage*defense) : (burnDamage + burnDamage*defense);
+					burnDamage = defense >= 0 ? (burnDamage - burnDamage*(defense/100)) : (burnDamage + burnDamage*(defense/100));
 					if burnDamage > hp {
 						burnDamage = hp;
 					}
@@ -161,6 +159,27 @@ for (var i = 0; i < size; i++){
 					burnFrame = 0;
 				}
 				burnFrame++;
+				break;
+			}
+			// poisoned
+			case POISON: {
+				// poison damage taken every 2 seconds by default 
+				// if poison defense is poistive, defense% of 60 is added to burn frames. if less, it is subtracted
+				poisonFrames = (defense >= 0) ? poisonFrames + poisonFrames*(defense/100) : poisonFrames - poisonFrames*(defense/100);
+				if poisonFrame >= poisonFrames {
+					poisonDamage = defense >= 0 ? (poisonDamage - poisonDamage*(defense/100)) : (poisonDamage + poisonDamage*(defense/100));
+					if poisonDamage > hp {
+						poisonDamage = hp;
+					}
+					hp -= poisonDamage;
+					if type != CombatantTypes.Player {
+						global.damageAmount = poisonDamage;
+						global.victim = id;
+						instance_create_depth(x,y,1,obj_damage);
+					}
+					poisonFrame = 0;
+				}
+				poisonFrame++;
 				break;
 			}
 		}

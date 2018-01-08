@@ -19,11 +19,10 @@ switch condition {
 		part_type_direction(snowflake,0,360,0,4);
 		part_type_life(snowflake,10,20);
 		particle = snowflake;
-		
 		break;
 	}
 	case FIRE: {
-		// fire part
+		// fire particle
 		var fire = part_type_create();
 		part_type_sprite(fire,spr_particle_fire,0,0,1);
 		part_type_size(fire,.2,.5,0,0);
@@ -35,5 +34,19 @@ switch condition {
 		part_type_blend(fire,1);
 		part_type_life(fire,8,12);
 		particle = fire;
+		break;
+	}
+	case POISON: {
+		// poison clouds
+		var poison = part_type_create();
+		part_type_shape(poison, pt_shape_cloud);
+		part_type_orientation(poison,0,359,0,15,1);
+		part_type_size(poison,.25,1,0,0);
+		part_type_speed(poison,.5,.75,0,0);
+		part_type_direction(poison,0,360,0,4);
+		part_type_life(poison,15,20);
+		part_type_color2(poison,c_green,c_olive);
+		part_type_alpha3(poison,.75,.5,.25);
+		particle = poison;
 	}
 }

@@ -100,23 +100,15 @@ if	state != CombatantStates.Dodging &&
 			var currentConditionPercent = ds_map_find_value(conditionPercentages,currentDamageType);
 			var addToCondition = 0;
 			var damagePercentOfHp = damageBase / maxHp;
-			if damagePercentOfHp < .15 && damagePercentOfHp != 0 {
+			if damagePercentOfHp < .25 && damagePercentOfHp != 0 {
 				randomize();
 				addToCondition = random_range(25,33);
 			} else {
 				addToCondition = damagePercentOfHp*100;
 			}
 			// adjust for elemental defense
-			// positive defense will offset x% of damageBase
-			if defense >= 0 {
-				addToCondition -= (defense/100)*addToCondition;
-			}
-			// negative defense will increase damageBase by abs(x)%
-			else {
-				addToCondition += (defense/100)*addToCondition;
-			}
-			//var addToCondition = damageBase;
-			
+			addToCondition = defense >= 0 ? addToCondition - (defense/100)*addToCondition : addToCondition + (defense/100)*addToCondition;
+			//show_debug_message(addToCondition);
 			if currentConditionPercent + damageBase > 100 {
 				addToCondition = 100-currentConditionPercent;
 			}

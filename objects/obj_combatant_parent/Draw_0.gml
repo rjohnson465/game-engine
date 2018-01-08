@@ -2,13 +2,15 @@
 if state == CombatantStates.Dodging {
 	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,1);
 	// slowed
-	if ds_map_find_value(conditionLevels,ICE) == 1 {
+	if isSlowed {
 		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, .5);
+	} else if isPoisoned {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_green, .5);
 	}
 	// frozen -- can't dodge when frozen so this shouldnt do anything?
-	else if isFrozen == 2 {
+	/*else if isFrozen == 2 {
 		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, .75);
-	}
+	}*/
 	
 } else {
 	
@@ -22,7 +24,9 @@ if state == CombatantStates.Dodging {
 	//else if ds_map_find_value(conditionLevels,ICE) == 2 {
 	else if isFrozen {
 		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .75);
-	}
+	} /*else if isPoisoned {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_green, .75);
+	}*/
 	
 	if type != CombatantTypes.Player {
 		
