@@ -191,14 +191,6 @@
             }
         },
         {
-            "Key": "1397a77a-5247-4598-b887-df3d5bbdba5d",
-            "Value": {
-                "id": "caf29194-2c42-413a-8599-b66c52404a42",
-                "resourcePath": "objects\\obj_hit\\obj_hit.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "14b327bb-f467-4f98-8944-72203e289b4e",
             "Value": {
                 "id": "f37b1919-18aa-4f5e-8973-682a25ce8941",
@@ -1612,6 +1604,14 @@
                 "id": "e252cbd7-0b63-4b60-a217-31600d5344a4",
                 "resourcePath": "sprites\\spr_player_longsword_special_prep_1\\spr_player_longsword_special_prep_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f4e993a7-ac46-4076-bd8a-d8ad414f4eff",
+            "Value": {
+                "id": "a6dae389-0f1f-4506-8fc1-175a84b7db2f",
+                "resourcePath": "objects\\obj_hit_particles\\obj_hit_particles.yy",
+                "resourceType": "GMObject"
             }
         },
         {

@@ -18,6 +18,7 @@ switch condition {
 		part_type_speed(snowflake,1,1.5,0,0);
 		part_type_direction(snowflake,0,360,0,4);
 		part_type_life(snowflake,10,20);
+		part_type_alpha3(snowflake,1,.75,.5);
 		particle = snowflake;
 		break;
 	}
@@ -41,7 +42,7 @@ switch condition {
 		var poison = part_type_create();
 		part_type_shape(poison, pt_shape_cloud);
 		part_type_orientation(poison,0,359,0,15,1);
-		part_type_size(poison,.25,1,0,0);
+		part_type_size(poison,0.25,.75,0,0);
 		part_type_speed(poison,.5,.75,0,0);
 		part_type_direction(poison,0,360,0,4);
 		part_type_life(poison,15,20);

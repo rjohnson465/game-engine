@@ -183,17 +183,18 @@ for (var i = 0; i < size; i++){
 						poisonDamage = hp;
 					}
 					hp -= poisonDamage;
+					
+					if type != CombatantTypes.Player {
+						global.damageAmount = poisonDamage;
+						global.victim = id;
+						instance_create_depth(x,y,1,obj_damage);
+					}
 					// builds every pulse
 					// TODO math major DEVIN
 					poisonDamage = originalPoisonDamage;
 					poisonDamage = defense >= 0 ? 
 						poisonDamage + ((.25*poisonDamage)-((.25*poisonDamage)*(defense/100))) : 
 						poisonDamage + ((.25*poisonDamage)+((.25*poisonDamage)*(defense/100)));
-					if type != CombatantTypes.Player {
-						global.damageAmount = poisonDamage;
-						global.victim = id;
-						instance_create_depth(x,y,1,obj_damage);
-					}
 					poisonFrame = 0;
 				}
 				poisonFrame++;

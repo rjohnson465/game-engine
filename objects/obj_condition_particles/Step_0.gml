@@ -7,7 +7,7 @@ if conditionLevel == 0 {
 	var y1 = owner.y - (.5*owner.sprite_height);
 	var x2 = owner.x + (.5*owner.sprite_width);
 	var y2 = owner.y + (.5*owner.sprite_height);
-	part_emitter_region(system,emitter,x1,x2,y1,y2,0,0);
+	part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,0);
 	var num = 1;
 	switch condition {
 		case FIRE: {

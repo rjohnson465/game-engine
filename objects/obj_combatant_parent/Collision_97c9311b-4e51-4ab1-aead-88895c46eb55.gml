@@ -15,6 +15,10 @@ if	state != CombatantStates.Dodging &&
 	// if combatant has not been hit with this instance before (only get hit with an attack once)
 	if ds_list_find_index(beenHitWith,other.id) == -1 {
 		ds_list_add(beenHitWith,other.id);
+		
+		// run to get __x and __y (collision point where attack meet this combatant)
+		script_execute(scr_collision_point,id,other.id);
+		
 		var assailant = other.owner;
 		var damage = 0;
 		var damagesMap = noone;
@@ -89,6 +93,16 @@ if	state != CombatantStates.Dodging &&
 			// account for charge amount (spells, mostly)
 			damageBase = round(damageBase*percentCharged);
 			damage += damageBase;
+			
+			// create particles for the hit
+			// blood for physical, elemental particles otherwise
+			if damageBase > 1 {
+				global.damageType = currentDamageType;
+				global.x1 = __x;
+				global.y1 = __y;
+				global.shieldDirection = noone;
+				instance_create_depth(0,0,1,obj_hit_particles);
+			}
 				
 			// elemental conditions effected
 			// TODO -- get a math major; Devin. How to add to conditionPercent 
@@ -147,13 +161,17 @@ if	state != CombatantStates.Dodging &&
 		if damage > hp {
 			damage = hp;
 		}
-		// run to get __x and __y (collision point where attack meet this combatant)
-		script_execute(scr_collision_point,id,other.id);
+		
 		if	isShielding 
 			&& script_execute(scr_is_facing,assailant,id)
 			{
-				global.hitType = "yellow";
-				instance_create_depth(__x,__y,1,obj_hit);
+				//global.hitType = "yellow";
+				//instance_create_depth(__x,__y,1,obj_hit);
+				global.damageType = "Block";
+				global.x1 = __x;
+				global.y1 = __y;
+				global.shieldDirection = facingDirection;
+				instance_create_depth(0,0,1,obj_hit_particles);
 				// remove the same percentage of stamina as it would have removed health
 				var percentageOfHealth = actualDamage / maxHp;
 				stamina -= maxStamina*percentageOfHealth;
@@ -176,8 +194,9 @@ if	state != CombatantStates.Dodging &&
 				}		
 			}
 		else {
-			global.hitType = "red";
-			instance_create_depth(__x,__y,1,obj_hit);
+			//global.hitType = "red";
+			//instance_create_depth(__x,__y,1,obj_hit);
+			
 			hp -= damage;
 			if type != CombatantTypes.Player {
 				global.damageAmount = damage;
