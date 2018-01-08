@@ -64,7 +64,7 @@ if state == CombatantStates.Attacking {
 			if !isReadyToFire {
 				if isSlowed {
 					var percentSpeed = functionalSpeed / normalSpeed;
-					recoverAnimationFrame += percentSpeed;
+					prepAnimationFrame += percentSpeed;
 				} else {
 					prepAnimationFrame++;
 				}

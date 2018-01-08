@@ -75,8 +75,8 @@ if (hasHands) {
 // attack 1 move 1 min, attack 1 move 1 max, attack 1 move 2 min, attack 1 move 2 max..
 var meleeDamages0 = ds_map_create();
 //ds_map_add(meleeDamages0,PHYSICAL,[10,20,25,25]);
-ds_map_add(meleeDamages0,LIGHTNING,[1,1,1,1]);
-ds_map_add(meleeDamages0,ICE,[1,1,1,1]);
+//ds_map_add(meleeDamages0,LIGHTNING,[1,1,1,1]);
+ds_map_add(meleeDamages0,ICE,[10,20,1,1]);
 //ds_map_add(meleeDamages0,POISON,[50,75,25,25]);
 meleeDamages[0] = meleeDamages0;
 
