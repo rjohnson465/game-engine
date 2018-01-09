@@ -1,5 +1,5 @@
 event_inherited();
-draw_path(path,x,y,true);
+//draw_path(path,x,y,true);
 if showHp {
 	
 	// totalhp bar outline

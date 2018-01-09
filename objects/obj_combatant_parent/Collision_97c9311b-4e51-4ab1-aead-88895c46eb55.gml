@@ -125,7 +125,7 @@ if	state != CombatantStates.Dodging &&
 				// only apply the condition if the condition is not currently ongoing
 				if rand > topNum && ds_map_find_value(conditionPercentages,currentDamageType) == 0{
 					ds_map_replace(conditionPercentages,currentDamageType,100);
-					if type == CombatantTypes.Player {
+					if type == CombatantTypes.Player && currentDamageType != PHYSICAL && currentDamageType != MAGIC {
 						var conditionBar = noone;
 						with (obj_condition_bar) {
 							if condition == currentDamageType && owner == global.player.id {
