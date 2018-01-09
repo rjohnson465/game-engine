@@ -366,8 +366,9 @@ switch(state) {
 				
 				// if the path back to post is greater than farthestAllowedFromPost, cancel any pending attack 
 				// this will trigger the return to post code (later in this case) on the next step
-				mp_grid_path(personalGrid, path,x,y,postX,postY,1);
-				var pathToPostLength = path_get_length(path);
+				var pathToPost = path_add();
+				mp_grid_path(personalGrid, pathToPost,x,y,postX,postY,1);
+				var pathToPostLength = path_get_length(pathToPost);
 				if pathToPostLength > farthestAllowedFromPost {
 					currentMeleeAttack = noone;
 					currentRangedAttack = noone;
@@ -464,7 +465,8 @@ switch(state) {
 					}
 			
 					// calculate grid path to lockOnTarget and move to it
-					if	mp_grid_path(personalGrid, path,x,y,lockOnTarget.x,lockOnTarget.y,1) 
+					var p = mp_grid_path(personalGrid, path,x,y,lockOnTarget.x,lockOnTarget.y,1);
+					if	p
 					{
 						path_start(path,functionalSpeed,path_action_stop, false);
 						break;
