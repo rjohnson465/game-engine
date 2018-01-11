@@ -525,8 +525,8 @@ switch(state) {
 							} else {
 								if isStrafing {
 									facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
-									strafeAngle += functionalSpeed;
-									/*randomize();
+									/*strafeAngle += functionalSpeed;
+									randomize();
 									var rand = random_range(30,50);
 									var dist = meleeRangeArray[currentMeleeAttack-1];
 									var xx = lockOnTarget.x + lengthdir_x(dist, strafeAngle);
@@ -585,7 +585,7 @@ switch(state) {
 		
 		if type != CombatantTypes.Player {
 			
-			// TODO -- maybe wait to attack based on aggressiveness
+			/*// TODO -- maybe wait to attack based on aggressiveness
 			randomize();
 			if attackNumberInChain == noone && stupidityFrame > aggressiveness {
 				randomize();
@@ -601,7 +601,7 @@ switch(state) {
 				else {
 				}
 				break;
-			}
+			}*/
 			
 			
 			var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
@@ -610,7 +610,6 @@ switch(state) {
 			// aim while preparing attack
 			if isPreparingAttack && !isRanged {
 				// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
-				
 				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] {
 					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.5,true);
 				}
@@ -690,6 +689,11 @@ switch(state) {
 						currentAttackingHand = "r";
 					}
 					var prepSprite = asset_get_index("spr_"+spriteString+currentAttackingHandItemSprite+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));
+					if currentAttackingHand == "l" {
+						isLeftHandPreparing = true;
+					} else if currentAttackingHand == "r" {
+						isRightHandPreparing = true;
+					}
 					prepAnimationTotalFrames = sprite_get_number(prepSprite);
 					prepAnimationFrame = 0;
 					isPreparingAttack = true;

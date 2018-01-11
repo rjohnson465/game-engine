@@ -16,7 +16,7 @@ var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
 ds_map_add(handItems,"rm1",unarmed);
-ds_map_add(handItems,"lm1",woodshield);
+ds_map_add(handItems,"lm1",unarmed);
 ds_map_add(handItems, "rr1",shortbow);
 ds_map_add(handItems, "lr1", unarmed);
 
@@ -69,7 +69,7 @@ if (hasHands) {
 	// o: other hand (from last attack)
 	// l: left
 	// r: right
-	meleeAttacksHands[0] = ["r", "s"];
+	meleeAttacksHands[0] = ["r", "l"];
 }
 
 // TODO -- handle these with hand item stats (unless no hands for enemy)

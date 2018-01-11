@@ -49,6 +49,11 @@ state = CombatantStates.Idle;
 // general hands stuff
 hasHands = true;
 currentAttackingHand = noone; // "l" or "r"
+//currentRecoveringHand = noone;
+isRightHandPreparing = false;
+isLeftHandPreparing = false;
+isRightHandRecovering = false;
+isLeftHandRecovering = false;
 // weapons and shields
 // map: key values are handSide/type/index 
 // i.e. a longsword on right hand for melee set 1 is rm1: <longsword object>
