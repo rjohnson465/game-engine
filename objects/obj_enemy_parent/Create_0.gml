@@ -37,6 +37,8 @@ rangedAggroRange = 350;
 farthestAllowedFromPost = 1000;
 attackNumberInChain = noone; // set in attack state
 aggressiveness = 50; // aggressiveness 0-100%, decides how often to keep going with attack chain
+attackFrequencyTotalFrames = [5,15];
+strafeTotalFrames = [30,60];
 hasCalculatedNextAttack = false; // flag to ensure aggresiveness is only factored once between attacks
 isPreparingAttack = false; 
 isAttacking = false;
@@ -56,7 +58,7 @@ if meleeAttacksCount == 0 {
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[3];
+meleeRangeArray=[15];
 meleeAttacksHands = noone;
 // need to say from which hand each attack in each attack chain comes from
 if (hasHands) {
@@ -128,7 +130,7 @@ staggerDirection = 0;
 // dodge stuff
 hasCalculatedWillDodge = false;
 willDodge = noone;
-agility = 0; // 0 - 100% chance to try a dodge
+agility = 10; // 0 - 100% chance to try a dodge
 dodgeFrame = 0;
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 

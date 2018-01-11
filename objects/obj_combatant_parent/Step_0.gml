@@ -362,7 +362,7 @@ switch(state) {
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
 			if currentMeleeAttack || currentRangedAttack {
 				
-				// TOO FAR FROM POST?
+				// CHECK 1: TOO FAR FROM POST?
 				
 				// if the path back to post is greater than farthestAllowedFromPost, cancel any pending attack 
 				// this will trigger the return to post code (later in this case) on the next step
@@ -375,6 +375,8 @@ switch(state) {
 					break;
 				}
 				
+				// CHECK 2: ARE WE OUT OF RANGE FOR THE CURRENTLY CHOSEN ATTACK?
+				
 				// if combatant was going to use a melee attack but their target is out of range and combatant has ranged attacks, switch to a ranged attack
 				if currentMeleeAttack && distance_to_object(lockOnTarget) > meleeAggroRange && rangedAttacksCount > 0 {
 					state = CombatantStates.AggroRanged;
@@ -386,10 +388,10 @@ switch(state) {
 					break;
 				}
 			
-				// DODGE DECISION
+				// CHECK 3: WILL WE DODGE IN THIS MOVE STATE?
 				
-				// if we've not yet calculated if we're willing to dodge during this Move state, calculate that now
-				// THIS IS ONLY CALCULATED ONCE PER MOVE STATE
+				// if we've not yet calculated if we'll dodge during this Move state, calculate that now
+				// this is calculated only once per move state
 				if !hasCalculatedWillDodge {
 					randomize();
 					var rand = random_range(1,100);
@@ -397,17 +399,32 @@ switch(state) {
 					hasCalculatedWillDodge = true;
 				}
 			
-				// If we're close to our lockOnTarget and they're preparing attack and we've decided to doge during this Move state,
+				// If we're close to our lockOnTarget and they're preparing attack and we've decided to dodge during this Move state,
 				// decide exactly what frame in the lockOnTarget's attack prep to dodge on
-				// TODO this is shit for ranged attacks
+				// is this is shit for ranged attacks?
 				// TODO should combatants also pay attention to other enemies around them, other than just their lockOnTarget?
 				
-				
 				// melee dodges
-				// TODO range should probably not be so arbitrary -- base it on range of lockOnTarget's attack
-				var isMeleeAttack = lockOnTarget.currentAttackingHand == "l" ? lockOnTarget.leftHandItem.type == HandItemTypes.Melee : lockOnTarget.rightHandItem.type == HandItemTypes.Melee;
+				var isMeleeAttack = false;
+				if lockOnTarget.type == CombatantTypes.Player {
+					isMeleeAttack = lockOnTarget.currentAttackingHand == "l" ? lockOnTarget.leftHandItem.type == HandItemTypes.Melee : lockOnTarget.rightHandItem.type == HandItemTypes.Melee;
+				} else {
+					isMeleeAttack = lockOnTarget.currentMeleeAttack != noone;
+				}
 				var attackObj = instance_nearest(x,y,obj_attack_parent);
-				if distance_to_object(lockOnTarget) < 45 && lockOnTarget.isPreparingAttack && willDodge && isMeleeAttack {
+				var range = 45; // the range at which to start attempting dodge. default is 45 pixels.
+				// if dodging a player's melee attack, range is based on the melee weapon the player is using
+				if lockOnTarget.type == CombatantTypes.Player && isMeleeAttack {
+					var weapon = lockOnTarget.currentAttackingHand == "l" ? lockOnTarget.leftHandItem : lockOnTarget.rightHandItem;
+					if weapon.range != 0 {
+						range = weapon.range;
+					}
+				}
+				// if the attack is coming from an Ally or Enemy, base it on their current attack range
+				else if (lockOnTarget.type == CombatantTypes.Ally || lockOnTarget.type == CombatantTypes.Enemy) && isMeleeAttack {
+					range = lockOnTarget.meleeRangeArray[lockOnTarget.currentMeleeAttack-1] + 10; // 10px padding
+				}
+				if distance_to_object(lockOnTarget) < range && lockOnTarget.isPreparingAttack && willDodge && isMeleeAttack {
 				
 					// the more agile the enemy, the better chance it will dodge when player is almost done preparing attack
 					randomize();
@@ -457,7 +474,7 @@ switch(state) {
 					// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) || wallsBetweenTarget != noone : 
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]);
-				if pred {
+				if pred && !isStrafing {
 					if wallsBetweenTarget == noone {
 						facingDirection = point_direction(x,y,global.player.x,global.player.y);
 					} else {
@@ -471,18 +488,71 @@ switch(state) {
 						path_start(path,functionalSpeed,path_action_stop, false);
 						break;
 					}
-				} else {
+				}
+				// within range for attack
+				else {
 					path_end();
 					hasCalculatedWillDodge = false;
 					stupidityFrame = 100 - aggressiveness;
-					if !isFrozen {
-						state = CombatantStates.Attacking;
+					
+					if attackFrequencyFrame == -1 {
+						randomize();
+						attackFrequencyFrame = round(random_range(attackFrequencyTotalFrames[0],attackFrequencyTotalFrames[1]));
+					} else if attackFrequencyFrame == 0 {
+						// check if should enter attack state every x frames (some number between ranges specified in attackFrequencyTotalFrames)
+						// TODO Devin math major
+						randomize();
+						var rand = random_range(1,100);
+						if rand <= aggressiveness {
+							if !isFrozen {
+								state = CombatantStates.Attacking;
+							}
+						}
+						attackFrequencyFrame--;
+					} else {
+						if currentMeleeAttack != noone {
+							// strafe (maybe) and wait
+							if strafeFrame == -1 {
+								randomize();
+								strafeFrame = round(random_range(strafeTotalFrames[0],strafeTotalFrames[1]));
+								// check and see if will strafe this period
+								randomize();
+								var rand = random_range(1,100);
+								if rand <= 50 {
+									isStrafing = true;
+									strafeAngle = point_direction(lockOnTarget.x,lockOnTarget.y,x,y);
+								} else isStrafing = false;
+							} else {
+								if isStrafing {
+									facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
+									strafeAngle += functionalSpeed;
+									/*randomize();
+									var rand = random_range(30,50);
+									var dist = meleeRangeArray[currentMeleeAttack-1];
+									var xx = lockOnTarget.x + lengthdir_x(dist, strafeAngle);
+									var yy = lockOnTarget.y + lengthdir_y(dist, strafeAngle);
+
+									var dir = point_direction(x,y,xx,yy);
+									if !position_meeting(x+lengthdir_x(functionalSpeed,dir),y+lengthdir_y(functionalSpeed,dir),lockOnTarget) {
+										x = x+lengthdir_x(functionalSpeed,dir);
+										y = y+lengthdir_y(functionalSpeed,dir);
+									}*/
+
+									if distance_to_object(lockOnTarget) > meleeRangeArray {
+										strafeFrame = -1;
+										isStrafing = false;
+									}
+								}
+								strafeFrame--;
+							}
+						}
+						attackFrequencyFrame--;
 					}
 					break;
 				}
 			}
 		
-			// TODO these checks maybe should come back
+			// TODO these checks should come back
 			// if no attack is chosen, we're probably heading back to post
 			// check no one is tryna gank us on our way back tho
 			// first check if in melee aggro range

@@ -8,6 +8,7 @@ enum HandItemTypes {
 type = "";
 // Fast | Medium | Slow
 weaponSpeed = "";
+range = 0; // in pixels
 
 charges = 0;
 totalCharges = 0;

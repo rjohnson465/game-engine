@@ -3,6 +3,8 @@ type = HandItemTypes.Melee;
 name = "Unarmed";
 spriteName = "unarmed";
 
+range = 20;
+
 weight = 5;
 staggerDuration = 15; // frames
 staminaCostArray=[5,10];

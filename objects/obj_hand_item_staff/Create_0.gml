@@ -4,6 +4,8 @@ name = "Staff";
 spriteName = "staff";
 itemSprite = spr_item_staff;
 
+range = 30;
+
 weaponSpeed = "Slow";
 isTwoHanded = true;
 // cast stuff

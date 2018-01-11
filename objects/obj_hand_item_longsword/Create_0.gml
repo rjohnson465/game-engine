@@ -4,6 +4,8 @@ name = "Longsword";
 spriteName = "longsword";
 itemSprite = spr_item_longsword;
 
+range = 40;
+
 weaponSpeed = "Medium";
 weight = 10;
 staggerDuration = 25; // frames

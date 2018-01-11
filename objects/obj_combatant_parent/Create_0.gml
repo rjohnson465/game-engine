@@ -69,6 +69,19 @@ isRecovering = false;
 // this is used to tell enemy / ally they were just hit (useful if in idle and out of normal aggro range)
 wasJustHit = false; 
 
+// aggresiveness is how often enemies or allies go to next attack in chain / start an attack chain (0-100%)
+aggressiveness = 0;
+// attackFrequencyFrame is a range of frame values
+// If an enemy or ally has a chosen attack and they are in range of their lockOnTarget,
+// every attackFrequencyTotalFrames they check to see if they enter the Attack state
+attackFrequencyTotalFrames = [0,0];
+attackFrequencyFrame = -1;
+// will strafe for x frames before checking if should strafe again
+strafeTotalFrames = [0,0];
+strafeFrame = -1;
+isStrafing = false;
+strafeAngle = 0;
+
 // dodge stuff
 dodgeDirection = noone;
 dodgeFrame = 0;
