@@ -37,10 +37,10 @@ hasHands = true;
 unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 equippedItems = ds_map_create();
 ds_map_add(equippedItems,EquipmentSlots.Head,noone);
-ds_map_add(equippedItems,EquipmentSlots.LeftHand1,instance_create_depth(x,y,1,obj_hand_item_longsword));
+ds_map_add(equippedItems,EquipmentSlots.LeftHand1,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 ds_map_add(equippedItems,EquipmentSlots.LeftHand2,unarmed);
 ds_map_add(equippedItems,EquipmentSlots.RightHand1,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_map_add(equippedItems,EquipmentSlots.RightHand2,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_map_add(equippedItems,EquipmentSlots.RightHand2,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 ds_map_add(equippedItems,EquipmentSlots.LeftRing1,noone);
 ds_map_add(equippedItems,EquipmentSlots.LeftRing2,noone);
 ds_map_add(equippedItems,EquipmentSlots.RightRing1,noone);
@@ -81,8 +81,8 @@ hp = 75;
 maxHp = 100;
 hpRegen = .5; // per second
 stamina = 100;
-maxStamina = 100;
-staminaRegen = 15; // per second
+maxStamina = 30;
+staminaRegen = 5; // per second
 
 /*// attributes
 strength = 10;

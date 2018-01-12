@@ -698,7 +698,7 @@
             "Key": "67fd232f-a557-4fdd-a58a-68c10e0dee5e",
             "Value": {
                 "id": "74ed90dc-10f8-4827-b031-037e30f93f9f",
-                "resourcePath": "sprites\\spr_player_shortbow_recover_1_1\\spr_player_shortbow_recover_1_1.yy",
+                "resourcePath": "sprites\\spr_player_shortbow_recover_1\\spr_player_shortbow_recover_1.yy",
                 "resourceType": "GMSprite"
             }
         },

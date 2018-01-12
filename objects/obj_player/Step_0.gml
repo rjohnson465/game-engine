@@ -71,7 +71,7 @@ if !isMoveInputReceived && state == CombatantStates.Moving {
 	state = CombatantStates.Idle;
 }
 
-if state != CombatantStates.Staggering && !isAttacking && !isRecovering && !isMouseInMenu {
+if state != CombatantStates.Staggering && !isMouseInMenu {
 	// player faces mouse if not locked on
 	facingDirection = point_direction(x,y,mouse_x,mouse_y);
 	// otherwise, player always faces locked on enemy
@@ -214,13 +214,8 @@ switch(state) {
 		
 		// melee / ranged
 		
-		/*var LEFTRELEASED = mouse_check_button_pressed(mb_left);
+		var LEFTRELEASED = mouse_check_button_pressed(mb_left);
 		var RIGHTRELEASED = mouse_check_button_pressed(mb_right);
-		if LEFTRELEASED || RIGHTRELEASED {
-				attackAgain = true;
-				attackAgainSameSide = (LEFTRELEASED && currentAttackingHand == "l") || 
-									(RIGHTRELEASED && currentAttackingHand == "r") ? true: false;
-			}*/
 		
 		// iterate over preparing hands 
 		// if they just started preparing, need to assign prepare frames / total frames
@@ -254,14 +249,10 @@ switch(state) {
 						instance_create_depth(x,y,1,obj_attack_parent);
 					}
 					else {
-						//prepAnimationFrame = prepAnimationTotalFrames - 1;
+						ds_map_replace(prepFrames,hand,prepFrame-1);
 						isReadyToFire = true;
 					}
 				} 
-				// else, we need to increment the prepFrame 
-				else {
-					//ds_map_replace(prepFrames,hand,prepFrame+1); // maybe do this in Draw event
-				}
 				
 				hand = ds_map_find_next(preparingHands,hand);
 			}
@@ -304,13 +295,9 @@ switch(state) {
 						ds_map_replace(attackAgain,hand,false);
 					} 
 					else if ds_map_size(preparingHands) == 0 && ds_map_size(attackingHands) == 0 && ds_map_size(recoveringHands) == 0 {
-						//attackAgain = false;
-						//attackAgainSameSide = false;
 						state = CombatantStates.Idle;
 						break;
 					} 
-				} else {
-					//ds_map_replace(recoverFrames,hand,recoverFrame+1); // maybe do this in Draw event
 				}
 			}
 		}
@@ -387,50 +374,20 @@ switch(state) {
 			speed = 2;
 		}*/
 		
-		// basic attack sequence 
-		/*if	prepAnimationFrame >= prepAnimationTotalFrames
-			{
-			if ( !(attackType == HandItemTypes.Ranged && rightHandItem.isTwoHanded)) {
-				speed = 0;
-				prepAnimationFrame = -1;
-				prepAnimationTotalFrames = 0;
-				isPreparingAttack = false;
-				isAttacking = true;
-				stamina -= currentAttackingHandItem.staminaCostArray[global.playerAttackNumberInChain-1];
-				global.owner = id;
-				instance_create_depth(x,y,1,obj_attack_parent);
-			}
-			else {
-				prepAnimationFrame = prepAnimationTotalFrames - 1;
-				isReadyToFire = true;
-			}
-		}*/
-		
-		// TODO range
+		// this is a 2h ranged weapon, so handSide must be "r"
 		if isReadyToFire && LEFTRELEASED && stamina > 0 {
 			speed = 0;
-			prepAnimationFrame = -1;
-			prepAnimationTotalFrames = 0;
-			isPreparingAttack = false;
+			var attackInChain = ds_map_find_value(preparingHands,"r"); // pretty sure this is always gonna be 1
+			ds_map_replace(prepFrames,"r",-1);
+			ds_map_replace(prepFrameTotals,"r",0);
 			isReadyToFire = false;
-			//isAttacking = true;
-			stamina -= currentAttackingHandItem.staminaCostArray[global.playerAttackNumberInChain-1];
+			ds_map_replace(attackingHands,"r",attackInChain);
+			stamina -= rightHandItem.staminaCostArray[attackInChain-1];
+			ds_map_delete(preparingHands,"r");
 			global.owner = id;
+			global.handSide = "r";
 			instance_create_depth(x,y,1,obj_attack_parent);
-			
 		}
-		
-		/*// attack animation frame logic shit is in attack_parent
-		if recoverAnimationFrame >= recoverAnimationTotalFrames {
-			recoverAnimationFrame = -1;
-			recoverAnimationTotalFrames = 0
-			global.playerAttackNumberInChain = 1;
-			isRecovering = false;
-			currentAttackingHand = noone;
-			attackAgain = false;
-			attackAgainSameSide = false;
-			state = CombatantStates.Idle;
-		}*/
 		break;
 	}
 }

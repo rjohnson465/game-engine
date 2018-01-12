@@ -2,16 +2,20 @@ if !isMouseInMenu {
 
 	if rightHandItem.type == HandItemTypes.Ranged && rightHandItem.isTwoHanded {
 		isReadyToFire = false;
-		isPreparingAttack = false;
-		prepAnimationFrame = 0;
-		currentAttackingHand = noone;
+		ds_map_delete(preparingHands,"r");
+		ds_map_replace(prepFrames,"r",-1);
+		ds_map_replace(prepFrameTotals,"r",0);
+		ds_map_delete(attackingHands,"r");
+		ds_map_delete(recoveringHands,"r");
+		//isPreparingAttack = false;
+		//prepAnimationFrame = 0;
+		//currentAttackingHand = noone;
 		state = CombatantStates.Idle;
 	}
 	else if
 		stamina > 0 &&
 		(state != CombatantStates.Dodging || state != CombatantStates.Staggering) {
 			isShielding = false;
-			//currentAttackingHand = "r";
 			// if recovering left hand weapon or if left hand not in use at all
 			var isRightHandInUse = 
 				ds_map_find_value(preparingHands,"r") != undefined 
