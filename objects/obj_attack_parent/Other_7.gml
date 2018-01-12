@@ -17,7 +17,7 @@ if isMelee {
 	//owner.recoverAnimationFrame = 0;
 	ds_map_replace(owner.recoverFrames,handSide,0);
 	
-	ds_map_add(owner.recoveringHands,handSide,attackInChain);
+	ds_map_replace(owner.recoveringHands,handSide,attackInChain);
 	owner.prevAttackHand = handSide;
 	//owner.isAttacking = false;
 	//owner.isRecovering = true;

@@ -62,9 +62,11 @@ else {
 		//attackNumberInChain = owner.attackNumberInChain;
 		attackNumberInChain = ds_map_find_value(owner.attackingHands,handSide);
 	} else {
-		attackNumber = global.playerAttackNumberInChain;
-		attackNumberInChain = global.playerAttackNumberInChain;
-		weapon = owner.currentAttackingHand == "l" ? owner.leftHandItem : owner.rightHandItem;
+		//attackNumber = global.playerAttackNumberInChain;
+		//attackNumberInChain = global.playerAttackNumberInChain;
+		attackNumber = ds_map_find_value(owner.attackingHands,handSide);
+		attackNumberInChain = ds_map_find_value(owner.attackingHands,handSide);
+		weapon = handSide == "l" ? owner.leftHandItem : owner.rightHandItem;
 		isRanged = weapon.type == HandItemTypes.Ranged;
 		isMelee = weapon.type == HandItemTypes.Melee;
 	}
@@ -76,7 +78,6 @@ else {
 	// get current attacking hand item sprite name (or "")
 	attackItemSprite = "";
 	if owner.hasHands {
-		//weapon = owner.currentAttackingHand == "l" ? owner.leftHandItem : owner.rightHandItem;
 		attackItemSprite = handSide == "l" ? "_"+owner.leftHandItem.spriteName : "_"+owner.rightHandItem.spriteName;
 	} else attackItemSprite = ""; // TODO for enemies without hands
 
@@ -94,8 +95,7 @@ else {
 
 	sprite_index = asset_get_index(sprStr);
 	
-	
-	//if (weapon && weapon.type == HandItemTypes.Ranged) || isRanged {
+	// ranged attacks TODO for player
 	if isRanged {
 		if weapon {
 			speed = weapon.projectileSpeed;

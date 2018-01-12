@@ -3,7 +3,6 @@
 if type != CombatantTypes.Player {
 	mp_grid_clear_all(personalGrid);
 	mp_grid_add_instances(personalGrid,obj_wall_parent,true);
-	//var combatants = script_execute(scr_get_ids_region,obj_enemy_parent,x-sprite_width,y-sprite_height,x+sprite_width,x+sprite_height);
 	var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
 	for (var i = 0; i < ds_list_size(combatants); i++) {
 		var ci = ds_list_find_value(combatants,i);
@@ -775,9 +774,9 @@ switch(state) {
 						stamina -= currentAttackingHandItem.staminaCostArray[attackInChain-1];
 						//var pos = ds_map_(preparingHands,currentPrepFrames);
 						ds_map_delete(preparingHands,currentPrepFrames);
-						if ds_map_find_value(attackingHands,currentPrepFrames) == undefined {
+						/*if ds_map_find_value(attackingHands,currentPrepFrames) == undefined {
 							ds_map_add(attackingHands,currentPrepFrames,attackInChain);
-						} else ds_map_replace(attackingHands,currentPrepFrames,attackInChain);
+						} else*/ ds_map_replace(attackingHands,currentPrepFrames,attackInChain);
 					}
 					// this might be faintly retarded
 					global.owner = id; // passed as param to attackObj

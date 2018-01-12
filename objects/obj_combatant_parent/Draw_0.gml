@@ -24,7 +24,6 @@ if state == CombatantStates.Dodging {
 		
 		if hasHands {
 			
-			//var d = ds_list_find_value(preparingHands,"r");
 			var isRightHandInUse = ds_map_find_value(preparingHands,"r") != undefined || ds_map_find_value(recoveringHands,"r") != undefined || ds_map_find_value(attackingHands,"r") != undefined;
 			var isLeftHandInUse = ds_map_find_value(preparingHands,"l") != undefined || ds_map_find_value(recoveringHands,"l") != undefined || ds_map_find_value(attackingHands,"l") != undefined;
 			
@@ -53,9 +52,6 @@ if state == CombatantStates.Attacking {
 	
 	if spriteType != "player" {
 		var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
-		/*if hasHands {
-			var currentAttackingHandItemSprite = currentAttackingHand == "l" ? "_"+leftHandItem.spriteName : "_"+rightHandItem.spriteName;
-		} else var currentAttackingHandItemSprite = "";*/
 		
 		// draw attack prep hand animation
 		if ds_map_size(preparingHands) != 0 {
@@ -66,7 +62,6 @@ if state == CombatantStates.Attacking {
 			
 			for (var i = 0; i < ds_map_size(preparingHands); i++) {
 				var attackInChain = ds_map_find_value(preparingHands,hand);
-				//var hand = ds_list_find_value(preparingHands,i); // l or r
 				var prepHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			
 				var prepSprite = asset_get_index("spr_"+spriteString+prepHandItemSprite+"_prep_"+string(attackNumber)+"_"+string(attackInChain));
@@ -90,60 +85,12 @@ if state == CombatantStates.Attacking {
 				hand = ds_map_find_next(preparingHands, hand);
 			}
 		}
-		
-		//if isPreparingAttack && prepAnimationFrame < prepAnimationTotalFrames {
-		/*if ds_list_size(preparingHands) != 0 {
-			var isLeftHandPreparing = ds_list_find_value(preparingHands,"l");
-			var isRightHandPreparing = ds_list_find_value(preparingHands,"r");
-			
-			var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
-			if attackNumberInChain == noone {
-				attackNumberInChain = 1; // ??? -- BANDAID, need to improve
-			}
-			
-			var prepSprite = asset_get_index("spr_"+spriteString+currentAttackingHandItemSprite+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));
-			
-			// right hand 
-			//if (currentAttackingHand == "r") {
-			if isRightHandPreparing {
-				var frame = ds_map_find_value(prepFrames,"r");
-				draw_sprite_ext(prepSprite,frame,x,y,1,1,facingDirection,c_white,1);
-			}
-			// left hand
-			else if isLeftHandPreparing {
-				var frame = ds_map_find_value(prepFrames,"l");
-				draw_sprite_ext(prepSprite,frame,x,y,1,-1,facingDirection,c_white,1);
-			}
-			if isSlowed {
-				var percentSpeed = functionalSpeed / normalSpeed;
-				if isRightHandPreparing {
-					var currentVal = ds_map_find_value(prepFrames,"r");
-					ds_map_replace(prepFrames,"r",currentVal+percentSpeed);
-				} else {
-					var currentVal = ds_map_find_value(prepFrames,"l");
-					ds_map_replace(prepFrames,"l",currentVal+percentSpeed);
-				}
-				//prepAnimationFrame += percentSpeed;
-			} else {
-				
-				if isRightHandPreparing {
-					var currentVal = ds_map_find_value(prepFrames,"r");
-					ds_map_replace(prepFrames,"r",currentVal+1);
-				} else {
-					var currentVal = ds_map_find_value(prepFrames,"l");
-					ds_map_replace(prepFrames,"l",currentVal+1);
-				}
-				
-				//prepAnimationFrame++;
-			}
-		}*/
-		
+	
 		// draw recover prep hand animation
 		if ds_map_size(recoveringHands) != 0 {
 			var hand = ds_map_find_first(recoveringHands); // l or r
 			
 			for (var i = 0; i < ds_map_size(recoveringHands); i++) {
-				//var hand = ds_list_find_value(recoveringHands,i); // l or r
 				var attackInChain = ds_map_find_value(recoveringHands,hand);
 				
 				if attackInChain == 1 {
@@ -173,49 +120,6 @@ if state == CombatantStates.Attacking {
 				hand = ds_map_find_next(recoveringHands,hand);
 			}
 		}
-	
-		// draw recover hand animation
-		//if isRecovering && recoverAnimationFrame < recoverAnimationTotalFrames {
-		/*if ds_list_size(recoveringHands) != 0 {
-			var isLeftHandRecovering = ds_list_find_value(recoveringHands,"l");
-			var isRightHandRecovering = ds_list_find_value(recoveringHands,"r");
-		
-			var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
-			var recoverSprite = asset_get_index("spr_"+spriteString+currentAttackingHandItemSprite+"_recover_"+string(attackNumber)+"_"+string(attackNumberInChain));
-			// right hand 
-			//if (currentAttackingHand == "r") {
-			if isRightHandRecovering {
-				var frame = ds_map_find_value(recoverFrames,"r");
-				draw_sprite_ext(recoverSprite,frame,x,y,1,1,facingDirection,c_white,1);
-			}
-			// left hand
-			else if isLeftHandRecovering {
-				var frame = ds_map_find_value(recoverFrames,"l");
-				draw_sprite_ext(recoverSprite,frame,x,y,1,-1,facingDirection,c_white,1);
-			}
-			if isSlowed {
-				var percentSpeed = functionalSpeed / normalSpeed;
-				if isRightHandRecovering {
-					var currentVal = ds_map_find_value(recoverFrames,"r");
-					ds_map_replace(recoverFrames,"r",currentVal+percentSpeed);
-				} else {
-					var currentVal = ds_map_find_value(recoverFrames,"l");
-					ds_map_replace(recoverFrames,"l",currentVal+percentSpeed);
-				}
-				//recoverAnimationFrame += percentSpeed;
-			} else {
-				
-				if isRightHandRecovering {
-					var currentVal = ds_map_find_value(recoverFrames,"r");
-					ds_map_replace(recoverFrames,"r",currentVal+1);
-				} else {
-					var currentVal = ds_map_find_value(recoverFrames,"l");
-					ds_map_replace(recoverFrames,"l",currentVal+1);
-				}
-				
-				//recoverAnimationFrame++;
-			}
-		}*/
 	}
 }
 

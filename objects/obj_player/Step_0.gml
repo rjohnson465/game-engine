@@ -213,7 +213,100 @@ switch(state) {
 		}
 		
 		// melee / ranged
-		var currentAttackingHandItem = currentAttackingHand == "l" ? leftHandItem : rightHandItem;
+		
+		/*var LEFTRELEASED = mouse_check_button_pressed(mb_left);
+		var RIGHTRELEASED = mouse_check_button_pressed(mb_right);
+		if LEFTRELEASED || RIGHTRELEASED {
+				attackAgain = true;
+				attackAgainSameSide = (LEFTRELEASED && currentAttackingHand == "l") || 
+									(RIGHTRELEASED && currentAttackingHand == "r") ? true: false;
+			}*/
+		
+		// iterate over preparing hands 
+		// if they just started preparing, need to assign prepare frames / total frames
+		// if they are finishing preparing, need to create attack objects
+		if ds_map_size(preparingHands) != 0 {
+			var hand = ds_map_find_first(preparingHands);
+			for (var i = 0; i < ds_map_size(preparingHands); i++) {
+				var weapon = hand == "l" ? leftHandItem : rightHandItem;
+				var attackInChain = ds_map_find_value(preparingHands,hand);
+				
+				var prepFrame = ds_map_find_value(prepFrames,hand);
+				var prepFrameTotal = ds_map_find_value(prepFrameTotals,hand);
+				// check if this hand just started preparing attack
+				if prepFrame == -1 {
+					ds_map_replace(prepFrames,hand,0);
+					var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
+					var prepSprite = asset_get_index("spr_player_"+itemSprite+"_prep_"+string(attackInChain));
+					ds_map_replace(prepFrameTotals,hand,sprite_get_number(prepSprite));
+				}
+				// if at the end of attack preparation, we need to create an attack object (slightly different process for ranged vs melee) 
+				else if prepFrame >= prepFrameTotal {
+					if ( !(weapon.type == HandItemTypes.Ranged && rightHandItem.isTwoHanded)) {
+						speed = 0;
+						ds_map_replace(prepFrames,hand,-1);
+						ds_map_replace(prepFrameTotals,hand,0);
+						ds_map_delete(preparingHands,hand);
+						ds_map_replace(attackingHands,hand,attackInChain);
+						stamina -= weapon.staminaCostArray[attackInChain-1];
+						global.owner = id;
+						global.handSide = hand;
+						instance_create_depth(x,y,1,obj_attack_parent);
+					}
+					else {
+						//prepAnimationFrame = prepAnimationTotalFrames - 1;
+						isReadyToFire = true;
+					}
+				} 
+				// else, we need to increment the prepFrame 
+				else {
+					//ds_map_replace(prepFrames,hand,prepFrame+1); // maybe do this in Draw event
+				}
+				
+				hand = ds_map_find_next(preparingHands,hand);
+			}
+		}
+		
+		// iterate over recovering hands
+		// if they just started recovering, need to assign recover frames / total frames
+		// if they just finished recovering, need to check if we need to leave attack state
+		if ds_map_size(recoveringHands) != 0 {
+			var hand = ds_map_find_first(recoveringHands);
+			for (var i = 0; i < ds_map_size(recoveringHands); i++) {
+				var weapon = hand == "l" ? leftHandItem : rightHandItem;
+				var attackInChain = ds_map_find_value(recoveringHands,hand);
+				var recoverFrame = ds_map_find_value(recoverFrames,hand);
+				var recoverFrameTotal = ds_map_find_value(recoverFrameTotals,hand);
+				
+				// check if this hand just started recovering attack
+				if recoverFrame == -1 {
+					ds_map_delete(attackingHands,hand);
+					ds_map_replace(recoverFrames,hand,0);
+					var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
+					var recoverSprite = asset_get_index("spr_player_"+itemSprite+"_recover_"+string(attackInChain));
+					ds_map_replace(recoverFrameTotals,hand,sprite_get_number(recoverSprite));
+				}
+				// if at end of recover, we may need to leave attack state (if no other hands are recovering or preparing or attacking)
+				else if recoverFrame >= recoverFrameTotal {
+					// no matter what, we need to remove this hand from recoveringHands and reset frame values
+					ds_map_delete(attackingHands,hand);
+					ds_map_replace(recoverFrames,hand,-1);
+					ds_map_replace(recoverFrameTotals,hand,0);
+					ds_map_delete(recoveringHands,hand);
+					
+					if ds_map_size(preparingHands) == 0 && ds_map_size(attackingHands) == 0 && ds_map_size(recoveringHands) == 0 {
+						attackAgain = false;
+						attackAgainSameSide = false;
+						state = CombatantStates.Idle;
+					}
+				} else {
+					//ds_map_replace(recoverFrames,hand,recoverFrame+1); // maybe do this in Draw event
+				}
+			}
+		}
+		
+		
+		/*var currentAttackingHandItem = currentAttackingHand == "l" ? leftHandItem : rightHandItem;
 		var attackType = currentAttackingHandItem.type;
 		var weaponString = currentAttackingHandItem.spriteName;
 		// melee (maybe also ranged idk TODO)
@@ -222,23 +315,16 @@ switch(state) {
 			prepAnimationTotalFrames = sprite_get_number(prepSprite);
 			prepAnimationFrame = 0;
 			isPreparingAttack = true;
-		}
-		
-		var LEFTRELEASED = mouse_check_button_pressed(mb_left);
-		var RIGHTRELEASED = mouse_check_button_pressed(mb_right);
+		}*/
 					
 		// if attacking or preparing to attack and the user clicks again, we gonna attack again after this attack (if another attack in chain exists)
-		if isAttacking || isPreparingAttack || isRecovering {
+		//if isAttacking || isPreparingAttack || isRecovering {
 		
-			if LEFTRELEASED || RIGHTRELEASED {
-				attackAgain = true;
-				attackAgainSameSide = (LEFTRELEASED && currentAttackingHand == "l") || 
-									(RIGHTRELEASED && currentAttackingHand == "r") ? true: false;
-			}
-		}
+			
+		//}
 		
 		// if recovering but mouse button was clicked during last attack/prep phase, attack again
-		if isRecovering && attackAgain {
+		/*if isRecovering && attackAgain {
 			var nonAttackingHandItem = currentAttackingHand == "l" ? rightHandItem : leftHandItem;
 			if 
 				asset_get_index("spr_player_"+weaponString+"_prep_"+string(global.playerAttackNumberInChain+1)) != -1
@@ -270,8 +356,9 @@ switch(state) {
 					attackAgain = false;
 					break;
 				}
-		}
+		}*/
 		
+		/*
 		speed = 0;
 		// move back a bit while prepping melee attack, if not going to hit solid object
 		var x1 = x +lengthdir_x(-.5,facingDirection);
@@ -288,10 +375,10 @@ switch(state) {
 		if isAttacking && currentAttackingHandItem.type == HandItemTypes.Melee && !(place_meeting(x1,y1,obj_solid_parent)) {
 			direction = facingDirection;
 			speed = 2;
-		}
+		}*/
 		
 		// basic attack sequence 
-		if	prepAnimationFrame >= prepAnimationTotalFrames
+		/*if	prepAnimationFrame >= prepAnimationTotalFrames
 			{
 			if ( !(attackType == HandItemTypes.Ranged && rightHandItem.isTwoHanded)) {
 				speed = 0;
@@ -307,8 +394,9 @@ switch(state) {
 				prepAnimationFrame = prepAnimationTotalFrames - 1;
 				isReadyToFire = true;
 			}
-		}
+		}*/
 		
+		// TODO range
 		if isReadyToFire && LEFTRELEASED && stamina > 0 {
 			speed = 0;
 			prepAnimationFrame = -1;
@@ -322,7 +410,7 @@ switch(state) {
 			
 		}
 		
-		// attack animation frame logic shit is in attack_parent
+		/*// attack animation frame logic shit is in attack_parent
 		if recoverAnimationFrame >= recoverAnimationTotalFrames {
 			recoverAnimationFrame = -1;
 			recoverAnimationTotalFrames = 0
@@ -332,7 +420,7 @@ switch(state) {
 			attackAgain = false;
 			attackAgainSameSide = false;
 			state = CombatantStates.Idle;
-		}
+		}*/
 		break;
 	}
 }
