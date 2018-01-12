@@ -5,6 +5,7 @@ image_angle = owner.facingDirection;
 originalDirection = owner.facingDirection;
 facingDirection = owner.facingDirection;
 weapon = noone;
+handSide = global.handSide; // l, r, or empty string (no hands)
 isSpell = false;
 isRanged = false;
 isMelee = false;
@@ -68,24 +69,25 @@ else {
 	}
 
 	if isMelee && owner.isSlowed {
-		image_speed = .5;
+		image_speed = .5; // TODO
 	}
 	
 	// get current attacking hand item sprite name (or "")
+	attackItemSprite = "";
 	if owner.hasHands {
 		//weapon = owner.currentAttackingHand == "l" ? owner.leftHandItem : owner.rightHandItem;
-		currentAttackingHandItemSprite = owner.currentAttackingHand == "l" ? "_"+owner.leftHandItem.spriteName : "_"+owner.rightHandItem.spriteName;
-	} else currentAttackingHandItemSprite = ""; // TODO for enemies without hands
+		attackItemSprite = handSide == "l" ? "_"+owner.leftHandItem.spriteName : "_"+owner.rightHandItem.spriteName;
+	} else attackItemSprite = ""; // TODO for enemies without hands
 
 
 	// get sprite string -- physical attacks
-	var sprStr = "spr_"+owner.spriteString+currentAttackingHandItemSprite+"_attack_"+string(attackNumber);
+	var sprStr = "spr_"+owner.spriteString+attackItemSprite+"_attack_"+string(attackNumber);
 	if owner.type != CombatantTypes.Player {
 		sprStr += "_"+string(owner.attackNumberInChain);
 	}
 
 	// if this is a left hand attack, flip yscale
-	if owner.hasHands && owner.currentAttackingHand == "l" {
+	if owner.hasHands && handSide == "l" {
 		image_yscale = -1;
 	}
 
@@ -102,15 +104,17 @@ else {
 		direction = owner.facingDirection;
 		facingDirection = direction; // facingDirection property needed for is_facing script
 	
-		var recoverSprite = asset_get_index("spr_"+owner.spriteString+currentAttackingHandItemSprite+"_recover_"+string(attackNumber));
+		var recoverSprite = asset_get_index("spr_"+owner.spriteString+attackItemSprite+"_recover_"+string(attackNumber));
 		if owner.type != CombatantTypes.Player {
-			var sprStr = "spr_"+owner.spriteString+currentAttackingHandItemSprite+"_recover_"+string(attackNumber)+"_"+string(owner.attackNumberInChain);
+			var sprStr = "spr_"+owner.spriteString+attackItemSprite+"_recover_"+string(attackNumber)+"_"+string(owner.attackNumberInChain);
 			var recoverSprite = asset_get_index(sprStr);
 		}
 	
 		owner.stupidityFrame = 0;
-		owner.recoverAnimationTotalFrames = sprite_get_number(recoverSprite);
-		owner.recoverAnimationFrame = 0;
+		ds_map_replace(owner.recoverFrameTotals,handSide,sprite_get_number(recoverSprite));
+		//owner.recoverAnimationTotalFrames = sprite_get_number(recoverSprite);
+		ds_map_replace(owner.recoverFrames,handSide,0);
+		//owner.recoverAnimationFrame = 0;
 		owner.isAttacking = false;
 		owner.isRecovering = true;
 	}

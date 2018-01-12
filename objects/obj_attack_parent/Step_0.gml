@@ -39,9 +39,9 @@ if isSpell {
 		y = owner.y;
 	}
 
-	if	(owner.state == CombatantStates.Staggering 
-		|| owner.isPreparingAttack 
-		|| owner.isRecovering)
+	if	owner.state == CombatantStates.Staggering 
+		//|| owner.isPreparingAttack 
+		//|| owner.isRecovering
 	{
 		//if !weapon || weapon.type != HandItemTypes.Ranged {
 		if isMelee || isSpell {

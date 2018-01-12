@@ -81,6 +81,8 @@ var meleeDamages0 = ds_map_create();
 ds_map_add(meleeDamages0,ICE,[10,20,1,1]);
 //ds_map_add(meleeDamages0,POISON,[50,75,25,25]);
 meleeDamages[0] = meleeDamages0;
+// sprite string for each attack in chain <base>+number
+meleeAttacksSpriteChain[0] = [["unarmed",1,1], ["unarmed",1,1]];
 
 // melee attack chain 1 damages
 //ds_map_add(damages,PHYSICAL+"1",[10,20,25,25]);
@@ -90,7 +92,7 @@ meleeDamages[0] = meleeDamages0;
 meleeAttacksStaggerDuration[0] = [15,30];
 
 // ranged attacks info
-rangedAttacksCount = 1; 
+rangedAttacksCount = 0; 
 if rangedAttacksCount == 0 {
 	rangedAggroRange = noone;
 }

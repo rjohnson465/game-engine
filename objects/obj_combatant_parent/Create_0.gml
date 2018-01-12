@@ -49,11 +49,28 @@ state = CombatantStates.Idle;
 // general hands stuff
 hasHands = true;
 currentAttackingHand = noone; // "l" or "r"
-//currentRecoveringHand = noone;
-isRightHandPreparing = false;
-isLeftHandPreparing = false;
-isRightHandRecovering = false;
-isLeftHandRecovering = false;
+
+// preparing/attacking/recovering hand: kvp are hand|attackNumberInChain
+preparingHands = ds_map_create();
+attackingHands = ds_map_create();
+recoveringHands = ds_map_create();
+
+prepFrames = ds_map_create();
+prepFrameTotals = ds_map_create();
+ds_map_add(prepFrames,"l",-1);
+ds_map_add(prepFrames,"r",-1);
+ds_map_add(prepFrameTotals,"r",-1);
+ds_map_add(prepFrameTotals,"r",-1);
+recoverFrames = ds_map_create();
+recoverFrameTotals = ds_map_create();
+ds_map_add(recoverFrames,"l",-1);
+ds_map_add(recoverFrames,"r",-1);
+ds_map_add(recoverFrameTotals,"l",-1);
+ds_map_add(recoverFrameTotals,"r",-1);
+prevAttackHand = noone;
+
+attackNumberInChain = noone;
+
 // weapons and shields
 // map: key values are handSide/type/index 
 // i.e. a longsword on right hand for melee set 1 is rm1: <longsword object>

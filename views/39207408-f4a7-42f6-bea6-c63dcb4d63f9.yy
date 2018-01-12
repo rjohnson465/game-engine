@@ -15,7 +15,13 @@
         "8eea9780-99f2-4a2d-b14f-11e62900e138",
         "d9839e1f-d8df-4ada-8f84-817f23acc6a9",
         "44bb5134-9780-4928-a9dc-ede1906b563c",
-        "4581ba85-adb3-4489-933e-372e60183f92"
+        "4581ba85-adb3-4489-933e-372e60183f92",
+        "559abbd8-3c0c-4d7d-a516-4f064e326e7b",
+        "f29e11a6-ac97-4485-9941-0304649d716f",
+        "f776619f-ca62-465c-a352-d7d8bf6aa262",
+        "c506c391-1e1e-4f0f-af53-e6e1af14c0a5",
+        "6067e0ed-d5e7-4af2-a994-864fe7efb42a",
+        "bfd8ea63-cd52-41b7-88ac-9510e8aeb62c"
     ],
     "filterType": "GMSprite",
     "folderName": "hands",
