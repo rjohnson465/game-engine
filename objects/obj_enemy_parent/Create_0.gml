@@ -81,7 +81,7 @@ meleeAttacksSpriteChain[0] = [["unarmed",1,1], ["unarmed",1,1]];
 var meleeDamages1 = ds_map_create();
 ds_map_add(meleeDamages1,PHYSICAL,[10,20,15,25]);
 ds_map_add(meleeDamages1,FIRE,[0,0,3,6]);
-meleeDamages[1] = ds_map_create();
+meleeDamages[1] = meleeDamages1;
 meleeAttacksSpriteChain[1] = [["unarmed",1,1], ["unarmed",1,2]];
 
 // 2d array needs to be set manually for EVERY enemy

@@ -315,9 +315,9 @@ switch(state) {
 			lockOnTarget = instance_nearest(x,y,lockOnTargetType);
 			currentRangedAttack = noone;
 			attackNumberInChain = noone;
-			//randomize();
-			//currentMeleeAttack = round(random_range(1,meleeAttacksCount));
-			currentMeleeAttack = 2;
+			randomize();
+			currentMeleeAttack = round(random_range(1,meleeAttacksCount));
+			//currentMeleeAttack = 2;
 			// close enough to hear, but maybe not see. turn to face the direction of the noise
 			facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 			var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
