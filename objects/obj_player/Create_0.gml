@@ -52,11 +52,13 @@ rightHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.Ri
 
 // attack states
 global.playerAttackNumberInChain = 1; // in chain
-isPreparingAttack = false;
+/*isPreparingAttack = false;
 isAttacking = false;
 isRecovering = false;
 attackAgain = false; // boolean that says whether to attack again (when possible) even if already attacking
-attackAgainSameSide = false;
+attackAgainSameSide = false;*/
+// <handSide><bool> kvp's
+attackAgain = ds_map_create();
 isReadyToFire = false; // ranged only boolean
 
 // dodge stuff
@@ -78,9 +80,9 @@ LOCK_ON_DISTANCE = 800;
 hp = 75;
 maxHp = 100;
 hpRegen = .5; // per second
-stamina = 30;
-maxStamina = 30;
-staminaRegen = 5; // per second
+stamina = 100;
+maxStamina = 100;
+staminaRegen = 15; // per second
 
 /*// attributes
 strength = 10;

@@ -269,7 +269,7 @@ switch(state) {
 		
 		// iterate over recovering hands
 		// if they just started recovering, need to assign recover frames / total frames
-		// if they just finished recovering, need to check if we need to leave attack state
+		// if they just finished recovering, need to check if we need to leave attack state or if we need to attack with that hand again
 		if ds_map_size(recoveringHands) != 0 {
 			var hand = ds_map_find_first(recoveringHands);
 			for (var i = 0; i < ds_map_size(recoveringHands); i++) {
@@ -294,11 +294,21 @@ switch(state) {
 					ds_map_replace(recoverFrameTotals,hand,0);
 					ds_map_delete(recoveringHands,hand);
 					
-					if ds_map_size(preparingHands) == 0 && ds_map_size(attackingHands) == 0 && ds_map_size(recoveringHands) == 0 {
-						attackAgain = false;
-						attackAgainSameSide = false;
+					if ds_map_find_value(attackAgain,hand) {
+						// make sure there IS a next attack for this item
+						var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
+						var prepSprite = asset_get_index("spr_player_"+itemSprite+"_prep_"+string(attackInChain+1));
+						if prepSprite != -1 {
+							ds_map_replace(preparingHands,hand,attackInChain+1);
+						}
+						ds_map_replace(attackAgain,hand,false);
+					} 
+					else if ds_map_size(preparingHands) == 0 && ds_map_size(attackingHands) == 0 && ds_map_size(recoveringHands) == 0 {
+						//attackAgain = false;
+						//attackAgainSameSide = false;
 						state = CombatantStates.Idle;
-					}
+						break;
+					} 
 				} else {
 					//ds_map_replace(recoverFrames,hand,recoverFrame+1); // maybe do this in Draw event
 				}
