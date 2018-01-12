@@ -63,12 +63,13 @@ if state == CombatantStates.Attacking {
 				attackNumberInChain = 1;
 			}
 			var hand = ds_map_find_first(preparingHands); // l or r
+			
 			for (var i = 0; i < ds_map_size(preparingHands); i++) {
-				
+				var attackInChain = ds_map_find_value(preparingHands,hand);
 				//var hand = ds_list_find_value(preparingHands,i); // l or r
 				var prepHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			
-				var prepSprite = asset_get_index("spr_"+spriteString+prepHandItemSprite+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));
+				var prepSprite = asset_get_index("spr_"+spriteString+prepHandItemSprite+"_prep_"+string(attackNumber)+"_"+string(attackInChain));
 				var frame = ds_map_find_value(prepFrames,hand);
 				if hand == "r" {
 					draw_sprite_ext(prepSprite,frame,x,y,1,1,facingDirection,c_white,1);
@@ -140,11 +141,18 @@ if state == CombatantStates.Attacking {
 		// draw recover prep hand animation
 		if ds_map_size(recoveringHands) != 0 {
 			var hand = ds_map_find_first(recoveringHands); // l or r
+			
 			for (var i = 0; i < ds_map_size(recoveringHands); i++) {
 				//var hand = ds_list_find_value(recoveringHands,i); // l or r
+				var attackInChain = ds_map_find_value(recoveringHands,hand);
+				
+				if attackInChain == 1 {
+					var a = 3;					
+				}
+				
 				var recoverHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			
-				var recoverSprite = asset_get_index("spr_"+spriteString+recoverHandItemSprite+"_recover_"+string(attackNumber)+"_"+string(attackNumberInChain));
+				var recoverSprite = asset_get_index("spr_"+spriteString+recoverHandItemSprite+"_recover_"+string(attackNumber)+"_"+string(attackInChain));
 				var frame = ds_map_find_value(recoverFrames,hand);
 				if hand == "r" {
 					draw_sprite_ext(recoverSprite,frame,x,y,1,1,facingDirection,c_white,1);

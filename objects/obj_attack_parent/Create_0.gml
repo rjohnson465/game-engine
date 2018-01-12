@@ -59,7 +59,8 @@ else {
 		isRanged = owner.currentMeleeAttack == noone ? true: false;
 		isMelee = owner.currentMeleeAttack == noone ? false : true;
 		attackNumber = owner.currentMeleeAttack == noone ? owner.currentRangedAttack : owner.currentMeleeAttack;
-		attackNumberInChain = owner.attackNumberInChain;
+		//attackNumberInChain = owner.attackNumberInChain;
+		attackNumberInChain = ds_map_find_value(owner.attackingHands,handSide);
 	} else {
 		attackNumber = global.playerAttackNumberInChain;
 		attackNumberInChain = global.playerAttackNumberInChain;
@@ -106,11 +107,12 @@ else {
 	
 		var recoverSprite = asset_get_index("spr_"+owner.spriteString+attackItemSprite+"_recover_"+string(attackNumber));
 		if owner.type != CombatantTypes.Player {
-			var sprStr = "spr_"+owner.spriteString+attackItemSprite+"_recover_"+string(attackNumber)+"_"+string(owner.attackNumberInChain);
+			var sprStr = "spr_"+owner.spriteString+attackItemSprite+"_recover_"+string(attackNumber)+"_"+string(attackNumberInChain);
 			var recoverSprite = asset_get_index(sprStr);
 		}
 	
 		owner.stupidityFrame = 0;
+		ds_map_add(owner.recoveringHands,handSide,attackNumberInChain);
 		ds_map_replace(owner.recoverFrameTotals,handSide,sprite_get_number(recoverSprite));
 		//owner.recoverAnimationTotalFrames = sprite_get_number(recoverSprite);
 		ds_map_replace(owner.recoverFrames,handSide,0);

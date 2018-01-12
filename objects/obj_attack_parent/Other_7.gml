@@ -13,13 +13,14 @@ if isMelee {
 	var attackInChain = ds_map_find_value(owner.attackingHands,handSide);
 	//ds_map_delete(owner.attackingHands,handSide);
 	ds_map_replace(owner.recoverFrameTotals,handSide,sprite_get_number(recoverSprite));
-	owner.recoverAnimationTotalFrames = sprite_get_number(recoverSprite);
-	owner.recoverAnimationFrame = 0;
+	//owner.recoverAnimationTotalFrames = sprite_get_number(recoverSprite);
+	//owner.recoverAnimationFrame = 0;
 	ds_map_replace(owner.recoverFrames,handSide,0);
 	
 	ds_map_add(owner.recoveringHands,handSide,attackInChain);
-	owner.isAttacking = false;
-	owner.isRecovering = true;
+	owner.prevAttackHand = handSide;
+	//owner.isAttacking = false;
+	//owner.isRecovering = true;
 
 	instance_destroy(id, false);
 }

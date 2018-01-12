@@ -20,8 +20,6 @@ ds_map_add(handItems,"lm1",unarmed);
 ds_map_add(handItems, "rr1",shortbow);
 ds_map_add(handItems, "lr1", unarmed);
 
-//leftHandItem = "unarmed";
-//rightHandItem = "unarmed";
 leftHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 rightHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 
@@ -36,7 +34,7 @@ meleeAggroRange = 200;
 rangedAggroRange = 350;
 farthestAllowedFromPost = 1000;
 attackNumberInChain = noone; // set in attack state
-aggressiveness = 50; // aggressiveness 0-100%, decides how often to keep going with attack chain
+aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [5,15];
 strafeTotalFrames = [30,60];
 hasCalculatedNextAttack = false; // flag to ensure aggresiveness is only factored once between attacks
@@ -51,15 +49,11 @@ recoverAnimationTotalFrames = 0;
 
 // melee attacks info
 // meleeAttacksCount is number of separate attack chains, not individual attacks
-meleeAttacksCount = 1;
-if meleeAttacksCount == 0 {
-	meleeAggroRange = noone;
-}
+meleeAttacksCount = 2;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[15];
-meleeAttacksHands = noone;
+meleeRangeArray=[15,15];
 // need to say from which hand each attack in each attack chain comes from
 if (hasHands) {
 	// index 0:attack 1 - array for each hand in attack chain
@@ -69,33 +63,38 @@ if (hasHands) {
 	// o: other hand (from last attack)
 	// l: left
 	// r: right
-	meleeAttacksHands[0] = ["r", "l"];
+	meleeAttacksHands[0] = ["e", "o"];
+	meleeAttacksHands[1] = ["e", "s"]
 }
 
 // TODO -- handle these with hand item stats (unless no hands for enemy)
 // 2d array needs to be set manually for EVERY enemy
 // attack 1 move 1 min, attack 1 move 1 max, attack 1 move 2 min, attack 1 move 2 max..
 var meleeDamages0 = ds_map_create();
-//ds_map_add(meleeDamages0,PHYSICAL,[10,20,25,25]);
-//ds_map_add(meleeDamages0,LIGHTNING,[1,1,1,1]);
+ds_map_add(meleeDamages0,PHYSICAL,[10,20,10,20]);
 ds_map_add(meleeDamages0,ICE,[10,20,1,1]);
 //ds_map_add(meleeDamages0,POISON,[50,75,25,25]);
 meleeDamages[0] = meleeDamages0;
 // sprite string for each attack in chain <base>+number
 meleeAttacksSpriteChain[0] = [["unarmed",1,1], ["unarmed",1,1]];
 
-// melee attack chain 1 damages
-//ds_map_add(damages,PHYSICAL+"1",[10,20,25,25]);
+var meleeDamages1 = ds_map_create();
+ds_map_add(meleeDamages1,PHYSICAL,[10,20,15,25]);
+ds_map_add(meleeDamages1,FIRE,[0,0,3,6]);
+meleeDamages[1] = ds_map_create();
+meleeAttacksSpriteChain[1] = [["unarmed",1,1], ["unarmed",1,2]];
 
 // 2d array needs to be set manually for EVERY enemy
 // attack 1 move 1 min, attack 1 move 1 max, attack 1 move 2 min, attack 1 move 2 max..
 meleeAttacksStaggerDuration[0] = [15,30];
 
 // ranged attacks info
-rangedAttacksCount = 0; 
+rangedAttacksCount = 1; 
 if rangedAttacksCount == 0 {
 	rangedAggroRange = noone;
 }
+rangedAttacksSpriteChain[0] = [["shortbow",1,1]];
+
 // currently chosen ranged attack
 currentRangedAttack = noone;
 rangedRangeArray=[300];
