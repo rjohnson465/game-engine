@@ -254,6 +254,21 @@ switch(state) {
 					}
 				} 
 				
+				// if preparing an attack and no attacks are happening, move back a bit (if you can)
+				if ds_map_size(attackingHands) == 0 {
+					var x1 = x +lengthdir_x(-.5,facingDirection);
+					var y1 = y +lengthdir_y(-.5,facingDirection);
+		
+					if weapon.type == HandItemTypes.Melee && !place_meeting(x1, y1, obj_solid_parent){
+						direction = facingDirection;
+						speed = -.5;
+					} else {
+						speed = 0;
+					}
+				} else {
+					speed = 0;
+				}
+				
 				hand = ds_map_find_next(preparingHands,hand);
 			}
 		}
@@ -299,6 +314,29 @@ switch(state) {
 						break;
 					} 
 				}
+				
+				hand = ds_map_find_next(recoveringHands,hand);
+			}
+		}
+		
+		// move forward while attacking with a melee attack (if not simultaenously preparing another attack)
+		if ds_map_size(attackingHands) != 0 {
+			var attackingMelee = 
+				(ds_map_find_value(attackingHands,"l") && leftHandItem.type == HandItemTypes.Melee)	||
+				(ds_map_find_value(attackingHands,"r") && rightHandItem.type == HandItemTypes.Melee)
+			if ds_map_size(preparingHands) == 0 {
+				x1 = x + lengthdir_x(2,facingDirection);
+				y1 = y + lengthdir_y(2,facingDirection);
+				var p =  place_meeting(x1,y1,obj_solid_parent);
+				show_debug_message(p);
+				if attackingMelee && !(place_meeting(x1,y1,obj_solid_parent)) {
+					direction = facingDirection;
+					speed = 2;
+				} else {
+					speed = 0;
+				}
+			} else {
+				speed = 0;
 			}
 		}
 		
