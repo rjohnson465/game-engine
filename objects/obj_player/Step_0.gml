@@ -83,10 +83,14 @@ if state != CombatantStates.Staggering && !isMouseInMenu {
 // state machine overrides
 switch(state) {
 	case CombatantStates.Idle: {
+		if isFlinching exit;
 		speed = 0;
 		break;
 	}
 	case CombatantStates.Moving: {
+		if isFlinching {
+			break;
+		}
 		speed = 0;
 		var canMove = false;
 		var usingSpeed = SHIFT ? functionalSpeed*2 : functionalSpeed;
@@ -121,6 +125,7 @@ switch(state) {
 		canMove = !place_meeting(x1,y1,obj_solid_parent);
 
 		if !canMove {
+			//speed = 0;
 			state = CombatantStates.Idle;
 			break;
 		}
@@ -138,6 +143,7 @@ switch(state) {
 			speed = speed*1.25;
 			stamina -= .5;
 		}
+		
 		break;
 	}
 	case CombatantStates.Attacking: {

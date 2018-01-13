@@ -71,6 +71,8 @@ prevAttackHand = noone;
 
 attackNumberInChain = noone;
 
+
+
 // weapons and shields
 // map: key values are handSide/type/index 
 // i.e. a longsword on right hand for melee set 1 is rm1: <longsword object>
@@ -112,6 +114,13 @@ hasCalculatedWillDodge = false;
 willDodge = noone;
 agility = 100; // 0 - 100% chance to dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_"+spriteString+"_dodge"));
+
+// flinch stuff
+isFlinching = false;
+flinchFrame = 0;
+totalFlinchFrames = 0;
+flinchDirection = 0;
+flinchSpeed = 0;
 
 // shielding stuff
 cautiousness = 100; // 0-100% chance to shield (when able, i.e. not attacking, dodging, staggering)

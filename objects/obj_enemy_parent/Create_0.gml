@@ -131,7 +131,7 @@ staggerDirection = 0;
 // dodge stuff
 hasCalculatedWillDodge = false;
 willDodge = noone;
-agility = 10; // 0 - 100% chance to try a dodge
+agility = 0; // 0 - 100% chance to try a dodge
 dodgeFrame = 0;
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 

@@ -18,7 +18,7 @@ if owner.currentUsingSpell != noone {
 	isRanged = true;
 	isSpell = true;
 	percentCharged = global.percentCharged;
-	percentCharged = owner.prepAnimationFrame / owner.prepAnimationTotalFrames;
+	//percentCharged = owner.prepAnimationFrame / owner.prepAnimationTotalFrames;
 	var currentSpell = ds_map_find_value(owner.knownSpells,owner.currentUsingSpell);
 	spell = currentSpell;
 	

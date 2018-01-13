@@ -84,6 +84,7 @@ for (var i = 0; i < size; i++){
 				// freeze applied on a burning target, burn is removed
 				if !isFrozen && isBurning {
 					ds_map_replace(conditionPercentages,FIRE,0);
+					isBurning = false;
 				}
 				isFrozen = true; 
 				isSlowed = false; break;
@@ -358,7 +359,6 @@ switch(state) {
 	case CombatantStates.Moving: {
 		// player overrides this entirely
 		if type != CombatantTypes.Player {
-		
 			// TODO pick target; may not always be player
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
 			if currentMeleeAttack || currentRangedAttack {
@@ -407,8 +407,16 @@ switch(state) {
 				
 				// melee dodges
 				var isMeleeAttack = false;
+				// attackHand is the hand that is currently preparing but will finish preparation sooner
+				var prepFrameL = ds_map_find_value(prepFrames,"l") == undefined ? 0 : ds_map_find_value(prepFrames,"l");
+				var prepFrameLTotal = ds_map_find_value(prepFrameTotals,"l") == undefined ? 0 : ds_map_find_value(prepFrameTotals,"l");
+				var prepFrameR = ds_map_find_value(prepFrames,"r") == undefined ? 0 : ds_map_find_value(prepFrames,"r");
+				var prepFrameRTotal = ds_map_find_value(prepFrameTotals,"r") == undefined ? 0 : ds_map_find_value(prepFrameTotals,"r");
+				var attackHand = 
+					prepFrameL / prepFrameLTotal >= 
+					prepFrameR / prepFrameRTotal ? "l" : "r";
 				if lockOnTarget.type == CombatantTypes.Player {
-					isMeleeAttack = lockOnTarget.currentAttackingHand == "l" ? lockOnTarget.leftHandItem.type == HandItemTypes.Melee : lockOnTarget.rightHandItem.type == HandItemTypes.Melee;
+					isMeleeAttack = attackHand == "l" ? lockOnTarget.leftHandItem.type == HandItemTypes.Melee : lockOnTarget.rightHandItem.type == HandItemTypes.Melee;
 				} else {
 					isMeleeAttack = lockOnTarget.currentMeleeAttack != noone;
 				}
@@ -425,12 +433,17 @@ switch(state) {
 				else if (lockOnTarget.type == CombatantTypes.Ally || lockOnTarget.type == CombatantTypes.Enemy) && isMeleeAttack {
 					range = lockOnTarget.meleeRangeArray[lockOnTarget.currentMeleeAttack-1] + 10; // 10px padding
 				}
-				if distance_to_object(lockOnTarget) < range && lockOnTarget.isPreparingAttack && willDodge && isMeleeAttack {
+				if distance_to_object(lockOnTarget) < range && ds_map_size(lockOnTarget.preparingHands) != 0 && willDodge && isMeleeAttack {
 				
 					// the more agile the enemy, the better chance it will dodge when player is almost done preparing attack
 					randomize();
-					var percentDonePreparingAttack = lockOnTarget.prepAnimationFrame/lockOnTarget.prepAnimationTotalFrames;
-					var percentageChangeEachFrame = 1/lockOnTarget.prepAnimationTotalFrames;
+					
+					// always dodge the furthest along in prep sequence attack if there a multiple preparing hands
+					var prepFrame = ds_map_find_value(prepFrames,attackHand);
+					var prepFrameTotal = ds_map_find_value(prepFrameTotals,attackHand);
+					
+					var percentDonePreparingAttack = prepFrame/prepFrameTotal;
+					var percentageChangeEachFrame = 1/prepFrameTotal;
 					// if agility - playerPercentDonePreparingAttack is the closest it can possibly be to percentageChangeEachFrame, yes, dodge this frame
 					var testNum = (agility / 100) - percentDonePreparingAttack;
 					var shouldDodgeOnThisFrame = false;
@@ -475,7 +488,7 @@ switch(state) {
 					// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) || wallsBetweenTarget != noone : 
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]);
-				if pred && !isStrafing {
+				if pred && !isStrafing && !isFlinching {
 					if wallsBetweenTarget == noone {
 						facingDirection = point_direction(x,y,global.player.x,global.player.y);
 					} else {
@@ -539,7 +552,7 @@ switch(state) {
 										y = y+lengthdir_y(functionalSpeed,dir);
 									}*/
 
-									if distance_to_object(lockOnTarget) > meleeRangeArray {
+									if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] {
 										strafeFrame = -1;
 										isStrafing = false;
 									}
@@ -772,11 +785,8 @@ switch(state) {
 							var b = 3;
 						}
 						stamina -= currentAttackingHandItem.staminaCostArray[attackInChain-1];
-						//var pos = ds_map_(preparingHands,currentPrepFrames);
 						ds_map_delete(preparingHands,currentPrepFrames);
-						/*if ds_map_find_value(attackingHands,currentPrepFrames) == undefined {
-							ds_map_add(attackingHands,currentPrepFrames,attackInChain);
-						} else*/ ds_map_replace(attackingHands,currentPrepFrames,attackInChain);
+						ds_map_replace(attackingHands,currentPrepFrames,attackInChain);
 					}
 					// this might be faintly retarded
 					global.owner = id; // passed as param to attackObj
@@ -813,23 +823,6 @@ switch(state) {
 				state = CombatantStates.Idle;
 				hasCalculatedNextAttack = false;
 			}
-			
-			/*if recoverAnimationFrame >= recoverAnimationTotalFrames {
-				recoverAnimationFrame = -1;
-				recoverAnimationTotalFrames = 0
-				isRecovering = false;
-				
-				var pos = ds_list_find_index(recoveringHands,currentAttackingHand);
-				ds_list_delete(recoveringHands,pos);
-				
-				currentAttackingHand = noone;
-				currentMeleeAttack = noone;
-				currentRangedAttack = noone;
-				attackNumberInChain = noone;
-				stupidityFrame = 0;
-				state = CombatantStates.Idle;
-				hasCalculatedNextAttack = false;
-			}*/
 		}
 		break;
 	}
@@ -855,10 +848,37 @@ switch(state) {
 		break;
 	}
 	case CombatantStates.Staggering: {
-		// stop attacking 
-		isAttacking = false;
-		isPreparingAttack = false;
-		isRecovering = false;
+		// stop attacking -- TODO need to fix this for non-humanoid combatants
+		if hasHands {
+			// stop preparing attacks
+			if ds_map_size(preparingHands) != 0 {
+				var hand = ds_map_find_first(preparingHands);
+				for (var i = 0; i < ds_map_size(preparingHands); i++) {
+					ds_map_replace(prepFrames,hand,-1);
+					ds_map_replace(prepFrameTotals,hand,0);
+					ds_map_delete(preparingHands,hand);
+					hand = ds_map_find_next(preparingHands,hand);
+				}
+			}
+			// stop attacking
+			if ds_map_size(attackingHands) != 0 {
+				var hand = ds_map_find_first(attackingHands);
+				for (var i = 0; i < ds_map_size(attackingHands); i++) {
+					ds_map_delete(attackingHands,hand);
+					hand = ds_map_find_next(attackingHands,hand);
+				}
+			}
+			// stop recovering attacks
+			if ds_map_size(recoveringHands) != 0 {
+				var hand = ds_map_find_first(recoveringHands);
+				for (var i = 0; i < ds_map_size(recoveringHands); i++) {
+					ds_map_replace(recoveringHands,hand,-1);
+					ds_map_replace(recoveringHands,hand,0);
+					ds_map_delete(recoveringHands,hand);
+					hand = ds_map_find_next(recoveringHands,hand);
+				}
+			}
+		}
 		currentAttackingHand = noone;
 		currentUsingSpell = noone;
 		attackNumberInChain = noone;
@@ -938,5 +958,35 @@ if hasHands && type != CombatantTypes.Player {
 		}
 }
 
+// flinching just move you back a little in a given direction
+// its like staggering but doesnt interrupt attacks
+if isFlinching {
+	if flinchFrame < totalFlinchFrames {
+		
+		var fspeed = flinchSpeed == noone ? functionalSpeed : flinchSpeed;
+	
+		//speed = 0;
+		direction = flinchDirection;
+		// stagger twice as quickly early on
+		if (flinchFrame > .5*totalFlinchFrames) {
+			var x1 = x+lengthdir_x(.25*fspeed, flinchDirection);
+			var y1 = y+lengthdir_y(.25*fspeed, flinchDirection);
+			if !place_meeting(x1,y1,obj_solid_parent) {
+				speed = .25*fspeed;
+			} else flinchDirection += 45;
+		} else {
+			var x1 = x+lengthdir_x(.5*fspeed, flinchDirection);
+			var y1 = y+lengthdir_y(.5*fspeed, flinchDirection);
+			if !place_meeting(x1,y1,obj_solid_parent) {
+				speed = .5*fspeed;
+			} else flinchDirection += 45;
+		}
+		flinchFrame++;
+	} else {
+		flinchFrame = 0;
+		totalFlinchFrames = 0;
+		isFlinching = false;
+	}
+}
 
 

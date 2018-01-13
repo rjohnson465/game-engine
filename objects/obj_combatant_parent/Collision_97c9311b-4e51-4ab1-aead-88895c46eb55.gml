@@ -72,7 +72,7 @@ if	state != CombatantStates.Dodging &&
 				}
 				// enemy/ally attacks may have various elemental bonuses per attack in chain
 				else {
-					var index = (attackNumber - 1)*2;
+					var index = (attackNumberInChain - 1)*2;
 					damageMin = damageArray[index];
 					damageMax = damageArray[index+1];
 				}
@@ -96,6 +96,9 @@ if	state != CombatantStates.Dodging &&
 			// create particles for the hit
 			// blood for physical, elemental particles otherwise
 			if	damageBase > 1 {
+				if currentDamageType == FIRE {
+					var a = 3;
+				}
 				global.damageType = currentDamageType;
 				global.x1 = __x;
 				global.y1 = __y;
@@ -112,7 +115,7 @@ if	state != CombatantStates.Dodging &&
 			if damageBase > 0 {
 				randomize();
 				var top = 1000;
-				var percentChance = .2;
+				var percentChance = 1;
 				if spell != noone && spell.name == "magicmissile" {
 					// every misile has a 20/numProjectiles% chance
 					var percentChance = (20/spell.numberOfProjectiles)/100;
@@ -225,15 +228,18 @@ if	state != CombatantStates.Dodging &&
 			showHp = true;
 		}
 	
+		// STAGGER OR FLINCH
+	
 		if state != CombatantStates.Staggering {
 			// calc force of the hit and tell whether or not to stagger
 			// TODO:  Attack force is item weight + damage (what about attacks that do not come from items?)
-			var force = actualDamage; // + assailant.strength;
+			//var force = actualDamage; // + assailant.strength;
+			var force = 0;
 			if (force > poise) {
 				// if player, reset global attackNumberInChain
-				if type == CombatantTypes.Player {
+				/*if type == CombatantTypes.Player {
 					global.playerAttackNumberInChain = 1;
-				}
+				}*/
 				// for enemy / ally, stop the path they're on
 				path_end();
 				staggerFrame = 0;
@@ -246,7 +252,18 @@ if	state != CombatantStates.Dodging &&
 				staggerDuration = 25;
 				staggerDirection = assailant.facingDirection;
 			}
+			// if not stagger, then flinch
+			// all flinch values should be half of what a stagger value would have been
+			// TODO need to redo all these numbers when stagger values are recalculated
+			else {
+				path_end();
+				isFlinching = true;
+				flinchSpeed = 3;
+				totalFlinchFrames = 12; 
+				flinchDirection = assailant.facingDirection;
+			}
 		}
+		
 		
 		// destroy most ranged projectiles on impact
 		if other.isRanged || (other.isSpell && spell.name != "aoe") {
