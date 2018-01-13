@@ -176,18 +176,16 @@ switch(state) {
 		canMove = !place_meeting(x1,y1,obj_solid_parent);
 
 		if !canMove {
-			//state = CombatantStates.Idle;
 			speed = 0;
-			break;
 		}
 		
 		if (UP || DOWN || LEFT || RIGHT) && canMove {
 			// walking backwards is slow
 			dirDiff = abs(direction - facingDirection)
 			if dirDiff > 135 && dirDiff < 225  {
-				speed = .5*functionalSpeed;
+				speed = .25*functionalSpeed;
 			}	
-			else speed = functionalSpeed;
+			else speed = .5*functionalSpeed;
 		}	
 		// run
 		if SHIFT && stamina > 0 && canMove {
