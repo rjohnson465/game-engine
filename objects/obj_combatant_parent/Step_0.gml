@@ -629,7 +629,7 @@ switch(state) {
 			if !isRanged && ds_map_size(preparingHands) !=0 {
 				// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
 				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] {
-					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.5,true);
+					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed,true);
 				}
 			}
 		

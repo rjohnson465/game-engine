@@ -13,12 +13,13 @@ particle = noone;
 
 switch type {
 	case PHYSICAL: {
+		num = random_range(10,25);
 		// blood particle
 		var blood = part_type_create();
 		part_type_shape(blood, pt_shape_sphere);
 		part_type_color2(blood,c_red,c_maroon);
 		part_type_orientation(blood,0,0,0,15,1);
-		part_type_size(blood,0,0.25,0,0);
+		part_type_size(blood,0,0.1,0,0);
 		part_type_speed(blood,2,3,0,0);
 		part_type_direction(blood,0,360,0,4);
 		part_type_life(blood,10,20);
