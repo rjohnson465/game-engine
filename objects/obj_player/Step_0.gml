@@ -142,6 +142,61 @@ switch(state) {
 	}
 	case CombatantStates.Attacking: {
 		
+		speed = 0;
+		var canMove = false;
+		var usingSpeed = SHIFT ? functionalSpeed*2 : functionalSpeed;
+		if UP && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
+			direction = 45;
+		}
+		else if UP && LEFT && !place_meeting(x-usingSpeed, y-usingSpeed, obj_solid_parent) {
+			direction = 135;
+		}
+		else if DOWN && LEFT && !place_meeting(x-usingSpeed, y+usingSpeed, obj_solid_parent) {
+			direction = 225;
+		}
+		else if DOWN && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
+			direction = 315;
+		}
+		else if RIGHT && !place_meeting(x+usingSpeed, y, obj_solid_parent) {
+			direction = 0;
+		}
+		else if LEFT && !place_meeting(x-usingSpeed, y, obj_solid_parent) {
+			direction = 180;
+		}
+		else if UP && !place_meeting(x, y-usingSpeed, obj_solid_parent) {
+			direction = 90;
+		}
+		else if DOWN && !place_meeting(x, y+usingSpeed, obj_solid_parent) {
+			direction = 270;
+		}
+		
+		
+		var x1 = x +lengthdir_x(usingSpeed,direction);
+		var y1 = y +lengthdir_y(usingSpeed,direction);
+		canMove = !place_meeting(x1,y1,obj_solid_parent);
+
+		if !canMove {
+			//state = CombatantStates.Idle;
+			speed = 0;
+			break;
+		}
+		
+		if (UP || DOWN || LEFT || RIGHT) && canMove {
+			// walking backwards is slow
+			dirDiff = abs(direction - facingDirection)
+			if dirDiff > 135 && dirDiff < 225  {
+				speed = .5*functionalSpeed;
+			}	
+			else speed = functionalSpeed;
+		}	
+		// run
+		if SHIFT && stamina > 0 && canMove {
+			speed = speed*1.25;
+			stamina -= .5;
+		}
+		
+		
+		
 		// check if spell attack
 		if currentUsingSpell != noone {
 			if currentUsingSpell == "aoe" {
@@ -263,7 +318,7 @@ switch(state) {
 						direction = facingDirection;
 						speed = -.5;
 					} else {
-						speed = 0;
+						//speed = 0;
 					}
 				} else {
 					speed = 0;
