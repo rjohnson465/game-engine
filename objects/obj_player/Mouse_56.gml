@@ -6,7 +6,7 @@ if !isMouseInMenu {
 			// if recovering left hand weapon or if left hand not in use at all
 			var isLeftHandInUse = 
 				ds_map_find_value(preparingHands,"l") != undefined 
-				|| ds_map_find_value(recoveringHands,"l") != undefined 
+				//|| ds_map_find_value(recoveringHands,"l") != undefined 
 				|| ds_map_find_value(attackingHands,"l") != undefined;
 			
 			// idea: have a will attack again map <handSide><boolean> kvp's -- in Step event, at end of recover,

@@ -189,13 +189,14 @@ switch(state) {
 		}	
 		// run
 		if SHIFT && stamina > 0 && canMove {
-			speed = speed*1.25;
+			speed = .5*(speed*1.25);
 			stamina -= .5;
 		}
 		
 		
 		
 		// check if spell attack
+		// spells are all 2h and thus use the "r" side (might change this later idk)
 		if currentUsingSpell != noone {
 			if currentUsingSpell == "aoe" {
 				cursor_sprite = spr_lockon;
@@ -203,32 +204,43 @@ switch(state) {
 				// do not alow aoe spell to be cast beyond walls 
 				if wallsBetweenTarget != noone {
 					cursor_sprite = -1;
-					prepAnimationFrame = -1;
-					prepAnimationTotalFrames = 0;
-					isPreparingAttack = false;
+					ds_map_replace(prepFrames,"r",-1);
+					//prepAnimationFrame = -1;
+					ds_map_replace(prepFrameTotals,"r",0);
+					//prepAnimationTotalFrames = 0;
+					ds_map_delete(preparingHands,"r");
+					//isPreparingAttack = false;
 					currentUsingSpell = noone;
 					state = CombatantStates.Idle;
 					break;
 				}
 				
 			}
-			speed = 0;
+			speed = .5*speed;
 			var currentSpell = ds_map_find_value(knownSpells,currentUsingSpell);
 			var MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle);
 			
-			if !isAttacking && !isPreparingAttack && !isRecovering {		
+			//if !isAttacking && !isPreparingAttack && !isRecovering {		
+			if ds_map_size(attackingHands) == 0 && ds_map_size(preparingHands) == 0 && ds_map_size(recoveringHands) == 0 {
 				//var prepSprite = asset_get_index("spr_player_"+weaponString+"_prep_"+string(global.playerAttackNumberInChain));
-				prepAnimationTotalFrames = currentSpell.castFrames;
-				prepAnimationFrame = 0;
-				isPreparingAttack = true;
+				ds_map_replace(prepFrameTotals,"r",currentSpell.castFrames);
+				//prepAnimationTotalFrames = currentSpell.castFrames;
+				ds_map_replace(prepFrames,"r",0);
+				//prepAnimationFrame = 0;
+				ds_map_replace(preparingHands,"r",1);
+				//isPreparingAttack = true;
 			}
 			
 			// attack sequence 
-			if	prepAnimationFrame >= prepAnimationTotalFrames || MIDDLE_BUTTON_RELEASED {
+			//if prepAnimationFrame >= prepAnimationTotalFrames || MIDDLE_BUTTON_RELEASED {
+			if ds_map_find_value(prepFrames,"r") >= ds_map_find_value(prepFrameTotals,"r") || MIDDLE_BUTTON_RELEASED {
 				cursor_sprite = -1;
-				var percentCharged = prepAnimationFrame / prepAnimationTotalFrames;
+				var prepFrame = ds_map_find_value(prepFrames,"r");
+				var prepFrameTotal = ds_map_find_value(prepFrameTotals,"r");
+				var percentCharged = prepFrame / prepFrameTotal;
 				
 				var chargeCost = round(percentCharged*currentSpell.maxChargeCost);
+				// subtract charges from right hand item first
 				if rightHandItem.charges > 0 {
 					rightHandItem.charges -= chargeCost;
 					if rightHandItem.charges < 0 {
@@ -248,6 +260,7 @@ switch(state) {
 						global.owner = id;
 						global.projectileNumber = i+1;
 						global.percentCharged = percentCharged;
+						global.handSide = "r";
 						if currentUsingSpell != "aoe" {
 							instance_create_depth(x,y,1,obj_attack_parent);	
 						} else {
@@ -255,9 +268,12 @@ switch(state) {
 						}
 					}
 				}
-				prepAnimationFrame = -1;
-				prepAnimationTotalFrames = 0;
-				isPreparingAttack = false;
+				ds_map_replace(prepFrames,"r",-1);
+				//prepAnimationFrame = -1;
+				ds_map_replace(prepFrameTotals,"r",0);
+				//prepAnimationTotalFrames = 0;
+				ds_map_delete(preparingHands,"r");
+				//isPreparingAttack = false;
 				currentUsingSpell = noone;
 				state = CombatantStates.Idle;
 			}
@@ -381,10 +397,9 @@ switch(state) {
 				x1 = x + lengthdir_x(2,facingDirection);
 				y1 = y + lengthdir_y(2,facingDirection);
 				var p =  place_meeting(x1,y1,obj_solid_parent);
-				show_debug_message(p);
 				if attackingMelee && !(place_meeting(x1,y1,obj_solid_parent)) {
 					direction = facingDirection;
-					speed = 2;
+					speed = 1;
 				} else {
 					speed = 0;
 				}
@@ -392,78 +407,6 @@ switch(state) {
 				speed = 0;
 			}
 		}
-		
-		
-		/*var currentAttackingHandItem = currentAttackingHand == "l" ? leftHandItem : rightHandItem;
-		var attackType = currentAttackingHandItem.type;
-		var weaponString = currentAttackingHandItem.spriteName;
-		// melee (maybe also ranged idk TODO)
-		if !isAttacking && !isPreparingAttack && !isRecovering {		
-			var prepSprite = asset_get_index("spr_player_"+weaponString+"_prep_"+string(global.playerAttackNumberInChain));
-			prepAnimationTotalFrames = sprite_get_number(prepSprite);
-			prepAnimationFrame = 0;
-			isPreparingAttack = true;
-		}*/
-					
-		// if attacking or preparing to attack and the user clicks again, we gonna attack again after this attack (if another attack in chain exists)
-		//if isAttacking || isPreparingAttack || isRecovering {
-		
-			
-		//}
-		
-		// if recovering but mouse button was clicked during last attack/prep phase, attack again
-		/*if isRecovering && attackAgain {
-			var nonAttackingHandItem = currentAttackingHand == "l" ? rightHandItem : leftHandItem;
-			if 
-				asset_get_index("spr_player_"+weaponString+"_prep_"+string(global.playerAttackNumberInChain+1)) != -1
-				&& stamina > 0 
-				&& attackAgainSameSide 
-				{
-					isRecovering = false;
-					global.playerAttackNumberInChain += 1;
-					var prepSprite = asset_get_index("spr_player_"+weaponString+"_prep_"+string(global.playerAttackNumberInChain));
-					prepAnimationTotalFrames = sprite_get_number(prepSprite);
-					prepAnimationFrame = 0;
-					isPreparingAttack = true;
-					attackAgain = false;
-					break;
-				}  
-				else if 
-					stamina > 0 
-					&& !attackAgainSameSide
-					&& nonAttackingHandItem.type != HandItemTypes.Shield
-					&& !currentAttackingHandItem.isTwoHanded
-				{
-					isRecovering = false;
-					currentAttackingHand = currentAttackingHand == "l" ? "r" : "l";
-					global.playerAttackNumberInChain = 1;
-					var prepSprite = asset_get_index("spr_player_"+weaponString+"_prep_"+string(global.playerAttackNumberInChain));
-					prepAnimationTotalFrames = sprite_get_number(prepSprite);
-					prepAnimationFrame = 0;
-					isPreparingAttack = true;
-					attackAgain = false;
-					break;
-				}
-		}*/
-		
-		/*
-		speed = 0;
-		// move back a bit while prepping melee attack, if not going to hit solid object
-		var x1 = x +lengthdir_x(-.5,facingDirection);
-		var y1 = y +lengthdir_y(-.5,facingDirection);
-		
-		if isPreparingAttack && currentAttackingHandItem.type == HandItemTypes.Melee && !place_meeting(x1, y1, obj_solid_parent){
-			direction = facingDirection;
-			speed = -.5;
-		}
-
-		// move forward a bit while delivering melee attack, if not going to hit solid object
-		x1 = x + lengthdir_x(2,facingDirection);
-		y1 = y + lengthdir_y(2,facingDirection);
-		if isAttacking && currentAttackingHandItem.type == HandItemTypes.Melee && !(place_meeting(x1,y1,obj_solid_parent)) {
-			direction = facingDirection;
-			speed = 2;
-		}*/
 		
 		// this is a 2h ranged weapon, so handSide must be "r"
 		if isReadyToFire && LEFTRELEASED && stamina > 0 {

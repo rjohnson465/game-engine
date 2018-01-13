@@ -12,8 +12,8 @@ global.ALL_DAMAGE_TYPES = [PHYSICAL, MAGIC,FIRE,ICE,POISON,LIGHTNING, BLEED];
 
 event_inherited();
 global.player = id;
-functionalSpeed = 8;
-normalSpeed = 8;
+functionalSpeed = 6;
+normalSpeed = 6;
 facingDirection = 0;
 
 spriteType = "player";
@@ -40,7 +40,7 @@ ds_map_add(equippedItems,EquipmentSlots.Head,noone);
 ds_map_add(equippedItems,EquipmentSlots.LeftHand1,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 ds_map_add(equippedItems,EquipmentSlots.LeftHand2,unarmed);
 ds_map_add(equippedItems,EquipmentSlots.RightHand1,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_map_add(equippedItems,EquipmentSlots.RightHand2,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+ds_map_add(equippedItems,EquipmentSlots.RightHand2,instance_create_depth(x,y,1,obj_hand_item_staff));
 ds_map_add(equippedItems,EquipmentSlots.LeftRing1,noone);
 ds_map_add(equippedItems,EquipmentSlots.LeftRing2,noone);
 ds_map_add(equippedItems,EquipmentSlots.RightRing1,noone);
@@ -80,9 +80,9 @@ LOCK_ON_DISTANCE = 800;
 hp = 75;
 maxHp = 100;
 hpRegen = .5; // per second
-stamina = 30;
-maxStamina = 30;
-staminaRegen = 5; // per second
+stamina = 300;
+maxStamina = 300;
+staminaRegen = 15; // per second
 
 /*// attributes
 strength = 10;

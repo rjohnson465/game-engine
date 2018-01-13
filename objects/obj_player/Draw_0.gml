@@ -32,13 +32,18 @@ if state == CombatantStates.Attacking {
 	if currentUsingSpell != noone {
 		var spellHandPrepSprite = asset_get_index("spr_player_spellprep");
 		var spellPrepHandSpriteTotalFrames = sprite_get_number(spellHandPrepSprite);
-		if isPreparingAttack && prepAnimationFrame < prepAnimationTotalFrames {
-			var frame = prepAnimationFrame%spellPrepHandSpriteTotalFrames;
+		
+		//if isPreparingAttack && prepAnimationFrame < prepAnimationTotalFrames {
+		if ds_map_find_value(prepFrames,"r") < ds_map_find_value(prepFrameTotals,"r") {
+			var prepFrame = ds_map_find_value(prepFrames,"r");
+			var frame = prepFrame%spellPrepHandSpriteTotalFrames;
 			// right hand ?
 			draw_sprite_ext(spellHandPrepSprite,frame,x,y,1,1,facingDirection+75,c_white,1);
 			// left hand
 			draw_sprite_ext(spellHandPrepSprite,frame,x,y,1,-1,facingDirection-75,c_white,1);
-			prepAnimationFrame++;
+			
+			ds_map_replace(prepFrames,"r",prepFrame+1);
+			//prepAnimationFrame++;
 		}
 	}
 	// physical attack (ranged or melee) TODO -- consolidate with obj_combatant
@@ -46,13 +51,13 @@ if state == CombatantStates.Attacking {
 		
 		// draw attack prep hand animation
 		if ds_map_size(preparingHands) != 0 {
-			/*if attackNumberInChain == noone {
-				attackNumberInChain = 1;
-			}*/
 			var hand = ds_map_find_first(preparingHands); // l or r
 			
 			for (var i = 0; i < ds_map_size(preparingHands); i++) {
 				var attackInChain = ds_map_find_value(preparingHands,hand);
+				if attackInChain == 2 {
+					var a = 3;
+				}
 				//var hand = ds_list_find_value(preparingHands,i); // l or r
 				var prepHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			
@@ -111,7 +116,7 @@ if state == CombatantStates.Attacking {
 }
 
 // casting a spell
-if isPreparingAttack && currentUsingSpell != noone {
+if ds_map_size(preparingHands) != 0 && currentUsingSpell != noone {
 	// total stamina bar outline
 	var x1 = x-(.5*sprite_width);
 	var y1 = y-(.5*sprite_height)-15;
@@ -120,7 +125,9 @@ if isPreparingAttack && currentUsingSpell != noone {
 	draw_set_color(c_white);
 	draw_rectangle(x1,y1,x2,y2,true);
 	// current stamina
-	var percentDone = prepAnimationFrame / prepAnimationTotalFrames;
+	var prepFrame = ds_map_find_value(prepFrames,"r");
+	var prepFrameTotal = ds_map_find_value(prepFrameTotals,"r");
+	var percentDone = prepFrame / prepFrameTotal;
 	var x2 = x1 + (sprite_width * percentDone)
 	if (x2 < x1) x2 = x1;
 	draw_set_color(c_olive);
