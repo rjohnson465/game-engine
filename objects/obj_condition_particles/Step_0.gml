@@ -1,4 +1,9 @@
-var conditionLevel = ds_map_find_value(owner.conditionLevels,condition);
+var conditionLevel = 0;
+if condition == "Stagger" {
+	conditionLevel = owner.state == CombatantStates.Staggering;
+} else {
+	conditionLevel = ds_map_find_value(owner.conditionLevels,condition);
+}
 if conditionLevel == 0 {
 	instance_destroy(id,false);
 	part_emitter_destroy(system,emitter);
@@ -61,6 +66,13 @@ if conditionLevel == 0 {
 				num = -1;
 			} else num = -3;
 			break;
+		}
+		case "Stagger": {
+			num = 4;
+			var x1 = owner.x + xOff;
+			var y1 = owner.y + yOff;
+			show_debug_message(x1);
+			part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
 		}
 	}
 	part_emitter_burst(system,emitter,particle, num);

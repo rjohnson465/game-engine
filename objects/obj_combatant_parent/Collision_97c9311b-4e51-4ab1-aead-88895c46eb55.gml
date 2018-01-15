@@ -153,38 +153,18 @@ if	state != CombatantStates.Dodging &&
 				poisonDamage += .5*damageBase;
 			}
 			
-			//ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+addToCondition);
-			
-			// if theres not already a condition handler for this, show the condition bar
-			// this does not appear for mere physical damage
-			/*if type == CombatantTypes.Player && currentDamageType != PHYSICAL {
-				var conditionBar = noone;
-				with (obj_condition_bar) {
-					if condition == currentDamageType && owner == global.player.id {
-						conditionBar = id;
-					}
-				}
-				if !conditionBar {
-					global.owner = global.player.id;
-					global.condition = currentDamageType;
-					global.conditionBarCount += 1;
-					instance_create_depth(x,y,1,obj_condition_bar);
-				}
-			}*/
-			
 			// go to the next damageType in array
 			currentDamageType = ds_map_find_next(damagesMap, currentDamageType);
 		}
-		var actualDamage = damage;
+		var actualDamage = damage; // the actual damage of the hit (recieved damage might be less if actual damage exceeds hp)
 		if damage > hp {
 			damage = hp;
 		}
 		
+		// hit a shield
 		if	isShielding 
 			&& script_execute(scr_is_facing,assailant,id)
 			{
-				//global.hitType = "yellow";
-				//instance_create_depth(__x,__y,1,obj_hit);
 				global.damageType = "Block";
 				global.x1 = __x;
 				global.y1 = __y;
@@ -193,14 +173,13 @@ if	state != CombatantStates.Dodging &&
 				// remove the same percentage of stamina as it would have removed health
 				var percentageOfHealth = actualDamage / maxHp;
 				stamina -= maxStamina*percentageOfHealth;
-				//stamina -= actualDamage;
 				// shields are only ever held in left hand
 				hp -= damage*((100-leftHandItem.blockPercentage)/100);
-				if type != CombatantTypes.Player {
+				//if type != CombatantTypes.Player {
 					global.damageAmount = damage;
 					global.victim = id;
 					instance_create_depth(x,y,1,obj_damage);
-				}
+				//}
 				if stamina < 1 {
 					isShielding = false;
 					// if no more stamina, stagger (slow stagger)
@@ -211,19 +190,17 @@ if	state != CombatantStates.Dodging &&
 					staggerSpeed = 1;
 				}		
 			}
-		else {
-			//global.hitType = "red";
-			//instance_create_depth(__x,__y,1,obj_hit);
-			
+		// hit
+		else {			
 			hp -= damage;
-			if type != CombatantTypes.Player {
+			//if type != CombatantTypes.Player {
 				global.damageAmount = damage;
-				//global.damageType = other.damageType;
 				global.victim = id;
 				instance_create_depth(x,y,1,obj_damage);
-			}
+			//}
 		}
 	
+		// if this is the first time an enemy was hit, show the hp of the enemy
 		if type == CombatantTypes.Enemy && !showHp {
 			showHp = true;
 		}
@@ -231,39 +208,35 @@ if	state != CombatantStates.Dodging &&
 		// STAGGER OR FLINCH
 	
 		if state != CombatantStates.Staggering {
-			// calc force of the hit and tell whether or not to stagger
-			// TODO:  Attack force is item weight + damage (what about attacks that do not come from items?)
-			//var force = actualDamage; // + assailant.strength;
-			var force = 0;
-			if (force > poise) {
-				// if player, reset global attackNumberInChain
-				/*if type == CombatantTypes.Player {
-					global.playerAttackNumberInChain = 1;
-				}*/
-				// for enemy / ally, stop the path they're on
-				path_end();
+
+			var percentOfHp = actualDamage / maxHp;
+			// maybe stagger
+			// always a 10% + damage% of totalHp chance to stagger
+			var chanceToStagger = .1 + percentOfHp;
+			randomize();
+			var rand = random_range(0,1);
+			// TODO subtract rand by poise 
+			if rand < chanceToStagger {
 				staggerFrame = 0;
-				state = CombatantStates.Staggering;
-				// TODO completely redo -- stagger should be decided based on weapon used, strength of assailant, and weight of victim
-				/*if !isRanged {
-					var a = hitBy.meleeAttacksStaggerDuration[attackNumber-1];
-					staggerDuration = a[attackNumberInChain-1];
-				}*/
-				staggerDuration = 25;
+				// stagger duration is 10 frames + damage% of of total hp frames
+				staggerDuration = 10 + (percentOfHp*100);
 				staggerDirection = assailant.facingDirection;
+				path_end();
+				// create stagger condi particles
+				global.condition = "Stagger";
+				global.owner = id;
+				instance_create_depth(x,y,1,obj_condition_particles);
+				state = CombatantStates.Staggering;
 			}
 			// if not stagger, then flinch
 			// all flinch values should be half of what a stagger value would have been
-			// TODO need to redo all these numbers when stagger values are recalculated
 			else {
 				path_end();
 				isFlinching = true;
-				flinchSpeed = 3;
-				totalFlinchFrames = 12; 
-				flinchDirection = assailant.facingDirection;
+				totalFlinchFrames = 5 + (.5*(percentOfHp*100)); 
+				flinchDirection = assailant.facingDirection;				
 			}
 		}
-		
 		
 		// destroy most ranged projectiles on impact
 		if other.isRanged || (other.isSpell && spell.name != "aoe") {

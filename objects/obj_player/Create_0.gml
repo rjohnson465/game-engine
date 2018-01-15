@@ -77,8 +77,8 @@ lockOnTargetType = obj_enemy_parent;
 LOCK_ON_DISTANCE = 800;
 
 // hp / stamina
-hp = 75;
-maxHp = 100;
+hp = 375;
+maxHp = 375;
 hpRegen = .5; // per second
 stamina = 300;
 maxStamina = 300;

@@ -106,8 +106,8 @@ rangedSpeeds[0] = 20;
 
 strength = 10; // used in calculating stagger against player
 
-hp = 375;
-maxHp = 375;
+hp = 35;
+maxHp = 35;
 //prevHp = 75;
 
 stamina = 15;

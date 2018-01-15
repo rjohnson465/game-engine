@@ -71,8 +71,6 @@ prevAttackHand = noone;
 
 attackNumberInChain = noone;
 
-
-
 // weapons and shields
 // map: key values are handSide/type/index 
 // i.e. a longsword on right hand for melee set 1 is rm1: <longsword object>

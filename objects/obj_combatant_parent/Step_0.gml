@@ -968,7 +968,7 @@ if hasHands && type != CombatantTypes.Player {
 if isFlinching {
 	if flinchFrame < totalFlinchFrames {
 		
-		var fspeed = flinchSpeed == noone ? functionalSpeed : flinchSpeed;
+		var fspeed = flinchSpeed == 0 ? functionalSpeed : flinchSpeed;
 	
 		//speed = 0;
 		direction = flinchDirection;
@@ -991,6 +991,7 @@ if isFlinching {
 		flinchFrame = 0;
 		totalFlinchFrames = 0;
 		isFlinching = false;
+		flinchSpeed = 0;
 	}
 }
 

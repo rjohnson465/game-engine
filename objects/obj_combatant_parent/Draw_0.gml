@@ -123,12 +123,12 @@ if state == CombatantStates.Attacking {
 	}
 }
 
-if state == CombatantStates.Staggering {
+/*if state == CombatantStates.Staggering {
 	var staggerSprite = asset_get_index("spr_staggering");
 	var staggerSpriteFrames = sprite_get_number(staggerSprite);
 	//draw_sprite(staggerSprite,staggerFrame%staggerSpriteFrames,mean(x-.5*sprite_width,x+.5*sprite_width),y-.5*sprite_height);
 	draw_sprite(staggerSprite,staggerFrame%staggerSpriteFrames,x,y);
-}
+}*/
 
 
 
