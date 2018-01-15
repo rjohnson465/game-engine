@@ -1,4 +1,4 @@
-depth = -1;
+depth = 0;
 // use macros for elements rather than enums (helps with sprite getting)
 #macro PHYSICAL "physical"
 #macro MAGIC "magic"

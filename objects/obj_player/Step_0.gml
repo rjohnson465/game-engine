@@ -380,7 +380,7 @@ switch(state) {
 						var prepSprite = asset_get_index("spr_player_"+itemSprite+"_prep_"+string(attackInChain+1));
 						if prepSprite != -1 {
 							ds_map_replace(preparingHands,hand,attackInChain+1);
-						}
+						} else ds_map_replace(preparingHands,hand,1);
 						ds_map_replace(attackAgain,hand,false);
 					} 
 					else if ds_map_size(preparingHands) == 0 && ds_map_size(attackingHands) == 0 && ds_map_size(recoveringHands) == 0 {

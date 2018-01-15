@@ -9,16 +9,13 @@ type = "";
 // Fast | Medium | Slow
 weaponSpeed = "";
 range = 0; // in pixels
+numberOfTargets = 1;
 
 charges = 0;
 totalCharges = 0;
 
 // two handed weapons always held with "right hand" (on right side)
 isTwoHanded = false;
-// 0-1 min/max attack 1, 2-3 min/max attack 2, 3-4 min/max attack3
-physicalDamageArray = [-1,-1,-1,-1,-1,-1]
-// slash, pierce, crush
-physicalDamageTypeArray = ["","",""];
 staminaCostArray=[];
 
 // damages of each type

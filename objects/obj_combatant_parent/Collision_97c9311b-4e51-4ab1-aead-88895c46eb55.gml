@@ -14,6 +14,21 @@ if	state != CombatantStates.Dodging &&
 {
 	// if combatant has not been hit with this instance before (only get hit with an attack once)
 	if ds_list_find_index(beenHitWith,other.id) == -1 {
+		
+		// limit number of combatants hit per attack based on num targets an attack can hit
+		if	other.owner.type == CombatantTypes.Player {
+			
+			if !other.isSpell && ds_list_size(other.combatantsHit) > other.weapon.numberOfTargets {
+				exit;
+			} else if other.isSpell && ds_list_size(other.combatantsHit) > other.spell.numberOfTargets {
+				exit;
+			}
+		}
+		else if other.owner.type != CombatantTypes.Player 
+			&& ds_list_size(other.combatantsHit) > other.attackData.numberOfTargets {
+				exit;
+			}
+		
 		ds_list_add(beenHitWith,other.id);
 		
 		// run to get __x and __y (collision point where attack meet this combatant)
@@ -73,17 +88,6 @@ if	state != CombatantStates.Dodging &&
 			}
 			// any elemental / bleed damage
 			else {
-				/*// same amount of elemental damage on each attack in chain (for player attacks)
-				if other.owner.type == CombatantTypes.Player {
-					damageMin = damageArray[0];
-					damageMax = damageArray[1];
-				}
-				// enemy/ally attacks may have various elemental bonuses per attack in chain
-				else {
-					var index = (attackNumberInChain - 1)*2;
-					damageMin = damageArray[index];
-					damageMax = damageArray[index+1];
-				}*/
 				damageMin = damageArray[0];
 				damageMax = damageArray[1];
 			}

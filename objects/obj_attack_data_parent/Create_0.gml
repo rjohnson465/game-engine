@@ -5,3 +5,4 @@ damages = ds_map_create();
 isRanged = false;
 nextChoices = [];
 projectileSpeed = 0;
+numberOfTargets = 1;

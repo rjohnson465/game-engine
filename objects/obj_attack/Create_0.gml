@@ -1,4 +1,5 @@
 owner = global.owner;
+depth = 1;
 x = owner.x;
 y = owner.y;
 image_angle = owner.facingDirection;
@@ -9,6 +10,7 @@ handSide = global.handSide; // l, r, or empty string (no hands)
 isSpell = false;
 isRanged = false;
 isMelee = false;
+attackData = noone;
 spell = noone;
 percentCharged = 0;
 combatantsHit = ds_list_create();
@@ -54,7 +56,6 @@ if owner.currentUsingSpell != noone {
 }
 // ranged or melee: NOT A SPELL
 else {
-	var attackData = noone;
 	// get attack number
 	if owner.type != CombatantTypes.Player {
 		isRanged = owner.currentMeleeAttack == noone ? true: false;

@@ -9,6 +9,7 @@ castFrames = 30; // how long spell can be charged
 numberOfProjectiles = 1;
 projectileSpeed = 0;
 staminaCost = 0;
+numberOfTargets = 1;
 
 maxChargeCost = 10;
 

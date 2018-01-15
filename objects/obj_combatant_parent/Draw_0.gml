@@ -10,16 +10,6 @@ if state == CombatantStates.Dodging {
 	
 } else {
 	
-	// normally draw base sprite + hands (if applicable) 
-	draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_white, 1);
-	
-	if isSlowed {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .5);
-	} 
-	else if isFrozen {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .75);
-	} 
-	
 	if type != CombatantTypes.Player {
 		
 		if hasHands {
@@ -46,6 +36,7 @@ if state == CombatantStates.Dodging {
 			}
 		}
 	}
+	
 }
 // NEED TO OVERRIDE THIS FOR PLAYER -- SPRITESTRING NEEDS TO BE DIFFERENT BASED ON PLAYER EQUIPPED ITEMS
 if state == CombatantStates.Attacking {
@@ -133,6 +124,17 @@ if state == CombatantStates.Attacking {
 	}
 }
 
+if state != CombatantStates.Dodging {
+	// normally draw base sprite -- on top of hands
+	draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_white, 1);
+	
+	if isSlowed {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .5);
+	} 
+	else if isFrozen {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .75);
+	} 
+}
 
 
 

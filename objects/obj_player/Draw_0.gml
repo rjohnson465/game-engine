@@ -115,6 +115,18 @@ if state == CombatantStates.Attacking {
 	}
 }
 
+if state != CombatantStates.Dodging {
+	// normally draw base sprite + hands (if applicable) 
+	draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_white, 1);
+	
+	if isSlowed {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .5);
+	} 
+	else if isFrozen {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .75);
+	} 
+}
+
 // casting a spell
 if ds_map_size(preparingHands) != 0 && currentUsingSpell != noone {
 	// total stamina bar outline

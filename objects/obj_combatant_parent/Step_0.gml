@@ -529,9 +529,13 @@ switch(state) {
 					}
 			
 					// calculate path to lockOnTarget and move to it
-					mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
-					path_get_point_x(path,0);
-					path_start(path,functionalSpeed,path_action_stop, false);
+					//mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
+					mp_grid_path(personalGrid, path, x,y, lockOnTarget.x,lockOnTarget.y,true);
+					//var xx = path_get_point_x(path,1);
+					//var yy = path_get_point_y(path,1);
+					//mp_potential_path(path,xx,yy,functionalSpeed,1,false);
+					path_start(path,functionalSpeed,path_action_stop,true);
+
 					break;
 
 				}
@@ -570,7 +574,7 @@ switch(state) {
 									strafeDirection = rand < 37 ? "l" : "r";
 								} else isStrafing = false;
 							} else {
-								if isStrafing {
+								/*if isStrafing {
 									var dist = distance_to_object(lockOnTarget);
 									if dist <= meleeRangeArray[currentMeleeAttack-1] {
 										var angle = point_direction(lockOnTarget.x,lockOnTarget.y,x,y);
@@ -586,13 +590,15 @@ switch(state) {
 										var xx = lengthdir_x(orbit,angle) + centerX;
 										var yy = lengthdir_y(orbit,angle) + centerY;
 									
-										if place_free(xx,yy) {
+										if !place_meeting(xx,yy,obj_wall_parent) && !place_meeting(xx,yy,obj_combatant_parent) {
 											x = xx;
 											y = yy;
 											facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
-										}	
+										} else {
+											strafeDirection = strafeDirection == "l" ? "r" : "l";
+										}
 									}
-								}
+								}*/
 								strafeFrame--;
 							}
 						}
@@ -928,20 +934,43 @@ switch(state) {
 		var sspeed = staggerSpeed == noone ? functionalSpeed : staggerSpeed;
 	
 		speed = 0;
+		var sDir = staggerDirection;
 		direction = staggerDirection;
 		// stagger twice as quickly early on
 		if (staggerFrame > .5*staggerDuration) {
-			var x1 = x+lengthdir_x(.25*sspeed, staggerDirection);
-			var y1 = y+lengthdir_y(.25*sspeed, staggerDirection);
-			if !place_meeting(x1,y1,obj_solid_parent) {
+			
+			var x1 = x+lengthdir_x(.5*sspeed, sDir);
+			var y1 = y+lengthdir_y(.5*sspeed, sDir);
+			do {
+				x1 = x+lengthdir_x(.5*sspeed, sDir);
+				y1 = y+lengthdir_y(.52*sspeed, sDir);
+				if place_meeting(x1,y1,obj_solid_parent) || place_meeting(x1,y1,obj_combatant_parent) {
+					sDir = (sDir + 45)%360;
+				}
+			} until ((!place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
+			
+			if !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent) {
 				speed = .25*sspeed;
-			} else staggerDirection += 45;
+				flinchDirection = sDir;
+			}
 		} else {
-			var x1 = x+lengthdir_x(.5*sspeed, staggerDirection);
-			var y1 = y+lengthdir_y(.5*sspeed, staggerDirection);
-			if !place_meeting(x1,y1,obj_solid_parent) {
+			
+			var x1 = x+lengthdir_x(.25*sspeed, sDir);
+			var y1 = y+lengthdir_y(.25*sspeed, sDir);
+			
+			do {
+				x1 = x+lengthdir_x(.25*sspeed, sDir);
+				y1 = y+lengthdir_y(.25*sspeed, sDir);
+				if place_meeting(x1,y1,obj_solid_parent) || place_meeting(x1,y1,obj_combatant_parent) {
+					sDir = (sDir + 45)%360;
+				}
+			} until ((!place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
+			
+			if !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent) {
 				speed = .5*sspeed;
-			} else staggerDirection += 45;
+				staggerDirection = sDir;
+			}
+			
 		}
 		staggerFrame++;
 		if (staggerFrame >= staggerDuration) {
@@ -955,51 +984,6 @@ switch(state) {
 	}
 }
 
-// SHIELDING STUFF
-
-// if has a shield, every totalShieldingFrames, decide if should shield (based on cautiousness + some luck)
-// this does not affect Player
-/*if hasHands && type != CombatantTypes.Player {
-	if	leftHandItem.type == HandItemTypes.Shield 
-		&& state == CombatantStates.Moving 
-		&& !isShielding
-		&& stamina > 0
-		{
-		if shieldingFrame >= totalShieldingFrames {
-			randomize();
-			rand = random_range(1,100)
-			// if close to player, chance to shield increases 
-			if rand <= cautiousness {
-				global.owner = id;
-				instance_create_depth(x,y,1,obj_shield_parent);
-				isShielding = true;
-				shieldingFrame = 0;
-			} 
-			
-		} else {
-				shieldingFrame++;
-		}
-	}
-	// hold up the shield for a certain amount of time, based on cautiousness and luck
-	if	leftHandItem.type == HandItemTypes.Shield
-		&& state == CombatantStates.Moving
-		&& isShielding {
-			if shieldingFrame >= totalShieldingFrames {
-				isShielding = false;
-				shieldingFrame = 0;
-			} else {
-				var num;
-				randomize();
-				var rand = random_range(5,10);
-				rand -= (cautiousness/10);
-				num = rand;
-				if !lockOnTarget.isPreparingAttack {
-					shieldingFrame += num;
-				}
-			}
-		}
-}*/
-
 // flinching just move you back a little in a given direction
 // its like staggering but doesnt interrupt attacks
 if isFlinching {
@@ -1007,21 +991,43 @@ if isFlinching {
 	if flinchFrame < totalFlinchFrames {
 		var fspeed = flinchSpeed == 0 ? functionalSpeed : flinchSpeed;
 	
-		//speed = 0;
+		speed = 0;
 		direction = flinchDirection;
+		flinchDirection = flinchDirection%360;
 		// stagger twice as quickly early on
+		var fDir = flinchDirection;
 		if (flinchFrame > .5*totalFlinchFrames) {
-			var x1 = x+lengthdir_x(.25*fspeed, flinchDirection);
-			var y1 = y+lengthdir_y(.25*fspeed, flinchDirection);
-			if !place_meeting(x1,y1,obj_solid_parent) {
+			
+			var x1 = x+lengthdir_x(.25*fspeed, fDir);
+			var y1 = y+lengthdir_y(.25*fspeed, fDir);
+			do {
+				x1 = x+lengthdir_x(.25*fspeed, fDir);
+				y1 = y+lengthdir_y(.25*fspeed, fDir);
+				if place_meeting(x1,y1,obj_solid_parent) || place_meeting(x1,y1,obj_combatant_parent) {
+					fDir = (fDir + 45)%360;
+				}
+			} until ((!place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
+			
+			if !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent) {
 				speed = .25*fspeed;
-			} else flinchDirection += 180;
+				flinchDirection = fDir;
+			}
 		} else {
-			var x1 = x+lengthdir_x(.5*fspeed, flinchDirection);
-			var y1 = y+lengthdir_y(.5*fspeed, flinchDirection);
-			if !place_meeting(x1,y1,obj_solid_parent) {
+			var x1 = x+lengthdir_x(.5*fspeed, fDir);
+			var y1 = y+lengthdir_y(.5*fspeed, fDir);
+			
+			do {
+				x1 = x+lengthdir_x(.25*fspeed, fDir);
+				y1 = y+lengthdir_y(.25*fspeed, fDir);
+				if place_meeting(x1,y1,obj_solid_parent) || place_meeting(x1,y1,obj_combatant_parent) {
+					fDir = (fDir + 45)%360;
+				}
+			} until ((!place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
+			
+			if !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent) {
 				speed = .5*fspeed;
-			} else flinchDirection += 180;
+				flinchDirection = fDir;
+			}
 		}
 		flinchFrame++;
 	} else {

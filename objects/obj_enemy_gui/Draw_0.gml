@@ -1,3 +1,5 @@
+draw_path(owner.path,owner.x,owner.y,false);
+
 if owner.showHp {
 	
 	// totalhp bar outline

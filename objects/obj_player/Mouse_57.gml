@@ -7,9 +7,6 @@ if !isMouseInMenu {
 		ds_map_replace(prepFrameTotals,"r",0);
 		ds_map_delete(attackingHands,"r");
 		ds_map_delete(recoveringHands,"r");
-		//isPreparingAttack = false;
-		//prepAnimationFrame = 0;
-		//currentAttackingHand = noone;
 		state = CombatantStates.Idle;
 	}
 	else if
@@ -25,6 +22,7 @@ if !isMouseInMenu {
 			// idea: have a will attack again map <handSide><boolean> kvp's -- in Step event, at end of recover,
 			// check the will attack again map. If it will attack again and there's enough stamina, do it
 			if isRightHandInUse {
+	
 				ds_map_replace(attackAgain,"r",true);
 			} else {
 				ds_map_replace(preparingHands,"r",1);
