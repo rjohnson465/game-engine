@@ -50,6 +50,11 @@ for (var i = 0; i < size; i++){
 	// except for ice, in which condition level becomes 2 (frozen)
 	if conditionPercent > 95 && currentCondition == ICE {
 		ds_map_replace(conditionLevels,currentCondition,2);
+		// freeze applied on a burning target, burn is removed
+		if !isFrozen && isBurning {
+			ds_map_replace(conditionPercentages,FIRE,0);
+			isBurning = false;
+		}
 		isSlowed = false;
 		isFrozen = true;
 	} else if conditionPercent > 95 {

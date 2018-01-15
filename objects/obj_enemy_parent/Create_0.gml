@@ -72,7 +72,7 @@ if (hasHands) {
 // attack 1 move 1 min, attack 1 move 1 max, attack 1 move 2 min, attack 1 move 2 max..
 var meleeDamages0 = ds_map_create();
 ds_map_add(meleeDamages0,PHYSICAL,[10,20,10,20]);
-ds_map_add(meleeDamages0,ICE,[10,20,1,1]);
+//ds_map_add(meleeDamages0,ICE,[10,20,1,1]);
 //ds_map_add(meleeDamages0,POISON,[50,75,25,25]);
 meleeDamages[0] = meleeDamages0;
 // sprite string for each attack in chain <base>+number
@@ -80,7 +80,7 @@ meleeAttacksSpriteChain[0] = [["unarmed",1,1], ["unarmed",1,1]];
 
 var meleeDamages1 = ds_map_create();
 ds_map_add(meleeDamages1,PHYSICAL,[10,20,15,25]);
-ds_map_add(meleeDamages1,FIRE,[0,0,3,6]);
+//ds_map_add(meleeDamages1,FIRE,[0,0,3,6]);
 meleeDamages[1] = meleeDamages1;
 meleeAttacksSpriteChain[1] = [["unarmed",1,1], ["unarmed",1,2]];
 

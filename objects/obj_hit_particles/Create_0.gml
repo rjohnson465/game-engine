@@ -19,10 +19,10 @@ switch type {
 		part_type_shape(blood, pt_shape_sphere);
 		part_type_color2(blood,c_red,c_maroon);
 		part_type_orientation(blood,0,0,0,15,1);
-		part_type_size(blood,0,0.1,0,0);
-		part_type_speed(blood,2,3,0,0);
+		part_type_size(blood,0,0.15,0,0);
+		part_type_speed(blood,2,8,0,0);
 		part_type_direction(blood,0,360,0,4);
-		part_type_life(blood,10,20);
+		part_type_life(blood,10,15);
 		particle = blood;
 		break;
 	}
