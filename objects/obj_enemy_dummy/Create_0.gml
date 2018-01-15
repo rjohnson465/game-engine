@@ -45,7 +45,7 @@ meleeAttacksCount = 1;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[15,15];
+meleeRangeArray=[15,15,15,15];
 
 // ATTACKS
 
@@ -57,8 +57,14 @@ unarmedHook2.handSide = "o";
 var unarmedHook3 = instance_create_depth(x,y,1,obj_attack_dummy_unarmed_1_1);
 unarmedHook3.handSide = "o";
 ds_map_replace(unarmedHook3.damages,FIRE,[1,3]);
+
+var unarmedBackSlap = instance_create_depth(x,y,1,obj_attack_dummy_unarmed_1_2);
+
 var meleeChain1 = [unarmedHook1,unarmedHook2,unarmedHook3];
-meleeAttacks = [meleeChain1];
+var meleeChain2 = [unarmedHook1,unarmedBackSlap];
+var meleeChain3 = [unarmedHook1,unarmedBackSlap,unarmedHook2];
+var meleeChain4 = [unarmedHook1,unarmedBackSlap,unarmedHook2,unarmedHook3];
+meleeAttacks = [meleeChain1,meleeChain2,meleeChain3];
 
 // ranged attacks info
 rangedAttacksCount = 1; 

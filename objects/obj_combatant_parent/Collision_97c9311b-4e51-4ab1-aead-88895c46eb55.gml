@@ -125,7 +125,7 @@ if	state != CombatantStates.Dodging &&
 			if damageBase > 0 {
 				randomize();
 				var top = 1000;
-				var percentChance = 1;
+				var percentChance = .15;
 				if spell != noone && spell.name == "magicmissile" {
 					// every misile has a 20/numProjectiles% chance
 					var percentChance = (20/spell.numberOfProjectiles)/100;

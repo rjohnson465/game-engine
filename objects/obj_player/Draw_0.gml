@@ -148,9 +148,4 @@ if ds_map_size(preparingHands) != 0 && currentUsingSpell != noone {
 	draw_text(mean(x1,x2),y1-2,spell.name);
 }
 
-// lock on target
-if (isLockedOn && lockOnTarget != noone) {
-	draw_sprite(spr_lockon,1,lockOnTarget.x, lockOnTarget.y);
-}
-
 

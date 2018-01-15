@@ -657,7 +657,7 @@ switch(state) {
 			if !isRanged && ds_map_size(preparingHands) !=0 {
 				// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
 				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] {
-					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed,true);
+					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,true);
 				}
 			}
 		
@@ -1003,13 +1003,13 @@ if isFlinching {
 			var y1 = y+lengthdir_y(.25*fspeed, flinchDirection);
 			if !place_meeting(x1,y1,obj_solid_parent) {
 				speed = .25*fspeed;
-			} else flinchDirection += 45;
+			} else flinchDirection += 180;
 		} else {
 			var x1 = x+lengthdir_x(.5*fspeed, flinchDirection);
 			var y1 = y+lengthdir_y(.5*fspeed, flinchDirection);
 			if !place_meeting(x1,y1,obj_solid_parent) {
 				speed = .5*fspeed;
-			} else flinchDirection += 45;
+			} else flinchDirection += 180;
 		}
 		flinchFrame++;
 	} else {

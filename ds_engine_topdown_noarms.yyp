@@ -639,6 +639,14 @@
             }
         },
         {
+            "Key": "639384bf-ee11-4f82-8b39-f99450697529",
+            "Value": {
+                "id": "d9e64c86-1ebf-4dee-93a6-84c199285dad",
+                "resourcePath": "objects\\obj_attack_dummy_unarmed_1_2\\obj_attack_dummy_unarmed_1_2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "63ed6fe9-d9ec-43bf-a149-e28afbfa7563",
             "Value": {
                 "id": "2fdc8eff-1c2b-44d5-9166-d750c7acf70d",
@@ -658,7 +666,7 @@
             "Key": "6530d07b-758f-4f0b-a5d3-2cf7db2cd78d",
             "Value": {
                 "id": "0b8a297a-76b3-475f-9dbb-d18e5c2d00df",
-                "resourcePath": "objects\\obj_attack_data\\obj_attack_data.yy",
+                "resourcePath": "objects\\obj_attack_data_parent\\obj_attack_data_parent.yy",
                 "resourceType": "GMObject"
             }
         },
