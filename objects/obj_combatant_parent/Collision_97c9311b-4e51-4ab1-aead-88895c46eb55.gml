@@ -124,7 +124,6 @@ if	state != CombatantStates.Dodging &&
 				// TODO apply buffs?
 				rand -= defense;
 				var topNum = 1000-(percentChance*1000);
-				show_debug_message(string(rand) + " " + string(topNum));
 				// only apply the condition if the condition is not currently ongoing
 				if rand > topNum && ds_map_find_value(conditionPercentages,currentDamageType) == 0{
 					ds_map_replace(conditionPercentages,currentDamageType,100);

@@ -12,7 +12,7 @@ hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
 // all weapons / shields enemy can use
-/*var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
+var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
 ds_map_add(handItems,"rm1",unarmed);
@@ -21,7 +21,7 @@ ds_map_add(handItems, "rr1",shortbow);
 ds_map_add(handItems, "lr1", unarmed);
 
 leftHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);
-rightHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);*/
+rightHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 
 state = CombatantStates.Idle;
 

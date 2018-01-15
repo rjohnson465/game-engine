@@ -4,9 +4,6 @@
     "mvc": "1.1",
     "name": "39207408-f4a7-42f6-bea6-c63dcb4d63f9",
     "children": [
-        "3d34a0bd-89d1-4d21-8c14-175abfcc9a38",
-        "bd0fad16-d806-44fc-aa13-3e669ab17200",
-        "01b33acc-d0b8-4910-bdba-dcc8978a0cd1",
         "82e9f65e-ac6b-451e-8fe5-1b9866a00e8b",
         "7427441a-7a2e-467f-a9ad-7adfd0a0d97e",
         "421a6689-c64d-4488-a6de-9a71a83f6919",
@@ -18,10 +15,7 @@
         "4581ba85-adb3-4489-933e-372e60183f92",
         "559abbd8-3c0c-4d7d-a516-4f064e326e7b",
         "f29e11a6-ac97-4485-9941-0304649d716f",
-        "f776619f-ca62-465c-a352-d7d8bf6aa262",
-        "c506c391-1e1e-4f0f-af53-e6e1af14c0a5",
-        "6067e0ed-d5e7-4af2-a994-864fe7efb42a",
-        "bfd8ea63-cd52-41b7-88ac-9510e8aeb62c"
+        "f776619f-ca62-465c-a352-d7d8bf6aa262"
     ],
     "filterType": "GMSprite",
     "folderName": "hands",

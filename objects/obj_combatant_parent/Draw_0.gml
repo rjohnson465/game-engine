@@ -62,9 +62,16 @@ if state == CombatantStates.Attacking {
 			
 			for (var i = 0; i < ds_map_size(preparingHands); i++) {
 				var attackInChain = ds_map_find_value(preparingHands,hand);
-				var prepHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
+				var attackData = noone;
+				if currentMeleeAttack {
+					var attackChain = meleeAttacks[attackNumber-1];
+					attackData = attackChain[attackInChain-1];
+				} else {
+					var attackChain = rangedAttacks[attackNumber-1];
+					attackData = attackChain[attackInChain-1];
+				}
 			
-				var prepSprite = asset_get_index("spr_"+spriteString+prepHandItemSprite+"_prep_"+string(attackNumber)+"_"+string(attackInChain));
+				var prepSprite = asset_get_index(attackData.spriteName+"_prep_"+string(attackData.spriteAttackNumber)+"_"+string(attackData.spriteAttackNumberInChain));
 				var frame = ds_map_find_value(prepFrames,hand);
 				if hand == "r" {
 					draw_sprite_ext(prepSprite,frame,x,y,1,1,facingDirection,c_white,1);
@@ -92,14 +99,17 @@ if state == CombatantStates.Attacking {
 			
 			for (var i = 0; i < ds_map_size(recoveringHands); i++) {
 				var attackInChain = ds_map_find_value(recoveringHands,hand);
-				
-				if attackInChain == 1 {
-					var a = 3;					
+				var attackData = noone;
+				if currentMeleeAttack {
+					var attackChain = meleeAttacks[attackNumber-1];
+					attackData = attackChain[attackInChain-1];
+				} else {
+					var attackChain = rangedAttacks[attackNumber-1];
+					attackData = attackChain[attackInChain-1];
 				}
-				
-				var recoverHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
+				//var recoverHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			
-				var recoverSprite = asset_get_index("spr_"+spriteString+recoverHandItemSprite+"_recover_"+string(attackNumber)+"_"+string(attackInChain));
+				var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(attackData.spriteAttackNumber)+"_"+string(attackData.spriteAttackNumberInChain));
 				var frame = ds_map_find_value(recoverFrames,hand);
 				if hand == "r" {
 					draw_sprite_ext(recoverSprite,frame,x,y,1,1,facingDirection,c_white,1);
@@ -123,12 +133,6 @@ if state == CombatantStates.Attacking {
 	}
 }
 
-/*if state == CombatantStates.Staggering {
-	var staggerSprite = asset_get_index("spr_staggering");
-	var staggerSpriteFrames = sprite_get_number(staggerSprite);
-	//draw_sprite(staggerSprite,staggerFrame%staggerSpriteFrames,mean(x-.5*sprite_width,x+.5*sprite_width),y-.5*sprite_height);
-	draw_sprite(staggerSprite,staggerFrame%staggerSpriteFrames,x,y);
-}*/
 
 
 

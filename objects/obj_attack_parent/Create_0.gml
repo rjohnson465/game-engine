@@ -54,16 +54,21 @@ if owner.currentUsingSpell != noone {
 }
 // ranged or melee: NOT A SPELL
 else {
+	var attackData = noone;
 	// get attack number
 	if owner.type != CombatantTypes.Player {
 		isRanged = owner.currentMeleeAttack == noone ? true: false;
 		isMelee = owner.currentMeleeAttack == noone ? false : true;
 		attackNumber = owner.currentMeleeAttack == noone ? owner.currentRangedAttack : owner.currentMeleeAttack;
-		//attackNumberInChain = owner.attackNumberInChain;
 		attackNumberInChain = ds_map_find_value(owner.attackingHands,handSide);
+		if isMelee {
+			var attackChain = owner.meleeAttacks[attackNumber-1];
+			attackData = attackChain[attackNumberInChain-1];
+		} else {
+			var attackChain = owner.rangedAttacks[attackNumber-1];
+			attackData = attackChain[attackNumberInChain-1];
+		}
 	} else {
-		//attackNumber = global.playerAttackNumberInChain;
-		//attackNumberInChain = global.playerAttackNumberInChain;
 		attackNumber = ds_map_find_value(owner.attackingHands,handSide);
 		attackNumberInChain = ds_map_find_value(owner.attackingHands,handSide);
 		weapon = handSide == "l" ? owner.leftHandItem : owner.rightHandItem;
@@ -83,9 +88,12 @@ else {
 
 
 	// get sprite string -- physical attacks
-	var sprStr = "spr_"+owner.spriteString+attackItemSprite+"_attack_"+string(attackNumber);
-	if owner.type != CombatantTypes.Player {
-		sprStr += "_"+string(owner.attackNumberInChain);
+	var sprStr = "";
+	if owner.type == CombatantTypes.Player {
+		var sprStr = "spr_"+owner.spriteString+attackItemSprite+"_attack_"+string(attackNumber);
+	} else {
+		//sprStr = "_"+string(owner.attackNumberInChain);
+		sprStr = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain);
 	}
 
 	// if this is a left hand attack, flip yscale

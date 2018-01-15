@@ -150,7 +150,6 @@ for (var i = 0; i < size; i++){
 	var defense = ds_map_find_value(defenses,currentCondition);
 	
 	// particle effects for conditions
-	// TODO this might get ridiculous is someone has a shitzillion different particles all over them
 	if conditionLevel > 0 && currentCondition != MAGIC && currentCondition != PHYSICAL {
 		var condParticlesExist = false;
 		var c = currentCondition;
@@ -404,6 +403,29 @@ switch(state) {
 					willDodge = rand <= agility ? true : false;
 					hasCalculatedWillDodge = true;
 				}
+				
+				// CHECK 4: WILL WE SHIELD IN THIS MOVE STATE?
+				if !willDodge && leftHandItem.type == HandItemTypes.Shield {
+					// if within meleeAggroRange, check every shieldingFrames if should shield
+					if !isShielding {
+						if shieldingFrame < totalShieldingFrames && !hasCalculatedWillShield {
+							randomize();
+							totalShieldingFrames = random_range(shieldingFrequencyFrames[0],shieldingFrequencyFrames[1]);
+							var rand = random_range(0,1);
+							willShield = rand < (cautiousness/100);
+							hasCalculatedWillShield = true;
+						}
+						else if shieldingFrame >= totalShieldingFrames && willShield {
+							isShielding = true;
+						}
+					} else {
+						if shieldingFrame >= totalShieldingFrames {
+							shieldingFrame = 0;
+							hasCalculatedWillShield = false;
+						}
+					}
+					shieldingFrame++;
+				}
 			
 				// If we're close to our lockOnTarget and they're preparing attack and we've decided to dodge during this Move state,
 				// decide exactly what frame in the lockOnTarget's attack prep to dodge on
@@ -640,12 +662,12 @@ switch(state) {
 		
 			// if idle or recovering, attack or perform next attack in chain (if aggressiveness allows)
 			// TODO refactor this to support combatants without conventional l/r hands
-			var aa = ds_map_find_value(recoveringHands,prevAttackHand);
 			if attackNumberInChain == noone || ds_map_find_value(recoveringHands,prevAttackHand) == attackNumberInChain {
 
 				// decide if we should attack (maybe again, if there's another attack in the chain)
 				var willAttack = false;
-				var a = !isRanged ? meleeAttacksSpriteChain[attackNumber-1] : rangedAttacksSpriteChain[attackNumber-1];
+				//var a = !isRanged ? meleeAttacksSpriteChain[attackNumber-1] : rangedAttacksSpriteChain[attackNumber-1];
+				var a = !isRanged ? meleeAttacks[attackNumber-1] : rangedAttacks[attackNumber-1];
 				var aLength = array_length_1d(a); // how many attacks in the chain there are
 				var nextAttackInChainExists =  aLength >= attackNumberInChain + 1;
 
@@ -678,11 +700,12 @@ switch(state) {
 			
 				// attack logic
 				if willAttack && stamina > 0 {
+					var handSide = "r";
+					var a = meleeAttacks[attackNumber-1];
+					var attackData = a[attackNumberInChain - 1];
 					if hasHands && !isRanged {
-						var a = meleeAttacksHands[attackNumber-1];
-						var aVal = a[attackNumberInChain - 1];
-						var handSide = noone;
-						switch aVal {
+						var side = attackData.handSide;
+						switch side {
 							case "l": {
 								handSide = "l";
 								break;
@@ -706,36 +729,27 @@ switch(state) {
 								break;
 							}
 						}
-						//currentAttackingHand = a[attackNumberInChain - 1];
-						var currentAttackingHand = handSide; // TODO this fucks up every now and then
 					}
 					// for now, ranged is always 2h and always in the right hand
 					if hasHands && isRanged {
-						currentAttackingHand = "r";
+						handSide = "r";
 					}
 					
-					// get the sprite for the attack prep based on the spriteChain defined for this attack number
-					var chainArray = meleeAttacksSpriteChain[attackNumber-1];
-					var specificAttackArray = chainArray[attackNumberInChain-1];
-					var itemSprite = specificAttackArray[0];
-					var spriteNum1 = specificAttackArray[1];
-					var spriteNum2 = specificAttackArray[2];
+					var spriteAttackNumber = attackData.spriteAttackNumber;
+					var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
 					
 					// start attack prep
-					var prepSprite = asset_get_index("spr_"+spriteString+"_"+itemSprite+"_prep_"+string(spriteNum1)+"_"+string(spriteNum2));
-					if ds_map_find_value(preparingHands,currentAttackingHand) == undefined {
-						ds_map_add(preparingHands,currentAttackingHand,spriteNum2);
-					} else ds_map_replace(preparingHands,currentAttackingHand,spriteNum2);
-					ds_map_replace(prepFrameTotals,currentAttackingHand,sprite_get_number(prepSprite));
-					ds_map_replace(prepFrames,currentAttackingHand,0);
+					var prepSprite = asset_get_index(attackData.spriteName+"_prep_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
+					ds_map_replace(preparingHands,handSide,attackNumberInChain);
+					ds_map_replace(prepFrameTotals,handSide,sprite_get_number(prepSprite));
+					ds_map_replace(prepFrames,handSide,0);
 					
 					// if this same hand was recovering before, stop that
-					if ds_map_find_value(recoveringHands,currentAttackingHand) != undefined {
-						ds_map_delete(recoveringHands,currentAttackingHand);
-						ds_map_replace(recoverFrames,currentAttackingHand,-1);
-						ds_map_replace(recoverFrameTotals,currentAttackingHand,0);
+					if ds_map_find_value(recoveringHands,handSide) != undefined {
+						ds_map_delete(recoveringHands,handSide);
+						ds_map_replace(recoverFrames,handSide,-1);
+						ds_map_replace(recoverFrameTotals,handSide,0);
 					}
-
 				} 
 				else {
 					
@@ -749,14 +763,12 @@ switch(state) {
 							var numInChain = ds_map_find_value(attackingHands,currentRecoverFrames);
 							ds_map_delete(attackingHands,currentRecoverFrames);
 						
-							// get the sprite for the attack recovery based on the spriteChain defined for this attack number
-							var chainArray = meleeAttacksSpriteChain[attackNumber-1];
-							var specificAttackArray = chainArray[numInChain-1];
-							var itemSprite = specificAttackArray[0];
-							var spriteNum1 = specificAttackArray[1];
-							var spriteNum2 = specificAttackArray[2];
+							var chainArray = meleeAttacks[attackNumber-1];
+							var attackData = chainArray[numInChain-1];
+							var spriteAttackNumber = attackData.spriteAttackNumber;
+							var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
 					
-							var recoverSprite = asset_get_index("spr_"+spriteString+"_"+itemSprite+"_recover_"+string(attackNumber)+"_"+string(numInChain));
+							var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
 							
 							prevAttackHand = currentRecoverFrames;
 							if ds_map_find_value(recoveringHands,currentRecoverFrames) == undefined {
@@ -778,6 +790,7 @@ switch(state) {
 				var prepFrame = ds_map_find_value(prepFrames,currentPrepFrames);
 				var totalPrepFrames = ds_map_find_value(prepFrameTotals,currentPrepFrames);
 				if prepFrame >= 0 && prepFrame >= totalPrepFrames {
+					
 					speed = 0;
 					ds_map_replace(prepFrames,currentPrepFrames,-1);
 					ds_map_replace(prepFrameTotals,currentPrepFrames,0);
@@ -786,10 +799,15 @@ switch(state) {
 					if hasHands {
 						var currentAttackingHandItem = currentPrepFrames == "l" ? leftHandItem : rightHandItem;
 						var attackInChain = ds_map_find_value(preparingHands,currentPrepFrames);
-						if attackInChain == 2 {
-							var b = 3;
+						var attackData = noone;
+						if !isRanged {
+							var attackChain = meleeAttacks[attackNumber-1];
+							attackData = attackChain[attackInChain-1];
+						} else {
+							var attackChain = rangedAttacks[attackNumber-1];
+							attackData = attackChain[attackInChain-1];
 						}
-						stamina -= currentAttackingHandItem.staminaCostArray[attackInChain-1];
+						stamina -= attackData.staminaCost;
 						ds_map_delete(preparingHands,currentPrepFrames);
 						ds_map_replace(attackingHands,currentPrepFrames,attackInChain);
 					}
@@ -797,6 +815,7 @@ switch(state) {
 					global.owner = id; // passed as param to attackObj
 					global.handSide = currentPrepFrames;
 					var attackObj = instance_create_depth(x,y,1,obj_attack_parent);
+					hasCalculatedNextAttack = false;
 				}
 				currentPrepFrames = ds_map_find_next(prepFrames,currentPrepFrames);
 			}
@@ -922,7 +941,7 @@ switch(state) {
 
 // if has a shield, every totalShieldingFrames, decide if should shield (based on cautiousness + some luck)
 // this does not affect Player
-if hasHands && type != CombatantTypes.Player {
+/*if hasHands && type != CombatantTypes.Player {
 	if	leftHandItem.type == HandItemTypes.Shield 
 		&& state == CombatantStates.Moving 
 		&& !isShielding
@@ -961,7 +980,7 @@ if hasHands && type != CombatantTypes.Player {
 				}
 			}
 		}
-}
+}*/
 
 // flinching just move you back a little in a given direction
 // its like staggering but doesnt interrupt attacks

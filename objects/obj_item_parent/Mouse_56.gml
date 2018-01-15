@@ -8,7 +8,6 @@ if id == global.ui.grabbedItem {
 	}
 
 	if position_meeting(x,y,nearestOtherItem) {
-		show_debug_message(nearestOtherItem.name);
 	
 		var inv = global.player.inventory;
 		var otherPosition = ds_list_find_index(inv,nearestOtherItem);

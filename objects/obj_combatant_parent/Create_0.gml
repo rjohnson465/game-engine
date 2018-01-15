@@ -109,7 +109,7 @@ dodgeDirection = noone;
 dodgeFrame = 0;
 totalDodgeFrames = noone;
 hasCalculatedWillDodge = false;
-willDodge = noone;
+willDodge = false;
 agility = 100; // 0 - 100% chance to dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_"+spriteString+"_dodge"));
 
@@ -123,8 +123,11 @@ flinchSpeed = 0;
 // shielding stuff
 cautiousness = 100; // 0-100% chance to shield (when able, i.e. not attacking, dodging, staggering)
 shieldingFrame = 0;
-totalShieldingFrames = 130 - cautiousness; // how regularly can we check to shield?
+shieldingFrequencyFrames = [30,60]; // range of values for how often to check if should shield
+totalShieldingFrames = 0; //stores a value between shieldingFrequencyFrames[0] - [1]
 isShielding = false;
+hasCalculatedWillShield = false;
+willShield = false;
 
 // hp / stamina
 hp = 75;
