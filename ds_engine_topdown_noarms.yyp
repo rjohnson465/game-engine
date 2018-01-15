@@ -375,6 +375,14 @@
             }
         },
         {
+            "Key": "39bca976-b17b-4112-9141-1a5112b868ba",
+            "Value": {
+                "id": "bf403c82-b85b-492e-af51-4a652cf528a2",
+                "resourcePath": "scripts\\ProjectShadow\\ProjectShadow.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "39e22842-f2d7-4f77-a8aa-16d71c2efd62",
             "Value": {
                 "id": "3700f49a-7d53-4dad-b3cd-84935c322af2",
@@ -412,6 +420,14 @@
                 "id": "f6a4af86-661c-4344-8866-4a9b243a85ee",
                 "resourcePath": "sprites\\spr_filter_melee\\spr_filter_melee.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3e80a8ae-3db3-4040-9b9c-aaf6927ad6ce",
+            "Value": {
+                "id": "c3f8af3a-4333-4bd8-a502-d25740a0584c",
+                "resourcePath": "shaders\\shader0\\shader0.yy",
+                "resourceType": "GMShader"
             }
         },
         {
@@ -675,6 +691,14 @@
             "Value": {
                 "id": "0b8a297a-76b3-475f-9dbb-d18e5c2d00df",
                 "resourcePath": "objects\\obj_attack_data_parent\\obj_attack_data_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "65ee9551-f4f5-4d39-9f4e-69eba80a814e",
+            "Value": {
+                "id": "12dc5847-4262-4793-9d4a-479826b0a16a",
+                "resourcePath": "objects\\obj_light_radius\\obj_light_radius.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1711,6 +1735,14 @@
             }
         },
         {
+            "Key": "f8705dbb-e7d5-47c3-a2ec-c0a1a23186ba",
+            "Value": {
+                "id": "521c2662-952f-4d03-9d93-e639f30c0431",
+                "resourcePath": "scripts\\SignTest\\SignTest.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fcb6e595-d748-4db3-b8c1-65e0c4ddcc6e",
             "Value": {
                 "id": "c4fb0a9f-e45c-4d6b-b8dd-9a55612238b6",
@@ -1743,7 +1775,9 @@
         "c3c1de4a-7841-4120-a87c-94cf86bf03d9",
         "a8cdad76-0670-4e4e-95df-7a6266025880",
         "0aa36b5b-7047-4003-ad3c-c1e1740f9d0d",
-        "647a77fa-c761-4821-b235-45ed34677ddb"
+        "647a77fa-c761-4821-b235-45ed34677ddb",
+        "39bca976-b17b-4112-9141-1a5112b868ba",
+        "f8705dbb-e7d5-47c3-a2ec-c0a1a23186ba"
     ],
     "tutorial": ""
 }

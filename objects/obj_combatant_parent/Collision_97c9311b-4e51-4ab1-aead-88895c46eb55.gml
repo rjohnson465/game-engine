@@ -10,10 +10,13 @@ if	state != CombatantStates.Dodging &&
 	(type == CombatantTypes.Player && other.owner.type == CombatantTypes.Enemy
 	|| type == CombatantTypes.Ally && other.owner.type == CombatantTypes.Enemy 
 	|| type == CombatantTypes.Enemy && other.owner.type == CombatantTypes.Ally
-	|| type == CombatantTypes.Enemy && other.owner.type == CombatantTypes.Player) 	
+	|| type == CombatantTypes.Enemy && other.owner.type == CombatantTypes.Player) 
+	&& other.id != id
 {
 	// if combatant has not been hit with this instance before (only get hit with an attack once)
 	if ds_list_find_index(beenHitWith,other.id) == -1 {
+		
+		ds_list_add(other.combatantsHit,id);
 		
 		// limit number of combatants hit per attack based on num targets an attack can hit
 		if	other.owner.type == CombatantTypes.Player {

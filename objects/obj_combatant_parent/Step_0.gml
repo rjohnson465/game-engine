@@ -574,7 +574,7 @@ switch(state) {
 									strafeDirection = rand < 37 ? "l" : "r";
 								} else isStrafing = false;
 							} else {
-								/*if isStrafing {
+								if isStrafing {
 									var dist = distance_to_object(lockOnTarget);
 									if dist <= meleeRangeArray[currentMeleeAttack-1] {
 										var angle = point_direction(lockOnTarget.x,lockOnTarget.y,x,y);
@@ -598,7 +598,7 @@ switch(state) {
 											strafeDirection = strafeDirection == "l" ? "r" : "l";
 										}
 									}
-								}*/
+								}
 								strafeFrame--;
 							}
 						}
