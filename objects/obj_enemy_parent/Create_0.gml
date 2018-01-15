@@ -79,7 +79,7 @@ totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_d
 
 // shielding stuff
 isShielding = false;
-cautiousness = 100;
+cautiousness = 0;
 shieldingFrame = 0; // 0 - 100% chance to shield every totalShieldingFrames # of frames
 totalShieldingFrames = 140 - cautiousness; // how regularly can we check to shield?
 

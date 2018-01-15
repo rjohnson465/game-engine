@@ -1,15 +1,12 @@
 event_inherited();
-type = CombatantTypes.Enemy;
-name = "parent enemy";
+name = "Dummy";
 spriteName = "dummy";
-spriteType = "enemy";
 spriteString = "enemy_dummy";
 
 functionalSpeed = 3;
 normalSpeed = 3;
 
 hasHands = true; // humanoid / uses hand attacks
-currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
 // all weapons / shields enemy can use
 var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
@@ -33,11 +30,9 @@ stupidityFrame = 0;
 meleeAggroRange = 200;
 rangedAggroRange = 350;
 farthestAllowedFromPost = 1000;
-attackNumberInChain = noone; // set in attack state
-aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
+aggressiveness = 0; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [5,15];
 strafeTotalFrames = [30,60];
-hasCalculatedNextAttack = false; // flag to ensure aggresiveness is only factored once between attacks
 
 // melee attacks info
 // meleeAttacksCount is number of separate attack chains, not individual attacks
@@ -81,24 +76,13 @@ staminaRegen = 4;
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
-// stagger stuff
 poise = 20;
-staggerDuration = 0;
-staggerFrame = 0;
-staggerDirection = 0;
 
 // dodge stuff
-hasCalculatedWillDodge = false;
-willDodge = noone;
 agility = 0; // 0 - 100% chance to try a dodge
-dodgeFrame = 0;
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
 // shielding stuff
-isShielding = false;
-cautiousness = 100;
-shieldingFrame = 0; // 0 - 100% chance to shield every totalShieldingFrames # of frames
-totalShieldingFrames = 140 - cautiousness; // how regularly can we check to shield?
+cautiousness = 50;
 
-lockOnTargetType = obj_goodguy_parent;
 

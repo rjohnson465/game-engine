@@ -103,6 +103,7 @@ strafeTotalFrames = [0,0];
 strafeFrame = -1;
 isStrafing = false;
 strafeAngle = 0;
+strafeDirection = "l"; // l or r
 
 // dodge stuff
 dodgeDirection = noone;

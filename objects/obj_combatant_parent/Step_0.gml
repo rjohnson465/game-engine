@@ -520,22 +520,19 @@ switch(state) {
 					// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) || wallsBetweenTarget != noone : 
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]);
-				if pred && !isStrafing && !isFlinching {
+				if pred && /*!isStrafing &&*/ !isFlinching {
 					if wallsBetweenTarget == noone {
 						facingDirection = point_direction(x,y,global.player.x,global.player.y);
 					} else {
 						facingDirection = direction;
 					}
 			
-					// calculate grid path to lockOnTarget and move to it
-					//var p = mp_grid_path(personalGrid, path,x,y,lockOnTarget.x,lockOnTarget.y,1);
-					var p = mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
-					//if	p
-					{
-						path_get_point_x(path,0);
-						path_start(path,functionalSpeed,path_action_stop, false);
-						break;
-					}
+					// calculate path to lockOnTarget and move to it
+					mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
+					path_get_point_x(path,0);
+					path_start(path,functionalSpeed,path_action_stop, false);
+					break;
+
 				}
 				// within range for attack
 				else {
@@ -548,7 +545,6 @@ switch(state) {
 						attackFrequencyFrame = round(random_range(attackFrequencyTotalFrames[0],attackFrequencyTotalFrames[1]));
 					} else if attackFrequencyFrame == 0 {
 						// check if should enter attack state every x frames (some number between ranges specified in attackFrequencyTotalFrames)
-						// TODO Devin math major
 						randomize();
 						var rand = random_range(1,100);
 						if rand <= aggressiveness {
@@ -566,29 +562,30 @@ switch(state) {
 								// check and see if will strafe this period
 								randomize();
 								var rand = random_range(1,100);
-								if rand <= 50 {
+								if rand <= 75 {
 									isStrafing = true;
 									strafeAngle = point_direction(lockOnTarget.x,lockOnTarget.y,x,y);
+									strafeDirection = rand < 37 ? "l" : "r";
 								} else isStrafing = false;
 							} else {
 								if isStrafing {
-									facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
-									/*strafeAngle += functionalSpeed;
-									randomize();
-									var rand = random_range(30,50);
-									var dist = meleeRangeArray[currentMeleeAttack-1];
-									var xx = lockOnTarget.x + lengthdir_x(dist, strafeAngle);
-									var yy = lockOnTarget.y + lengthdir_y(dist, strafeAngle);
-
-									var dir = point_direction(x,y,xx,yy);
-									if !position_meeting(x+lengthdir_x(functionalSpeed,dir),y+lengthdir_y(functionalSpeed,dir),lockOnTarget) {
-										x = x+lengthdir_x(functionalSpeed,dir);
-										y = y+lengthdir_y(functionalSpeed,dir);
-									}*/
-
-									if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] {
-										strafeFrame = -1;
-										isStrafing = false;
+									var dist = distance_to_object(lockOnTarget);
+									if dist <= meleeRangeArray[currentMeleeAttack-1] {
+										var angle = point_direction(lockOnTarget.x,lockOnTarget.y,x,y);
+										angle = strafeDirection == "r" ? angle + functionalSpeed*.5 : angle - functionalSpeed*.5;
+										var centerX = lockOnTarget.x;
+										var centerY = lockOnTarget.y;
+										var orbit = point_distance(x,y,lockOnTarget.x,lockOnTarget.y);									
+										if angle >= 360 angle -= 360;
+									
+										var xx = lengthdir_x(orbit,angle) + centerX;
+										var yy = lengthdir_y(orbit,angle) + centerY;
+									
+										if place_free(xx,yy) {
+											x = xx;
+											y = yy;
+											facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
+										}	
 									}
 								}
 								strafeFrame--;
@@ -916,6 +913,7 @@ switch(state) {
 				}
 			}
 		}
+		isStrafing = false;
 		currentAttackingHand = noone;
 		currentUsingSpell = noone;
 		attackNumberInChain = noone;
@@ -998,8 +996,8 @@ switch(state) {
 // flinching just move you back a little in a given direction
 // its like staggering but doesnt interrupt attacks
 if isFlinching {
+	isStrafing = false;
 	if flinchFrame < totalFlinchFrames {
-		
 		var fspeed = flinchSpeed == 0 ? functionalSpeed : flinchSpeed;
 	
 		//speed = 0;

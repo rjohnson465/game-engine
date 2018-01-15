@@ -122,10 +122,9 @@ switch(state) {
 		
 		var x1 = x +lengthdir_x(usingSpeed,direction);
 		var y1 = y +lengthdir_y(usingSpeed,direction);
-		canMove = !place_meeting(x1,y1,obj_solid_parent);
+		canMove = !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_shield_parent);
 
 		if !canMove {
-			//speed = 0;
 			state = CombatantStates.Idle;
 			break;
 		}
