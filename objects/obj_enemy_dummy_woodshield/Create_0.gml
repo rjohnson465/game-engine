@@ -31,7 +31,7 @@ meleeAggroRange = 200;
 rangedAggroRange = 350;
 farthestAllowedFromPost = 1000;
 aggressiveness = 0; // aggressiveness 0-100%, decides how often to keep going with attack chain
-attackFrequencyTotalFrames = [5,15];
+attackFrequencyTotalFrames = [10,20];
 strafeTotalFrames = [30,60];
 
 // melee attacks info
@@ -68,6 +68,7 @@ strength = 10; // used in calculating stagger against player
 
 hp = 50;
 maxHp = 50;
+hpRegen = 7;
 
 stamina = 60;
 maxStamina = 60;

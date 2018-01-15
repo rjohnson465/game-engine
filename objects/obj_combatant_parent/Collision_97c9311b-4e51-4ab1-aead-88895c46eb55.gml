@@ -187,6 +187,7 @@ if	state != CombatantStates.Dodging &&
 				//if type != CombatantTypes.Player {
 					global.damageAmount = damage;
 					global.victim = id;
+					global.healingSustained = 0;
 					instance_create_depth(x,y,1,obj_damage);
 				//}
 				if stamina < 1 {
@@ -204,6 +205,7 @@ if	state != CombatantStates.Dodging &&
 			hp -= damage;
 			//if type != CombatantTypes.Player {
 				global.damageAmount = damage;
+				global.healingSustained = 0;
 				global.victim = id;
 				instance_create_depth(x,y,1,obj_damage);
 			//}

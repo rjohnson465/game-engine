@@ -54,6 +54,7 @@ rangedRangeArray=[]; // ranged attack chains
 
 hp = 35;
 maxHp = 35;
+hpRegen = 0;
 
 stamina = 15;
 maxStamina = 15;

@@ -16,12 +16,12 @@ if type != CombatantTypes.Player {
 if stamina < maxStamina {
 	// stamina regens slower if shielding
 	if isShielding {
-		stamina += (.5*staminaRegen)/30;
+		stamina += (.5*staminaRegen)/40;
 	}
-	else stamina += staminaRegen/30;
+	else stamina += staminaRegen/40;
 }
 if hp < maxHp {
-	hp += hpRegen/30;
+	hp += hpRegen/40;
 }
 
 // conditionPercentages drain every step
@@ -194,8 +194,7 @@ for (var i = 0; i < size; i++){
 				// if fire defense is positive, defense% of 60 is added to burn frames
 				burnFrames = (defense >= 0) ? burnFrames + burnFrames*(defense/100) : burnFrames - burnFrames*(defense/100);
 				if burnFrame >= burnFrames {
-					// is this needed? defense was already accounted for when burnDamage was set first, right?
-					//burnDamage = defense >= 0 ? (burnDamage - burnDamage*(defense/100)) : (burnDamage + burnDamage*(defense/100));
+
 					var originalBurnDamage = burnDamage;
 					if burnDamage > hp {
 						burnDamage = hp;
@@ -204,6 +203,7 @@ for (var i = 0; i < size; i++){
 					//if type != CombatantTypes.Player {
 						global.damageAmount = burnDamage;
 						global.victim = id;
+						global.healingSustained = 0;
 						instance_create_depth(x,y,1,obj_damage);
 					//}
 					// diminishes every pulse
@@ -236,6 +236,7 @@ for (var i = 0; i < size; i++){
 					//if type != CombatantTypes.Player {
 						global.damageAmount = poisonDamage;
 						global.victim = id;
+						global.healingSustained = 0;
 						instance_create_depth(x,y,1,obj_damage);
 					//}
 					// builds every pulse
@@ -549,6 +550,7 @@ switch(state) {
 						var rand = random_range(1,100);
 						if rand <= aggressiveness {
 							if !isFrozen {
+								isStrafing = false;
 								state = CombatantStates.Attacking;
 							}
 						}
@@ -575,7 +577,10 @@ switch(state) {
 										angle = strafeDirection == "r" ? angle + functionalSpeed*.5 : angle - functionalSpeed*.5;
 										var centerX = lockOnTarget.x;
 										var centerY = lockOnTarget.y;
-										var orbit = point_distance(x,y,lockOnTarget.x,lockOnTarget.y);									
+										var orbit = point_distance(x,y,lockOnTarget.x,lockOnTarget.y);		
+										if dist < meleeRangeArray[currentMeleeAttack-1] {
+											orbit += 1;
+										}
 										if angle >= 360 angle -= 360;
 									
 										var xx = lengthdir_x(orbit,angle) + centerX;
@@ -655,8 +660,10 @@ switch(state) {
 				}
 			}
 			
-			// aim while preparing attack
-			facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
+			if ds_map_size(preparingHands) != 0 {
+				// aim while preparing attack
+				facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
+			}
 			
 			if !isRanged && ds_map_size(preparingHands) !=0 {
 				// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
