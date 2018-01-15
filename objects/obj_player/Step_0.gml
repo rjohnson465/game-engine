@@ -268,9 +268,9 @@ switch(state) {
 						global.percentCharged = percentCharged;
 						global.handSide = "r";
 						if currentUsingSpell != "aoe" {
-							instance_create_depth(x,y,1,obj_attack_parent);	
+							instance_create_depth(x,y,1,obj_attack);	
 						} else {
-							instance_create_depth(mouse_x,mouse_y,1,obj_attack_parent);	
+							instance_create_depth(mouse_x,mouse_y,1,obj_attack);	
 						}
 					}
 				}
@@ -321,7 +321,7 @@ switch(state) {
 						stamina -= weapon.staminaCostArray[attackInChain-1];
 						global.owner = id;
 						global.handSide = hand;
-						instance_create_depth(x,y,1,obj_attack_parent);
+						instance_create_depth(x,y,1,obj_attack);
 					}
 					else {
 						ds_map_replace(prepFrames,hand,prepFrame-1);
@@ -426,7 +426,7 @@ switch(state) {
 			ds_map_delete(preparingHands,"r");
 			global.owner = id;
 			global.handSide = "r";
-			instance_create_depth(x,y,1,obj_attack_parent);
+			instance_create_depth(x,y,1,obj_attack);
 		}
 		break;
 	}

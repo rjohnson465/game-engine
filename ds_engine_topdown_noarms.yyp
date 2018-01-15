@@ -183,6 +183,14 @@
             }
         },
         {
+            "Key": "133b3e1d-f7a8-4076-88a9-c6c66fb0e77e",
+            "Value": {
+                "id": "3fd91417-9f85-475e-915d-acd3a2a48e05",
+                "resourcePath": "objects\\obj_enemy_gui\\obj_enemy_gui.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "135cc544-6184-425e-a9c2-da435185d282",
             "Value": {
                 "id": "0467aa57-2eb1-4068-b938-70e60ae0b5ab",
@@ -242,7 +250,7 @@
             "Key": "1c20cfff-60e4-4f81-97e1-8d057ab5dc14",
             "Value": {
                 "id": "b0d5ee6c-c357-44f0-ba46-7e8b988cafe9",
-                "resourcePath": "objects\\obj_attack_parent\\obj_attack_parent.yy",
+                "resourcePath": "objects\\obj_attack\\obj_attack.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1291,6 +1299,14 @@
             "Value": {
                 "id": "ad2da44c-c998-4a8b-bb13-bd2da82e469d",
                 "resourcePath": "objects\\obj_ally_parent\\obj_ally_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c3200771-98b7-4a61-a1f2-ade4761852d9",
+            "Value": {
+                "id": "83406cfe-a49d-4b76-b365-e20e1bf3063b",
+                "resourcePath": "objects\\obj_enemy_dummy_woodshield\\obj_enemy_dummy_woodshield.yy",
                 "resourceType": "GMObject"
             }
         },

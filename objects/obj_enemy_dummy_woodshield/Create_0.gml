@@ -1,5 +1,4 @@
 event_inherited();
-depth = 1;
 type = CombatantTypes.Enemy;
 name = "parent enemy";
 spriteName = "dummy";
@@ -7,13 +6,13 @@ spriteType = "enemy";
 spriteString = "enemy_dummy";
 
 functionalSpeed = 3;
-normalSpeed = 5;
+normalSpeed = 3;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
 // all weapons / shields enemy can use
-/*var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
+var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
 ds_map_add(handItems,"rm1",unarmed);
@@ -22,7 +21,7 @@ ds_map_add(handItems, "rr1",shortbow);
 ds_map_add(handItems, "lr1", unarmed);
 
 leftHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);
-rightHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);*/
+rightHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 
 state = CombatantStates.Idle;
 
@@ -41,28 +40,46 @@ strafeTotalFrames = [30,60];
 hasCalculatedNextAttack = false; // flag to ensure aggresiveness is only factored once between attacks
 
 // melee attacks info
+// meleeAttacksCount is number of separate attack chains, not individual attacks
+meleeAttacksCount = 1;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[];
-meleeAttacks = []; // melee attack chains
+meleeRangeArray=[15,15,15,15];
+
+// ATTACKS
+
+global.owner = id;
+var unarmedHook1 = instance_create_depth(x,y,1,obj_attack_dummy_unarmed_1_1);
+unarmedHook1.handSide = "r";
+
+var unarmedBackSlap = instance_create_depth(x,y,1,obj_attack_dummy_unarmed_1_2);
+
+var meleeChain1 = [unarmedHook1,unarmedBackSlap]
+meleeAttacks = [meleeChain1];
 
 // ranged attacks info
+rangedAttacksCount = 1; 
 // currently chosen ranged attack
 currentRangedAttack = noone;
-rangedRangeArray=[]; // ranged attack chains
+rangedRangeArray=[300,500];
 
-hp = 35;
-maxHp = 35;
+var shortbowShot = instance_create_depth(x,y,1,obj_attack_dummy_shortbow_1_1);
+var rangedChain1 = [shortbowShot,shortbowShot];
+var rangedChain2 = [shortbowShot];
+rangedAttacks = [rangedChain1,rangedChain2];
 
-stamina = 15;
-maxStamina = 15;
+strength = 10; // used in calculating stagger against player
+
+hp = 50;
+maxHp = 50;
+
+stamina = 60;
+maxStamina = 60;
 staminaRegen = 4;
 
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
-
-facingDirection = 0;
 
 // stagger stuff
 poise = 20;
@@ -85,5 +102,3 @@ totalShieldingFrames = 140 - cautiousness; // how regularly can we check to shie
 
 lockOnTargetType = obj_goodguy_parent;
 
-global.owner = id;
-instance_create_depth(x,y,1,obj_enemy_gui);

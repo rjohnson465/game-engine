@@ -417,6 +417,9 @@ switch(state) {
 						}
 						else if shieldingFrame >= totalShieldingFrames && willShield {
 							isShielding = true;
+							global.owner = id;
+							instance_create_depth(x,y,1,obj_shield_parent);
+							shieldingFrame = 0;
 						}
 					} else {
 						if shieldingFrame >= totalShieldingFrames {
@@ -429,9 +432,7 @@ switch(state) {
 			
 				// If we're close to our lockOnTarget and they're preparing attack and we've decided to dodge during this Move state,
 				// decide exactly what frame in the lockOnTarget's attack prep to dodge on
-				// is this is shit for ranged attacks?
 				// TODO should combatants also pay attention to other enemies around them, other than just their lockOnTarget?
-				
 				// melee dodges
 				var isMeleeAttack = false;
 				// attackHand is the hand that is currently preparing but will finish preparation sooner
@@ -447,7 +448,7 @@ switch(state) {
 				} else {
 					isMeleeAttack = lockOnTarget.currentMeleeAttack != noone;
 				}
-				var attackObj = instance_nearest(x,y,obj_attack_parent);
+				var attackObj = instance_nearest(x,y,obj_attack);
 				var range = 45; // the range at which to start attempting dodge. default is 45 pixels.
 				// if dodging a player's melee attack, range is based on the melee weapon the player is using
 				if lockOnTarget.type == CombatantTypes.Player && isMeleeAttack {
@@ -455,6 +456,10 @@ switch(state) {
 					if weapon.range != 0 {
 						range = weapon.range;
 					}
+				}
+				// AI combatants have every attack range pre-loaded in attack data
+				else if lockOnTarget.type != CombatantTypes.Player && isMeleeAttack {
+					// TODO
 				}
 				// if the attack is coming from an Ally or Enemy, base it on their current attack range
 				else if (lockOnTarget.type == CombatantTypes.Ally || lockOnTarget.type == CombatantTypes.Enemy) && isMeleeAttack {
@@ -494,7 +499,7 @@ switch(state) {
 				
 				// ranged dodges TODO
 				// if within range of a ranged attack object (projectile), time dodge based on agility (and if combatant can see the projectile)
-				else if distance_to_object(obj_attack_parent) < 200 - agility && script_execute(scr_is_facing,id,attackObj) && willDodge {
+				else if distance_to_object(obj_attack) < 200 - agility && script_execute(scr_is_facing,id,attackObj) && willDodge {
 					if stamina > 0 && !isFrozen {
 						facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 						hasCalculatedWillDodge = false;
@@ -523,9 +528,11 @@ switch(state) {
 					}
 			
 					// calculate grid path to lockOnTarget and move to it
-					var p = mp_grid_path(personalGrid, path,x,y,lockOnTarget.x,lockOnTarget.y,1);
-					if	p
+					//var p = mp_grid_path(personalGrid, path,x,y,lockOnTarget.x,lockOnTarget.y,1);
+					var p = mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
+					//if	p
 					{
+						path_get_point_x(path,0);
 						path_start(path,functionalSpeed,path_action_stop, false);
 						break;
 					}
@@ -815,7 +822,7 @@ switch(state) {
 					// this might be faintly retarded
 					global.owner = id; // passed as param to attackObj
 					global.handSide = currentPrepFrames;
-					var attackObj = instance_create_depth(x,y,1,obj_attack_parent);
+					var attackObj = instance_create_depth(x,y,1,obj_attack);
 					hasCalculatedNextAttack = false;
 				}
 				currentPrepFrames = ds_map_find_next(prepFrames,currentPrepFrames);
