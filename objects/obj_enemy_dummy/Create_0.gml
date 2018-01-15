@@ -6,7 +6,7 @@ spriteType = "enemy";
 spriteString = "enemy_dummy";
 
 functionalSpeed = 3;
-normalSpeed = 5;
+normalSpeed = 3;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
@@ -54,18 +54,22 @@ var unarmedHook1 = instance_create_depth(x,y,1,obj_attack_dummy_unarmed_1_1);
 unarmedHook1.handSide = "e";
 var unarmedHook2 = instance_create_depth(x,y,1,obj_attack_dummy_unarmed_1_1);
 unarmedHook2.handSide = "o";
-var meleeChain1 = [unarmedHook1,unarmedHook2,unarmedHook2];
+var unarmedHook3 = instance_create_depth(x,y,1,obj_attack_dummy_unarmed_1_1);
+unarmedHook3.handSide = "o";
+ds_map_replace(unarmedHook3.damages,FIRE,[1,3]);
+var meleeChain1 = [unarmedHook1,unarmedHook2,unarmedHook3];
 meleeAttacks = [meleeChain1];
 
 // ranged attacks info
 rangedAttacksCount = 1; 
 // currently chosen ranged attack
 currentRangedAttack = noone;
-rangedRangeArray=[300];
+rangedRangeArray=[300,500];
 
 var shortbowShot = instance_create_depth(x,y,1,obj_attack_dummy_shortbow_1_1);
 var rangedChain1 = [shortbowShot,shortbowShot];
-rangedAttacks = [rangedChain1];
+var rangedChain2 = [shortbowShot];
+rangedAttacks = [rangedChain1,rangedChain2];
 
 strength = 10; // used in calculating stagger against player
 

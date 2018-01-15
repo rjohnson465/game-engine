@@ -201,11 +201,11 @@ for (var i = 0; i < size; i++){
 						burnDamage = hp;
 					}
 					hp -= burnDamage;
-					if type != CombatantTypes.Player {
+					//if type != CombatantTypes.Player {
 						global.damageAmount = burnDamage;
 						global.victim = id;
 						instance_create_depth(x,y,1,obj_damage);
-					}
+					//}
 					// diminishes every pulse
 					// TODO math major DEVIN
 					burnDamage = originalBurnDamage;
@@ -233,11 +233,11 @@ for (var i = 0; i < size; i++){
 					}
 					hp -= poisonDamage;
 					
-					if type != CombatantTypes.Player {
+					//if type != CombatantTypes.Player {
 						global.damageAmount = poisonDamage;
 						global.victim = id;
 						instance_create_depth(x,y,1,obj_damage);
-					}
+					//}
 					// builds every pulse
 					// TODO math major DEVIN
 					poisonDamage = originalPoisonDamage;
@@ -295,7 +295,7 @@ switch(state) {
 				else if isNoticingEngagement || wasJustHit {
 					wasJustHit = false;
 					// first try ranged
-					if rangedAttacksCount > 0 {
+					if array_length_1d(rangedAttacks) > 0 {
 						state = CombatantStates.AggroRanged;
 					} else state = CombatantStates.AggroMelee;
 				}
@@ -320,7 +320,7 @@ switch(state) {
 			currentRangedAttack = noone;
 			attackNumberInChain = noone;
 			randomize();
-			currentMeleeAttack = round(random_range(1,meleeAttacksCount));
+			currentMeleeAttack = round(random_range(1,array_length_1d(meleeAttacks)));
 			//currentMeleeAttack = 2;
 			// close enough to hear, but maybe not see. turn to face the direction of the noise
 			facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
@@ -344,7 +344,7 @@ switch(state) {
 			lockOnTarget = instance_nearest(x,y,lockOnTargetType);
 			currentMeleeAttack = noone;
 			attackNumberInChain = noone;
-			currentRangedAttack = round(random_range(1,rangedAttacksCount));
+			currentRangedAttack = round(random_range(1,array_length_1d(rangedAttacks)));
 			// close enough to hear, but maybe not see. turn to face the direction of the noise
 			facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 			var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
@@ -383,12 +383,12 @@ switch(state) {
 				// CHECK 2: ARE WE OUT OF RANGE FOR THE CURRENTLY CHOSEN ATTACK?
 				
 				// if combatant was going to use a melee attack but their target is out of range and combatant has ranged attacks, switch to a ranged attack
-				if currentMeleeAttack && distance_to_object(lockOnTarget) > meleeAggroRange && rangedAttacksCount > 0 {
+				if currentMeleeAttack && distance_to_object(lockOnTarget) > meleeAggroRange && array_length_1d(rangedAttacks) > 0 {
 					state = CombatantStates.AggroRanged;
 					break;
 				}
 				// vice versa
-				else if currentRangedAttack && distance_to_object(lockOnTarget) < meleeAggroRange && meleeAttacksCount > 0 {
+				else if currentRangedAttack && distance_to_object(lockOnTarget) < meleeAggroRange && array_length_1d(meleeAttacks) > 0 {
 					state = CombatantStates.AggroMelee;
 					break;
 				}
@@ -630,9 +630,10 @@ switch(state) {
 			
 			// get previous attack hand
 			if attackNumberInChain == noone && !isRanged && hasHands {
-				var a = meleeAttacksHands[attackNumber-1];
-				var aVal = a[0];
-				switch aVal {
+				var attackChain = meleeAttacks[attackNumber-1];
+				var attackData = attackChain[0];
+				var handSide = attackData.handSide;
+				switch handSide {
 					case "l": {
 						prevAttackHand = "l";
 						break;
@@ -666,7 +667,6 @@ switch(state) {
 
 				// decide if we should attack (maybe again, if there's another attack in the chain)
 				var willAttack = false;
-				//var a = !isRanged ? meleeAttacksSpriteChain[attackNumber-1] : rangedAttacksSpriteChain[attackNumber-1];
 				var a = !isRanged ? meleeAttacks[attackNumber-1] : rangedAttacks[attackNumber-1];
 				var aLength = array_length_1d(a); // how many attacks in the chain there are
 				var nextAttackInChainExists =  aLength >= attackNumberInChain + 1;
@@ -701,9 +701,9 @@ switch(state) {
 				// attack logic
 				if willAttack && stamina > 0 {
 					var handSide = "r";
-					var a = meleeAttacks[attackNumber-1];
 					var attackData = a[attackNumberInChain - 1];
 					if hasHands && !isRanged {
+						var a = meleeAttacks[attackNumber-1];
 						var side = attackData.handSide;
 						switch side {
 							case "l": {
@@ -738,7 +738,8 @@ switch(state) {
 					var spriteAttackNumber = attackData.spriteAttackNumber;
 					var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
 					
-					// start attack prep
+					// start attack prep -- ONLY IF this hand is not currently busy
+					//if ds_map_find_value(preparingHands,handSide) == undefined && ds_map_find_value(attackingHands,handSide
 					var prepSprite = asset_get_index(attackData.spriteName+"_prep_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
 					ds_map_replace(preparingHands,handSide,attackNumberInChain);
 					ds_map_replace(prepFrameTotals,handSide,sprite_get_number(prepSprite));
@@ -827,6 +828,11 @@ switch(state) {
 			for (var i = 0; i < ds_map_size(recoverFrames); i++) {
 				var recoverFrame = ds_map_find_value(recoverFrames,currentRecoverFrames);
 				var totalRecoverFrames = ds_map_find_value(recoverFrameTotals,currentRecoverFrames);
+				
+				if recoverFrame == 0 {
+					prevAttackHand = currentRecoverFrames;
+				}
+				
 				if recoverFrame >= 0 && recoverFrame >= totalRecoverFrames {
 					ds_map_delete(attackingHands,currentRecoverFrames);
 					ds_map_replace(recoverFrames,currentRecoverFrames,-1);

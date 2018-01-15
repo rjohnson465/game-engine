@@ -108,7 +108,7 @@ else {
 		if weapon {
 			speed = weapon.projectileSpeed;
 		} else {
-			speed = owner.rangedSpeeds[attackNumber-1];
+			speed = attackData.projectileSpeed;
 		}
 		direction = owner.facingDirection;
 		facingDirection = direction; // facingDirection property needed for is_facing script

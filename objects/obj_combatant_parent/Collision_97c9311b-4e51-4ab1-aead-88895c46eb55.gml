@@ -48,8 +48,9 @@ if	state != CombatantStates.Dodging &&
 			attackNumber = other.attackNumber;
 			attackNumberInChain = other.attackNumberInChain;
 			var isRanged = other.isRanged;
-			var damagesArray = isRanged ? assailant.rangedDamages : assailant.meleeDamages;
-			damagesMap = damagesArray[attackNumber-1];
+			var attackChain = isRanged ? other.owner.rangedAttacks[attackNumber-1] : other.owner.meleeAttacks[attackNumber-1];
+			var attackData = attackChain[attackNumberInChain-1];
+			damagesMap = attackData.damages;
 		}
 		
 		var currentDamageType = ds_map_find_first(damagesMap);
@@ -59,13 +60,20 @@ if	state != CombatantStates.Dodging &&
 			var damageMin; var damageMax;
 			// physical damage is dependent on attack number -- assuming the damage array is specified as such
 			if currentDamageType == PHYSICAL && array_length_1d(damageArray) > (attackNumber - 1)*2 {
-				var index = (attackNumber - 1)*2;
-				damageMin = damageArray[index];
-				damageMax = damageArray[index+1];
+				if other.owner.type == CombatantTypes.Player {
+					var index = (attackNumber - 1)*2;
+					damageMin = damageArray[index];
+					damageMax = damageArray[index+1];
+				}
+				// damages are pre-loaded ranges for each attack data object for ai combatants
+				else {
+					damageMin = damageArray[0];
+					damageMax = damageArray[1];
+				}
 			}
 			// any elemental / bleed damage
 			else {
-				// same amount of elemental damage on each attack in chain (for player attacks)
+				/*// same amount of elemental damage on each attack in chain (for player attacks)
 				if other.owner.type == CombatantTypes.Player {
 					damageMin = damageArray[0];
 					damageMax = damageArray[1];
@@ -75,7 +83,9 @@ if	state != CombatantStates.Dodging &&
 					var index = (attackNumberInChain - 1)*2;
 					damageMin = damageArray[index];
 					damageMax = damageArray[index+1];
-				}
+				}*/
+				damageMin = damageArray[0];
+				damageMax = damageArray[1];
 			}
 			randomize();
 			var damageBase = random_range(damageMin,damageMax);

@@ -1,8 +1,8 @@
 amount = global.damageAmount;
 victim = global.victim;
 frame = 0;
-totalFrames = 30;
-depth = -1;
+totalFrames = 22;
+depth = -500;
 
 // TODO display only one damage count for each victim -- is this cumulative?
 var damagesCount = instance_number(obj_damage);
