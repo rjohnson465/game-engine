@@ -80,9 +80,9 @@ LOCK_ON_DISTANCE = 800;
 hp = 100;
 maxHp = 100;
 hpRegen = .5; // per second
-stamina = 50;
-maxStamina = 50;
-staminaRegen = 6; // per second
+stamina = 40;
+maxStamina = 40;
+staminaRegen = 10; // per second
 
 /*// attributes
 strength = 10;
@@ -126,6 +126,6 @@ ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 
 // gui
 isMouseInMenu = false;
-instance_create_depth(x,y,1,obj_GUI);
+instance_create_depth(x,y,1,obj_player_gui);
 
 ds_map_replace(defenses,ICE,75);

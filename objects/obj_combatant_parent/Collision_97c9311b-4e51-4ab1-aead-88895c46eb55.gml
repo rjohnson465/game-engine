@@ -113,13 +113,10 @@ if	state != CombatantStates.Dodging &&
 			// create particles for the hit
 			// blood for physical, elemental particles otherwise
 			if	damageBase > 1 {
-				if currentDamageType == FIRE {
-					var a = 3;
-				}
 				global.damageType = currentDamageType;
 				global.x1 = __x;
 				global.y1 = __y;
-				global.shieldDirection = noone;
+				global.particleDirection = noone;
 				if (!(currentDamageType == PHYSICAL && isShielding)) {
 					instance_create_depth(0,0,1,obj_hit_particles);
 				}
@@ -133,6 +130,7 @@ if	state != CombatantStates.Dodging &&
 				randomize();
 				var top = 1000;
 				var percentChance = .15;
+				//percentChance = 0;
 				if spell != noone && spell.name == "magicmissile" {
 					// every misile has a 20/numProjectiles% chance
 					var percentChance = (20/spell.numberOfProjectiles)/100;
@@ -184,7 +182,7 @@ if	state != CombatantStates.Dodging &&
 				global.damageType = "Block";
 				global.x1 = __x;
 				global.y1 = __y;
-				global.shieldDirection = facingDirection;
+				global.particleDirection = facingDirection;
 				instance_create_depth(0,0,1,obj_hit_particles);
 				// remove the same percentage of stamina as it would have removed health
 				var percentageOfHealth = actualDamage / maxHp;

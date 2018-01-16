@@ -5,7 +5,7 @@ draw_set_halign(fa_left);
 var x1 = 0; var y1 = 0;
 if victim.type == CombatantTypes.Enemy {
 	x1 = victim.x+(victim.sprite_width*.5)+5;
-	y1 = victim.y-(victim.sprite_height*.5)-20;
+	y1 = victim.y-(victim.sprite_height*.5)-10;
 } else if victim.type == CombatantTypes.Player {
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);

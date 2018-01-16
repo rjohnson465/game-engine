@@ -210,11 +210,8 @@ switch(state) {
 				if wallsBetweenTarget != noone {
 					cursor_sprite = -1;
 					ds_map_replace(prepFrames,"r",-1);
-					//prepAnimationFrame = -1;
 					ds_map_replace(prepFrameTotals,"r",0);
-					//prepAnimationTotalFrames = 0;
 					ds_map_delete(preparingHands,"r");
-					//isPreparingAttack = false;
 					currentUsingSpell = noone;
 					state = CombatantStates.Idle;
 					break;
@@ -266,6 +263,7 @@ switch(state) {
 						global.projectileNumber = i+1;
 						global.percentCharged = percentCharged;
 						global.handSide = "r";
+						//global.spellAttunement = spellAttunement;
 						if currentUsingSpell != "aoe" {
 							instance_create_depth(x,y,1,obj_attack);	
 						} else {

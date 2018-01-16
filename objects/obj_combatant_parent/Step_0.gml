@@ -622,6 +622,8 @@ switch(state) {
 				break;
 			}*/
 			else {
+				mp_grid_clear_all(personalGrid);
+				mp_grid_add_instances(personalGrid,obj_wall_parent,true);
 				if mp_grid_path(personalGrid, path,x,y,postX,postY,true) {
 					path_start(path,functionalSpeed*2,path_action_stop, false);
 					facingDirection = direction;
@@ -779,6 +781,9 @@ switch(state) {
 							
 							// the attack number in chain of the hand that was prepaing (but is about to be recovering)
 							var numInChain = ds_map_find_value(attackingHands,currentRecoverFrames);
+							if numInChain == undefined {
+								numInChain = 1; // might be shit
+							}
 							ds_map_delete(attackingHands,currentRecoverFrames);
 						
 							var chainArray = meleeAttacks[attackNumber-1];

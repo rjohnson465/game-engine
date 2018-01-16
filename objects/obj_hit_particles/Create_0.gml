@@ -1,7 +1,7 @@
 type = global.damageType;
 x1 = global.x1;
 y1 = global.y1;
-shieldDirection = global.shieldDirection;
+particleDirection = global.particleDirection;
 
 randomize();
 var num = random_range(2,7); // maybe make this dependent on how hard the hit was?
@@ -26,6 +26,20 @@ switch type {
 		particle = blood;
 		break;
 	}
+	case MAGIC: {
+		num = random_range(5,7);
+		// magic particle
+		var magic = part_type_create();
+		part_type_shape(magic, pt_shape_sphere);
+		part_type_color2(magic,c_aqua,c_ltgray);
+		part_type_orientation(magic,0,0,0,15,1);
+		part_type_size(magic,0,0.15,0,0);
+		part_type_speed(magic,2,8,0,0);
+		part_type_direction(magic,0,360,0,4);
+		part_type_life(magic,10,15);
+		particle = magic;
+		break;
+	}
 	case "Block": {
 		var spark = part_type_create();
 		part_type_shape(spark, pt_shape_spark);
@@ -33,14 +47,27 @@ switch type {
 		part_type_orientation(spark,0,0,0,15,1);
 		part_type_size(spark,0,0.25,0,0);
 		part_type_speed(spark,2,3,0,0);
-		var minDir = shieldDirection - 45;
+		var minDir = particleDirection - 45;
 		if minDir < 0 {
 			minDir = 360+minDir;
 		}
-		var maxDir = (shieldDirection + 45)%360;
+		var maxDir = (particleDirection + 45)%360;
 		part_type_direction(spark,minDir,maxDir,0,4);
 		part_type_life(spark,10,20);
 		particle = spark;
+		break;
+	}
+	case "Dust": {
+		// dust particle
+		var dust = part_type_create();
+		part_type_shape(dust, pt_shape_sphere);
+		part_type_color2(dust,c_olive,c_dkgray);
+		part_type_orientation(dust,0,0,0,15,1);
+		part_type_size(dust,0,0.15,0,0);
+		part_type_speed(dust,2,8,0,0);
+		part_type_direction(dust,0,360,0,4);
+		part_type_life(dust,10,15);
+		particle = dust;
 		break;
 	}
 	case POISON: {

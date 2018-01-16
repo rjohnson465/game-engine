@@ -1,11 +1,10 @@
-
 if owner.showHp {
 	
 	// totalhp bar outline
 	var hpOutlineLeftX = owner.x-(.5*owner.sprite_width);
-	var hpOutlineTopY = owner.y-(.5*owner.sprite_height)-20;
+	var hpOutlineTopY = owner.y-(.5*owner.sprite_height)-10;
 	var hpOutlineRightX = owner.x+(.5*owner.sprite_width);
-	var hpOutlineBottomY = owner.y-(.5*owner.sprite_height)-15;
+	var hpOutlineBottomY = owner.y-(.5*owner.sprite_height)-5;
 	draw_set_color(c_white);
 	draw_rectangle(hpOutlineLeftX,hpOutlineTopY,hpOutlineRightX,hpOutlineBottomY,true);
 	
@@ -56,11 +55,12 @@ if owner.showHp {
 	}
 		
 	
+	/*
 	// total stamina bar outline
 	var x1 = owner.x-(.5*owner.sprite_width);
-	var y1 = owner.y-(.5*owner.sprite_height)-10;
+	var y1 = owner.y-(.5*owner.sprite_height)-20;
 	var x2 = owner.x+(.5*owner.sprite_width);
-	var y2 = owner.y-(.5*owner.sprite_height)-5;
+	var y2 = owner.y-(.5*owner.sprite_height)-15;
 	draw_set_color(c_white);
 	draw_rectangle(x1,y1,x2,y2,true);
 	// current stamina
@@ -74,4 +74,5 @@ if owner.showHp {
 		x2,
 		y2,
 		false);
+		*/
 }

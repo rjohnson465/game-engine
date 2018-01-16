@@ -3,8 +3,8 @@ name = "Dummy Enemy";
 spriteName = "dummy";
 spriteString = "enemy_dummy";
 
-functionalSpeed = 3;
-normalSpeed = 3;
+functionalSpeed = 4;
+normalSpeed = 4;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
@@ -31,7 +31,7 @@ stupidityFrame = 0;
 meleeAggroRange = 200;
 rangedAggroRange = 500;
 farthestAllowedFromPost = 1000;
-aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
+aggressiveness = 80; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [5,15];
 strafeTotalFrames = [30,60];
 
@@ -73,8 +73,6 @@ var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
 
-strength = 10; // used in calculating stagger against player
-
 hp = 50;
 maxHp = 50;
 
@@ -89,6 +87,6 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 20;
 
 // dodge stuff
-agility = 0; // 0 - 100% chance to try a dodge
+agility = 50; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 

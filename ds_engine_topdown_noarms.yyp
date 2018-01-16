@@ -266,7 +266,7 @@
             "Key": "221be4e0-07fe-4954-a0d3-a5656c5ed6d6",
             "Value": {
                 "id": "aff7008a-a7ec-468c-932d-792b1e7c1045",
-                "resourcePath": "objects\\obj_GUI_element\\obj_GUI_element.yy",
+                "resourcePath": "objects\\obj_player_gui_element_parent\\obj_player_gui_element_parent.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -420,14 +420,6 @@
                 "id": "f6a4af86-661c-4344-8866-4a9b243a85ee",
                 "resourcePath": "sprites\\spr_filter_melee\\spr_filter_melee.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "3e80a8ae-3db3-4040-9b9c-aaf6927ad6ce",
-            "Value": {
-                "id": "c3f8af3a-4333-4bd8-a502-d25740a0584c",
-                "resourcePath": "shaders\\shader0\\shader0.yy",
-                "resourceType": "GMShader"
             }
         },
         {
@@ -1122,7 +1114,7 @@
             "Key": "a86d4991-577a-4bba-9adc-520cb3607c4a",
             "Value": {
                 "id": "66509e33-bb01-4860-8a2f-8dbc913fc49c",
-                "resourcePath": "objects\\obj_GUI\\obj_GUI.yy",
+                "resourcePath": "objects\\obj_player_gui\\obj_player_gui.yy",
                 "resourceType": "GMObject"
             }
         },

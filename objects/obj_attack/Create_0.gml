@@ -12,17 +12,28 @@ isRanged = false;
 isMelee = false;
 attackData = noone;
 spell = noone;
+//spellAttunement = noone;
 percentCharged = 0;
 combatantsHit = ds_list_create();
 
 // spell logic
 if owner.currentUsingSpell != noone {
+	
 	isRanged = true;
 	isSpell = true;
 	percentCharged = global.percentCharged;
-	//percentCharged = owner.prepAnimationFrame / owner.prepAnimationTotalFrames;
 	var currentSpell = ds_map_find_value(owner.knownSpells,owner.currentUsingSpell);
 	spell = currentSpell;
+	
+	// set spell damage type based on attunement
+	for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
+		var el = global.ALL_ELEMENTS[i];
+		if el == owner.currentSpellAttunement {
+			ds_map_replace(spell.damages,el,[spell.minDamage,spell.maxDamage]);
+		} else {
+			ds_map_replace(spell.damages,el,[0,0]);
+		}
+	}
 	
 	var attunementSpriteName = owner.currentSpellAttunement;
 	if spell.spriteName != "aoe" {
