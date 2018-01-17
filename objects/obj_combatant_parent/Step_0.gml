@@ -61,7 +61,10 @@ for (var i = 0; i < size; i++){
 		ds_map_replace(conditionLevels,currentCondition,1);
 		switch currentCondition {
 			case POISON: {
-				isPoisoned = true; break;
+				isPoisoned = true; 
+				lightRadiusColor = c_lime;
+				lightRadiusAlpha = .75;
+				break;
 			}
 			case FIRE: {
 				// if burn applied on a slowed or frozen target, slow / frozen is removed
@@ -70,7 +73,10 @@ for (var i = 0; i < size; i++){
 					isSlowed = false;
 					isFrozen = false;
 				}
-				isBurning = true; break;
+				isBurning = true; 
+				lightRadiusColor = c_orange;
+				lightRadiusAlpha = .75;
+				break;
 			}
 			case LIGHTNING: {
 				if !isShocked {
@@ -114,13 +120,27 @@ for (var i = 0; i < size; i++){
 		ds_map_replace(conditionLevels,currentCondition,0);
 		switch currentCondition {
 			case FIRE: {
-				isBurning = false; burnDamage = 0; break;
+				isBurning = false; 
+				burnDamage = 0; 
+				if lightRadiusColor == c_orange {
+					lightRadiusColor = c_white;
+					lightRadiusAlpha = .5;
+					lightRadiusSprite = spr_light_point;
+				}
+				break;
 			}
 			case ICE: {
 				isSlowed = false; isFrozen = false; break;
 			}
 			case POISON: {
-				isPoisoned = false; poisonDamage = 0; break;
+				isPoisoned = false; 
+				poisonDamage = 0; 
+				if lightRadiusColor == c_lime {
+					lightRadiusColor = c_white;
+					lightRadiusAlpha = .5;
+					lightRadiusSprite = spr_light_point;
+				}
+				break;
 			}
 			case LIGHTNING: {
 				if isShocked {
@@ -308,6 +328,7 @@ switch(state) {
 				} else {
 					// if we're back at post and not in any aggro ranges, just keep thinking
 					stupidityFrame = 0;
+					showHp = false;
 					break;
 				}
 			}
@@ -401,6 +422,7 @@ switch(state) {
 				if !hasCalculatedWillDodge {
 					randomize();
 					var rand = random_range(1,100);
+					show_debug_message(rand);
 					willDodge = rand <= agility ? true : false;
 					hasCalculatedWillDodge = true;
 				}
@@ -529,11 +551,7 @@ switch(state) {
 					}
 			
 					// calculate path to lockOnTarget and move to it
-					//mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
 					mp_grid_path(personalGrid, path, x,y, lockOnTarget.x,lockOnTarget.y,true);
-					//var xx = path_get_point_x(path,1);
-					//var yy = path_get_point_y(path,1);
-					//mp_potential_path(path,xx,yy,functionalSpeed,1,false);
 					path_start(path,functionalSpeed,path_action_stop,true);
 
 					break;
@@ -542,7 +560,7 @@ switch(state) {
 				// within range for attack
 				else {
 					path_end();
-					hasCalculatedWillDodge = false;
+					
 					stupidityFrame = 100 - aggressiveness;
 					
 					if attackFrequencyFrame == -1 {
@@ -554,6 +572,7 @@ switch(state) {
 						var rand = random_range(1,100);
 						if rand <= aggressiveness {
 							if !isFrozen {
+								hasCalculatedWillDodge = false;
 								isStrafing = false;
 								state = CombatantStates.Attacking;
 							}

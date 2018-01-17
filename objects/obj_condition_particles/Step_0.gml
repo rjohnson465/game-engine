@@ -71,7 +71,6 @@ if conditionLevel == 0 {
 			num = 4;
 			var x1 = owner.x + xOff;
 			var y1 = owner.y + yOff;
-			show_debug_message(x1);
 			part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
 		}
 	}

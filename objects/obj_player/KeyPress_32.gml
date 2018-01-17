@@ -1,4 +1,10 @@
 // dodge
+
+var s = state == CombatantStates.Idle;
+var s2 = state == CombatantStates.Moving;
+var s3 = state == CombatantStates.Attacking;
+var s4 = state == CombatantStates.Staggering;
+
 if  stamina > 0 &&
 	(state == CombatantStates.Idle || state == CombatantStates.Moving)
 	&& !isFrozen

@@ -1,5 +1,9 @@
-if isMelee {
-	/*owner.staggerFrame = 0;
+var x1 = x + lengthdir_x(100,owner.facingDirection);
+var y1 = y + lengthdir_y(100,owner.facingDirection);
+var firstObj = scr_collision_line_first(x,y,x1,y1,obj_wall_parent,true,true);
+var hitsWallFirst = firstObj == other.id;
+if isMelee && hitsWallFirst {
+	owner.staggerFrame = 0;
 	// stagger duration is 10 frames + damage% of of total hp frames
 	owner.staggerDuration = 5;
 	staggerDirection = owner.facingDirection;
@@ -19,7 +23,7 @@ if isMelee {
 	}
 	
 	instance_destroy(id,false);
-	//owner.state = CombatantStates.Staggering;*/
+	owner.state = CombatantStates.Staggering;
 }
 
 if isSpell {
