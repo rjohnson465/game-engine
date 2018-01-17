@@ -128,3 +128,6 @@ global.x1 = 807;
 global.y1 = 365;
 global.equipmentSlot = EquipmentSlots.RightRing2;
 rightRing2Slot = instance_create_depth(global.x1,global.y1,1,obj_equipmentslot);
+
+
+instance_create_depth(x,y,-1000,obj_player_gui_inventory);

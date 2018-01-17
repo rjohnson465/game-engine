@@ -284,12 +284,12 @@ switch(state) {
 				break;
 			} else {
 				// first check if in melee aggro range
-				if meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange {
+				if canSeePlayer(id) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange {
 					state = CombatantStates.AggroMelee;
 					break;
 				}
 				// if not, check if in ranged aggro range
-				else if rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
+				else if canSeePlayer(id) && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
 					state = CombatantStates.AggroRanged;
 					break;
 				}

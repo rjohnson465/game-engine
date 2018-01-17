@@ -8,6 +8,8 @@ var vcells = room_height div cell_height;
 personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
 mp_grid_add_instances(personalGrid, obj_wall_parent, false);
 
+lightRadius = 256;
+
 functionalSpeed = 5;
 normalSpeed = 5;
 facingDirection = 0;
@@ -209,3 +211,9 @@ burnDamage = 0;
 poisonFrames = 60;
 poisonFrame = 0;
 poisonDamage = 0;
+
+// light radius
+global.lightColor = c_white;
+global.lightAlpha = .5;
+global.owner = id;
+instance_create_depth(x,y,1,obj_light_radius);

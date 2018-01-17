@@ -1,10 +1,6 @@
-/// @description init shadow casting
-vertex_format_begin();
-vertex_format_add_position();
-vertex_format_add_color();
-VertexFormat = vertex_format_end();
-
-VBuffer = vertex_create_buffer();
-surf = -1;
-
-LightPosRadius = shader_get_uniform(shader0,"u_fLightPositionRadius");
+color = global.lightColor;
+colorAlpha = global.lightAlpha;
+owner = global.owner;
+light_create(spr_light_point, 1, color, colorAlpha, 0, true);
+rot_inc = 20;
+index = 0;

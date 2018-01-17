@@ -1,0 +1,1 @@
+light_create_caster();

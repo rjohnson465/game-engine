@@ -128,4 +128,4 @@ ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 isMouseInMenu = false;
 instance_create_depth(x,y,1,obj_player_gui);
 
-ds_map_replace(defenses,ICE,75);
+//ds_map_replace(defenses,ICE,75);
