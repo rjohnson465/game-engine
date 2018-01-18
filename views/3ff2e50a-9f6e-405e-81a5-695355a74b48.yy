@@ -6,7 +6,9 @@
     "children": [
         "d2307d43-9465-4fff-993e-cca7dc1f168e",
         "bac5929c-6a81-4b5f-873e-d969973104d2",
-        "fcb6e595-d748-4db3-b8c1-65e0c4ddcc6e"
+        "fcb6e595-d748-4db3-b8c1-65e0c4ddcc6e",
+        "ee793b6c-17ef-400f-b772-2dc01cc54334",
+        "2aa9d46f-d9a7-4c93-ad54-8d0a15c0dcaa"
     ],
     "filterType": "GMSprite",
     "folderName": "player",

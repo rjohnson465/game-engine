@@ -9,10 +9,12 @@ personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
 mp_grid_add_instances(personalGrid, obj_wall_parent, false);
 
 lightRadius = 256;
-lightRadiusAlpha = .5;
+lightRadiusAlpha = .25;
 lightRadiusScale = 1;
 lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
+
+idleFrame = 0;
 
 functionalSpeed = 5;
 normalSpeed = 5;
@@ -217,7 +219,5 @@ poisonFrame = 0;
 poisonDamage = 0;
 
 // light radius
-global.lightColor = lightRadiusColor;
-global.lightAlpha = lightRadiusAlpha;
 global.owner = id;
 instance_create_depth(x,y,1,obj_light_radius);

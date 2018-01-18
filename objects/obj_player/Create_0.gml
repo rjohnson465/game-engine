@@ -37,7 +37,7 @@ hasHands = true;
 unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 equippedItems = ds_map_create();
 ds_map_add(equippedItems,EquipmentSlots.Head,noone);
-ds_map_add(equippedItems,EquipmentSlots.LeftHand1,instance_create_depth(x,y,1,obj_hand_item_longsword));
+ds_map_add(equippedItems,EquipmentSlots.LeftHand1,unarmed);
 ds_map_add(equippedItems,EquipmentSlots.LeftHand2,unarmed);
 ds_map_add(equippedItems,EquipmentSlots.RightHand1,instance_create_depth(x,y,1,obj_hand_item_longsword));
 ds_map_add(equippedItems,EquipmentSlots.RightHand2,instance_create_depth(x,y,1,obj_hand_item_staff));

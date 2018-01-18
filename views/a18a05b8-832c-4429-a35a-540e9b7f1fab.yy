@@ -6,7 +6,8 @@
     "children": [
         "aaade394-af17-4add-854b-22223ebb2998",
         "db9c17e2-3139-4b3b-8bce-46b66677e42e",
-        "39207408-f4a7-42f6-bea6-c63dcb4d63f9"
+        "39207408-f4a7-42f6-bea6-c63dcb4d63f9",
+        "cb2bbbcb-124b-4845-95ed-1d0b674f5d61"
     ],
     "filterType": "GMSprite",
     "folderName": "dummy",

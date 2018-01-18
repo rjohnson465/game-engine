@@ -126,14 +126,19 @@ if state == CombatantStates.Attacking {
 
 if state != CombatantStates.Dodging {
 	// normally draw base sprite -- on top of hands
-	draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_white, 1);
+	draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, 1, 1, facingDirection, c_white, 1);
 	
 	if isSlowed {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .5);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, 1, 1, facingDirection, c_aqua, .5);
 	} 
 	else if isFrozen {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString), 1, x, y, 1, 1, facingDirection, c_aqua, .75);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, 1, 1, facingDirection, c_aqua, .75);
 	} 
+	
+	var totalIdleFrames = sprite_get_number(asset_get_index("spr_"+spriteString));
+	
+	idleFrame += 1;
+	idleFrame = idleFrame % totalIdleFrames;
 }
 
 
