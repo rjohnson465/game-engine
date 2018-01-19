@@ -13,9 +13,12 @@ if victim.type == CombatantTypes.Enemy {
 	y1 = 10 + vy;
 }
 var text = round(amount);
-if frame > 7 {
+if frame > 11 {
+	// 11/22
+	var a = 1 - ((frame-11)/11);
+	show_debug_message(a);
 	draw_set_alpha(1-((frame-11)/11));
 }
-script_execute(scr_draw_text_outline,x1,y1,text,c_black);
+scr_draw_text_outline(x1,y1,text,c_white,c_purple,c_black);
 draw_set_alpha(1);
 

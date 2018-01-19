@@ -1,3 +1,14 @@
+// draw stagger sprite if staggering
+if state == CombatantStates.Staggering {
+	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,1,1,facingDirection,c_white,1);
+	// slowed
+	if isSlowed {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_aqua, .5);
+	} else if isPoisoned {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_green, .5);
+	}
+}
+
 // draw dodge sprite if dodging
 if state == CombatantStates.Dodging {
 	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,1);
@@ -124,10 +135,16 @@ if state == CombatantStates.Attacking {
 	}
 }
 
-if state != CombatantStates.Dodging {
+if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 	// normally draw base sprite -- on top of hands
-	draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, 1, 1, facingDirection, c_white, 1);
 	
+	// fairies float
+	if isFairy {
+		var scale = ((1-.85)/30)*abs(floatingFrame-30)+0.85;
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, scale, scale, facingDirection, c_white, 1);
+	} else {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, 1, 1, facingDirection, c_white, 1);
+	}
 	if isSlowed {
 		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, 1, 1, facingDirection, c_aqua, .5);
 	} 
@@ -141,5 +158,9 @@ if state != CombatantStates.Dodging {
 	idleFrame = idleFrame % totalIdleFrames;
 }
 
+if isFairy {
+	floatingFrame += 1;
+	floatingFrame = floatingFrame % 60;
+}
 
 

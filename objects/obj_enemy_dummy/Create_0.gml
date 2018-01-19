@@ -61,6 +61,8 @@ var meleeChain2 = [unarmedHook1,unarmedBackSlap];
 var meleeChain3 = [unarmedHook1,unarmedBackSlap,unarmedHook2];
 var meleeChain4 = [unarmedHook1,unarmedBackSlap,unarmedHook2,unarmedHook3];
 meleeAttacks = [meleeChain1,meleeChain2,meleeChain3];
+var testChain = [unarmedHook1];
+meleeAttacks = [testChain];
 
 // ranged attacks info
 rangedAttacksCount = 1; 

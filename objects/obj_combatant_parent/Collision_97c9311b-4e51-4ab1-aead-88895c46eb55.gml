@@ -238,10 +238,6 @@ if	state != CombatantStates.Dodging &&
 				staggerDuration = 10 + (percentOfHp*100);
 				staggerDirection = assailant.facingDirection;
 				path_end();
-				// create stagger condi particles
-				global.condition = "Stagger";
-				global.owner = id;
-				instance_create_depth(x,y,1,obj_condition_particles);
 				state = CombatantStates.Staggering;
 			}
 			// if not stagger, then flinch

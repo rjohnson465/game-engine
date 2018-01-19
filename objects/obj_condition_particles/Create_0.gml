@@ -92,8 +92,22 @@ switch condition {
 		particle = spark;
 		break;
 	}
-	case "Stagger": {
-		// blood particle
+	/*case "Stagger": {
+		
+		var star = part_type_create();
+		part_type_shape(star, pt_shape_star);
+		part_type_color2(star,c_olive,c_ltgray);
+		
+		part_type_orientation(star,0,0,0,15,1);
+		part_type_size(star,0,0.2,0,0);
+		part_type_speed(star,2,3,0,0);
+		part_type_direction(star,0,359,0,4);
+		part_type_life(star,10,15);
+		particle = star;
+		break;
+	}*/
+	
+	/*// blood particle
 		var blood = part_type_create();
 		part_type_shape(blood, pt_shape_sphere);
 		part_type_color2(blood,c_red,c_maroon);
@@ -105,7 +119,5 @@ switch condition {
 		var dir = random_range(0,359);
 		part_type_direction(blood,dir-25,dir+25,0,4);
 		part_type_life(blood,10,15);
-		particle = blood;
-		break;
-	}
+		particle = blood;*/
 }

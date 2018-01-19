@@ -67,12 +67,13 @@ if conditionLevel == 0 {
 			} else num = -3;
 			break;
 		}
-		case "Stagger": {
-			num = 4;
-			var x1 = owner.x + xOff;
-			var y1 = owner.y + yOff;
-			part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
-		}
+		/*case "Stagger": {
+			num = 2;
+			//var x1 = owner.x + xOff;
+			//var y1 = owner.y + yOff;
+			//part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
+			part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,ps_distr_invgaussian);
+		}*/
 	}
 	part_emitter_burst(system,emitter,particle, num);
 	if particle2 {

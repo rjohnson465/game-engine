@@ -13,7 +13,8 @@ if type != CombatantTypes.Player {
 }
 
 // stamina / health regen
-if stamina < maxStamina {
+// only regen stamina when moving or idle
+if stamina < maxStamina && (state == CombatantStates.Idle || state == CombatantStates.Moving) {
 	// stamina regens slower if shielding
 	if isShielding {
 		stamina += (.5*staminaRegen)/40;
@@ -124,7 +125,7 @@ for (var i = 0; i < size; i++){
 				burnDamage = 0; 
 				if lightRadiusColor == c_orange {
 					lightRadiusColor = c_white;
-					lightRadiusAlpha = .5;
+					lightRadiusAlpha = .25;
 					lightRadiusSprite = spr_light_point;
 				}
 				break;
@@ -137,7 +138,7 @@ for (var i = 0; i < size; i++){
 				poisonDamage = 0; 
 				if lightRadiusColor == c_lime {
 					lightRadiusColor = c_white;
-					lightRadiusAlpha = .5;
+					lightRadiusAlpha = .25;
 					lightRadiusSprite = spr_light_point;
 				}
 				break;
@@ -910,7 +911,7 @@ switch(state) {
 		direction = dodgeDirection;
 		dodgeFrame++;
 		// if not dodging, reset some states and values
-		if dodgeFrame >= totalDodgeFrames - 1 {
+		if dodgeFrame >= totalDodgeFrames {
 			state = CombatantStates.Idle;
 			stupidityFrame = 0;
 			dodgeFrame = 0;

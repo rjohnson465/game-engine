@@ -1,2 +1,2 @@
-room_speed = 40;
+room_speed = 30;
 isDark = false;

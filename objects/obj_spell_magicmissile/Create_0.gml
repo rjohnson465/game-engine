@@ -2,12 +2,13 @@ event_inherited();
 spriteName = "magicmissile"; // i.e. magicmissile, fireball ...
 name = "Magic Missile";
 castFrames = 30; // how long spell can be charged
-level = 5;
+level = 1;
 numberOfProjectiles = level;
 projectileSpeed = 15;
 staminaCost = 20;
 
-maxChargeCost = level*4;
+// make it dependent on level?
+maxChargeCost = 4;
 
 // per projectile
 minDamage = 4;

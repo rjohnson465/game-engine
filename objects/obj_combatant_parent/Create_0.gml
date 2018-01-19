@@ -8,6 +8,10 @@ var vcells = room_height div cell_height;
 personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
 mp_grid_add_instances(personalGrid, obj_wall_parent, false);
 
+isFairy = true;
+
+colorOverlay = c_white;
+
 lightRadius = 256;
 lightRadiusAlpha = .25;
 lightRadiusScale = 1;
@@ -15,6 +19,7 @@ lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
 
 idleFrame = 0;
+floatingFrame = 0; //0-30 "float" for fairies (grow/shrink)
 
 functionalSpeed = 5;
 normalSpeed = 5;

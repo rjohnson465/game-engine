@@ -131,7 +131,7 @@ if rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0 {
 		} else {
 			draw_sprite_ext(attunementSpriteIndex,1,x1,660,1,1,0,c_white,1);
 		}
-		script_execute(scr_draw_text_outline,x1+1,661,string(i+1),c_black);
+		script_execute(scr_draw_text_outline,x1+1,661,string(i+1),c_white,c_white);
 	}
 } else {
 	instance_deactivate_object(obj_attunement);

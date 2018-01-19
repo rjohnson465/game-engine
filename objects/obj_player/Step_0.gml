@@ -73,7 +73,11 @@ if !isMoveInputReceived && state == CombatantStates.Moving {
 
 if state != CombatantStates.Staggering && !isMouseInMenu {
 	// player faces mouse if not locked on
-	facingDirection = point_direction(x,y,mouse_x,mouse_y);
+	if state == CombatantStates.Idle || state == CombatantStates.Moving 
+	|| (ds_map_size(preparingHands)!=0)
+	{
+		facingDirection = point_direction(x,y,mouse_x,mouse_y);
+	}
 	// otherwise, player always faces locked on enemy
 	if isLockedOn {
 		facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
@@ -226,11 +230,8 @@ switch(state) {
 			if ds_map_size(attackingHands) == 0 && ds_map_size(preparingHands) == 0 && ds_map_size(recoveringHands) == 0 {
 				//var prepSprite = asset_get_index("spr_player_"+weaponString+"_prep_"+string(global.playerAttackNumberInChain));
 				ds_map_replace(prepFrameTotals,"r",currentSpell.castFrames);
-				//prepAnimationTotalFrames = currentSpell.castFrames;
 				ds_map_replace(prepFrames,"r",0);
-				//prepAnimationFrame = 0;
 				ds_map_replace(preparingHands,"r",1);
-				//isPreparingAttack = true;
 			}
 			
 			// attack sequence 
@@ -272,11 +273,8 @@ switch(state) {
 					}
 				}
 				ds_map_replace(prepFrames,"r",-1);
-				//prepAnimationFrame = -1;
 				ds_map_replace(prepFrameTotals,"r",0);
-				//prepAnimationTotalFrames = 0;
 				ds_map_delete(preparingHands,"r");
-				//isPreparingAttack = false;
 				currentUsingSpell = noone;
 				state = CombatantStates.Idle;
 			}
