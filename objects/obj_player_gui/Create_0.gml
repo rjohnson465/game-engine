@@ -129,5 +129,8 @@ global.y1 = 365;
 global.equipmentSlot = EquipmentSlots.RightRing2;
 rightRing2Slot = instance_create_depth(global.x1,global.y1,1,obj_equipmentslot);
 
-
+// inventory
 instance_create_depth(x,y,-1000,obj_player_gui_inventory);
+
+// combos
+instance_create_depth(x,y,-100,obj_combo_manager);

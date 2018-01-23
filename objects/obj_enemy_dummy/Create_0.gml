@@ -31,7 +31,7 @@ stupidityFrame = 0;
 meleeAggroRange = 200;
 rangedAggroRange = 500;
 farthestAllowedFromPost = 1000;
-aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
+aggressiveness = 0; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [5,15];
 strafeTotalFrames = [30,60];
 
@@ -73,8 +73,8 @@ var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
 
-hp = 50;
-maxHp = 50;
+hp = 500;
+maxHp = 500;
 
 stamina = 60;
 maxStamina = 60;
@@ -87,6 +87,6 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 20;
 
 // dodge stuff
-agility = 50; // 0 - 100% chance to try a dodge
+agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 

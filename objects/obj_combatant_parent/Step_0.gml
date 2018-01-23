@@ -602,7 +602,7 @@ switch(state) {
 								} else isStrafing = false;
 							} else {
 								if isStrafing {
-									/*var dist = distance_to_object(lockOnTarget);
+									var dist = distance_to_object(lockOnTarget);
 									//show_debug_message(dist);
 									if dist <= meleeRangeArray[currentMeleeAttack-1] {
 										var angle = point_direction(lockOnTarget.x,lockOnTarget.y,x,y);
@@ -625,7 +625,7 @@ switch(state) {
 										} else {
 											strafeDirection = strafeDirection == "l" ? "r" : "l";
 										}
-									}*/
+									}
 								}
 								strafeFrame--;
 							}
@@ -911,68 +911,6 @@ switch(state) {
 		isShielding = false;
 		speed = 0;	
 		
-		
-		/*if place_meeting(x,y,obj_solid_parent) {
-			var obstacle = instance_position(x,y,obj_solid_parent);
-			// glance masks
-			// check if hitting a glance mask
-			//__x and __y are where the collision occured
-			script_execute(scr_collision_point,id,obstacle.id);
-			
-			for (var i = 0 ; i < array_length_1d(glanceMasks); i++) {
-				var glanceMask = glanceMasks[i];
-		
-				// this is only good for circular glance masks
-				var centerX = obstacle.x+glanceMask.centerXOffset;
-				var centerY = obstacle.y+glanceMask.centerYOffset;
-				
-				// get our own collision point on the edge of the glance mask
-				var collisionDirection = point_direction(__x,__y,centerX,centerY);
-				var lx = lengthdir_x(glanceMask.radius,collisionDirection);
-				var xx = centerX + lx;
-				var ly = lengthdir_y(glanceMask.radius,collisionDirection);
-				var yy = centerY + ly;
-				
-				var dirToCenter = point_direction(xx,yy,centerX,centerY);
-				dirToCenter = dirToCenter < 180 ? dirToCenter + 180 : dirToCenter - 180;
-		
-				// nearest point on circular glance mask
-				var x1 = centerX+lengthdir_x(glanceMask.radius,dirToCenter);
-				var y1 = centerY+lengthdir_y(glanceMask.radius,dirToCenter);
-		
-				if y1 < centerY  {
-					// derivative
-					var a = noone;
-					var d2 = sqrt((glanceMask.radius*glanceMask.radius) - ((centerX-x1)*(centerX-x1)));
-					if d2 == 0 {
-						a = 90;
-					} else {
-						var m = (centerX-x1)/d2;					
-						if m < 0 {
-							a = 180-((arctan(m) / pi)*180);
-						} else if m > 0 {
-							a = ((arctan(m) / pi)*180);
-						} 
-					}
-			
-					var a2 = a < 180 ? a + 180 : a - 180;
-			
-					if abs(dodgeDirection - a) >= abs(dodgeDirection - a2) {
-						
-						dodgeDirection = a2;
-					} else dodgeDirection = a;
-				} else {
-					var m = -1 * (centerX-x1)/sqrt((glanceMask.radius*glanceMask.radius) - ((centerX-x1)*(centerX-x1)));
-					var a = arctan(m);
-			
-					var a2 = a < 180 ? a + 180 : a - 180;
-			
-					if abs(dodgeDirection - a) >= abs(dodgeDirection - a2) {
-						dodgeDirection = a2;
-					} else dodgeDirection = a;
-				}
-			}
-		}*/
 		if dodgeStartX == noone {
 			dodgeStartX = x;
 			dodgeStartY = y;
@@ -987,20 +925,9 @@ switch(state) {
 				length += 1;
 			}
 			
-			with obj_lockOn {
-				instance_destroy(id,false);
-			}
-			
-			instance_create_depth(x1,y1,-10,obj_lockOn);
-			
-			mp_potential_path_object(path,x1,y1,functionalSpeed*2,100,obj_enemy_parent);
+			mp_potential_path_object(path,x1,y1,functionalSpeed*2,100,obj_solid_parent);
 			path_start(path,functionalSpeed*2,path_action_stop,true);
 		}
-		
-		//speed = 2*functionalSpeed;
-		
-		//speed = 2*functionalSpeed;
-		//direction = dodgeDirection;
 		
 		dodgeFrame++;
 		// if not dodging, reset some states and values

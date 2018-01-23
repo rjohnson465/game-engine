@@ -51,17 +51,20 @@ rightHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.Rig
 rightHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2);
 
 // attack states
-global.playerAttackNumberInChain = 1; // in chain
-/*isPreparingAttack = false;
-isAttacking = false;
-isRecovering = false;
-attackAgain = false; // boolean that says whether to attack again (when possible) even if already attacking
-attackAgainSameSide = false;*/
 // <handSide><bool> kvp's
 attackAgain = ds_map_create();
 ds_map_replace(attackAgain,"r",false);
 ds_map_replace(attackAgain,"l",false);
 isReadyToFire = false; // ranged only boolean
+
+comboTimeQuantum = 60; // 60 frames for a move to count as part of a combo
+comboNumber = 0; // number of hits landed in combo
+comboEffectiveNumber = 0; // used to determine the comboModeLevel
+comboHitsToNextLevel = 3;
+comboModeLevel = 0;
+comboModeTotalFrames = 120; // default 4 seconds in current combo mode
+comboModeFrame = 0;
+comboFrame = 0; // counts up to COMBO_TIME_QUANTUM -- if it gets there, combo level ends
 
 // dodge stuff
 dodgeDirection = noone;
@@ -82,16 +85,9 @@ LOCK_ON_DISTANCE = 800;
 hp = 500;
 maxHp = 500;
 hpRegen = .5; // per second
-stamina = 50;
-maxStamina = 50;
-staminaRegen = 10; // per second
-
-/*// attributes
-strength = 10;
-dexterity = 10;
-intelligence = 10;
-constitution = 10;
-adaptability = 10;*/
+stamina = 500;
+maxStamina = 500;
+staminaRegen = 15; // per second
 
 // list of enemy attack instances been hit with -- only get hit once / attack
 beenHitWith = ds_list_create();

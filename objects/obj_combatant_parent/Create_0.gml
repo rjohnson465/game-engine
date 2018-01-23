@@ -231,8 +231,3 @@ poisonDamage = 0;
 // light radius
 global.owner = id;
 instance_create_depth(x,y,1,obj_light_radius);
-
-
-// glance mask -- default is a circle
-var circle = makeGlanceMaskCircle(0,0,((bbox_right-bbox_left)/2));
-glanceMasks = [circle];

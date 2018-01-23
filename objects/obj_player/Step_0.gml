@@ -124,27 +124,34 @@ switch(state) {
 			direction = 270;
 		}
 		
+		var xx = x + lengthdir_x(1000,direction);
+		var yy = y + lengthdir_y(1000,direction);
 		
 		var x1 = x +lengthdir_x(usingSpeed,direction);
 		var y1 = y +lengthdir_y(usingSpeed,direction);
 		canMove = !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_shield_parent);
 
-		if !canMove {
+		/*if !canMove {
 			state = CombatantStates.Idle;
 			break;
-		}
+		}*/
 		
-		if (UP || DOWN || LEFT || RIGHT) && canMove {
+		if (UP || DOWN || LEFT || RIGHT) /*&& canMove*/ {
 			// walking backwards is slow
 			dirDiff = abs(direction - facingDirection)
 			if dirDiff > 135 && dirDiff < 225  {
-				speed = .5*functionalSpeed;
+				mp_potential_step_object(xx,yy,.5*functionalSpeed,obj_solid_parent);
+				//speed = .5*functionalSpeed;
 			}	
-			else speed = functionalSpeed;
+			else {
+				//speed = functionalSpeed;
+				mp_potential_step_object(xx,yy,functionalSpeed,obj_solid_parent);
+			}
 		}	
 		// run
 		if SHIFT && stamina > 0 && canMove {
-			speed = speed*1.25;
+			//speed = speed*1.25;
+			mp_potential_step_object(xx,yy,functionalSpeed*1.25,obj_solid_parent);
 			stamina -= .5;
 		}
 		
@@ -430,6 +437,34 @@ switch(state) {
 		break;
 	}
 }
+
+// drain comboMode levels
+if comboModeLevel > 0 {
+	if comboModeFrame == 0 {
+		comboModeLevel -= 1;
+		comboModeFrame = comboModeTotalFrames;
+	} else {
+		comboModeFrame--;
+	}
+}
+
+// time to start / continue combo
+if comboNumber > 0 || comboModeLevel > 0 {
+	comboFrame++; // gets reset to 0 if an attack lands
+}
+
+if comboFrame >= comboTimeQuantum {
+	comboNumber = 0;
+	comboEffectiveNumber = 0;
+}
+
+// combo stuff
+if comboEffectiveNumber >= comboHitsToNextLevel {
+	comboEffectiveNumber = 0;
+	comboModeLevel += 1;
+	comboModeFrame = comboModeTotalFrames;
+}
+//comboModeLevel = floor(comboNumber / comboHitsToNextLevel);
 
 
 

@@ -142,7 +142,8 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 	// fairies float
 	if isFairy {
 		if isPhasing alpha = .5;
-		var scale = ((1-.85)/30)*abs(floatingFrame-30)+0.85;
+		//var scale = ((1-.85)/30)*abs(floatingFrame-30)+0.85;
+		var scale = .1*cos((pi*floatingFrame)/30)+.9;
 		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, scale, scale, facingDirection, c_white, alpha);
 	} else {
 		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, 1, 1, facingDirection, c_white, 1);

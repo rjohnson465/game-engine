@@ -126,7 +126,6 @@ if	state != CombatantStates.Dodging &&
 			}
 				
 			// elemental conditions applied?
-			// TODO -- get a math major; Devin. How to add to conditionPercent 
 			// while being fair and respecting defenses???					
 			// NEW IDEA -- roll random and compare against defense
 			if damageBase > 0 {
@@ -174,6 +173,12 @@ if	state != CombatantStates.Dodging &&
 			currentDamageType = ds_map_find_next(damagesMap, currentDamageType);
 		}
 		var actualDamage = damage; // the actual damage of the hit (recieved damage might be less if actual damage exceeds hp)
+		
+		// facto combo mode
+		if assailant.type == CombatantTypes.Player {
+			damage += (assailant.comboModeLevel*.25)*damage;
+		}
+		
 		if damage > hp {
 			damage = hp;
 		}
@@ -257,8 +262,18 @@ if	state != CombatantStates.Dodging &&
 		if other.isRanged || (other.isSpell && spell.name != "aoe") {
 			instance_destroy(other,false);
 		}
+		
+		// combo
+		if assailant.type == CombatantTypes.Player {
+			assailant.comboNumber += 1;
+			assailant.comboFrame = 0;
+			assailant.comboEffectiveNumber += 1;
+		}
+		
+		// death
 		if hp <= 0 {
 			isAlive = false;
+			solid = false;
 			speed = 0;
 		}
 	}
