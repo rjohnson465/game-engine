@@ -11,7 +11,8 @@ if !isMouseInMenu {
 	}
 	else if
 		stamina > 0 &&
-		(state != CombatantStates.Dodging || state != CombatantStates.Staggering) {
+		(state != CombatantStates.Dodging || state != CombatantStates.Staggering)
+		&& !isPhasing {
 			isShielding = false;
 			// if recovering left hand weapon or if left hand not in use at all
 			var isRightHandInUse = 

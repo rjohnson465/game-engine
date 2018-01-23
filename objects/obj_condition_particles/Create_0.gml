@@ -5,8 +5,8 @@ system = noone;
 particle = noone;
 particle2 = noone;
 
-xOff = owner.__x - owner.x;
-yOff = owner.__y - owner.y;
+//xOff = owner.__x - owner.x;
+//yOff = owner.__y - owner.y;
 
 system = part_system_create();
 part_system_depth(system,-4);
@@ -92,32 +92,17 @@ switch condition {
 		particle = spark;
 		break;
 	}
-	/*case "Stagger": {
-		
-		var star = part_type_create();
-		part_type_shape(star, pt_shape_star);
-		part_type_color2(star,c_olive,c_ltgray);
-		
-		part_type_orientation(star,0,0,0,15,1);
-		part_type_size(star,0,0.2,0,0);
-		part_type_speed(star,2,3,0,0);
-		part_type_direction(star,0,359,0,4);
-		part_type_life(star,10,15);
-		particle = star;
+	case "Phase": {
+		var smoke = part_type_create();
+		part_type_shape(smoke, pt_shape_smoke);
+		part_type_orientation(smoke,0,359,0,15,1);
+		part_type_size(smoke,0.25,.35,0,0);
+		part_type_speed(smoke,2,4,0,0);
+		part_type_direction(smoke,0,360,0,4);
+		part_type_life(smoke,10,20);
+		part_type_color2(smoke,c_gray,c_white);
+		part_type_alpha3(smoke,.75,.5,.25);
+		particle = smoke;
 		break;
-	}*/
-	
-	/*// blood particle
-		var blood = part_type_create();
-		part_type_shape(blood, pt_shape_sphere);
-		part_type_color2(blood,c_red,c_maroon);
-		
-		part_type_orientation(blood,0,0,0,15,1);
-		part_type_size(blood,0,0.15,0,0);
-		part_type_speed(blood,2,8,0,0);
-		randomize();
-		var dir = random_range(0,359);
-		part_type_direction(blood,dir-25,dir+25,0,4);
-		part_type_life(blood,10,15);
-		particle = blood;*/
+	}
 }

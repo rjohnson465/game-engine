@@ -2,7 +2,8 @@ if !isMouseInMenu {
 	if  !rightHandItem.isTwoHanded
 		&& leftHandItem.type != HandItemTypes.Shield
 		&& stamina > 0 
-		&& (state != CombatantStates.Dodging || state == CombatantStates.Staggering) {
+		&& (state != CombatantStates.Dodging || state == CombatantStates.Staggering)
+		&& !isPhasing {
 			// if recovering left hand weapon or if left hand not in use at all
 			var isLeftHandInUse = 
 				ds_map_find_value(preparingHands,"l") != undefined 

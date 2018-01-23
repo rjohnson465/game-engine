@@ -59,6 +59,8 @@ attackAgain = false; // boolean that says whether to attack again (when possible
 attackAgainSameSide = false;*/
 // <handSide><bool> kvp's
 attackAgain = ds_map_create();
+ds_map_replace(attackAgain,"r",false);
+ds_map_replace(attackAgain,"l",false);
 isReadyToFire = false; // ranged only boolean
 
 // dodge stuff
@@ -77,11 +79,11 @@ lockOnTargetType = obj_enemy_parent;
 LOCK_ON_DISTANCE = 800;
 
 // hp / stamina
-hp = 100;
-maxHp = 100;
+hp = 500;
+maxHp = 500;
 hpRegen = .5; // per second
-stamina = 40;
-maxStamina = 40;
+stamina = 50;
+maxStamina = 50;
 staminaRegen = 10; // per second
 
 /*// attributes

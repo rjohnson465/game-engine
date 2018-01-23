@@ -2,7 +2,7 @@ event_inherited();
 // draw dodge sprite if dodging
 if state == CombatantStates.Dodging {
 	//draw_sprite_ext(asset_get_index("spr_player_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,1);
-} else {
+} else if !isPhasing {
 	
 	var isRightHandInUse = ds_map_find_value(preparingHands,"r") != undefined || ds_map_find_value(recoveringHands,"r") != undefined || ds_map_find_value(attackingHands,"r") != undefined;
 	var isLeftHandInUse = ds_map_find_value(preparingHands,"l") != undefined || ds_map_find_value(recoveringHands,"l") != undefined || ds_map_find_value(attackingHands,"l") != undefined;
@@ -134,14 +134,14 @@ if state == CombatantStates.Attacking {
 
 // casting a spell
 if ds_map_size(preparingHands) != 0 && currentUsingSpell != noone {
-	// total stamina bar outline
-	var x1 = x-(.5*sprite_width);
+	// spell bar outline
+	var x1 = x-(.75*sprite_width);
 	var y1 = y-(.5*sprite_height)-15;
-	var x2 = x+(.5*sprite_width);
+	var x2 = x+(.75*sprite_width);
 	var y2 = y-(.5*sprite_height)-5;
 	draw_set_color(c_white);
 	draw_rectangle(x1,y1,x2,y2,true);
-	// current stamina
+	// spell bar charged amount
 	var prepFrame = ds_map_find_value(prepFrames,"r");
 	var prepFrameTotal = ds_map_find_value(prepFrameTotals,"r");
 	var percentDone = prepFrame / prepFrameTotal;

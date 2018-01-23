@@ -27,6 +27,7 @@ if isSpell {
 					direction = 270;
 				}
 				facingDirection = direction;
+				if speed > 30 speed = 30;
 			}
 		}
 	}

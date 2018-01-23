@@ -5,18 +5,16 @@ draw_set_halign(fa_left);
 var x1 = 0; var y1 = 0;
 if victim.type == CombatantTypes.Enemy {
 	x1 = victim.x+(victim.sprite_width*.5)+5;
-	y1 = victim.y-(victim.sprite_height*.5)-10;
+	y1 = victim.y-(victim.sprite_height*.5)-15;
 } else if victim.type == CombatantTypes.Player {
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
 	x1 = 215 + vx;
-	y1 = 10 + vy;
+	y1 = 15 + vy;
 }
 var text = round(amount);
 if frame > 11 {
-	// 11/22
 	var a = 1 - ((frame-11)/11);
-	show_debug_message(a);
 	draw_set_alpha(1-((frame-11)/11));
 }
 scr_draw_text_outline(x1,y1,text,c_white,c_purple,c_black);

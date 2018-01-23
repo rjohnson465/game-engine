@@ -138,10 +138,12 @@ if state == CombatantStates.Attacking {
 if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 	// normally draw base sprite -- on top of hands
 	
+	var alpha = 1;
 	// fairies float
 	if isFairy {
+		if isPhasing alpha = .5;
 		var scale = ((1-.85)/30)*abs(floatingFrame-30)+0.85;
-		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, scale, scale, facingDirection, c_white, 1);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, scale, scale, facingDirection, c_white, alpha);
 	} else {
 		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, 1, 1, facingDirection, c_white, 1);
 	}

@@ -20,5 +20,11 @@ if  stamina > 0 &&
 		dodgeDirection = direction;
 	} else dodgeDirection = facingDirection;
 	state = CombatantStates.Dodging;
-		
+	
+	/*isPhasing = true;
+	global.condition = "Phase";
+	global.owner = id;
+	instance_create_depth(x,y,1,obj_condition_particles);*/
+} else if stamina < 0 {
+	//isPhasing = false;
 }

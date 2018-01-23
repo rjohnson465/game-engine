@@ -1,3 +1,10 @@
+if !isAlive exit;
+
+if isPhasing {
+	//stamina -= 1;
+}
+
+image_angle = facingDirection;
 // Reset personal grid for allies / enemeies
 // The personal grid allows for allies / enemies to plan their path, acommodating walls and other combatants
 if type != CombatantTypes.Player {
@@ -423,7 +430,6 @@ switch(state) {
 				if !hasCalculatedWillDodge {
 					randomize();
 					var rand = random_range(1,100);
-					show_debug_message(rand);
 					willDodge = rand <= agility ? true : false;
 					hasCalculatedWillDodge = true;
 				}
@@ -540,11 +546,12 @@ switch(state) {
 				// move to lockOnTarget until in range for chosen attack
 				var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 				// TODO -- maybe move away from lockOnTarget if a rangedAttack has a minRange
+				var a = distance_to_object(lockOnTarget);
 				var pred = currentMeleeAttack == noone ? 
 					// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) || wallsBetweenTarget != noone : 
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]);
-				if pred && /*!isStrafing &&*/ !isFlinching {
+				if pred && !isFlinching {
 					if wallsBetweenTarget == noone {
 						facingDirection = point_direction(x,y,global.player.x,global.player.y);
 					} else {
@@ -595,7 +602,8 @@ switch(state) {
 								} else isStrafing = false;
 							} else {
 								if isStrafing {
-									var dist = distance_to_object(lockOnTarget);
+									/*var dist = distance_to_object(lockOnTarget);
+									//show_debug_message(dist);
 									if dist <= meleeRangeArray[currentMeleeAttack-1] {
 										var angle = point_direction(lockOnTarget.x,lockOnTarget.y,x,y);
 										angle = strafeDirection == "r" ? angle + functionalSpeed*.5 : angle - functionalSpeed*.5;
@@ -617,7 +625,7 @@ switch(state) {
 										} else {
 											strafeDirection = strafeDirection == "l" ? "r" : "l";
 										}
-									}
+									}*/
 								}
 								strafeFrame--;
 							}
@@ -901,17 +909,105 @@ switch(state) {
 	case CombatantStates.Dodging: {
 		attackNumberInChain = noone;
 		isShielding = false;
-		speed = 0;
-
-		var x1 = x+lengthdir_x(functionalSpeed*2,dodgeDirection);
-		var y1 = y+lengthdir_y(functionalSpeed*2,dodgeDirection);
-		if !place_meeting(x1,y1,obj_solid_parent){
-			speed = 2*functionalSpeed;
-		} 
-		direction = dodgeDirection;
+		speed = 0;	
+		
+		
+		/*if place_meeting(x,y,obj_solid_parent) {
+			var obstacle = instance_position(x,y,obj_solid_parent);
+			// glance masks
+			// check if hitting a glance mask
+			//__x and __y are where the collision occured
+			script_execute(scr_collision_point,id,obstacle.id);
+			
+			for (var i = 0 ; i < array_length_1d(glanceMasks); i++) {
+				var glanceMask = glanceMasks[i];
+		
+				// this is only good for circular glance masks
+				var centerX = obstacle.x+glanceMask.centerXOffset;
+				var centerY = obstacle.y+glanceMask.centerYOffset;
+				
+				// get our own collision point on the edge of the glance mask
+				var collisionDirection = point_direction(__x,__y,centerX,centerY);
+				var lx = lengthdir_x(glanceMask.radius,collisionDirection);
+				var xx = centerX + lx;
+				var ly = lengthdir_y(glanceMask.radius,collisionDirection);
+				var yy = centerY + ly;
+				
+				var dirToCenter = point_direction(xx,yy,centerX,centerY);
+				dirToCenter = dirToCenter < 180 ? dirToCenter + 180 : dirToCenter - 180;
+		
+				// nearest point on circular glance mask
+				var x1 = centerX+lengthdir_x(glanceMask.radius,dirToCenter);
+				var y1 = centerY+lengthdir_y(glanceMask.radius,dirToCenter);
+		
+				if y1 < centerY  {
+					// derivative
+					var a = noone;
+					var d2 = sqrt((glanceMask.radius*glanceMask.radius) - ((centerX-x1)*(centerX-x1)));
+					if d2 == 0 {
+						a = 90;
+					} else {
+						var m = (centerX-x1)/d2;					
+						if m < 0 {
+							a = 180-((arctan(m) / pi)*180);
+						} else if m > 0 {
+							a = ((arctan(m) / pi)*180);
+						} 
+					}
+			
+					var a2 = a < 180 ? a + 180 : a - 180;
+			
+					if abs(dodgeDirection - a) >= abs(dodgeDirection - a2) {
+						
+						dodgeDirection = a2;
+					} else dodgeDirection = a;
+				} else {
+					var m = -1 * (centerX-x1)/sqrt((glanceMask.radius*glanceMask.radius) - ((centerX-x1)*(centerX-x1)));
+					var a = arctan(m);
+			
+					var a2 = a < 180 ? a + 180 : a - 180;
+			
+					if abs(dodgeDirection - a) >= abs(dodgeDirection - a2) {
+						dodgeDirection = a2;
+					} else dodgeDirection = a;
+				}
+			}
+		}*/
+		if dodgeStartX == noone {
+			dodgeStartX = x;
+			dodgeStartY = y;
+			var x1 = x+lengthdir_x(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
+			var y1 = y+lengthdir_y(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
+			// do not allow projected end to be inside a solid object -- just put it short of the object
+			var length = 0;
+			while place_meeting(x1,y1,obj_enemy_parent) {
+				var dir = (dodgeDirection+180)%360;
+				x1 += lengthdir_x(length,dir);
+				y1 += lengthdir_y(length,dir);
+				length += 1;
+			}
+			
+			with obj_lockOn {
+				instance_destroy(id,false);
+			}
+			
+			instance_create_depth(x1,y1,-10,obj_lockOn);
+			
+			mp_potential_path_object(path,x1,y1,functionalSpeed*2,100,obj_enemy_parent);
+			path_start(path,functionalSpeed*2,path_action_stop,true);
+		}
+		
+		//speed = 2*functionalSpeed;
+		
+		//speed = 2*functionalSpeed;
+		//direction = dodgeDirection;
+		
 		dodgeFrame++;
 		// if not dodging, reset some states and values
 		if dodgeFrame >= totalDodgeFrames {
+			path_end();
+			dodgeStartX = noone;
+			dodgeStartY = noone;
 			state = CombatantStates.Idle;
 			stupidityFrame = 0;
 			dodgeFrame = 0;

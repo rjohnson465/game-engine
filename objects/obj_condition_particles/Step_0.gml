@@ -1,6 +1,6 @@
 var conditionLevel = 0;
-if condition == "Stagger" {
-	conditionLevel = owner.state == CombatantStates.Staggering;
+if condition == "Phase" {
+	conditionLevel = owner.isPhasing;
 } else {
 	conditionLevel = ds_map_find_value(owner.conditionLevels,condition);
 }
@@ -34,7 +34,6 @@ if conditionLevel == 0 {
 			break;
 		}
 		case POISON: {
-			//num = 3;
 			// poison gets worse the longer it goes
 			if conditionPercent > 90 {
 				num = 1;
@@ -67,13 +66,10 @@ if conditionLevel == 0 {
 			} else num = -3;
 			break;
 		}
-		/*case "Stagger": {
-			num = 2;
-			//var x1 = owner.x + xOff;
-			//var y1 = owner.y + yOff;
-			//part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
-			part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,ps_distr_invgaussian);
-		}*/
+		case "Phase": {
+			num = -10;
+			break;
+		}
 	}
 	part_emitter_burst(system,emitter,particle, num);
 	if particle2 {

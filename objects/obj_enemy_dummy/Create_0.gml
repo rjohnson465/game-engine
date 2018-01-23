@@ -3,8 +3,8 @@ name = "Dummy Enemy";
 spriteName = "dummy";
 spriteString = "enemy_dummy";
 
-functionalSpeed = 4;
-normalSpeed = 4;
+functionalSpeed = 5;
+normalSpeed = 5;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
@@ -31,7 +31,7 @@ stupidityFrame = 0;
 meleeAggroRange = 200;
 rangedAggroRange = 500;
 farthestAllowedFromPost = 1000;
-aggressiveness = 75; // aggressiveness 0-100%, decides how often to keep going with attack chain
+aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [5,15];
 strafeTotalFrames = [30,60];
 
@@ -41,7 +41,7 @@ meleeAttacksCount = 1;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[15,15,15,15];
+meleeRangeArray=[5,5,5,5];
 
 // ATTACKS
 
@@ -61,8 +61,6 @@ var meleeChain2 = [unarmedHook1,unarmedBackSlap];
 var meleeChain3 = [unarmedHook1,unarmedBackSlap,unarmedHook2];
 var meleeChain4 = [unarmedHook1,unarmedBackSlap,unarmedHook2,unarmedHook3];
 meleeAttacks = [meleeChain1,meleeChain2,meleeChain3];
-var testChain = [unarmedHook1];
-meleeAttacks = [testChain];
 
 // ranged attacks info
 rangedAttacksCount = 1; 

@@ -9,8 +9,11 @@ personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
 mp_grid_add_instances(personalGrid, obj_wall_parent, false);
 
 isFairy = true;
+isPhasing = false;
+randomize()
+floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
 
-colorOverlay = c_white;
+isAlive = true;
 
 lightRadius = 256;
 lightRadiusAlpha = .25;
@@ -19,7 +22,9 @@ lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
 
 idleFrame = 0;
-floatingFrame = 0; //0-30 "float" for fairies (grow/shrink)
+
+dodgeStartX = noone;
+dodgeStartY = noone;
 
 functionalSpeed = 5;
 normalSpeed = 5;
@@ -226,3 +231,8 @@ poisonDamage = 0;
 // light radius
 global.owner = id;
 instance_create_depth(x,y,1,obj_light_radius);
+
+
+// glance mask -- default is a circle
+var circle = makeGlanceMaskCircle(0,0,((bbox_right-bbox_left)/2));
+glanceMasks = [circle];

@@ -1,4 +1,5 @@
 event_inherited();
+
 // lock on logic
 if (keyboard_check_released(vk_control)) {
 	// always refresh lockOnList (enemies could have left radius or entered
@@ -370,7 +371,10 @@ switch(state) {
 					ds_map_replace(recoverFrameTotals,hand,0);
 					ds_map_delete(recoveringHands,hand);
 					
-					if ds_map_find_value(attackAgain,hand) {
+					ds_map_replace(attackAgain,hand,false);
+					// wtf 
+					// i think this is just in the case that there needs to be a renewed attack chain?
+					/*if ds_map_find_value(attackAgain,hand) {
 						// make sure there IS a next attack for this item
 						var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
 						var prepSprite = asset_get_index("spr_player_"+itemSprite+"_prep_"+string(attackInChain+1));
@@ -379,7 +383,7 @@ switch(state) {
 						} else ds_map_replace(preparingHands,hand,1);
 						ds_map_replace(attackAgain,hand,false);
 					} 
-					else if ds_map_size(preparingHands) == 0 && ds_map_size(attackingHands) == 0 && ds_map_size(recoveringHands) == 0 {
+					else*/ if ds_map_size(preparingHands) == 0 && ds_map_size(attackingHands) == 0 && ds_map_size(recoveringHands) == 0 {
 						state = CombatantStates.Idle;
 						break;
 					} 
