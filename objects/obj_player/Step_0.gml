@@ -464,7 +464,6 @@ if comboEffectiveNumber >= comboHitsToNextLevel {
 	comboModeLevel += 1;
 	comboModeFrame = comboModeTotalFrames;
 }
-//comboModeLevel = floor(comboNumber / comboHitsToNextLevel);
 
 
 

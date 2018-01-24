@@ -1,35 +1,56 @@
 with player {
-	if comboNumber > 0 || comboModeLevel > 0 {
+	
+	if comboModeLevel == 1 && (comboModeFrame / comboModeTotalFrames) < .25 {
+		var totalFramesToFade = round(.25*comboModeTotalFrames);
+		var frameInReference = comboModeFrame;
+		draw_set_alpha((frameInReference/totalFramesToFade));
+	} else if comboModeLevel == 0 && (comboFrame / comboTimeQuantum) > .75 {
+		var totalFramesToFade = round(.25*comboTimeQuantum);
+		var frameInReference = abs(1- (comboTimeQuantum - comboFrame));
+		draw_set_alpha((frameInReference/totalFramesToFade));
+	}
+	
+	//y1 is where to start drawing things based on whether or not attunements are visible
+	var y1 = (rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0) ?
+			625 : 650;
+	if comboEffectiveNumber > 0 || comboModeLevel > 0 {
+		// draw a circle for each combo
+		for (var i = 0; i < comboHitsToNextLevel; i++) {
+			draw_set_color(c_white);
+			draw_circle(20+(i*20),y1,10,true);
+			if comboEffectiveNumber > i {
+				draw_circle_color(20+(i*20),y1,10,c_purple,c_white,false);
+			}
+		}
+		
 		var scale = 1;
 		var angle = 0;
 		if comboFrame <= 10 {
 			scale = (5/(comboFrame+1));
 		}
-		scr_draw_text_outline(20,40,comboNumber,c_purple,c_white,scale,scale,angle);
+		if comboEffectiveNumber > 0 {
+			draw_circle_color(20+((comboEffectiveNumber-1)*20),y1,scale*10,c_purple,c_white,false);
+		}
+		
+		// how long until combo chain dies
+		var percentDrained = ((1-comboFrame/comboTimeQuantum)*100);
+		draw_healthbar(10,y1+15,10+(comboHitsToNextLevel*20),y1+20,percentDrained,c_black,c_purple,c_white,0,true,true);
+		
+		//scr_draw_text_outline(20,40,comboEffectiveNumber,c_purple,c_white,scale,scale,angle);
 	}
-	// draw the bar for combo level (and level)
+	// draw the bar for combo level 
 	if comboModeLevel > 0 {
-		// condition outline
-		draw_set_alpha(.75);
-		var x1 = 100-(32);
-		var y1 = 100-(32)-20; 
-		var x2 = 100+(32);
-		var y2 = 100-(32)-15;
-		scr_draw_text_outline(x2,y1,string(comboModeLevel*25+100)+"%",c_purple,c_white);
-		draw_set_color(c_white);
-		//draw_set_font(font_main);
-		//draw_text(x2,y1,comboModeLevel);
-		draw_rectangle(x1,y1,x2,y2,true);
 		
-		
-		
-		//draw_rectangle(x1,y1,x2,y2,true);
-		
-		// current mode level percent
-		var modePercent = comboModeFrame/comboModeTotalFrames;
-		//conditionPercent = conditionPercent / 100;
-		var x2 = x1 + (64 * modePercent);
-		if (x2 < x1) x2 = x1;
-		draw_rectangle(x1,y1,x2,y2,false);
+		draw_sprite_part(spr_combo_meter_empty,1,0,0,200,50,100,y1);
+		var w = sprite_get_width(spr_combo_meter_full);
+		w = w*(comboModeFrame/comboModeTotalFrames);
+		draw_sprite_part(spr_combo_meter_full,1,0,0,w,25,100,y1);
+		draw_set_halign(fa_center);
+		var scale = 1;
+		if comboModeFrame >= comboModeTotalFrames-10 {
+			scale = (5/((comboModeTotalFrames-comboModeFrame)+1));
+		}
+		scr_draw_text_outline(150,y1,string(comboModeLevel*25+100)+"%",c_silver,c_white,scale,scale,0);
 	}
 }
+draw_set_alpha(1);
