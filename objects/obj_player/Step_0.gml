@@ -127,14 +127,9 @@ switch(state) {
 		var xx = x + lengthdir_x(1000,direction);
 		var yy = y + lengthdir_y(1000,direction);
 		
-		var x1 = x +lengthdir_x(usingSpeed,direction);
-		var y1 = y +lengthdir_y(usingSpeed,direction);
-		canMove = !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_shield_parent);
-
-		/*if !canMove {
-			state = CombatantStates.Idle;
-			break;
-		}*/
+		//var x1 = x +lengthdir_x(usingSpeed,direction);
+		//var y1 = y +lengthdir_y(usingSpeed,direction);
+		//canMove = !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_shield_parent);
 		
 		if (UP || DOWN || LEFT || RIGHT) /*&& canMove*/ {
 			// walking backwards is slow

@@ -73,8 +73,8 @@ var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
 
-hp = 500;
-maxHp = 500;
+hp = 1;
+maxHp = 1;
 
 stamina = 60;
 maxStamina = 60;
@@ -89,4 +89,7 @@ poise = 20;
 // dodge stuff
 agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
+
+ds_map_replace(dropItems,makeItem(1),100);
+ds_map_replace(dropItems,makeGold(0,10),100);
 

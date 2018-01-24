@@ -77,7 +77,19 @@ if state == CombatantStates.Attacking {
 				var frame = ds_map_find_value(prepFrames,hand);
 				if hand == "r" {
 					draw_sprite_ext(prepSprite,frame,x,y,1,1,facingDirection,c_white,1);
+					if isSlowed {
+						draw_sprite_ext(prepSprite, frame, x, y, 1, 1, facingDirection, c_aqua, .5);
+					} 
+					else if isFrozen {
+						draw_sprite_ext(prepSprite, frame, x, y, 1, 1, facingDirection, c_aqua, .75);
+					}
 				} else {
+					if isSlowed {
+						draw_sprite_ext(prepSprite, frame, x, y, 1, -1, facingDirection, c_aqua, .5);
+					} 
+					else if isFrozen {
+						draw_sprite_ext(prepSprite, frame, x, y, 1, -1, facingDirection, c_aqua, .75);
+					}
 					draw_sprite_ext(prepSprite,frame,x,y,1,-1,facingDirection,c_white,1);
 				}
 			
@@ -95,7 +107,7 @@ if state == CombatantStates.Attacking {
 			}
 		}
 	
-		// draw recover prep hand animation
+		// draw recover hand animation
 		if ds_map_size(recoveringHands) != 0 {
 			var hand = ds_map_find_first(recoveringHands); // l or r
 			
@@ -109,13 +121,24 @@ if state == CombatantStates.Attacking {
 					var attackChain = rangedAttacks[attackNumber-1];
 					attackData = attackChain[attackInChain-1];
 				}
-				//var recoverHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			
 				var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(attackData.spriteAttackNumber)+"_"+string(attackData.spriteAttackNumberInChain));
 				var frame = ds_map_find_value(recoverFrames,hand);
-				if hand == "r" {
+				if hand == "r" { 
 					draw_sprite_ext(recoverSprite,frame,x,y,1,1,facingDirection,c_white,1);
+					if isSlowed {
+						draw_sprite_ext(recoverSprite, frame, x, y, 1, 1, facingDirection, c_aqua, .5);
+					} 
+					else if isFrozen {
+						draw_sprite_ext(recoverSprite, frame, x, y, 1, 1, facingDirection, c_aqua, .75);
+					}
 				} else {
+					if isSlowed {
+						draw_sprite_ext(recoverSprite, frame, x, y, 1, -1, facingDirection, c_aqua, .5);
+					} 
+					else if isFrozen {
+						draw_sprite_ext(recoverSprite, frame, x, y, 1, -1, facingDirection, c_aqua, .75);
+					}
 					draw_sprite_ext(recoverSprite,frame,x,y,1,-1,facingDirection,c_white,1);
 				}
 			

@@ -273,8 +273,13 @@ if	state != CombatantStates.Dodging &&
 		// death
 		if hp <= 0 {
 			isAlive = false;
-			solid = false;
 			speed = 0;
+			if type == CombatantTypes.Enemy {
+				global.owner = id;
+				instance_create_depth(x,y,1,obj_enemy_dead);
+				x = -10;
+				y = -10;
+			}
 		}
 	}
 }

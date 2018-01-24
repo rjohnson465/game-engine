@@ -1,7 +1,5 @@
-if !isAlive exit;
-
-if isPhasing {
-	//stamina -= 1;
+if !isAlive {
+	exit;
 }
 
 image_angle = facingDirection;
