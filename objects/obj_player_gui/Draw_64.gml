@@ -140,39 +140,40 @@ if rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0 {
 // menus
 if isShowingMenus {
 	
+	// big menu screen
 	draw_set_color(c_gray);
 	draw_set_alpha(.75);
-	draw_rectangle(112,134,912,634,c_black);
+	draw_rectangle(MENUS_TOPLEFT_X,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_BOTTOMRIGHT_Y,c_black);
 	
+	// current menu title handle
 	draw_set_color(c_olive);
-	draw_rectangle(112,134,912,154,false);
-	
+	draw_rectangle(MENUS_TOPLEFT_X,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_TOPLEFT_Y+menusHandleHeight,false);
+	// current menu title / hotkey text
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);
 	draw_set_font(font_main);
 	var s = currentMenu +  " (" +ds_map_find_value(menuHotKeys,currentMenu) + ")";
-	draw_text(512,138,s);
-	draw_sprite(spr_close_button,1,892,134);
+	draw_text((MENUS_BOTTOMRIGHT_X+MENUS_TOPLEFT_X)/2,((MENUS_TOPLEFT_Y+menusHandleHeight)+MENUS_TOPLEFT_Y)/2.15,s);
+	var closeButtonWidth = sprite_get_width(spr_close_button);
+	draw_sprite(spr_close_button,1,MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y);
 	
-	// menu categories
-	var init_y = 154;
+	// menu category tabs (3)
+	var tabWidth = menusWidth / array_length_1d(menuTypes);
+	var xx = MENUS_TOPLEFT_X;
+	var yy = MENUS_TOPLEFT_Y+menusHandleHeight;
 	for (var i = 0; i < array_length_1d(menuTypes); i++) {
+		var x1 = xx + (i*tabWidth);
 		var el = menuTypes[i];
-		var y1 = init_y + (i*120); // 120 height of each menu button
 		
 		if currentMenu != el {
-			draw_sprite_ext(spr_menucategory_slot,1,112,y1,1,1,0,c_gray,.75);
-		} else draw_sprite_ext(spr_menucategory_slot,1,112,y1,1,1,0,c_white,1);
-	}
-	
-	/*switch currentMenu {
-		case INVENTORY: {
-			
-			
-			break;
+			draw_set_color(c_gray);
+			draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,true);			
+		} else {
+			draw_set_color(c_ltgray);
+			draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,true);
 		}
-	}*/
-	
-	
+		draw_text((x1+(x1+tabWidth))/2,((yy+menuTabsHeight)+yy)/2.15,el);
+	}
+
 	
 }

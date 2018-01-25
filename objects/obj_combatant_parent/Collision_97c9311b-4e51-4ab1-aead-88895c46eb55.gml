@@ -74,6 +74,9 @@ if	state != CombatantStates.Dodging &&
 			damagesMap = attackData.damages;
 		}
 		
+		// keep track of how much of each type of damage is taken (shields absorb different percentages of elements)
+		var damagesTaken = ds_map_create(); 
+		
 		var currentDamageType = ds_map_find_first(damagesMap);
 		var size = ds_map_size(damagesMap);
 		for (var i = 0; i < size; i++) {
@@ -111,6 +114,7 @@ if	state != CombatantStates.Dodging &&
 			if damageBase < 0 {
 				damageBase = 0;
 			}
+			ds_map_replace(damagesTaken,currentDamageType,damageBase);
 			damage += damageBase;
 			
 			// create particles for the hit
@@ -174,7 +178,7 @@ if	state != CombatantStates.Dodging &&
 		}
 		var actualDamage = damage; // the actual damage of the hit (recieved damage might be less if actual damage exceeds hp)
 		
-		// facto combo mode
+		// factor combo mode
 		if assailant.type == CombatantTypes.Player {
 			damage += (assailant.comboModeLevel*.25)*damage;
 		}
@@ -196,12 +200,27 @@ if	state != CombatantStates.Dodging &&
 				var percentageOfHealth = actualDamage / maxHp;
 				stamina -= maxStamina*percentageOfHealth;
 				// shields are only ever held in left hand
-				hp -= damage*((100-leftHandItem.blockPercentage)/100);
+				
+				// damage needs to be refactored, as shields have their own defenses per element
+				var currentDamageType = ds_map_find_first(damagesTaken);
+				var shield = leftHandItem;
+				var adjustedDamage = 0;
+				for (var i = 0; i < ds_map_size(damagesTaken); i++) {
+					
+					var defense = ds_map_find_value(shield.defenses,currentDamageType);
+					var damageTaken = ds_map_find_value(damagesTaken,currentDamageType);
+					adjustedDamage += ((100-defense)/100)*damageTaken;
+					
+					currentDamageType = ds_map_find_next(damagesTaken,currentDamageType);
+				}
+				
+				//hp -= damage*((100-leftHandItem.blockPercentage)/100);
+				hp -= adjustedDamage;
 				//if type != CombatantTypes.Player {
-					global.damageAmount = damage;
-					global.victim = id;
-					global.healingSustained = 0;
-					instance_create_depth(x,y,1,obj_damage);
+				global.damageAmount = adjustedDamage;
+				global.victim = id;
+				global.healingSustained = 0;
+				instance_create_depth(x,y,1,obj_damage);
 				//}
 				if stamina < 1 {
 					isShielding = false;
@@ -279,6 +298,14 @@ if	state != CombatantStates.Dodging &&
 				instance_create_depth(x,y,1,obj_enemy_dead);
 				x = -10;
 				y = -10;
+				
+				var idd = id;
+				with obj_light_radius {
+					if owner == idd {
+						x = -1000;
+						y = -1000;
+					}
+				}
 			}
 		}
 	}

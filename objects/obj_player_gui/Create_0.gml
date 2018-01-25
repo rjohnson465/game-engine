@@ -5,16 +5,55 @@ depth = -1000;
 
 // UI menus
 isShowingMenus = false;
-#macro INVENTORY "Inventory"
-#macro SKILLS "Skills"
-#macro STATS "Statistics"
+#macro INVENTORY "Inventory & Stats"
+#macro SKILLS "Skills & Quests"
+//#macro STATS "Statistics"
 #macro OPTIONS "Options"
-menuTypes = [INVENTORY, SKILLS, STATS, OPTIONS];
+
+#macro MENUS_TOPLEFT_X 12
+#macro MENUS_TOPLEFT_Y 84
+#macro MENUS_BOTTOMRIGHT_X 1012
+#macro MENUS_BOTTOMRIGHT_Y 584
+
+menusWidth = MENUS_BOTTOMRIGHT_X-MENUS_TOPLEFT_X;
+menusHeight = MENUS_BOTTOMRIGHT_Y-MENUS_TOPLEFT_Y;
+
+menuButtonCoordinates = ds_map_create();
+var closeButtonWidth = sprite_get_width(spr_close_button);
+var closeButtonHeight = sprite_get_height(spr_close_button);
+var closeButtonCoordinates = 
+	[MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_TOPLEFT_Y+closeButtonHeight];
+ds_map_replace(menuButtonCoordinates,"closeButton",closeButtonCoordinates);
+
+// height for handle where menu name / hotkey is displayed
+menusHandleHeight = 20;
+
+// tabs
+menuTabsHeight = 20;
+menuTypes = [INVENTORY, SKILLS, OPTIONS];
 menuHotKeys = ds_map_create();
 ds_map_add(menuHotKeys,INVENTORY,"I");
 ds_map_add(menuHotKeys,SKILLS,"K");
-ds_map_add(menuHotKeys,STATS,"T");
 ds_map_add(menuHotKeys,OPTIONS,"O");
+
+// get coordinate for tabs
+var tabWidth = menusWidth / array_length_1d(menuTypes);
+var xx = MENUS_TOPLEFT_X;
+var yy = MENUS_TOPLEFT_Y+menusHandleHeight;
+for (var i = 0; i < array_length_1d(menuTypes); i++) {
+	var x1 = xx + (i*tabWidth);
+	var el = menuTypes[i];
+	var coordinates = [x1,yy,x1+tabWidth,yy+menuTabsHeight];
+	ds_map_add(menuButtonCoordinates,el,coordinates);
+	/*if currentMenu != el {
+		draw_set_color(c_gray);
+		draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,true);			
+	} else {
+		draw_set_color(c_ltgray);
+		draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,true);
+	}
+	draw_text((x1+(x1+tabWidth))/2,((yy+menuTabsHeight)+yy)/2.15,el);*/
+}
 
 currentMenu = INVENTORY;
 isShowingMenus = false;
@@ -44,31 +83,9 @@ attunementLightning = instance_create_depth(12,660,1,obj_attunement);
 // not active until visible
 instance_deactivate_object(obj_attunement);
 
-// menu categories objects
-global.x1 = 112;
-
-var init_y = 154;
-for (var i = 0; i < array_length_1d(menuTypes); i++) {
-	global.y1 = init_y + (i*120);
-	global.menuType = menuTypes[i];
-	instance_create_depth(global.x1,global.y1,1,obj_menucategory);
-}
-
 instance_deactivate_object(obj_menucategory);
 
-// inventory specific stuff
-enum InventoryFilters {
-	None,
-	Melee,
-	Magic,
-	Ranged,
-	Shields,
-	Other
-}
 
-inventoryFilter = InventoryFilters.None;
-inventoryScrollLevel = 0; // display items 0 - 14
-inventorySelectedItem = noone;
 global.scrollDirection = "up";
 global.x1 = 532;
 global.y1 = 214;
@@ -130,7 +147,7 @@ global.equipmentSlot = EquipmentSlots.RightRing2;
 rightRing2Slot = instance_create_depth(global.x1,global.y1,1,obj_equipmentslot);
 
 // inventory
-instance_create_depth(x,y,-1000,obj_player_gui_inventory);
+instance_create_depth(x,y,-1001,obj_inventory);
 
 // combos
 instance_create_depth(x,y,-100,obj_combo_manager);

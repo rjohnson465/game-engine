@@ -1,1 +1,0 @@
-ui = global.ui;

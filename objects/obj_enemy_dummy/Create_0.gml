@@ -31,7 +31,7 @@ stupidityFrame = 0;
 meleeAggroRange = 200;
 rangedAggroRange = 500;
 farthestAllowedFromPost = 1000;
-aggressiveness = 0; // aggressiveness 0-100%, decides how often to keep going with attack chain
+aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [5,15];
 strafeTotalFrames = [30,60];
 
@@ -48,6 +48,7 @@ meleeRangeArray=[5,5,5,5];
 global.owner = id;
 var unarmedHook1 = instance_create_depth(x,y,1,obj_attack_dummy_unarmed_1_1);
 unarmedHook1.handSide = "e";
+ds_map_replace(unarmedHook1.damages,FIRE,[1,3]);
 var unarmedHook2 = instance_create_depth(x,y,1,obj_attack_dummy_unarmed_1_1);
 unarmedHook2.handSide = "o";
 var unarmedHook3 = instance_create_depth(x,y,1,obj_attack_dummy_unarmed_1_1);
@@ -73,12 +74,12 @@ var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
 
-hp = 1;
-maxHp = 1;
+hp = 100;
+maxHp = 100;
 
 stamina = 60;
 maxStamina = 60;
-staminaRegen = 4;
+staminaRegen = 10;
 
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)

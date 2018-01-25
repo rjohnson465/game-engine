@@ -1,3 +1,4 @@
+depth = 100;
 owner = global.owner; // the enemy instance who is dead
 potentialItems = owner.dropItems;
 sprite_index = asset_get_index("spr_"+owner.spriteString+"_dead");

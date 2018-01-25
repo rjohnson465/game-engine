@@ -4,4 +4,4 @@ spriteName = "woodshield";
 itemSprite = spr_item_woodshield;
 
 weight = 5;
-blockPercentage = 50;
+ds_map_replace(defenses,PHYSICAL,100);

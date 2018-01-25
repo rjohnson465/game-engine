@@ -144,7 +144,7 @@ switch(state) {
 			}
 		}	
 		// run
-		if SHIFT && stamina > 0 && canMove {
+		if SHIFT && stamina > 0 {
 			//speed = speed*1.25;
 			mp_potential_step_object(xx,yy,functionalSpeed*1.25,obj_solid_parent);
 			stamina -= .5;

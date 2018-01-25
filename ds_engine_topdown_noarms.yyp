@@ -434,7 +434,7 @@
             "Key": "3931eebb-c9b5-47e2-a2c9-806902e2d38f",
             "Value": {
                 "id": "3c21a106-43e9-4c15-a629-c9f265034ac1",
-                "resourcePath": "objects\\obj_player_gui_inventory\\obj_player_gui_inventory.yy",
+                "resourcePath": "objects\\obj_inventory\\obj_inventory.yy",
                 "resourceType": "GMObject"
             }
         },
