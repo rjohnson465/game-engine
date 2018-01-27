@@ -288,6 +288,11 @@ if	state != CombatantStates.Dodging &&
 			assailant.comboFrame = 0;
 			assailant.comboEffectiveNumber += 1;
 		}
+		// get out of wary state
+		if state == CombatantStates.Wary {
+			hasCalculatedWillDodge = false;
+		//	state = CombatantStates.Moving;
+		}
 		
 		// death
 		if hp <= 0 {

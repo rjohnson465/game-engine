@@ -139,10 +139,10 @@ if selectedItem {
 	// all shields and weapons share many properties, so it makes sense to lump them together when showing properties
 	if selectedItem.type == HandItemTypes.Melee || HandItemTypes.Ranged || HandItemTypes.Shield {
 		// damage absorption (shield only)
-		if selectedItem.type == HandItemTypes.Shield {
+		/*if selectedItem.type == HandItemTypes.Shield {
 			var s = "Block: " + string(selectedItem.blockPercentage)+"%";
 			draw_text(itemDescriptionCol1X,itemDescriptionColY,s);
-		}
+		}*/
 					
 		// auto weapon / shield description 
 		var numHands = selectedItem.isTwoHanded ? "2H" : "1H";
@@ -195,7 +195,18 @@ if selectedItem {
 					maxDamage = damageArray[1];
 				}
 				// draw damage texts in second column
-				draw_text(itemDescriptionCol2X,itemDescriptionColY+(i*20),damageType + ": " + string(minDamage) + "-" + string(maxDamage));
+				if minDamage == 0 && maxDamage == 0 {
+					draw_text(itemDescriptionCol2X,itemDescriptionColY+(i*20),damageType + ": 0");
+				} else {
+					draw_text(itemDescriptionCol2X,itemDescriptionColY+(i*20),damageType + ": " + string(minDamage) + "-" + string(maxDamage));
+				}
+			}
+		} else if selectedItem.type == HandItemTypes.Shield {
+			for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
+				var defenseType = global.ALL_DAMAGE_TYPES[i];
+				var blockPercentage = ds_map_find_value(selectedItem.defenses,defenseType);
+				// draw damage texts in second column
+				draw_text(itemDescriptionCol2X,itemDescriptionColY+(i*20),defenseType + ": " + string(blockPercentage));
 			}
 		}
 		
@@ -203,56 +214,7 @@ if selectedItem {
 } // end selected inventory item details
 			
 /*
-// equipped items side
-draw_set_color(c_gray);
-draw_rectangle(562,154,912,184,false);
-draw_set_halign(fa_center);
-draw_set_color(c_white);
-draw_text(737,164,"Equipped Items");
-			
-// head slot
-draw_sprite(spr_item_slot,1,705,204);
-// left hand 1
-draw_sprite(spr_item_slot,1,570,235);
-if leftHandItem != global.player.unarmed {
-	draw_sprite(leftHandItem.itemSprite,1,570,235);
-}
-if rightHandItem.isTwoHanded {
-	draw_sprite_ext(rightHandItem.itemSprite,1,570,235,1,1,0,c_black,.75);
-}
-draw_text(570,225,"1");
-// left hand 2
-draw_sprite(spr_item_slot,1,635,235);
-if rightHandItem != global.player.unarmed {
-	draw_sprite(rightHandItem.itemSprite,1,635,235);
-}
-/*if rightHandItem2.isTwoHanded {
-	draw_sprite_ext(rightHandItem2.itemSprite,1,635,235,1,1,0,c_black,.75);
-}
-draw_text(635,225,"1");
-// left ring 1 
-draw_sprite(spr_item_slot,1,602,300);
-// left ring 2
-draw_sprite(spr_item_slot,1,602,365);
-// right hand 1
-draw_sprite(spr_item_slot,1,775,235);
-if leftHandItem2 != global.player.unarmed {
-	draw_sprite(leftHandItem2.itemSprite,1,775,235);
-}
-if rightHandItem2.isTwoHanded {
-	draw_sprite_ext(rightHandItem2.itemSprite,1,775,235,1,1,0,c_black,.75);
-}
-draw_text(775,225,"2");
-// right hand 2
-draw_sprite(spr_item_slot,1,840,235);
-if rightHandItem2 != global.player.unarmed {
-	draw_sprite(rightHandItem2.itemSprite,1,840,235);
-}
-draw_text(840,225,"2");
-// right ring 1 
-draw_sprite(spr_item_slot,1,807,300);
-// right ring 2
-draw_sprite(spr_item_slot,1,807,365);
+
 
 
 		

@@ -1,5 +1,5 @@
 ui = global.ui;
-
+global.inventory = id;
 
 filtersHeight = 30;
 filtersWidth = 30;

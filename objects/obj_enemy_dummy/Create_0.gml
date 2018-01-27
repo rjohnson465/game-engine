@@ -31,9 +31,12 @@ stupidityFrame = 0;
 meleeAggroRange = 200;
 rangedAggroRange = 500;
 farthestAllowedFromPost = 1000;
-aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
+aggressiveness = 80; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [5,15];
 strafeTotalFrames = [30,60];
+waryDistanceRange=[100,120];
+waryTotalFrames=[120,200];
+skittishness = 100;
 
 // melee attacks info
 // meleeAttacksCount is number of separate attack chains, not individual attacks

@@ -30,9 +30,12 @@ stupidityFrame = 0;
 meleeAggroRange = 200;
 rangedAggroRange = 350;
 farthestAllowedFromPost = 1000;
-aggressiveness = 50; // aggressiveness 0-100%, decides how often to keep going with attack chain
+aggressiveness = 70; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [10,20];
 strafeTotalFrames = [30,60];
+waryDistanceRange=[60,100];
+waryTotalFrames=[60,110];
+skittishness = 100; // affects how often to enter the Wary state after dodges / staggers
 
 // melee attacks info
 // meleeAttacksCount is number of separate attack chains, not individual attacks
@@ -66,8 +69,8 @@ rangedAttacks = [rangedChain1,rangedChain2];
 
 strength = 10; // used in calculating stagger against player
 
-hp = 50;
-maxHp = 50;
+hp = 500;
+maxHp = 500;
 hpRegen = 7;
 
 stamina = 60;
@@ -80,7 +83,7 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 20;
 
 // dodge stuff
-agility = 50; // 0 - 100% chance to try a dodge
+agility = 100; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
 // shielding stuff

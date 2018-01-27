@@ -29,6 +29,7 @@ dodgeStartY = noone;
 functionalSpeed = 5;
 normalSpeed = 5;
 facingDirection = 0;
+turnSpeed = 3; // how many degrees a combatant may turn per step to face their target
 // player | enemy | ally
 spriteType = ""; 
 // i.e. "skeleton" | "dummy"
@@ -52,7 +53,8 @@ enum CombatantStates {
 	
 	// Only for Ally / Enemy AI
 	AggroMelee,
-	AggroRanged
+	AggroRanged,
+	Wary // prioritize getting away from target / reassessing
 }
 
 enum CombatantTypes {
@@ -131,6 +133,14 @@ hasCalculatedWillDodge = false;
 willDodge = false;
 agility = 100; // 0 - 100% chance to dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_"+spriteString+"_dodge"));
+
+// wary / retreat / reassess stuff
+skittishness = 0; // chance to fuck off after a dodge or stagger
+waryTotalFrames = [0,0]; // be wary for x frames before returning to normal behavior
+waryFrame = 0; // count down, not up
+waryDistanceRange = [0,0] // how far away from target to fell sort of safe
+waryDistance = 0;
+hasReachedWaryDistance = false;
 
 // flinch stuff
 isFlinching = false;

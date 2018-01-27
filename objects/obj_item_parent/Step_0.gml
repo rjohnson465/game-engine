@@ -1,4 +1,5 @@
 event_inherited();
+if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
 
 if !position_meeting(mouse_x,mouse_y,id) && grabFrame < grabFrames {
 	grabFrame = 0;

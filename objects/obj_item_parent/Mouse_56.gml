@@ -1,3 +1,5 @@
+if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
+
 // if released over another item (and not released over a slot to equip item)
 if id == global.ui.grabbedItem {
 	var nearestOtherItem = instance_nearest(x,y,obj_item_parent);

@@ -394,6 +394,7 @@ switch(state) {
 			// TODO pick target; may not always be player
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
 			if currentMeleeAttack || currentRangedAttack {
+				turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 				
 				// CHECK 1: TOO FAR FROM POST?
 				
@@ -458,87 +459,8 @@ switch(state) {
 					shieldingFrame++;
 				}
 			
-				// If we're close to our lockOnTarget and they're preparing attack and we've decided to dodge during this Move state,
-				// decide exactly what frame in the lockOnTarget's attack prep to dodge on
-				// TODO should combatants also pay attention to other enemies around them, other than just their lockOnTarget?
-				// melee dodges
-				var isMeleeAttack = false;
-				// attackHand is the hand that is currently preparing but will finish preparation sooner
-				var prepFrameL = ds_map_find_value(prepFrames,"l") == undefined ? 0 : ds_map_find_value(prepFrames,"l");
-				var prepFrameLTotal = ds_map_find_value(prepFrameTotals,"l") == undefined ? 0 : ds_map_find_value(prepFrameTotals,"l");
-				var prepFrameR = ds_map_find_value(prepFrames,"r") == undefined ? 0 : ds_map_find_value(prepFrames,"r");
-				var prepFrameRTotal = ds_map_find_value(prepFrameTotals,"r") == undefined ? 0 : ds_map_find_value(prepFrameTotals,"r");
-				var attackHand = 
-					prepFrameL / prepFrameLTotal >= 
-					prepFrameR / prepFrameRTotal ? "l" : "r";
-				if lockOnTarget.type == CombatantTypes.Player {
-					isMeleeAttack = attackHand == "l" ? lockOnTarget.leftHandItem.type == HandItemTypes.Melee : lockOnTarget.rightHandItem.type == HandItemTypes.Melee;
-				} else {
-					isMeleeAttack = lockOnTarget.currentMeleeAttack != noone;
-				}
-				var attackObj = instance_nearest(x,y,obj_attack);
-				var range = 45; // the range at which to start attempting dodge. default is 45 pixels.
-				// if dodging a player's melee attack, range is based on the melee weapon the player is using
-				if lockOnTarget.type == CombatantTypes.Player && isMeleeAttack {
-					var weapon = lockOnTarget.currentAttackingHand == "l" ? lockOnTarget.leftHandItem : lockOnTarget.rightHandItem;
-					if weapon.range != 0 {
-						range = weapon.range;
-					}
-				}
-				// AI combatants have every attack range pre-loaded in attack data
-				else if lockOnTarget.type != CombatantTypes.Player && isMeleeAttack {
-					// TODO
-				}
-				// if the attack is coming from an Ally or Enemy, base it on their current attack range
-				else if (lockOnTarget.type == CombatantTypes.Ally || lockOnTarget.type == CombatantTypes.Enemy) && isMeleeAttack {
-					range = lockOnTarget.meleeRangeArray[lockOnTarget.currentMeleeAttack-1] + 10; // 10px padding
-				}
-				if distance_to_object(lockOnTarget) < range && ds_map_size(lockOnTarget.preparingHands) != 0 && willDodge && isMeleeAttack {
-				
-					// the more agile the enemy, the better chance it will dodge when player is almost done preparing attack
-					randomize();
-					
-					// always dodge the furthest along in prep sequence attack if there a multiple preparing hands
-					var prepFrame = ds_map_find_value(prepFrames,attackHand);
-					var prepFrameTotal = ds_map_find_value(prepFrameTotals,attackHand);
-					
-					var percentDonePreparingAttack = prepFrame/prepFrameTotal;
-					var percentageChangeEachFrame = 1/prepFrameTotal;
-					// if agility - playerPercentDonePreparingAttack is the closest it can possibly be to percentageChangeEachFrame, yes, dodge this frame
-					var testNum = (agility / 100) - percentDonePreparingAttack;
-					var shouldDodgeOnThisFrame = false;
-					var nextFrameTestNum = (agility / 100) - (percentDonePreparingAttack + percentageChangeEachFrame)
-					var isNextFrameTooFar =  nextFrameTestNum <= percentageChangeEachFrame*2;
-					if  isNextFrameTooFar {
-						shouldDodgeOnThisFrame = true;
-					}
-					var willDodgeOnThisFrame = willDodge && shouldDodgeOnThisFrame;
-				
-					if willDodgeOnThisFrame && stamina > 0 && !isFrozen {
-						facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
-						hasCalculatedWillDodge = false;
-						dodgeDirection = (facingDirection+180)%360;
-						path_end();
-						stamina -= 10;
-						state = CombatantStates.Dodging;
-						break;
-					}
-				}
-				
-				// ranged dodges TODO
-				// if within range of a ranged attack object (projectile), time dodge based on agility (and if combatant can see the projectile)
-				else if distance_to_object(obj_attack) < 200 - agility && script_execute(scr_is_facing,id,attackObj) && willDodge {
-					if stamina > 0 && !isFrozen {
-						facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
-						hasCalculatedWillDodge = false;
-						randomize();
-						var rand = floor(random_range(1.01,2.99));
-						dodgeDirection = rand == 1 ? (attackObj.direction+90)%360 : (attackObj.direction - 90 + 360)%360;
-						path_end();
-						stamina -= 10;
-						state = CombatantStates.Dodging;
-						break;
-					}
+				if maybeDodge() {
+					break;
 				}
 				
 				// move to lockOnTarget until in range for chosen attack
@@ -551,7 +473,7 @@ switch(state) {
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]);
 				if pred && !isFlinching {
 					if wallsBetweenTarget == noone {
-						facingDirection = point_direction(x,y,global.player.x,global.player.y);
+						//facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 					} else {
 						facingDirection = direction;
 					}
@@ -601,29 +523,15 @@ switch(state) {
 							} else {
 								if isStrafing {
 									var dist = distance_to_object(lockOnTarget);
-									//show_debug_message(dist);
+									var targetRadius = point_distance(x,y,lockOnTarget.x,lockOnTarget.y)-distance_to_object(lockOnTarget);
+									var orbit = targetRadius+distance_to_object(lockOnTarget);
+									/*if dist < meleeRangeArray[currentMeleeAttack-1] {
+										orbit += 1;
+									}*/
 									if dist <= meleeRangeArray[currentMeleeAttack-1] {
-										var angle = point_direction(lockOnTarget.x,lockOnTarget.y,x,y);
-										angle = strafeDirection == "r" ? angle + functionalSpeed*.5 : angle - functionalSpeed*.5;
-										var centerX = lockOnTarget.x;
-										var centerY = lockOnTarget.y;
-										var orbit = point_distance(x,y,lockOnTarget.x,lockOnTarget.y);		
-										if dist < meleeRangeArray[currentMeleeAttack-1] {
-											orbit += 1;
-										}
-										if angle >= 360 angle -= 360;
+										strafeAroundPoint(lockOnTarget.x,lockOnTarget.y,functionalSpeed*.3,orbit);
+									} 
 									
-										var xx = lengthdir_x(orbit,angle) + centerX;
-										var yy = lengthdir_y(orbit,angle) + centerY;
-									
-										if !place_meeting(xx,yy,obj_wall_parent) && !place_meeting(xx,yy,obj_combatant_parent) {
-											x = xx;
-											y = yy;
-											facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
-										} else {
-											strafeDirection = strafeDirection == "l" ? "r" : "l";
-										}
-									}
 								}
 								strafeFrame--;
 							}
@@ -696,7 +604,8 @@ switch(state) {
 			
 			if ds_map_size(preparingHands) != 0 {
 				// aim while preparing attack
-				facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
+				turnToFacePoint(turnSpeed*3,lockOnTarget.x,lockOnTarget.y);
+				//facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 			}
 			
 			if !isRanged && ds_map_size(preparingHands) !=0 {
@@ -904,6 +813,70 @@ switch(state) {
 		}
 		break;
 	}
+	case CombatantStates.Wary: {
+		
+		// if waryFrame is 0, return to Move state
+		if waryFrame == 0 {
+			state = CombatantStates.Moving;
+		}
+		// calculate -- will we dodge during this Wary state?
+		// if we've not yet calculated if we'll dodge during this Wary state, calculate that now
+		// this is calculated only once per wary state
+		if !hasCalculatedWillDodge {
+			randomize();
+			var rand = random_range(1,100);
+			willDodge = rand <= agility ? true : false;
+			hasCalculatedWillDodge = true;
+		}
+		if maybeDodge() {
+			break;
+		}
+		
+		// if struck before we reach wary distance, revert to Move state
+		// handled in collision with obj_attack event
+		
+		// if not at wary distance, get there
+		if distance_to_object(lockOnTarget) < waryDistance && !hasReachedWaryDistance {
+			// pick direction
+			// start with opposite direction of player
+			var dir = (facingDirection+180)%360;
+			var startDir = angle_difference(dir,10);
+			var sp = functionalSpeed*.5;
+			var xx = x+lengthdir_x(sp,dir);
+			var yy = y+lengthdir_y(sp,dir);
+			while place_meeting(xx,yy,obj_solid_parent) && dir != startDir {
+				dir += 10;
+				xx = x+lengthdir_x(sp,dir);
+				yy = y+lengthdir_y(sp,dir);
+			}
+			// possibly don't always turn the same way
+			if dir != startDir {
+				x = x+lengthdir_x(sp,dir);
+				y = y+lengthdir_y(sp,dir);
+			} else {
+				mp_potential_step_object(xx,yy,sp,obj_solid_parent);
+			}
+			//facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
+			turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
+		} else {
+			hasReachedWaryDistance = true;
+		}
+		
+		// if we've reach wary distance and the target's getting too close, return to move state
+		if distance_to_object(lockOnTarget) < .5*waryDistance && hasReachedWaryDistance {
+			hasCalculatedWillDodge = false;
+			state = CombatantStates.Moving;
+		}
+		
+		// if at wary distance, strafe
+		if hasReachedWaryDistance {
+			strafeAroundPoint(lockOnTarget.x,lockOnTarget.y,functionalSpeed*.1,point_distance(x,y,lockOnTarget.x,lockOnTarget.y));
+		}
+		
+		// always decrement waryFrame
+		waryFrame--;
+		break;
+	}
 	case CombatantStates.Dodging: {
 		attackNumberInChain = noone;
 		isShielding = false;
@@ -924,6 +897,7 @@ switch(state) {
 			}
 			
 			mp_potential_path_object(path,x1,y1,functionalSpeed*2,100,obj_solid_parent);
+			//facingDirection = point_direction(x,y,x1,y1);
 			path_start(path,functionalSpeed*2,path_action_stop,true);
 		}
 		
@@ -933,10 +907,29 @@ switch(state) {
 			path_end();
 			dodgeStartX = noone;
 			dodgeStartY = noone;
-			state = CombatantStates.Idle;
 			stupidityFrame = 0;
 			dodgeFrame = 0;
 			dodgeDirection = noone;
+			
+			if type != CombatantTypes.Player {
+				// possibly become wary
+				randomize();
+				var rand = random_range(0,100);
+				if rand < skittishness {
+					waryFrame = round(random_range(waryTotalFrames[0],waryTotalFrames[1]));
+					waryDistance = round(random_range(waryDistanceRange[0],waryDistanceRange[1]));
+					hasReachedWaryDistance = false;
+					if leftHandItem.type == HandItemTypes.Shield {
+						isShielding = true;
+						global.owner = id;
+						instance_create_depth(x,y,1,obj_shield_parent);
+					}
+					shieldingFrame = 0;
+					state = CombatantStates.Wary;
+					break;
+				}
+			}
+			state = CombatantStates.Idle;
 		}
 		break;
 	}
@@ -1021,10 +1014,30 @@ switch(state) {
 		staggerFrame++;
 		if (staggerFrame >= staggerDuration) {
 			staggerDuration = 0;
-			state = CombatantStates.Idle;
 			staggerFrame = 0;
 			speed = 0;
 			staggerSpeed = noone;
+			
+			if type != CombatantTypes.Player {
+				// possibly become wary (less chance after stagger than dodging)
+				randomize();
+				var rand = random_range(0,100);
+				if rand < skittishness/1.5 {
+					waryFrame = round(random_range(waryTotalFrames[0],waryTotalFrames[1]));
+					waryDistance = round(random_range(waryDistanceRange[0],waryDistanceRange[1]));
+					hasReachedWaryDistance = false;
+					if leftHandItem.type == HandItemTypes.Shield {
+						isShielding = true;
+						global.owner = id;
+						instance_create_depth(x,y,1,obj_shield_parent);
+					}
+					shieldingFrame = 0;
+					state = CombatantStates.Wary;
+					break;
+				}
+			}
+			state = CombatantStates.Idle;
+			
 		}
 		break;
 	}
