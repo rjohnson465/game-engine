@@ -303,7 +303,7 @@ switch(state) {
 			}
 			
 			// think for stupidityFrames frames
-			// TODO -- set onAlert to false after Idle for a while?
+			// TODO -- set onAlert to false after Idle for a bit?
 			if (stupidityFrame < stupidity) {
 				speed = 0;
 				stupidityFrame++;
@@ -459,6 +459,7 @@ switch(state) {
 					shieldingFrame++;
 				}
 			
+				// dodge check
 				if maybeDodge() {
 					break;
 				}
@@ -479,7 +480,8 @@ switch(state) {
 					}
 			
 					// calculate path to lockOnTarget and move to it
-					mp_grid_path(personalGrid, path, x,y, lockOnTarget.x,lockOnTarget.y,true);
+					//mp_grid_path(personalGrid, path, x,y, lockOnTarget.x,lockOnTarget.y,true);
+					mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,obj_solid_parent);
 					path_start(path,functionalSpeed,path_action_stop,true);
 
 					break;
@@ -603,9 +605,8 @@ switch(state) {
 			}
 			
 			if ds_map_size(preparingHands) != 0 {
-				// aim while preparing attack
+				// aim when preparing attack
 				turnToFacePoint(turnSpeed*3,lockOnTarget.x,lockOnTarget.y);
-				//facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 			}
 			
 			if !isRanged && ds_map_size(preparingHands) !=0 {
@@ -802,7 +803,6 @@ switch(state) {
 			
 			// get out of attack sequence
 			if ds_map_size(preparingHands) == 0 && ds_map_size(recoveringHands) == 0 && ds_map_size(attackingHands) == 0 {
-				//currentAttackingHand = noone;
 				currentMeleeAttack = noone;
 				currentRangedAttack = noone;
 				attackNumberInChain = noone;
@@ -814,7 +814,7 @@ switch(state) {
 		break;
 	}
 	case CombatantStates.Wary: {
-		
+		// speed = 0;
 		// if waryFrame is 0, return to Move state
 		if waryFrame == 0 {
 			state = CombatantStates.Moving;
@@ -828,6 +828,7 @@ switch(state) {
 			willDodge = rand <= agility ? true : false;
 			hasCalculatedWillDodge = true;
 		}
+		
 		if maybeDodge() {
 			break;
 		}
@@ -839,24 +840,27 @@ switch(state) {
 		if distance_to_object(lockOnTarget) < waryDistance && !hasReachedWaryDistance {
 			// pick direction
 			// start with opposite direction of player
-			var dir = (facingDirection+180)%360;
-			var startDir = angle_difference(dir,10);
+			var startDir = (facingDirection+180)%360;
+			var dir = (startDir+10)%360;
 			var sp = functionalSpeed*.5;
 			var xx = x+lengthdir_x(sp,dir);
 			var yy = y+lengthdir_y(sp,dir);
+			var i = 0;
 			while place_meeting(xx,yy,obj_solid_parent) && dir != startDir {
-				dir += 10;
+				dir = (dir+10)%360;
 				xx = x+lengthdir_x(sp,dir);
 				yy = y+lengthdir_y(sp,dir);
+				show_debug_message("loop: "+ string(i));
+				i++;
 			}
 			// possibly don't always turn the same way
 			if dir != startDir {
-				x = x+lengthdir_x(sp,dir);
-				y = y+lengthdir_y(sp,dir);
+				x += lengthdir_x(sp,dir);
+				y += lengthdir_y(sp,dir);
 			} else {
-				mp_potential_step_object(xx,yy,sp,obj_solid_parent);
+				hasCalculatedWillDodge = false;
+				state = CombatantStates.Idle;
 			}
-			//facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 			turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 		} else {
 			hasReachedWaryDistance = true;
@@ -870,7 +874,11 @@ switch(state) {
 		
 		// if at wary distance, strafe
 		if hasReachedWaryDistance {
-			strafeAroundPoint(lockOnTarget.x,lockOnTarget.y,functionalSpeed*.1,point_distance(x,y,lockOnTarget.x,lockOnTarget.y));
+			var orbit = point_distance(x,y,lockOnTarget.x,lockOnTarget.y);
+			if orbit > 250 {
+				orbit -= 1;
+			}
+			strafeAroundPoint(lockOnTarget.x,lockOnTarget.y,functionalSpeed*.1,orbit);
 		}
 		
 		// always decrement waryFrame
@@ -881,30 +889,41 @@ switch(state) {
 		attackNumberInChain = noone;
 		isShielding = false;
 		speed = 0;	
+		image_angle = dodgeDirection;
 		
 		if dodgeStartX == noone {
 			dodgeStartX = x;
 			dodgeStartY = y;
 			var x1 = x+lengthdir_x(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
 			var y1 = y+lengthdir_y(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
+			
 			// do not allow projected end to be inside a solid object -- just put it short of the object
-			var length = 0;
-			while place_meeting(x1,y1,obj_enemy_parent) {
+			/*var length = 0;
+			while place_meeting(x1,y1,obj_enemy_parent) && length < 100 {
 				var dir = (dodgeDirection+180)%360;
 				x1 += lengthdir_x(length,dir);
 				y1 += lengthdir_y(length,dir);
 				length += 1;
-			}
+			}*/
 			
-			mp_potential_path_object(path,x1,y1,functionalSpeed*2,100,obj_solid_parent);
+			//mp_potential_step(x1,y1,functionalSpeed*2,
+			mp_potential_path_object(path,x1,y1,functionalSpeed*2,2,obj_solid_parent);
 			//facingDirection = point_direction(x,y,x1,y1);
 			path_start(path,functionalSpeed*2,path_action_stop,true);
 		}
 		
+		if distance_to_object(obj_solid_parent) == 0 {
+			path_position = path_positionprevious;
+		}
+		
+		//if collision_circle(xx, yy, 16, obj_Player, false,true) path_position = path_positionprevious;
+
 		dodgeFrame++;
 		// if not dodging, reset some states and values
 		if dodgeFrame >= totalDodgeFrames {
 			path_end();
+			
+			
 			dodgeStartX = noone;
 			dodgeStartY = noone;
 			stupidityFrame = 0;
@@ -929,7 +948,7 @@ switch(state) {
 					break;
 				}
 			}
-			state = CombatantStates.Idle;
+			state = CombatantStates.Moving;
 		}
 		break;
 	}

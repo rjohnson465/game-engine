@@ -71,7 +71,13 @@ if distance_to_object(lockOnTarget) < range && ds_map_size(lockOnTarget.preparin
 // ranged dodges TODO
 // if within range of a ranged attack object (projectile), time dodge based on agility (and if combatant can see the projectile)
 else if distance_to_object(obj_attack) < 200 - agility && script_execute(scr_is_facing,id,attackObj) && willDodge {
-	if stamina > 0 && !isFrozen {
+	var attackObj = instance_nearest(x,y,obj_attack);
+	var attackObjOwnerIndex = noone;
+	with attackObj.owner {
+		attackObjOwnerIndex = object_index;
+	}
+	var isEnemyAttack = object_is_ancestor(attackObjOwnerIndex,lockOnTargetType);
+	if stamina > 0 && !isFrozen && isEnemyAttack {
 		facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 		hasCalculatedWillDodge = false;
 		randomize();

@@ -254,8 +254,8 @@ if	state != CombatantStates.Dodging &&
 
 			var percentOfHp = actualDamage / maxHp;
 			// maybe stagger
-			// always a 10% + damage% of totalHp chance to stagger
-			var chanceToStagger = .1 + percentOfHp;
+			// always a 15% + damage% of totalHp chance to stagger
+			var chanceToStagger = .15 + percentOfHp;
 			randomize();
 			var rand = random_range(0,1);
 			// TODO subtract rand by poise 
@@ -291,27 +291,9 @@ if	state != CombatantStates.Dodging &&
 		// get out of wary state
 		if state == CombatantStates.Wary {
 			hasCalculatedWillDodge = false;
-		//	state = CombatantStates.Moving;
+			state = CombatantStates.Idle;
 		}
 		
-		// death
-		if hp <= 0 {
-			isAlive = false;
-			speed = 0;
-			if type == CombatantTypes.Enemy {
-				global.owner = id;
-				instance_create_depth(x,y,1,obj_enemy_dead);
-				x = -10;
-				y = -10;
-				
-				var idd = id;
-				with obj_light_radius {
-					if owner == idd {
-						x = -1000;
-						y = -1000;
-					}
-				}
-			}
-		}
+		
 	}
 }
