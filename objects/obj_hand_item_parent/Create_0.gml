@@ -10,7 +10,7 @@ type = "";
 weaponSpeed = "";
 range = 0; // in pixels
 numberOfTargets = 1;
-
+staggersAgainstBlocks = true;
 charges = 0;
 totalCharges = 0;
 

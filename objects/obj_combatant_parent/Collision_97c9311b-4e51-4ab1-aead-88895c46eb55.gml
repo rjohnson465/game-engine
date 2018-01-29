@@ -46,10 +46,13 @@ if	state != CombatantStates.Dodging &&
 		var spell = noone;
 		var attackNumber; var attackNumberInChain;
 		var percentCharged = 1;
+		// case AI combatant as assailant
+		var attackData = noone;
+		// case: Player as assailant; this could be a melee weapon, ranged weapon, or spell (I think??) -- Check attack_parent
+		var itemHitWith = noone;
 		// find damages map for the attack received (Player damage map dependent on item, enemy / ally damage map is hardcoded)
 		if assailant.type == CombatantTypes.Player {
-			// this could be a melee weapon, ranged weapon, or spell (I think??) -- Check attack_parent
-			var itemHitWith;
+			
 			if !other.spell {
 				itemHitWith = other.weapon;
 				attackNumber = other.attackNumber;
@@ -70,7 +73,7 @@ if	state != CombatantStates.Dodging &&
 			attackNumberInChain = other.attackNumberInChain;
 			var isRanged = other.isRanged;
 			var attackChain = isRanged ? other.owner.rangedAttacks[attackNumber-1] : other.owner.meleeAttacks[attackNumber-1];
-			var attackData = attackChain[attackNumberInChain-1];
+			attackData = attackChain[attackNumberInChain-1];
 			damagesMap = attackData.damages;
 		}
 		
@@ -214,33 +217,49 @@ if	state != CombatantStates.Dodging &&
 					currentDamageType = ds_map_find_next(damagesTaken,currentDamageType);
 				}
 				
-				//hp -= damage*((100-leftHandItem.blockPercentage)/100);
 				hp -= adjustedDamage;
-				//if type != CombatantTypes.Player {
 				global.damageAmount = adjustedDamage;
 				global.victim = id;
 				global.healingSustained = 0;
 				instance_create_depth(x,y,1,obj_damage);
-				//}
 				if stamina < 1 {
 					isShielding = false;
 					// if no more stamina, stagger (slow stagger)
 					path_end();
 					state = CombatantStates.Staggering;
 					staggerFrame = 0;
-					staggerDuration = 25; // TODO fix later
+					staggerDuration = 25; // TODO Devin fix later
 					staggerSpeed = 1;
-				}		
+				}	
+				// stagger assailant iff assailant weapon / attack staggers against blocks
+				var itemOrAttack = attackData != noone ? attackData : itemHitWith;
+				if itemOrAttack.staggersAgainstBlocks {
+					with assailant {
+						var itemIsMelee = false;
+						if itemHitWith != noone {
+							itemIsMelee = itemHitWith.type == HandItemTypes.Melee;
+						}
+						if assailant.currentMeleeAttack != noone || itemIsMelee {
+							isShielding = false;
+							path_end();
+							staggerFrame = 0;
+							staggerDuration = 1;
+							staggerSpeed = 1;
+							state = CombatantStates.Staggering;
+						}
+					}
+				}
+				
 			}
 		// hit
 		else {			
+			// critical?
+			
 			hp -= damage;
-			//if type != CombatantTypes.Player {
-				global.damageAmount = damage;
-				global.healingSustained = 0;
-				global.victim = id;
-				instance_create_depth(x,y,1,obj_damage);
-			//}
+			global.damageAmount = damage;
+			global.healingSustained = 0;
+			global.victim = id;
+			instance_create_depth(x,y,1,obj_damage);
 		}
 	
 		// if this is the first time an enemy was hit, show the hp of the enemy

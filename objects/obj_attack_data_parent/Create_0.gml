@@ -6,3 +6,4 @@ isRanged = false;
 nextChoices = [];
 projectileSpeed = 0;
 numberOfTargets = 1;
+staggersAgainstBlocks = true;

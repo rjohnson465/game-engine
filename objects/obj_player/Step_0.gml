@@ -229,16 +229,13 @@ switch(state) {
 			var currentSpell = ds_map_find_value(knownSpells,currentUsingSpell);
 			var MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle);
 			
-			//if !isAttacking && !isPreparingAttack && !isRecovering {		
 			if ds_map_size(attackingHands) == 0 && ds_map_size(preparingHands) == 0 && ds_map_size(recoveringHands) == 0 {
-				//var prepSprite = asset_get_index("spr_player_"+weaponString+"_prep_"+string(global.playerAttackNumberInChain));
 				ds_map_replace(prepFrameTotals,"r",currentSpell.castFrames);
 				ds_map_replace(prepFrames,"r",0);
 				ds_map_replace(preparingHands,"r",1);
 			}
 			
 			// attack sequence 
-			//if prepAnimationFrame >= prepAnimationTotalFrames || MIDDLE_BUTTON_RELEASED {
 			if ds_map_find_value(prepFrames,"r") >= ds_map_find_value(prepFrameTotals,"r") || MIDDLE_BUTTON_RELEASED {
 				cursor_sprite = -1;
 				var prepFrame = ds_map_find_value(prepFrames,"r");

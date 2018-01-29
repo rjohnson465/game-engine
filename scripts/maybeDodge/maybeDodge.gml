@@ -35,14 +35,14 @@ else if lockOnTarget.type != CombatantTypes.Player && isMeleeAttack {
 else if (lockOnTarget.type == CombatantTypes.Ally || lockOnTarget.type == CombatantTypes.Enemy) && isMeleeAttack {
 	range = lockOnTarget.meleeRangeArray[lockOnTarget.currentMeleeAttack-1] + 10; // 10px padding
 }
-if distance_to_object(lockOnTarget) < range && ds_map_size(lockOnTarget.preparingHands) != 0 && willDodge && isMeleeAttack {
+if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.preparingHands) != 0 && willDodge && isMeleeAttack {
 				
 	// the more agile the enemy, the better chance it will dodge when player is almost done preparing attack
 	randomize();
 					
 	// always dodge the furthest along in prep sequence attack if there a multiple preparing hands
-	var prepFrame = ds_map_find_value(prepFrames,attackHand);
-	var prepFrameTotal = ds_map_find_value(prepFrameTotals,attackHand);
+	var prepFrame = ds_map_find_value(lockOnTarget.prepFrames,attackHand);
+	var prepFrameTotal = ds_map_find_value(lockOnTarget.prepFrameTotals,attackHand);
 					
 	var percentDonePreparingAttack = prepFrame/prepFrameTotal;
 	var percentageChangeEachFrame = 1/prepFrameTotal;
@@ -72,6 +72,7 @@ if distance_to_object(lockOnTarget) < range && ds_map_size(lockOnTarget.preparin
 // if within range of a ranged attack object (projectile), time dodge based on agility (and if combatant can see the projectile)
 else if distance_to_object(obj_attack) < 200 - agility && script_execute(scr_is_facing,id,attackObj) && willDodge {
 	var attackObj = instance_nearest(x,y,obj_attack);
+	if attackObj.isMelee exit;
 	var attackObjOwnerIndex = noone;
 	with attackObj.owner {
 		attackObjOwnerIndex = object_index;
@@ -82,7 +83,7 @@ else if distance_to_object(obj_attack) < 200 - agility && script_execute(scr_is_
 		hasCalculatedWillDodge = false;
 		randomize();
 		var rand = floor(random_range(1.01,2.99));
-		dodgeDirection = rand == 1 ? (attackObj.direction+90)%360 : (attackObj.direction - 90 + 360)%360;
+		dodgeDirection = rand == 1 ? (attackObj.owner.facingDirection+90)%360 : (attackObj.owner.facingDirection - 90 + 360)%360;
 		path_end();
 		stamina -= 10;
 		state = CombatantStates.Dodging;

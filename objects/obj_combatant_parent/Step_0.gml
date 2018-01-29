@@ -3,19 +3,6 @@ if !isAlive {
 }
 
 image_angle = facingDirection;
-// Reset personal grid for allies / enemeies
-// The personal grid allows for allies / enemies to plan their path, acommodating walls and other combatants
-if type != CombatantTypes.Player {
-	mp_grid_clear_all(personalGrid);
-	mp_grid_add_instances(personalGrid,obj_wall_parent,true);
-	var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
-	for (var i = 0; i < ds_list_size(combatants); i++) {
-		var ci = ds_list_find_value(combatants,i);
-		if ci != id && ci != global.player.id {
-			mp_grid_add_instances(personalGrid,ds_list_find_value(combatants,i),true);
-		} 
-	}
-}
 
 // stamina / health regen
 // only regen stamina when moving or idle
@@ -401,7 +388,7 @@ switch(state) {
 				// if the path back to post is greater than farthestAllowedFromPost, cancel any pending attack 
 				// this will trigger the return to post code (later in this case) on the next step
 				var pathToPost = path_add();
-				mp_grid_path(personalGrid, pathToPost,x,y,postX,postY,1);
+				mp_potential_path_object(pathToPost,postX,postY,functionalSpeed,4,obj_solid_parent);
 				var pathToPostLength = path_get_length(pathToPost);
 				if pathToPostLength > farthestAllowedFromPost {
 					currentMeleeAttack = noone;
@@ -482,9 +469,10 @@ switch(state) {
 					// calculate path to lockOnTarget and move to it
 					//mp_grid_path(personalGrid, path, x,y, lockOnTarget.x,lockOnTarget.y,true);
 					if !place_meeting(x,y,obj_solid_parent) {
-						mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,obj_solid_parent);
-					} else mp_potential_path(path,postX,postY,functionalSpeed,4,false);
-					path_start(path,functionalSpeed,path_action_stop,true);
+						mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,3,obj_solid_parent);
+						path_start(path,functionalSpeed,path_action_stop,true);
+					} else move_towards_point(postX,postY,functionalSpeed);
+					
 
 					break;
 
@@ -560,9 +548,10 @@ switch(state) {
 				break;
 			}*/
 			else {
-				mp_grid_clear_all(personalGrid);
-				mp_grid_add_instances(personalGrid,obj_wall_parent,true);
-				if mp_grid_path(personalGrid, path,x,y,postX,postY,true) {
+				//mp_grid_clear_all(personalGrid);
+				//mp_grid_add_instances(personalGrid,obj_wall_parent,true);
+				//if mp_grid_path(personalGrid, path,x,y,postX,postY,true) {
+				if mp_potential_path_object(path,postX,postY,functionalSpeed*2,4,obj_solid_parent) {
 					path_start(path,functionalSpeed*2,path_action_stop, false);
 					facingDirection = direction;
 				}
@@ -840,7 +829,7 @@ switch(state) {
 		// handled in collision with obj_attack event
 		
 		// if not at wary distance, get there
-		if distance_to_object(lockOnTarget) < waryDistance && !hasReachedWaryDistance {
+		if (distance_to_object(lockOnTarget) < waryDistance && !hasReachedWaryDistance) || jumpFrame < jumpTotalFrames {
 			// pick direction
 			// start with opposite direction of player
 			var startDir = (facingDirection+180)%360;
@@ -866,6 +855,10 @@ switch(state) {
 			}
 			turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 		} else {
+			hasReachedWaryDistance = true;
+		}
+		
+		if !hasReachedWaryDistance && distance_to_object(obj_solid_parent) == 0 {
 			hasReachedWaryDistance = true;
 		}
 		
@@ -896,37 +889,33 @@ switch(state) {
 		isShielding = false;
 		speed = 0;	
 		image_angle = dodgeDirection;
+		show_debug_message(dodgeDirection);
 		
 		if dodgeStartX == noone {
 			dodgeStartX = x;
 			dodgeStartY = y;
-			var x1 = x+lengthdir_x(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
-			var y1 = y+lengthdir_y(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
+			var x1 = dodgeStartX+lengthdir_x(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
+			var y1 = dodgeStartY+lengthdir_y(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
 			
-			// do not allow projected end to be inside a solid object -- just put it short of the object
-			/*var length = 0;
-			while place_meeting(x1,y1,obj_enemy_parent) && length < 100 {
-				var dir = (dodgeDirection+180)%360;
-				x1 += lengthdir_x(length,dir);
-				y1 += lengthdir_y(length,dir);
-				length += 1;
-			}*/
-			
-			//mp_potential_step(x1,y1,functionalSpeed*2,
-			mp_potential_path_object(path,x1,y1,functionalSpeed*2,2,obj_solid_parent);
-			//facingDirection = point_direction(x,y,x1,y1);
-			path_start(path,functionalSpeed*2,path_action_stop,true);
+			//if !isFairy {
+				mp_potential_path_object(path,x1,y1,functionalSpeed*2,2,obj_solid_parent);
+				//facingDirection = point_direction(x,y,x1,y1);
+				path_start(path,functionalSpeed*2,path_action_stop,true);
+			//}
 		}
 		
-		if distance_to_object(obj_solid_parent) == 0 {
-			path_position = path_positionprevious;
-		}
+		// phase dodges?
+		/*if isFairy {
+			var x1 = dodgeStartX+lengthdir_x(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
+			var y1 = dodgeStartY+lengthdir_y(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
+			move_towards_point(x1,y1,functionalSpeed*2);
+		}*/
+		
 
 		dodgeFrame++;
 		// if not dodging, reset some states and values
 		if dodgeFrame >= totalDodgeFrames {
 			path_end();
-			
 			
 			dodgeStartX = noone;
 			dodgeStartY = noone;
@@ -1042,11 +1031,12 @@ switch(state) {
 			speed = 0;
 			staggerSpeed = noone;
 			
-			if type != CombatantTypes.Player {
+			/*if type != CombatantTypes.Player {
 				// possibly become wary (less chance after stagger than dodging)
 				randomize();
 				var rand = random_range(0,100);
 				if rand < skittishness/1.5 {
+					jumpFrame = 0; 
 					waryFrame = round(random_range(waryTotalFrames[0],waryTotalFrames[1]));
 					waryDistance = round(random_range(waryDistanceRange[0],waryDistanceRange[1]));
 					hasReachedWaryDistance = false;
@@ -1059,7 +1049,7 @@ switch(state) {
 					state = CombatantStates.Wary;
 					break;
 				}
-			}
+			}*/
 			state = CombatantStates.Idle;
 			
 		}
