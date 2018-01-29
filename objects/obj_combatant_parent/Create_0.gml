@@ -25,6 +25,9 @@ idleFrame = 0;
 
 dodgeStartX = noone;
 dodgeStartY = noone;
+// "jumping" -- just has sprite drawn larger until halfway through jumpTotalFrames
+jumpFrame = 8;
+jumpTotalFrames = 8;
 
 functionalSpeed = 5;
 normalSpeed = 5;

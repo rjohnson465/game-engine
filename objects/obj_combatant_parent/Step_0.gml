@@ -481,7 +481,9 @@ switch(state) {
 			
 					// calculate path to lockOnTarget and move to it
 					//mp_grid_path(personalGrid, path, x,y, lockOnTarget.x,lockOnTarget.y,true);
-					mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,obj_solid_parent);
+					if !place_meeting(x,y,obj_solid_parent) {
+						mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,obj_solid_parent);
+					} else mp_potential_path(path,postX,postY,functionalSpeed,4,false);
 					path_start(path,functionalSpeed,path_action_stop,true);
 
 					break;
@@ -815,6 +817,7 @@ switch(state) {
 	}
 	case CombatantStates.Wary: {
 		// speed = 0;
+		
 		// if waryFrame is 0, return to Move state
 		if waryFrame == 0 {
 			state = CombatantStates.Moving;
@@ -842,7 +845,7 @@ switch(state) {
 			// start with opposite direction of player
 			var startDir = (facingDirection+180)%360;
 			var dir = (startDir+10)%360;
-			var sp = functionalSpeed*.5;
+			var sp = jumpFrame >= jumpTotalFrames ? functionalSpeed*.5 : functionalSpeed*2;
 			var xx = x+lengthdir_x(sp,dir);
 			var yy = y+lengthdir_y(sp,dir);
 			var i = 0;
@@ -883,6 +886,9 @@ switch(state) {
 		
 		// always decrement waryFrame
 		waryFrame--;
+		if jumpFrame <= jumpTotalFrames {
+			jumpFrame++;
+		}
 		break;
 	}
 	case CombatantStates.Dodging: {
@@ -915,8 +921,6 @@ switch(state) {
 		if distance_to_object(obj_solid_parent) == 0 {
 			path_position = path_positionprevious;
 		}
-		
-		//if collision_circle(xx, yy, 16, obj_Player, false,true) path_position = path_positionprevious;
 
 		dodgeFrame++;
 		// if not dodging, reset some states and values
@@ -935,6 +939,7 @@ switch(state) {
 				randomize();
 				var rand = random_range(0,100);
 				if rand < skittishness {
+					jumpFrame = 0; 
 					waryFrame = round(random_range(waryTotalFrames[0],waryTotalFrames[1]));
 					waryDistance = round(random_range(waryDistanceRange[0],waryDistanceRange[1]));
 					hasReachedWaryDistance = false;
