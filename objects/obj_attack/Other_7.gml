@@ -29,7 +29,7 @@ if isMelee {
 		}
 		var attackInChain = ds_map_find_value(owner.attackingHands,handSide);
 		ds_map_replace(owner.recoverFrameTotals,handSide,sprite_get_number(recoverSprite));
-		ds_map_replace(owner.recoverFrames,handSide,0);
+		ds_map_replace(owner.recoverFrames,handSide,-1);
 	
 		ds_map_replace(owner.recoveringHands,handSide,attackInChain);
 		owner.prevAttackHand = handSide;

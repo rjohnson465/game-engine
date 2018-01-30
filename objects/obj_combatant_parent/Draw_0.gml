@@ -30,7 +30,7 @@ if state == CombatantStates.Dodging {
 	
 	if type != CombatantTypes.Player {
 		
-		if hasHands {
+		/*if hasHands {
 			
 			var isRightHandInUse = ds_map_find_value(preparingHands,"r") != undefined || ds_map_find_value(recoveringHands,"r") != undefined || ds_map_find_value(attackingHands,"r") != undefined;
 			var isLeftHandInUse = ds_map_find_value(preparingHands,"l") != undefined || ds_map_find_value(recoveringHands,"l") != undefined || ds_map_find_value(attackingHands,"l") != undefined;
@@ -52,7 +52,7 @@ if state == CombatantStates.Dodging {
 					draw_sprite_ext(asset_get_index("spr_"+spriteString+"_"+rightHandItem.spriteName),1,x,y,scale,scale,facingDirection,c_white,1);
 				}
 			}
-		}
+		}*/
 	}
 	
 }

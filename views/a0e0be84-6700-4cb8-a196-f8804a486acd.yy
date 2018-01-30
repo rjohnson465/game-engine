@@ -14,11 +14,7 @@
         "2be4bd00-f8d9-4616-b020-7a3c0b7baca9",
         "c93c8aaa-575f-490f-b779-00755430e2dc",
         "d5adc173-250b-47ef-89f6-54e0831d1086",
-        "f4a5c296-d887-490e-b0f1-dbeb91533d88",
-        "3c3e71ae-8c26-4d55-9a7e-3eebb02b0622",
-        "0ce95e51-b489-40a2-ad34-dcc6f9e55c73",
-        "b75d6e55-a0f7-4e7d-a83d-270409ff7224",
-        "f8e7db5a-aa92-4b24-b537-07442fce586e"
+        "b75d6e55-a0f7-4e7d-a83d-270409ff7224"
     ],
     "filterType": "GMSprite",
     "folderName": "longsword",

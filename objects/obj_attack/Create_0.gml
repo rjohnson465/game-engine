@@ -76,9 +76,6 @@ else {
 		if isMelee {
 			var attackChain = owner.meleeAttacks[attackNumber-1];
 			attackData = attackChain[attackNumberInChain-1];
-			if attackNumberInChain == 2 {
-				var a = 3;
-			}
 		} else {
 			var attackChain = owner.rangedAttacks[attackNumber-1];
 			attackData = attackChain[attackNumberInChain-1];

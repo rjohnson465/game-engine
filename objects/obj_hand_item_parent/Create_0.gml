@@ -5,7 +5,19 @@ enum HandItemTypes {
 	Melee,
 	Ranged
 }
+
+enum WeaponTypes {
+	Sword1H,
+	Sword2H,
+	Axe1H,
+	Axe2H,
+	Dagger,
+	Bow,
+	Crossbow
+}
+
 type = "";
+weaponType = WeaponTypes.Sword1H;
 // Fast | Medium | Slow
 weaponSpeed = "";
 range = 0; // in pixels

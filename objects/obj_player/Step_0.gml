@@ -206,7 +206,6 @@ switch(state) {
 		}
 		
 		
-		
 		// check if spell attack
 		// spells are all 2h and thus use the "r" side (might change this later idk)
 		if currentUsingSpell != noone {
@@ -297,6 +296,7 @@ switch(state) {
 				var attackInChain = ds_map_find_value(preparingHands,hand);
 				
 				var prepFrame = ds_map_find_value(prepFrames,hand);
+				//ds_map_replace(prepFrames,hand,prepFrame+1);
 				var prepFrameTotal = ds_map_find_value(prepFrameTotals,hand);
 				// check if this hand just started preparing attack
 				if prepFrame == -1 {
@@ -332,8 +332,6 @@ switch(state) {
 					if weapon.type == HandItemTypes.Melee && !place_meeting(x1, y1, obj_solid_parent){
 						direction = facingDirection;
 						speed = -.5;
-					} else {
-						//speed = 0;
 					}
 				} else {
 					speed = 0;
@@ -354,6 +352,7 @@ switch(state) {
 				var recoverFrame = ds_map_find_value(recoverFrames,hand);
 				var recoverFrameTotal = ds_map_find_value(recoverFrameTotals,hand);
 				
+				ds_map_replace(recoverFrames,hand,recoverFrame+1);
 				// check if this hand just started recovering attack
 				if recoverFrame == -1 {
 					ds_map_delete(attackingHands,hand);

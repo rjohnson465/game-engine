@@ -1,3 +1,12 @@
+// personalGrid is all walls / combatants except for this combatant
+// each combatant has their own grid, telling them where they can't go
+var cell_width = 32;
+var cell_height = 32;
+
+var hcells = room_width div cell_width;
+var vcells = room_height div cell_height;
+personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
+mp_grid_add_instances(personalGrid, obj_wall_parent, false);
 
 isFairy = true;
 isPhasing = false;

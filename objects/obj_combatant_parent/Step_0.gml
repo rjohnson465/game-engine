@@ -4,6 +4,20 @@ if !isAlive {
 
 image_angle = facingDirection;
 
+// Reset personal grid for allies / enemeies
+// The personal grid allows for allies / enemies to plan their path, acommodating walls and other combatants
+if type != CombatantTypes.Player {
+	mp_grid_clear_all(personalGrid);
+	mp_grid_add_instances(personalGrid,obj_wall_parent,true);
+	var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
+	for (var i = 0; i < ds_list_size(combatants); i++) {
+		var ci = ds_list_find_value(combatants,i);
+		if ci != id && ci != global.player.id {
+			mp_grid_add_instances(personalGrid,ds_list_find_value(combatants,i),true);
+		} 
+	}
+}
+
 // stamina / health regen
 // only regen stamina when moving or idle
 if stamina < maxStamina && (state == CombatantStates.Idle || state == CombatantStates.Moving) {
@@ -388,7 +402,7 @@ switch(state) {
 				// if the path back to post is greater than farthestAllowedFromPost, cancel any pending attack 
 				// this will trigger the return to post code (later in this case) on the next step
 				var pathToPost = path_add();
-				mp_potential_path_object(pathToPost,postX,postY,functionalSpeed,4,obj_solid_parent);
+				mp_grid_path(personalGrid, pathToPost,x,y,postX,postY,1);
 				var pathToPostLength = path_get_length(pathToPost);
 				if pathToPostLength > farthestAllowedFromPost {
 					currentMeleeAttack = noone;
@@ -548,11 +562,11 @@ switch(state) {
 				break;
 			}*/
 			else {
-				//mp_grid_clear_all(personalGrid);
-				//mp_grid_add_instances(personalGrid,obj_wall_parent,true);
-				//if mp_grid_path(personalGrid, path,x,y,postX,postY,true) {
-				if mp_potential_path_object(path,postX,postY,functionalSpeed*2,4,obj_solid_parent) {
-					path_start(path,functionalSpeed*2,path_action_stop, false);
+				mp_grid_clear_all(personalGrid);
+				mp_grid_add_instances(personalGrid,obj_wall_parent,true);
+				if mp_grid_path(personalGrid, path,x,y,postX,postY,true) {
+				//if mp_potential_path_object(path,postX,postY,functionalSpeed*2,4,obj_solid_parent) {
+					path_start(path,functionalSpeed*1.25,path_action_stop, false);
 					facingDirection = direction;
 				}
 				if abs(postX-x) < 2 && abs(postY-y) < 2 {

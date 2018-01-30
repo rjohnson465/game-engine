@@ -34,6 +34,7 @@ enum EquipmentSlots {
 
 // grow hands 
 hasHands = true; 
+
 unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 equippedItems = ds_map_create();
 ds_map_add(equippedItems,EquipmentSlots.Head,noone);
@@ -49,6 +50,10 @@ leftHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.Left
 leftHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand2);
 rightHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand1);
 rightHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2);
+
+global.owner = id;
+global.handSide = "r";
+var rightHand = instance_create_depth(x,y,1,obj_hand);
 
 // attack states
 // <handSide><bool> kvp's
