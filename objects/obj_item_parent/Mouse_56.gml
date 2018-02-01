@@ -38,22 +38,15 @@ if id == global.ui.grabbedItem {
 				}
 			    currentKey = ds_map_find_next(equippedItems, currentKey);
 			}
-			// TODO if it was a two handed item, need to delete its clone
-			/*if !is_undefined(isTwoHanded) && isTwoHanded {
-				// find its clone
-				var clone = noone;
-				var original = id;
-				with(obj_hand_item_parent) {
-					if cloneOf == original {
-						clone = id;
-					}
-				}
-				instance_destroy(clone,false);
-			}*/
 			if  key == EquipmentSlots.LeftHand1 || key == EquipmentSlots.LeftHand2 
 				|| key == EquipmentSlots.RightHand1 || key == EquipmentSlots.RightHand2 
 				{
 					ds_map_replace(equippedItems, key, global.player.unarmed);
+					if key == EquipmentSlots.LeftHand1 {
+						ds_map_replace(global.player.equippedLimbItems,"l",global.player.unarmed);
+					} else if key == EquipmentSlots.RightHand1 {
+						ds_map_replace(global.player.equippedLimbItems,"r",global.player.unarmed);
+					}
 				} else {
 					ds_map_replace(equippedItems, key, noone);
 				}

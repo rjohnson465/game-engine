@@ -7,7 +7,7 @@ itemSprite = spr_item_longsword;
 numberOfTargets = 2;
 
 range = 40;
-
+weaponType = WeaponTypes.Sword1H;
 weaponSpeed = "Medium";
 weight = 10;
 staggerDuration = 25; // frames

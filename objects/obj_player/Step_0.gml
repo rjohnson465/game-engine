@@ -309,7 +309,7 @@ switch(state) {
 					ds_map_replace(prepFrameTotals,hand,sprite_get_number(prepSprite));
 				}
 				// if at the end of attack preparation, we need to create an attack object (slightly different process for ranged vs melee) 
-				else if prepFrame >= prepFrameTotal {
+				else if prepFrame == prepFrameTotal-1 {
 					if ( !(weapon.type == HandItemTypes.Ranged && rightHandItem.isTwoHanded)) {
 						speed = 0;
 						ds_map_replace(prepFrames,hand,-1);

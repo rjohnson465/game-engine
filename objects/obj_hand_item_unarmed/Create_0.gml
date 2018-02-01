@@ -4,7 +4,7 @@ name = "Unarmed";
 spriteName = "unarmed";
 
 range = 20;
-
+weaponType = WeaponTypes.Unarmed;
 weight = 5;
 staggerDuration = 15; // frames
 staminaCostArray=[5,10];

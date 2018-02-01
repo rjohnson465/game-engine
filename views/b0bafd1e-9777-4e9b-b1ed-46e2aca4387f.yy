@@ -6,15 +6,12 @@
     "children": [
         "9e0777e2-84c9-4202-9d7f-7b4098e94e86",
         "e1e61196-af6a-421f-80a7-1faa44114553",
-        "f82583f0-0a29-4eb6-8e79-047c91bfb6b4",
-        "d5eeac00-a722-4abc-bcc3-0aa9b1068549",
-        "5976c2bd-ca35-4cb1-ba1d-35de0887dccb",
-        "45a1e63f-e1d9-4cd9-9fb4-2089c478d370",
-        "47cebb57-5428-4c59-b1c8-ad3bf9145a35",
-        "cf3ddb79-9e98-4dc1-86e7-fc6178159e15",
-        "8cfae788-351f-4936-8d1a-15265b190005",
-        "d1928e5a-fe38-44c7-939d-715f3b91292d",
-        "5ebd45fd-fb58-49ff-bdc8-e719bf7ed7d0"
+        "d7c8a68b-5720-463d-9ce0-20af290404ac",
+        "0b60e134-8478-4139-b696-f9d2ea94cf18",
+        "906b560c-4775-42e2-bf8a-42ad88bfe481",
+        "c3706c73-55a1-4ce8-bf8c-c11ca18aaeb4",
+        "947bd101-97a7-4bcf-abea-2d550a7d15db",
+        "dfbacf4b-ef73-472f-bd45-7776ecaa5ff9"
     ],
     "filterType": "GMSprite",
     "folderName": "unarmed",

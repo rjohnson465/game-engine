@@ -127,6 +127,14 @@
             }
         },
         {
+            "Key": "0b60e134-8478-4139-b696-f9d2ea94cf18",
+            "Value": {
+                "id": "787cf367-b290-4637-bb79-86fd7f5f7aa3",
+                "resourcePath": "sprites\\spr_player_hand_unarmed_attack_1\\spr_player_hand_unarmed_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0cd92f56-7a8c-4f62-a974-e5df429b6a87",
             "Value": {
                 "id": "58ca8d60-55ae-4efa-85c9-f24ae7e6eb20",
@@ -666,15 +674,7 @@
             "Key": "57e9b177-f7a5-432a-8f0b-8468d7382e44",
             "Value": {
                 "id": "f2b19b29-afa7-497f-a28a-cf169b54f110",
-                "resourcePath": "sprites\\spr_player_longsword_prep_2\\spr_player_longsword_prep_2.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "5976c2bd-ca35-4cb1-ba1d-35de0887dccb",
-            "Value": {
-                "id": "8bebf70d-2791-42b1-9e27-9e8efb2ab91f",
-                "resourcePath": "sprites\\spr_player_unarmed_recover_11\\spr_player_unarmed_recover_11.yy",
+                "resourcePath": "sprites\\spr_player_longsword_prep_21\\spr_player_longsword_prep_21.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1039,6 +1039,14 @@
             }
         },
         {
+            "Key": "7fd2f0d6-f2a7-4a1b-91c8-92acdea108c0",
+            "Value": {
+                "id": "cd6c1770-4199-4f2a-a8c0-da11f6f5230d",
+                "resourcePath": "views\\7fd2f0d6-f2a7-4a1b-91c8-92acdea108c0.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "807989cf-8637-48f4-83b1-e31a18d594e9",
             "Value": {
                 "id": "e7809f2d-9b4e-4598-be63-6bc3ef7ba723",
@@ -1143,6 +1151,14 @@
             }
         },
         {
+            "Key": "906b560c-4775-42e2-bf8a-42ad88bfe481",
+            "Value": {
+                "id": "ab4ad7de-3135-4d78-b41e-16fd7f96598c",
+                "resourcePath": "sprites\\spr_player_hand_unarmed_recover_1\\spr_player_hand_unarmed_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "92b4b08c-68c4-4b10-b720-12b893bfed71",
             "Value": {
                 "id": "c463a8e8-7a2b-4cc3-a085-58ecfa0a154b",
@@ -1156,6 +1172,14 @@
                 "id": "3cac9a85-e48f-4cf3-909d-13765fb06f93",
                 "resourcePath": "views\\941b01e6-6c97-498b-8dc9-96e785f59de9.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "947bd101-97a7-4bcf-abea-2d550a7d15db",
+            "Value": {
+                "id": "3a90bd60-e608-463d-bf82-9cc9cdcfc0a9",
+                "resourcePath": "sprites\\spr_player_hand_unarmed_attack_2\\spr_player_hand_unarmed_attack_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1559,6 +1583,14 @@
             }
         },
         {
+            "Key": "c3706c73-55a1-4ce8-bf8c-c11ca18aaeb4",
+            "Value": {
+                "id": "4c12f20f-af09-4bd2-a319-88c559715a2d",
+                "resourcePath": "sprites\\spr_player_hand_unarmed_prep_2\\spr_player_hand_unarmed_prep_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c3723513-0301-40aa-b5a1-621ae4dd66c2",
             "Value": {
                 "id": "bb14f73e-1b13-402a-be22-3adabb1bcd72",
@@ -1791,19 +1823,19 @@
             }
         },
         {
-            "Key": "d5eeac00-a722-4abc-bcc3-0aa9b1068549",
-            "Value": {
-                "id": "972790fa-72cd-44b9-abef-b2dc632eb536",
-                "resourcePath": "sprites\\spr_player_unarmed_attack_11\\spr_player_unarmed_attack_11.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "d7993979-1109-4697-8ed9-3d7ec123f556",
             "Value": {
                 "id": "8cad7341-3e12-4773-b831-7d1a3be4cf01",
                 "resourcePath": "views\\d7993979-1109-4697-8ed9-3d7ec123f556.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d7c8a68b-5720-463d-9ce0-20af290404ac",
+            "Value": {
+                "id": "4902e794-7701-47d4-9f15-ff772dc2fe82",
+                "resourcePath": "sprites\\spr_player_hand_unarmed_prep_1\\spr_player_hand_unarmed_prep_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1863,6 +1895,14 @@
             }
         },
         {
+            "Key": "dfbacf4b-ef73-472f-bd45-7776ecaa5ff9",
+            "Value": {
+                "id": "e81ad174-4471-4b9c-bb33-decc69f3c969",
+                "resourcePath": "sprites\\spr_player_hand_unarmed_recover_2\\spr_player_hand_unarmed_recover_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e03a5868-6ca0-4194-b3ed-2038805b14ba",
             "Value": {
                 "id": "a5423e8d-3c13-46e7-b7eb-bf42c9d00319",
@@ -1874,7 +1914,7 @@
             "Key": "e1e61196-af6a-421f-80a7-1faa44114553",
             "Value": {
                 "id": "14c7ed5b-fe4a-49e4-af48-57b77f9b03ff",
-                "resourcePath": "sprites\\spr_player_unarmed\\spr_player_unarmed.yy",
+                "resourcePath": "sprites\\spr_player_hand_unarmed\\spr_player_hand_unarmed.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2043,14 +2083,6 @@
             "Value": {
                 "id": "55e7260d-f547-4532-b14a-912a09566a67",
                 "resourcePath": "sprites\\spr_player_stagger\\spr_player_stagger.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "f82583f0-0a29-4eb6-8e79-047c91bfb6b4",
-            "Value": {
-                "id": "7405901f-b566-4ba4-b909-24ef15e8f1ec",
-                "resourcePath": "sprites\\spr_player_unarmed_prep_11\\spr_player_unarmed_prep_11.yy",
                 "resourceType": "GMSprite"
             }
         },

@@ -9,8 +9,12 @@ enum HandItemTypes {
 enum WeaponTypes {
 	Sword1H,
 	Sword2H,
+	Rapier,
+	Unarmed,
 	Axe1H,
 	Axe2H,
+	Blunt1H, // includes wands
+	Blunt2H, // includes staves
 	Dagger,
 	Bow,
 	Crossbow
@@ -18,7 +22,7 @@ enum WeaponTypes {
 
 type = "";
 weaponType = WeaponTypes.Sword1H;
-// Fast | Medium | Slow
+// Fast | Medium | Slow -- dependent on WeaponType
 weaponSpeed = "";
 range = 0; // in pixels
 numberOfTargets = 1;
