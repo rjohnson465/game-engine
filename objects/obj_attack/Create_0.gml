@@ -6,13 +6,12 @@ image_angle = owner.facingDirection;
 originalDirection = owner.facingDirection;
 facingDirection = owner.facingDirection;
 weapon = noone;
-handSide = global.handSide; // l, r, or empty string (no hands)
+limbKey = global.limbKey; // l | r is most common
 isSpell = false;
 isRanged = false;
 isMelee = false;
 attackData = noone;
 spell = noone;
-//spellAttunement = noone;
 percentCharged = 0;
 combatantsHit = ds_list_create();
 
@@ -72,7 +71,7 @@ else {
 		isRanged = owner.currentMeleeAttack == noone ? true: false;
 		isMelee = owner.currentMeleeAttack == noone ? false : true;
 		attackNumber = owner.currentMeleeAttack == noone ? owner.currentRangedAttack : owner.currentMeleeAttack;
-		attackNumberInChain = ds_map_find_value(owner.attackingHands,handSide);
+		attackNumberInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
 		if isMelee {
 			var attackChain = owner.meleeAttacks[attackNumber-1];
 			attackData = attackChain[attackNumberInChain-1];
@@ -81,9 +80,11 @@ else {
 			attackData = attackChain[attackNumberInChain-1];
 		}
 	} else {
-		attackNumber = ds_map_find_value(owner.attackingHands,handSide);
-		attackNumberInChain = ds_map_find_value(owner.attackingHands,handSide);
-		weapon = handSide == "l" ? owner.leftHandItem : owner.rightHandItem;
+		attackNumber = ds_map_find_value(owner.attackingLimbs,limbKey);
+		attackNumberInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
+		
+		weapon = ds_map_find_value(owner.equippedLimbItems,limbKey);
+		
 		isRanged = weapon.type == HandItemTypes.Ranged;
 		isMelee = weapon.type == HandItemTypes.Melee;
 	}
@@ -92,11 +93,11 @@ else {
 		image_speed = .5; // TODO
 	}
 	
-	// get current attacking hand item sprite name (or "")
+	// get current attacking limb item sprite name (or "")
 	attackItemSprite = "";
 	if owner.hasHands {
-		attackItemSprite = handSide == "l" ? "_"+owner.leftHandItem.spriteName : "_"+owner.rightHandItem.spriteName;
-	} else attackItemSprite = ""; // TODO for enemies without hands
+		attackItemSprite = "_"+ ds_map_find_value(owner.equippedLimbItems,limbKey).spriteName;
+	} else attackItemSprite = ""; // TODO for enemies/attacks without hands
 
 
 	// get sprite string -- physical attacks
@@ -109,13 +110,13 @@ else {
 	}
 
 	// if this is a left hand attack, flip yscale
-	if owner.hasHands && handSide == "l" {
+	if limbKey == "l" {
 		image_yscale = -1;
 	}
 
 	sprite_index = asset_get_index(sprStr);
 	
-	// ranged attacks TODO for player
+	// ranged attacks 
 	if isRanged {
 		if weapon {
 			speed = weapon.projectileSpeed;
@@ -132,11 +133,9 @@ else {
 		}
 	
 		owner.stupidityFrame = 0;
-		ds_map_add(owner.recoveringHands,handSide,attackNumberInChain);
-		ds_map_replace(owner.recoverFrameTotals,handSide,sprite_get_number(recoverSprite));
-		//owner.recoverAnimationTotalFrames = sprite_get_number(recoverSprite);
-		ds_map_replace(owner.recoverFrames,handSide,0);
-		//owner.recoverAnimationFrame = 0;
+		ds_map_add(owner.recoveringLimbs,limbKey,attackNumberInChain);
+		ds_map_replace(owner.recoverFrameTotals,limbKey,sprite_get_number(recoverSprite));
+		ds_map_replace(owner.recoverFrames,limbKey,0);
 		owner.isAttacking = false;
 		owner.isRecovering = true;
 	}

@@ -1,3 +1,6 @@
+var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
+var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
+
 if !isMouseInMenu {
 	
 	if currentSpell != noone && stamina > 0 && state != CombatantStates.Attacking {

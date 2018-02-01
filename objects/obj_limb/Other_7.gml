@@ -5,5 +5,4 @@ if ds_map_find_value(owner.attackingLimbs,limbKey) > 0 {
 else if ds_map_find_value(owner.recoveringLimbs,limbKey) > 0 {
 	var attackNumber = ds_map_find_value(owner.recoveringLimbs,limbKey);
 	sprite_index = asset_get_index(spriteString+"_recover_"+string(attackNumber));
-} 
-else sprite_index = asset_get_index(spriteString);
+} else sprite_index = asset_get_index(spriteString);

@@ -1,7 +1,7 @@
-hand = global.hand;
-handSide = hand.handSide;
-owner = hand.owner;
+limb = global.limb;
+limbKey = limb.limbKey;
+owner = limb.owner;
 
-spriteString = "spr_"+owner.spriteString+"_"+hand.handItem.spriteName;
+spriteString = "spr_"+owner.spriteString+"_"+limb.handItem.spriteName;
 frame = -1;
 sprite_index = asset_get_index(spriteString);

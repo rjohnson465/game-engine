@@ -13,13 +13,13 @@ if isMelee {
 	// TODO
 	var prepString = "spr_"+owner.spriteString+attackItemSprite+"_prep_"+string(attackNumber+1);
 	if	owner.type == CombatantTypes.Player 
-		&& ds_map_find_value(owner.attackAgain,handSide) 
+		&& ds_map_find_value(owner.attackAgain,limbKey) 
 		&& asset_get_index(prepString) != -1
 		{
-		var attackInChain = ds_map_find_value(owner.attackingHands,handSide);
-		ds_map_replace(owner.preparingHands,handSide,attackInChain+1);
-		ds_map_delete(owner.attackingHands,handSide);
-		ds_map_replace(owner.attackAgain,handSide,false);
+		var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
+		ds_map_replace(owner.preparingLimbs,limbKey,attackInChain+1);
+		ds_map_delete(owner.attackingLimbs,limbKey);
+		ds_map_replace(owner.attackAgain,limbKey,false);
 	}
 	// if not attack again
 	else {
@@ -27,12 +27,12 @@ if isMelee {
 		if owner.type != CombatantTypes.Player {
 			var recoverSprite = asset_get_index("spr_"+owner.spriteString+attackItemSprite+"_recover_"+string(attackNumber)+"_"+string(owner.attackNumberInChain));
 		}
-		var attackInChain = ds_map_find_value(owner.attackingHands,handSide);
-		ds_map_replace(owner.recoverFrameTotals,handSide,sprite_get_number(recoverSprite));
-		ds_map_replace(owner.recoverFrames,handSide,-1);
+		var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
+		ds_map_replace(owner.recoverFrameTotals,limbKey,sprite_get_number(recoverSprite));
+		ds_map_replace(owner.recoverFrames,limbKey,-1);
 	
-		ds_map_replace(owner.recoveringHands,handSide,attackInChain);
-		owner.prevAttackHand = handSide;
+		ds_map_replace(owner.recoveringLimbs,limbKey,attackInChain);
+		owner.prevAttackHand = limbKey;
 	}
 
 	instance_destroy(id, false);

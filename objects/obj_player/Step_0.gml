@@ -1,5 +1,8 @@
 event_inherited();
 
+leftHandItem = ds_map_find_value(equippedLimbItems,"l");
+rightHandItem = ds_map_find_value(equippedLimbItems,"r");
+
 // lock on logic
 if (keyboard_check_released(vk_control)) {
 	// always refresh lockOnList (enemies could have left radius or entered
@@ -75,7 +78,7 @@ if !isMoveInputReceived && state == CombatantStates.Moving {
 if state != CombatantStates.Staggering && !isMouseInMenu {
 	// player faces mouse if not locked on
 	if state == CombatantStates.Idle || state == CombatantStates.Moving 
-	|| (ds_map_size(preparingHands)!=0)
+	|| (ds_map_size(preparingLimbs)!=0)
 	{
 		facingDirection = point_direction(x,y,mouse_x,mouse_y);
 	}
@@ -217,7 +220,7 @@ switch(state) {
 					cursor_sprite = -1;
 					ds_map_replace(prepFrames,"r",-1);
 					ds_map_replace(prepFrameTotals,"r",0);
-					ds_map_delete(preparingHands,"r");
+					ds_map_delete(preparingLimbs,"r");
 					currentUsingSpell = noone;
 					state = CombatantStates.Idle;
 					break;
@@ -228,10 +231,10 @@ switch(state) {
 			var currentSpell = ds_map_find_value(knownSpells,currentUsingSpell);
 			var MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle);
 			
-			if ds_map_size(attackingHands) == 0 && ds_map_size(preparingHands) == 0 && ds_map_size(recoveringHands) == 0 {
+			if ds_map_size(attackingLimbs) == 0 && ds_map_size(preparingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
 				ds_map_replace(prepFrameTotals,"r",currentSpell.castFrames);
 				ds_map_replace(prepFrames,"r",0);
-				ds_map_replace(preparingHands,"r",1);
+				ds_map_replace(preparingLimbs,"r",1);
 			}
 			
 			// attack sequence 
@@ -262,7 +265,7 @@ switch(state) {
 						global.owner = id;
 						global.projectileNumber = i+1;
 						global.percentCharged = percentCharged;
-						global.handSide = "r";
+						global.limbKey = "r";
 						//global.spellAttunement = spellAttunement;
 						if currentUsingSpell != "aoe" {
 							instance_create_depth(x,y,1,obj_attack);	
@@ -273,7 +276,7 @@ switch(state) {
 				}
 				ds_map_replace(prepFrames,"r",-1);
 				ds_map_replace(prepFrameTotals,"r",0);
-				ds_map_delete(preparingHands,"r");
+				ds_map_delete(preparingLimbs,"r");
 				currentUsingSpell = noone;
 				state = CombatantStates.Idle;
 			}
@@ -289,11 +292,11 @@ switch(state) {
 		// iterate over preparing hands 
 		// if they just started preparing, need to assign prepare frames / total frames
 		// if they are finishing preparing, need to create attack objects
-		if ds_map_size(preparingHands) != 0 {
-			var hand = ds_map_find_first(preparingHands);
-			for (var i = 0; i < ds_map_size(preparingHands); i++) {
+		if ds_map_size(preparingLimbs) != 0 {
+			var hand = ds_map_find_first(preparingLimbs);
+			for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 				var weapon = hand == "l" ? leftHandItem : rightHandItem;
-				var attackInChain = ds_map_find_value(preparingHands,hand);
+				var attackInChain = ds_map_find_value(preparingLimbs,hand);
 				
 				var prepFrame = ds_map_find_value(prepFrames,hand);
 				//ds_map_replace(prepFrames,hand,prepFrame+1);
@@ -311,11 +314,11 @@ switch(state) {
 						speed = 0;
 						ds_map_replace(prepFrames,hand,-1);
 						ds_map_replace(prepFrameTotals,hand,0);
-						ds_map_delete(preparingHands,hand);
-						ds_map_replace(attackingHands,hand,attackInChain);
+						ds_map_delete(preparingLimbs,hand);
+						ds_map_replace(attackingLimbs,hand,attackInChain);
 						stamina -= weapon.staminaCostArray[attackInChain-1];
 						global.owner = id;
-						global.handSide = hand;
+						global.limbKey = hand;
 						instance_create_depth(x,y,1,obj_attack);
 					}
 					else {
@@ -325,7 +328,7 @@ switch(state) {
 				} 
 				
 				// if preparing an attack and no attacks are happening, move back a bit (if you can)
-				if ds_map_size(attackingHands) == 0 {
+				if ds_map_size(attackingLimbs) == 0 {
 					var x1 = x +lengthdir_x(-.5,facingDirection);
 					var y1 = y +lengthdir_y(-.5,facingDirection);
 		
@@ -337,25 +340,25 @@ switch(state) {
 					speed = 0;
 				}
 				
-				hand = ds_map_find_next(preparingHands,hand);
+				hand = ds_map_find_next(preparingLimbs,hand);
 			}
 		}
 		
 		// iterate over recovering hands
 		// if they just started recovering, need to assign recover frames / total frames
 		// if they just finished recovering, need to check if we need to leave attack state or if we need to attack with that hand again
-		if ds_map_size(recoveringHands) != 0 {
-			var hand = ds_map_find_first(recoveringHands);
-			for (var i = 0; i < ds_map_size(recoveringHands); i++) {
+		if ds_map_size(recoveringLimbs) != 0 {
+			var hand = ds_map_find_first(recoveringLimbs);
+			for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
 				var weapon = hand == "l" ? leftHandItem : rightHandItem;
-				var attackInChain = ds_map_find_value(recoveringHands,hand);
+				var attackInChain = ds_map_find_value(recoveringLimbs,hand);
 				var recoverFrame = ds_map_find_value(recoverFrames,hand);
 				var recoverFrameTotal = ds_map_find_value(recoverFrameTotals,hand);
 				
 				ds_map_replace(recoverFrames,hand,recoverFrame+1);
 				// check if this hand just started recovering attack
 				if recoverFrame == -1 {
-					ds_map_delete(attackingHands,hand);
+					ds_map_delete(attackingLimbs,hand);
 					ds_map_replace(recoverFrames,hand,0);
 					var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
 					var recoverSprite = asset_get_index("spr_player_"+itemSprite+"_recover_"+string(attackInChain));
@@ -363,11 +366,11 @@ switch(state) {
 				}
 				// if at end of recover, we may need to leave attack state (if no other hands are recovering or preparing or attacking)
 				else if recoverFrame >= recoverFrameTotal {
-					// no matter what, we need to remove this hand from recoveringHands and reset frame values
-					ds_map_delete(attackingHands,hand);
+					// no matter what, we need to remove this hand from recoveringLimbs and reset frame values
+					ds_map_delete(attackingLimbs,hand);
 					ds_map_replace(recoverFrames,hand,-1);
 					ds_map_replace(recoverFrameTotals,hand,0);
-					ds_map_delete(recoveringHands,hand);
+					ds_map_delete(recoveringLimbs,hand);
 					
 					ds_map_replace(attackAgain,hand,false);
 					// wtf 
@@ -377,26 +380,26 @@ switch(state) {
 						var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
 						var prepSprite = asset_get_index("spr_player_"+itemSprite+"_prep_"+string(attackInChain+1));
 						if prepSprite != -1 {
-							ds_map_replace(preparingHands,hand,attackInChain+1);
-						} else ds_map_replace(preparingHands,hand,1);
+							ds_map_replace(preparingLimbs,hand,attackInChain+1);
+						} else ds_map_replace(preparingLimbs,hand,1);
 						ds_map_replace(attackAgain,hand,false);
 					} 
-					else*/ if ds_map_size(preparingHands) == 0 && ds_map_size(attackingHands) == 0 && ds_map_size(recoveringHands) == 0 {
+					else*/ if ds_map_size(preparingLimbs) == 0 && ds_map_size(attackingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
 						state = CombatantStates.Idle;
 						break;
 					} 
 				}
 				
-				hand = ds_map_find_next(recoveringHands,hand);
+				hand = ds_map_find_next(recoveringLimbs,hand);
 			}
 		}
 		
 		// move forward while attacking with a melee attack (if not simultaenously preparing another attack)
-		if ds_map_size(attackingHands) != 0 {
+		if ds_map_size(attackingLimbs) != 0 {
 			var attackingMelee = 
-				(ds_map_find_value(attackingHands,"l") && leftHandItem.type == HandItemTypes.Melee)	||
-				(ds_map_find_value(attackingHands,"r") && rightHandItem.type == HandItemTypes.Melee)
-			if ds_map_size(preparingHands) == 0 {
+				(ds_map_find_value(attackingLimbs,"l") && leftHandItem.type == HandItemTypes.Melee)	||
+				(ds_map_find_value(attackingLimbs,"r") && rightHandItem.type == HandItemTypes.Melee)
+			if ds_map_size(preparingLimbs) == 0 {
 				x1 = x + lengthdir_x(2,facingDirection);
 				y1 = y + lengthdir_y(2,facingDirection);
 				var p =  place_meeting(x1,y1,obj_solid_parent);
@@ -411,18 +414,18 @@ switch(state) {
 			}
 		}
 		
-		// this is a 2h ranged weapon, so handSide must be "r"
+		// this is a 2h ranged weapon, so limb must be "r"
 		if isReadyToFire && LEFTRELEASED && stamina > 0 {
 			speed = 0;
-			var attackInChain = ds_map_find_value(preparingHands,"r"); // pretty sure this is always gonna be 1
+			var attackInChain = ds_map_find_value(preparingLimbs,"r"); // pretty sure this is always gonna be 1
 			ds_map_replace(prepFrames,"r",-1);
 			ds_map_replace(prepFrameTotals,"r",0);
 			isReadyToFire = false;
-			ds_map_replace(attackingHands,"r",attackInChain);
+			ds_map_replace(attackingLimbs,"r",attackInChain);
 			stamina -= rightHandItem.staminaCostArray[attackInChain-1];
-			ds_map_delete(preparingHands,"r");
+			ds_map_delete(preparingLimbs,"r");
 			global.owner = id;
-			global.handSide = "r";
+			global.limbKey = "r";
 			instance_create_depth(x,y,1,obj_attack);
 		}
 		break;

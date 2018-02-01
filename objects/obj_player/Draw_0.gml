@@ -1,11 +1,15 @@
 event_inherited();
+
+var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
+var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
+
 // draw dodge sprite if dodging
 /*if state == CombatantStates.Dodging {
 	//draw_sprite_ext(asset_get_index("spr_player_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,1);
 } else */ {
 	
-	var isRightHandInUse = ds_map_find_value(preparingHands,"r") != undefined || ds_map_find_value(recoveringHands,"r") != undefined || ds_map_find_value(attackingHands,"r") != undefined;
-	var isLeftHandInUse = ds_map_find_value(preparingHands,"l") != undefined || ds_map_find_value(recoveringHands,"l") != undefined || ds_map_find_value(attackingHands,"l") != undefined;
+	var isRightHandInUse = ds_map_find_value(preparingLimbs,"r") != undefined || ds_map_find_value(recoveringLimbs,"r") != undefined || ds_map_find_value(attackingLimbs,"r") != undefined;
+	var isLeftHandInUse = ds_map_find_value(preparingLimbs,"l") != undefined || ds_map_find_value(recoveringLimbs,"l") != undefined || ds_map_find_value(attackingLimbs,"l") != undefined;
 	
 	// two handed items always go in right hand
 	/*if !rightHandItem.isTwoHanded {
@@ -43,22 +47,22 @@ if state == CombatantStates.Attacking {
 			draw_sprite_ext(spellHandPrepSprite,frame,x,y,1,-1,facingDirection-75,c_white,1);
 			
 			ds_map_replace(prepFrames,"r",prepFrame+1);
-			prepAnimationFrame++;
+			//prepAnimationFrame++;
 		}
 	}
 	// physical attack (ranged or melee) TODO -- consolidate with obj_combatant
 	else {
 		
 		// draw attack prep hand animation
-		if ds_map_size(preparingHands) != 0 {
-			var hand = ds_map_find_first(preparingHands); // l or r
+		if ds_map_size(preparingLimbs) != 0 {
+			var hand = ds_map_find_first(preparingLimbs); // l or r
 			
-			for (var i = 0; i < ds_map_size(preparingHands); i++) {
-				var attackInChain = ds_map_find_value(preparingHands,hand);
+			for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
+				var attackInChain = ds_map_find_value(preparingLimbs,hand);
 				if attackInChain == 2 {
 					var a = 3;
 				}
-				//var hand = ds_list_find_value(preparingHands,i); // l or r
+				//var hand = ds_list_find_value(preparingLimbs,i); // l or r
 				var prepHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			
 				var prepSprite = asset_get_index("spr_"+spriteString+prepHandItemSprite+"_prep_"+string(attackInChain));
@@ -79,15 +83,15 @@ if state == CombatantStates.Attacking {
 					ds_map_replace(prepFrames,hand,currentVal+1);
 				}
 				
-				hand = ds_map_find_next(preparingHands, hand);
+				hand = ds_map_find_next(preparingLimbs, hand);
 			}
 		}
 		
 		// draw recover prep hand animation
-		if ds_map_size(recoveringHands) != 0 {
-			var hand = ds_map_find_first(recoveringHands); // l or r			
-			for (var i = 0; i < ds_map_size(recoveringHands); i++) {
-				var attackInChain = ds_map_find_value(recoveringHands,hand);
+		if ds_map_size(recoveringLimbs) != 0 {
+			var hand = ds_map_find_first(recoveringLimbs); // l or r			
+			for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
+				var attackInChain = ds_map_find_value(recoveringLimbs,hand);
 				
 				var recoverHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			
@@ -109,14 +113,14 @@ if state == CombatantStates.Attacking {
 					ds_map_replace(recoverFrames,hand,currentVal+1);
 				}
 				
-				hand = ds_map_find_next(recoveringHands,hand);
+				hand = ds_map_find_next(recoveringLimbs,hand);
 			}
 		}
 	}
 }
 
 // casting a spell
-if ds_map_size(preparingHands) != 0 && currentUsingSpell != noone {
+if ds_map_size(preparingLimbs) != 0 && currentUsingSpell != noone {
 	// spell bar outline
 	var x1 = x-(.75*sprite_width);
 	var y1 = y-(.5*sprite_height)-15;

@@ -1362,7 +1362,7 @@
             "Key": "aca3a79a-57ed-4c65-9977-8acdf3df57a6",
             "Value": {
                 "id": "bc9113b4-ad3b-4a22-8c54-ed096a8755b3",
-                "resourcePath": "objects\\obj_hand\\obj_hand.yy",
+                "resourcePath": "objects\\obj_limb\\obj_limb.yy",
                 "resourceType": "GMObject"
             }
         },

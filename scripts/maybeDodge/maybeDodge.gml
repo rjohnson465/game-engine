@@ -35,7 +35,7 @@ else if lockOnTarget.type != CombatantTypes.Player && isMeleeAttack {
 else if (lockOnTarget.type == CombatantTypes.Ally || lockOnTarget.type == CombatantTypes.Enemy) && isMeleeAttack {
 	range = lockOnTarget.meleeRangeArray[lockOnTarget.currentMeleeAttack-1] + 10; // 10px padding
 }
-if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.preparingHands) != 0 && willDodge && isMeleeAttack {
+if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.preparingLimbs) != 0 && willDodge && isMeleeAttack {
 				
 	// the more agile the enemy, the better chance it will dodge when player is almost done preparing attack
 	randomize();

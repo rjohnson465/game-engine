@@ -6,9 +6,9 @@ depth = 0;
 #macro ICE "ice"
 #macro POISON "poison"
 #macro LIGHTNING "lightning"
-#macro BLEED "bleed"
+//#macro BLEED "bleed"
 global.ALL_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
-global.ALL_DAMAGE_TYPES = [PHYSICAL, MAGIC,FIRE,ICE,POISON,LIGHTNING, BLEED];
+global.ALL_DAMAGE_TYPES = [PHYSICAL, MAGIC,FIRE,ICE,POISON,LIGHTNING];
 
 event_inherited();
 global.player = id;
@@ -46,17 +46,22 @@ ds_map_add(equippedItems,EquipmentSlots.LeftRing1,noone);
 ds_map_add(equippedItems,EquipmentSlots.LeftRing2,noone);
 ds_map_add(equippedItems,EquipmentSlots.RightRing1,noone);
 ds_map_add(equippedItems,EquipmentSlots.RightRing2,noone);
-leftHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand1);
-leftHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand2);
-rightHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand1);
-rightHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2);
+
+ds_map_replace(equippedLimbItems,"l",ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand1));
+ds_map_replace(equippedLimbItems,"l2",ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand2));
+ds_map_replace(equippedLimbItems,"r",ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand1));
+ds_map_replace(equippedLimbItems,"r2",ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2));
+//leftHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand1);
+//leftHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand2);
+//rightHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand1);
+//rightHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2);
 
 global.owner = id;
-global.handSide = "r";
-var rightHand = instance_create_depth(x,y,1,obj_hand);
+global.limbKey = "r";
+var rightHand = instance_create_depth(x,y,1,obj_limb);
 
 // attack states
-// <handSide><bool> kvp's
+// <limb><bool> kvp's
 attackAgain = ds_map_create();
 ds_map_replace(attackAgain,"r",false);
 ds_map_replace(attackAgain,"l",false);

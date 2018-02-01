@@ -1,8 +1,8 @@
 owner = global.owner;
-handSide = global.handSide;
-handItem = handSide == "l" ? owner.leftHandItem : owner.rightHandItem;
+limbKey = global.limbKey;
+handItem = ds_map_find_value(owner.equippedLimbItems,limbKey);
 
-global.hand = id;
+global.limb = id;
 instance_create_depth(x,y,1,obj_weapon);
 
 spriteString = "";

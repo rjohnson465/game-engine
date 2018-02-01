@@ -32,8 +32,8 @@ if state == CombatantStates.Dodging {
 		
 		/*if hasHands {
 			
-			var isRightHandInUse = ds_map_find_value(preparingHands,"r") != undefined || ds_map_find_value(recoveringHands,"r") != undefined || ds_map_find_value(attackingHands,"r") != undefined;
-			var isLeftHandInUse = ds_map_find_value(preparingHands,"l") != undefined || ds_map_find_value(recoveringHands,"l") != undefined || ds_map_find_value(attackingHands,"l") != undefined;
+			var isRightHandInUse = ds_map_find_value(preparingLimbs,"r") != undefined || ds_map_find_value(recoveringLimbs,"r") != undefined || ds_map_find_value(attackingLimbs,"r") != undefined;
+			var isLeftHandInUse = ds_map_find_value(preparingLimbs,"l") != undefined || ds_map_find_value(recoveringLimbs,"l") != undefined || ds_map_find_value(attackingLimbs,"l") != undefined;
 			
 			// two handed items always go in right hand
 			if !rightHandItem.isTwoHanded {
@@ -63,14 +63,14 @@ if state == CombatantStates.Attacking {
 		var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
 		
 		// draw attack prep hand animation
-		if ds_map_size(preparingHands) != 0 {
+		if ds_map_size(preparingLimbs) != 0 {
 			if attackNumberInChain == noone {
 				attackNumberInChain = 1;
 			}
-			var hand = ds_map_find_first(preparingHands); // l or r
+			var hand = ds_map_find_first(preparingLimbs); // l or r
 			
-			for (var i = 0; i < ds_map_size(preparingHands); i++) {
-				var attackInChain = ds_map_find_value(preparingHands,hand);
+			for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
+				var attackInChain = ds_map_find_value(preparingLimbs,hand);
 				var attackData = noone;
 				if currentMeleeAttack {
 					var attackChain = meleeAttacks[attackNumber-1];
@@ -110,16 +110,16 @@ if state == CombatantStates.Attacking {
 					ds_map_replace(prepFrames,hand,currentVal+1);
 				}
 				
-				hand = ds_map_find_next(preparingHands, hand);
+				hand = ds_map_find_next(preparingLimbs, hand);
 			}
 		}
 	
 		// draw recover hand animation
-		if ds_map_size(recoveringHands) != 0 {
-			var hand = ds_map_find_first(recoveringHands); // l or r
+		if ds_map_size(recoveringLimbs) != 0 {
+			var hand = ds_map_find_first(recoveringLimbs); // l or r
 			
-			for (var i = 0; i < ds_map_size(recoveringHands); i++) {
-				var attackInChain = ds_map_find_value(recoveringHands,hand);
+			for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
+				var attackInChain = ds_map_find_value(recoveringLimbs,hand);
 				var attackData = noone;
 				if currentMeleeAttack {
 					var attackChain = meleeAttacks[attackNumber-1];
@@ -159,7 +159,7 @@ if state == CombatantStates.Attacking {
 					ds_map_replace(recoverFrames,hand,currentVal+1);
 				}
 				
-				hand = ds_map_find_next(recoveringHands,hand);
+				hand = ds_map_find_next(recoveringLimbs,hand);
 			}
 		}
 	}

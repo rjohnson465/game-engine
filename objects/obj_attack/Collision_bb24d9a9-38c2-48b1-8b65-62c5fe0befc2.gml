@@ -18,8 +18,8 @@ if isMelee && hitsWallFirst {
 	instance_create_depth(0,0,1,obj_hit_particles);
 	
 	if owner.hasHands {
-		var attackInChain = ds_map_find_value(owner.attackingHands,handSide);
-		ds_map_delete(owner.attackingHands,handSide);
+		var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
+		ds_map_delete(owner.attackingLimbs,limbKey);
 	}
 	
 	instance_destroy(id,false);

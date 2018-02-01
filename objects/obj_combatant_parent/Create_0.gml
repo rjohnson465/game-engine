@@ -73,10 +73,19 @@ state = CombatantStates.Idle;
 hasHands = true;
 currentAttackingHand = noone; // "l" or "r"
 
-// preparing/attacking/recovering hand: kvp are hand|attackNumberInChain
-preparingHands = ds_map_create();
-attackingHands = ds_map_create();
-recoveringHands = ds_map_create();
+// preparing/attacking/recovering appendage: kvp are hand|attackNumberInChain
+
+/*
+preparingLimbs = ds_map_create();
+attackingLimbs = ds_map_create();
+recoveringLimbs = ds_map_create();
+*/
+
+// l and r default for left and right hand
+// other special values may be needed for weird monstery enemies
+preparingLimbs = ds_map_create();
+attackingLimbs = ds_map_create();
+recoveringLimbs = ds_map_create();
 
 prepFrames = ds_map_create();
 prepFrameTotals = ds_map_create();
@@ -98,8 +107,15 @@ attackNumberInChain = noone;
 // map: key values are handSide/type/index 
 // i.e. a longsword on right hand for melee set 1 is rm1: <longsword object>
 handItems = ds_map_create();
-leftHandItem = noone;
-rightHandItem = noone;
+
+// TODO should replace with map
+// kvp = limbKey,item
+equippedLimbItems = ds_map_create();
+ds_map_replace(equippedLimbItems,"l",noone);
+ds_map_replace(equippedLimbItems,"r",noone);
+
+//leftHandItem = noone;
+//rightHandItem = noone;
 
 // attack animation stuff
 prepAnimationFrame = -1;
@@ -107,10 +123,6 @@ prepAnimationTotalFrames = 0;
 recoverAnimationFrame = -1;
 recoverAnimationTotalFrames = 0;
 
-// attack substates
-isPreparingAttack = false;
-isAttacking = false;
-isRecovering = false;
 // this is used to tell enemy / ally they were just hit (useful if in idle and out of normal aggro range)
 wasJustHit = false; 
 

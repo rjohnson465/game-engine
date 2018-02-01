@@ -1,6 +1,7 @@
 owner = global.owner;
 spriteName = "";
-handSide = noone; // l | r | s | e | o
+handSide = noone; // l | r | s | e | o | <limbKey>
+
 damages = ds_map_create();
 isRanged = false;
 nextChoices = [];

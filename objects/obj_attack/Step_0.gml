@@ -33,7 +33,6 @@ if isSpell {
 	}
 	image_angle = facingDirection;
 } else {
-	//if !weapon || (weapon && weapon.type == HandItemTypes.Melee) {
 	if isMelee {
 		image_angle = owner.facingDirection;
 		x = owner.x;
@@ -41,10 +40,7 @@ if isSpell {
 	}
 
 	if	owner.state == CombatantStates.Staggering 
-		//|| owner.isPreparingAttack 
-		//|| owner.isRecovering
 	{
-		//if !weapon || weapon.type != HandItemTypes.Ranged {
 		if isMelee || isSpell {
 			instance_destroy(id, false);
 		}
