@@ -1,7 +1,7 @@
 event_inherited();
-name = "Dummy";
-spriteName = "dummy";
-spriteString = "enemy_dummy";
+name = "Unfairy";
+spriteName = "unfairy";
+spriteString = "enemy_unfairy";
 
 functionalSpeed = 3;
 normalSpeed = 3;

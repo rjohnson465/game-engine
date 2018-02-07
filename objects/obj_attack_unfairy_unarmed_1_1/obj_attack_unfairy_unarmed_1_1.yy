@@ -2,7 +2,7 @@
     "id": "807989cf-8637-48f4-83b1-e31a18d594e9",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_attack_dummy_unarmed_1_1",
+    "name": "obj_attack_unfairy_unarmed_1_1",
     "eventList": [
         {
             "id": "29d40bc1-62f3-4166-af3c-8ee977ae052e",

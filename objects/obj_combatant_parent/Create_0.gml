@@ -73,14 +73,7 @@ state = CombatantStates.Idle;
 hasHands = true;
 currentAttackingHand = noone; // "l" or "r"
 
-// preparing/attacking/recovering appendage: kvp are hand|attackNumberInChain
-
-/*
-preparingLimbs = ds_map_create();
-attackingLimbs = ds_map_create();
-recoveringLimbs = ds_map_create();
-*/
-
+// preparing/attacking/recovering limb: kvp are hand|attackNumberInChain
 // l and r default for left and right hand
 // other special values may be needed for weird monstery enemies
 preparingLimbs = ds_map_create();
@@ -99,7 +92,7 @@ ds_map_add(recoverFrames,"l",-1);
 ds_map_add(recoverFrames,"r",-1);
 ds_map_add(recoverFrameTotals,"l",-1);
 ds_map_add(recoverFrameTotals,"r",-1);
-prevAttackHand = noone;
+prevAttackLimb = noone;
 
 attackNumberInChain = noone;
 

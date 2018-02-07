@@ -8,7 +8,6 @@ if isMelee {
 	
 	// make player attack again immediately at the end of an attack if attacking again 
 	// only if another attack exists in chain
-	// TODO
 	var prepString = "spr_"+owner.spriteString+attackItemSprite+"_prep_"+string(attackNumber+1);
 	if	owner.type == CombatantTypes.Player 
 		&& ds_map_find_value(owner.attackAgain,limbKey) 
@@ -21,15 +20,17 @@ if isMelee {
 	}
 	// if not attack again
 	else {
-		var recoverSprite = asset_get_index("spr_"+owner.spriteString+attackItemSprite+"_recover_"+string(attackNumber));
-		if owner.type != CombatantTypes.Player {
-			var recoverSprite = asset_get_index("spr_"+owner.spriteString+attackItemSprite+"_recover_"+string(attackNumber)+"_"+string(owner.attackNumberInChain));
-		}
-		var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
-		ds_map_replace(owner.recoverFrameTotals,limbKey,sprite_get_number(recoverSprite));
-		ds_map_replace(owner.recoverFrames,limbKey,-1);
 	
+		// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
+		var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
 		ds_map_replace(owner.recoveringLimbs,limbKey,attackInChain);
+		
+		// set recoverFrames to -1
+		ds_map_replace(owner.recoverFrames,limbKey,-1);
+		
+		// remove limbKey from attackingLimbs map
+		ds_map_delete(owner.attackingLimbs,limbKey);
+		
 		owner.prevAttackHand = limbKey;
 	}
 

@@ -3,9 +3,9 @@ y = limb.y;
 image_angle = owner.facingDirection;
 
 // switch weapon sprite
-if handItem != limb.handItem {
-	handItem = limb.handItem;
-	spriteString = "spr_"+owner.spriteString+"_"+limb.handItem.spriteName;
+if limbItem != limb.limbItem {
+	limbItem = limb.limbItem;
+	spriteString = "spr_"+owner.spriteString+"_"+limb.limbItem.spriteName;
 	sprite_index = asset_get_index(spriteString);
 	
 	emitter = noone;
@@ -14,16 +14,16 @@ if handItem != limb.handItem {
 	
 	if owner.type == CombatantTypes.Player {
 		// iterate over weapon damages
-		var currentDamageType = ds_map_find_first(handItem.damages);
+		var currentDamageType = ds_map_find_first(limbItem.damages);
 		var damageTypes = ds_list_create();
-		for (var i = 0; i < ds_map_size(handItem.damages); i++) {
+		for (var i = 0; i < ds_map_size(limbItem.damages); i++) {
 			if currentDamageType != PHYSICAL {
-				var damagesArray = ds_map_find_value(handItem.damages,currentDamageType);
+				var damagesArray = ds_map_find_value(limbItem.damages,currentDamageType);
 				if damagesArray[0] > 0 || damagesArray[1] > 0 {
 					ds_list_add(damageTypes,currentDamageType);
 				}
 			}
-			currentDamageType = ds_map_find_next(handItem.damages,currentDamageType);
+			currentDamageType = ds_map_find_next(limbItem.damages,currentDamageType);
 		}
 		
 		// create a particle emitter for the first damage type

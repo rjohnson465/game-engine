@@ -299,7 +299,6 @@ switch(state) {
 				var attackInChain = ds_map_find_value(preparingLimbs,hand);
 				
 				var prepFrame = ds_map_find_value(prepFrames,hand);
-				//ds_map_replace(prepFrames,hand,prepFrame+1);
 				var prepFrameTotal = ds_map_find_value(prepFrameTotals,hand);
 				// check if this hand just started preparing attack
 				if prepFrame == -1 {
@@ -355,10 +354,8 @@ switch(state) {
 				var recoverFrame = ds_map_find_value(recoverFrames,hand);
 				var recoverFrameTotal = ds_map_find_value(recoverFrameTotals,hand);
 				
-				ds_map_replace(recoverFrames,hand,recoverFrame+1);
 				// check if this hand just started recovering attack
 				if recoverFrame == -1 {
-					ds_map_delete(attackingLimbs,hand);
 					ds_map_replace(recoverFrames,hand,0);
 					var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
 					var recoverSprite = asset_get_index("spr_player_"+itemSprite+"_recover_"+string(attackInChain));
@@ -367,27 +364,17 @@ switch(state) {
 				// if at end of recover, we may need to leave attack state (if no other hands are recovering or preparing or attacking)
 				else if recoverFrame >= recoverFrameTotal {
 					// no matter what, we need to remove this hand from recoveringLimbs and reset frame values
-					ds_map_delete(attackingLimbs,hand);
 					ds_map_replace(recoverFrames,hand,-1);
 					ds_map_replace(recoverFrameTotals,hand,0);
 					ds_map_delete(recoveringLimbs,hand);
-					
 					ds_map_replace(attackAgain,hand,false);
-					// wtf 
-					// i think this is just in the case that there needs to be a renewed attack chain?
-					/*if ds_map_find_value(attackAgain,hand) {
-						// make sure there IS a next attack for this item
-						var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
-						var prepSprite = asset_get_index("spr_player_"+itemSprite+"_prep_"+string(attackInChain+1));
-						if prepSprite != -1 {
-							ds_map_replace(preparingLimbs,hand,attackInChain+1);
-						} else ds_map_replace(preparingLimbs,hand,1);
-						ds_map_replace(attackAgain,hand,false);
-					} 
-					else*/ if ds_map_size(preparingLimbs) == 0 && ds_map_size(attackingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
+					
+					if ds_map_size(preparingLimbs) == 0 && ds_map_size(attackingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
 						state = CombatantStates.Idle;
 						break;
 					} 
+				} else {
+					ds_map_replace(recoverFrames,hand,recoverFrame+1);
 				}
 				
 				hand = ds_map_find_next(recoveringLimbs,hand);

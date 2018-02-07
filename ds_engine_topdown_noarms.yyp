@@ -170,7 +170,7 @@
             "Key": "108a0262-73c0-448a-b90d-0d6b11b8661d",
             "Value": {
                 "id": "7c8b4507-dc07-42b1-80c8-a50d40f6eb4e",
-                "resourcePath": "objects\\obj_attack_dummy_shortbow_1_1\\obj_attack_dummy_shortbow_1_1.yy",
+                "resourcePath": "objects\\obj_attack_unfairy_shortbow_1_1\\obj_attack_unfairy_shortbow_1_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -578,7 +578,7 @@
             "Key": "40878b55-7be4-4b55-9bd7-6027f8cae96b",
             "Value": {
                 "id": "455630da-7e2a-4b6c-8391-eca1e1a868ac",
-                "resourcePath": "objects\\obj_enemy_dummy\\obj_enemy_dummy.yy",
+                "resourcePath": "objects\\obj_enemy_unfairy\\obj_enemy_unfairy.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -668,6 +668,14 @@
                 "id": "71163d52-8bbe-4659-ae45-5537d03f2e9c",
                 "resourcePath": "views\\4cd24ea6-2a87-4e41-80ca-933b635a3b50.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
+            "Value": {
+                "id": "7f92ad17-9476-402f-a4e8-86a2be635d0a",
+                "resourcePath": "scripts\\findLimb\\findLimb.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -778,7 +786,7 @@
             "Key": "639384bf-ee11-4f82-8b39-f99450697529",
             "Value": {
                 "id": "d9e64c86-1ebf-4dee-93a6-84c199285dad",
-                "resourcePath": "objects\\obj_attack_dummy_unarmed_1_2\\obj_attack_dummy_unarmed_1_2.yy",
+                "resourcePath": "objects\\obj_attack_unfairy_unarmed_1_2\\obj_attack_unfairy_unarmed_1_2.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1015,6 +1023,14 @@
             }
         },
         {
+            "Key": "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
+            "Value": {
+                "id": "c1d4a554-48cf-4c87-9187-33ba9d13086b",
+                "resourcePath": "scripts\\makeLimb\\makeLimb.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "79f86caf-d322-42d3-bc39-1621a6eaaa7c",
             "Value": {
                 "id": "0f17f722-92ee-4521-bde9-a0ff37e810ed",
@@ -1082,7 +1098,7 @@
             "Key": "807989cf-8637-48f4-83b1-e31a18d594e9",
             "Value": {
                 "id": "e7809f2d-9b4e-4598-be63-6bc3ef7ba723",
-                "resourcePath": "objects\\obj_attack_dummy_unarmed_1_1\\obj_attack_dummy_unarmed_1_1.yy",
+                "resourcePath": "objects\\obj_attack_unfairy_unarmed_1_1\\obj_attack_unfairy_unarmed_1_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1642,7 +1658,7 @@
             "Key": "c3200771-98b7-4a61-a1f2-ade4761852d9",
             "Value": {
                 "id": "83406cfe-a49d-4b76-b365-e20e1bf3063b",
-                "resourcePath": "objects\\obj_enemy_dummy_woodshield\\obj_enemy_dummy_woodshield.yy",
+                "resourcePath": "objects\\obj_enemy_unfairy_woodshield\\obj_enemy_unfairy_woodshield.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -2260,7 +2276,9 @@
         "22ffe7d1-cfcb-4531-ad15-59c9a46b5895",
         "b79353b3-8730-4b28-89fd-d8cd4333dcc5",
         "f126bd04-dd3a-43f4-94d6-aefd1b0ce9dc",
-        "2c63982b-75f5-4392-b9b2-2399e82fb6d4"
+        "2c63982b-75f5-4392-b9b2-2399e82fb6d4",
+        "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
+        "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44"
     ],
     "tutorial": ""
 }

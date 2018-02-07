@@ -1,7 +1,7 @@
 owner = global.owner;
 spriteName = "";
 // e-either and o-other only apply to l and r hand limbs.
-handSide = noone; // l | r | s | e | o | <limbKey>
+limbKey = noone; // l | r | s | e | o | <limbKey> | noone
 
 damages = ds_map_create();
 isRanged = false;

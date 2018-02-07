@@ -138,5 +138,7 @@ else {
 		ds_map_replace(owner.recoverFrames,limbKey,0);
 		owner.isAttacking = false;
 		owner.isRecovering = true;
+	} else {
+		image_alpha = .5;
 	}
 }

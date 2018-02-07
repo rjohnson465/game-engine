@@ -1,18 +1,18 @@
 {
-    "id": "108a0262-73c0-448a-b90d-0d6b11b8661d",
+    "id": "639384bf-ee11-4f82-8b39-f99450697529",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_attack_dummy_shortbow_1_1",
+    "name": "obj_attack_unfairy_unarmed_1_2",
     "eventList": [
         {
-            "id": "b5051cac-a3f8-43c2-be8d-a4438b49ae8f",
+            "id": "c842e4ec-5c3b-4405-b95e-64dcf7cb12ee",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "108a0262-73c0-448a-b90d-0d6b11b8661d"
+            "m_owner": "639384bf-ee11-4f82-8b39-f99450697529"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",

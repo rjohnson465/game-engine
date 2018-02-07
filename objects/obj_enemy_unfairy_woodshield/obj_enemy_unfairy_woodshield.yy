@@ -1,38 +1,38 @@
 {
-    "id": "40878b55-7be4-4b55-9bd7-6027f8cae96b",
+    "id": "c3200771-98b7-4a61-a1f2-ade4761852d9",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_enemy_dummy",
+    "name": "obj_enemy_unfairy_woodshield",
     "eventList": [
         {
-            "id": "957e9675-e9c0-40c8-86c1-a60b3cac3ecc",
+            "id": "ec2907ae-0e1d-472e-8c66-d8fd73899be8",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "40878b55-7be4-4b55-9bd7-6027f8cae96b"
+            "m_owner": "c3200771-98b7-4a61-a1f2-ade4761852d9"
         },
         {
-            "id": "cbbffc8d-1c1f-4bb1-b19a-393f77f84cc8",
+            "id": "36c8d286-e2b5-4855-89f0-f4d588dc1da7",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 3,
-            "m_owner": "40878b55-7be4-4b55-9bd7-6027f8cae96b"
+            "m_owner": "c3200771-98b7-4a61-a1f2-ade4761852d9"
         },
         {
-            "id": "fd2b6466-ea06-406e-8dbc-d96cd21f86cd",
+            "id": "accfad8f-8e08-4a4f-9953-1373a0e1d07c",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 8,
-            "m_owner": "40878b55-7be4-4b55-9bd7-6027f8cae96b"
+            "m_owner": "c3200771-98b7-4a61-a1f2-ade4761852d9"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -48,21 +48,35 @@
     "physicsObject": false,
     "physicsRestitution": 0.1,
     "physicsSensor": false,
-    "physicsShape": 0,
+    "physicsShape": 1,
     "physicsShapePoints": [
         {
-            "id": "c40bc303-bc26-40df-8946-5b331ec3e69c",
+            "id": "62820f17-f6d1-4498-9b94-068506b1d641",
             "modelName": "GMPoint",
             "mvc": "1.0",
-            "x": 32,
-            "y": 32
+            "x": 0,
+            "y": 0
         },
         {
-            "id": "6cf5696e-048e-4580-87c2-e66a7f218658",
+            "id": "cf9058b2-51ee-4f49-9e24-e016c311e435",
             "modelName": "GMPoint",
             "mvc": "1.0",
-            "x": 20,
-            "y": 32
+            "x": 64,
+            "y": 0
+        },
+        {
+            "id": "5e70fc96-36dc-4c23-b346-4c98d7e56371",
+            "modelName": "GMPoint",
+            "mvc": "1.0",
+            "x": 64,
+            "y": 64
+        },
+        {
+            "id": "c67463f8-e301-4014-91de-5665e65d15c8",
+            "modelName": "GMPoint",
+            "mvc": "1.0",
+            "x": 0,
+            "y": 64
         }
     ],
     "physicsStartAwake": true,

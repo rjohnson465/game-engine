@@ -50,13 +50,8 @@ ds_map_replace(equippedLimbItems,"l",unarmed);
 ds_map_replace(equippedLimbItems,"l2",unarmed);
 ds_map_replace(equippedLimbItems,"r2",unarmed);
 
-global.owner = id;
-global.limbKey = "r";
-var rightHand = instance_create_depth(x,y,1,obj_limb);
-
-global.owner = id;
-global.limbKey = "l";
-var leftHand = instance_create_depth(x,y,1,obj_limb);
+var rightHand = makeLimb(id,"r");
+var leftHand = makeLimb(id,"l");
 
 // attack states
 // <limb><bool> kvp's

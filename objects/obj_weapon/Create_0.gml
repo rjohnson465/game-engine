@@ -1,10 +1,9 @@
 limb = global.limb;
 limbKey = limb.limbKey;
 owner = limb.owner;
-handItem = limb.handItem;
+limbItem = limb.limbItem;
 
-spriteString = "spr_"+owner.spriteString+"_"+limb.handItem.spriteName;
-//frame = -1;
+spriteString = "spr_"+owner.spriteString+"_"+limbItem.spriteName;
 sprite_index = asset_get_index(spriteString);
 
 

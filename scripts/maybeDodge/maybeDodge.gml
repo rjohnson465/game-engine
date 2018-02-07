@@ -14,7 +14,7 @@ var attackHand =
 	prepFrameL / prepFrameLTotal >= 
 	prepFrameR / prepFrameRTotal ? "l" : "r";
 if lockOnTarget.type == CombatantTypes.Player {
-	isMeleeAttack = attackHand == "l" ? lockOnTarget.leftHandItem.type == HandItemTypes.Melee : lockOnTarget.rightHandItem.type == HandItemTypes.Melee;
+	isMeleeAttack = attackHand == "l" ? lockOnTarget.leftHandItem.subType == HandItemTypes.Melee : lockOnTarget.rightHandItem.subType == HandItemTypes.Melee;
 } else {
 	isMeleeAttack = lockOnTarget.currentMeleeAttack != noone;
 }

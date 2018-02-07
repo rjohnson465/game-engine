@@ -1,6 +1,4 @@
-if !isAlive {
-	exit;
-}
+if !isAlive exit;
 
 image_angle = facingDirection;
 
@@ -350,18 +348,19 @@ switch(state) {
 			attackNumberInChain = noone;
 			randomize();
 			currentMeleeAttack = round(random_range(1,array_length_1d(meleeAttacks)));
-			//currentMeleeAttack = 2;
+
 			// close enough to hear, but maybe not see. turn to face the direction of the noise
-			facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
+			turnToFacePoint(150,lockOnTarget.x,lockOnTarget.y);
 			var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 			if wallsBetweenTarget == noone || onAlert {
 				onAlert = true;
 				isShielding = false;
-				rightHandItem = ds_map_find_value(handItems,"rm1");
+				
 				// TODO -- melee 2H accounting
-				//if !rightHandItem.isTwoHanded {
-				leftHandItem = ds_map_find_value(handItems,"lm1");
-				//}
+				var rightHandItem = ds_map_find_value(handItems,"rm1");
+				var leftHandItem = ds_map_find_value(handItems,"lm1");
+				ds_map_replace(equippedLimbItems,"l",leftHandItem);
+				ds_map_replace(equippedLimbItems,"r",rightHandItem);
 				state = CombatantStates.Moving;
 			}
 			break;
@@ -375,15 +374,17 @@ switch(state) {
 			attackNumberInChain = noone;
 			currentRangedAttack = round(random_range(1,array_length_1d(rangedAttacks)));
 			// close enough to hear, but maybe not see. turn to face the direction of the noise
-			facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
+			turnToFacePoint(150,lockOnTarget.x,lockOnTarget.y);
 			var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 			if wallsBetweenTarget == noone || onAlert {
 				onAlert = true;
 				isShielding = false;
+				
 				rightHandItem = ds_map_find_value(handItems,"rr1");
-				//if !rightHandItem.isTwoHanded {
 				leftHandItem = ds_map_find_value(handItems,"lr1");
-				//}
+				ds_map_replace(equippedLimbItems,"l",leftHandItem);
+				ds_map_replace(equippedLimbItems,"r",rightHandItem);
+				
 				state = CombatantStates.Moving;
 			}
 			break;
@@ -586,24 +587,20 @@ switch(state) {
 			var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
 			var isRanged = currentRangedAttack != noone;
 			
-			// get previous attack hand
+			// get previous attacking limb
 			if attackNumberInChain == noone && !isRanged && hasHands {
 				var attackChain = meleeAttacks[attackNumber-1];
 				var attackData = attackChain[0];
-				var handSide = attackData.handSide;
-				switch handSide {
-					case "l": {
-						prevAttackHand = "l";
-						break;
-					}
-					case "r": {
-						prevAttackHand = "r";
-						break;
-					}
+				var limbKey = attackData.limbKey;
+				switch limbKey {
 					case "e": {
 						randomize();
 						var rand = random_range(0,1);
-						prevAttackHand = rand - .5 > 0 ? "r" : "l";
+						prevAttackLimb = rand - .5 > 0 ? "r" : "l";
+						break;
+					}
+					default: {
+						prevAttackLimb = limbKey;
 						break;
 					}
 				}
@@ -617,13 +614,13 @@ switch(state) {
 			if !isRanged && ds_map_size(preparingLimbs) !=0 {
 				// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
 				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] {
-					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,true);
+					mp_potential_step_object(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,obj_solid_parent);
 				}
 			}
 		
 			// if idle or recovering, attack or perform next attack in chain (if aggressiveness allows)
 			// TODO refactor this to support combatants without conventional l/r hands
-			if attackNumberInChain == noone || ds_map_find_value(recoveringLimbs,prevAttackHand) == attackNumberInChain {
+			if attackNumberInChain == noone || ds_map_find_value(recoveringLimbs,prevAttackLimb) == attackNumberInChain {
 
 				// decide if we should attack (maybe again, if there's another attack in the chain)
 				var willAttack = false;
@@ -660,150 +657,135 @@ switch(state) {
 			
 				// attack logic
 				if willAttack && stamina > 0 {
-					var handSide = "r";
+					var limbKey = "r";
+					var a = meleeAttacks[attackNumber-1];
 					var attackData = a[attackNumberInChain - 1];
 					if hasHands && !isRanged {
-						var a = meleeAttacks[attackNumber-1];
-						var side = attackData.handSide;
-						switch side {
-							case "l": {
-								handSide = "l";
-								break;
-							}
-							case "r": {
-								handSide = "r";
-								break;
-							}
+						
+						var limbKeyInData = attackData.limbKey;
+						switch limbKeyInData {
 							case "e": {
 								randomize();
 								var rand = random_range(0,1);
-								handSide = rand - .5 > 0 ? "r" : "l";
+								limbKey = rand - .5 > 0 ? "r" : "l";
 								break;
 							}
 							case "s": {
-								handSide = prevAttackHand;
+								limbKey = prevAttackLimb;
 								break;
 							}
 							case "o": {
-								handSide = prevAttackHand == "r" ? "l" : "r";
+								limbKey = prevAttackLimb == "r" ? "l" : "r";
+								break;
+							}
+							default: {
+								limbKey = limbKeyInData;
 								break;
 							}
 						}
 					}
-					// for now, ranged is always 2h and always in the right hand
+					// ranged is always 2h and always "in" the right hand
 					if hasHands && isRanged {
-						handSide = "r";
+						limbKey = "r";
 					}
 					
 					var spriteAttackNumber = attackData.spriteAttackNumber;
 					var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
 					
-					// start attack prep -- ONLY IF this hand is not currently busy
-					//if ds_map_find_value(preparingLimbs,handSide) == undefined && ds_map_find_value(attackingLimbs,handSide
+					// start attack prep -- ONLY IF this limb is not currently busy
 					var prepSprite = asset_get_index(attackData.spriteName+"_prep_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
-					ds_map_replace(preparingLimbs,handSide,attackNumberInChain);
-					ds_map_replace(prepFrameTotals,handSide,sprite_get_number(prepSprite));
-					ds_map_replace(prepFrames,handSide,0);
+					ds_map_replace(preparingLimbs,limbKey,attackNumberInChain);
+					ds_map_replace(prepFrameTotals,limbKey,sprite_get_number(prepSprite));
+					ds_map_replace(prepFrames,limbKey,-1);
 					
 					// if this same hand was recovering before, stop that
-					if ds_map_find_value(recoveringLimbs,handSide) != undefined {
-						ds_map_delete(recoveringLimbs,handSide);
-						ds_map_replace(recoverFrames,handSide,-1);
-						ds_map_replace(recoverFrameTotals,handSide,0);
+					if ds_map_find_value(recoveringLimbs,limbKey) != undefined {
+						ds_map_delete(recoveringLimbs,limbKey);
+						ds_map_replace(recoverFrames,limbKey,-1);
+						ds_map_replace(recoverFrameTotals,limbKey,0);
 					}
 				} 
-				else {
-					
-					// loop through recoverFrames -- if a hand is at recoverFrame 0, that means it is beginning to recover
-					var currentRecoverFrames = ds_map_find_first(recoverFrames);
-					for (var i = 0; i < ds_map_size(recoverFrames); i++) {
-						
-						if ds_map_find_value(recoverFrames,currentRecoverFrames) == 0 {
-							
-							// the attack number in chain of the hand that was prepaing (but is about to be recovering)
-							var numInChain = ds_map_find_value(attackingLimbs,currentRecoverFrames);
-							if numInChain == undefined {
-								numInChain = 1; // might be shit
-							}
-							ds_map_delete(attackingLimbs,currentRecoverFrames);
-						
-							var chainArray = meleeAttacks[attackNumber-1];
-							var attackData = chainArray[numInChain-1];
-							var spriteAttackNumber = attackData.spriteAttackNumber;
-							var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
-					
-							var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
-							
-							prevAttackHand = currentRecoverFrames;
-							if ds_map_find_value(recoveringLimbs,currentRecoverFrames) == undefined {
-								ds_map_add(recoveringLimbs,currentRecoverFrames,numInChain);
-							} else ds_map_replace(recoveringLimbs,currentRecoverFrames,numInChain);
-							ds_map_replace(recoverFrameTotals,currentRecoverFrames,sprite_get_number(recoverSprite));
-							ds_map_replace(recoverFrames,currentRecoverFrames,0);
-						}
-						
-						currentRecoverFrames = ds_map_find_next(recoverFrames,currentRecoverFrames);
-					}
-				}
 			} 
 			
-			// iterate over the prep frames for left and right hands to see if an attack should fire
-			// TODO what about non humanoid attackers
-			var currentPrepFrames = ds_map_find_first(prepFrames);
-			for (var i = 0; i < ds_map_size(prepFrames); i++) {
-				var prepFrame = ds_map_find_value(prepFrames,currentPrepFrames);
-				var totalPrepFrames = ds_map_find_value(prepFrameTotals,currentPrepFrames);
-				if prepFrame >= 0 && prepFrame >= totalPrepFrames {
+			// iterate over the preparing limbs to see if an attack should fire
+			// TODO what about non humanoid attackers or attacks that do not use limbs?
+			var currentPreparingLimbKey = ds_map_find_first(preparingLimbs); // limbKey
+			for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
+				var prepFrame = ds_map_find_value(prepFrames,currentPreparingLimbKey);
+				var totalPrepFrames = ds_map_find_value(prepFrameTotals,currentPreparingLimbKey);
+				
+				// stop preparing, begin attacking
+				if prepFrame >= totalPrepFrames-1 {
+					//speed = 0;
 					
-					speed = 0;
-					ds_map_replace(prepFrames,currentPrepFrames,-1);
-					ds_map_replace(prepFrameTotals,currentPrepFrames,0);
-					
-					// stamina cost
-					if hasHands {
-						var currentAttackingHandItem = currentPrepFrames == "l" ? leftHandItem : rightHandItem;
-						var attackInChain = ds_map_find_value(preparingLimbs,currentPrepFrames);
-						var attackData = noone;
-						if !isRanged {
-							var attackChain = meleeAttacks[attackNumber-1];
-							attackData = attackChain[attackInChain-1];
-						} else {
-							var attackChain = rangedAttacks[attackNumber-1];
-							attackData = attackChain[attackInChain-1];
-						}
-						stamina -= attackData.staminaCost;
-						ds_map_delete(preparingLimbs,currentPrepFrames);
-						ds_map_replace(attackingLimbs,currentPrepFrames,attackInChain);
+					// find attack data object for this attack to get stamina cost
+					var limb = findLimb(id,currentPreparingLimbKey);
+					var attackInChain = ds_map_find_value(preparingLimbs,currentPreparingLimbKey);
+					var attackData = noone;
+					if !isRanged {
+						var attackChain = meleeAttacks[attackNumber-1];
+						attackData = attackChain[attackInChain-1];
+					} else {
+						var attackChain = rangedAttacks[attackNumber-1];
+						attackData = attackChain[attackInChain-1];
 					}
-					// this might be faintly retarded
+					stamina -= attackData.staminaCost;
+					
+					// update data structures
+					ds_map_replace(prepFrames,currentPreparingLimbKey,-1);
+					ds_map_replace(prepFrameTotals,currentPreparingLimbKey,0);
+					ds_map_delete(preparingLimbs,currentPreparingLimbKey);
+					ds_map_replace(attackingLimbs,currentPreparingLimbKey,attackInChain);
+					
+					// create attack object
 					global.owner = id; // passed as param to attackObj
-					global.limbKey = currentPrepFrames;
+					global.limbKey = currentPreparingLimbKey;
 					var attackObj = instance_create_depth(x,y,1,obj_attack);
+					
 					hasCalculatedNextAttack = false;
+				} else {
+					ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+1); // increment through frames for attack prep
 				}
-				currentPrepFrames = ds_map_find_next(prepFrames,currentPrepFrames);
+				currentPreparingLimbKey = ds_map_find_next(preparingLimbs,currentPreparingLimbKey);
 			}
 			
-			// attack animation frame logic shit is in enemy phys attack obj
+			// attack animation frame logic shit is in obj_attack
 			
-			// iterate over the recover frames for left and right hands to see if an attack is ended
-			var currentRecoverFrames = ds_map_find_first(recoverFrames);
-			for (var i = 0; i < ds_map_size(recoverFrames); i++) {
-				var recoverFrame = ds_map_find_value(recoverFrames,currentRecoverFrames);
-				var totalRecoverFrames = ds_map_find_value(recoverFrameTotals,currentRecoverFrames);
+			// iterate over the recover frames for all limbs to see if an attack is ended
+			if ds_map_size(recoveringLimbs) != 0 {
+				var currentRecoveringLimbKey = ds_map_find_first(recoveringLimbs);
+				for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
+					var recoverFrame = ds_map_find_value(recoverFrames,currentRecoveringLimbKey);
+					var recoverFrameTotal = ds_map_find_value(recoverFrameTotals,currentRecoveringLimbKey);
 				
-				if recoverFrame == 0 {
-					prevAttackHand = currentRecoverFrames;
+					// check if this hand just started recovering attack
+					if recoverFrame == -1 {
+						prevAttackLimb = currentRecoveringLimbKey;
+						ds_map_replace(recoverFrames,currentRecoveringLimbKey,0);
+						
+						var currentAttack = currentMeleeAttack != noone ? currentMeleeAttack : currentRangedAttack;
+						var attacksChainArray = currentMeleeAttack != noone ? meleeAttacks : rangedAttacks;
+						var attackChainArray = attacksChainArray[currentAttack-1];
+						var attackInChain = ds_map_find_value(recoveringLimbs,currentRecoveringLimbKey);
+						var attackData = attackChainArray[attackInChain-1];
+						var spriteAttackNumber = attackData.spriteAttackNumber;
+						var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
+						
+						var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
+						ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,sprite_get_number(recoverSprite));
+					}
+					// if at end of recover, we may need to leave attack state (if no other limbs are recovering or preparing or attacking)
+					else if recoverFrame >= recoverFrameTotal-1 {
+						// no matter what, we need to remove this limb from recoveringLimbs and reset frame values
+						ds_map_replace(recoverFrames,currentRecoveringLimbKey,-1);
+						ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,0);
+						ds_map_delete(recoveringLimbs,currentRecoveringLimbKey);
+					} else {
+						ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+1);
+					}
+				
+					currentRecoveringLimbKey = ds_map_find_next(recoveringLimbs,currentRecoveringLimbKey);
 				}
-				
-				if recoverFrame >= 0 && recoverFrame >= totalRecoverFrames {
-					ds_map_delete(attackingLimbs,currentRecoverFrames);
-					ds_map_replace(recoverFrames,currentRecoverFrames,-1);
-					ds_map_replace(recoverFrameTotals,currentRecoverFrames,0);
-				
-					ds_map_delete(recoveringLimbs,currentRecoverFrames);	
-				}
-				currentRecoverFrames = ds_map_find_next(recoverFrames,currentRecoverFrames);
 			}
 			
 			// get out of attack sequence
@@ -917,14 +899,6 @@ switch(state) {
 				path_start(path,functionalSpeed*2,path_action_stop,true);
 			//}
 		}
-		
-		// phase dodges?
-		/*if isFairy {
-			var x1 = dodgeStartX+lengthdir_x(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
-			var y1 = dodgeStartY+lengthdir_y(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
-			move_towards_point(x1,y1,functionalSpeed*2);
-		}*/
-		
 
 		dodgeFrame++;
 		// if not dodging, reset some states and values
@@ -946,11 +920,15 @@ switch(state) {
 					waryFrame = round(random_range(waryTotalFrames[0],waryTotalFrames[1]));
 					waryDistance = round(random_range(waryDistanceRange[0],waryDistanceRange[1]));
 					hasReachedWaryDistance = false;
-					if leftHandItem.type == HandItemTypes.Shield {
-						isShielding = true;
-						global.owner = id;
-						instance_create_depth(x,y,1,obj_shield_block);
+					if ds_map_find_value(equippedLimbItems,"l") {
+						var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
+						if leftHandItem.subType == HandItemTypes.Shield {
+							isShielding = true;
+							global.owner = id;
+							instance_create_depth(x,y,1,obj_shield_block);
+						}
 					}
+					
 					shieldingFrame = 0;
 					state = CombatantStates.Wary;
 					break;

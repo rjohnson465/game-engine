@@ -1,15 +1,15 @@
 // switch hand sprites if weapon changes and uses different weapon art
-if ds_map_find_value(owner.equippedLimbItems,limbKey) != handItem {
-	handItem = ds_map_find_value(owner.equippedLimbItems,limbKey);
+if ds_map_find_value(owner.equippedLimbItems,limbKey) != limbItem {
+	limbItem = ds_map_find_value(owner.equippedLimbItems,limbKey);
 	
 	if owner.type != CombatantTypes.Player {
-		spriteString = "spr_"+owner.spriteString + "_hand_" + handItem.spriteName;
+		spriteString = "spr_"+owner.spriteString + "_hand_" + limbItem.spriteName;
 	} else {
-		if handItem.subType == HandItemTypes.Ranged {
+		if limbItem.subType == HandItemTypes.Ranged {
 		
 		} 
-		else if handItem.subType == HandItemTypes.Melee {
-			switch handItem.weaponType {
+		else if limbItem.subType == HandItemTypes.Melee {
+			switch limbItem.weaponType {
 				case WeaponTypes.Sword1H: {
 					spriteString = "spr_player_hand_sword_1h";
 					break;
@@ -43,16 +43,32 @@ if	ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 &&
 	ds_map_find_value(owner.prepFrames,limbKey) <= ds_map_find_value(owner.prepFrameTotals,limbKey) &&
 	ds_map_find_value(owner.recoverFrames,limbKey) == -1 {
 	
-	//var a = ds_map_find_value(owner.recoverFrames,limbKey);
-	//show_debug_message(a);
+	var attackNumber = noone;
+	if owner.type == CombatantTypes.Player {
+		attackNumber = ds_map_find_value(owner.preparingLimbs,limbKey);
+	} else {
+		attackNumber = owner.currentMeleeAttack != noone? owner.currentMeleeAttack : owner.currentRangedAttack;
+	}
 	
-	var attackNumber = ds_map_find_value(owner.preparingLimbs,limbKey);
 	image_index = ds_map_find_value(owner.prepFrames,limbKey);
-	sprite_index = asset_get_index(spriteString+"_prep_"+string(attackNumber));
+	
+	if owner.type == CombatantTypes.Player {
+		sprite_index = asset_get_index(spriteString+"_prep_"+string(attackNumber));
+	} else {		
+		var attackChainsArray = owner.currentMeleeAttack != noone? owner.meleeAttacks : owner.rangedAttacks;
+		var attackChainArray = attackChainsArray[attackNumber-1];
+		var attackNumberInChain = ds_map_find_value(owner.preparingLimbs,limbKey);
+		var attackData = attackChainArray[attackNumberInChain-1];
+		
+		var spriteAttackNumber = attackData.spriteAttackNumber;
+		var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
+		
+		sprite_index = asset_get_index(spriteString+"_prep_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
+	}
 }
 
-// TODO
-// change hand item spriteString based on changed weapons
-// do this here? Or when something is equipped / unequipped?
+/*
+if owner.type != CombatantTypes.Player {
+show_debug_message(sprite_get_name(sprite_index) + " | " + string(image_index));
+}*/
 
-//show_debug_message(sprite_get_name(sprite_index) + " | " + string(image_index));

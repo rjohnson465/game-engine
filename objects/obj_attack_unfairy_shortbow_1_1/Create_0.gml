@@ -1,5 +1,5 @@
 event_inherited();
-spriteName = "spr_enemy_dummy_shortbow";
+spriteName = "spr_enemy_unfairy_shortbow";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 handSide = "r";
