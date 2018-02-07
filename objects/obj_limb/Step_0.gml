@@ -52,5 +52,5 @@ if	ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 &&
 // do this here? Or when something is equipped / unequipped?
 
 
-show_debug_message(sprite_get_name(sprite_index)+string(image_index));
+//show_debug_message(sprite_get_name(sprite_index)+string(image_index));
 

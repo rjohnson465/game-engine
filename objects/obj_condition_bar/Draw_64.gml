@@ -5,7 +5,7 @@ var y1 = 100-(32)-20 + conditionBarNumber*25;
 var x2 = 100+(32);
 var y2 = 100-(32)-15 + conditionBarNumber*25;
 draw_set_color(c_white);
-draw_set_font(font_main);
+draw_set_font(font_damage);
 draw_text(x2,y1,condition);
 draw_rectangle(x1,y1,x2,y2,true);
 // current condition percent

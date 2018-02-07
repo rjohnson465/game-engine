@@ -7,7 +7,6 @@ if handItem != limb.handItem {
 	handItem = limb.handItem;
 	spriteString = "spr_"+owner.spriteString+"_"+limb.handItem.spriteName;
 	sprite_index = asset_get_index(spriteString);
-	
 }
 
 if handItem.weaponType {

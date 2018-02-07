@@ -19,12 +19,6 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 		switch (currentButton) {
 			case "closeButton": {
 				isShowingMenus = false;
-				var inv = global.player.inventory;
-				for (var i = 0; i < ds_list_size(inv); i++) {
-					var el = ds_list_find_value(inv,i);
-					el.x1 = -50;
-					el.y1 = -50;
-				}
 				break;
 			}
 			case INVENTORY: {

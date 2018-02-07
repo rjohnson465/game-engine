@@ -448,7 +448,7 @@ switch(state) {
 						else if shieldingFrame >= totalShieldingFrames && willShield {
 							isShielding = true;
 							global.owner = id;
-							instance_create_depth(x,y,1,obj_shield_parent);
+							instance_create_depth(x,y,1,obj_shield_block);
 							shieldingFrame = 0;
 						}
 					} else {
@@ -903,7 +903,7 @@ switch(state) {
 		isShielding = false;
 		speed = 0;	
 		image_angle = dodgeDirection;
-		show_debug_message(dodgeDirection);
+		//show_debug_message(dodgeDirection);
 		
 		if dodgeStartX == noone {
 			dodgeStartX = x;
@@ -949,7 +949,7 @@ switch(state) {
 					if leftHandItem.type == HandItemTypes.Shield {
 						isShielding = true;
 						global.owner = id;
-						instance_create_depth(x,y,1,obj_shield_parent);
+						instance_create_depth(x,y,1,obj_shield_block);
 					}
 					shieldingFrame = 0;
 					state = CombatantStates.Wary;
@@ -1057,7 +1057,7 @@ switch(state) {
 					if leftHandItem.type == HandItemTypes.Shield {
 						isShielding = true;
 						global.owner = id;
-						instance_create_depth(x,y,1,obj_shield_parent);
+						instance_create_depth(x,y,1,obj_shield_block);
 					}
 					shieldingFrame = 0;
 					state = CombatantStates.Wary;

@@ -1,5 +1,5 @@
 event_inherited();
-type = HandItemTypes.Melee;
+subType = HandItemTypes.Melee;
 name = "Unarmed";
 spriteName = "unarmed";
 

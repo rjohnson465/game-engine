@@ -1,5 +1,5 @@
 event_inherited();
-type = HandItemTypes.Ranged;
+subType = HandItemTypes.Ranged;
 name = "Shortbow";
 spriteName = "shortbow";
 itemSprite = spr_item_shortbow;

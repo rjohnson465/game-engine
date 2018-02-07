@@ -4,14 +4,26 @@ sprite_index = spr_item_slot;
 visible = false;
 depth = -2;
 name = "";
+
+enum ItemTypes {	
+	HandItem,
+	Ring,
+	Other
+}
+
+type = ItemTypes.HandItem;
+subType = noone;
+
 spriteName = "";
 itemSprite = "";
 value = 0;
 description = "Sample description";
 
-cloneOf = noone;
+//cloneOf = noone;
 
-isEquipped = false;
+//isEquipped = false;
+equippedItemsManager = global.equippedItemsManager;
+equipmentSlot = noone;
 
 mightGrab = false;
 grabFrame = 0;

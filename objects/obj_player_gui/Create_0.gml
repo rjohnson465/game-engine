@@ -93,7 +93,7 @@ grabbedItem = noone;
 instance_create_depth(x,y,-1001,obj_inventory);
 
 // equipped items
-instance_create_depth(x,y,-1001,obj_equipped_items);
+instance_create_depth(x,y,-1001,obj_equipped_items_manager);
 
 // combos
 instance_create_depth(x,y,-100,obj_combo_manager);

@@ -1,6 +1,6 @@
 
 draw_set_color(c_white);
-draw_set_font(font_main);
+draw_set_font(font_damage);
 draw_set_halign(fa_left);
 var x1 = 0; var y1 = 0;
 if victim.type == CombatantTypes.Enemy {

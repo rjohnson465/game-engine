@@ -132,7 +132,7 @@ if ds_map_size(preparingLimbs) != 0 && currentUsingSpell != noone {
 	draw_healthbar(x1,y1,x2,y2,percentDone*100,c_black,c_ltgray,c_aqua,0,true,true);
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);
-	draw_set_font(font_main);
+	draw_set_font(font_damage);
 	var spell = ds_map_find_value(knownSpells,currentUsingSpell);
 	scr_draw_text_outline(mean(x1,x2),y1-4,spell.name,c_white,c_ltgray,1,1,0);
 }

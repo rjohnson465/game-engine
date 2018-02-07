@@ -6,7 +6,7 @@ depth = 0;
 #macro ICE "ice"
 #macro POISON "poison"
 #macro LIGHTNING "lightning"
-//#macro BLEED "bleed"
+
 global.ALL_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
 global.ALL_DAMAGE_TYPES = [PHYSICAL, MAGIC,FIRE,ICE,POISON,LIGHTNING];
 
@@ -19,6 +19,10 @@ facingDirection = 0;
 spriteType = "player";
 spriteString = "player";
 type = CombatantTypes.Player;
+
+// gui
+isMouseInMenu = false;
+instance_create_depth(x,y,1,obj_player_gui);
 
 enum EquipmentSlots {
 	Head,
@@ -36,7 +40,17 @@ enum EquipmentSlots {
 hasHands = true; 
 
 unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
-equippedItems = ds_map_create();
+//equippedItems = ds_map_create();
+
+equippedItems = ds_list_create();
+var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
+ds_list_add(equippedItems,longsword);
+longsword.equipmentSlot = EquipmentSlots.RightHand1;
+
+ds_map_replace(equippedLimbItems,"r",longsword);
+ds_map_replace(equippedLimbItems,"l",unarmed);
+
+/*
 ds_map_add(equippedItems,EquipmentSlots.Head,noone);
 ds_map_add(equippedItems,EquipmentSlots.LeftHand1,instance_create_depth(x,y,1,obj_hand_item_woodshield));
 ds_map_add(equippedItems,EquipmentSlots.LeftHand2,unarmed);
@@ -46,8 +60,9 @@ ds_map_add(equippedItems,EquipmentSlots.LeftRing1,noone);
 ds_map_add(equippedItems,EquipmentSlots.LeftRing2,noone);
 ds_map_add(equippedItems,EquipmentSlots.RightRing1,noone);
 ds_map_add(equippedItems,EquipmentSlots.RightRing2,noone);
+*/
 
-ds_map_replace(equippedLimbItems,"l",ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand1));
+/*ds_map_replace(equippedLimbItems,"l",ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand1));
 ds_map_replace(equippedLimbItems,"l2",ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand2));
 ds_map_replace(equippedLimbItems,"r",ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand1));
 ds_map_replace(equippedLimbItems,"r2",ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2));
@@ -55,7 +70,7 @@ ds_map_replace(equippedLimbItems,"r2",ds_map_find_value(global.player.equippedIt
 //leftHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand2);
 //rightHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand1);
 //rightHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2);
-
+*/
 global.owner = id;
 global.limbKey = "r";
 var rightHand = instance_create_depth(x,y,1,obj_limb);
@@ -129,37 +144,5 @@ inventory = ds_list_create();
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-
-
-
-
-// gui
-isMouseInMenu = false;
-instance_create_depth(x,y,1,obj_player_gui);
-
-//ds_map_replace(defenses,ICE,75);

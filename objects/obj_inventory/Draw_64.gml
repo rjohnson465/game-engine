@@ -47,28 +47,28 @@ var inv = ds_list_create();
 for (var i = 0; i < ds_list_size(inventory); i++) {
 	var el = ds_list_find_value(inventory,i);
 				
-	if !el.isEquipped {
+	//if !el.isEquipped {
 		ds_list_add(inv,el);
 		el.x1 = -50;
 		el.y1 = -50;
-	}
+	//}
 	switch filter {
 		case InventoryFilters.Melee: {
-			if el.type != HandItemTypes.Melee {
+			if el.subType != HandItemTypes.Melee {
 				var pos = ds_list_find_index(inv,el);
 				ds_list_delete(inv,pos);
 			}
 			break;
 		}
 		case InventoryFilters.Shields: {
-			if el.type != HandItemTypes.Shield {
+			if el.subType != HandItemTypes.Shield {
 				var pos = ds_list_find_index(inv,el);
 				ds_list_delete(inv,pos);
 			}
 			break;
 		}
 		case InventoryFilters.Ranged: {
-			if el.type != HandItemTypes.Ranged {
+			if el.subType != HandItemTypes.Ranged {
 				var pos = ds_list_find_index(inv,el);
 				ds_list_delete(inv,pos);
 			}
@@ -97,7 +97,7 @@ for (var i = 0; i < 20; i++) {
 	var index = i + (5*scrollLevel);
 	var item = ds_list_find_value(inv,index);
 				
-	if !is_undefined(item) && !item.isEquipped {
+	if !is_undefined(item) /*&& !item.isEquipped*/ {
 		item.x1 = x1;
 		item.y1 = y1;
 					
@@ -120,8 +120,8 @@ for (var i = 0; i < 20; i++) {
 draw_set_color(c_dkgray);
 draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBottomRightX,itemDescriptionBottomRightY,false);
 			
+// show selected inventory item info
 if selectedItem {
-				
 	draw_set_color(c_olive);
 	var descriptionHandleX2 = itemDescriptionTopLeftX+width
 	var descriptionHandleY2 = itemDescriptionTopLeftY+itemDescriptionHandleHeight;
@@ -137,21 +137,16 @@ if selectedItem {
 	draw_text(itemDescriptionTopLeftX+1,(descriptionHandleY2+itemDescriptionTopLeftY)/2.025,s);
 				
 	// all shields and weapons share many properties, so it makes sense to lump them together when showing properties
-	if selectedItem.type == HandItemTypes.Melee || HandItemTypes.Ranged || HandItemTypes.Shield {
-		// damage absorption (shield only)
-		/*if selectedItem.type == HandItemTypes.Shield {
-			var s = "Block: " + string(selectedItem.blockPercentage)+"%";
-			draw_text(itemDescriptionCol1X,itemDescriptionColY,s);
-		}*/
+	if selectedItem.type == ItemTypes.HandItem {
 					
 		// auto weapon / shield description 
 		var numHands = selectedItem.isTwoHanded ? "2H" : "1H";
 		var itemType = "";
 		if selectedItem.totalCharges != 0 {
 			itemType = "Magical Implement";
-		} else if selectedItem.type == HandItemTypes.Ranged {
+		} else if selectedItem.subType == HandItemTypes.Ranged {
 			itemType = "Ranged Weapon";
-		} else if selectedItem.type == HandItemTypes.Shield {
+		} else if selectedItem.subType == HandItemTypes.Shield {
 			itemType = "Shield";
 		} else {
 			itemType = "Melee Weapon";
@@ -161,7 +156,7 @@ if selectedItem {
 		draw_text(itemDescriptionCol1X, itemDescriptionColY+20, autoDescription);
 					
 		// speed (no shield)
-		if selectedItem.type != HandItemTypes.Shield {
+		if selectedItem.subType != HandItemTypes.Shield {
 			var s = selectedItem.weaponSpeed + " Attack Speed";
 			draw_text(itemDescriptionCol1X, itemDescriptionColY+40, s);
 		}
@@ -174,7 +169,7 @@ if selectedItem {
 		draw_text(itemDescriptionCol1X,itemDescriptionColY+80,s);
 					
 		// damages
-		if selectedItem.type == HandItemTypes.Melee || selectedItem.type == HandItemTypes.Ranged {
+		if selectedItem.subType == HandItemTypes.Melee || selectedItem.subType == HandItemTypes.Ranged {
 			for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 				var damageType = global.ALL_DAMAGE_TYPES[i];
 				var damageArray = ds_map_find_value(selectedItem.damages,damageType);
@@ -201,7 +196,7 @@ if selectedItem {
 					draw_text(itemDescriptionCol2X,itemDescriptionColY+(i*20),damageType + ": " + string(minDamage) + "-" + string(maxDamage));
 				}
 			}
-		} else if selectedItem.type == HandItemTypes.Shield {
+		} else if selectedItem.subType == HandItemTypes.Shield {
 			for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 				var defenseType = global.ALL_DAMAGE_TYPES[i];
 				var blockPercentage = ds_map_find_value(selectedItem.defenses,defenseType);
@@ -211,9 +206,7 @@ if selectedItem {
 		}
 		
 	}
-} // end selected inventory item details
-			
-/*
+} 
 
 
 

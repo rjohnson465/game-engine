@@ -6,6 +6,6 @@ if !isMouseInMenu {
 		(state == CombatantStates.Idle || state == CombatantStates.Moving) {
 		isShielding = true;
 		global.owner = id;
-		instance_create_depth(x,y,1,obj_shield_parent);
+		instance_create_depth(x,y,1,obj_shield_block);
 	}
 }

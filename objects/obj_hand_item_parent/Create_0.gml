@@ -20,7 +20,7 @@ enum WeaponTypes {
 	Crossbow
 }
 
-type = "";
+subType = "";
 weaponType = WeaponTypes.Sword1H;
 // Fast | Medium | Slow -- dependent on WeaponType
 weaponSpeed = "";

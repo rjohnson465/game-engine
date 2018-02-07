@@ -9,8 +9,7 @@ if id == global.ui.grabbedItem {
 		i++;
 	}
 
-	if position_meeting(x,y,nearestOtherItem) {
-	
+	if position_meeting(x,y,nearestOtherItem) && !position_meeting(x,y,obj_equipmentslot) {
 		var inv = global.player.inventory;
 		var otherPosition = ds_list_find_index(inv,nearestOtherItem);
 		var pos = ds_list_find_index(inv,id);
@@ -22,34 +21,12 @@ if id == global.ui.grabbedItem {
 	// if dropped somewhere in inventory and was equipped, unequip item
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
-	if	isEquipped 
-		&& (mouse_x > vx + 212 && mouse_x < vx + 562) 
-		&& (mouse_y > vy + 184 && mouse_y < vy + 400) 
+	
+	if	isItemEquipped(id)
+		&& (mouse_x > vx + global.inventory.invTopLeftX && mouse_x < vx + global.inventory.invBottomRightX) 
+		&& (mouse_y > vy + global.inventory.invTopLeftY && mouse_y < vy + global.inventory.invBottomRightY) 
 		{
-			
-			isEquipped = false;
-			var equippedItems = global.player.equippedItems;
-			var currentKey = ds_map_find_first(equippedItems);
-			var key = noone;
-			var size = ds_map_size(equippedItems);
-			for (var i = 0; i < size; i++){
-				if ds_map_find_value(equippedItems,currentKey) == id {
-					key = currentKey
-				}
-			    currentKey = ds_map_find_next(equippedItems, currentKey);
-			}
-			if  key == EquipmentSlots.LeftHand1 || key == EquipmentSlots.LeftHand2 
-				|| key == EquipmentSlots.RightHand1 || key == EquipmentSlots.RightHand2 
-				{
-					ds_map_replace(equippedItems, key, global.player.unarmed);
-					if key == EquipmentSlots.LeftHand1 {
-						ds_map_replace(global.player.equippedLimbItems,"l",global.player.unarmed);
-					} else if key == EquipmentSlots.RightHand1 {
-						ds_map_replace(global.player.equippedLimbItems,"r",global.player.unarmed);
-					}
-				} else {
-					ds_map_replace(equippedItems, key, noone);
-				}
+			unequipItem(id);
 		}
 	
 	isGrabbed = false;
