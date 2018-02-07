@@ -2,7 +2,7 @@ var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
 if !isMouseInMenu {
-	if leftHandItem && leftHandItem.type == HandItemTypes.Shield && stamina > 0 &&
+	if leftHandItem && leftHandItem.subType == HandItemTypes.Shield && stamina > 0 &&
 		(state == CombatantStates.Idle || state == CombatantStates.Moving) {
 		isShielding = true;
 		global.owner = id;

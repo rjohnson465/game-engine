@@ -90,7 +90,7 @@
             "Key": "08a0e74a-a190-43ee-abe3-67fa6372df10",
             "Value": {
                 "id": "264e4099-649f-4b77-94d9-4fec395cea8b",
-                "resourcePath": "sprites\\spr_enemy_dummy_dead\\spr_enemy_dummy_dead.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dead\\spr_enemy_unfairy_dead.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -114,7 +114,7 @@
             "Key": "0a4176ec-a759-40b2-b0bc-1c71c885b048",
             "Value": {
                 "id": "48dfc02d-3439-4d5e-a2d0-ff3e77e270b7",
-                "resourcePath": "sprites\\spr_enemy_dummy_woodshield\\spr_enemy_dummy_woodshield.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_woodshield\\spr_enemy_unfairy_woodshield.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -155,6 +155,14 @@
             "Value": {
                 "id": "2c295026-a56f-445d-a990-64089edda24e",
                 "resourcePath": "sprites\\spr_light_point\\spr_light_point.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "10306007-c7d1-4551-a537-7b095ec50d24",
+            "Value": {
+                "id": "757f78f6-f9c1-431c-9bfc-89508da61551",
+                "resourcePath": "sprites\\spr_enemy_unfairy_unarmed_prep_1_2\\spr_enemy_unfairy_unarmed_prep_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -242,7 +250,7 @@
             "Key": "17dfc255-faba-4c79-80ed-1c7f659d3dcb",
             "Value": {
                 "id": "403c69cc-9651-464d-8a29-c7cfa8ae14ed",
-                "resourcePath": "sprites\\spr_enemy_dummy_unarmed_recover_1_2\\spr_enemy_dummy_unarmed_recover_1_2.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_recover_1_2\\spr_enemy_unfairy_limb_unarmed_recover_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -295,6 +303,14 @@
             }
         },
         {
+            "Key": "1ec854eb-f015-48a1-8edf-7f3339aa5db5",
+            "Value": {
+                "id": "3cadf3eb-a328-4ba9-91b2-32e992678fd0",
+                "resourcePath": "sprites\\spr_enemy_unfairy_unarmed_recover_1_1\\spr_enemy_unfairy_unarmed_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "21c53d30-346c-4021-b8e0-c4e7b78137f9",
             "Value": {
                 "id": "aa3e5214-766c-4d89-9b17-81a492059334",
@@ -314,7 +330,7 @@
             "Key": "225258bc-85de-48a0-b36b-cf90a3d26bf7",
             "Value": {
                 "id": "e186fb06-d6f1-492d-a18f-b84a90cace33",
-                "resourcePath": "sprites\\spr_enemy_dummy_unarmed_attack_1_2\\spr_enemy_dummy_unarmed_attack_1_2.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_attack_1_2\\spr_enemy_unfairy_limb_unarmed_attack_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -586,7 +602,7 @@
             "Key": "44bb5134-9780-4928-a9dc-ede1906b563c",
             "Value": {
                 "id": "b396cca2-360c-4849-8de7-d663691a8123",
-                "resourcePath": "sprites\\spr_enemy_dummy_shortbow_recover_1_1\\spr_enemy_dummy_shortbow_recover_1_1.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_recover_1_1\\spr_enemy_unfairy_shortbow_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -594,7 +610,7 @@
             "Key": "4581ba85-adb3-4489-933e-372e60183f92",
             "Value": {
                 "id": "d6f20fc3-6c9e-48a1-8e87-766ef8edac2c",
-                "resourcePath": "sprites\\spr_enemy_dummy_shortbow_attack_1_1\\spr_enemy_dummy_shortbow_attack_1_1.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_attack_1_1\\spr_enemy_unfairy_shortbow_attack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -687,14 +703,6 @@
             }
         },
         {
-            "Key": "559abbd8-3c0c-4d7d-a516-4f064e326e7b",
-            "Value": {
-                "id": "059e6751-64f3-4416-afb6-8b83c9f91145",
-                "resourcePath": "sprites\\spr_enemy_dummy_unarmed_prep_1_11\\spr_enemy_dummy_unarmed_prep_1_11.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "566eb996-f83a-45ea-b08d-4e590b67e2e4",
             "Value": {
                 "id": "d67ca6c1-ed14-436d-96b7-c67d8291bd1e",
@@ -714,7 +722,7 @@
             "Key": "5d2284ad-315f-4914-8818-50d0fbe4f835",
             "Value": {
                 "id": "b5bb2f9c-a2a6-47e2-a329-d144c4846284",
-                "resourcePath": "sprites\\spr_enemy_dummy_unarmed_attack_1_1\\spr_enemy_dummy_unarmed_attack_1_1.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_attack_1_1\\spr_enemy_unfairy_limb_unarmed_attack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1026,7 +1034,7 @@
             "Key": "7ad686af-4647-4c71-ad6a-14a8a3b360f5",
             "Value": {
                 "id": "ea5419ff-506f-49c9-82a1-48cc13543a96",
-                "resourcePath": "sprites\\spr_enemy_dummy_unarmed_prep_1_2\\spr_enemy_dummy_unarmed_prep_1_2.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_prep_1_2\\spr_enemy_unfairy_limb_unarmed_prep_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1058,7 +1066,7 @@
             "Key": "7e2e6b6f-e4e3-4f1a-848a-37feb0614c5d",
             "Value": {
                 "id": "dd617ac6-3f36-4364-b0ac-67a17c14996f",
-                "resourcePath": "sprites\\spr_enemy_dummy_unarmed_prep_1_1\\spr_enemy_dummy_unarmed_prep_1_1.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_prep_1_1\\spr_enemy_unfairy_limb_unarmed_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1170,7 +1178,7 @@
             "Key": "8eea9780-99f2-4a2d-b14f-11e62900e138",
             "Value": {
                 "id": "d00ff725-fd41-452b-974e-a46df0574a5c",
-                "resourcePath": "sprites\\spr_enemy_dummy_shortbow\\spr_enemy_dummy_shortbow.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow\\spr_enemy_unfairy_shortbow.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1179,6 +1187,14 @@
             "Value": {
                 "id": "ab4ad7de-3135-4d78-b41e-16fd7f96598c",
                 "resourcePath": "sprites\\spr_player_hand_unarmed_recover_1\\spr_player_hand_unarmed_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "929ada99-0962-4236-a7d7-1fb21a8e70bb",
+            "Value": {
+                "id": "3bcf3888-ba64-4fdf-88b0-d32bdd42e1fe",
+                "resourcePath": "sprites\\spr_enemy_unfairy_unarmed_attack_1_2\\spr_enemy_unfairy_unarmed_attack_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1236,6 +1252,14 @@
                 "id": "c08e6478-8eb4-4dc0-bbec-af64ffa05d56",
                 "resourcePath": "views\\95becabe-231d-446f-9588-dbc6b771102d.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "95eac100-68c1-438e-8224-388375a5b2c7",
+            "Value": {
+                "id": "362600dc-79a2-4494-9a36-f0fb5df7e6ca",
+                "resourcePath": "sprites\\spr_enemy_unfairy_unarmed_prep_1_1\\spr_enemy_unfairy_unarmed_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1355,6 +1379,14 @@
             "Value": {
                 "id": "6ede9aa8-a44c-49ae-bc33-0e416ca6150d",
                 "resourcePath": "views\\a5ee90e2-bf80-4016-9099-e97b50ffaeb9.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a669f5f2-1a31-4f63-beaf-62c345b562bd",
+            "Value": {
+                "id": "cf3b2b6a-a0ce-4f7c-9f99-a607d748a093",
+                "resourcePath": "views\\a669f5f2-1a31-4f63-beaf-62c345b562bd.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -1586,7 +1618,7 @@
             "Key": "bd77900c-9045-4695-9b26-5daf87540007",
             "Value": {
                 "id": "beb276a7-81a9-44fc-8f49-c20abb65f156",
-                "resourcePath": "sprites\\spr_enemy_dummy_dodge\\spr_enemy_dummy_dodge.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dodge\\spr_enemy_unfairy_dodge.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1738,7 +1770,7 @@
             "Key": "cb2bbbcb-124b-4845-95ed-1d0b674f5d61",
             "Value": {
                 "id": "4ac9ab6c-7c09-469f-8d3e-7c5fe791e21c",
-                "resourcePath": "sprites\\spr_enemy_dummy\\spr_enemy_dummy.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy\\spr_enemy_unfairy.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1746,7 +1778,7 @@
             "Key": "cc3398c7-bc7d-4eb2-bb57-5fe3cd50f37c",
             "Value": {
                 "id": "77d54ba8-a729-4dc8-9fdf-6337ccaccd31",
-                "resourcePath": "sprites\\spr_enemy_dummy_unarmed\\spr_enemy_dummy_unarmed.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed\\spr_enemy_unfairy_limb_unarmed.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1874,7 +1906,7 @@
             "Key": "d9839e1f-d8df-4ada-8f84-817f23acc6a9",
             "Value": {
                 "id": "1b9efb50-a4c0-407f-b5d6-327b814c5f48",
-                "resourcePath": "sprites\\spr_enemy_dummy_shortbow_prep_1_1\\spr_enemy_dummy_shortbow_prep_1_1.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_prep_1_1\\spr_enemy_unfairy_shortbow_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1994,7 +2026,7 @@
             "Key": "eca751e0-2ff7-4e6b-a791-f9e311021bdf",
             "Value": {
                 "id": "5d530be4-add4-4838-a009-cdbcc7c33e75",
-                "resourcePath": "sprites\\spr_enemy_dummy_stagger\\spr_enemy_dummy_stagger.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_stagger\\spr_enemy_unfairy_stagger.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2036,14 +2068,6 @@
                 "id": "c0cf8a9d-cf35-473d-b684-22b62b1f83df",
                 "resourcePath": "scripts\\isItemEquipped\\isItemEquipped.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "f29e11a6-ac97-4485-9941-0304649d716f",
-            "Value": {
-                "id": "6a0fdf71-4a32-4a67-b316-35d559455399",
-                "resourcePath": "sprites\\spr_enemy_dummy_unarmed_attack_1_11\\spr_enemy_dummy_unarmed_attack_1_11.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -2111,10 +2135,10 @@
             }
         },
         {
-            "Key": "f776619f-ca62-465c-a352-d7d8bf6aa262",
+            "Key": "f75a8322-1990-4ad9-86a7-42d014cfbaac",
             "Value": {
-                "id": "7b51fa11-d9a7-4848-92e1-c924e5b1398f",
-                "resourcePath": "sprites\\spr_enemy_dummy_unarmed_recover_1_11\\spr_enemy_dummy_unarmed_recover_1_11.yy",
+                "id": "f7325b26-f019-4197-95f5-162a75a6475d",
+                "resourcePath": "sprites\\spr_enemy_unfairy_unarmed_attack_1_1\\spr_enemy_unfairy_unarmed_attack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2123,6 +2147,14 @@
             "Value": {
                 "id": "55e7260d-f547-4532-b14a-912a09566a67",
                 "resourcePath": "sprites\\spr_player_stagger\\spr_player_stagger.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f81ed455-f03e-418c-97d1-8ad2bc8d2b3e",
+            "Value": {
+                "id": "81eebd97-b776-45a6-9e03-4039870f0ce8",
+                "resourcePath": "sprites\\spr_enemy_unfairy_unarmed_recover_1_2\\spr_enemy_unfairy_unarmed_recover_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2154,7 +2186,7 @@
             "Key": "fb0d7293-fdd4-4e11-897b-1b9b51e489fd",
             "Value": {
                 "id": "dcccb85b-b5f3-4807-b9ee-8489fd3fec52",
-                "resourcePath": "sprites\\spr_enemy_dummy_unarmed_recover_1_1\\spr_enemy_dummy_unarmed_recover_1_1.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_recover_1_1\\spr_enemy_unfairy_limb_unarmed_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },

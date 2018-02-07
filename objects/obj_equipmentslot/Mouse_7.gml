@@ -10,6 +10,12 @@ if global.ui.grabbedItem {
 							slot == EquipmentSlots.RightHand1 || slot == EquipmentSlots.RightHand2);
 	// TODO add more predicates to determine dropped item can go in this slot (for Rings and Head)
 	if handItemPredicate {		
+		
+		// if this item was equipped anywhere else, unequip it from that slot
+		if droppedItem.equipmentSlot != noone {
+			unequipItem(droppedItem);
+		}
+		
 		var actualSlot = slot;
 		// I. unequip anything that will be replaced by this dropped item
 		

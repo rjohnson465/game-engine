@@ -3,7 +3,7 @@ var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
 if !isMouseInMenu {
 
-	if rightHandItem.type == HandItemTypes.Ranged && rightHandItem.isTwoHanded {
+	if rightHandItem.subType == HandItemTypes.Ranged && rightHandItem.isTwoHanded {
 		isReadyToFire = false;
 		ds_map_delete(preparingLimbs,"r");
 		ds_map_replace(prepFrames,"r",-1);
@@ -20,7 +20,7 @@ if !isMouseInMenu {
 			// if recovering left hand weapon or if left hand not in use at all
 			var isRightHandInUse = 
 				ds_map_find_value(preparingLimbs,"r") != undefined 
-				//|| ds_map_find_value(recoveringLimbs,"r") != undefined 
+				|| ds_map_find_value(recoveringLimbs,"r") != undefined 
 				|| ds_map_find_value(attackingLimbs,"r") != undefined;
 			
 			// idea: have a will attack again map <handSide><boolean> kvp's -- in Step event, at end of recover,

@@ -4,7 +4,7 @@ var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 if !isMouseInMenu {
 
 	// if using a 2h ranged weapon, holding right allows for aiming
-	if rightHandItem.type == HandItemTypes.Ranged && rightHandItem.isTwoHanded {
+	if rightHandItem.subType == HandItemTypes.Ranged && rightHandItem.isTwoHanded {
 		if	ds_map_find_value(recoverFrames,"r") == ds_map_find_value(recoverFrameTotals,"r")
 			|| ds_map_find_value(recoveringLimbs,"r") == undefined
 			{

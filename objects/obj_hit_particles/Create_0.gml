@@ -45,15 +45,16 @@ switch type {
 		part_type_shape(spark, pt_shape_spark);
 		part_type_color2(spark,c_yellow,c_white);
 		part_type_orientation(spark,0,0,0,15,1);
-		part_type_size(spark,0,0.25,0,0);
-		part_type_speed(spark,2,3,0,0);
+		part_type_size(spark,0,0.15,0,0);
+		part_type_speed(spark,8,9,0,0);
+		particleDirection = (particleDirection+180)%360;
 		var minDir = particleDirection - 45;
 		if minDir < 0 {
 			minDir = 360+minDir;
 		}
 		var maxDir = (particleDirection + 45)%360;
 		part_type_direction(spark,minDir,maxDir,0,4);
-		part_type_life(spark,10,20);
+		part_type_life(spark,5,15);
 		particle = spark;
 		break;
 	}

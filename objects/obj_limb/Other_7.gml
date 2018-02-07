@@ -10,4 +10,3 @@ else if ds_map_find_value(owner.recoveringLimbs,limbKey) > 0 {
 } else {
 	sprite_index = asset_get_index(spriteString);
 }
-

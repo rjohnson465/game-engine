@@ -4,9 +4,7 @@ for (var i = 0; i < ds_list_size(combatantsHit); i++) {
 	ds_list_delete(combatantHitWithThisAttack.beenHitWith, ds_list_find_index(combatantHitWithThisAttack.beenHitWith,id));
 }
 
-//if weapon && weapon.type == HandItemTypes.Melee {
 if isMelee {	
-	//var s = "spr_"+owner.spriteString+attackItemSprite+"_recover_"+string(attackNumber);
 	
 	// make player attack again immediately at the end of an attack if attacking again 
 	// only if another attack exists in chain

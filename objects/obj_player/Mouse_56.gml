@@ -3,14 +3,14 @@ var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
 if !isMouseInMenu {
 	if  !rightHandItem.isTwoHanded
-		&& leftHandItem.type != HandItemTypes.Shield
+		&& leftHandItem.subType != HandItemTypes.Shield
 		&& stamina > 0 
-		&& (state != CombatantStates.Dodging && state == CombatantStates.Staggering)
-		&& !isPhasing {
+		&& (state != CombatantStates.Dodging && state != CombatantStates.Staggering)
+		{
 			// if recovering left hand weapon or if left hand not in use at all
 			var isLeftHandInUse = 
 				ds_map_find_value(preparingLimbs,"l") != undefined 
-				//|| ds_map_find_value(recoveringLimbs,"l") != undefined 
+				|| ds_map_find_value(recoveringLimbs,"l") != undefined 
 				|| ds_map_find_value(attackingLimbs,"l") != undefined;
 			
 			// idea: have a will attack again map <limb><boolean> kvp's -- in Step event, at end of recover,
@@ -23,7 +23,7 @@ if !isMouseInMenu {
 			state = CombatantStates.Attacking;
 	}
 	// shields can only be in left hand
-	else if leftHandItem && leftHandItem.type == HandItemTypes.Shield {
+	else if leftHandItem && leftHandItem.subType == HandItemTypes.Shield {
 		isShielding = false;
 	}
 }

@@ -85,8 +85,8 @@ else {
 		
 		weapon = ds_map_find_value(owner.equippedLimbItems,limbKey);
 		
-		isRanged = weapon.type == HandItemTypes.Ranged;
-		isMelee = weapon.type == HandItemTypes.Melee;
+		isRanged = weapon.subType == HandItemTypes.Ranged;
+		isMelee = weapon.subType == HandItemTypes.Melee;
 	}
 
 	if isMelee && owner.isSlowed {
