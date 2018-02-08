@@ -5,8 +5,13 @@ image_angle = owner.facingDirection;
 // switch weapon sprite
 if limbItem != limb.limbItem {
 	limbItem = limb.limbItem;
-	spriteString = "spr_"+owner.spriteString+"_"+limb.limbItem.spriteName;
-	sprite_index = asset_get_index(spriteString);
+	if owner.type == CombatantTypes.Player {
+		spriteString = "spr_"+owner.spriteString+"_"+limb.limbItem.spriteName;
+		sprite_index = asset_get_index(spriteString);
+	} else {
+		spriteString = "spr_"+owner.spriteString+"_"+limb.limbItem.spriteName;
+		sprite_index = asset_get_index(spriteString);
+	}
 	
 	emitter = noone;
 	system = noone;
@@ -65,7 +70,28 @@ if	ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 &&
 	ds_map_find_value(owner.prepFrames,limbKey) <= ds_map_find_value(owner.prepFrameTotals,limbKey) &&
 	ds_map_find_value(owner.recoverFrames,limbKey) == -1 {
 		
-	var attackNumber = ds_map_find_value(owner.preparingLimbs,limbKey);
+	var attackNumber = noone;
+	if owner.type == CombatantTypes.Player {
+		attackNumber = ds_map_find_value(owner.preparingLimbs,limbKey);
+	} else {
+		attackNumber = owner.currentMeleeAttack != noone? owner.currentMeleeAttack : owner.currentRangedAttack;
+	}
+	
 	image_index = ds_map_find_value(owner.prepFrames,limbKey);
-	sprite_index = asset_get_index(spriteString+"_prep_"+string(attackNumber));
+	
+	if owner.type == CombatantTypes.Player {
+		sprite_index = asset_get_index(spriteString+"_prep_"+string(attackNumber));
+	} else {		
+		var attackChainsArray = owner.currentMeleeAttack != noone? owner.meleeAttacks : owner.rangedAttacks;
+		var attackChainArray = attackChainsArray[attackNumber-1];
+		var attackNumberInChain = ds_map_find_value(owner.preparingLimbs,limbKey);
+		var attackData = attackChainArray[attackNumberInChain-1];
+		
+		var spriteAttackNumber = attackData.spriteAttackNumber;
+		var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
+		
+		sprite_index = asset_get_index(spriteString+"_prep_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
+	}
+} else if limbItem.subType == HandItemTypes.Ranged && limbItem.isTwoHanded {
+	sprite_index = asset_get_index(spriteString);
 }

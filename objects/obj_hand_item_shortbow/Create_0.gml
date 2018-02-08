@@ -4,6 +4,8 @@ name = "Shortbow";
 spriteName = "shortbow";
 itemSprite = spr_item_shortbow;
 
+weaponType = WeaponTypes.Bow;
+
 weaponSpeed = "Medium";
 
 projectileSpeed = 25;

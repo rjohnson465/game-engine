@@ -5,17 +5,16 @@
     "name": "39207408-f4a7-42f6-bea6-c63dcb4d63f9",
     "children": [
         "0a4176ec-a759-40b2-b0bc-1c71c885b048",
-        "8eea9780-99f2-4a2d-b14f-11e62900e138",
-        "d9839e1f-d8df-4ada-8f84-817f23acc6a9",
-        "44bb5134-9780-4928-a9dc-ede1906b563c",
-        "4581ba85-adb3-4489-933e-372e60183f92",
         "cc3398c7-bc7d-4eb2-bb57-5fe3cd50f37c",
         "7e2e6b6f-e4e3-4f1a-848a-37feb0614c5d",
         "5d2284ad-315f-4914-8818-50d0fbe4f835",
         "fb0d7293-fdd4-4e11-897b-1b9b51e489fd",
         "7ad686af-4647-4c71-ad6a-14a8a3b360f5",
         "225258bc-85de-48a0-b36b-cf90a3d26bf7",
-        "17dfc255-faba-4c79-80ed-1c7f659d3dcb"
+        "17dfc255-faba-4c79-80ed-1c7f659d3dcb",
+        "d7610202-6648-4002-9031-4371d5202a79",
+        "39d201b8-b327-49f0-94c3-a0ff1a48090b",
+        "099c72eb-4e0f-403d-bfee-4f8339f36de4"
     ],
     "filterType": "GMSprite",
     "folderName": "limbs",

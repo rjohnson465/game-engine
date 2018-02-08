@@ -55,11 +55,35 @@
             }
         },
         {
+            "Key": "0261bca1-be1a-4cba-8535-109e24841367",
+            "Value": {
+                "id": "0c49caa7-0fcf-448e-a049-d6fe0317286f",
+                "resourcePath": "views\\0261bca1-be1a-4cba-8535-109e24841367.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "0410721a-a2fc-42b6-9dd6-7de6b66d075e",
             "Value": {
                 "id": "9266d423-7dd5-42c0-b8e3-579b59fba26a",
                 "resourcePath": "views\\0410721a-a2fc-42b6-9dd6-7de6b66d075e.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "04409e0b-ffea-4000-a439-1f108cba2662",
+            "Value": {
+                "id": "3ca5f674-6c32-4672-877e-62f7ecfa759c",
+                "resourcePath": "objects\\obj_unarmed_parent\\obj_unarmed_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "05b82901-3e21-4c38-b9cc-78079337807e",
+            "Value": {
+                "id": "eea1d07b-9525-43dd-aa92-8d2169a68550",
+                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_recover_1_1\\spr_enemy_unfairy_shortbow_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -100,6 +124,14 @@
                 "id": "7be12187-d4a3-4441-91ed-b8474bf20ade",
                 "resourcePath": "views\\08f19571-a23d-4d18-8e4f-1e4276dce00e.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "099c72eb-4e0f-403d-bfee-4f8339f36de4",
+            "Value": {
+                "id": "4c9386f8-eb04-4a56-b7be-ac8264bd7572",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_shortbow_recover_1_1\\spr_enemy_unfairy_limb_shortbow_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -183,11 +215,35 @@
             }
         },
         {
+            "Key": "115ec47d-22d2-4ec3-87f9-3cfddaa49c7f",
+            "Value": {
+                "id": "e39d5955-6a29-40f3-8104-7e77f46c40c3",
+                "resourcePath": "sprites\\spr_player_hand_bow_prep_1\\spr_player_hand_bow_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "11d6bf1b-4dcf-4511-a9ce-c79d3214d266",
+            "Value": {
+                "id": "1cd006c1-3580-4dd4-96e3-06b8e1f0da14",
+                "resourcePath": "sprites\\spr_player_shortbow_attack_1\\spr_player_shortbow_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "12955a72-7dd4-4a6c-8b1e-bfce1ab9d880",
             "Value": {
                 "id": "48249954-57de-4ece-a12e-9da34f6163ab",
                 "resourcePath": "objects\\obj_hand_item_shield_parent\\obj_hand_item_shield_parent.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "12d6b4c0-5f5b-4d57-a6c7-7af786d5fa74",
+            "Value": {
+                "id": "b0eaa714-2ddc-450e-9bc9-96da435ad22d",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_shortbow\\spr_enemy_unfairy_limb_shortbow.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -455,11 +511,27 @@
             }
         },
         {
+            "Key": "33d7e887-b53c-471f-b1f4-5085ed0451b3",
+            "Value": {
+                "id": "255df568-bf88-4859-9e68-d68fb8e9b764",
+                "resourcePath": "sprites\\spr_player_shortbow22\\spr_player_shortbow22.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3568f6e8-9045-4d5e-a434-86936a18fefe",
             "Value": {
                 "id": "f0e5b83c-096d-4531-805c-caad58bb048f",
                 "resourcePath": "objects\\obj_goodguy_parent\\obj_goodguy_parent.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "36f2a18f-a3be-4359-9d54-35ebc445e172",
+            "Value": {
+                "id": "8b0b4278-df4d-45e2-a9b9-baf56b7d6ed1",
+                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_prep_1_1\\spr_enemy_unfairy_shortbow_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -511,6 +583,14 @@
             }
         },
         {
+            "Key": "39d201b8-b327-49f0-94c3-a0ff1a48090b",
+            "Value": {
+                "id": "a0ce9245-8bee-455a-a949-2f6276cc73c7",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_shortbow_attack_1_1\\spr_enemy_unfairy_limb_shortbow_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "39e22842-f2d7-4f77-a8aa-16d71c2efd62",
             "Value": {
                 "id": "3700f49a-7d53-4dad-b3cd-84935c322af2",
@@ -540,6 +620,14 @@
                 "id": "f6a4af86-661c-4344-8866-4a9b243a85ee",
                 "resourcePath": "sprites\\spr_filter_melee\\spr_filter_melee.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3d23dcb8-3be7-456e-a675-890dc368c13f",
+            "Value": {
+                "id": "be6aa185-a292-4586-905e-83e525c439c4",
+                "resourcePath": "objects\\obj_sword1h_parent\\obj_sword1h_parent.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -599,18 +687,10 @@
             }
         },
         {
-            "Key": "44bb5134-9780-4928-a9dc-ede1906b563c",
+            "Key": "459f8509-c010-4594-a1fc-9f14caac5be7",
             "Value": {
-                "id": "b396cca2-360c-4849-8de7-d663691a8123",
-                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_recover_1_1\\spr_enemy_unfairy_shortbow_recover_1_1.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "4581ba85-adb3-4489-933e-372e60183f92",
-            "Value": {
-                "id": "d6f20fc3-6c9e-48a1-8e87-766ef8edac2c",
-                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_attack_1_1\\spr_enemy_unfairy_shortbow_attack_1_1.yy",
+                "id": "19f4ba2a-696a-4751-b014-d8034ac0d8ff",
+                "resourcePath": "sprites\\spr_player_shortbow_prep_1\\spr_player_shortbow_prep_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -626,7 +706,7 @@
             "Key": "46b52980-c379-4b8a-b090-26eab88d8742",
             "Value": {
                 "id": "873d9867-be4c-46d9-a801-ce6aa379b607",
-                "resourcePath": "sprites\\spr_player_shortbow_attack_1\\spr_player_shortbow_attack_1.yy",
+                "resourcePath": "sprites\\spr_player_shortbow_attack_11\\spr_player_shortbow_attack_11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -687,6 +767,14 @@
             }
         },
         {
+            "Key": "4f84803a-84eb-4483-8efa-8a766e0ff21e",
+            "Value": {
+                "id": "0abdf8dd-7c4d-4d2f-bdbc-08411ac438e5",
+                "resourcePath": "sprites\\spr_player_shortbow\\spr_player_shortbow.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "51bfb0f8-cd04-4008-9404-4b2d9c5d2fa3",
             "Value": {
                 "id": "e241dadb-b295-4523-9376-34a75468efcb",
@@ -727,6 +815,14 @@
             }
         },
         {
+            "Key": "5c6981df-e7e6-4891-919e-e6948df8b3b2",
+            "Value": {
+                "id": "addb44e3-53b2-4031-9f92-df3fc5809ab7",
+                "resourcePath": "objects\\obj_bow_parent\\obj_bow_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "5d2284ad-315f-4914-8818-50d0fbe4f835",
             "Value": {
                 "id": "b5bb2f9c-a2a6-47e2-a329-d144c4846284",
@@ -759,10 +855,18 @@
             }
         },
         {
+            "Key": "60e715e3-4444-4bf6-ac55-0eef5f212b06",
+            "Value": {
+                "id": "89247c22-832a-4a31-97c4-d015b1a2d823",
+                "resourcePath": "sprites\\spr_player_hand_bow_attack_1\\spr_player_hand_bow_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "61870c55-7b90-48fd-bcac-106747183d8a",
             "Value": {
                 "id": "25ae8a01-70f7-4157-9f93-9ce7f7bb952b",
-                "resourcePath": "sprites\\spr_player_shortbow\\spr_player_shortbow.yy",
+                "resourcePath": "sprites\\spr_player_shortbow1\\spr_player_shortbow1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -874,7 +978,7 @@
             "Key": "67fd232f-a557-4fdd-a58a-68c10e0dee5e",
             "Value": {
                 "id": "74ed90dc-10f8-4827-b031-037e30f93f9f",
-                "resourcePath": "sprites\\spr_player_shortbow_recover_1\\spr_player_shortbow_recover_1.yy",
+                "resourcePath": "sprites\\spr_player_shortbow_recover_11\\spr_player_shortbow_recover_11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1023,6 +1127,14 @@
             }
         },
         {
+            "Key": "77956e9a-f20f-4cf1-b01f-bafa660fd3cb",
+            "Value": {
+                "id": "7c44fc74-bedb-4493-bd96-c94b3493f567",
+                "resourcePath": "sprites\\spr_player_shortbow_recover_1\\spr_player_shortbow_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
             "Value": {
                 "id": "c1d4a554-48cf-4c87-9187-33ba9d13086b",
@@ -1135,6 +1247,14 @@
             }
         },
         {
+            "Key": "849889f2-91c5-435f-8cea-c2578cc62a6a",
+            "Value": {
+                "id": "893173cc-070f-4343-a322-be9b3f7730d8",
+                "resourcePath": "views\\849889f2-91c5-435f-8cea-c2578cc62a6a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "88a3faa7-f272-4625-852c-2e17a2971fdf",
             "Value": {
                 "id": "2a20c6a8-508d-4ec4-b04b-e4dbbb22d20f",
@@ -1187,14 +1307,6 @@
             "Value": {
                 "id": "78532ff1-e95c-418b-9a21-06f1103771cf",
                 "resourcePath": "sprites\\spr_player_unarmed_prep_2\\spr_player_unarmed_prep_2.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "8eea9780-99f2-4a2d-b14f-11e62900e138",
-            "Value": {
-                "id": "d00ff725-fd41-452b-974e-a46df0574a5c",
-                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow\\spr_enemy_unfairy_shortbow.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1306,7 +1418,7 @@
             "Key": "995d61b0-31ff-4291-99e7-f1f14fa3dc8e",
             "Value": {
                 "id": "64f6a150-3cf4-4251-ae02-ed69aea629ef",
-                "resourcePath": "sprites\\spr_player_shortbow_prep_1\\spr_player_shortbow_prep_1.yy",
+                "resourcePath": "sprites\\spr_player_shortbow_prep_11\\spr_player_shortbow_prep_11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1380,6 +1492,14 @@
                 "id": "fbb9498c-d88f-4ecf-bfd3-ee1a39e8b359",
                 "resourcePath": "views\\a18a05b8-832c-4429-a35a-540e9b7f1fab.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a2a00b8f-d341-4da6-8881-f00adf3d8634",
+            "Value": {
+                "id": "6893a9ba-b550-45d7-b467-14ab800de14a",
+                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow\\spr_enemy_unfairy_shortbow.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1596,6 +1716,14 @@
                 "id": "f3686e75-f3ca-479f-9ebc-ca3de3054295",
                 "resourcePath": "objects\\obj_condition_bar\\obj_condition_bar.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "b9b2e81f-6ad8-49ab-a2a0-dd678b5c3b11",
+            "Value": {
+                "id": "1b6bd7de-1523-4d82-a154-7fff7bbc5417",
+                "resourcePath": "sprites\\spr_player_hand_bow\\spr_player_hand_bow.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1903,6 +2031,14 @@
             }
         },
         {
+            "Key": "d7610202-6648-4002-9031-4371d5202a79",
+            "Value": {
+                "id": "e7215a99-9974-42d0-b686-741a833d7196",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_shortbow_prep_1_1\\spr_enemy_unfairy_limb_shortbow_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d7993979-1109-4697-8ed9-3d7ec123f556",
             "Value": {
                 "id": "8cad7341-3e12-4773-b831-7d1a3be4cf01",
@@ -1915,14 +2051,6 @@
             "Value": {
                 "id": "4902e794-7701-47d4-9f15-ff772dc2fe82",
                 "resourcePath": "sprites\\spr_player_hand_unarmed_prep_1\\spr_player_hand_unarmed_prep_1.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "d9839e1f-d8df-4ada-8f84-817f23acc6a9",
-            "Value": {
-                "id": "1b9efb50-a4c0-407f-b5d6-327b814c5f48",
-                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_prep_1_1\\spr_enemy_unfairy_shortbow_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1940,6 +2068,14 @@
                 "id": "a7176987-b440-4cd4-9150-885b5dbeeef5",
                 "resourcePath": "views\\dc585519-2fc3-4998-bfd6-c631473cfe85.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "dcbd1aee-052a-4869-96eb-ab6ccfb954e7",
+            "Value": {
+                "id": "3a5f79c3-b6fe-4386-b5ef-fb134aeb3b02",
+                "resourcePath": "sprites\\spr_player_hand_bow_recover_1\\spr_player_hand_bow_recover_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2195,6 +2331,14 @@
             "Value": {
                 "id": "96198945-cb55-4506-b163-7fb8d5a71688",
                 "resourcePath": "sprites\\spr_player_longsword\\spr_player_longsword.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fa919d4a-b795-4d96-b686-27852f546029",
+            "Value": {
+                "id": "d9929d52-be27-4881-a77b-d8a4c9e1d0f2",
+                "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_attack_1_1\\spr_enemy_unfairy_shortbow_attack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },

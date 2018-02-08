@@ -34,7 +34,7 @@ stupidityFrame = 0;
 
 // general attacks info
 meleeAggroRange = 200;
-rangedAggroRange = noone;
+rangedAggroRange = 600;
 farthestAllowedFromPost = 1000;
 aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [5,15];
@@ -68,8 +68,8 @@ var meleeChain1 = [unarmedHook1,unarmedHook2,unarmedHook3];
 var meleeChain2 = [unarmedHook1,unarmedBackSlap];
 var meleeChain3 = [unarmedHook1,unarmedBackSlap,unarmedHook2];
 var meleeChain4 = [unarmedHook1,unarmedBackSlap,unarmedHook2,unarmedHook3];
-//meleeAttacks = [meleeChain1,meleeChain2,meleeChain3];
-meleeAttacks = [meleeChain1];
+meleeAttacks = [meleeChain1,meleeChain2,meleeChain3];
+//meleeAttacks = [meleeChain1];
 
 // ranged attacks info
 //rangedAttacksCount = 0; 
@@ -96,7 +96,7 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 20;
 
 // dodge stuff
-agility = 100; // 0 - 100% chance to try a dodge
+agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
 /*

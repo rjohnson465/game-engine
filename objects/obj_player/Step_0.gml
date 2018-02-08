@@ -309,7 +309,7 @@ switch(state) {
 				}
 				// if at the end of attack preparation, we need to create an attack object (slightly different process for ranged vs melee) 
 				else if prepFrame >= prepFrameTotal-1 {
-					if ( !(weapon.type == HandItemTypes.Ranged && rightHandItem.isTwoHanded)) {
+					if ( !(weapon.subType == HandItemTypes.Ranged && rightHandItem.isTwoHanded)) {
 						speed = 0;
 						ds_map_replace(prepFrames,hand,-1);
 						ds_map_replace(prepFrameTotals,hand,0);
@@ -331,7 +331,7 @@ switch(state) {
 					var x1 = x +lengthdir_x(-.5,facingDirection);
 					var y1 = y +lengthdir_y(-.5,facingDirection);
 		
-					if weapon.type == HandItemTypes.Melee && !place_meeting(x1, y1, obj_solid_parent){
+					if weapon.subType == HandItemTypes.Melee && !place_meeting(x1, y1, obj_solid_parent){
 						direction = facingDirection;
 						speed = -.5;
 					}

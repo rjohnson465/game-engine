@@ -277,12 +277,11 @@ if	state != CombatantStates.Dodging &&
 			var chanceToStagger = .15 + percentOfHp;
 			randomize();
 			var rand = random_range(0,1);
-			// TODO subtract rand by poise 
 			if rand < chanceToStagger {
 				staggerFrame = 0;
 				// stagger duration is 10 frames + damage% of of total hp frames
 				staggerDuration = 10 + (percentOfHp*100);
-				staggerDirection = assailant.facingDirection;
+				staggerDirection = (assailant.facingDirection+360)%360;
 				path_end();
 				state = CombatantStates.Staggering;
 			}
@@ -292,7 +291,7 @@ if	state != CombatantStates.Dodging &&
 				path_end();
 				isFlinching = true;
 				totalFlinchFrames = 5 + (.5*(percentOfHp*100)); 
-				flinchDirection = assailant.facingDirection;				
+				flinchDirection = (assailant.facingDirection+360)%360;				
 			}
 		}
 		

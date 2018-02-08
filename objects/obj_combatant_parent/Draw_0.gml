@@ -1,3 +1,5 @@
+//draw_path(path,x,y,true);
+
 // draw stagger sprite if staggering
 if state == CombatantStates.Staggering {
 	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,1,1,facingDirection,c_white,1);
