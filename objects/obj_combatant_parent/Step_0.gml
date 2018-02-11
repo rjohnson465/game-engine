@@ -257,6 +257,7 @@ for (var i = 0; i < size; i++){
 						poisonDamage = hp;
 					}
 					hp -= poisonDamage;
+					show_debug_message(hp);
 					
 					//if type != CombatantTypes.Player {
 						global.damageAmount = poisonDamage;
@@ -478,6 +479,9 @@ switch(state) {
 					// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) || wallsBetweenTarget != noone : 
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]);
+				if place_meeting(x,y,obj_solid_parent) {
+					move_towards_point(postX,postY,functionalSpeed);
+				}
 				if pred && !isFlinching {
 					if wallsBetweenTarget == noone {
 						//facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);

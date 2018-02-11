@@ -421,39 +421,6 @@ switch(state) {
 	}
 }
 
-// fountain interaction
-if distance_to_object(obj_fountain) < 20 && keyboard_check_released(ord("F")) {
-	var fountain = instance_nearest(x,y,obj_fountain);
-	
-	// activate fountain
-	if !fountain.isRunning {
-		with fountain {
-			isRunning = true;
-			sprite_index = asset_get_index("spr_fountain_filling");		
-		}
-		lastFountainRoom = room;
-		lastFountainX = fountain.x+100;
-		lastFountainY = fountain.y+100;
-	}
-	
-	// wish at fountain
-	else {
-		
-		with fountain {
-			randomize();
-			var x1 = x + random_range(-15,15);
-			var y1 = y + random_range(-15,15);
-
-			part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
-			part_emitter_burst(system,emitter,particle,num);
-		}
-		
-		hp = maxHp;
-		stamina = maxStamina;
-	}
-	
-}
-
 
 
 

@@ -8,8 +8,8 @@ if isShowingMenus {
 		var equippedItemSlot = equippedItem.equipmentSlot;
 		var slotObj = getEquipmentSlotObject(equippedItemSlot);
 		
-		equippedItem.x1 = slotObj.x;
-		equippedItem.y1 = slotObj.y;
+		equippedItem.x1 = slotObj.x1;
+		equippedItem.y1 = slotObj.y1;
 	}
 } 
 

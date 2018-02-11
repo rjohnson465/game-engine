@@ -132,13 +132,13 @@ if	state != CombatantStates.Dodging &&
 				}
 			}
 				
-			// elemental conditions applied?
-			// while being fair and respecting defenses???					
-			// NEW IDEA -- roll random and compare against defense
+			// elemental conditions applied?			
+			// roll random and compare against defense
 			if damageBase > 0 {
 				randomize();
 				var top = 1000;
-				var percentChance = .15;
+				//var percentChance = .15;
+				var percentChance = 1;
 				//percentChance = 0;
 				if spell != noone && spell.name == "magicmissile" {
 					// every misile has a 20/numProjectiles% chance
@@ -312,6 +312,10 @@ if	state != CombatantStates.Dodging &&
 			state = CombatantStates.Idle;
 		}
 		
+		// update enemy data for room persistence, if this combatant is an enemy
+		if enemyData != noone && type == CombatantTypes.Enemy {
+			enemyData.hp = hp;
+		}
 		
 	}
 }

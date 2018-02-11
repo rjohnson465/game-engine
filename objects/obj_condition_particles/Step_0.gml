@@ -1,3 +1,7 @@
+if owner.hp <= 0 {
+	instance_destroy(id);
+}
+
 var conditionLevel = 0;
 if condition == "Phase" {
 	conditionLevel = owner.isPhasing;

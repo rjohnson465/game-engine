@@ -82,12 +82,12 @@ var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
 
-hp = 1000;
-maxHp = 1000;
+hp = 100;
+maxHp = 100;
 
 stamina = 60;
 maxStamina = 60;
-staminaRegen = 10;
+staminaRegen = 7;
 
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
@@ -96,7 +96,7 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 20;
 
 // dodge stuff
-agility = 75; // 0 - 100% chance to try a dodge
+agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
 /*

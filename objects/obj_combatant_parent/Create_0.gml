@@ -254,3 +254,4 @@ instance_create_depth(x,y,1,obj_light_radius);
 
 __x = 0;
 __y = 0;
+enemyData = noone;

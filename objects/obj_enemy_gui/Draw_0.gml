@@ -1,4 +1,4 @@
-if owner.showHp && owner.isAlive {
+if owner.showHp {
 	
 	// totalhp bar outline
 	var hpOutlineLeftX = owner.x-(.5*owner.sprite_width);

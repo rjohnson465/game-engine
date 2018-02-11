@@ -59,8 +59,8 @@ if	ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 &&
 	sprite_index = asset_get_index(spriteString);
 }
 
-
+/*
 if owner.type != CombatantTypes.Player {
 	show_debug_message(sprite_get_name(sprite_index) + " | " + string(image_index));
-}
+}*/
 

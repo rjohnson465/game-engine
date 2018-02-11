@@ -14,6 +14,8 @@ light_create_caster_from_points(pointsx, pointsy);*/
 isRunning = false;
 isDoneFilling = false;
 
+fountainData = noone;
+
 lightRadius = 256;
 lightRadiusAlpha = .35;
 lightRadiusScale = .75;

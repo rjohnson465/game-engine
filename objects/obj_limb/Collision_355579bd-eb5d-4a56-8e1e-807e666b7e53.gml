@@ -316,6 +316,10 @@ with owner {
 				state = CombatantStates.Idle;
 			}
 		
+			// update enemy data for room persistence, if this combatant is an enemy
+			if enemyData != noone && type == CombatantTypes.Enemy {
+				enemyData.hp = hp;
+			}
 		
 		}
 	}
