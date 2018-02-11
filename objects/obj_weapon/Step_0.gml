@@ -1,4 +1,4 @@
-if owner.state == CombatantStates.Dodging {
+if owner.state == CombatantStates.Dodging || owner.isShielding {
 	visible = false;
 } else visible = true;
 
