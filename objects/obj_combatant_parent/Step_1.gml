@@ -3,6 +3,7 @@ if hp <= 0 {
 	isAlive = false;
 	speed = 0;
 	if type == CombatantTypes.Enemy {
+		isShowingLightRadius = false;
 		global.owner = id;
 		instance_create_depth(x,y,1,obj_enemy_dead);
 		x = -10;

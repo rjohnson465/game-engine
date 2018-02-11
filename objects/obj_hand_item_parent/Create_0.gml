@@ -20,7 +20,7 @@ enum WeaponTypes {
 	Crossbow
 }
 
-subType = "";
+subType = ""; // HandItemType
 weaponType = WeaponTypes.Sword1H;
 // Fast | Medium | Slow -- dependent on WeaponType
 weaponSpeed = "";
@@ -29,6 +29,8 @@ numberOfTargets = 1;
 staggersAgainstBlocks = true;
 charges = 0;
 totalCharges = 0;
+
+level = 1;
 
 // two handed weapons always held with "right hand" (on right side)
 isTwoHanded = false;

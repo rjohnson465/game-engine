@@ -42,6 +42,13 @@ itemDescriptionTopLeftY = topLeftY+30+eqHeight;
 itemDescriptionBottomRightX = topLeftX+width;
 itemDescriptionBottomRightY = MENUS_BOTTOMRIGHT_Y;
 
+itemDescriptionHandleHeight = 20;
+itemDescriptionCol1X = itemDescriptionTopLeftX;
+itemDescriptionCol2X = itemDescriptionTopLeftX+(.5*width);
+itemDescriptionColY = itemDescriptionTopLeftY+itemDescriptionHandleHeight;
+
+selectedItem = noone;
+
 
 headItemSlot = makeEquipmentSlot(EquipmentSlots.Head,headItemSlotX,headItemSlotY);
 

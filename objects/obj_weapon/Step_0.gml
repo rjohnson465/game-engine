@@ -1,3 +1,7 @@
+if owner.state == CombatantStates.Dodging {
+	visible = false;
+} else visible = true;
+
 x = limb.x;
 y = limb.y;
 image_angle = owner.facingDirection;
@@ -50,6 +54,22 @@ if limbItem != limb.limbItem {
 				case FIRE: {
 					c1 = c_orange;
 					c2 = c_red;
+					break;
+				}
+				case ICE: {
+					c1 = c_white;
+					c2 = c_aqua;
+					break;
+				}
+				case POISON: {
+					c1 = c_green;
+					c2 = c_olive;
+					break;
+				}
+				case LIGHTNING: {
+					c1 = c_blue;
+					c2 = c_white;
+					break;
 				}
 			}
 			part_type_color2(part,c1,c2);

@@ -110,10 +110,6 @@ for (var i = 0; i < 20; i++) {
 		else draw_sprite(spr_item_slot,1,x1,y1);
 		draw_sprite(item.itemSprite,1,x1,y1);
 	} 
-	if selectedItem == item {
-		selectedItemX = x1;
-		selectedItemY = y1;
-	}
 }
 			
 // selected item details box
@@ -122,7 +118,8 @@ draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBo
 			
 // show selected inventory item info
 if selectedItem {
-	draw_set_color(c_olive);
+	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,selectedItem);
+	/*draw_set_color(c_olive);
 	var descriptionHandleX2 = itemDescriptionTopLeftX+width
 	var descriptionHandleY2 = itemDescriptionTopLeftY+itemDescriptionHandleHeight;
 	draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,descriptionHandleX2,descriptionHandleY2,false);
@@ -205,7 +202,7 @@ if selectedItem {
 			}
 		}
 		
-	}
+	}*/
 } 
 
 

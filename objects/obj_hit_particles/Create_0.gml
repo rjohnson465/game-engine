@@ -7,7 +7,7 @@ randomize();
 var num = random_range(2,7); // maybe make this dependent on how hard the hit was?
 
 system = part_system_create();
-part_system_depth(system,-4);
+part_system_depth(system,0);
 emitter = part_emitter_create(system);
 particle = noone;
 

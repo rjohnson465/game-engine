@@ -18,12 +18,17 @@ item.equipmentSlot = slot;
 
 // set x1 and y1 values for newly equipped item
 var equipmentSlotObj = getEquipmentSlotObject(slot);
-item.x1 = equipmentSlotObj.x;
-item.y1 = equipmentSlotObj.y;
+item.x1 = equipmentSlotObj.x1;
+item.y1 = equipmentSlotObj.y1;
 
 // set equippedLimbItem if slot was LeftHand1 or RightHand1
 if slot == EquipmentSlots.LeftHand1 {
 	ds_map_replace(global.player.equippedLimbItems, "l", item);
 } else if slot == EquipmentSlots.RightHand1 {
 	ds_map_replace(global.player.equippedLimbItems, "r", item);
+}
+
+// if this was the inventory selected item, its not anymore
+if global.inventory.selectedItem == item {
+	global.inventory.selectedItem = noone;
 }

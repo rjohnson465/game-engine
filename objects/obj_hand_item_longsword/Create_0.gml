@@ -17,4 +17,4 @@ ds_map_set(damages,PHYSICAL,[10,20,10,20,25,30]);
 staminaCostArray=[10,10,20];
 physicalDamageTypeArray = ["slashing","slashing","piercing"];
 
-ds_map_replace(damages,FIRE,[5,10]);
+ds_map_replace(damages,POISON,[5,10]);

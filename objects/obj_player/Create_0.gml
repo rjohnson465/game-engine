@@ -40,15 +40,21 @@ enum EquipmentSlots {
 hasHands = true; 
 
 unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
+unarmed.persistent = true;
 
 equippedItems = ds_list_create();
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 ds_list_add(equippedItems,longsword);
 longsword.equipmentSlot = EquipmentSlots.RightHand1;
+longsword.persistent = true;
 ds_map_replace(equippedLimbItems,"r",longsword);
+var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
+ds_list_add(equippedItems,shortbow);
+shortbow.equipmentSlot = EquipmentSlots.RightHand2;
+shortbow.persistent = true;
 ds_map_replace(equippedLimbItems,"l",unarmed);
 ds_map_replace(equippedLimbItems,"l2",unarmed);
-ds_map_replace(equippedLimbItems,"r2",unarmed);
+ds_map_replace(equippedLimbItems,"r2",shortbow);
 
 var rightHand = makeLimb(id,"r");
 var leftHand = makeLimb(id,"l");
@@ -92,6 +98,11 @@ stamina = 500;
 maxStamina = 500;
 staminaRegen = 15; // per second
 
+// level stuff
+level = 1;
+xp = 500;
+xpToNextLevel = 1000;
+
 // list of enemy attack instances been hit with -- only get hit once / attack
 beenHitWith = ds_list_create();
 
@@ -124,3 +135,13 @@ ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 
+lastFountainRoom = noone;
+lastFountainX = noone;
+lastFountainY = noone;
+
+var playerId = id;
+with obj_light_radius {
+	if owner == playerId {
+		persistent = true;
+	}
+}

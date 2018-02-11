@@ -157,57 +157,59 @@ switch(state) {
 	}
 	case CombatantStates.Attacking: {
 		
-		speed = 0;
-		var canMove = false;
-		var usingSpeed = SHIFT ? functionalSpeed*2 : functionalSpeed;
-		if UP && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
-			direction = 45;
-		}
-		else if UP && LEFT && !place_meeting(x-usingSpeed, y-usingSpeed, obj_solid_parent) {
-			direction = 135;
-		}
-		else if DOWN && LEFT && !place_meeting(x-usingSpeed, y+usingSpeed, obj_solid_parent) {
-			direction = 225;
-		}
-		else if DOWN && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
-			direction = 315;
-		}
-		else if RIGHT && !place_meeting(x+usingSpeed, y, obj_solid_parent) {
-			direction = 0;
-		}
-		else if LEFT && !place_meeting(x-usingSpeed, y, obj_solid_parent) {
-			direction = 180;
-		}
-		else if UP && !place_meeting(x, y-usingSpeed, obj_solid_parent) {
-			direction = 90;
-		}
-		else if DOWN && !place_meeting(x, y+usingSpeed, obj_solid_parent) {
-			direction = 270;
-		}
-		
-		
-		var x1 = x +lengthdir_x(usingSpeed,direction);
-		var y1 = y +lengthdir_y(usingSpeed,direction);
-		canMove = !place_meeting(x1,y1,obj_solid_parent);
-
-		if !canMove {
+		if !isFlinching {
 			speed = 0;
-		}
 		
-		if (UP || DOWN || LEFT || RIGHT) && canMove {
-			// walking backwards is slow
-			dirDiff = abs(direction - facingDirection)
-			if dirDiff > 135 && dirDiff < 225  {
-				speed = .25*functionalSpeed;
+			var canMove = false;
+			var usingSpeed = SHIFT ? functionalSpeed*2 : functionalSpeed;
+			if UP && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
+				direction = 45;
+			}
+			else if UP && LEFT && !place_meeting(x-usingSpeed, y-usingSpeed, obj_solid_parent) {
+				direction = 135;
+			}
+			else if DOWN && LEFT && !place_meeting(x-usingSpeed, y+usingSpeed, obj_solid_parent) {
+				direction = 225;
+			}
+			else if DOWN && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
+				direction = 315;
+			}
+			else if RIGHT && !place_meeting(x+usingSpeed, y, obj_solid_parent) {
+				direction = 0;
+			}
+			else if LEFT && !place_meeting(x-usingSpeed, y, obj_solid_parent) {
+				direction = 180;
+			}
+			else if UP && !place_meeting(x, y-usingSpeed, obj_solid_parent) {
+				direction = 90;
+			}
+			else if DOWN && !place_meeting(x, y+usingSpeed, obj_solid_parent) {
+				direction = 270;
+			}
+		
+		
+			var x1 = x +lengthdir_x(usingSpeed,direction);
+			var y1 = y +lengthdir_y(usingSpeed,direction);
+			canMove = !place_meeting(x1,y1,obj_solid_parent);
+
+			if !canMove {
+				speed = 0;
+			}
+		
+			if (UP || DOWN || LEFT || RIGHT) && canMove {
+				// walking backwards is slow
+				dirDiff = abs(direction - facingDirection)
+				if dirDiff > 135 && dirDiff < 225  {
+					speed = .25*functionalSpeed;
+				}	
+				else speed = .5*functionalSpeed;
 			}	
-			else speed = .5*functionalSpeed;
-		}	
-		// run
-		if SHIFT && stamina > 0 && canMove {
-			speed = .5*(speed*1.25);
-			stamina -= .5;
+			// run
+			if SHIFT && stamina > 0 && canMove {
+				speed = .5*(speed*1.25);
+				stamina -= .5;
+			}
 		}
-		
 		
 		// check if spell attack
 		// spells are all 2h and thus use the "r" side (might change this later idk)
@@ -417,6 +419,39 @@ switch(state) {
 		}
 		break;
 	}
+}
+
+// fountain interaction
+if distance_to_object(obj_fountain) < 20 && keyboard_check_released(ord("F")) {
+	var fountain = instance_nearest(x,y,obj_fountain);
+	
+	// activate fountain
+	if !fountain.isRunning {
+		with fountain {
+			isRunning = true;
+			sprite_index = asset_get_index("spr_fountain_filling");		
+		}
+		lastFountainRoom = room;
+		lastFountainX = fountain.x+100;
+		lastFountainY = fountain.y+100;
+	}
+	
+	// wish at fountain
+	else {
+		
+		with fountain {
+			randomize();
+			var x1 = x + random_range(-15,15);
+			var y1 = y + random_range(-15,15);
+
+			part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
+			part_emitter_burst(system,emitter,particle,num);
+		}
+		
+		hp = maxHp;
+		stamina = maxStamina;
+	}
+	
 }
 
 

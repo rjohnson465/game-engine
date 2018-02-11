@@ -1,4 +1,4 @@
-
+draw_set_valign(fa_center);
 // hit points
 var x1 = 10;
 var y1 = 10;
@@ -63,22 +63,21 @@ if x2 < x1 {
 draw_set_color(c_green);
 draw_rectangle(x1,y1,x2,y2,false);
 
-// current equipped items / spells
+// xp
+var xpPercent = (global.player.xp / global.player.xpToNextLevel)*100;
+draw_healthbar(0,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpPercent,c_black,c_white,c_white,0,true,true);
 
-/*var leftHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand1);
-var leftHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand2);
-var rightHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand1);
-var rightHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2);*/
+// current equipped items / spells
 var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
 var leftHandItem2 = getItemInEquipmentSlot(EquipmentSlots.LeftHand2);
 var rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
 var rightHandItem2 = getItemInEquipmentSlot(EquipmentSlots.RightHand2);
 
 // left hand
-draw_sprite_ext(spr_item_slot,1,10,700,1,1,0,c_white,.5);
+draw_sprite_ext(spr_item_slot,1,10,698,1,1,0,c_white,.5);
 if leftHandItem.spriteName != "unarmed" {
 	var leftHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
-	draw_sprite(leftHandItemSprite,1,10,700);
+	draw_sprite(leftHandItemSprite,1,10,698);
 	if leftHandItem.totalCharges != 0 {
 		var s = string(leftHandItem.charges) + "/" + string(leftHandItem.totalCharges);
 		draw_set_color(c_white);
@@ -91,23 +90,23 @@ if leftHandItem.spriteName != "unarmed" {
 // two handed, show left hand with grayed out right hand equip
 if rightHandItem.isTwoHanded {
 	var leftHandItemSprite = asset_get_index("spr_item_"+rightHandItem.spriteName);
-	draw_sprite_ext(leftHandItemSprite,1,10,700,1,1,1,c_black,.75);
+	draw_sprite_ext(leftHandItemSprite,1,10,698,1,1,1,c_black,.75);
 }
 
 // middle button (spell)
-draw_sprite_ext(spr_item_slot,1,80,700,1,1,0,c_white,.5);
+draw_sprite_ext(spr_item_slot,1,80,698,1,1,0,c_white,.5);
 var spell = asset_get_index("spr_item_"+global.player.currentSpell+"_"+global.player.currentSpellAttunement);
 if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
-	draw_sprite(spell,1,80,700);
+	draw_sprite(spell,1,80,698);
 } else {
-	draw_sprite_ext(spell,1,80,700,1,1,0,c_gray,.75);
+	draw_sprite_ext(spell,1,80,698,1,1,0,c_gray,.75);
 }
 
 // right hand
-draw_sprite_ext(spr_item_slot,1,150,700,1,1,0,c_white,.5);
+draw_sprite_ext(spr_item_slot,1,150,698,1,1,0,c_white,.5);
 if rightHandItem.spriteName != "unarmed" {
 	var rightHandItemSprite = asset_get_index("spr_item_"+rightHandItem.spriteName);
-	draw_sprite(rightHandItemSprite,1,150,700);
+	draw_sprite(rightHandItemSprite,1,150,698);
 
 	if rightHandItem.totalCharges != 0 {
 		var s = string(rightHandItem.charges) + "/" + string(rightHandItem.totalCharges);
@@ -125,7 +124,7 @@ if rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0 {
 	instance_activate_object(obj_attunement);
 	
 	var init_x = 12; // changes on each iteration
-	global.y1 = 660; // used for attunement instance creation
+	global.y1 = 658; // used for attunement instance creation
 	for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 		var el = global.ALL_ELEMENTS[i];
 		var attunementSpriteIndex = asset_get_index("spr_attunement_"+el);
@@ -158,7 +157,7 @@ if isShowingMenus {
 	draw_set_halign(fa_center);
 	draw_set_font(font_main);
 	var s = currentMenu +  " (" +ds_map_find_value(menuHotKeys,currentMenu) + ")";
-	draw_text((MENUS_BOTTOMRIGHT_X+MENUS_TOPLEFT_X)/2,((MENUS_TOPLEFT_Y+menusHandleHeight)+MENUS_TOPLEFT_Y)/2.15,s);
+	draw_text((MENUS_BOTTOMRIGHT_X+MENUS_TOPLEFT_X)/2,((MENUS_TOPLEFT_Y+menusHandleHeight)+MENUS_TOPLEFT_Y)/2,s);
 	var closeButtonWidth = sprite_get_width(spr_close_button);
 	draw_sprite(spr_close_button,1,MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y);
 	
@@ -177,7 +176,7 @@ if isShowingMenus {
 			draw_set_color(c_ltgray);
 			draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,true);
 		}
-		draw_text((x1+(x1+tabWidth))/2,((yy+menuTabsHeight)+yy)/2.15,el);
+		draw_text((x1+(x1+tabWidth))/2,((yy+menuTabsHeight)+yy)/2,el);
 	}
 
 	

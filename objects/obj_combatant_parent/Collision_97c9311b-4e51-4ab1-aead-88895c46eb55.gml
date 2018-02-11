@@ -1,3 +1,5 @@
+//exit;
+
 // if enemy or ally, seek retribution (even if out of normal range)
 if	(type == CombatantTypes.Enemy || type == CombatantTypes.Ally) 
 	&& state == CombatantStates.Idle
@@ -13,8 +15,6 @@ if	state != CombatantStates.Dodging &&
 	|| type == CombatantTypes.Enemy && other.owner.type == CombatantTypes.Player) 
 	&& other.id != id
 {
-	
-	if isPhasing exit;
 	
 	// if combatant has not been hit with this instance before (only get hit with an attack once)
 	if ds_list_find_index(beenHitWith,other.id) == -1 {

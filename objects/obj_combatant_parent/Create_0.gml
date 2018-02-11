@@ -16,10 +16,11 @@ floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
 isAlive = true;
 
 lightRadius = 256;
-lightRadiusAlpha = .25;
+lightRadiusAlpha = .5;
 lightRadiusScale = 1;
 lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
+isShowingLightRadius = true;
 
 idleFrame = 0;
 
@@ -248,4 +249,8 @@ poisonDamage = 0;
 
 // light radius
 global.owner = id;
+global.makeLightOnCreate = false;
 instance_create_depth(x,y,1,obj_light_radius);
+
+__x = 0;
+__y = 0;

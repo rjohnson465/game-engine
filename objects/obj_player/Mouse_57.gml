@@ -4,11 +4,17 @@ var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 if !isMouseInMenu {
 
 	if rightHandItem.subType == HandItemTypes.Ranged && rightHandItem.isTwoHanded {
-		isReadyToFire = false;
+		
 		ds_map_delete(preparingLimbs,"r");
 		ds_map_replace(prepFrames,"r",-1);
 		ds_map_replace(prepFrameTotals,"r",0);
 		ds_map_delete(attackingLimbs,"r");
+		
+		/*if isReadyToFire {
+			ds_map_replace(recoveringLimbs,"r",1);
+			ds_map_replace(recoverFrames,"r",-1);
+		}*/
+		isReadyToFire = false;
 		ds_map_delete(recoveringLimbs,"r");
 		state = CombatantStates.Idle;
 	}

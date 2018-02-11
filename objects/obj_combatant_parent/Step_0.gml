@@ -288,8 +288,6 @@ for (var i = 0; i < size; i++){
 switch(state) {
 	case CombatantStates.Idle: {
 		
-		show_debug_message("Idle");
-		
 		// player overrides this
 		if type != CombatantTypes.Player {
 			
@@ -472,7 +470,7 @@ switch(state) {
 				if maybeDodge() {
 					break;
 				}
-				var p = path_add();
+				
 				// move to lockOnTarget until in range for chosen attack
 				var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 				// TODO -- maybe move away from lockOnTarget if a rangedAttack has a minRange
@@ -488,35 +486,19 @@ switch(state) {
 					}
 			
 					// calculate path to lockOnTarget and move to it
-					//mp_grid_path(personalGrid, path, x,y, lockOnTarget.x,lockOnTarget.y,true);
-					//if distance_to_object(obj_solid_parent) > functionalSpeed {
-						//path_end();
-						//show_debug_message("finding path");
-						
-						mp_potential_path_object(p,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,obj_solid_parent);
-						//mp_potential_step_object(lockOnTarget.x,lockOnTarget.y,functionalSpeed,obj_solid_parent);
-						//move_towards_point(lockOnTarget.x,lockOnTarget.y,functionalSpeed);
-						//show_debug_message(path_get_length(path));
-						
-						//show_debug_message(p);
-						//if p {
-							path_start(p,functionalSpeed,path_action_stop,true);
-							//show_debug_message("path time started");
-						//}
-					//} else {
-						//path_delete(path);
-					//	move_towards_point(postX,postY,functionalSpeed);
-					//}
+					if !place_meeting(x,y,obj_solid_parent) {
+						mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,obj_solid_parent);
+						path_start(path,functionalSpeed,path_action_stop,true);
+					} else {
+						move_towards_point(postX,postY,functionalSpeed);
+					}
 					
-
 					break;
 
 				}
 				// within range for attack
 				else {
 					path_end();
-					path_delete(p);
-					
 					stupidityFrame = 100 - aggressiveness;
 					
 					if attackFrequencyFrame == -1 {
@@ -602,8 +584,6 @@ switch(state) {
 	}
 	case CombatantStates.Attacking: {
 		
-		show_debug_message("Attacking");
-		
 		// THIS IS ONLY FOR ENEMY / ALLY
 		// figure out what attack to perform / what number in chain
 		if type != CombatantTypes.Player {
@@ -611,7 +591,6 @@ switch(state) {
 			var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
 			var isRanged = currentRangedAttack != noone;
 			
-			show_debug_message("1");
 			// get previous attacking limb
 			if attackNumberInChain == noone && !isRanged && hasHands {
 				var attackChain = meleeAttacks[attackNumber-1];
@@ -639,11 +618,10 @@ switch(state) {
 			if !isRanged && ds_map_size(preparingLimbs) !=0 {
 				// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
 				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] {
-					//mp_potential_step_object(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,obj_solid_parent);
+					mp_potential_step_object(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,obj_solid_parent);
 				}
 			}
-		
-			show_debug_message("2");
+
 			// if idle or recovering, attack or perform next attack in chain (if aggressiveness allows)
 			// TODO refactor this to support combatants without conventional l/r hands
 			if attackNumberInChain == noone || ds_map_find_value(recoveringLimbs,prevAttackLimb) == attackNumberInChain {
@@ -684,6 +662,7 @@ switch(state) {
 				// attack logic
 				if willAttack && stamina > 0 {
 					var limbKey = "r";
+					// TODO this is no good for ranged attacks -- use rangedAttacks array too
 					var a = meleeAttacks[attackNumber-1];
 					var attackData = a[attackNumberInChain - 1];
 					if hasHands && !isRanged {
@@ -732,8 +711,7 @@ switch(state) {
 					}
 				} 
 			} 
-			
-			show_debug_message("3");
+
 			// iterate over the preparing limbs to see if an attack should fire
 			// TODO what about non humanoid attackers or attacks that do not use limbs?
 			var currentPreparingLimbKey = ds_map_find_first(preparingLimbs); // limbKey
@@ -777,8 +755,7 @@ switch(state) {
 			}
 			
 			// attack animation frame logic shit is in obj_attack
-			
-			show_debug_message("4");
+
 			// iterate over the recover frames for all limbs to see if an attack is ended
 			if ds_map_size(recoveringLimbs) != 0 {
 				var currentRecoveringLimbKey = ds_map_find_first(recoveringLimbs);
@@ -815,8 +792,7 @@ switch(state) {
 					currentRecoveringLimbKey = ds_map_find_next(recoveringLimbs,currentRecoveringLimbKey);
 				}
 			}
-			
-			show_debug_message("5");
+
 			// get out of attack sequence
 			if ds_map_size(preparingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 && ds_map_size(attackingLimbs) == 0 {
 				currentMeleeAttack = noone;
@@ -1055,7 +1031,7 @@ switch(state) {
 			speed = 0;
 			staggerSpeed = noone;
 			
-			/*if type != CombatantTypes.Player {
+			if type != CombatantTypes.Player {
 				// possibly become wary (less chance after stagger than dodging)
 				randomize();
 				var rand = random_range(0,100);
@@ -1064,16 +1040,19 @@ switch(state) {
 					waryFrame = round(random_range(waryTotalFrames[0],waryTotalFrames[1]));
 					waryDistance = round(random_range(waryDistanceRange[0],waryDistanceRange[1]));
 					hasReachedWaryDistance = false;
-					if leftHandItem.type == HandItemTypes.Shield {
-						isShielding = true;
-						global.owner = id;
-						instance_create_depth(x,y,1,obj_shield_block);
+					if ds_map_find_value(equippedLimbItems,"l") {
+						var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
+						if leftHandItem.subType == HandItemTypes.Shield {
+							isShielding = true;
+							global.owner = id;
+							instance_create_depth(x,y,1,obj_shield_block);
+						}
 					}
 					shieldingFrame = 0;
 					state = CombatantStates.Wary;
 					break;
 				}
-			}*/
+			}
 			state = CombatantStates.Idle;
 			
 		}
