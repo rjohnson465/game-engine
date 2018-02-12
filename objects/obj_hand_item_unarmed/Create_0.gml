@@ -4,6 +4,7 @@ name = "Unarmed";
 spriteName = "unarmed";
 
 range = 20;
+weight = 0;
 
 staggerDuration = 15; // frames
 staminaCostArray=[5,10];

@@ -311,6 +311,14 @@
             }
         },
         {
+            "Key": "16568123-5957-4757-92be-a766ccac59ff",
+            "Value": {
+                "id": "2df231bf-4ff9-444d-81ee-05e947c60c14",
+                "resourcePath": "scripts\\isSelectorAtLastInventoryColumn\\isSelectorAtLastInventoryColumn.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "17c967c0-d0c8-44c9-8207-2622a5ce9f87",
             "Value": {
                 "id": "b2221d82-79b6-4457-b499-74fe1b535ed6",
@@ -324,6 +332,14 @@
                 "id": "403c69cc-9651-464d-8a29-c7cfa8ae14ed",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_recover_1_2\\spr_enemy_unfairy_limb_unarmed_recover_1_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "187d3c49-dd60-4c42-8f9c-51dbf74ddea2",
+            "Value": {
+                "id": "87a3df6a-592d-4430-9234-ce8cce7e2804",
+                "resourcePath": "scripts\\drawEquipmentSlot\\drawEquipmentSlot.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -499,6 +515,14 @@
             "Value": {
                 "id": "03ebb68f-7f14-48b1-b33d-2e9c117bc3fc",
                 "resourcePath": "scripts\\unequipItem\\unequipItem.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "2d92b7aa-fb04-470e-9ab7-8e555cf4905f",
+            "Value": {
+                "id": "416e54c5-7064-4e97-a487-c4a169ee95c6",
+                "resourcePath": "scripts\\isSelectorInInventory\\isSelectorInInventory.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -815,6 +839,14 @@
             }
         },
         {
+            "Key": "4f5eab05-7fd0-42fd-b5e9-859961121a3b",
+            "Value": {
+                "id": "12767f06-01e2-47fd-91c2-4396983577c9",
+                "resourcePath": "views\\4f5eab05-7fd0-42fd-b5e9-859961121a3b.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "4f84803a-84eb-4483-8efa-8a766e0ff21e",
             "Value": {
                 "id": "0abdf8dd-7c4d-4d2f-bdbc-08411ac438e5",
@@ -1127,6 +1159,14 @@
             }
         },
         {
+            "Key": "6f6876cd-2dce-43e4-b9eb-54395b8869d1",
+            "Value": {
+                "id": "52ef1cd8-f557-499e-ba70-a814e4dea23c",
+                "resourcePath": "objects\\obj_item_selector\\obj_item_selector.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7074320d-2ed1-4974-b643-16b764a23171",
             "Value": {
                 "id": "2cbb5b75-b491-4566-87ff-84853615217b",
@@ -1383,6 +1423,14 @@
             }
         },
         {
+            "Key": "8ca404ab-285a-4da0-9506-1dad0ef525e7",
+            "Value": {
+                "id": "7806a3a5-f3e7-4991-bda1-1b9684a0c18a",
+                "resourcePath": "scripts\\moveSelectorInEquippedItemsHelper\\moveSelectorInEquippedItemsHelper.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "8ce3d4c4-e564-4800-8916-b00e4b244550",
             "Value": {
                 "id": "4821644a-4f7c-4a82-91f8-0a622408081d",
@@ -1524,6 +1572,14 @@
                 "id": "c153257b-ed8c-4bd3-ab35-d74ced5f4d51",
                 "resourcePath": "views\\9a852e4d-43e0-47a1-a2bf-00a3022cdfc8.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "9bd32a79-2503-44b5-a00f-a63b87284907",
+            "Value": {
+                "id": "bc6d8a22-1320-462e-8ea1-3d77607262d7",
+                "resourcePath": "scripts\\isSelectorAtFirstInventoryColumn\\isSelectorAtFirstInventoryColumn.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1735,6 +1791,14 @@
             }
         },
         {
+            "Key": "ae5c63ed-aadd-4d83-8607-5a85ce922455",
+            "Value": {
+                "id": "3cbb2573-d2f1-4ff6-8f5c-745cb6dc025b",
+                "resourcePath": "scripts\\isSelectorInEquippedItems\\isSelectorInEquippedItems.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "af4faec1-d8c4-4e8c-a879-6cd5e3540170",
             "Value": {
                 "id": "4f764e18-2ae9-4148-8e82-f70c4d9cddc7",
@@ -1827,6 +1891,14 @@
             "Value": {
                 "id": "62398c2c-7fab-4918-b85f-b19dafb00849",
                 "resourcePath": "scripts\\getItemInEquipmentSlot\\getItemInEquipmentSlot.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "b876bddf-c38a-44ab-bca5-d50240d22cea",
+            "Value": {
+                "id": "05d58eba-46c8-47df-984c-c1905de20925",
+                "resourcePath": "scripts\\getItemAtSelectorPosition\\getItemAtSelectorPosition.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -2303,6 +2375,14 @@
             }
         },
         {
+            "Key": "edacf328-7cc7-454e-9cda-be7b920592df",
+            "Value": {
+                "id": "ff9f49fd-7c08-4a62-a361-32ccc2692499",
+                "resourcePath": "scripts\\moveSelectorInEquippedItems\\moveSelectorInEquippedItems.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ee793b6c-17ef-400f-b772-2dc01cc54334",
             "Value": {
                 "id": "f413c38f-09b4-45b8-a2f3-3761e1a3c322",
@@ -2552,6 +2632,14 @@
         "647a77fa-c761-4821-b235-45ed34677ddb",
         "65e9bda3-e73b-4e5d-a4b0-eb73179ff7fe",
         "3b0962d3-6c78-45da-9736-65a842e5320e",
+        "9bd32a79-2503-44b5-a00f-a63b87284907",
+        "16568123-5957-4757-92be-a766ccac59ff",
+        "b876bddf-c38a-44ab-bca5-d50240d22cea",
+        "2d92b7aa-fb04-470e-9ab7-8e555cf4905f",
+        "ae5c63ed-aadd-4d83-8607-5a85ce922455",
+        "edacf328-7cc7-454e-9cda-be7b920592df",
+        "8ca404ab-285a-4da0-9506-1dad0ef525e7",
+        "187d3c49-dd60-4c42-8f9c-51dbf74ddea2",
         "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
         "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
         "00feb608-5eda-4896-afe4-aa97abfda795",

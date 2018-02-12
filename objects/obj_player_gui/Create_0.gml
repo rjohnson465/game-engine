@@ -88,7 +88,6 @@ instance_deactivate_object(obj_attunement);
 grabbedItem = noone;
 
 
-
 // inventory
 instance_create_depth(x,y,-1001,obj_inventory);
 
@@ -97,3 +96,25 @@ instance_create_depth(x,y,-1001,obj_equipped_items_manager);
 
 // combos
 instance_create_depth(x,y,-100,obj_combo_manager);
+
+// selected equipment slot
+selectedEquipmentSlot = noone;
+
+// selected inventory slot
+selectedInventorySlot = noone;
+
+enum SelectorTypes {
+	Select,
+	Equip,
+	Imbue
+}
+
+// item selector
+global.selectorType = SelectorTypes.Select;
+moveSelector = instance_create_depth(x,y,1,obj_item_selector);
+
+global.selectorType = SelectorTypes.Equip;
+equipSelector = instance_create_depth(x,y,1,obj_item_selector);
+
+global.selectorType = SelectorTypes.Imbue;
+imbueSelector = instance_create_depth(x,y,1,obj_item_selector);

@@ -8,10 +8,10 @@ var rightHandItem2 = getItemInEquipmentSlot(EquipmentSlots.RightHand2);
 // equipped items header
 			
 // head slot
-draw_sprite(spr_item_slot,1,headItemSlotX,headItemSlotY);
+drawEquipmentSlot(headItemSlotX, headItemSlotY);
 
 // left hand 1
-draw_sprite(spr_item_slot,1,leftHandItem1SlotX,leftHandItem2SlotY);
+drawEquipmentSlot(leftHandItem1SlotX,leftHandItem1SlotY);
 if leftHandItem != global.player.unarmed {
 	draw_sprite(leftHandItem.itemSprite,1,leftHandItem1SlotX,leftHandItem2SlotY);
 }
@@ -22,19 +22,19 @@ draw_set_color(c_white);
 
 
 // right hand 1
-draw_sprite(spr_item_slot,1,rightHandItem1SlotX,rightHandItem1SlotY);
+drawEquipmentSlot(rightHandItem1SlotX,rightHandItem1SlotY);
 if rightHandItem != global.player.unarmed {
 	draw_sprite(rightHandItem.itemSprite,1,rightHandItem1SlotX,rightHandItem1SlotY);
 }
 draw_text(rightHandItem1SlotX,leftHandItem2SlotY-15,"1");
 
 // left ring 1 
-draw_sprite(spr_item_slot,1,leftRing1SlotX,leftRing1SlotY);
+drawEquipmentSlot(leftRing1SlotX,leftRing1SlotY);
 // left ring 2
-draw_sprite(spr_item_slot,1,leftRing2SlotX,leftRing2SlotY);
+drawEquipmentSlot(leftRing2SlotX,leftRing2SlotY);
 
 // left hand 2
-draw_sprite(spr_item_slot,1,leftHandItem2SlotX,leftHandItem2SlotY);
+drawEquipmentSlot(leftHandItem2SlotX,leftHandItem2SlotY);
 if leftHandItem2 != global.player.unarmed {
 	draw_sprite(leftHandItem2.itemSprite,1,leftHandItem2SlotX,leftHandItem2SlotY);
 }
@@ -43,16 +43,16 @@ if rightHandItem2.isTwoHanded {
 }
 
 // right hand 2
-draw_sprite(spr_item_slot,1,rightHandItem2SlotX,rightHandItem2SlotY);
+drawEquipmentSlot(rightHandItem2SlotX,rightHandItem2SlotY);
 if rightHandItem2 != global.player.unarmed {
 	draw_sprite(rightHandItem2.itemSprite,1,rightHandItem2SlotX,rightHandItem2SlotY);
 }
 draw_text(rightHandItem2SlotX,rightHandItem2SlotY-15,"2");
 
 // right ring 1 
-draw_sprite(spr_item_slot,1,rightRing1SlotX,rightRing1SlotY);
+drawEquipmentSlot(rightRing1SlotX,rightRing1SlotY);
 // right ring 2
-draw_sprite(spr_item_slot,1,rightRing2SlotX,rightRing2SlotY);
+drawEquipmentSlot(rightRing2SlotX,rightRing2SlotY);
 
 // description box
 draw_set_color(c_dkgray);
