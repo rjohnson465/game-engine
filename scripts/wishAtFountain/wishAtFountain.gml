@@ -63,5 +63,25 @@ else {
 	with obj_player {
 		hp = maxHp;
 		stamina = maxStamina;
+		
+		// refill all weapon charges for inventory weapons
+		for (var i = 0 ; i < ds_list_size(inventory); i++) {
+			var item = ds_list_find_value(inventory,i);
+			if item.type == ItemTypes.HandItem {
+				if item.totalCharges > 0 {
+					item.charges = item.totalCharges;
+				}
+			}
+		}
+		
+		// refill all weapon charges for equipped weapons
+		for (var i = 0 ; i < ds_list_size(equippedItems); i++) {
+			var item = ds_list_find_value(equippedItems,i);
+			if item.type == ItemTypes.HandItem {
+				if item.totalCharges > 0 {
+					item.charges = item.totalCharges;
+				}
+			}
+		}
 	}
 }

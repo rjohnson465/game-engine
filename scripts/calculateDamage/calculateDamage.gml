@@ -301,7 +301,7 @@ if	state != CombatantStates.Dodging &&
 		}
 		
 		// destroy most ranged projectiles on impact
-		if other.isRanged || (other.isSpell && spell.name != "aoe") {
+		if other.isRanged || (other.isSpell)/* && spell.name != "aoe")*/ {
 			instance_destroy(other,false);
 			// also destroy the ranged attack's light radius, if it exists
 			var attackObjId = other.id;

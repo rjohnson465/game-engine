@@ -1121,6 +1121,6 @@ if isFlinching {
 
 // lazy solution to occasional overlaps with solid objects
 if place_meeting(x,y,obj_solid_parent) {
-					move_towards_point(postX,postY,functionalSpeed);
-				}
+	move_towards_point(postX,postY,functionalSpeed);
+}
 
