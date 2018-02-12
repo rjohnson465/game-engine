@@ -8,6 +8,9 @@ itemSprite = spr_item_longsword;
 
 numberOfTargets = 2;
 
+charges = 200;
+totalCharges = 200;
+
 range = 40;
 
 weaponSpeed = "Medium";

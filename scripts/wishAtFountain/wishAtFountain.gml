@@ -1,9 +1,10 @@
 /// wishAtFountain()
 // static function
-var fountain = id;
 	
+var fountain = id;
+
 // activate fountain
-if !fountain.isRunning {
+if !isRunning {
 	isRunning = true;
 	sprite_index = asset_get_index("spr_fountain_filling");		
 	with obj_player {
@@ -31,6 +32,7 @@ else {
 			enemyData.currentX = enemyData.postX;
 			enemyData.currentY = enemyData.postY;
 			enemyData.hp = enemyData.maxHp;
+			enemyData.isAlive = true;
 				
 			// actually reposition / heal enemies in this room
 			if roomIndex == room {
@@ -39,6 +41,7 @@ else {
 				enemy.y = enemyData.postY;
 				enemy.hp = enemyData.maxHp;
 				enemy.isAlive = true;
+				enemy.isDying = false;
 				enemy.state = CombatantStates.Idle;
 				enemy.showHp = false;
 				enemy.preparingLimbs = ds_map_create();
@@ -46,16 +49,9 @@ else {
 				enemy.recoveringLimbs = ds_map_create();
 				enemy.isShowingLightRadius = true;
 				
-				// remove corpse for enemy if it exists
-				with obj_enemy_dead {
-					if owner == enemy {
-						instance_destroy(id);
-					}
-				}
-				
 				// cure any and all conditions
 				var currentCondition = ds_map_find_first(enemy.conditionPercentages);
-				for (var i = 0; i < ds_map_size(enemy.conditionPercentages);i++) {
+				for (var j = 0; j < ds_map_size(enemy.conditionPercentages);j++) {
 					ds_map_replace(enemy.conditionPercentages,currentCondition,0);
 					currentCondition = ds_map_find_next(enemy.conditionPercentages, currentCondition);
 				}

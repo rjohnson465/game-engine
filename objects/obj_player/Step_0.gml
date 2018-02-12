@@ -391,7 +391,7 @@ switch(state) {
 			if ds_map_size(preparingLimbs) == 0 {
 				x1 = x + lengthdir_x(2,facingDirection);
 				y1 = y + lengthdir_y(2,facingDirection);
-				var p =  place_meeting(x1,y1,obj_solid_parent);
+
 				if attackingMelee && !(place_meeting(x1,y1,obj_solid_parent)) {
 					direction = facingDirection;
 					speed = 1;

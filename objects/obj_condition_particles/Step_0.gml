@@ -1,4 +1,7 @@
-if owner.hp <= 0 {
+if owner.hp <= 0 && condition != "Death" {
+	instance_destroy(id);
+}
+if condition == "Death" && !owner.isAlive {
 	instance_destroy(id);
 }
 
@@ -72,6 +75,18 @@ if conditionLevel == 0 {
 		}
 		case "Phase": {
 			num = -10;
+			break;
+		}
+		case "Death": {
+			// starts with many particles but as burn fades, particles dwindle
+			var conditionPercent = (-owner.dyingFrame/owner.dyingTotalFrames)+1;
+			if conditionPercent > 90 {
+				num = 10;
+			} else if conditionPercent > 50 {
+				num = 4;
+			} else if conditionPercent > 25 {
+				num = 1;
+			} else num = -3;
 			break;
 		}
 	}

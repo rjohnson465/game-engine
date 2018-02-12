@@ -5,9 +5,6 @@ system = noone;
 particle = noone;
 particle2 = noone;
 
-//xOff = owner.__x - owner.x;
-//yOff = owner.__y - owner.y;
-
 system = part_system_create();
 part_system_depth(system,-4);
 emitter = part_emitter_create(system);
@@ -90,6 +87,19 @@ switch condition {
 		part_type_color2(spark,c_blue,c_white);
 		part_type_alpha3(spark,1,.85,.75);
 		particle = spark;
+		break;
+	}
+	case "Death": {
+		// death particle
+		var blood = part_type_create();
+		part_type_shape(blood, pt_shape_sphere);
+		part_type_color2(blood,owner.dyingParticleColor1,owner.dyingParticleColor2);
+		part_type_orientation(blood,0,0,0,15,1);
+		part_type_size(blood,0,0.15,0,0);
+		part_type_speed(blood,2,4,0,0);
+		part_type_direction(blood,0,360,0,4);
+		part_type_life(blood,10,15);
+		particle = blood;
 		break;
 	}
 	case "Phase": {

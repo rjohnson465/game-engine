@@ -4,9 +4,9 @@ var firstObj = scr_collision_line_first(x,y,x1,y1,obj_wall_parent,true,true);
 var hitsWallFirst = firstObj == other.id;
 if isMelee && hitsWallFirst {
 	owner.staggerFrame = 0;
-	// stagger duration is 10 frames + damage% of of total hp frames
+	
 	owner.staggerDuration = 5;
-	staggerDirection = owner.facingDirection;
+	owner.staggerDirection = (owner.facingDirection+180)%360;
 	path_end();
 	// run to get __x and __y (collision point where attack meet this combatant)
 	script_execute(scr_collision_point,id,other.id);
@@ -53,4 +53,15 @@ if isRanged {
 	global.particleDirection = facingDirection;
 	instance_create_depth(0,0,1,obj_hit_particles);
 	instance_destroy(id,false);
+}
+
+if isSpell || isRanged {
+	
+	var idd = id;
+	with obj_light_radius {
+		if owner == idd {
+			instance_destroy(id);
+		}
+	}
+	
 }

@@ -1,2 +1,2 @@
-light_set_ambient_color(make_colour_hsv(0, 0, 55));
+light_set_ambient_color(make_colour_rgb(10,20,15));
 instance_activate_object(obj_light_radius);

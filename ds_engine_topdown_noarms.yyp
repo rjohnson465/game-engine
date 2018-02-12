@@ -167,6 +167,14 @@
             }
         },
         {
+            "Key": "0b52febd-6e96-49a4-a291-ceddfe554b1a",
+            "Value": {
+                "id": "10cbd740-efbe-43fd-a2f4-ac73e35fb226",
+                "resourcePath": "scripts\\calculateDamage\\calculateDamage.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "0b60e134-8478-4139-b696-f9d2ea94cf18",
             "Value": {
                 "id": "787cf367-b290-4637-bb79-86fd7f5f7aa3",
@@ -1511,6 +1519,14 @@
             }
         },
         {
+            "Key": "9a852e4d-43e0-47a1-a2bf-00a3022cdfc8",
+            "Value": {
+                "id": "c153257b-ed8c-4bd3-ab35-d74ced5f4d51",
+                "resourcePath": "views\\9a852e4d-43e0-47a1-a2bf-00a3022cdfc8.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "9c9ec9fd-ed1c-4c6d-ba91-5424eba47aeb",
             "Value": {
                 "id": "2226b161-ef58-4143-a677-3c8fe410a328",
@@ -2540,7 +2556,8 @@
         "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
         "00feb608-5eda-4896-afe4-aa97abfda795",
         "3ba0e475-52bf-40db-82b9-fe6e9814970d",
-        "ec462f34-0172-423c-9dbb-db8ad4f99d84"
+        "ec462f34-0172-423c-9dbb-db8ad4f99d84",
+        "0b52febd-6e96-49a4-a291-ceddfe554b1a"
     ],
     "tutorial": ""
 }

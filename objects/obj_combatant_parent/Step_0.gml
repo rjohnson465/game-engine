@@ -1,5 +1,7 @@
 if !isAlive exit;
 
+if isDying exit;
+
 image_angle = facingDirection;
 
 // Reset personal grid for allies / enemeies
@@ -257,8 +259,7 @@ for (var i = 0; i < size; i++){
 						poisonDamage = hp;
 					}
 					hp -= poisonDamage;
-					show_debug_message(hp);
-					
+
 					//if type != CombatantTypes.Player {
 						global.damageAmount = poisonDamage;
 						global.victim = id;
@@ -479,9 +480,7 @@ switch(state) {
 					// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) || wallsBetweenTarget != noone : 
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]);
-				if place_meeting(x,y,obj_solid_parent) {
-					move_towards_point(postX,postY,functionalSpeed);
-				}
+				
 				if pred && !isFlinching {
 					if wallsBetweenTarget == noone {
 						//facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
@@ -846,7 +845,6 @@ switch(state) {
 				dir = (dir+10)%360;
 				xx = x+lengthdir_x(sp,dir);
 				yy = y+lengthdir_y(sp,dir);
-				show_debug_message("loop: "+ string(i));
 				i++;
 			}
 			// possibly don't always turn the same way
@@ -1092,7 +1090,7 @@ if isFlinching {
 			} until ((!place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
 			
 			if !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent) {
-				speed = .25*fspeed;
+				speed = .1*fspeed;
 				flinchDirection = fDir;
 			}
 		} else {
@@ -1108,7 +1106,7 @@ if isFlinching {
 			} until ((!place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
 			
 			if !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent) {
-				speed = .5*fspeed;
+				speed = .2*fspeed;
 				flinchDirection = fDir;
 			}
 		}
@@ -1121,4 +1119,8 @@ if isFlinching {
 	}
 }
 
+// lazy solution to occasional overlaps with solid objects
+if place_meeting(x,y,obj_solid_parent) {
+					move_towards_point(postX,postY,functionalSpeed);
+				}
 

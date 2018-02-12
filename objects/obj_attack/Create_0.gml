@@ -64,6 +64,47 @@ if owner.currentUsingSpell != noone {
 		facingDirection = direction;
 	}
 }
+
+// spells have light radii
+if isSpell {
+
+	lightRadius = 256;
+	lightRadiusAlpha = .5;
+	lightRadiusScale = .15;
+	if spell.spriteName == "projectile" {
+		lightRadiusScale = .23;
+	}
+	lightRadiusColor = c_white;
+	switch (attunementSpriteName) {
+		case "magic": {
+			lightRadiusColor = c_white;
+			break;
+		}
+		case "fire": {
+			lightRadiusColor = c_orange;
+			break;
+		}
+		case "ice": {
+			lightRadiusColor = c_white;
+			break;
+		}
+		case "poison": {
+			lightRadiusColor = c_lime;
+			break;
+		}
+		case "lightning": {
+			lightRadiusColor = c_blue;
+			break;
+		}
+	}
+	lightRadiusSprite = spr_light_point;
+	isShowingLightRadius = true;
+	global.owner = id;
+	global.makeLightOnCreate = true;
+	instance_create_depth(x,y,1,obj_light_radius);
+
+}
+
 // ranged or melee: NOT A SPELL
 else {
 	// get attack number

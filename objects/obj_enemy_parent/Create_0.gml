@@ -79,3 +79,5 @@ instance_create_depth(x,y,1,obj_enemy_gui);
 
 // items as keys (or function to return item) with probability as values
 dropItems = ds_map_create();
+
+xpReward = 100;

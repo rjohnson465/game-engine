@@ -1,5 +1,7 @@
-calculateDamage();
-/*
+/// calculateDamage()
+/// Pre-Condition -- must be called by the victim in a collision event with attackObj
+
+
 // if enemy or ally, seek retribution (even if out of normal range)
 if	(type == CombatantTypes.Enemy || type == CombatantTypes.Ally) 
 	&& state == CombatantStates.Idle
@@ -281,8 +283,8 @@ if	state != CombatantStates.Dodging &&
 				staggerFrame = 0;
 				// stagger duration is 6 frames + damage% of of total hp frames
 				staggerDuration = 6 + (percentOfHp*100);
-				if staggerDuration > 30 {
-					staggerDuration = 30;
+				if staggerDuration > 25 {
+					staggerDuration = 25;
 				}
 				staggerDirection = (assailant.facingDirection+360)%360;
 				path_end();

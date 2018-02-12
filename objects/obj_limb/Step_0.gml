@@ -27,6 +27,7 @@ if rightHandItem {
 	}
 }
 image_angle = owner.facingDirection;
+image_alpha = owner.alpha;
 
 
 if	ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 &&

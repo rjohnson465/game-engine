@@ -1,6 +1,13 @@
 var attackObject = other;
-with owner {
+var o = owner;
 
+if attackObject.owner == owner exit;
+
+with owner {
+	
+	calculateDamage();
+	
+/*
 	// if enemy or ally, seek retribution (even if out of normal range)
 	if	(type == CombatantTypes.Enemy || type == CombatantTypes.Ally) 
 		&& state == CombatantStates.Idle
@@ -222,7 +229,7 @@ with owner {
 				
 					hp -= adjustedDamage;
 					global.damageAmount = adjustedDamage;
-					global.victim = id;
+					global.victim = o;
 					global.healingSustained = 0;
 					instance_create_depth(x,y,1,obj_damage);
 					if stamina < 1 {
@@ -261,7 +268,7 @@ with owner {
 				hp -= damage;
 				global.damageAmount = damage;
 				global.healingSustained = 0;
-				global.victim = id;
+				global.victim = o;
 				instance_create_depth(x,y,1,obj_damage);
 			}
 	
@@ -322,5 +329,5 @@ with owner {
 			}
 		
 		}
-	}
+	}*/
 }

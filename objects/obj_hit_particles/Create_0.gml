@@ -4,7 +4,7 @@ y1 = global.y1;
 particleDirection = global.particleDirection;
 
 randomize();
-var num = random_range(2,7); // maybe make this dependent on how hard the hit was?
+var num = random_range(7,10); // maybe make this dependent on how hard the hit was?
 
 system = part_system_create();
 part_system_depth(system,0);
@@ -27,7 +27,7 @@ switch type {
 		break;
 	}
 	case MAGIC: {
-		num = random_range(5,7);
+		num = random_range(10,15);
 		// magic particle
 		var magic = part_type_create();
 		part_type_shape(magic, pt_shape_sphere);

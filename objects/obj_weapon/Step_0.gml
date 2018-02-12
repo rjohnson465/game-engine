@@ -5,7 +5,7 @@ if owner.state == CombatantStates.Dodging || owner.isShielding {
 x = limb.x;
 y = limb.y;
 image_angle = owner.facingDirection;
-
+image_alpha = owner.alpha;
 // switch weapon sprite
 if limbItem != limb.limbItem {
 	limbItem = limb.limbItem;

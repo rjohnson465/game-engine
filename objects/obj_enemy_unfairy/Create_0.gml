@@ -82,8 +82,8 @@ var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
 
-hp = 100;
-maxHp = 100;
+hp = 50;
+maxHp = 50;
 
 stamina = 60;
 maxStamina = 60;

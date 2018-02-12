@@ -255,3 +255,13 @@ instance_create_depth(x,y,1,obj_light_radius);
 __x = 0;
 __y = 0;
 enemyData = noone;
+
+isDying = false;
+dyingFrame = 0;
+dyingTotalFrames = 45;
+dyingParticleColor1 = c_red;
+dyingParticleColor2 = c_maroon;
+
+alpha = 1;
+
+xpReward = 0;
