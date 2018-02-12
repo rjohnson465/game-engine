@@ -2,19 +2,43 @@
 /// @param item
 /// @param slot
 
-var item = argument[0];
-var slot = argument[1];
-
 // Pre-Condition -- this item is able to to in this slot
 
-// remove item from inventory
-var inv = global.player.inventory;
-ds_list_delete(inv,ds_list_find_index(inv,item));
+var itemOriginal = argument[0];
+var slot = argument[1];
+
+var item  = noone;
+
+// itemOriginal might actually be the copy; CHECK
+if itemOriginal.copyOf != noone {
+	var temp = itemOriginal;
+	itemOriginal = itemOriginal.copyOf;
+	item = temp;
+}
+else {
+	// see if there is already an "equipped" copy of item
+	for (var i = 0; i < ds_list_size(global.player.equippedItems); i++) {
+		var el = ds_list_find_value(global.player.equippedItems,i);
+		if el.copyOf == itemOriginal {
+			item = el;
+		}
+	}
+
+	if item == noone {
+		with itemOriginal {
+			item = instance_copy(false);
+			item.copyOf = itemOriginal;
+		}
+	}
+}
+
+
 
 // set equipmentSlot property for item and add it to equippedItems list
 var equippedItems = global.player.equippedItems;
 ds_list_add(equippedItems,item);
 item.equipmentSlot = slot;
+itemOriginal.equipmentSlot = slot;
 
 // set x1 and y1 values for newly equipped item
 var equipmentSlotObj = getEquipmentSlotObject(slot);

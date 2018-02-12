@@ -43,7 +43,7 @@ unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 unarmed.persistent = true;
 
 equippedItems = ds_list_create();
-var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
+/*var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 ds_list_add(equippedItems,longsword);
 longsword.equipmentSlot = EquipmentSlots.RightHand1;
 longsword.persistent = true;
@@ -54,10 +54,17 @@ shortbow.equipmentSlot = EquipmentSlots.RightHand2;
 shortbow.persistent = true;
 ds_map_replace(equippedLimbItems,"l",unarmed);
 ds_map_replace(equippedLimbItems,"l2",unarmed);
-ds_map_replace(equippedLimbItems,"r2",shortbow);
+ds_map_replace(equippedLimbItems,"r2",shortbow);*/
+
+ds_map_replace(equippedLimbItems,"r",unarmed);
+ds_map_replace(equippedLimbItems,"l",unarmed);
+ds_map_replace(equippedLimbItems,"l2",unarmed);
+ds_map_replace(equippedLimbItems,"r2",unarmed);
 
 var rightHand = makeLimb(id,"r");
 var leftHand = makeLimb(id,"l");
+
+
 
 // attack states
 // <limb><bool> kvp's
@@ -130,10 +137,32 @@ currentSpellAttunement = MAGIC;
 
 // inventory -- holds all items
 inventory = ds_list_create();
+//ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+//ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
+/*ds_list_add(inventory,longsword);
+ds_list_add(inventory,shortbow);
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
+ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));*/
 
 lastFountainRoom = noone;
 lastFountainX = noone;

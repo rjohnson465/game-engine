@@ -19,7 +19,7 @@ if type == SelectorTypes.Select {
 color = noone;
 switch type {
 	case SelectorTypes.Select: {
-		color = c_black;
+		color = c_white;
 		break;
 	}
 	case SelectorTypes.Equip: {

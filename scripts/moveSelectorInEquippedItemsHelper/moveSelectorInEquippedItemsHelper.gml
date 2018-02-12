@@ -30,9 +30,11 @@ if slotToMoveToKey != "inventory" {
 	if topRightItemExists {
 		x1 = global.inventory.invTopLeftX + (4*global.inventory.slotWidth);
 		y1 = global.inventory.invTopLeftY;
+		inv.selectedItem = getItemAtSelectorPosition(id);
 	} else {
 		var lastItemInInventory = ds_list_find_value(global.player.inventory,ds_list_size(global.player.inventory)-1);
 		x1 = lastItemInInventory.x1;
 		y1 = lastItemInInventory.y1;
+		inv.selectedItem = getItemAtSelectorPosition(id);
 	}
 }

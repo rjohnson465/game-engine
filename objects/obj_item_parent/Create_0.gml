@@ -6,6 +6,8 @@ depth = -2;
 persistent = true;
 name = "";
 
+copyOf = noone;
+
 enum ItemTypes {	
 	HandItem,
 	Ring,

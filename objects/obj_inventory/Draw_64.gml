@@ -52,6 +52,34 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 		el.x1 = -50;
 		el.y1 = -50;
 	//}
+	
+	// if we're equipping something using the Equip Selector, 
+	// automatically only show what is possible to equip
+	if ui.equipSelector.isActive {
+		// get equipment slot the equipSelector is on
+		var esx1 = ui.moveSelector.x1; var esy1 = ui.moveSelector.y1;
+		var equipmentSlotToFill = noone;
+		with obj_equipmentslot {
+			if id.x1 == esx1 && id.y1 == esy1 {
+				equipmentSlotToFill = id;
+			}
+		}
+		
+		var slotId = equipmentSlotToFill.slot;
+		//show_debug_message(slotId);
+		if slotId == EquipmentSlots.LeftHand1 || slotId == EquipmentSlots.LeftHand2 {
+			if el.isTwoHanded {
+				var pos = ds_list_find_index(inv,el);
+				ds_list_delete(inv,pos);
+			}
+		} else if slotId == EquipmentSlots.RightHand1 || slotId == EquipmentSlots.RightHand2 {
+			if el.subType == HandItemTypes.Shield {
+				var pos = ds_list_find_index(inv,el);
+				ds_list_delete(inv,pos);
+			}
+		}
+	}
+	
 	switch filter {
 		case InventoryFilters.Melee: {
 			if el.subType != HandItemTypes.Melee {
@@ -85,10 +113,10 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 }
 	
 var row = 1; var col = 1;
-// row 1, col 1 = (212,184)
+// row 1, col 1 = ???
 var init_x = invTopLeftX; var init_y = invTopLeftY;
 var selectedItemX = 0; var selectedItemY = 0;
-// show 15 items at a time;
+// show 20 items at a time;
 for (var i = 0; i < 20; i++) {
 	row = floor(i / 5)+1;
 	col = (i mod 5)+1;
@@ -109,6 +137,11 @@ for (var i = 0; i < 20; i++) {
 		}
 		else draw_sprite(spr_item_slot,1,x1,y1);
 		draw_sprite(item.itemSprite,1,x1,y1);
+		// if this item is currently equipped, signify that
+		if item.equipmentSlot != noone {
+			draw_set_color(c_maroon);
+			draw_circle(x1+5,y1+5,5,false);
+		}
 	} 
 }
 			

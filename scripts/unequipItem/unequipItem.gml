@@ -14,9 +14,16 @@ if item.equipmentSlot == EquipmentSlots.LeftHand1 {
 if item.type == ItemTypes.HandItem && item.weaponType == WeaponTypes.Unarmed {
 } else {
 	ds_list_delete(global.player.equippedItems,ds_list_find_index(global.player.equippedItems,item));
-	// set the equipmentSlot property to noone
-	item.equipmentSlot = noone;
+	
+	
+	// unequip original item (still in inventory)
+	if item.copyOf != noone {
+		item.copyOf.equipmentSlot = noone;
+	}
+	// destroy copy item
+	//instance_destroy(item);
+	//item.equipmentSlot = noone;
 }
 			
 // add this item back to player inventory
-ds_list_add(global.player.inventory,item);
+//ds_list_add(global.player.inventory,item);

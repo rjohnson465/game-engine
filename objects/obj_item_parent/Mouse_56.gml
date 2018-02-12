@@ -31,6 +31,9 @@ if id == global.ui.grabbedItem {
 			if global.equippedItemsManager.selectedItem == id {
 				global.equippedItemsManager.selectedItem = noone;
 			}
+			if copyOf != noone {
+				instance_destroy(id);
+			}
 		}
 	
 	isGrabbed = false;
