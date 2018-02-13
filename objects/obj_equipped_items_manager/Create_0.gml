@@ -49,7 +49,6 @@ itemDescriptionColY = itemDescriptionTopLeftY+itemDescriptionHandleHeight;
 
 selectedItem = noone;
 
-
 headItemSlot = makeEquipmentSlot(EquipmentSlots.Head,headItemSlotX,headItemSlotY);
 
 leftHandItem1Slot = makeEquipmentSlot(EquipmentSlots.LeftHand1,leftHandItem1SlotX,leftHandItem1SlotY);

@@ -37,6 +37,7 @@ else {
 // set equipmentSlot property for item and add it to equippedItems list
 var equippedItems = global.player.equippedItems;
 ds_list_add(equippedItems,item);
+ds_list_add(equippedItems,itemOriginal);
 item.equipmentSlot = slot;
 itemOriginal.equipmentSlot = slot;
 

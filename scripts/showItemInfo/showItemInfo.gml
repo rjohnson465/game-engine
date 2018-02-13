@@ -11,6 +11,8 @@ var topLeftX = argument0;
 var topLeftY = argument1;
 var item = argument2;
 
+if item == undefined || !instance_exists(item) || item == noone exit;
+
 draw_set_color(c_olive);
 var descriptionHandleX2 = topLeftX+width
 var descriptionHandleY2 = topLeftY+itemDescriptionHandleHeight;

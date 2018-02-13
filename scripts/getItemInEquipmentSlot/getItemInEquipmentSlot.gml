@@ -4,7 +4,7 @@
 var s = argument[0];
 
 with obj_item_parent {
-	if equipmentSlot == s {
+	if equipmentSlot == s && copyOf != noone {
 		return id;
 	}
 }

@@ -137,4 +137,17 @@ if ds_map_size(preparingLimbs) != 0 && currentUsingSpell != noone {
 	scr_draw_text_outline(mean(x1,x2),y1-4,spell.name,c_white,c_ltgray,1,1,0);
 }
 
-
+/*var xx = 160;
+var yy = 160;
+if gamepad_is_connected(4)
+draw_set_color(c_white);
+    {
+    draw_text(xx, yy, "Gamepad Slot - " + string(4));
+    draw_text(xx, yy + 20, "Gamepad Type - " + string(gamepad_get_description(4)));
+    draw_text(xx, yy + 40, "Left H Axis - " + string(gamepad_axis_value(4, gp_axislh)));
+    draw_text(xx, yy + 60, "Left V Axis - " + string(gamepad_axis_value(4, gp_axislv)));
+    draw_text(xx, yy + 80, "Right H Axis - " + string(gamepad_axis_value(4, gp_axisrh)));
+    draw_text(xx, yy + 100, "Right V Axis - " + string(gamepad_axis_value(4, gp_axisrv)));   
+    draw_text(xx, yy + 120, "Fire Rate - " + string(gamepad_button_value(4, gp_shoulderrb)));
+    }
+	*/

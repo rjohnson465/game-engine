@@ -1,4 +1,5 @@
-var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
+performRightHandReleaseAction();
+/*var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
 if !isMouseInMenu {
@@ -10,10 +11,6 @@ if !isMouseInMenu {
 		ds_map_replace(prepFrameTotals,"r",0);
 		ds_map_delete(attackingLimbs,"r");
 		
-		/*if isReadyToFire {
-			ds_map_replace(recoveringLimbs,"r",1);
-			ds_map_replace(recoverFrames,"r",-1);
-		}*/
 		isReadyToFire = false;
 		ds_map_delete(recoveringLimbs,"r");
 		state = CombatantStates.Idle;

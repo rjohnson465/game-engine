@@ -10,6 +10,7 @@ if mightGrab && grabFrame < grabFrames && mouse_check_button(mb_left) {
 	grabFrame++;
 }
 
+visible = false;
 if grabFrame == grabFrames {
 	cursor_sprite = itemSprite;
 	visible = true;
@@ -18,6 +19,8 @@ if grabFrame == grabFrames {
 	global.ui.grabbedItem = id;
 } 
 
+var a = global.ui.isShowingMenus;
+var b = global.ui.currentMenu == INVENTORY;
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY {
 	visible = false;
 }

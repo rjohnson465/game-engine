@@ -12,6 +12,21 @@ switch type {
 	}
 	case SelectorTypes.Equip: {
 		// this is where the complex equipping happens my dude
+		// this is where the complex equipping happens my dude
+		var selectedEquipmentSlot = noone;
+		var moveSelector = ui.moveSelector;
+		var equipSelector = id;
+		with obj_equipmentslot {
+			if x1 == moveSelector.x1 && y1 == moveSelector.y1 {
+				selectedEquipmentSlot = id;
+			}
+		}
+		equipItemVerbose(getItemAtSelectorPosition(id),selectedEquipmentSlot);
+		
+		moveSelector.isActive = true;
+		equipSelector.isActive = false;
+		
+		/*
 		var droppedItem = getItemAtSelectorPosition(id);
 		var equippedItems = global.player.equippedItems;
 		var unarmed = global.player.unarmed;
@@ -129,7 +144,7 @@ switch type {
 				moveSelector.isActive = true;
 				equipSelector.isActive = false;
 			}
-		}
+		}*/
 		break;
 	}
 	case SelectorTypes.Imbue: {

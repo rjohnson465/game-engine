@@ -174,3 +174,5 @@ with obj_light_radius {
 		persistent = true;
 	}
 }
+
+gamePadIndex = noone;

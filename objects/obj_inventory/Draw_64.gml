@@ -66,7 +66,6 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 		}
 		
 		var slotId = equipmentSlotToFill.slot;
-		//show_debug_message(slotId);
 		if slotId == EquipmentSlots.LeftHand1 || slotId == EquipmentSlots.LeftHand2 {
 			if el.isTwoHanded {
 				var pos = ds_list_find_index(inv,el);

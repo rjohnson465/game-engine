@@ -1,4 +1,4 @@
-if owner.state == CombatantStates.Dodging || owner.isShielding {
+if owner.state == CombatantStates.Dodging || (owner.isShielding && limbItem.subType == HandItemTypes.Shield) {
 	visible = false;
 } else visible = true;
 

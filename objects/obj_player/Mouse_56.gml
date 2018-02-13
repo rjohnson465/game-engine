@@ -1,4 +1,5 @@
-var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
+performLeftHandReleaseAction();
+/*var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
 if !isMouseInMenu {
@@ -26,4 +27,4 @@ if !isMouseInMenu {
 	else if leftHandItem && leftHandItem.subType == HandItemTypes.Shield {
 		isShielding = false;
 	}
-}
+}*/

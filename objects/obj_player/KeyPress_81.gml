@@ -1,4 +1,4 @@
-var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
+/*var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
 var rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
 var leftHandItem2 = getItemInEquipmentSlot(EquipmentSlots.LeftHand2);
 var rightHandItem2 = getItemInEquipmentSlot(EquipmentSlots.RightHand2);

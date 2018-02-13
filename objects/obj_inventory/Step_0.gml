@@ -18,7 +18,6 @@ if mouse_check_button(mb_left) {
 		var x2 = arr[2];
 		var y2 = arr[3];
 	
-		//show_debug_message(point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2));
 	
 		if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 			switch (currentButton) {

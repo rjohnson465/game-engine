@@ -891,7 +891,6 @@ switch(state) {
 		isShielding = false;
 		speed = 0;	
 		image_angle = dodgeDirection;
-		//show_debug_message(dodgeDirection);
 		
 		if dodgeStartX == noone {
 			dodgeStartX = x;
@@ -901,7 +900,6 @@ switch(state) {
 			
 			//if !isFairy {
 				mp_potential_path_object(path,x1,y1,functionalSpeed*2,2,obj_solid_parent);
-				//facingDirection = point_direction(x,y,x1,y1);
 				path_start(path,functionalSpeed*2,path_action_stop,true);
 			//}
 		}

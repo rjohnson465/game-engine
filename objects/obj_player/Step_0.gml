@@ -4,7 +4,12 @@ leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
 // lock on logic
-if (keyboard_check_released(vk_control)) {
+var lockOnInputReceived = keyboard_check_released(vk_control);
+if gamepad_is_connected(gamePadIndex) {
+	lockOnInputReceived = keyboard_check_released(vk_control)
+	|| (gamepad_button_check_released(gamePadIndex,gp_stickr) && !isLockedOn);
+}
+if lockOnInputReceived {
 	// always refresh lockOnList (enemies could have left radius or entered
 	lockOnList = script_execute(scr_collision_circle_list,x,y,LOCK_ON_DISTANCE,obj_enemy_parent, true, true);
 	if (lockOnList == noone) {
@@ -53,7 +58,12 @@ if lockOnTarget {
 	wallsBetweenLockOnTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 }
 // if too far from current lockon target, or esc pressed, or cannot see lockOnTarget no more lock on
-if	isLockedOn && ((keyboard_check(vk_escape) && !global.ui.isShowingMenus) 
+var cancelLockOnInputReceived = keyboard_check(vk_escape);
+if gamepad_is_connected(gamePadIndex) {
+	cancelLockOnInputReceived = keyboard_check(vk_escape) ||
+	(gamepad_button_check_released(gamePadIndex,gp_stickr) && !lockOnInputReceived);
+}
+if	isLockedOn && ((cancelLockOnInputReceived && !global.ui.isShowingMenus) 
 	|| distance_to_object(lockOnTarget) > LOCK_ON_DISTANCE
 	|| wallsBetweenLockOnTarget != noone ) {
 	lockOnTarget = noone;
@@ -65,8 +75,14 @@ var UP = keyboard_check(ord("W"));
 var DOWN = keyboard_check(ord("S"));
 var LEFT = keyboard_check(ord("A"));
 var RIGHT = keyboard_check(ord("D"));
-var SHIFT = keyboard_check(vk_shift);
-var isMoveInputReceived = UP || DOWN || LEFT || RIGHT;
+var SHIFT = keyboard_check(vk_shift) || gamepad_button_check(gamePadIndex, gp_stickl);
+var GAMEPADHMOVE = false;
+var GAMEPADVMOVE = false;
+if gamepad_is_connected(gamePadIndex) {
+	GAMEPADHMOVE = gamepad_axis_value(gamePadIndex, gp_axislh) != 0;
+	GAMEPADVMOVE = gamepad_axis_value(gamePadIndex, gp_axislv) != 0;
+}
+var isMoveInputReceived = UP || DOWN || LEFT || RIGHT || GAMEPADHMOVE || GAMEPADVMOVE;
 
 if isMoveInputReceived && state != CombatantStates.Attacking && state != CombatantStates.Staggering && state != CombatantStates.Dodging {
 	state = CombatantStates.Moving;
@@ -80,7 +96,19 @@ if state != CombatantStates.Staggering && !isMouseInMenu {
 	if state == CombatantStates.Idle || state == CombatantStates.Moving 
 	|| (ds_map_size(preparingLimbs)!=0)
 	{
-		facingDirection = point_direction(x,y,mouse_x,mouse_y);
+		if gamepad_is_connected(gamePadIndex) {
+			var h_point = gamepad_axis_value(gamePadIndex, gp_axisrh);
+			var v_point = gamepad_axis_value(gamePadIndex, gp_axisrv);
+			if ((h_point != 0) || (v_point != 0))
+			{
+				var pdir = point_direction(0, 0, h_point, v_point);
+				var dif = angle_difference(pdir, facingDirection);
+				facingDirection += median(-20, dif, 20);
+				facingDirection = (facingDirection+360)%360;
+			}
+		} else {
+			facingDirection = point_direction(x,y,mouse_x,mouse_y);
+		}
 	}
 	// otherwise, player always faces locked on enemy
 	if isLockedOn {
@@ -101,66 +129,15 @@ switch(state) {
 		}
 		speed = 0;
 		var canMove = false;
-		var usingSpeed = SHIFT ? functionalSpeed*2 : functionalSpeed;
-		if UP && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
-			direction = 45;
-		}
-		else if UP && LEFT && !place_meeting(x-usingSpeed, y-usingSpeed, obj_solid_parent) {
-			direction = 135;
-		}
-		else if DOWN && LEFT && !place_meeting(x-usingSpeed, y+usingSpeed, obj_solid_parent) {
-			direction = 225;
-		}
-		else if DOWN && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
-			direction = 315;
-		}
-		else if RIGHT && !place_meeting(x+usingSpeed, y, obj_solid_parent) {
-			direction = 0;
-		}
-		else if LEFT && !place_meeting(x-usingSpeed, y, obj_solid_parent) {
-			direction = 180;
-		}
-		else if UP && !place_meeting(x, y-usingSpeed, obj_solid_parent) {
-			direction = 90;
-		}
-		else if DOWN && !place_meeting(x, y+usingSpeed, obj_solid_parent) {
-			direction = 270;
-		}
-		
-		var xx = x + lengthdir_x(1000,direction);
-		var yy = y + lengthdir_y(1000,direction);
-		
-		//var x1 = x +lengthdir_x(usingSpeed,direction);
-		//var y1 = y +lengthdir_y(usingSpeed,direction);
-		//canMove = !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_shield_block);
-		
-		if (UP || DOWN || LEFT || RIGHT) /*&& canMove*/ {
-			// walking backwards is slow
-			dirDiff = abs(direction - facingDirection)
-			if dirDiff > 135 && dirDiff < 225  {
-				mp_potential_step_object(xx,yy,.5*functionalSpeed,obj_solid_parent);
-				//speed = .5*functionalSpeed;
-			}	
-			else {
-				//speed = functionalSpeed;
-				mp_potential_step_object(xx,yy,functionalSpeed,obj_solid_parent);
+		var gamePadInputReceived = false;
+		if gamepad_is_connected(gamePadIndex) {
+			var h_point = gamepad_axis_value(gamePadIndex, gp_axislh);
+			var v_point = gamepad_axis_value(gamePadIndex, gp_axislv);
+			if h_point != 0 || v_point != 0 {
+				gamePadInputReceived = true;
+				direction = (point_direction(0,0,h_point,v_point))%360;
 			}
-		}	
-		// run
-		if SHIFT && stamina > 0 {
-			//speed = speed*1.25;
-			mp_potential_step_object(xx,yy,functionalSpeed*1.25,obj_solid_parent);
-			stamina -= .5;
-		}
-		
-		break;
-	}
-	case CombatantStates.Attacking: {
-		
-		if !isFlinching {
-			speed = 0;
-		
-			var canMove = false;
+		} else {
 			var usingSpeed = SHIFT ? functionalSpeed*2 : functionalSpeed;
 			if UP && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
 				direction = 45;
@@ -186,6 +163,73 @@ switch(state) {
 			else if DOWN && !place_meeting(x, y+usingSpeed, obj_solid_parent) {
 				direction = 270;
 			}
+		}
+		
+		var xx = x + lengthdir_x(1000,direction);
+		var yy = y + lengthdir_y(1000,direction);
+		
+		if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) /*&& canMove*/ {
+			// walking backwards is slow
+			dirDiff = abs(direction - facingDirection);
+			if dirDiff > 135 && dirDiff < 225  {
+				mp_potential_step_object(xx,yy,.5*functionalSpeed,obj_solid_parent);
+				//speed = .5*functionalSpeed;
+			}	
+			else {
+				//speed = functionalSpeed;
+				mp_potential_step_object(xx,yy,functionalSpeed,obj_solid_parent);
+			}
+		}	
+		// run
+		if SHIFT && stamina > 0 {
+			//speed = speed*1.25;
+			mp_potential_step_object(xx,yy,functionalSpeed*1.25,obj_solid_parent);
+			stamina -= .5;
+		}
+		
+		break;
+	}
+	case CombatantStates.Attacking: {
+		
+		if !isFlinching {
+			speed = 0;
+		
+			var canMove = false;
+			var usingSpeed = SHIFT ? functionalSpeed*2 : functionalSpeed;
+			var gamePadInputReceived = false;
+			if gamepad_is_connected(gamePadIndex) {
+				var h_point = gamepad_axis_value(gamePadIndex, gp_axislh);
+				var v_point = gamepad_axis_value(gamePadIndex, gp_axislv);
+				if h_point != 0 || v_point != 0 {
+					gamePadInputReceived = true;
+					direction = (point_direction(0,0,h_point,v_point))%360;
+				}
+			} else {
+				if UP && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
+					direction = 45;
+				}
+				else if UP && LEFT && !place_meeting(x-usingSpeed, y-usingSpeed, obj_solid_parent) {
+					direction = 135;
+				}
+				else if DOWN && LEFT && !place_meeting(x-usingSpeed, y+usingSpeed, obj_solid_parent) {
+					direction = 225;
+				}
+				else if DOWN && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
+					direction = 315;
+				}
+				else if RIGHT && !place_meeting(x+usingSpeed, y, obj_solid_parent) {
+					direction = 0;
+				}
+				else if LEFT && !place_meeting(x-usingSpeed, y, obj_solid_parent) {
+					direction = 180;
+				}
+				else if UP && !place_meeting(x, y-usingSpeed, obj_solid_parent) {
+					direction = 90;
+				}
+				else if DOWN && !place_meeting(x, y+usingSpeed, obj_solid_parent) {
+					direction = 270;
+				}
+			}
 		
 		
 			var x1 = x +lengthdir_x(usingSpeed,direction);
@@ -196,7 +240,7 @@ switch(state) {
 				speed = 0;
 			}
 		
-			if (UP || DOWN || LEFT || RIGHT) && canMove {
+			if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && canMove {
 				// walking backwards is slow
 				dirDiff = abs(direction - facingDirection)
 				if dirDiff > 135 && dirDiff < 225  {
@@ -232,6 +276,10 @@ switch(state) {
 			speed = .5*speed;
 			var currentSpell = ds_map_find_value(knownSpells,currentUsingSpell);
 			var MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle);
+			if gamepad_is_connected(gamePadIndex) {
+				MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle) || 
+				gamepad_button_check_released(gamePadIndex,gp_shoulderlb);
+			}
 			
 			if ds_map_size(attackingLimbs) == 0 && ds_map_size(preparingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
 				ds_map_replace(prepFrameTotals,"r",currentSpell.castFrames);
@@ -287,9 +335,16 @@ switch(state) {
 		}
 		
 		// melee / ranged
-		
 		var LEFTRELEASED = mouse_check_button_pressed(mb_left);
+		if gamepad_is_connected(gamePadIndex) {
+			LEFTRELEASED = mouse_check_button_pressed(mb_left) 
+			|| gamepad_button_check_pressed(gamePadIndex,gp_shoulderl);
+		}
 		var RIGHTRELEASED = mouse_check_button_pressed(mb_right);
+		if gamepad_is_connected(gamePadIndex) {
+			RIGHTRELEASED = mouse_check_button_pressed(mb_left) 
+			|| gamepad_button_check_pressed(gamePadIndex,gp_shoulderr);
+		}
 		
 		// iterate over preparing hands 
 		// if they just started preparing, need to assign prepare frames / total frames
