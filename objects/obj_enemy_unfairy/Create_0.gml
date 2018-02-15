@@ -23,9 +23,6 @@ ds_map_replace(equippedLimbItems,"r",unarmed);
 var rightHand = makeLimb(id,"r");
 var leftHand = makeLimb(id,"l");
 
-//leftHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);
-//rightHandItem = instance_create_depth(x,y,1,obj_hand_item_unarmed);
-
 state = CombatantStates.Idle;
 
 // stupidity is how many frames enemy will stay in thinking state
@@ -54,7 +51,7 @@ meleeRangeArray=[5,5,5,5];
 // ATTACKS
 global.owner = id;
 var unarmedHook1 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
-unarmedHook1.limbKey = "e";
+unarmedHook1.limbKey = "l";
 var unarmedHook2 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
 unarmedHook2.limbKey = "o";
 var unarmedHook3 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);

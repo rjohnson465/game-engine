@@ -110,7 +110,7 @@ if state == CombatantStates.Attacking {
 
 				} else {
 					var currentVal = ds_map_find_value(recoverFrames,hand);
-					ds_map_replace(recoverFrames,hand,currentVal+1);
+					//ds_map_replace(recoverFrames,hand,currentVal+1);
 				}
 				
 				hand = ds_map_find_next(recoveringLimbs,hand);

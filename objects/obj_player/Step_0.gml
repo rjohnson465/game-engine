@@ -357,6 +357,7 @@ switch(state) {
 				
 				var prepFrame = ds_map_find_value(prepFrames,hand);
 				var prepFrameTotal = ds_map_find_value(prepFrameTotals,hand);
+				
 				// check if this hand just started preparing attack
 				if prepFrame == -1 {
 					ds_map_replace(prepFrames,hand,0);
@@ -383,7 +384,7 @@ switch(state) {
 					}
 				} 
 				
-				// if preparing an attack and no attacks are happening, move back a bit (if you can)
+				// if preparing an attack and no attacks are happening with other hand, move back a bit (if you can)
 				if ds_map_size(attackingLimbs) == 0 {
 					var x1 = x +lengthdir_x(-.5,facingDirection);
 					var y1 = y +lengthdir_y(-.5,facingDirection);
@@ -395,8 +396,25 @@ switch(state) {
 				} else {
 					speed = 0;
 				}
-				
 				hand = ds_map_find_next(preparingLimbs,hand);
+			}
+		}
+		
+		// update attackFrames values
+		if ds_map_size(attackingLimbs) != 0 {
+			var hand = ds_map_find_first(attackingLimbs);
+			for (var i = 0; i < ds_map_size(attackingLimbs); i++) {
+				var idd = id;
+				var attackObj = noone;
+				with obj_attack {
+					if owner = idd && limbKey == hand {
+						attackObj = id;
+					}
+				}
+				if attackObj != noone {
+					ds_map_replace(attackFrames,hand,attackObj.image_index);
+				}
+				hand = ds_map_find_next(attackingLimbs, hand);
 			}
 		}
 		
@@ -419,7 +437,7 @@ switch(state) {
 					ds_map_replace(recoverFrameTotals,hand,sprite_get_number(recoverSprite));
 				}
 				// if at end of recover, we may need to leave attack state (if no other hands are recovering or preparing or attacking)
-				else if recoverFrame >= recoverFrameTotal {
+				else if recoverFrame >= recoverFrameTotal-1 {
 					// no matter what, we need to remove this hand from recoveringLimbs and reset frame values
 					ds_map_replace(recoverFrames,hand,-1);
 					ds_map_replace(recoverFrameTotals,hand,0);
@@ -431,9 +449,28 @@ switch(state) {
 						break;
 					} 
 				} else {
+					// if we're in recover but told to attack again:
+					// make sure there is another attack in the chain
+					// decrement recover frames until at 0
+					// then create new preparingLimb / prepFrames
+					var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
+					var prepString = "spr_"+spriteString+"_"+itemSprite+"_prep_"+string(attackInChain+1);
+					if ds_map_find_value(attackAgain,hand) != 0 && asset_get_index(prepString) != -1 {
+						
+						if recoverFrame == 0 {
+							ds_map_replace(preparingLimbs,hand,attackInChain+1);
+							ds_map_delete(recoveringLimbs,hand);
+							ds_map_replace(recoverFrames,hand,-1);
+							ds_map_replace(recoverFrameTotals,hand,0);
+							ds_map_replace(attackAgain,hand,false);
+						} else {
+							ds_map_replace(recoverFrames,hand,recoverFrame-1);
+						}
+						break;
+					}
+					
 					ds_map_replace(recoverFrames,hand,recoverFrame+1);
 				}
-				
 				hand = ds_map_find_next(recoveringLimbs,hand);
 			}
 		}

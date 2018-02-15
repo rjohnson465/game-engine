@@ -84,34 +84,21 @@ if particle != noone {
 	part_emitter_burst(system,emitter,particle, -3);
 }
 
-
-// enter attack sequence
-if	ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 &&
-	ds_map_find_value(owner.prepFrames,limbKey) <= ds_map_find_value(owner.prepFrameTotals,limbKey) &&
-	ds_map_find_value(owner.recoverFrames,limbKey) == -1 {
-		
-	var attackNumber = noone;
-	if owner.type == CombatantTypes.Player {
-		attackNumber = ds_map_find_value(owner.preparingLimbs,limbKey);
-	} else {
-		attackNumber = owner.currentMeleeAttack != noone? owner.currentMeleeAttack : owner.currentRangedAttack;
-	}
-	
+if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {
 	image_index = ds_map_find_value(owner.prepFrames,limbKey);
-	
-	if owner.type == CombatantTypes.Player {
-		sprite_index = asset_get_index(spriteString+"_prep_"+string(attackNumber));
-	} else {		
-		var attackChainsArray = owner.currentMeleeAttack != noone? owner.meleeAttacks : owner.rangedAttacks;
-		var attackChainArray = attackChainsArray[attackNumber-1];
-		var attackNumberInChain = ds_map_find_value(owner.preparingLimbs,limbKey);
-		var attackData = attackChainArray[attackNumberInChain-1];
-		
-		var spriteAttackNumber = attackData.spriteAttackNumber;
-		var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
-		
-		sprite_index = asset_get_index(spriteString+"_prep_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
-	}
-} else if limbItem.subType == HandItemTypes.Ranged && limbItem.isTwoHanded {
+	sprite_index = getLimbSpriteIndex("prep");
+}
+
+else if ds_map_find_value(owner.attackingLimbs,limbKey) >= 0 {
+	image_index = ds_map_find_value(owner.attackFrames,limbKey);
+	sprite_index = getLimbSpriteIndex("attack");
+}
+
+else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
+	image_index = ds_map_find_value(owner.recoverFrames,limbKey);
+	sprite_index = getLimbSpriteIndex("recover");
+} 
+
+else {
 	sprite_index = asset_get_index(spriteString);
 }

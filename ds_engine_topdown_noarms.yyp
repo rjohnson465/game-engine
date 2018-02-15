@@ -607,6 +607,14 @@
             }
         },
         {
+            "Key": "366ba9cd-aa4e-49d1-9f44-28270833e64a",
+            "Value": {
+                "id": "672aa689-3aef-4d6f-b73d-e64a72773019",
+                "resourcePath": "scripts\\getLimbSpriteIndex\\getLimbSpriteIndex.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "36f2a18f-a3be-4359-9d54-35ebc445e172",
             "Value": {
                 "id": "8b0b4278-df4d-45e2-a9b9-baf56b7d6ed1",
@@ -1759,6 +1767,14 @@
             }
         },
         {
+            "Key": "a7f043d2-4d06-4df4-b103-9598d2c50812",
+            "Value": {
+                "id": "d08a5fb8-cbb4-4094-933b-93f477381d33",
+                "resourcePath": "sprites\\spr_player_unarmed\\spr_player_unarmed.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a86d4991-577a-4bba-9adc-520cb3607c4a",
             "Value": {
                 "id": "66509e33-bb01-4860-8a2f-8dbc913fc49c",
@@ -1828,6 +1844,14 @@
                 "id": "bc9113b4-ad3b-4a22-8c54-ed096a8755b3",
                 "resourcePath": "objects\\obj_limb\\obj_limb.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "ad08ec22-0827-48c3-a319-0cdf1db9a772",
+            "Value": {
+                "id": "2a6d5119-7a91-4bbb-a247-580809609d61",
+                "resourcePath": "sprites\\spr_enemy_unfairy_unarmed\\spr_enemy_unfairy_unarmed.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2655,6 +2679,14 @@
             }
         },
         {
+            "Key": "fdfbdfd6-c76b-4a69-ad55-f803fb399ad3",
+            "Value": {
+                "id": "84f87f24-ee8d-411b-8173-7d6d859c6cb2",
+                "resourcePath": "views\\fdfbdfd6-c76b-4a69-ad55-f803fb399ad3.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "ff4d983d-ae8f-4301-8843-b1ab93d13f4d",
             "Value": {
                 "id": "d1bc09f6-30ee-4e71-8345-8beb848eb97b",
@@ -2721,8 +2753,6 @@
         "edacf328-7cc7-454e-9cda-be7b920592df",
         "8ca404ab-285a-4da0-9506-1dad0ef525e7",
         "49c3814e-d8c4-4d0e-b35d-1ddee2964762",
-        "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
-        "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
         "00feb608-5eda-4896-afe4-aa97abfda795",
         "3ba0e475-52bf-40db-82b9-fe6e9814970d",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
@@ -2734,7 +2764,10 @@
         "51916b07-d3ea-4345-aaf4-8b153f60dd63",
         "b2c857d6-9d45-4af9-b4cd-805adc7bdccc",
         "75d7b37c-fdca-47ba-892b-63ef4bbcb916",
-        "aaf4f76e-3e03-4e56-8549-a0304dcbdbe6"
+        "aaf4f76e-3e03-4e56-8549-a0304dcbdbe6",
+        "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
+        "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
+        "366ba9cd-aa4e-49d1-9f44-28270833e64a"
     ],
     "tutorial": ""
 }

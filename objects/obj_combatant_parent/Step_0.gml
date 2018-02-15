@@ -598,8 +598,8 @@ switch(state) {
 			if attackNumberInChain == noone && !isRanged && hasHands {
 				var attackChain = meleeAttacks[attackNumber-1];
 				var attackData = attackChain[0];
-				var limbKey = attackData.limbKey;
-				switch limbKey {
+				var lk = attackData.limbKey;
+				switch lk {
 					case "e": {
 						randomize();
 						var rand = random_range(0,1);
@@ -607,7 +607,7 @@ switch(state) {
 						break;
 					}
 					default: {
-						prevAttackLimb = limbKey;
+						prevAttackLimb = lk;
 						break;
 					}
 				}
@@ -664,9 +664,11 @@ switch(state) {
 			
 				// attack logic
 				if willAttack && stamina > 0 {
-					var limbKey = "r";
+					var lk = "r";
 					// TODO this is no good for ranged attacks -- use rangedAttacks array too
-					var a = meleeAttacks[attackNumber-1];
+					if !isRanged{
+						var a = meleeAttacks[attackNumber-1];
+					} else var a = rangedAttacks[attackNumber-1];
 					var attackData = a[attackNumberInChain - 1];
 					if hasHands && !isRanged {
 						
@@ -675,26 +677,26 @@ switch(state) {
 							case "e": {
 								randomize();
 								var rand = random_range(0,1);
-								limbKey = rand - .5 > 0 ? "r" : "l";
+								lk = rand - .5 > 0 ? "r" : "l";
 								break;
 							}
 							case "s": {
-								limbKey = prevAttackLimb;
+								lk = prevAttackLimb;
 								break;
 							}
 							case "o": {
-								limbKey = prevAttackLimb == "r" ? "l" : "r";
+								lk = prevAttackLimb == "r" ? "l" : "r";
 								break;
 							}
 							default: {
-								limbKey = limbKeyInData;
+								lk = limbKeyInData;
 								break;
 							}
 						}
 					}
 					// ranged is always 2h and always "in" the right hand
 					if hasHands && isRanged {
-						limbKey = "r";
+						lk = "r";
 					}
 					
 					var spriteAttackNumber = attackData.spriteAttackNumber;
@@ -702,15 +704,15 @@ switch(state) {
 					
 					// start attack prep -- ONLY IF this limb is not currently busy
 					var prepSprite = asset_get_index(attackData.spriteName+"_prep_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
-					ds_map_replace(preparingLimbs,limbKey,attackNumberInChain);
-					ds_map_replace(prepFrameTotals,limbKey,sprite_get_number(prepSprite));
-					ds_map_replace(prepFrames,limbKey,-1);
+					ds_map_replace(preparingLimbs,lk,attackNumberInChain);
+					ds_map_replace(prepFrameTotals,lk,sprite_get_number(prepSprite));
+					ds_map_replace(prepFrames,lk,-1);
 					
 					// if this same hand was recovering before, stop that
-					if ds_map_find_value(recoveringLimbs,limbKey) != undefined {
-						ds_map_delete(recoveringLimbs,limbKey);
-						ds_map_replace(recoverFrames,limbKey,-1);
-						ds_map_replace(recoverFrameTotals,limbKey,0);
+					if ds_map_find_value(recoveringLimbs,lk) != undefined {
+						ds_map_delete(recoveringLimbs,lk);
+						ds_map_replace(recoverFrames,lk,-1);
+						ds_map_replace(recoverFrameTotals,lk,0);
 					}
 				} 
 			} 
@@ -724,7 +726,6 @@ switch(state) {
 				
 				// stop preparing, begin attacking
 				if prepFrame >= totalPrepFrames-1 {
-					//speed = 0;
 					
 					// find attack data object for this attack to get stamina cost
 					var limb = findLimb(id,currentPreparingLimbKey);
@@ -754,10 +755,30 @@ switch(state) {
 				} else {
 					ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+1); // increment through frames for attack prep
 				}
+				show_debug_message("prep: " + string(ds_map_find_value(prepFrames,currentPreparingLimbKey)));
 				currentPreparingLimbKey = ds_map_find_next(preparingLimbs,currentPreparingLimbKey);
 			}
 			
 			// attack animation frame logic shit is in obj_attack
+			
+			// update attackFrames values
+			if ds_map_size(attackingLimbs) != 0 {
+				var limb = ds_map_find_first(attackingLimbs);
+				for (var i = 0; i < ds_map_size(attackingLimbs); i++) {
+					var idd = id;
+					var attackObj = noone;
+					with obj_attack {
+						if owner = idd && limbKey == limb {
+							attackObj = id;
+						}
+					}
+					if attackObj != noone {
+						ds_map_replace(attackFrames,limb,attackObj.image_index);
+					}
+					show_debug_message("attack: " + string(ds_map_find_value(attackFrames,limb)));
+					limb = ds_map_find_next(attackingLimbs, limb);
+				}
+			}
 
 			// iterate over the recover frames for all limbs to see if an attack is ended
 			if ds_map_size(recoveringLimbs) != 0 {
@@ -785,13 +806,13 @@ switch(state) {
 					// if at end of recover, we may need to leave attack state (if no other limbs are recovering or preparing or attacking)
 					else if recoverFrame >= recoverFrameTotal-1 {
 						// no matter what, we need to remove this limb from recoveringLimbs and reset frame values
+						ds_map_delete(recoveringLimbs,currentRecoveringLimbKey);
 						ds_map_replace(recoverFrames,currentRecoveringLimbKey,-1);
 						ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,0);
-						ds_map_delete(recoveringLimbs,currentRecoveringLimbKey);
 					} else {
 						ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+1);
 					}
-				
+					show_debug_message("recover: " + string(ds_map_find_value(recoverFrames,currentRecoveringLimbKey)));
 					currentRecoveringLimbKey = ds_map_find_next(recoveringLimbs,currentRecoveringLimbKey);
 				}
 			}

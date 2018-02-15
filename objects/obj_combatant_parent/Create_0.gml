@@ -87,6 +87,7 @@ ds_map_add(prepFrames,"l",-1);
 ds_map_add(prepFrames,"r",-1);
 ds_map_add(prepFrameTotals,"r",-1);
 ds_map_add(prepFrameTotals,"r",-1);
+attackFrames = ds_map_create();
 recoverFrames = ds_map_create();
 recoverFrameTotals = ds_map_create();
 ds_map_add(recoverFrames,"l",-1);

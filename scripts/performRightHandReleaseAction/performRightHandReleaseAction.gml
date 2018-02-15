@@ -25,8 +25,7 @@ if !isMouseInMenu {
 			isShielding = false;
 			// if recovering left hand weapon or if left hand not in use at all
 			var isRightHandInUse = 
-				ds_map_find_value(preparingLimbs,"r") != undefined 
-				|| ds_map_find_value(recoveringLimbs,"r") != undefined 
+				ds_map_find_value(recoveringLimbs,"r") != undefined 
 				|| ds_map_find_value(attackingLimbs,"r") != undefined;
 			
 			// idea: have a will attack again map <handSide><boolean> kvp's -- in Step event, at end of recover,
@@ -34,7 +33,7 @@ if !isMouseInMenu {
 			if isRightHandInUse {
 	
 				ds_map_replace(attackAgain,"r",true);
-			} else {
+			} else if ds_map_find_value(preparingLimbs,"r") == undefined {
 				ds_map_replace(preparingLimbs,"r",1);
 			}
 			state = CombatantStates.Attacking;

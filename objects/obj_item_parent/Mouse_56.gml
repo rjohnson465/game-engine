@@ -26,12 +26,14 @@ if id == global.ui.grabbedItem {
 		&& (mouse_x > vx + global.inventory.invTopLeftX && mouse_x < vx + global.inventory.invBottomRightX) 
 		&& (mouse_y > vy + global.inventory.invTopLeftY && mouse_y < vy + global.inventory.invBottomRightY) 
 		{
-			unequipItem(id);
-			// if this was the selected item in the equipped items manager, its not anymore
-			if global.equippedItemsManager.selectedItem == id {
-				global.equippedItemsManager.selectedItem = noone;
-			}
+			
+			
 			if copyOf != noone {
+				unequipItem(id);
+				// if this was the selected item in the equipped items manager, its not anymore
+				if global.equippedItemsManager.selectedItem == id {
+					global.equippedItemsManager.selectedItem = noone;
+				}
 				instance_destroy(id);
 			}
 		}

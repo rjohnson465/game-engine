@@ -2,7 +2,7 @@ limb = global.limb;
 limbKey = limb.limbKey;
 owner = limb.owner;
 limbItem = limb.limbItem;
-
+depth = 5;
 persistent = limb.persistent;
 
 spriteString = "spr_"+owner.spriteString+"_"+limbItem.spriteName;
