@@ -55,7 +55,7 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 	
 	// if we're equipping something using the Equip Selector, 
 	// automatically only show what is possible to equip
-	if ui.equipSelector.isActive {
+	if ui.equipSelector.isActive && isSelectorInInventory(ui.equipSelector) {
 		// get equipment slot the equipSelector is on
 		var esx1 = ui.moveSelector.x1; var esy1 = ui.moveSelector.y1;
 		var equipmentSlotToFill = noone;
@@ -66,12 +66,12 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 		}
 		
 		var slotId = equipmentSlotToFill.slot;
-		if slotId == EquipmentSlots.LeftHand1 || slotId == EquipmentSlots.LeftHand2 {
+		if slotId == EquipmentSlots.RightHand1 || slotId == EquipmentSlots.RightHand2 {
 			if el.isTwoHanded {
 				var pos = ds_list_find_index(inv,el);
 				ds_list_delete(inv,pos);
 			}
-		} else if slotId == EquipmentSlots.RightHand1 || slotId == EquipmentSlots.RightHand2 {
+		} else if slotId == EquipmentSlots.LeftHand1 || slotId == EquipmentSlots.LeftHand2 {
 			if el.subType == HandItemTypes.Shield {
 				var pos = ds_list_find_index(inv,el);
 				ds_list_delete(inv,pos);

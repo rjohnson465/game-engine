@@ -2,16 +2,10 @@ var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
 if !isMouseInMenu {
-
-	// if using a 2h ranged weapon, holding right allows for aiming
-	if	rightHandItem.subType == HandItemTypes.Ranged && rightHandItem.isTwoHanded &&
+	if rightHandItem && rightHandItem.subType == HandItemTypes.Shield && stamina > 0 &&
 		(state == CombatantStates.Idle || state == CombatantStates.Moving) {
-		if	ds_map_find_value(recoverFrames,"r") == ds_map_find_value(recoverFrameTotals,"r")
-			|| ds_map_find_value(recoveringLimbs,"r") == undefined
-			{
-			isShielding = false; 
-			ds_map_replace(preparingLimbs,"r",1);
-			state = CombatantStates.Attacking;
-		}
+		isShielding = true;
+		global.owner = id;
+		instance_create_depth(x,y,1,obj_shield_block);
 	}
 }

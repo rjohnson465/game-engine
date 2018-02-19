@@ -1,12 +1,16 @@
-/// isSelectorInInventory
+/// isSelectorInInventory(*selectorId)
+/// *selectorId
 
-var selectorX = x1;
-var selectorY = y1;
-
-/*with obj_item_selector {
+var selectorX = 0; var selectorY = 0;
+if argument_count == 1 {
+	var selector = argument[0];
+	selectorX = selector.x1;
+	selectorY = selector.y1;
+}
+else {
 	selectorX = x1;
 	selectorY = y1;
-}*/
+}
 
 var inv = global.inventory;
 

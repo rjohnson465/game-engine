@@ -15,9 +15,7 @@ drawEquipmentSlot(leftHandItem1SlotX,leftHandItem1SlotY, EquipmentSlots.LeftHand
 if leftHandItem.spriteName != "unarmed" {
 	draw_sprite(leftHandItem.itemSprite,1,leftHandItem1SlotX,leftHandItem2SlotY);
 }
-if rightHandItem.isTwoHanded {
-	draw_sprite_ext(rightHandItem.itemSprite,1,leftHandItem1SlotX,leftHandItem2SlotY,1,1,0,c_black,.75);
-}
+
 draw_set_color(c_white);
 
 
@@ -25,6 +23,9 @@ draw_set_color(c_white);
 drawEquipmentSlot(rightHandItem1SlotX,rightHandItem1SlotY, EquipmentSlots.RightHand1);
 if rightHandItem.spriteName != "unarmed" {
 	draw_sprite(rightHandItem.itemSprite,1,rightHandItem1SlotX,rightHandItem1SlotY);
+}
+if leftHandItem.isTwoHanded {
+	draw_sprite_ext(leftHandItem.itemSprite,1,rightHandItem1SlotX,rightHandItem1SlotY,1,1,0,c_black,.75);
 }
 draw_text(rightHandItem1SlotX,leftHandItem2SlotY-15,"1");
 
@@ -38,14 +39,14 @@ drawEquipmentSlot(leftHandItem2SlotX,leftHandItem2SlotY, EquipmentSlots.LeftHand
 if leftHandItem2.spriteName != "unarmed" {
 	draw_sprite(leftHandItem2.itemSprite,1,leftHandItem2SlotX,leftHandItem2SlotY);
 }
-if rightHandItem2.isTwoHanded {
-	draw_sprite_ext(rightHandItem2.itemSprite,1,leftHandItem2SlotX,leftHandItem2SlotY,1,1,0,c_black,.75);
-}
 
 // right hand 2
 drawEquipmentSlot(rightHandItem2SlotX,rightHandItem2SlotY, EquipmentSlots.RightHand2);
 if rightHandItem2.spriteName != "unarmed" {
 	draw_sprite(rightHandItem2.itemSprite,1,rightHandItem2SlotX,rightHandItem2SlotY);
+}
+if leftHandItem2.isTwoHanded {
+	draw_sprite_ext(leftHandItem2.itemSprite,1,rightHandItem2SlotX,rightHandItem2SlotY,1,1,0,c_black,.75);
 }
 draw_text(rightHandItem2SlotX,rightHandItem2SlotY-15,"2");
 

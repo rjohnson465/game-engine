@@ -15,10 +15,10 @@ if ds_map_find_value(owner.equippedLimbItems,limbKey) != limbItem {
 	sprite_index = asset_get_index(spriteString);
 }
 
-// if we currently have a 2h weapon equipped, make the left hand fuck off
-var rightHandItem = ds_map_find_value(owner.equippedLimbItems,"r");
-if rightHandItem {
-	if rightHandItem.isTwoHanded && limbKey == "l" {
+// if we currently have a 2h weapon equipped, make the right hand fuck off
+var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
+if leftHandItem {
+	if leftHandItem.isTwoHanded && limbKey == "r" {
 		x = -10;
 		y = -10;
 	} else {

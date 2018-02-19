@@ -20,6 +20,10 @@ if gamepad_is_connected(pad) {
 	} else if gamepad_button_check_pressed(pad,gp_start) && isShowingMenus
 		|| (isShowingMenus && gamepad_button_check_pressed(pad,gp_face2) && moveSelector.isActive) {
 		isShowingMenus = false;
+		moveSelector.isActive = true;
+		equipSelector.isActive = false;
+		imbueSelector.isActive = false;
+		equipSelector.acceptableEquipmentSlots = [];
 	}
 
 }

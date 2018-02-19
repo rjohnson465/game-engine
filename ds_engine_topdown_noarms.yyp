@@ -74,7 +74,7 @@
             "Key": "0408fe46-3bbc-4854-a606-bc45c081ca57",
             "Value": {
                 "id": "e279e827-5ff3-41f0-bd44-3f6eea48f661",
-                "resourcePath": "scripts\\performRightHandReleaseAction\\performRightHandReleaseAction.yy",
+                "resourcePath": "scripts\\performLeftHandReleaseAction\\performLeftHandReleaseAction.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -386,7 +386,7 @@
             "Key": "1a8d088c-78af-4a27-b6ef-4ed530fc1e02",
             "Value": {
                 "id": "c9f8925e-3029-4602-af25-55d9169eb76a",
-                "resourcePath": "scripts\\performRightHandDownAction\\performRightHandDownAction.yy",
+                "resourcePath": "scripts\\performLeftHandDownAction\\performLeftHandDownAction.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -954,7 +954,7 @@
             "Key": "566e567f-06b1-4a92-9cea-84bc4525cdf8",
             "Value": {
                 "id": "0bacc821-3fa6-4f40-8fb9-8bfeff47c6ec",
-                "resourcePath": "scripts\\performLeftHandDownAction\\performLeftHandDownAction.yy",
+                "resourcePath": "scripts\\performRightHandDownAction\\performRightHandDownAction.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -986,7 +986,7 @@
             "Key": "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
             "Value": {
                 "id": "939e0b43-b5e3-4fe2-8b49-caeb02b74a78",
-                "resourcePath": "scripts\\performLeftHandReleaseAction\\performLeftHandReleaseAction.yy",
+                "resourcePath": "scripts\\performRightHandReleaseAction\\performRightHandReleaseAction.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1332,6 +1332,14 @@
                 "id": "7c30b01c-ba7c-4436-8992-94e257b4e33b",
                 "resourcePath": "sprites\\spr_player_hand_sword_1h_recover_1\\spr_player_hand_sword_1h_recover_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "77368ac4-b37c-46be-b669-868159fb25ee",
+            "Value": {
+                "id": "e484e697-72c8-401d-81b3-f7c05919b743",
+                "resourcePath": "scripts\\arrayIncludes\\arrayIncludes.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2776,7 +2784,8 @@
         "aaf4f76e-3e03-4e56-8549-a0304dcbdbe6",
         "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
         "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
-        "366ba9cd-aa4e-49d1-9f44-28270833e64a"
+        "366ba9cd-aa4e-49d1-9f44-28270833e64a",
+        "77368ac4-b37c-46be-b669-868159fb25ee"
     ],
     "tutorial": ""
 }

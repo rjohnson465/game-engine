@@ -54,12 +54,12 @@ with slotObj {
 			// 1)
 			if droppedItem.isTwoHanded {
 				switch (slot) {
-					case EquipmentSlots.LeftHand1: {
-						actualSlot = EquipmentSlots.RightHand1;
+					case EquipmentSlots.RightHand1: {
+						actualSlot = EquipmentSlots.LeftHand1;
 						break;
 					}
-					case EquipmentSlots.LeftHand2: {
-						actualSlot = EquipmentSlots.RightHand2;
+					case EquipmentSlots.RightHand2: {
+						actualSlot = EquipmentSlots.LeftHand2;
 						break;
 					}
 				}
@@ -86,10 +86,10 @@ with slotObj {
 			}
 			// 2) 
 			else if droppedItem.subType == HandItemTypes.Shield {
-				if slot == EquipmentSlots.RightHand1 {
-					actualSlot = EquipmentSlots.LeftHand1;
-				} else if slot == EquipmentSlots.RightHand2 {
-					actualSlot = EquipmentSlots.LeftHand2;
+				if slot == EquipmentSlots.LeftHand1 {
+					actualSlot = EquipmentSlots.RightHand1;
+				} else if slot == EquipmentSlots.LeftHand2 {
+					actualSlot = EquipmentSlots.RightHand2;
 				}
 				// if there's something equipped in actualSlot, unequip that
 				var alreadyEquippedItem = getItemInEquipmentSlot(actualSlot);

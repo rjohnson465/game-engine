@@ -1,16 +1,16 @@
 // draw based on state
 
-if limbKey == "l" {
-	var rightHand = noone;
+if limbKey == "r" {
+	var leftHand = noone;
 	var oId = owner;
 	with obj_limb {
-		if owner == oId && limbKey == "r" {
-			rightHand = id;
+		if owner == oId && limbKey == "l" {
+			leftHand = id;
 		}
 	}
-	if rightHand {
-		var rightHandItem = ds_map_find_value(owner.equippedLimbItems,"r");
-		if rightHandItem.isTwoHanded exit;
+	if leftHand {
+		var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
+		if leftHandItem.isTwoHanded exit;
 	}
 }
 
@@ -36,4 +36,3 @@ else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
 }
 
 draw_sprite_ext(sprite,frame,owner.x,owner.y,1,ys,rot,c_white,owner.alpha);
-//draw_sprite(sprite,frame,owner.x,owner.y);

@@ -1,8 +1,8 @@
 {
-    "id": "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
+    "id": "77368ac4-b37c-46be-b669-868159fb25ee",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "performRightHandReleaseAction",
+    "name": "arrayIncludes",
     "IsCompatibility": false,
     "IsDnD": false
 }

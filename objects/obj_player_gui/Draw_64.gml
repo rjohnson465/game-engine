@@ -87,12 +87,6 @@ if leftHandItem.spriteName != "unarmed" {
 	}
 }
 
-// two handed, show left hand with grayed out right hand equip
-if rightHandItem.isTwoHanded {
-	var leftHandItemSprite = asset_get_index("spr_item_"+rightHandItem.spriteName);
-	draw_sprite_ext(leftHandItemSprite,1,10,698,1,1,1,c_black,.75);
-}
-
 // middle button (spell)
 draw_sprite_ext(spr_item_slot,1,80,698,1,1,0,c_white,.5);
 var spell = asset_get_index("spr_item_"+global.player.currentSpell+"_"+global.player.currentSpellAttunement);
@@ -114,8 +108,13 @@ if rightHandItem.spriteName != "unarmed" {
 		draw_set_font(font_main);
 		draw_set_halign(fa_left);
 		draw_text(150,750,s);
-		//script_execute(scr_draw_text_outline,150,750,s,c_black);
 	}
+}
+
+// two handed, show right hand with grayed out left hand equip
+if leftHandItem.isTwoHanded {
+	var rightHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
+	draw_sprite_ext(rightHandItemSprite,1,150,698,1,1,1,c_black,.75);
 }
 
 // draw attunements

@@ -7,6 +7,16 @@ switch item.type {
 
 	case ItemTypes.HandItem: {
 		// 2H -- always left hand
+		if item.isTwoHanded {
+			return [EquipmentSlots.LeftHand1, EquipmentSlots.LeftHand2];
+		}
+		// shield -- always in right hand
+		else if item.subType == HandItemTypes.Shield {
+			return [EquipmentSlots.RightHand1, EquipmentSlots.RightHand2];
+		}
+		// else, general hand item, can go in any hand
+		else return [EquipmentSlots.LeftHand1, EquipmentSlots.LeftHand2, 
+		EquipmentSlots.RightHand1, EquipmentSlots.RightHand2];
 		
 		break;
 	}

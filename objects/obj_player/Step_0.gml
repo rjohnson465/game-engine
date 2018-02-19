@@ -371,7 +371,7 @@ switch(state) {
 				}
 				// if at the end of attack preparation, we need to create an attack object (slightly different process for ranged vs melee) 
 				else if prepFrame >= prepFrameTotal-1 {
-					if ( !(weapon.subType == HandItemTypes.Ranged && rightHandItem.isTwoHanded)) {
+					if ( !(weapon.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded)) {
 						speed = 0;
 						ds_map_replace(prepFrames,hand,-1);
 						ds_map_replace(prepFrameTotals,hand,0);
@@ -499,18 +499,18 @@ switch(state) {
 			}
 		}
 		
-		// this is a 2h ranged weapon, so limb must be "r"
-		if isReadyToFire && LEFTRELEASED && stamina > 0 {
+		// this is a 2h ranged weapon, so limb must be "l"
+		if isReadyToFire && RIGHTRELEASED && stamina > 0 {
 			speed = 0;
-			var attackInChain = ds_map_find_value(preparingLimbs,"r"); // pretty sure this is always gonna be 1
-			ds_map_replace(prepFrames,"r",-1);
-			ds_map_replace(prepFrameTotals,"r",0);
+			var attackInChain = ds_map_find_value(preparingLimbs,"l"); // pretty sure this is always gonna be 1
+			ds_map_replace(prepFrames,"l",-1);
+			ds_map_replace(prepFrameTotals,"l",0);
 			isReadyToFire = false;
-			ds_map_replace(attackingLimbs,"r",attackInChain);
+			ds_map_replace(attackingLimbs,"l",attackInChain);
 			stamina -= rightHandItem.staminaCostArray[attackInChain-1];
-			ds_map_delete(preparingLimbs,"r");
+			ds_map_delete(preparingLimbs,"l");
 			global.owner = id;
-			global.limbKey = "r";
+			global.limbKey = "l";
 			instance_create_depth(x,y,1,obj_attack);
 		}
 		break;
