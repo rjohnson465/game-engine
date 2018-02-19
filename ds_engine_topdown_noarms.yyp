@@ -311,6 +311,14 @@
             }
         },
         {
+            "Key": "16070f53-6c31-48b2-be15-9acba2821031",
+            "Value": {
+                "id": "255f99b2-f516-4dad-84d9-08a77d6d8d0e",
+                "resourcePath": "scripts\\getAcceptableEquipmentSlots\\getAcceptableEquipmentSlots.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "1625578a-fb42-481f-a530-2f2922355ba7",
             "Value": {
                 "id": "a5505e83-1d54-4047-896e-4228d1eec231",
@@ -2752,6 +2760,7 @@
         "ae5c63ed-aadd-4d83-8607-5a85ce922455",
         "edacf328-7cc7-454e-9cda-be7b920592df",
         "8ca404ab-285a-4da0-9506-1dad0ef525e7",
+        "16070f53-6c31-48b2-be15-9acba2821031",
         "49c3814e-d8c4-4d0e-b35d-1ddee2964762",
         "00feb608-5eda-4896-afe4-aa97abfda795",
         "3ba0e475-52bf-40db-82b9-fe6e9814970d",

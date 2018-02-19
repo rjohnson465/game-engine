@@ -1,5 +1,10 @@
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
 
+if type == ItemTypes.HandItem {
+	if weaponType == WeaponTypes.Unarmed exit;
+}
+
+
 //if ds_list_find_index(global.player.inventory,id) != -1 {
 if x1 >= global.inventory.invTopLeftX && x1 <= global.inventory.invBottomRightX 
 	&& y1 >= global.inventory.invTopLeftY && y1 <= global.inventory.invBottomRightY {

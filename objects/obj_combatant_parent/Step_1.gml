@@ -1,6 +1,8 @@
+if type == CombatantTypes.Player exit;
 // death
 if hp < 1 && isAlive {
 	isDying = true;
+	hp = 0;
 	speed = 0;
 	// cure any and all conditions
 	var currentCondition = ds_map_find_first(conditionPercentages);
@@ -38,8 +40,8 @@ if !isAlive {
 		//global.owner = id;
 		//instance_create_depth(x,y,1,obj_enemy_dead);
 		
-		x = -1000;
-		y = -1000;
+		//x = -1000;
+		//y = -1000;
 				
 		enemyData.hp = 0;
 		enemyData.isAlive = false;

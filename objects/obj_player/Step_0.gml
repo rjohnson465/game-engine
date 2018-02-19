@@ -103,11 +103,15 @@ if state != CombatantStates.Staggering && !isMouseInMenu {
 			{
 				var pdir = point_direction(0, 0, h_point, v_point);
 				var dif = angle_difference(pdir, facingDirection);
-				facingDirection += median(-20, dif, 20);
+				facingDirection += median(-45, dif, 45);
 				facingDirection = (facingDirection+360)%360;
 			}
 		} else {
-			facingDirection = point_direction(x,y,mouse_x,mouse_y);
+			var pdir = point_direction(x,y,mouse_x,mouse_y);
+			var dif = angle_difference(pdir, facingDirection);
+			facingDirection += median(-45, dif, 45);
+			facingDirection = (facingDirection+360)%360;
+			//facingDirection = point_direction(x,y,mouse_x,mouse_y);
 		}
 	}
 	// otherwise, player always faces locked on enemy

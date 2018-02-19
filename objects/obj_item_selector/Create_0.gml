@@ -30,3 +30,6 @@ switch type {
 		color = c_aqua;
 	}
 }
+
+// for equip selector only -- set if moveSelector selects an item in inventory to equip
+acceptableEquipmentSlots = [];

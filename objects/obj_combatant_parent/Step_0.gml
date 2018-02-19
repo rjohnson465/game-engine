@@ -1,5 +1,4 @@
 if !isAlive exit;
-
 if isDying exit;
 
 image_angle = facingDirection;
@@ -396,6 +395,7 @@ switch(state) {
 	case CombatantStates.Moving: {
 		// player overrides this entirely
 		if type != CombatantTypes.Player {
+			
 			// TODO pick target; may not always be player
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
 			if currentMeleeAttack || currentRangedAttack {

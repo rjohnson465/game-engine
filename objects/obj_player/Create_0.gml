@@ -101,9 +101,9 @@ LOCK_ON_DISTANCE = 800;
 hp = 1;
 maxHp = 500;
 hpRegen = .5; // per second
-stamina = 500;
-maxStamina = 500;
-staminaRegen = 15; // per second
+stamina = 50;
+maxStamina = 50;
+staminaRegen = 20; // per second
 
 // level stuff
 level = 1;

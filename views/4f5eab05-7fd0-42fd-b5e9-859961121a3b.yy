@@ -10,7 +10,8 @@
         "2d92b7aa-fb04-470e-9ab7-8e555cf4905f",
         "ae5c63ed-aadd-4d83-8607-5a85ce922455",
         "edacf328-7cc7-454e-9cda-be7b920592df",
-        "8ca404ab-285a-4da0-9506-1dad0ef525e7"
+        "8ca404ab-285a-4da0-9506-1dad0ef525e7",
+        "16070f53-6c31-48b2-be15-9acba2821031"
     ],
     "filterType": "GMScript",
     "folderName": "Controller Selector Stuff",
