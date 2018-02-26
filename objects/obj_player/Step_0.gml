@@ -143,28 +143,28 @@ switch(state) {
 			}
 		} else {
 			var usingSpeed = SHIFT ? functionalSpeed*2 : functionalSpeed;
-			if UP && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
+			if UP && RIGHT {
 				direction = 45;
 			}
-			else if UP && LEFT && !place_meeting(x-usingSpeed, y-usingSpeed, obj_solid_parent) {
+			else if UP && LEFT  {
 				direction = 135;
 			}
-			else if DOWN && LEFT && !place_meeting(x-usingSpeed, y+usingSpeed, obj_solid_parent) {
+			else if DOWN && LEFT {
 				direction = 225;
 			}
-			else if DOWN && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
+			else if DOWN && RIGHT {
 				direction = 315;
 			}
-			else if RIGHT && !place_meeting(x+usingSpeed, y, obj_solid_parent) {
+			else if RIGHT {
 				direction = 0;
 			}
-			else if LEFT && !place_meeting(x-usingSpeed, y, obj_solid_parent) {
+			else if LEFT {
 				direction = 180;
 			}
-			else if UP && !place_meeting(x, y-usingSpeed, obj_solid_parent) {
+			else if UP {
 				direction = 90;
 			}
-			else if DOWN && !place_meeting(x, y+usingSpeed, obj_solid_parent) {
+			else if DOWN {
 				direction = 270;
 			}
 		}
@@ -176,12 +176,12 @@ switch(state) {
 			// walking backwards is slow
 			dirDiff = abs(direction - facingDirection);
 			if dirDiff > 135 && dirDiff < 225  {
-				mp_potential_step_object(xx,yy,.5*functionalSpeed,obj_solid_parent);
-				//speed = .5*functionalSpeed;
+				moveToNearestFreePoint(direction,.5*functionalSpeed);
+				break;
 			}	
 			else {
-				//speed = functionalSpeed;
-				mp_potential_step_object(xx,yy,functionalSpeed,obj_solid_parent);
+				moveToNearestFreePoint(direction,functionalSpeed);
+				break;
 			}
 		}	
 		// run

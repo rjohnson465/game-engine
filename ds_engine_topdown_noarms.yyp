@@ -111,6 +111,14 @@
             }
         },
         {
+            "Key": "06f9a3f8-d8da-41ce-9324-cb2200c4dbf0",
+            "Value": {
+                "id": "ff5218c9-5c24-4464-bef4-77dffbc59f6e",
+                "resourcePath": "scripts\\moveToNearestFreePoint\\moveToNearestFreePoint.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "07ed0573-4245-493b-85b2-5c067785bac9",
             "Value": {
                 "id": "9f2827f2-ff41-407b-a636-1112a90251fc",
@@ -2751,6 +2759,7 @@
         "af4faec1-d8c4-4e8c-a879-6cd5e3540170",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "b60cbf73-d564-44ac-aeb7-c7d4b94e9b78",
+        "06f9a3f8-d8da-41ce-9324-cb2200c4dbf0",
         "66d96a45-c863-45a1-baa1-d84d084bea72",
         "1949d661-bf35-49e3-906d-36ee6139f2e2",
         "22ffe7d1-cfcb-4531-ad15-59c9a46b5895",

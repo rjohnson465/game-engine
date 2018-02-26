@@ -46,7 +46,7 @@ else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
 else {
 	sprite_index = asset_get_index(spriteString);
 }
-
+/*
 if owner.type != CombatantTypes.Player && sprite_index != asset_get_index(spriteString) {
 	show_debug_message(string(sprite_index) + string(image_index));
 }

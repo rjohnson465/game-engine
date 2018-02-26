@@ -37,11 +37,6 @@ if !isAlive {
 		showHp = false;
 		isShowingLightRadius = false;
 		lightRadiusColor = c_white;
-		//global.owner = id;
-		//instance_create_depth(x,y,1,obj_enemy_dead);
-		
-		//x = -1000;
-		//y = -1000;
 				
 		enemyData.hp = 0;
 		enemyData.isAlive = false;

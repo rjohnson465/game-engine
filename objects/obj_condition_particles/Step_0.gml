@@ -1,7 +1,7 @@
 if owner.hp <= 0 && condition != "Death" {
 	instance_destroy(id);
 }
-if condition == "Death" && !owner.isAlive {
+if condition == "Death" && (!owner.isAlive || owner.hp > 0) {
 	instance_destroy(id);
 }
 
@@ -60,6 +60,7 @@ if conditionLevel == 0 {
 			} else if conditionPercent > 25 {
 				num = 1;
 			} else num = -3;
+			//num = 1;
 			break;
 		}
 		case LIGHTNING: {

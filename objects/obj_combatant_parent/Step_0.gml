@@ -3,6 +3,8 @@ if isDying exit;
 
 image_angle = facingDirection;
 
+//show_debug_message(string(ds_map_find_value(conditionPercentages,ICE)) + " | " + string(current_time));
+
 // Reset personal grid for allies / enemeies
 // The personal grid allows for allies / enemies to plan their path, acommodating walls and other combatants
 if type != CombatantTypes.Player {
@@ -206,7 +208,21 @@ for (var i = 0; i < size; i++){
 				// slowed
 				if conditionLevel == 1 {
 					//functionalSpeed = .5*normalSpeed;
-					functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
+					
+					//if conditionPercent % 10 < 2 {
+					//	functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
+					//}*/
+					if conditionPercent > 80 {
+						functionalSpeed = .2*normalSpeed;
+					} else if conditionPercent > 60 {
+						functionalSpeed = .4*normalSpeed;
+					}
+					else if conditionPercent > 40 {
+						functionalSpeed = .6*normalSpeed;
+					} else if conditionPercent > 20 {
+						functionalSpeed = .8*normalSpeed;
+					}
+					
 				}
 				// frozen
 				else if conditionLevel == 2{
@@ -259,12 +275,10 @@ for (var i = 0; i < size; i++){
 					}
 					hp -= poisonDamage;
 
-					//if type != CombatantTypes.Player {
-						global.damageAmount = poisonDamage;
-						global.victim = id;
-						global.healingSustained = 0;
-						instance_create_depth(x,y,1,obj_damage);
-					//}
+					global.damageAmount = poisonDamage;
+					global.victim = id;
+					global.healingSustained = 0;
+					instance_create_depth(x,y,1,obj_damage);
 					// builds every pulse
 					// TODO math major DEVIN
 					poisonDamage = originalPoisonDamage;
@@ -755,7 +769,7 @@ switch(state) {
 				} else {
 					ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+1); // increment through frames for attack prep
 				}
-				show_debug_message("prep: " + string(ds_map_find_value(prepFrames,currentPreparingLimbKey)));
+				//show_debug_message("prep: " + string(ds_map_find_value(prepFrames,currentPreparingLimbKey)));
 				currentPreparingLimbKey = ds_map_find_next(preparingLimbs,currentPreparingLimbKey);
 			}
 			
@@ -775,7 +789,7 @@ switch(state) {
 					if attackObj != noone {
 						ds_map_replace(attackFrames,limb,attackObj.image_index);
 					}
-					show_debug_message("attack: " + string(ds_map_find_value(attackFrames,limb)));
+					//show_debug_message("attack: " + string(ds_map_find_value(attackFrames,limb)));
 					limb = ds_map_find_next(attackingLimbs, limb);
 				}
 			}
@@ -812,7 +826,7 @@ switch(state) {
 					} else {
 						ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+1);
 					}
-					show_debug_message("recover: " + string(ds_map_find_value(recoverFrames,currentRecoveringLimbKey)));
+					//show_debug_message("recover: " + string(ds_map_find_value(recoverFrames,currentRecoveringLimbKey)));
 					currentRecoveringLimbKey = ds_map_find_next(recoveringLimbs,currentRecoveringLimbKey);
 				}
 			}
@@ -913,17 +927,18 @@ switch(state) {
 		speed = 0;	
 		image_angle = dodgeDirection;
 		
-		if dodgeStartX == noone {
+		/*if dodgeStartX == noone {
 			dodgeStartX = x;
 			dodgeStartY = y;
 			var x1 = dodgeStartX+lengthdir_x(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
 			var y1 = dodgeStartY+lengthdir_y(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
-			
-			//if !isFairy {
-				mp_potential_path_object(path,x1,y1,functionalSpeed*2,2,obj_solid_parent);
-				path_start(path,functionalSpeed*2,path_action_stop,true);
-			//}
-		}
+
+			mp_potential_path_object(path,x1,y1,functionalSpeed*2,2,obj_solid_parent);
+			path_start(path,functionalSpeed*2,path_action_stop,true);
+
+		}*/
+		
+		moveToNearestFreePoint(dodgeDirection,functionalSpeed*2);
 
 		dodgeFrame++;
 		// if not dodging, reset some states and values

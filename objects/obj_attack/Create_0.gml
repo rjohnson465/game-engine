@@ -19,6 +19,7 @@ combatantsHit = ds_list_create();
 if owner.currentUsingSpell != noone {
 	
 	isRanged = true;
+	visible = true;
 	isSpell = true;
 	percentCharged = global.percentCharged;
 	var currentSpell = ds_map_find_value(owner.knownSpells,owner.currentUsingSpell);
@@ -159,6 +160,7 @@ else {
 	
 	// ranged attacks 
 	if isRanged {
+		visible = true;
 		if weapon {
 			speed = weapon.projectileSpeed;
 		} else {

@@ -45,12 +45,12 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 	
 	draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, scale, scale, facingDirection, c_white, alpha);
 	
-	/*if isSlowed {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, 1, 1, facingDirection, c_aqua, .5);
+	if isSlowed {
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, scale, scale, facingDirection, c_aqua, .5);
 	} 
 	else if isFrozen {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, 1, 1, facingDirection, c_aqua, .75);
-	} */
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, scale, scale, facingDirection, c_aqua, .75);
+	} 
 	
 	var totalIdleFrames = sprite_get_number(asset_get_index("spr_"+spriteString));
 	
