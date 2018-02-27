@@ -208,7 +208,7 @@ if	state != CombatantStates.Dodging &&
 				
 				// damage needs to be refactored, as shields have their own defenses per element
 				var currentDamageType = ds_map_find_first(damagesTaken);
-				var shield = leftHandItem;
+				var shield = rightHandItem;
 				var adjustedDamage = 0;
 				for (var i = 0; i < ds_map_size(damagesTaken); i++) {
 					

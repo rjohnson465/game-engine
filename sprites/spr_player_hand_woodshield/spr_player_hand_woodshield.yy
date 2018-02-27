@@ -2,7 +2,7 @@
     "id": "7334019c-c026-46b8-b5ec-a7e1b695c6a2",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "spr_player_woodshield",
+    "name": "spr_player_hand_woodshield",
     "For3D": false,
     "HTile": false,
     "VTile": false,

@@ -1,7 +1,7 @@
 x = owner.x;
 y = owner.y;
 // shields always on the left hand
-image_angle = owner.facingDirection-90;
+image_angle = owner.facingDirection+90;
 
 if	!owner.isShielding
 	|| owner.state == CombatantStates.Dodging

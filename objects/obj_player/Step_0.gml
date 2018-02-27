@@ -262,7 +262,8 @@ switch(state) {
 		// check if spell attack
 		// spells are all 2h and thus use the "r" side (might change this later idk)
 		if currentUsingSpell != noone {
-			if currentUsingSpell == "aoe" {
+			
+			/*if currentUsingSpell == "aoe" {
 				cursor_sprite = spr_lockon;
 				var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,mouse_x,mouse_y,obj_wall_parent,true,true);
 				// do not alow aoe spell to be cast beyond walls 
@@ -275,8 +276,8 @@ switch(state) {
 					state = CombatantStates.Idle;
 					break;
 				}
-				
-			}
+			}*/
+			
 			speed = .5*speed;
 			var currentSpell = ds_map_find_value(knownSpells,currentUsingSpell);
 			var MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle);
@@ -321,10 +322,10 @@ switch(state) {
 						global.percentCharged = percentCharged;
 						global.limbKey = "r";
 						//global.spellAttunement = spellAttunement;
-						if currentUsingSpell != "aoe" {
+						if /*currentUsingSpell != "aoe"*/ true {
 							instance_create_depth(x,y,1,obj_attack);	
 						} else {
-							instance_create_depth(mouse_x,mouse_y,1,obj_attack);	
+							//instance_create_depth(mouse_x,mouse_y,1,obj_attack);	
 						}
 					}
 				}
@@ -482,8 +483,8 @@ switch(state) {
 		// move forward while attacking with a melee attack (if not simultaenously preparing another attack)
 		if ds_map_size(attackingLimbs) != 0 {
 			var attackingMelee = 
-				(ds_map_find_value(attackingLimbs,"l") && leftHandItem.type == HandItemTypes.Melee)	||
-				(ds_map_find_value(attackingLimbs,"r") && rightHandItem.type == HandItemTypes.Melee)
+				(ds_map_find_value(attackingLimbs,"l") && leftHandItem.subType == HandItemTypes.Melee)	||
+				(ds_map_find_value(attackingLimbs,"r") && rightHandItem.subType == HandItemTypes.Melee)
 			if ds_map_size(preparingLimbs) == 0 {
 				x1 = x + lengthdir_x(2,facingDirection);
 				y1 = y + lengthdir_y(2,facingDirection);
@@ -507,7 +508,7 @@ switch(state) {
 			ds_map_replace(prepFrameTotals,"l",0);
 			isReadyToFire = false;
 			ds_map_replace(attackingLimbs,"l",attackInChain);
-			stamina -= rightHandItem.staminaCostArray[attackInChain-1];
+			stamina -= leftHandItem.staminaCostArray[attackInChain-1];
 			ds_map_delete(preparingLimbs,"l");
 			global.owner = id;
 			global.limbKey = "l";

@@ -21,3 +21,5 @@ staminaCostArray=[10,10,20];
 physicalDamageTypeArray = ["slashing","slashing","piercing"];
 
 ds_map_replace(damages,POISON,[5,10]);
+ds_map_replace(damages,ICE,[1,2]);
+ds_map_replace(damages,MAGIC,[1,2]);

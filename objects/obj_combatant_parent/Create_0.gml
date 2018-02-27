@@ -33,7 +33,7 @@ jumpTotalFrames = 8;
 functionalSpeed = 5;
 normalSpeed = 5;
 facingDirection = 0;
-turnSpeed = 3; // how many degrees a combatant may turn per step to face their target
+turnSpeed = 45; // how many degrees a combatant may turn per step to face their target
 // player | enemy | ally
 spriteType = ""; 
 // i.e. "skeleton" | "dummy"

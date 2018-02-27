@@ -1,3 +1,4 @@
+if sprite_index == -1 exit;
 if limbKey == "r" {
 	var leftHand = noone;
 	var oId = owner;

@@ -44,8 +44,11 @@ else {
 	// only move if some angle was ok
 	//show_debug_message(abs(angle_difference(d,dir)));
 	if dir != d && abs(angle_difference(d,dir)) < 90 {
+		// bigger angle diff = slower speed
+		var diff = abs(angle_difference(d,dir));
+		sp = (-(diff/90)+1)*sp;
 		x = x+lengthdir_x(sp,dir); 
 		y = y+lengthdir_y(sp,dir);
 	}
-	show_debug_message("firing" + string(current_time) + " | " + string(d));
+	//show_debug_message("firing" + string(current_time) + " | " + string(d));
 }

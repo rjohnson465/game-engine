@@ -366,7 +366,7 @@ switch(state) {
 			currentMeleeAttack = round(random_range(1,array_length_1d(meleeAttacks)));
 
 			// close enough to hear, but maybe not see. turn to face the direction of the noise
-			turnToFacePoint(150,lockOnTarget.x,lockOnTarget.y);
+			//turnToFacePoint(150,lockOnTarget.x,lockOnTarget.y);
 			var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 			if wallsBetweenTarget == noone || onAlert {
 				onAlert = true;
@@ -390,7 +390,7 @@ switch(state) {
 			attackNumberInChain = noone;
 			currentRangedAttack = round(random_range(1,array_length_1d(rangedAttacks)));
 			// close enough to hear, but maybe not see. turn to face the direction of the noise
-			turnToFacePoint(150,lockOnTarget.x,lockOnTarget.y);
+			//turnToFacePoint(150,lockOnTarget.x,lockOnTarget.y);
 			var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 			if wallsBetweenTarget == noone || onAlert {
 				onAlert = true;
@@ -413,6 +413,7 @@ switch(state) {
 			// TODO pick target; may not always be player
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
 			if currentMeleeAttack || currentRangedAttack {
+				
 				turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 				
 				// CHECK 1: TOO FAR FROM POST?
@@ -507,6 +508,7 @@ switch(state) {
 						mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,obj_solid_parent);
 						path_start(path,functionalSpeed,path_action_stop,true);
 					} else {
+						//moveToNearestFreePoint(facingDirection,functionalSpeed);
 						move_towards_point(postX,postY,functionalSpeed);
 					}
 					

@@ -1282,7 +1282,7 @@
             "Key": "7334019c-c026-46b8-b5ec-a7e1b695c6a2",
             "Value": {
                 "id": "40b958e0-de34-4c3f-aada-51e7b704f14f",
-                "resourcePath": "sprites\\spr_player_woodshield\\spr_player_woodshield.yy",
+                "resourcePath": "sprites\\spr_player_hand_woodshield\\spr_player_hand_woodshield.yy",
                 "resourceType": "GMSprite"
             }
         },
