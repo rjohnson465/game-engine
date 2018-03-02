@@ -266,7 +266,7 @@
             "Key": "12955a72-7dd4-4a6c-8b1e-bfce1ab9d880",
             "Value": {
                 "id": "48249954-57de-4ece-a12e-9da34f6163ab",
-                "resourcePath": "objects\\obj_hand_item_shield_parent\\obj_hand_item_shield_parent.yy",
+                "resourcePath": "objects\\obj_shield_parent\\obj_shield_parent.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1282,7 +1282,7 @@
             "Key": "7334019c-c026-46b8-b5ec-a7e1b695c6a2",
             "Value": {
                 "id": "40b958e0-de34-4c3f-aada-51e7b704f14f",
-                "resourcePath": "sprites\\spr_player_hand_woodshield\\spr_player_hand_woodshield.yy",
+                "resourcePath": "sprites\\spr_player_hand_shield\\spr_player_hand_shield.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1419,6 +1419,14 @@
             "Value": {
                 "id": "dd617ac6-3f36-4364-b0ac-67a17c14996f",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_prep_1_1\\spr_enemy_unfairy_limb_unarmed_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7e3c5672-8847-44b1-b71d-cb3d2fd3b3c8",
+            "Value": {
+                "id": "c5bdd95a-3eb5-4169-beb4-1d2d5c19bd59",
+                "resourcePath": "sprites\\spr_player_woodshield\\spr_player_woodshield.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1844,6 +1852,14 @@
                 "id": "aab8b600-f28a-40ef-89c2-5cdd482fa6a1",
                 "resourcePath": "scripts\\performCycleThroughSpells\\performCycleThroughSpells.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ab314424-840e-4c4d-b357-0039beac35ed",
+            "Value": {
+                "id": "1b80330f-3f5b-4d27-813b-eaf700f5e6cd",
+                "resourcePath": "views\\ab314424-840e-4c4d-b357-0039beac35ed.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -2383,14 +2399,6 @@
             }
         },
         {
-            "Key": "dd89d3e7-abab-4129-a308-38c06bffe13a",
-            "Value": {
-                "id": "cf38457e-3426-4c04-8821-5e62801e1184",
-                "resourcePath": "scripts\\isRoomDark\\isRoomDark.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "dde4bb23-0e4e-40d0-9b53-ac8bfe27cf7f",
             "Value": {
                 "id": "952037f1-1f6e-47a7-9669-ba7a8f772665",
@@ -2745,7 +2753,6 @@
         "0aa36b5b-7047-4003-ad3c-c1e1740f9d0d",
         "39bca976-b17b-4112-9141-1a5112b868ba",
         "f8705dbb-e7d5-47c3-a2ec-c0a1a23186ba",
-        "dd89d3e7-abab-4129-a308-38c06bffe13a",
         "cd615c88-1626-485a-a27f-9b20e17a6a15",
         "1d2c5934-19c8-4b69-8108-9a1dd6bbfe19",
         "9f8a107a-2263-4254-8c9b-742f8091675e",

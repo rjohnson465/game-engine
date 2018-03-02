@@ -88,10 +88,12 @@ if gamepad_is_connected(pad) {
 
 		else if isSelectorInInventory {
 	
-			// if we're not at the lowest row in inventory, move down
 			if y1 < inv.invTopLeftY+(3*inv.slotHeight) {
+		
 				y1 += inv.slotHeight;
-				inv.selectedItem = getItemAtSelectorPosition(id);
+				if getItemAtSelectorPosition(id) {
+					inv.selectedItem = getItemAtSelectorPosition(id);
+				} else y1 -= inv.slotHeight;
 			}
 	
 			// are there more items than shown?

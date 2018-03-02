@@ -126,8 +126,8 @@ if ds_map_size(preparingLimbs) != 0 && currentUsingSpell != noone {
 	var y1 = y-(.5*sprite_height)-15;
 	var x2 = x+(.75*sprite_width);
 	var y2 = y-(.5*sprite_height)-5;
-	var prepFrame = ds_map_find_value(prepFrames,"r");
-	var prepFrameTotal = ds_map_find_value(prepFrameTotals,"r");
+	var prepFrame = ds_map_find_value(prepFrames,"l");
+	var prepFrameTotal = ds_map_find_value(prepFrameTotals,"l");
 	var percentDone = prepFrame / prepFrameTotal;
 	draw_healthbar(x1,y1,x2,y2,percentDone*100,c_black,c_ltgray,c_aqua,0,true,true);
 	draw_set_color(c_white);

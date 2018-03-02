@@ -30,8 +30,8 @@ image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
 
 if limbItem.subType == HandItemTypes.Shield && owner.isShielding {
-	visible = false;
-} else visible = true;
+	image_angle = owner.facingDirection+90;
+} else image_angle = owner.facingDirection;
 
 if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {
 	image_index = ds_map_find_value(owner.prepFrames,limbKey);

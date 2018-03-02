@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "magicmissile"; // i.e. magicmissile, fireball ...
 name = "Magic Missile";
 castFrames = 30; // how long spell can be charged
-level = 1;
+level = 3;
 numberOfProjectiles = level;
 projectileSpeed = 15;
 staminaCost = 20;

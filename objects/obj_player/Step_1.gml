@@ -23,10 +23,10 @@ if gamepad_is_connected(gamePadIndex) {
 	if gamepad_button_check(gamePadIndex,gp_shoulderr) {
 		performRightHandDownAction();
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_face2) && !global.ui.isShowingMenus {
+	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderrb) {
 		performDodge();
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderrb) {
+	if gamepad_button_check_pressed(gamePadIndex,gp_face2) && !global.ui.isShowingMenus {
 		performSwapWeaponSet();
 	}
 	if gamepad_button_check(gamePadIndex,gp_shoulderlb) {

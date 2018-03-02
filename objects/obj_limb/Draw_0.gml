@@ -16,6 +16,7 @@ if limbKey == "r" {
 
 var ys = limbKey == "l" ? -1 : 1;
 var rot = owner.facingDirection;
+if limbItem.subType == HandItemTypes.Shield && owner.isShielding rot+=90;
 var frame = 0; var sprite = asset_get_index(spriteString);
 // preparing limb
 if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {

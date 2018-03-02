@@ -3,8 +3,6 @@ if isDying exit;
 
 image_angle = facingDirection;
 
-//show_debug_message(string(ds_map_find_value(conditionPercentages,ICE)) + " | " + string(current_time));
-
 // Reset personal grid for allies / enemeies
 // The personal grid allows for allies / enemies to plan their path, acommodating walls and other combatants
 if type != CombatantTypes.Player {
@@ -40,21 +38,23 @@ for (var i = 0; i < size; i++){
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
 	
 	// if condition is ice and just went over 50, apply slow
-	if conditionPercent > 50 && currentCondition == ICE && ds_map_find_value(conditionLevels,currentCondition) == 0 {
+	/*if conditionPercent > 50 && currentCondition == ICE && ds_map_find_value(conditionLevels,currentCondition) == 0 {
 		isSlowed = true;
+		//functionalSpeed = .5*normalSpeed;
 		ds_map_replace(conditionLevels,currentCondition,1);
-	}
+	}*/
 	
 	// if condition is ice and it just dropped below 85 (coming from condition level 2, frozen), reset to condition level 1 (slow)
-	if conditionPercent < 85 && currentCondition == ICE {
+	if conditionPercent < 85 && currentCondition == ICE && ds_map_find_value(conditionLevels,currentCondition) == 2 {
 		if ds_map_find_value(conditionLevels,currentCondition) == 2 {
 			isFrozen = false;
 			isSlowed = true;
+			functionalSpeed = .5*normalSpeed;
 			ds_map_replace(conditionLevels,currentCondition,1);
 		}
 	}
 	
-	// generally, if conditionPercent exceeds 99, condition level becomes 1
+	// generally, if conditionPercent exceeds 95, condition level becomes 1
 	// except for ice, in which condition level becomes 2 (frozen)
 	if conditionPercent > 95 && currentCondition == ICE {
 		ds_map_replace(conditionLevels,currentCondition,2);
@@ -65,6 +65,7 @@ for (var i = 0; i < size; i++){
 		}
 		isSlowed = false;
 		isFrozen = true;
+		functionalSpeed = 0;
 	} else if conditionPercent > 95 {
 		ds_map_replace(conditionLevels,currentCondition,1);
 		switch currentCondition {
@@ -98,15 +99,6 @@ for (var i = 0; i < size; i++){
 				}
 				isShocked = true; 				
 				break;
-			}
-			case ICE: {
-				// freeze applied on a burning target, burn is removed
-				if !isFrozen && isBurning {
-					ds_map_replace(conditionPercentages,FIRE,0);
-					isBurning = false;
-				}
-				isFrozen = true; 
-				isSlowed = false; break;
 			}
 		}
 	}
@@ -206,12 +198,12 @@ for (var i = 0; i < size; i++){
 		switch currentCondition {
 			case ICE: {
 				// slowed
-				if conditionLevel == 1 {
+				/*if conditionLevel == 1 {
 					//functionalSpeed = .5*normalSpeed;
 					
 					//if conditionPercent % 10 < 2 {
 					//	functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
-					//}*/
+					//}
 					if conditionPercent > 80 {
 						functionalSpeed = .2*normalSpeed;
 					} else if conditionPercent > 60 {
@@ -226,8 +218,8 @@ for (var i = 0; i < size; i++){
 				}
 				// frozen
 				else if conditionLevel == 2{
-					functionalSpeed = 0;
-				}
+					//functionalSpeed = 0;
+				}*/
 				break;
 			}
 			// burning
@@ -504,13 +496,14 @@ switch(state) {
 					}
 			
 					// calculate path to lockOnTarget and move to it
-					if !place_meeting(x,y,obj_solid_parent) {
+					//if !place_meeting(x,y,obj_solid_parent) {
 						mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,obj_solid_parent);
-						path_start(path,functionalSpeed,path_action_stop,true);
-					} else {
+						path_start(path,functionalSpeed,path_action_stop,false);
+					//} else {
 						//moveToNearestFreePoint(facingDirection,functionalSpeed);
-						move_towards_point(postX,postY,functionalSpeed);
-					}
+						//move_towards_point(postX,postY,functionalSpeed);
+						//path_end();
+					//}
 					
 					break;
 
@@ -681,7 +674,6 @@ switch(state) {
 				// attack logic
 				if willAttack && stamina > 0 {
 					var lk = "r";
-					// TODO this is no good for ranged attacks -- use rangedAttacks array too
 					if !isRanged{
 						var a = meleeAttacks[attackNumber-1];
 					} else var a = rangedAttacks[attackNumber-1];
@@ -710,9 +702,9 @@ switch(state) {
 							}
 						}
 					}
-					// ranged is always 2h and always "in" the right hand
+					// ranged is always 2h and always "in" the left hand
 					if hasHands && isRanged {
-						lk = "r";
+						lk = "l";
 					}
 					
 					var spriteAttackNumber = attackData.spriteAttackNumber;
@@ -918,9 +910,7 @@ switch(state) {
 		
 		// always decrement waryFrame
 		waryFrame--;
-		if jumpFrame <= jumpTotalFrames {
-			jumpFrame++;
-		}
+		
 		break;
 	}
 	case CombatantStates.Dodging: {
@@ -929,23 +919,12 @@ switch(state) {
 		speed = 0;	
 		image_angle = dodgeDirection;
 		
-		/*if dodgeStartX == noone {
-			dodgeStartX = x;
-			dodgeStartY = y;
-			var x1 = dodgeStartX+lengthdir_x(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
-			var y1 = dodgeStartY+lengthdir_y(functionalSpeed*2*totalDodgeFrames,dodgeDirection);
-
-			mp_potential_path_object(path,x1,y1,functionalSpeed*2,2,obj_solid_parent);
-			path_start(path,functionalSpeed*2,path_action_stop,true);
-
-		}*/
-		
 		moveToNearestFreePoint(dodgeDirection,functionalSpeed*2);
 
 		dodgeFrame++;
 		// if not dodging, reset some states and values
 		if dodgeFrame >= totalDodgeFrames {
-			path_end();
+			//path_end();
 			
 			dodgeStartX = noone;
 			dodgeStartY = noone;
@@ -981,6 +960,7 @@ switch(state) {
 		break;
 	}
 	case CombatantStates.Staggering: {
+		jumpFrame = jumpTotalFrames;
 		// stop attacking -- TODO need to fix this for non-humanoid combatants
 		if hasHands {
 			// stop preparing attacks
@@ -1155,8 +1135,10 @@ if isFlinching {
 	}
 }
 
-// lazy solution to occasional overlaps with solid objects
-if place_meeting(x,y,obj_solid_parent) {
-	move_towards_point(postX,postY,functionalSpeed);
+if jumpFrame <= jumpTotalFrames {
+	jumpFrame++;
 }
 
+/*if place_meeting(x,y,obj_solid_parent) /*&& type != CombatantTypes.Player {
+	move_towards_point(postX,postY,functionalSpeed);
+}*/

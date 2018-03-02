@@ -263,21 +263,6 @@ switch(state) {
 		// spells are all 2h and thus use the "r" side (might change this later idk)
 		if currentUsingSpell != noone {
 			
-			/*if currentUsingSpell == "aoe" {
-				cursor_sprite = spr_lockon;
-				var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,mouse_x,mouse_y,obj_wall_parent,true,true);
-				// do not alow aoe spell to be cast beyond walls 
-				if wallsBetweenTarget != noone {
-					cursor_sprite = -1;
-					ds_map_replace(prepFrames,"r",-1);
-					ds_map_replace(prepFrameTotals,"r",0);
-					ds_map_delete(preparingLimbs,"r");
-					currentUsingSpell = noone;
-					state = CombatantStates.Idle;
-					break;
-				}
-			}*/
-			
 			speed = .5*speed;
 			var currentSpell = ds_map_find_value(knownSpells,currentUsingSpell);
 			var MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle);
@@ -287,16 +272,16 @@ switch(state) {
 			}
 			
 			if ds_map_size(attackingLimbs) == 0 && ds_map_size(preparingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
-				ds_map_replace(prepFrameTotals,"r",currentSpell.castFrames);
-				ds_map_replace(prepFrames,"r",0);
-				ds_map_replace(preparingLimbs,"r",1);
+				ds_map_replace(prepFrameTotals,"l",currentSpell.castFrames);
+				ds_map_replace(prepFrames,"l",0);
+				ds_map_replace(preparingLimbs,"l",1);
 			}
 			
 			// attack sequence 
-			if ds_map_find_value(prepFrames,"r") >= ds_map_find_value(prepFrameTotals,"r") || MIDDLE_BUTTON_RELEASED {
+			if ds_map_find_value(prepFrames,"l") >= ds_map_find_value(prepFrameTotals,"l") || MIDDLE_BUTTON_RELEASED {
 				cursor_sprite = -1;
-				var prepFrame = ds_map_find_value(prepFrames,"r");
-				var prepFrameTotal = ds_map_find_value(prepFrameTotals,"r");
+				var prepFrame = ds_map_find_value(prepFrames,"l");
+				var prepFrameTotal = ds_map_find_value(prepFrameTotals,"l");
 				var percentCharged = prepFrame / prepFrameTotal;
 				
 				var chargeCost = round(percentCharged*currentSpell.maxChargeCost);
@@ -320,20 +305,18 @@ switch(state) {
 						global.owner = id;
 						global.projectileNumber = i+1;
 						global.percentCharged = percentCharged;
-						global.limbKey = "r";
+						global.limbKey = "l";
 						//global.spellAttunement = spellAttunement;
-						if /*currentUsingSpell != "aoe"*/ true {
-							instance_create_depth(x,y,1,obj_attack);	
-						} else {
-							//instance_create_depth(mouse_x,mouse_y,1,obj_attack);	
-						}
+						instance_create_depth(x,y,1,obj_attack);	
 					}
 				}
-				ds_map_replace(prepFrames,"r",-1);
-				ds_map_replace(prepFrameTotals,"r",0);
-				ds_map_delete(preparingLimbs,"r");
+				ds_map_replace(prepFrames,"l",-1);
+				ds_map_replace(prepFrameTotals,"l",0);
+				ds_map_delete(preparingLimbs,"l");
 				currentUsingSpell = noone;
 				state = CombatantStates.Idle;
+			} else {
+				ds_map_replace(prepFrames,"l",ds_map_find_value(prepFrames,"l")+1);
 			}
 			break;
 			

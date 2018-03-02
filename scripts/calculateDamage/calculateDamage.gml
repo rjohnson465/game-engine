@@ -1,6 +1,7 @@
 /// calculateDamage()
 /// Pre-Condition -- must be called by the victim in a collision event with attackObj
 
+if hp <= 0 exit;
 
 // if enemy or ally, seek retribution (even if out of normal range)
 if	(type == CombatantTypes.Enemy || type == CombatantTypes.Ally) 

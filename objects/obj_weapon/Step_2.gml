@@ -10,18 +10,24 @@ image_alpha = owner.alpha;
 if limbItem != limb.limbItem {
 	limbItem = limb.limbItem;
 	if owner.type == CombatantTypes.Player {
-		if limbItem.subType != HandItemTypes.Shield {
+		//if limbItem.subType != HandItemTypes.Shield {
 			spriteString = "spr_"+owner.spriteString+"_"+limb.limbItem.spriteName;
 			sprite_index = asset_get_index(spriteString);
-		} else sprite_index = -1;
+		//} else sprite_index = -1;
 	} else {
 		spriteString = "spr_"+owner.spriteString+"_"+limb.limbItem.spriteName;
 		sprite_index = asset_get_index(spriteString);
 	}
 	
-	emitter = noone;
-	system = noone;
-	particle = noone;
+	//emitter1 = noone;
+	//system1 = noone;
+	particle1 = noone;
+	//emitter2 = noone;
+	//system2 = noone;
+	particle2 = noone;
+	//emitter2 = noone;
+	//system2 = noone;
+	particle3 = noone;
 	
 	if owner.type == CombatantTypes.Player {
 		// iterate over weapon damages

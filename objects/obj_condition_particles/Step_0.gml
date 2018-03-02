@@ -54,9 +54,9 @@ if conditionLevel == 0 {
 		case ICE: {
 			// starts with many snowflakes but as freeze fades, less
 			if conditionPercent > 90 {
-				num = 8;
+				num = 5;
 			} else if conditionPercent > 50 {
-				num = 3;
+				num = 2;
 			} else if conditionPercent > 25 {
 				num = 1;
 			} else num = -3;

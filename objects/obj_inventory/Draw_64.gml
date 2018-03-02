@@ -1,9 +1,9 @@
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
 
-var leftHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand1);
-var leftHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.LeftHand2);
-var rightHandItem = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand1);
-var rightHandItem2 = ds_map_find_value(global.player.equippedItems,EquipmentSlots.RightHand2);
+var leftHandItem = ds_map_find_value(global.player.equippedLimbItems,"l");
+var leftHandItem2 = ds_map_find_value(global.player.equippedLimbItems,"l2");
+var rightHandItem = ds_map_find_value(global.player.equippedLimbItems,"r");
+var rightHandItem2 = ds_map_find_value(global.player.equippedLimbItems,"r2");
 
 // tabs /filters 
 // filters background

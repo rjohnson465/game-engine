@@ -15,7 +15,7 @@ switch condition {
 		var snowflake = part_type_create();
 		part_type_shape(snowflake, pt_shape_snow);
 		part_type_orientation(snowflake,0,0,0,15,1);
-		part_type_size(snowflake,0,0.25,0,0);
+		part_type_size(snowflake,0,0.2,0,0);
 		part_type_speed(snowflake,1,1.5,0,0);
 		part_type_direction(snowflake,0,360,0,4);
 		part_type_life(snowflake,10,20);

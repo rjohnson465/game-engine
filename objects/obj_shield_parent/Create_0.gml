@@ -7,4 +7,4 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 }
 blockPercentage = 50;
 
-handSpriteString = "";
+handSpriteString = "spr_player_hand_shield";

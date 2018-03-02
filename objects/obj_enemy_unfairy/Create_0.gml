@@ -15,8 +15,8 @@ var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
 ds_map_add(handItems,"rm1",unarmed);
 ds_map_add(handItems,"lm1",unarmed);
-ds_map_add(handItems, "rr1",shortbow);
-ds_map_add(handItems, "lr1", unarmed);
+ds_map_add(handItems, "lr1",shortbow);
+ds_map_add(handItems, "rr1", unarmed);
 
 ds_map_replace(equippedLimbItems,"l",unarmed);
 ds_map_replace(equippedLimbItems,"r",unarmed);
@@ -93,7 +93,7 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 20;
 
 // dodge stuff
-agility = 0; // 0 - 100% chance to try a dodge
+agility = 75; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
 /*

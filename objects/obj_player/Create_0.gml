@@ -43,18 +43,6 @@ unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 unarmed.persistent = true;
 
 equippedItems = ds_list_create();
-/*var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
-ds_list_add(equippedItems,longsword);
-longsword.equipmentSlot = EquipmentSlots.RightHand1;
-longsword.persistent = true;
-ds_map_replace(equippedLimbItems,"r",longsword);
-var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
-ds_list_add(equippedItems,shortbow);
-shortbow.equipmentSlot = EquipmentSlots.RightHand2;
-shortbow.persistent = true;
-ds_map_replace(equippedLimbItems,"l",unarmed);
-ds_map_replace(equippedLimbItems,"l2",unarmed);
-ds_map_replace(equippedLimbItems,"r2",shortbow);*/
 
 ds_map_replace(equippedLimbItems,"r",unarmed);
 ds_map_replace(equippedLimbItems,"l",unarmed);
@@ -98,8 +86,8 @@ lockOnTargetType = obj_enemy_parent;
 LOCK_ON_DISTANCE = 800;
 
 // hp / stamina
-hp = 1;
-maxHp = 500;
+hp = 100;
+maxHp = 100;
 hpRegen = .5; // per second
 stamina = 50;
 maxStamina = 50;

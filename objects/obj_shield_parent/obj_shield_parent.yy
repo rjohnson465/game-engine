@@ -2,7 +2,7 @@
     "id": "12955a72-7dd4-4a6c-8b1e-bfce1ab9d880",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_hand_item_shield_parent",
+    "name": "obj_shield_parent",
     "eventList": [
         {
             "id": "6f0282b5-6c64-4b4a-b41a-e422645c074d",
