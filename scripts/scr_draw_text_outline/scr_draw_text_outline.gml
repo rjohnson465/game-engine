@@ -23,7 +23,7 @@ var x1 = argument[0],
 
 if (argument_count == 9)
 {
-  outlineColor = argument[9];
+  outlineColor = argument[8];
 }
 else if argument_count == 8 {
 	xs = argument[5];
