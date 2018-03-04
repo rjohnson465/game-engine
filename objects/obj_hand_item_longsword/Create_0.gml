@@ -6,7 +6,8 @@ name = "Longsword";
 spriteName = "longsword";
 itemSprite = spr_item_longsword;
 
-numberOfTargets = 2;
+// for each attack in chain
+numberOfTargets = [3];
 
 charges = 200;
 totalCharges = 200;
@@ -22,4 +23,4 @@ physicalDamageTypeArray = ["slashing","slashing","piercing"];
 
 //ds_map_replace(damages,POISON,[5,10]);
 ds_map_replace(damages,ICE,[1,2]);
-ds_map_replace(damages,MAGIC,[1,2]);
+//ds_map_replace(damages,MAGIC,[1,2]);

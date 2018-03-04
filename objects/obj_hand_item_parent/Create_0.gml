@@ -25,7 +25,7 @@ weaponType = WeaponTypes.Sword1H;
 // Fast | Medium | Slow -- dependent on WeaponType
 weaponSpeed = "";
 range = 0; // in pixels
-numberOfTargets = 1;
+numberOfTargets = [1];
 staggersAgainstBlocks = true;
 charges = 0;
 totalCharges = 0;

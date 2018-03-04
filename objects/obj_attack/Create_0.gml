@@ -34,7 +34,6 @@ if owner.currentUsingSpell != noone {
 	// spell scale dependent on percentCharged
 	// 50% charged = scale of 1
 	var scale = ((percentCharged*100)/100)+.5;
-	show_debug_message(scale);
 	image_xscale = scale; image_yscale = scale;
 	
 	var currentSpell = ds_map_find_value(owner.knownSpells,owner.currentUsingSpell);

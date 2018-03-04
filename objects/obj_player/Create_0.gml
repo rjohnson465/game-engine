@@ -52,8 +52,6 @@ ds_map_replace(equippedLimbItems,"r2",unarmed);
 var rightHand = makeLimb(id,"r");
 var leftHand = makeLimb(id,"l");
 
-
-
 // attack states
 // <limb><bool> kvp's
 attackAgain = ds_map_create();
@@ -129,28 +127,8 @@ inventory = ds_list_create();
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_longsword));
-/*ds_list_add(inventory,longsword);
-ds_list_add(inventory,shortbow);
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));*/
+var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
+ds_list_add(inventory,longsword);
 
 lastFountainRoom = noone;
 lastFountainX = noone;

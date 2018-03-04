@@ -56,7 +56,9 @@ var unarmedHook2 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
 unarmedHook2.limbKey = "o";
 var unarmedHook3 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
 unarmedHook3.limbKey = "o";
-ds_map_replace(unarmedHook3.damages,ICE,[1,3]);
+//ds_map_replace(unarmedHook3.damages,ICE,[1,3]);
+//ds_map_replace(unarmedHook2.damages,ICE,[1,3]);
+//ds_map_replace(unarmedHook1.damages,ICE,[1,3]);
 
 var unarmedBackSlap = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_2);
 
@@ -93,7 +95,7 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 20;
 
 // dodge stuff
-agility = 75; // 0 - 100% chance to try a dodge
+agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
 /*

@@ -23,21 +23,6 @@ if	state != CombatantStates.Dodging &&
 	if ds_list_find_index(beenHitWith,other.id) == -1 {
 		
 		ds_list_add(other.combatantsHit,id);
-		
-		// limit number of combatants hit per attack based on num targets an attack can hit
-		if	other.owner.type == CombatantTypes.Player {
-			
-			if !other.isSpell && ds_list_size(other.combatantsHit) > other.weapon.numberOfTargets {
-				exit;
-			} else if other.isSpell && ds_list_size(other.combatantsHit) > other.spell.numberOfTargets {
-				exit;
-			}
-		}
-		else if other.owner.type != CombatantTypes.Player 
-			&& ds_list_size(other.combatantsHit) > other.attackData.numberOfTargets {
-				exit;
-			}
-		
 		ds_list_add(beenHitWith,other.id);
 		
 		// run to get __x and __y (collision point where attack meet this combatant)
@@ -79,6 +64,24 @@ if	state != CombatantStates.Dodging &&
 			attackData = attackChain[attackNumberInChain-1];
 			damagesMap = attackData.damages;
 		}
+		
+		// limit number of combatants hit per attack based on num targets an attack can hit
+		if	other.owner.type == CombatantTypes.Player {
+			
+			if !other.isSpell {
+				var weaponNumberOfTargetsArr = other.weapon.numberOfTargets;
+				var weaponNumberOfTargets = weaponNumberOfTargetsArr[attackNumberInChain-1];
+				if ds_list_size(other.combatantsHit) > weaponNumberOfTargets {
+					exit;
+				}
+			} else if other.isSpell && ds_list_size(other.combatantsHit) > other.spell.numberOfTargets {
+				exit;
+			}
+		}
+		else if other.owner.type != CombatantTypes.Player 
+			&& ds_list_size(other.combatantsHit) > other.attackData.numberOfTargets {
+				exit;
+			}
 		
 		// keep track of how much of each type of damage is taken (shields absorb different percentages of elements)
 		var damagesTaken = ds_map_create(); 
@@ -257,7 +260,6 @@ if	state != CombatantStates.Dodging &&
 		// hit
 		else {			
 			// critical?
-			
 			hp -= damage;
 			global.damageAmount = damage;
 			global.healingSustained = 0;

@@ -1,23 +1,30 @@
 if type == CombatantTypes.Player exit;
 // death
-if hp < 1 && isAlive {
+if hp < 1 && isAlive && !isDying {
 	isDying = true;
 	hp = 0;
 	speed = 0;
+	preparingLimbs = ds_map_create();
+	attackingLimbs = ds_map_create();
+	recoveringLimbs = ds_map_create();
+	// create death particles
+	global.owner = id;
+	randomize();
+	var rand = random_range(0,100);
+	if ds_map_find_value(conditionPercentages,ICE) > 50 && (rand > 60) {
+		global.condition = "IceDeath";
+		dyingFrame = dyingTotalFrames;
+	} else {
+		global.condition = "Death";
+	}
+	instance_create_depth(x,y,1,obj_condition_particles);
+	state = CombatantStates.Idle;
 	// cure any and all conditions
 	var currentCondition = ds_map_find_first(conditionPercentages);
 	for (var i = 0; i < ds_map_size(conditionPercentages);i++) {
 		ds_map_replace(conditionPercentages,currentCondition,0);
 		currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
 	}
-	preparingLimbs = ds_map_create();
-	attackingLimbs = ds_map_create();
-	recoveringLimbs = ds_map_create();
-	jumpFrame = 8;
-	// create death particles
-	global.owner = id;
-	global.condition = "Death";
-	instance_create_depth(x,y,1,obj_condition_particles);
 }
 
 if isDying && isAlive {
@@ -33,6 +40,7 @@ if isDying && isAlive {
 }
 
 if !isAlive {
+	speed = 0;
 	if type == CombatantTypes.Enemy {
 		showHp = false;
 		isShowingLightRadius = false;

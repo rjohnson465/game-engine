@@ -17,6 +17,31 @@ if  stamina > 0 &&
 		GAMEPADVMOVE = gamepad_axis_value(gamePadIndex, gp_axislv) != 0;
 	}
 		
+	if UP && RIGHT {
+		direction = 45;
+	}
+	else if UP && LEFT  {
+		direction = 135;
+	}
+	else if DOWN && LEFT {
+		direction = 225;
+	}
+	else if DOWN && RIGHT {
+		direction = 315;
+	}
+	else if RIGHT {
+		direction = 0;
+	}
+	else if LEFT {
+		direction = 180;
+	}
+	else if UP {
+		direction = 90;
+	}
+	else if DOWN {
+		direction = 270;
+	}	
+	
 	if UP || DOWN || LEFT || RIGHT {
 		dodgeDirection = direction;
 	} else if GAMEPADHMOVE || GAMEPADVMOVE {

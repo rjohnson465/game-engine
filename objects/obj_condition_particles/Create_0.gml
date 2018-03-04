@@ -102,6 +102,44 @@ switch condition {
 		particle = blood;
 		break;
 	}
+	case "IceDeath": {
+		// ice chunk particle
+		var ice = part_type_create();
+		part_type_sprite(ice,spr_particle_icechunk,0,0,1);
+		part_type_size(ice,.02,.06,0,0);
+		part_type_color2(ice,c_white,c_black);
+		part_type_alpha3(ice,1,1,0);
+		part_type_speed(ice,4,8,0,0);
+		part_type_direction(ice,0,359,0,5);
+		part_type_orientation(ice,0,359,0,0,0);
+		part_type_blend(ice,true);
+		part_type_life(ice,15,30);
+		particle = ice;
+		
+		// snowflake particle2
+		var snowflake = part_type_create();
+		part_type_shape(snowflake, pt_shape_snow);
+		part_type_orientation(snowflake,0,0,0,15,1);
+		part_type_size(snowflake,0,0.1,0,0);
+		part_type_speed(snowflake,1,1.5,0,0);
+		part_type_direction(snowflake,0,360,0,4);
+		part_type_life(snowflake,15,25);
+		part_type_alpha3(snowflake,1,.75,.5);
+		particle2 = snowflake;
+		
+		randomize();
+		var num  = random_range(7,10);
+		var num2 = random_range(10,15);
+		var x1 = owner.x - (.5*owner.sprite_width);
+		var y1 = owner.y - (.5*owner.sprite_height);
+		var x2 = owner.x + (.5*owner.sprite_width);
+		var y2 = owner.y + (.5*owner.sprite_height);
+		part_system_depth(system,0);
+		part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,0);
+		part_emitter_burst(system,emitter,particle, num);
+		part_emitter_burst(system,emitter,particle2, num2);
+		instance_destroy(id);
+	}
 	case "Phase": {
 		var smoke = part_type_create();
 		part_type_shape(smoke, pt_shape_smoke);

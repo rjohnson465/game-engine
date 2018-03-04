@@ -1,7 +1,7 @@
 if owner.hp <= 0 && condition != "Death" {
 	instance_destroy(id);
 }
-if condition == "Death" && (!owner.isAlive || owner.hp > 0) {
+if (condition == "Death") && (!owner.isAlive || owner.hp > 0) {
 	instance_destroy(id);
 }
 
@@ -54,13 +54,12 @@ if conditionLevel == 0 {
 		case ICE: {
 			// starts with many snowflakes but as freeze fades, less
 			if conditionPercent > 90 {
-				num = 5;
-			} else if conditionPercent > 50 {
 				num = 2;
-			} else if conditionPercent > 25 {
+			} else if conditionPercent > 50 {
 				num = 1;
+			} else if conditionPercent > 25 {
+				num = -1;
 			} else num = -3;
-			//num = 1;
 			break;
 		}
 		case LIGHTNING: {
@@ -79,15 +78,15 @@ if conditionLevel == 0 {
 			break;
 		}
 		case "Death": {
-			// starts with many particles but as burn fades, particles dwindle
+			// starts with many particles but as combatant fades, particles dwindle
 			var conditionPercent = (-owner.dyingFrame/owner.dyingTotalFrames)+1;
 			if conditionPercent > 90 {
-				num = 10;
+				num = 1000;
 			} else if conditionPercent > 50 {
-				num = 4;
+				num = 400;
 			} else if conditionPercent > 25 {
-				num = 1;
-			} else num = -3;
+				num = 100;
+			} else num = 20;
 			break;
 		}
 	}

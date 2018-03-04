@@ -6,6 +6,8 @@ spriteName = "unarmed";
 range = 20;
 weight = 0;
 
+numberOfTargets = [1,2];
+
 staggerDuration = 15; // frames
 staminaCostArray=[5,10];
 

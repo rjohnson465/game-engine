@@ -1,6 +1,9 @@
-if !isAlive exit;
+if !isAlive && type != CombatantTypes.Player {
+	path_end();
+	speed = 0;
+	exit;
+}
 if isDying exit;
-
 image_angle = facingDirection;
 
 // Reset personal grid for allies / enemeies
@@ -46,12 +49,10 @@ for (var i = 0; i < size; i++){
 	
 	// if condition is ice and it just dropped below 85 (coming from condition level 2, frozen), reset to condition level 1 (slow)
 	if conditionPercent < 85 && currentCondition == ICE && ds_map_find_value(conditionLevels,currentCondition) == 2 {
-		if ds_map_find_value(conditionLevels,currentCondition) == 2 {
 			isFrozen = false;
 			isSlowed = true;
-			functionalSpeed = .5*normalSpeed;
+			//functionalSpeed = round(.5*normalSpeed);
 			ds_map_replace(conditionLevels,currentCondition,1);
-		}
 	}
 	
 	// generally, if conditionPercent exceeds 95, condition level becomes 1
@@ -198,13 +199,14 @@ for (var i = 0; i < size; i++){
 		switch currentCondition {
 			case ICE: {
 				// slowed
-				/*if conditionLevel == 1 {
+				//functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
+				if conditionLevel == 1 {
 					//functionalSpeed = .5*normalSpeed;
-					
+					functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
 					//if conditionPercent % 10 < 2 {
 					//	functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
 					//}
-					if conditionPercent > 80 {
+					/*if conditionPercent > 80 {
 						functionalSpeed = .2*normalSpeed;
 					} else if conditionPercent > 60 {
 						functionalSpeed = .4*normalSpeed;
@@ -213,13 +215,13 @@ for (var i = 0; i < size; i++){
 						functionalSpeed = .6*normalSpeed;
 					} else if conditionPercent > 20 {
 						functionalSpeed = .8*normalSpeed;
-					}
+					}*/
 					
 				}
 				// frozen
 				else if conditionLevel == 2{
 					//functionalSpeed = 0;
-				}*/
+				}
 				break;
 			}
 			// burning
@@ -402,6 +404,9 @@ switch(state) {
 		// player overrides this entirely
 		if type != CombatantTypes.Player {
 			
+			//mp_potential_step_object(global.player.x,global.player.y,functionalSpeed,obj_solid_parent);
+			//break;
+			
 			// TODO pick target; may not always be player
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
 			if currentMeleeAttack || currentRangedAttack {
@@ -494,16 +499,14 @@ switch(state) {
 					} else {
 						facingDirection = direction;
 					}
-			
-					// calculate path to lockOnTarget and move to it
-					//if !place_meeting(x,y,obj_solid_parent) {
+					
+					if isSlowed {
+						mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,obj_solid_parent);
+					} else {
 						mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,obj_solid_parent);
-						path_start(path,functionalSpeed,path_action_stop,false);
-					//} else {
-						//moveToNearestFreePoint(facingDirection,functionalSpeed);
-						//move_towards_point(postX,postY,functionalSpeed);
-						//path_end();
-					//}
+					}
+					path_start(path,functionalSpeed,path_action_stop,false);
+					//mp_potential_step_object(global.player.x,global.player.y,functionalSpeed,obj_solid_parent);
 					
 					break;
 
@@ -761,7 +764,12 @@ switch(state) {
 					
 					hasCalculatedNextAttack = false;
 				} else {
-					ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+1); // increment through frames for attack prep
+					// increment through frames for attack prep
+					if isSlowed {
+						ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+.5);
+					} else {
+						ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+1);
+					}
 				}
 				//show_debug_message("prep: " + string(ds_map_find_value(prepFrames,currentPreparingLimbKey)));
 				currentPreparingLimbKey = ds_map_find_next(preparingLimbs,currentPreparingLimbKey);
@@ -783,7 +791,6 @@ switch(state) {
 					if attackObj != noone {
 						ds_map_replace(attackFrames,limb,attackObj.image_index);
 					}
-					//show_debug_message("attack: " + string(ds_map_find_value(attackFrames,limb)));
 					limb = ds_map_find_next(attackingLimbs, limb);
 				}
 			}
@@ -818,7 +825,11 @@ switch(state) {
 						ds_map_replace(recoverFrames,currentRecoveringLimbKey,-1);
 						ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,0);
 					} else {
-						ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+1);
+						if isSlowed {
+							ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+.5);
+						} else {
+							ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+1);
+						}
 					}
 					//show_debug_message("recover: " + string(ds_map_find_value(recoverFrames,currentRecoveringLimbKey)));
 					currentRecoveringLimbKey = ds_map_find_next(recoveringLimbs,currentRecoveringLimbKey);

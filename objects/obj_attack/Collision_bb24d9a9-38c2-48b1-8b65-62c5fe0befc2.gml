@@ -1,6 +1,22 @@
+if object_is_ancestor(other.object_index,obj_combatant_parent) {
+	exit;
+}
+
 var x1 = x + lengthdir_x(100,owner.facingDirection);
 var y1 = y + lengthdir_y(100,owner.facingDirection);
-var firstObj = scr_collision_line_first(x,y,x1,y1,obj_wall_parent,true,true);
+
+var firstObj = noone;
+var possibleSolids = scr_collision_line_list(x,y,x1,y1,obj_solid_parent,true,true);
+if possibleSolids != noone {
+	var closestDist = 1000;
+	for (var i = 0; i < ds_list_size(possibleSolids); i++) {
+		var el = ds_list_find_value(possibleSolids,i);
+		if !object_is_ancestor(el.object_index,obj_combatant_parent) && distance_to_object(el) < closestDist {
+			firstObj = el;
+		}
+	}
+}
+
 var hitsWallFirst = firstObj == other.id;
 if isMelee && hitsWallFirst {
 	owner.staggerFrame = 0;

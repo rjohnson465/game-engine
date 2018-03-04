@@ -35,8 +35,6 @@ with player {
 		// how long until combo chain dies
 		var percentDrained = ((1-comboFrame/comboTimeQuantum)*100);
 		draw_healthbar(10,y1+15,10+(comboHitsToNextLevel*20),y1+20,percentDrained,c_black,c_purple,c_white,0,true,true);
-		
-		//scr_draw_text_outline(20,40,comboEffectiveNumber,c_purple,c_white,scale,scale,angle);
 	}
 	// draw the bar for combo level 
 	if comboModeLevel > 0 {
@@ -50,6 +48,7 @@ with player {
 		if comboModeFrame >= comboModeTotalFrames-10 {
 			scale = (5/((comboModeTotalFrames-comboModeFrame)+1));
 		}
+		draw_set_font(font_damage);
 		scr_draw_text_outline(150,y1,string(comboModeLevel*25+100)+"%",c_silver,c_white,scale,scale,0);
 	}
 }

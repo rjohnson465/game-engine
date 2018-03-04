@@ -1871,6 +1871,14 @@
             }
         },
         {
+            "Key": "abb83fa8-992b-4e68-8ef2-63095e702229",
+            "Value": {
+                "id": "8699a61b-1430-4d6a-86f0-09ad7f4b8128",
+                "resourcePath": "sprites\\spr_particle_icechunk\\spr_particle_icechunk.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ac303734-3f9b-40fd-830c-0ab70585c2a6",
             "Value": {
                 "id": "08334c20-9f78-4997-a45c-280c350f35ce",

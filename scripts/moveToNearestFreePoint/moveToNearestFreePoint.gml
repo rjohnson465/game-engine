@@ -46,7 +46,13 @@ else {
 	if dir != d && abs(angle_difference(d,dir)) < 90 {
 		// bigger angle diff = slower speed
 		var diff = abs(angle_difference(d,dir));
-		sp = (-(diff/90)+1)*sp;
+		// linear
+		//sp = (-(diff/90)+1)*sp;
+		// quadratic
+		sp = (1-((diff*diff)/8100))*sp;
+		// logarithmic
+		//sp = (1/(log10(90))*log10(-(diff-90)))*sp;
+		//show_debug_message(sp);
 		x = x+lengthdir_x(sp,dir); 
 		y = y+lengthdir_y(sp,dir);
 	}

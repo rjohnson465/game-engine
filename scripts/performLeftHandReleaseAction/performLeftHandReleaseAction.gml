@@ -1,7 +1,7 @@
 var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
-if !isMouseInMenu {
+if !isMouseInMenu && !isFrozen {
 
 	if leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded {
 		
