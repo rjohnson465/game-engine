@@ -17,7 +17,9 @@ if gamepad_is_connected(pad) {
 
 		else if isSelectorInEquippedItems() {
 			moveSelectorInEquippedItems("left");
-			eq.selectedItem = getItemAtSelectorPosition(id);
+			if !isSelectorInInventory {
+				eq.selectedItem = getItemAtSelectorPosition(id);
+			}
 		}
 	}
 	
@@ -113,26 +115,40 @@ if gamepad_is_connected(pad) {
 		switch type {
 			// if selector type and hovering over an equipped item, activate the equip selector object
 			case SelectorTypes.Select: {
-				if isSelectorInEquippedItems() {
+				if isSelectorInEquippedItems() || isSelectorInInventory() {
 					isActive = false;
 					// find Equip selector and activate it (in End Step event)
 				}
 				break;
 			}
 			case SelectorTypes.Equip: {
-				// this is where the complex equipping happens my dude
-				var selectedEquipmentSlot = noone;
 				var moveSelector = ui.moveSelector;
 				var equipSelector = id;
-				with obj_equipmentslot {
-					if x1 == moveSelector.x1 && y1 == moveSelector.y1 {
-						selectedEquipmentSlot = id;
+				var selectedEquipmentSlot = noone;
+		
+				// equipselector is in inventory
+				if array_length_1d(ui.equipSelector.acceptableEquipmentSlots) == 0 {		
+					with obj_equipmentslot {
+						if x1 == moveSelector.x1 && y1 == moveSelector.y1 {
+							selectedEquipmentSlot = id;
+						}
 					}
+					equipItemVerbose(getItemAtSelectorPosition(id),selectedEquipmentSlot);
+		
 				}
-				equipItemVerbose(getItemAtSelectorPosition(id),selectedEquipmentSlot);
-				
+				// equipSelector is in equipped items
+				else {
+					with obj_equipmentslot {
+						if x1 == equipSelector.x1 && y1 == equipSelector.y1 {
+							selectedEquipmentSlot = id;
+						}
+					}
+					equipItemVerbose(getItemAtSelectorPosition(moveSelector),selectedEquipmentSlot);
+					acceptableEquipmentSlots = [];
+				}
 				moveSelector.isActive = true;
 				equipSelector.isActive = false;
+		
 				break;
 			}
 			case SelectorTypes.Imbue: {
@@ -140,12 +156,21 @@ if gamepad_is_connected(pad) {
 		}	
 	} // end face1 button handling
 	
-	// handle canceling selector event (square / x button)
-	if gamepad_button_check_pressed(pad,gp_face2) {
+	// handle canceling selector event (square / x button) or unequipping hovered item
+	if gamepad_button_check_pressed(pad,gp_face3) {
 		// if Equip or Imbue selectors are active, deactivate them and re-activate the Select selector
 		if type == SelectorTypes.Equip || type == SelectorTypes.Imbue {
 			isActive = false;
-			ui.moveSelector.isActive = true;
+			acceptableEquipmentSlots = [];
+			ui.moveSelector.isActive = true;	
+		}
+		
+		// unequip selected item 
+		if type == SelectorTypes.Select && isSelectorInEquippedItems {
+			var item = getItemAtSelectorPosition(id);
+			if item && isActive {
+				unequipItem(getItemAtSelectorPosition(id));
+			}
 		}
 	}
 	

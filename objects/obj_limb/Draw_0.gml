@@ -44,4 +44,8 @@ if owner.isSlowed {
 	draw_sprite_ext(sprite,frame,owner.x,owner.y,1,ys,rot,c_aqua,colorAlpha*owner.alpha);
 } else if owner.isFrozen {
 	draw_sprite_ext(sprite,frame,owner.x,owner.y,1,ys,rot,c_aqua,.75*owner.alpha);
+} else if owner.isPoisoned {
+	var percentPoisoned = ds_map_find_value(owner.conditionPercentages,POISON);
+	var colorAlpha = (3/320)*percentPoisoned;
+	draw_sprite_ext(sprite,frame,owner.x,owner.y,1,ys,rot,c_aqua,colorAlpha*owner.alpha);
 }

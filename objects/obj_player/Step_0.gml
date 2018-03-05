@@ -70,6 +70,32 @@ if	isLockedOn && ((cancelLockOnInputReceived && !global.ui.isShowingMenus)
 	isLockedOn = false;
 }
 
+// lockOnTarget switching with a controller
+if isLockedOn && gamepad_is_connected(gamePadIndex) {
+	var h_point = gamepad_axis_value(gamePadIndex, gp_axisrh);
+	var v_point = gamepad_axis_value(gamePadIndex, gp_axisrv);
+	if ((h_point != 0) || (v_point != 0)) {
+		var pdir = point_direction(0, 0, h_point, v_point);
+		
+		// find all enemies in a given radius 
+		var possibleTargets = scr_get_ids_region(lockOnTargetType,x-500,y-500,x+500,y+500);
+		
+		// pick target that is in sight and closest to pdir (angle-wise, not distance-wise)
+		var closestAngleDiff = 180;
+		for (var i = 0; i < ds_list_size(possibleTargets); i++) {
+			var el = ds_list_find_value(possibleTargets,i);
+			var ang = point_direction(lockOnTarget.x,lockOnTarget.y,el.x,el.y);
+			var diff = abs(angle_difference(pdir,ang));
+			
+			var wallsBetweenLockOnTarget = script_execute(scr_collision_line_list,x,y,el.x,el.y,obj_wall_parent,true,true);
+			if diff < closestAngleDiff && diff < 90 && wallsBetweenLockOnTarget == noone {
+				lockOnTarget = el;
+			}
+		}
+		
+	}
+}
+
 // move state triggers
 var UP = keyboard_check(ord("W"));
 var DOWN = keyboard_check(ord("S"));
@@ -111,7 +137,6 @@ if state != CombatantStates.Staggering && !isMouseInMenu {
 			var dif = angle_difference(pdir, facingDirection);
 			facingDirection += median(-45, dif, 45);
 			facingDirection = (facingDirection+360)%360;
-			//facingDirection = point_direction(x,y,mouse_x,mouse_y);
 		}
 	}
 	// otherwise, player always faces locked on enemy
@@ -169,28 +194,21 @@ switch(state) {
 			}
 		}
 		
-		var xx = x + lengthdir_x(1000,direction);
-		var yy = y + lengthdir_y(1000,direction);
-		
-		if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) /*&& canMove*/ {
+		if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) {
+			var useSpeed = functionalSpeed;
+			if SHIFT && stamina > 0 {
+				useSpeed = functionalSpeed*1.25;
+				stamina -= .35;
+			}
 			// walking backwards is slow
 			dirDiff = abs(direction - facingDirection);
 			if dirDiff > 135 && dirDiff < 225  {
-				moveToNearestFreePoint(direction,.5*functionalSpeed);
-				break;
+				moveToNearestFreePoint(direction,.5*useSpeed);
 			}	
 			else {
-				moveToNearestFreePoint(direction,functionalSpeed);
-				break;
+				moveToNearestFreePoint(direction,useSpeed);
 			}
 		}	
-		// run
-		if SHIFT && stamina > 0 {
-			//speed = speed*1.25;
-			//mp_potential_step_object(xx,yy,functionalSpeed*1.25,obj_solid_parent);
-			moveToNearestFreePoint(direction,functionalSpeed*1.25);
-			stamina -= .5;
-		}
 		
 		break;
 	}
@@ -332,7 +350,7 @@ switch(state) {
 		var RIGHTRELEASED = mouse_check_button_pressed(mb_right);
 		if gamepad_is_connected(gamePadIndex) {
 			RIGHTRELEASED = mouse_check_button_pressed(mb_left) 
-			|| gamepad_button_check_pressed(gamePadIndex,gp_shoulderr);
+			|| gamepad_button_check_released(gamePadIndex,gp_shoulderr);
 		}
 		
 		// iterate over preparing hands 

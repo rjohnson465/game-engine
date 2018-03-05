@@ -133,7 +133,8 @@ if	state != CombatantStates.Dodging &&
 				global.x1 = __x;
 				global.y1 = __y;
 				global.particleDirection = noone;
-				if (!(currentDamageType == PHYSICAL && isShielding)) {
+				//if (!(currentDamageType == PHYSICAL && isShielding)) {
+				if (!(isShielding && scr_is_facing(assailant,id))) {
 					instance_create_depth(0,0,1,obj_hit_particles);
 				}
 			}
@@ -143,8 +144,8 @@ if	state != CombatantStates.Dodging &&
 			if damageBase > 0 {
 				randomize();
 				var top = 1000;
-				//var percentChance = .15;
-				var percentChance = 1;
+				var percentChance = .15;
+				//var percentChance = 1;
 				//percentChance = 0;
 				if spell != noone && spell.name == "magicmissile" {
 					// every misile has a 20/numProjectiles% chance
@@ -207,7 +208,7 @@ if	state != CombatantStates.Dodging &&
 				instance_create_depth(0,0,1,obj_hit_particles);
 				// remove the same percentage of stamina as it would have removed health
 				var percentageOfHealth = actualDamage / maxHp;
-				stamina -= maxStamina*percentageOfHealth;
+				stamina -= maxStamina*(percentageOfHealth*1.5);
 				// shields are only ever held in left hand
 				
 				// damage needs to be refactored, as shields have their own defenses per element

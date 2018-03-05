@@ -1,8 +1,10 @@
-if type == SelectorTypes.Select && !isActive && isSelectorInEquippedItems() {
+if type == SelectorTypes.Select && !isActive && isSelectorInEquippedItems() && !ui.equipSelector.isActive {
 	ui.equipSelector.isActive = true;
+	ui.equipSelector.x1 = global.inventory.invTopLeftX;
+	ui.equipSelector.y1 = global.inventory.invTopLeftY;
 }
 
-if type == SelectorTypes.Select && !isActive && isSelectorInInventory() {
+if type == SelectorTypes.Select && !isActive && isSelectorInInventory() && !ui.equipSelector.isActive {
 	ui.equipSelector.isActive = true;
 	var selectedItem = getItemAtSelectorPosition(id);
 	// get acceptable slots the equip selector can move in

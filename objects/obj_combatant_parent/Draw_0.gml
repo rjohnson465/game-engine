@@ -8,7 +8,9 @@ if state == CombatantStates.Staggering {
 		var colorAlpha = (3/320)*percentFrozen;
 		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_aqua, colorAlpha*alpha);
 	} else if isPoisoned {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_green, .5);
+		var percentPoisoned = ds_map_find_value(conditionPercentages,POISON);
+		var colorAlpha = (3/320)*percentPoisoned;
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_green, colorAlpha*alpha);
 	}
 }
 
@@ -21,7 +23,9 @@ if state == CombatantStates.Dodging {
 		var colorAlpha = (3/320)*percentFrozen;
 		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, colorAlpha*alpha);
 	} else if isPoisoned {
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_green, .5);
+		var percentPoisoned = ds_map_find_value(conditionPercentages,POISON);
+		var colorAlpha = (3/320)*percentPoisoned;
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_green, colorAlpha*alpha);
 	}
 	
 } 
@@ -57,6 +61,11 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 	else if isFrozen {
 		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, scale, scale, facingDirection, c_aqua, .75*alpha);
 	} 
+	else if isPoisoned {
+		var percentPoisoned = ds_map_find_value(conditionPercentages,POISON);
+		var colorAlpha = (3/320)*percentPoisoned;
+		draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, scale, scale, facingDirection, c_aqua, colorAlpha*alpha);
+	}
 	
 	var totalIdleFrames = sprite_get_number(asset_get_index("spr_"+spriteString));
 	

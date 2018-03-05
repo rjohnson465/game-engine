@@ -1,6 +1,10 @@
 ui = global.ui;
 global.inventory = id;
 
+// this is the list of item thi inventory object is actually showing,
+// not NECESARILY the complete inventory the player has
+inv = noone;
+
 filtersHeight = 30;
 filtersWidth = 30;
 width = ui.menusWidth/3;

@@ -4,3 +4,11 @@ if type == SelectorTypes.Equip || type == SelectorTypes.Imbue {
 	acceptableEquipmentSlots = [];
 	ui.moveSelector.isActive = true;
 }
+
+// unequip selected item 
+if type == SelectorTypes.Select && isSelectorInEquippedItems {
+	var item = getItemAtSelectorPosition(id);
+	if item && isActive {
+		unequipItem(getItemAtSelectorPosition(id));
+	}
+}

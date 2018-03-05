@@ -32,9 +32,12 @@ if slotToMoveToKey != "inventory" {
 		y1 = global.inventory.invTopLeftY;
 		inv.selectedItem = getItemAtSelectorPosition(id);
 	} else {
-		var lastItemInInventory = ds_list_find_value(global.player.inventory,ds_list_size(global.player.inventory)-1);
-		x1 = lastItemInInventory.x1;
-		y1 = lastItemInInventory.y1;
-		inv.selectedItem = getItemAtSelectorPosition(id);
+		//var lastItemInInventory = ds_list_find_value(global.player.inventory,ds_list_size(global.player.inventory)-1);
+		var lastShownItemInInventory = ds_list_find_value(global.inventory.inv, ds_list_size(global.inventory.inv)-1);
+		if lastShownItemInInventory {
+			x1 = lastShownItemInInventory.x1;
+			y1 = lastShownItemInInventory.y1;
+			inv.selectedItem = getItemAtSelectorPosition(id);
+		}
 	}
 }

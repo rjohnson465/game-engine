@@ -10,5 +10,7 @@ if !isSelectorAtFirstInventoryColumn() && isSelectorInInventory() {
 
 else if isSelectorInEquippedItems() {
 	moveSelectorInEquippedItems("left");
-	eq.selectedItem = getItemAtSelectorPosition(id);
+	if !isSelectorInInventory {
+		eq.selectedItem = getItemAtSelectorPosition(id);
+	}
 }

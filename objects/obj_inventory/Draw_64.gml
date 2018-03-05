@@ -43,7 +43,7 @@ var inventory = global.player.inventory;
 // move all inventory items offscreen to start (accounts for not displayed items) -- TODO maybe?
 // ALSO only display unequipped items in inventory
 // ALSO filter according to current inventory filter
-var inv = ds_list_create();
+inv = ds_list_create();
 for (var i = 0; i < ds_list_size(inventory); i++) {
 	var el = ds_list_find_value(inventory,i);
 				
@@ -142,6 +142,13 @@ for (var i = 0; i < 20; i++) {
 			draw_circle(x1+5,y1+5,5,false);
 		}
 	} 
+}
+
+if ds_list_size(inv) == 0 {
+	draw_set_font(font_main);
+	draw_set_halign(fa_center);
+	draw_set_color(c_white);
+	draw_text(mean(invTopLeftX,invBottomRightX),mean(invTopLeftY,invBottomRightY),"No items to display with current filters");
 }
 			
 // selected item details box

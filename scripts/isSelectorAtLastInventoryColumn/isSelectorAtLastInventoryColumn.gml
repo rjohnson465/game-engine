@@ -1,8 +1,10 @@
-/// isSelectorAtFirstInventoryColumn()
+/// isSelectorAtLastInventoryColumn()
 // must be called by an instance of selector
-//with obj_item_selector {
-	// true if in last column or last item in inventory
-	var lastItemInInventory = ds_list_find_value(global.player.inventory,ds_list_size(global.player.inventory)-1);
+
+var lastShownItemInInventory = ds_list_find_value(global.inventory.inv,ds_list_size(global.inventory.inv)-1);
+if lastShownItemInInventory != undefined && lastShownItemInInventory != noone {
 	return	x1 == global.inventory.invTopLeftX+(4*global.inventory.slotWidth)
-			|| (lastItemInInventory.x1 == x1 && lastItemInInventory.y1 == y1) ;
-//}
+		|| (lastShownItemInInventory.x1 == x1 && lastShownItemInInventory.y1 == y1)
+		|| (x1 > lastShownItemInInventory.x1 && isSelectorInInventory());
+} return isSelectorInInventory();
+

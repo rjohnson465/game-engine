@@ -22,12 +22,16 @@ if type != CombatantTypes.Player {
 
 // stamina / health regen
 // only regen stamina when moving or idle
+var SHIFT = keyboard_check(vk_shift) || gamepad_button_check(global.player.gamePadIndex, gp_stickl);
 if stamina < maxStamina && (state == CombatantStates.Idle || state == CombatantStates.Moving) {
-	// stamina regens slower if shielding
-	if isShielding {
-		stamina += (.5*staminaRegen)/40;
+	// do not regen stamina while dashing
+	if type != CombatantTypes.Player || (type == CombatantTypes.Player && !SHIFT) {
+		// stamina regens slower if shielding
+		if isShielding {
+			stamina += (.5*staminaRegen)/40;
+		}
+		else stamina += staminaRegen/40;
 	}
-	else stamina += staminaRegen/40;
 }
 if hp < maxHp {
 	hp += hpRegen/40;
@@ -199,24 +203,8 @@ for (var i = 0; i < size; i++){
 		switch currentCondition {
 			case ICE: {
 				// slowed
-				//functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
 				if conditionLevel == 1 {
-					//functionalSpeed = .5*normalSpeed;
 					functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
-					//if conditionPercent % 10 < 2 {
-					//	functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
-					//}
-					/*if conditionPercent > 80 {
-						functionalSpeed = .2*normalSpeed;
-					} else if conditionPercent > 60 {
-						functionalSpeed = .4*normalSpeed;
-					}
-					else if conditionPercent > 40 {
-						functionalSpeed = .6*normalSpeed;
-					} else if conditionPercent > 20 {
-						functionalSpeed = .8*normalSpeed;
-					}*/
-					
 				}
 				// frozen
 				else if conditionLevel == 2{

@@ -14,6 +14,10 @@ with obj_item_selector {
 	} 
 }
 
+var drawGreen = false;
+if arrayIncludes(global.ui.equipSelector.acceptableEquipmentSlots, slot) {
+	drawGreen = true;
+}
 
 // if this slot holds the equipment manager's selectd item, draw dark
 
@@ -25,6 +29,12 @@ for (var i = 0; i < ds_list_size(global.player.equippedItems); i++) {
 	}
 }
 
-if drawDark {
+if drawGreen && drawDark {
+	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_green,.5);
+	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_black,.5);
+}
+else if drawGreen {
+	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_green,.75);
+} else if drawDark {
 	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_gray,.75);
 } else draw_sprite(spr_item_slot,1,xx,yy);
