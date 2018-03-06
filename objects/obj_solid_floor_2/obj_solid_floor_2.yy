@@ -1,23 +1,14 @@
 {
-    "id": "0f374fce-7541-4f8f-a75a-bf126a73e156",
+    "id": "2f7d8a2d-bc34-442d-9a01-558ebc7a0b3a",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_shader_end",
+    "name": "obj_solid_floor_2",
     "eventList": [
-        {
-            "id": "c41b38a7-2eb3-424f-92dd-b8d064be03b9",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 8,
-            "m_owner": "0f374fce-7541-4f8f-a75a-bf126a73e156"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "parentObjectId": "38a24086-ce40-4737-962f-611feeed9161",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -28,10 +19,8 @@
     "physicsObject": false,
     "physicsRestitution": 0.1,
     "physicsSensor": false,
-    "physicsShape": 0,
-    "physicsShapePoints": [
-        
-    ],
+    "physicsShape": 1,
+    "physicsShapePoints": null,
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,

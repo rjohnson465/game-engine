@@ -2,6 +2,10 @@ if object_is_ancestor(other.object_index,obj_combatant_parent) {
 	exit;
 }
 
+if other.layer != layer {
+	exit;
+}
+
 var x1 = x + lengthdir_x(100,owner.facingDirection);
 var y1 = y + lengthdir_y(100,owner.facingDirection);
 

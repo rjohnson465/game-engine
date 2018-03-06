@@ -1,4 +1,9 @@
 ///get_ids_region(obj, x1, y1, x2, y2)
+/// @param obj
+/// @param x1
+/// @param y1
+/// @param x2
+/// @param y2
 var list, n;
 n = 0;
 //arr[0] = noone;

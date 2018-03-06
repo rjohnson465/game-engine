@@ -1,4 +1,7 @@
 
+if type != CombatantTypes.Player {
+	mp_grid_draw(personalGrid);
+}
 // draw stagger sprite if staggering
 if state == CombatantStates.Staggering {
 	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,1,1,facingDirection,c_white,1);

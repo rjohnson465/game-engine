@@ -8,6 +8,7 @@ var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
 var pLayerDepth = layer_get_depth(playerLayer);
 
 // move objects above this level out of the way
+/*
 var a = layer_get_all();
 for (var i = 0; i < array_length_1d(a); i++) {
 	var l = a[i];
@@ -76,7 +77,7 @@ for (var i = 0; i < array_length_1d(a); i++) {
 			}
 		}
 	}
-}
+}*/
 
 // make invisible instance and tile layers above the player's layer
 var instanceLayersAbove = ds_list_create();

@@ -19,14 +19,8 @@ if limbItem != limb.limbItem {
 		sprite_index = asset_get_index(spriteString);
 	}
 	
-	//emitter1 = noone;
-	//system1 = noone;
 	particle1 = noone;
-	//emitter2 = noone;
-	//system2 = noone;
 	particle2 = noone;
-	//emitter2 = noone;
-	//system2 = noone;
 	particle3 = noone;
 	
 	if owner.type == CombatantTypes.Player {

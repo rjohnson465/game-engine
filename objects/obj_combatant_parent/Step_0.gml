@@ -22,8 +22,24 @@ image_angle = facingDirection;
 // The personal grid allows for allies / enemies to plan their path, acommodating walls and other combatants
 if type != CombatantTypes.Player {
 	mp_grid_clear_all(personalGrid);
-	// TODO only concern yourself with walls / fountains / solids / combatants in your layer
-	mp_grid_add_instances(personalGrid,obj_wall_parent,true);
+	// only concern yourself with walls / fountains / solids / combatants in your layer
+	var solids = ds_list_create();
+	var myLayer = layer;
+	var idd = id;
+	with obj_solid_parent {
+		//show_debug_message(object_get_name(idd.object_index) + string(myLayer) + " | " + object_get_name(object_index) + string(layer));
+		if object_is_ancestor(object_index,obj_combatant_parent) continue;
+		else {
+			if layer == myLayer {
+				ds_list_add(solids,id);
+			}
+		}
+	}
+	for (var i = 0; i < ds_list_size(solids); i++) {
+		mp_grid_add_instances(personalGrid,ds_list_find_value(solids,i),true);
+	}
+	show_debug_message(ds_list_size(solids));
+	//mp_grid_add_instances(personalGrid,solids,true);
 	var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
 	for (var i = 0; i < ds_list_size(combatants); i++) {
 		var ci = ds_list_find_value(combatants,i);
@@ -503,13 +519,21 @@ switch(state) {
 						facingDirection = direction;
 					}
 					
-					if isSlowed {
-						mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,obj_solid_parent);
-					} else {
-						mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,obj_solid_parent);
-					}
+					//if layer == global.player.layer {
+						if isSlowed {
+							mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,obj_solid_parent);
+						} else {
+							mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,obj_solid_parent);
+							//mp_grid_path(personalGrid, path,x,y,lockOnTarget.x,lockOnTarget.y,1);
+						}
+					//}
+					// use mp_grid_path if not on same floor as player
+					//else {
+						
+					//}
 					path_start(path,functionalSpeed,path_action_stop,false);
-					//mp_potential_step_object(global.player.x,global.player.y,functionalSpeed,obj_solid_parent);
+						//mp_potential_step_object(global.player.x,global.player.y,functionalSpeed,obj_solid_parent);
+					 
 					
 					break;
 

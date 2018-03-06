@@ -1,5 +1,6 @@
 owner = global.owner;
 depth = 1;
+layer = owner.layer;
 x = owner.x;
 y = owner.y;
 image_angle = owner.facingDirection;

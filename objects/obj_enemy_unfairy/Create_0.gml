@@ -32,7 +32,7 @@ stupidityFrame = 0;
 // general attacks info
 meleeAggroRange = 200;
 rangedAggroRange = 600;
-farthestAllowedFromPost = 1000;
+farthestAllowedFromPost = 10000;
 aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [5,15];
 strafeTotalFrames = [30,60];

@@ -6,7 +6,7 @@ var d = argument[0];
 var sp = argument[1];
 var oldX = x;
 var oldY = y;
-if !place_meeting(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),obj_solid_parent) {
+if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),obj_solid_parent) {
 	x = x+lengthdir_x(sp,d); 
 	y = y+lengthdir_y(sp,d);
 }
@@ -16,11 +16,11 @@ else {
 	dir = (dir + 5.625)%360; 
 	while dir != d
 	{
-		if !place_meeting(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_solid_parent) {
+		if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_solid_parent) {
 			
 			x = x+lengthdir_x(sp,dir); 
 			y = y+lengthdir_y(sp,dir); 
-			if place_meeting(x,y,obj_solid_parent) || abs(angle_difference(d,dir) > 100) {
+			if place_meeting_layer(x,y,obj_solid_parent) || abs(angle_difference(d,dir) > 100) {
 				x = oldX;
 				y = oldY;
 			} else {

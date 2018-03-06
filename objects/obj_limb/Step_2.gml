@@ -19,8 +19,8 @@ if ds_map_find_value(owner.equippedLimbItems,limbKey) != limbItem {
 var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
 if leftHandItem {
 	if leftHandItem.isTwoHanded && limbKey == "r" {
-		x = -10;
-		y = -10;
+		x = -1000;
+		y = -1000;
 	} else {
 		x = owner.x;
 		y = owner.y;

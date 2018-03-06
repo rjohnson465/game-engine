@@ -5,6 +5,7 @@ if instance_exists(owner) {
 		instance_create_depth(x,y,1,obj_light_radius);
 		instance_destroy(id,false);
 	}
+	layer = owner.layer;
 }
 
 if !instance_exists(owner) {
