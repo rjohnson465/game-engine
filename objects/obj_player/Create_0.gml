@@ -1,4 +1,4 @@
-depth = 0;
+
 // use macros for elements rather than enums (helps with sprite getting)
 #macro PHYSICAL "physical"
 #macro MAGIC "magic"
@@ -142,3 +142,5 @@ with obj_light_radius {
 }
 
 gamePadIndex = noone;
+
+layerToMoveTo = noone;

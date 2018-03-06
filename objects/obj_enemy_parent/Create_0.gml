@@ -1,5 +1,4 @@
 event_inherited();
-depth = 1;
 type = CombatantTypes.Enemy;
 name = "parent enemy";
 spriteName = "dummy";

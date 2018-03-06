@@ -1,4 +1,3 @@
-depth = 10;
 
 // Make a circle with 16 points.
 /*var n = 16

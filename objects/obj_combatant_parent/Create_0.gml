@@ -266,3 +266,7 @@ dyingParticleColor2 = c_maroon;
 alpha = 1;
 
 xpReward = 0;
+
+// for changing layer via stairs
+layerToChangeTo = noone;
+climbingDir = noone;

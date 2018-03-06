@@ -1141,3 +1141,10 @@ if jumpFrame <= jumpTotalFrames {
 /*if place_meeting(x,y,obj_solid_parent) /*&& type != CombatantTypes.Player {
 	move_towards_point(postX,postY,functionalSpeed);
 }*/
+
+if !place_meeting(x,y,obj_stairs) && climbingDir != noone {
+	//show_debug_message(layer_get_name(layer));
+	layer = layerToChangeTo;
+	updateRoomLayers();
+	climbingDir = noone;
+}

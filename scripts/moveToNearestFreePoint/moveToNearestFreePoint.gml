@@ -4,7 +4,8 @@
 
 var d = argument[0];
 var sp = argument[1];
-
+var oldX = x;
+var oldY = y;
 if !place_meeting(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),obj_solid_parent) {
 	x = x+lengthdir_x(sp,d); 
 	y = y+lengthdir_y(sp,d);
@@ -16,8 +17,7 @@ else {
 	while dir != d
 	{
 		if !place_meeting(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_solid_parent) {
-			var oldX = x;
-			var oldY = y;
+			
 			x = x+lengthdir_x(sp,dir); 
 			y = y+lengthdir_y(sp,dir); 
 			if place_meeting(x,y,obj_solid_parent) || abs(angle_difference(d,dir) > 100) {
@@ -55,5 +55,6 @@ else {
 		//show_debug_message(sp);
 		x = x+lengthdir_x(sp,dir); 
 		y = y+lengthdir_y(sp,dir);
+		direction = point_direction(oldX,oldY,x,y);
 	}
 }
