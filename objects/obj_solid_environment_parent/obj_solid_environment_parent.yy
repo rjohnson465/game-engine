@@ -2,7 +2,7 @@
     "id": "2f7d8a2d-bc34-442d-9a01-558ebc7a0b3a",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_solid_floor_2",
+    "name": "obj_solid_environment_parent",
     "eventList": [
         
     ],

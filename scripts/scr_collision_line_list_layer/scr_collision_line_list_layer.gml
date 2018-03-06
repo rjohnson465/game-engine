@@ -21,7 +21,7 @@
     notme = argument6;
     dsid = ds_list_create();
     with (obj) {
-        if (!notme || id != other.id) {
+        if (!notme || id != other.id) && layer == other.layer {
             i = collision_line(x1,y1,x2,y2,id,prec,false);
             if (i != noone) ds_list_add(dsid,i);
         }

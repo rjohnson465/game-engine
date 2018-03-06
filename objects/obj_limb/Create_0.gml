@@ -2,6 +2,7 @@ owner = global.owner;
 limbKey = global.limbKey;
 limbItem = ds_map_find_value(owner.equippedLimbItems,limbKey);
 persistent = global.isPersistent;
+layer = owner.layer;
 depth = 5;
 
 global.limb = id;

@@ -43,6 +43,7 @@ spriteString = spriteType + "_" + spriteName;
 // "post" for enemies is where they spawn. "post" for allies is near the player
 postX = x;
 postY = y;
+postZ = layer;
 farthestAllowedFromPost = 300;
 //testing...
 path = path_add();
@@ -269,4 +270,5 @@ xpReward = 0;
 
 // for changing layer via stairs
 layerToChangeTo = noone;
+stairsIndex = noone;
 climbingDir = noone;

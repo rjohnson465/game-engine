@@ -31,6 +31,7 @@ if type != CombatantTypes.Player {
 		if object_is_ancestor(object_index,obj_combatant_parent) continue;
 		else {
 			if layer == myLayer {
+				//show_debug_message("Adding object " + object_get_name(object_index) + "with layer" + string(layer) +" to grid ");
 				ds_list_add(solids,id);
 			}
 		}
@@ -38,7 +39,6 @@ if type != CombatantTypes.Player {
 	for (var i = 0; i < ds_list_size(solids); i++) {
 		mp_grid_add_instances(personalGrid,ds_list_find_value(solids,i),true);
 	}
-	show_debug_message(ds_list_size(solids));
 	//mp_grid_add_instances(personalGrid,solids,true);
 	var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
 	for (var i = 0; i < ds_list_size(combatants); i++) {
@@ -324,7 +324,7 @@ switch(state) {
 			var isNoticingEngagement = false;
 			for (var i = 0; i < ds_list_size(nearbyCombatants); i++) {
 				var c = ds_list_find_value(nearbyCombatants,i);
-				var wallsBetweenCombatant = script_execute(scr_collision_line_list,x,y,c.x,c.y,obj_wall_parent,true,true);
+				var wallsBetweenCombatant = script_execute(scr_collision_line_list_layer,x,y,c.x,c.y,obj_wall_parent,true,true);
 				if wallsBetweenCombatant == noone && c.onAlert && c.id != id {
 					isNoticingEngagement = true;
 				}
@@ -337,14 +337,14 @@ switch(state) {
 				stupidityFrame++;
 				break;
 			} else {
-				// first check if in melee aggro range
-				if canSeePlayer(id) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange {
-					state = CombatantStates.AggroMelee;
+				// first check if in ranged aggro range
+				if canSeePlayer(id) && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
+					state = CombatantStates.AggroRanged;
 					break;
 				}
-				// if not, check if in ranged aggro range
-				else if canSeePlayer(id) && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
-					state = CombatantStates.AggroRanged;
+				// if not, check if in melee aggro range
+				else if	((canSeePlayer(id) || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
+					state = CombatantStates.AggroMelee;
 					break;
 				}
 				else if isNoticingEngagement || wasJustHit {
@@ -380,7 +380,7 @@ switch(state) {
 
 			// close enough to hear, but maybe not see. turn to face the direction of the noise
 			//turnToFacePoint(150,lockOnTarget.x,lockOnTarget.y);
-			var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
+			var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 			if wallsBetweenTarget == noone || onAlert {
 				onAlert = true;
 				isShielding = false;
@@ -404,7 +404,7 @@ switch(state) {
 			currentRangedAttack = round(random_range(1,array_length_1d(rangedAttacks)));
 			// close enough to hear, but maybe not see. turn to face the direction of the noise
 			//turnToFacePoint(150,lockOnTarget.x,lockOnTarget.y);
-			var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
+			var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 			if wallsBetweenTarget == noone || onAlert {
 				onAlert = true;
 				isShielding = false;
@@ -436,14 +436,14 @@ switch(state) {
 				
 				// if the path back to post is greater than farthestAllowedFromPost, cancel any pending attack 
 				// this will trigger the return to post code (later in this case) on the next step
-				var pathToPost = path_add();
-				mp_grid_path(personalGrid, pathToPost,x,y,postX,postY,1);
-				var pathToPostLength = path_get_length(pathToPost);
-				if pathToPostLength > farthestAllowedFromPost {
-					currentMeleeAttack = noone;
-					currentRangedAttack = noone;
-					break;
-				}
+				//var pathToPost = path_add();
+				//mp_grid_path(personalGrid, pathToPost,x,y,postX,postY,1);
+				//var pathToPostLength = path_get_length(pathToPost);
+				//if pathToPostLength > farthestAllowedFromPost {
+				//	currentMeleeAttack = noone;
+				///	currentRangedAttack = noone;
+				//	break;
+				//}
 				
 				// CHECK 2: ARE WE OUT OF RANGE FOR THE CURRENTLY CHOSEN ATTACK?
 				
@@ -505,36 +505,84 @@ switch(state) {
 				}
 				
 				// move to lockOnTarget until in range for chosen attack
-				var wallsBetweenTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
+				var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 				// TODO -- maybe move away from lockOnTarget if a rangedAttack has a minRange
 				var pred = currentMeleeAttack == noone ? 
 					// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
-					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) || wallsBetweenTarget != noone : 
-					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]);
+					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) || wallsBetweenTarget != noone || (layer != lockOnTarget.layer) : 
+					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]) || (layer != lockOnTarget.layer);
 				
 				if pred && !isFlinching {
-					if wallsBetweenTarget == noone {
-						//facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
-					} else {
+					if wallsBetweenTarget != noone {
 						facingDirection = direction;
 					}
 					
 					//if layer == global.player.layer {
-						if isSlowed {
-							mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,obj_solid_parent);
-						} else {
-							mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,obj_solid_parent);
-							//mp_grid_path(personalGrid, path,x,y,lockOnTarget.x,lockOnTarget.y,1);
+					//if isSlowed {
+						//mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,obj_solid_parent);
+					//} else {
+						//mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,obj_solid_parent);
+					//var p = path_add();
+					var target = lockOnTarget;
+					if lockOnTarget.layer != layer {
+						// go to nearest staircase near lockOnTarget
+						var nearestStairs = noone;
+						with lockOnTarget {
+							nearestStairs = instance_nearest(x,y,obj_stairs);
 						}
-					//}
-					// use mp_grid_path if not on same floor as player
-					//else {
+						if nearestStairs != noone {
+							target = nearestStairs;
+							//show_debug_message(string(target.x) + ", " + string(target.y));
+							//if path_speed > 0 path_speed = 0;
+							if !place_meeting(x,y,target) /*&& mp_grid_get_cell(personalGrid,target.x,target.y) != -1*/  {
+								//show_debug_message(mp_grid_get_cell(personalGrid,target.x,target.y));
+								if mp_grid_path(personalGrid,path,x,y,target.x,target.y,1) {
+									path_start(path,functionalSpeed,path_action_continue,false);
+								}
+							}
+							// go through the stairs obj
+							else if place_meeting(x,y,target) {
+								path_end();
+								var d = 0;
+								if lockOnTarget.layer < layer {
+									d = (target.upDirectionMin+90)%360;
+								} else {
+									d = (target.upDirectionMin+90)%360;
+								}
+								moveToNearestFreePoint(d,functionalSpeed);
+							} else {
+								path_end();
+							}
+						}
 						
-					//}
-					path_start(path,functionalSpeed,path_action_stop,false);
-						//mp_potential_step_object(global.player.x,global.player.y,functionalSpeed,obj_solid_parent);
-					 
+					} else {
+						//if 
+						mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,1) 
+						//{
+						path_start(path,functionalSpeed,path_action_stop,false);
+						//} else path_end();
+					}
+						
+					//mp_grid_path(personalGrid,path,x,y,target.x,target.y,1);
 					
+					//}
+					//if target.object_index == obj_stairs {
+						//show_debug_message("stairs");
+						//path_end();
+						//speed = 0;
+						//var path2 = path_add();
+						//show_debug_message(path_get_length(path));
+						//mp_grid_path(personalGrid, path ,x,y,target.x,target.y,1);
+						//path_start(path,functionalSpeed,path_action_stop,false);
+						
+					//} else {
+						//show_debug_message("player");
+						//show_debug_message(path_get_length(path));
+						//path_end();						
+					//}
+					//show_debug_message(path_get_length(path));
+					//path_start(path,functionalSpeed,path_action_stop,false);
+					//mp_potential_step_object(global.player.x,global.player.y,functionalSpeed,obj_solid_parent);
 					break;
 
 				}
@@ -608,9 +656,11 @@ switch(state) {
 				break;
 			}*/
 			else {
-				mp_grid_clear_all(personalGrid);
-				mp_grid_add_instances(personalGrid,obj_wall_parent,true);
-				if mp_grid_path(personalGrid, path,x,y,postX,postY,true) {
+				//mp_grid_clear_all(personalGrid);
+				//mp_grid_add_instances(personalGrid,obj_wall_parent,true);
+				//if 
+				//show_debug_message("Fuck it im going home");
+				/*mp_grid_path(personalGrid, path,x,y,postX,postY,true) {
 				//if mp_potential_path_object(path,postX,postY,functionalSpeed*2,4,obj_solid_parent) {
 					path_start(path,functionalSpeed*1.25,path_action_stop, false);
 					facingDirection = direction;
@@ -619,7 +669,8 @@ switch(state) {
 					onAlert = false;
 					path_end();
 					state = CombatantStates.Idle;
-				}
+				}*/
+				state = CombatantStates.Idle;
 				break;
 			}
 		}
@@ -631,6 +682,7 @@ switch(state) {
 		if type != CombatantTypes.Player {
 			
 			var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
+			if attackNumber == noone break;
 			var isRanged = currentRangedAttack != noone;
 			
 			// get previous attacking limb
@@ -908,7 +960,7 @@ switch(state) {
 			var xx = x+lengthdir_x(sp,dir);
 			var yy = y+lengthdir_y(sp,dir);
 			var i = 0;
-			while place_meeting(xx,yy,obj_solid_parent) && dir != startDir {
+			while place_meeting_layer(xx,yy,obj_solid_parent) && dir != startDir {
 				dir = (dir+10)%360;
 				xx = x+lengthdir_x(sp,dir);
 				yy = y+lengthdir_y(sp,dir);
@@ -1052,12 +1104,12 @@ switch(state) {
 			do {
 				x1 = x+lengthdir_x(.5*sspeed, sDir);
 				y1 = y+lengthdir_y(.52*sspeed, sDir);
-				if place_meeting(x1,y1,obj_solid_parent) || place_meeting(x1,y1,obj_combatant_parent) {
+				if place_meeting_layer(x1,y1,obj_solid_parent) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 					sDir = (sDir + 45)%360;
 				}
-			} until ((!place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
+			} until ((!place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
 			
-			if !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent) {
+			if !place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 				speed = .25*sspeed;
 				flinchDirection = sDir;
 			}
@@ -1069,12 +1121,12 @@ switch(state) {
 			do {
 				x1 = x+lengthdir_x(.25*sspeed, sDir);
 				y1 = y+lengthdir_y(.25*sspeed, sDir);
-				if place_meeting(x1,y1,obj_solid_parent) || place_meeting(x1,y1,obj_combatant_parent) {
+				if place_meeting_layer(x1,y1,obj_solid_parent) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 					sDir = (sDir + 45)%360;
 				}
-			} until ((!place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
+			} until ((!place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
 			
-			if !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent) {
+			if !place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 				speed = .5*sspeed;
 				staggerDirection = sDir;
 			}
@@ -1138,12 +1190,12 @@ if isFlinching {
 			do {
 				x1 = x+lengthdir_x(.25*fspeed, fDir);
 				y1 = y+lengthdir_y(.25*fspeed, fDir);
-				if place_meeting(x1,y1,obj_solid_parent) || place_meeting(x1,y1,obj_combatant_parent) {
+				if place_meeting_layer(x1,y1,obj_solid_parent) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 					fDir = (fDir + 45)%360;
 				}
-			} until ((!place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
+			} until ((!place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
 			
-			if !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent) {
+			if !place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 				speed = .1*fspeed;
 				flinchDirection = fDir;
 			}
@@ -1154,12 +1206,12 @@ if isFlinching {
 			do {
 				x1 = x+lengthdir_x(.25*fspeed, fDir);
 				y1 = y+lengthdir_y(.25*fspeed, fDir);
-				if place_meeting(x1,y1,obj_solid_parent) || place_meeting(x1,y1,obj_combatant_parent) {
+				if place_meeting_layer(x1,y1,obj_solid_parent) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 					fDir = (fDir + 45)%360;
 				}
-			} until ((!place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
+			} until ((!place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
 			
-			if !place_meeting(x1,y1,obj_solid_parent) && !place_meeting(x1,y1,obj_combatant_parent) {
+			if !place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 				speed = .2*fspeed;
 				flinchDirection = fDir;
 			}
@@ -1177,8 +1229,17 @@ if jumpFrame <= jumpTotalFrames {
 	jumpFrame++;
 }
 
-if !place_meeting(x,y,obj_stairs) && climbingDir != noone {
-	layer = layerToChangeTo;
-	updateRoomLayers();
-	climbingDir = noone;
+if instance_nearest(x,y,obj_stairs) != noone {
+	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone {
+		layer = layerToChangeTo;
+		updateRoomLayers();
+		climbingDir = noone;
+	}
+}
+
+
+
+/*
+while place_meeting_layer(x,y,obj_combatant_parent) {
+	moveToNearestFreePoint((facingDirection+180)%360,functionalSpeed,false);
 }

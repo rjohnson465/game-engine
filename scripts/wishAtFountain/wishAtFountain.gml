@@ -39,6 +39,7 @@ else {
 				var enemy = findPersistentRoomElement(obj_enemy_parent,enemyData.postX,enemyData.postY);
 				enemy.x = enemyData.postX;
 				enemy.y = enemyData.postY;
+				enemy.layer = enemyData.postZ;
 				enemy.hp = enemyData.maxHp;
 				enemy.isAlive = true;
 				enemy.isDying = false;

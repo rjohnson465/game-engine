@@ -66,7 +66,7 @@ if lockOnInputReceived {
 }
 var wallsBetweenLockOnTarget = noone;
 if lockOnTarget {
-	wallsBetweenLockOnTarget = script_execute(scr_collision_line_list,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
+	wallsBetweenLockOnTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 }
 // if too far from current lockon target, or esc pressed, or cannot see lockOnTarget no more lock on
 var cancelLockOnInputReceived = keyboard_check(vk_escape);
@@ -98,7 +98,7 @@ if isLockedOn && gamepad_is_connected(gamePadIndex) {
 			var ang = point_direction(lockOnTarget.x,lockOnTarget.y,el.x,el.y);
 			var diff = abs(angle_difference(pdir,ang));
 			
-			var wallsBetweenLockOnTarget = script_execute(scr_collision_line_list,x,y,el.x,el.y,obj_wall_parent,true,true);
+			var wallsBetweenLockOnTarget = script_execute(scr_collision_line_list_layer,x,y,el.x,el.y,obj_wall_parent,true,true);
 			if diff < closestAngleDiff && diff < 90 && wallsBetweenLockOnTarget == noone {
 				lockOnTarget = el;
 			}

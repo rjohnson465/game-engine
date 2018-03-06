@@ -28,6 +28,7 @@ if leftHandItem {
 }
 image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
+layer = owner.layer;
 
 if limbItem.subType == HandItemTypes.Shield && owner.isShielding {
 	image_angle = owner.facingDirection+90;

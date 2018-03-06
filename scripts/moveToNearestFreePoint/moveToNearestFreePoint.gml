@@ -1,12 +1,44 @@
-/// moveToNearestFreePoint(direction,speed)
+/// moveToNearestFreePoint(direction,speed,*targetCombatants)
 /// @param direction
 /// @param speed
+/// @param *targetCombatants
 
 var d = argument[0];
 var sp = argument[1];
+var targetCombatants = true;
+if argument_count == 3 {
+	targetCombatants = argument[2];
+}
+
+var objectsToAvoid = obj_solid_parent;
+if !targetCombatants {
+	objectsToAvoid = obj_solid_environment_parent
+}
 var oldX = x;
 var oldY = y;
-if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),obj_solid_parent) {
+
+// invoking instance
+var idd = id;
+
+// if some combatantsre are one level away from invoking instance and 
+// are close to the same stairs objects with identical coordinates, factor these into collisions
+var combatantsToConsider = ds_list_create();
+with obj_stairs {
+	if distance_to_object(idd) < 200 && layer == idd.layer {
+		// get nearby combatants
+		var nearbyCombatants = scr_collision_circle_list(x,y,200,obj_combatant_parent,true,true);
+		for (var i = 0; i < ds_list_size(nearbyCombatants); i++) {
+			var c = ds_list_find_value(nearbyCombatants,i);
+			if c.layer == idd.layer-2 || c.layer == idd.layer+2 || c.layer == idd.layer {
+				ds_list_add(combatantsToConsider,c);
+			}
+		}
+	}
+}
+
+//show_debug_message("Combatants to consider count: " + string(ds_list_size(combatantsToConsider)));
+
+if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid,combatantsToConsider) {
 	x = x+lengthdir_x(sp,d); 
 	y = y+lengthdir_y(sp,d);
 }
@@ -16,11 +48,11 @@ else {
 	dir = (dir + 5.625)%360; 
 	while dir != d
 	{
-		if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_solid_parent) {
+		if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid,combatantsToConsider) {
 			
 			x = x+lengthdir_x(sp,dir); 
 			y = y+lengthdir_y(sp,dir); 
-			if place_meeting_layer(x,y,obj_solid_parent) || abs(angle_difference(d,dir) > 100) {
+			if place_meeting_layer(x,y,objectsToAvoid,combatantsToConsider) || abs(angle_difference(d,dir) > 100) {
 				x = oldX;
 				y = oldY;
 			} else {
@@ -52,9 +84,9 @@ else {
 		sp = (1-((diff*diff)/8100))*sp;
 		// logarithmic
 		//sp = (1/(log10(90))*log10(-(diff-90)))*sp;
-		//show_debug_message(sp);
 		x = x+lengthdir_x(sp,dir); 
 		y = y+lengthdir_y(sp,dir);
 		direction = point_direction(oldX,oldY,x,y);
 	}
 }
+

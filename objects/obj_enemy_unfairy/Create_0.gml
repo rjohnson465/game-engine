@@ -32,6 +32,7 @@ stupidityFrame = 0;
 // general attacks info
 meleeAggroRange = 200;
 rangedAggroRange = 600;
+//rangedAggroRange = noone;
 farthestAllowedFromPost = 10000;
 aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFrames = [5,15];
@@ -80,6 +81,7 @@ var shortbowShot = instance_create_depth(x,y,1,obj_attack_unfairy_shortbow_1_1);
 var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
+//rangedAttacks = noone;
 
 hp = 50;
 maxHp = 50;
@@ -95,7 +97,7 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 20;
 
 // dodge stuff
-agility = 0; // 0 - 100% chance to try a dodge
+agility = 75; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
 /*

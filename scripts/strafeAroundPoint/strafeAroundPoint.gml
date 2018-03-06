@@ -16,7 +16,7 @@ if angle >= 360 angle -= 360;
 var xx = lengthdir_x(strafeOrbit,angle) + pointX;
 var yy = lengthdir_y(strafeOrbit,angle) + pointY;
 									
-if !place_meeting(xx,yy,obj_solid_parent) {
+if !place_meeting_layer(xx,yy,obj_solid_parent) {
 	x = xx;
 	y = yy;
 	turnToFacePoint(turnSpeed,pointX,pointY);

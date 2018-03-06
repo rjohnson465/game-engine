@@ -6,6 +6,7 @@ x = limb.x;
 y = limb.y;
 image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
+layer = owner.layer;
 // switch weapon sprite
 if limbItem != limb.limbItem {
 	limbItem = limb.limbItem;

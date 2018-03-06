@@ -18,6 +18,7 @@ if room == roomIndex {
 		enemy.hp = enemyData.hp;
 		enemy.x = enemyData.currentX;
 		enemy.y = enemyData.currentY;
+		enemy.layer = enemyData.currentZ;
 		enemy.isAlive = enemyData.isAlive;
 	}
 }

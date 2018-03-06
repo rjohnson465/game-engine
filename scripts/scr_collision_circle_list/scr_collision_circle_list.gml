@@ -3,11 +3,12 @@
 //  Returns a list data structure populated with the ids of instances 
 //  colliding with a given circle, or noone if no instances found.
 //
-//      x1,y1       center of the collision circle (filled), real
-//      radius      radius of the collision circle (filled), real
-//      obj         object to check for collision (or all), real
-//      prec        true for precise collision checking, bool
-//      notme       true to ignore the calling instance, bool
+/// @param x1
+/// @param y1       center of the collision circle (filled), real
+/// @param radius      radius of the collision circle (filled), real
+///  @param obj         object to check for collision (or all), real
+///  @param prec        true for precise collision checking, bool
+///  @param notme       true to ignore the calling instance, bool
 //
 /// GMLscripts.com/license
 {

@@ -618,7 +618,7 @@
             "Key": "2f7d8a2d-bc34-442d-9a01-558ebc7a0b3a",
             "Value": {
                 "id": "eb678cbe-35ef-4646-8230-5bdb061ac8cc",
-                "resourcePath": "objects\\obj_solid_floor_2\\obj_solid_floor_2.yy",
+                "resourcePath": "objects\\obj_solid_environment_parent\\obj_solid_environment_parent.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -892,14 +892,6 @@
                 "id": "286f8cff-a3ef-41df-9637-e94bbc9899de",
                 "resourcePath": "sprites\\spr_player_unarmed_attack_1\\spr_player_unarmed_attack_1.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "48ff1177-72ad-47a5-824a-8351ab917566",
-            "Value": {
-                "id": "7051464f-9b74-4280-9653-32c2dc31bb24",
-                "resourcePath": "objects\\obj_solid_floor_1\\obj_solid_floor_1.yy",
-                "resourceType": "GMObject"
             }
         },
         {
@@ -1860,6 +1852,14 @@
                 "id": "6893a9ba-b550-45d7-b467-14ab800de14a",
                 "resourcePath": "sprites\\spr_enemy_unfairy_shortbow\\spr_enemy_unfairy_shortbow.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a2f28e3f-1517-4014-9dc6-0fac94b0977c",
+            "Value": {
+                "id": "5a7802b0-fc8e-4c78-b4a7-fae66c511726",
+                "resourcePath": "scripts\\scr_collision_line_list_layer\\scr_collision_line_list_layer.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2949,6 +2949,7 @@
         "a8cdad76-0670-4e4e-95df-7a6266025880",
         "0aa36b5b-7047-4003-ad3c-c1e1740f9d0d",
         "de1eaff5-ae4f-4519-bd0f-9ed553ce3f47",
+        "a2f28e3f-1517-4014-9dc6-0fac94b0977c",
         "e4374775-f49c-4989-8fc4-9ae3a9545331"
     ],
     "tutorial": ""
