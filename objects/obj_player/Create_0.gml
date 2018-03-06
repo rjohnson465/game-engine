@@ -89,7 +89,7 @@ maxHp = 100;
 hpRegen = .5; // per second
 stamina = 50;
 maxStamina = 50;
-staminaRegen = 20; // per second
+staminaRegen = 10; // per second
 
 // level stuff
 level = 1;
