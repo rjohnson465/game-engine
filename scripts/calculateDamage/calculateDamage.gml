@@ -2,6 +2,15 @@
 /// Pre-Condition -- must be called by the victim in a collision event with attackObj
 
 if hp <= 0 exit;
+var isFading = false;
+with obj_fade {
+	if instance_count > 0 {
+		isFading = true;
+	}
+}
+if isFading {
+	exit;
+}
 
 // if enemy or ally, seek retribution (even if out of normal range)
 if	(type == CombatantTypes.Enemy || type == CombatantTypes.Ally) 

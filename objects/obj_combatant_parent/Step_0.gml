@@ -1,3 +1,15 @@
+var isFading = false;
+with obj_fade {
+	if instance_count > 0 {
+		isFading = true;
+	}
+}
+if isFading {
+	speed = 0;
+	state = CombatantStates.Idle;
+	path_end();
+	exit;
+}
 if !isAlive && type != CombatantTypes.Player {
 	path_end();
 	speed = 0;
@@ -10,6 +22,7 @@ image_angle = facingDirection;
 // The personal grid allows for allies / enemies to plan their path, acommodating walls and other combatants
 if type != CombatantTypes.Player {
 	mp_grid_clear_all(personalGrid);
+	// TODO only concern yourself with walls / fountains / solids / combatants in your layer
 	mp_grid_add_instances(personalGrid,obj_wall_parent,true);
 	var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
 	for (var i = 0; i < ds_list_size(combatants); i++) {
@@ -43,13 +56,6 @@ var currentCondition = ds_map_find_first(conditionPercentages);
 var size = ds_map_size(conditionPercentages);
 for (var i = 0; i < size; i++){
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
-	
-	// if condition is ice and just went over 50, apply slow
-	/*if conditionPercent > 50 && currentCondition == ICE && ds_map_find_value(conditionLevels,currentCondition) == 0 {
-		isSlowed = true;
-		//functionalSpeed = .5*normalSpeed;
-		ds_map_replace(conditionLevels,currentCondition,1);
-	}*/
 	
 	// if condition is ice and it just dropped below 85 (coming from condition level 2, frozen), reset to condition level 1 (slow)
 	if conditionPercent < 85 && currentCondition == ICE && ds_map_find_value(conditionLevels,currentCondition) == 2 {
@@ -1138,12 +1144,7 @@ if jumpFrame <= jumpTotalFrames {
 	jumpFrame++;
 }
 
-/*if place_meeting(x,y,obj_solid_parent) /*&& type != CombatantTypes.Player {
-	move_towards_point(postX,postY,functionalSpeed);
-}*/
-
 if !place_meeting(x,y,obj_stairs) && climbingDir != noone {
-	//show_debug_message(layer_get_name(layer));
 	layer = layerToChangeTo;
 	updateRoomLayers();
 	climbingDir = noone;

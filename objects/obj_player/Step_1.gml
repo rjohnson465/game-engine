@@ -1,4 +1,15 @@
-
+var isFading = false;
+with obj_fade {
+	if instance_count > 0 {
+		isFading = true;
+	}
+}
+if isFading {
+	speed = 0;
+	state = CombatantStates.Idle;
+	path_end();
+	exit;
+}
 if lockOnTarget == noone {
 	isLockedOn = false;
 }

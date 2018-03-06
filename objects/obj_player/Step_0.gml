@@ -1,5 +1,16 @@
 event_inherited();
-
+var isFading = false;
+with obj_fade {
+	if instance_count > 0 {
+		isFading = true;
+	}
+}
+if isFading {
+	speed = 0;
+	state = CombatantStates.Idle;
+	path_end();
+	exit;
+}
 leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 

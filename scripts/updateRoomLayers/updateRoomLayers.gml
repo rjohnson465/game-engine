@@ -69,10 +69,10 @@ for (var i = 0; i < array_length_1d(a); i++) {
 			}
 			// move Idle enemies back to their post
 			else if object_is_ancestor(el.object_index,obj_combatant_parent) {
-				if el.state == CombatantStates.Idle {
-					el.x = postX;
-					el.y = postY;
-				}
+				//if el.state == CombatantStates.Idle {
+					el.x = el.postX;
+					el.y = el.postY;
+				//}
 			}
 		}
 	}
