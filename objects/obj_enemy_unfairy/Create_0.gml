@@ -30,8 +30,8 @@ stupidity = 15; // default .5 second in thinking state
 stupidityFrame = 0;
 
 // general attacks info
-meleeAggroRange = 700;
-rangedAggroRange = 900;
+meleeAggroRange = 200;
+rangedAggroRange = 600;
 //rangedAggroRange = noone;
 farthestAllowedFromPost = 10000;
 aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain

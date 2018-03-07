@@ -8,6 +8,8 @@ if instance_exists(owner) {
 	layer = owner.layer;
 }
 
+
+
 if !instance_exists(owner) {
 	instance_destroy(id);
 }

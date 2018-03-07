@@ -1,5 +1,10 @@
-/// calculateDamage()
+/// calculateDamage(attack)
+/// @param attack
 /// Pre-Condition -- must be called by the victim in a collision event with attackObj
+
+//var other = argument0;
+
+//show_debug_message("in calc damage");
 
 if hp <= 0 exit;
 var isFading = false;
@@ -196,7 +201,7 @@ if	state != CombatantStates.Dodging &&
 			currentDamageType = ds_map_find_next(damagesMap, currentDamageType);
 		}
 		var actualDamage = damage; // the actual damage of the hit (recieved damage might be less if actual damage exceeds hp)
-		
+		show_debug_message(actualDamage);
 		// factor combo mode
 		if assailant.type == CombatantTypes.Player {
 			damage += (assailant.comboModeLevel*.25)*damage;
@@ -317,9 +322,9 @@ if	state != CombatantStates.Dodging &&
 		if other.isRanged || (other.isSpell)/* && spell.name != "aoe")*/ {
 			instance_destroy(other,false);
 			// also destroy the ranged attack's light radius, if it exists
-			var attackObjId = other.id;
+			//var attackObjId = other;
 			with obj_light_radius {
-				if owner == attackObjId {
+				if owner == other {
 					instance_destroy(id);
 				}
 			}

@@ -10,7 +10,8 @@
         "ba2a0fdd-69c4-4b0d-9131-4a7cb91b0423",
         "656c3723-d7eb-42d0-ac95-27dbfdc534da",
         "2daf145c-5cdc-4ea1-b6de-fd82a34676ed",
-        "53095c17-a8c1-4769-bc3d-922b03d5890d"
+        "53095c17-a8c1-4769-bc3d-922b03d5890d",
+        "f0eff6a6-dd20-4359-a231-97e9f908deb3"
     ],
     "filterType": "GMScript",
     "folderName": "Lighting",

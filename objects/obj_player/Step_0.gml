@@ -239,28 +239,28 @@ switch(state) {
 					direction = (point_direction(0,0,h_point,v_point))%360;
 				}
 			} else {
-				if UP && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
+				if UP && RIGHT && !place_meeting_layer(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
 					direction = 45;
 				}
-				else if UP && LEFT && !place_meeting(x-usingSpeed, y-usingSpeed, obj_solid_parent) {
+				else if UP && LEFT && !place_meeting_layer(x-usingSpeed, y-usingSpeed, obj_solid_parent) {
 					direction = 135;
 				}
-				else if DOWN && LEFT && !place_meeting(x-usingSpeed, y+usingSpeed, obj_solid_parent) {
+				else if DOWN && LEFT && !place_meeting_layer(x-usingSpeed, y+usingSpeed, obj_solid_parent) {
 					direction = 225;
 				}
-				else if DOWN && RIGHT && !place_meeting(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
+				else if DOWN && RIGHT && !place_meeting_layer(x+usingSpeed, y+usingSpeed, obj_solid_parent) {
 					direction = 315;
 				}
-				else if RIGHT && !place_meeting(x+usingSpeed, y, obj_solid_parent) {
+				else if RIGHT && !place_meeting_layer(x+usingSpeed, y, obj_solid_parent) {
 					direction = 0;
 				}
-				else if LEFT && !place_meeting(x-usingSpeed, y, obj_solid_parent) {
+				else if LEFT && !place_meeting_layer(x-usingSpeed, y, obj_solid_parent) {
 					direction = 180;
 				}
-				else if UP && !place_meeting(x, y-usingSpeed, obj_solid_parent) {
+				else if UP && !place_meeting_layer(x, y-usingSpeed, obj_solid_parent) {
 					direction = 90;
 				}
-				else if DOWN && !place_meeting(x, y+usingSpeed, obj_solid_parent) {
+				else if DOWN && !place_meeting_layer(x, y+usingSpeed, obj_solid_parent) {
 					direction = 270;
 				}
 			}
@@ -268,7 +268,7 @@ switch(state) {
 		
 			var x1 = x +lengthdir_x(usingSpeed,direction);
 			var y1 = y +lengthdir_y(usingSpeed,direction);
-			canMove = !place_meeting(x1,y1,obj_solid_parent);
+			canMove = !place_meeting_layer(x1,y1,obj_solid_parent);
 
 			if !canMove {
 				speed = 0;
@@ -407,7 +407,7 @@ switch(state) {
 					var x1 = x +lengthdir_x(-.5,facingDirection);
 					var y1 = y +lengthdir_y(-.5,facingDirection);
 		
-					if weapon.subType == HandItemTypes.Melee && !place_meeting(x1, y1, obj_solid_parent){
+					if weapon.subType == HandItemTypes.Melee && !place_meeting_layer(x1, y1, obj_solid_parent){
 						direction = facingDirection;
 						speed = -.5;
 					}
@@ -502,7 +502,7 @@ switch(state) {
 				x1 = x + lengthdir_x(2,facingDirection);
 				y1 = y + lengthdir_y(2,facingDirection);
 
-				if attackingMelee && !(place_meeting(x1,y1,obj_solid_parent)) {
+				if attackingMelee && !(place_meeting_layer(x1,y1,obj_solid_parent)) {
 					direction = facingDirection;
 					speed = 1;
 				} else {
@@ -531,17 +531,7 @@ switch(state) {
 	}
 }
 
-// walking up / down stairs change layers, set solids for enemies on this layer (done in updateRoomLayers)
-if instance_nearest(x,y,obj_stairs) != noone {
-	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone {
-		layer = layerToChangeTo;
-		if type == CombatantTypes.Enemy {
-			show_debug_message("changing to " + layer_get_name(layerToChangeTo));
-		}
-		updateRoomLayers();
-		climbingDir = noone;
-	}
-}
+
 
 
 

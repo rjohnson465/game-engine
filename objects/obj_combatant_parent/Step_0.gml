@@ -337,16 +337,19 @@ switch(state) {
 				stupidityFrame++;
 				break;
 			} else {
-				// first check if in ranged aggro range
+				// check if in melee aggro range
+				if	((canSeePlayer(id) || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
+					state = CombatantStates.AggroMelee;
+					show_debug_message("Aggo melee");
+					break;
+				} else
+				// check if in ranged aggro range
 				if canSeePlayer(id) && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
 					state = CombatantStates.AggroRanged;
+					show_debug_message("Aggo range");
 					break;
 				}
-				// if not, check if in melee aggro range
-				else if	((canSeePlayer(id) || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
-					state = CombatantStates.AggroMelee;
-					break;
-				}
+	
 				else if isNoticingEngagement || wasJustHit {
 					wasJustHit = false;
 					// first try ranged
@@ -517,58 +520,64 @@ switch(state) {
 						facingDirection = direction;
 					}
 					
-					/*
-					var target = lockOnTarget;
-					if lockOnTarget.layer != layer {
-						// go to nearest staircase near lockOnTarget
+					if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false) {
+						path_start(path,functionalSpeed,path_action_stop,false);
+					} 
+					else if layer == lockOnTarget.layer && !mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false) {
+						if mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0) {
+							path_start(path,functionalSpeed,path_action_stop,false);
+						}
+					}
+					//else if postZ == layer {
+					else {
+						/*if mp_grid_path(personalGrid,path,x,y,postX,postY,true) {
+							path_start(path,functionalSpeed,path_action_stop,false);
+						} else path_end();*/
 						var nearestStairs = noone;
 						with lockOnTarget {
 							nearestStairs = instance_nearest(x,y,obj_stairs);
 						}
 						if nearestStairs != noone {
-							target = nearestStairs;
-							//show_debug_message(string(target.x) + ", " + string(target.y));
-							//if path_speed > 0 path_speed = 0;
-							var a = mp_grid_path(personalGrid,path,x,y,target.x,target.y,0); 
+
+							var a = mp_grid_path(personalGrid,path,x,y,nearestStairs.x,nearestStairs.y,0); 
 							var b = path_get_length(path);
-							if !place_meeting(x,y,target) && a && mp_grid_get_cell(personalGrid,target.x,target.y) != -1  {
-								
-								show_debug_message("Going for stairs");
+							if !place_meeting(x,y,nearestStairs) && a  {
+								//show_debug_message("Going for stairs");
+								// try to go to closest allowed space in grid path
 								path_start(path,functionalSpeed,path_action_stop,false);
-								//break;
-								//}
+								var xx = path_get_point_x(path,1);
+								var yy = path_get_point_y(path,1);
+								//show_debug_message(string(xx) + " ," + string(yy));
+								
+								var pdir = point_direction(x,y,xx,yy);
+								moveToNearestFreePoint(pdir,functionalSpeed);
+								path_end();
 							}
 							// go through the stairs obj
-							else if place_meeting(x,y,target) {
+							else if place_meeting(x,y,nearestStairs) {
 								path_end();
 								var d = 0;
 								if lockOnTarget.layer < layer {
-									d = (target.upDirectionMin+90)%360;
+									d = (nearestStairs.upDirectionMin+90)%360;
 								} else {
-									d = (target.upDirectionMin+90)%360;
+									d = (nearestStairs.upDirectionMax+90)%360;
 								}
+								var xxx = nearestStairs.x+lengthdir_x(100,d);
+								var yyy = nearestStairs.y+lengthdir_y(100,d);
+								//mp_grid_path(personalGrid,path,x,y,xxx,yyy,0)
+								//var xx = path_get_point_x(path,1);
+								//var yy = path_get_point_y(path,1);
+								
+								//var pdir = point_direction(x,y,xx,yy);
+								show_debug_message(d);
 								moveToNearestFreePoint(d,functionalSpeed);
-							} else {
 								//path_end();
 							}
-						}
+							} 
+							else path_end();
 						
-					} else {
-						//if 
-						mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,1) 
-						//{
-						path_start(path,functionalSpeed,path_action_stop,false);
-						//} else path_end();
-					}*/
-					if layer == lockOnTarget.layer {
-						mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false);
-						path_start(path,functionalSpeed,path_action_stop,false);
-					} else if postZ == layer {
-						if mp_grid_path(personalGrid,path,x,y,postX,postY,true) {
-							path_start(path,functionalSpeed,path_action_stop,false);
-						} else path_end();
 					}
-					else path_end();
+					//else path_end();
 					break;
 
 				}
@@ -1216,7 +1225,17 @@ if jumpFrame <= jumpTotalFrames {
 }
 
 
-
+// walking up / down stairs change layers, set solids for enemies on this layer (done in updateRoomLayers)
+if instance_nearest(x,y,obj_stairs) != noone {
+	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone && climbingDir != -4 {
+		layer = layerToChangeTo;
+		if type == CombatantTypes.Enemy {
+			show_debug_message("changing to " + layer_get_name(layerToChangeTo));
+		}
+		updateRoomLayers();
+		climbingDir = noone;
+	}
+}
 
 
 /*

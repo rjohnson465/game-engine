@@ -11,9 +11,9 @@ if argument_count == 3 {
 }
 
 var objectsToAvoid = obj_solid_parent;
-if !targetCombatants {
+/*if !targetCombatants {
 	objectsToAvoid = obj_solid_environment_parent
-}
+}*/
 var oldX = x;
 var oldY = y;
 
@@ -41,6 +41,7 @@ with obj_stairs {
 if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid,combatantsToConsider) {
 	x = x+lengthdir_x(sp,d); 
 	y = y+lengthdir_y(sp,d);
+	direction = point_direction(oldX,oldY,x,y);
 }
 else {
 	var dir = d;
