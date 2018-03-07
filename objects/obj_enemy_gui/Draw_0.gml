@@ -1,6 +1,6 @@
-draw_path(owner.path,x,y,true);
+//draw_path(owner.path,x,y,true);
 draw_set_alpha(0.3);
-mp_grid_draw(owner.personalGrid);
+//mp_grid_draw(owner.personalGrid);
 draw_set_alpha(1);
 if owner.layer != global.player.layer exit;
 if owner.showHp {

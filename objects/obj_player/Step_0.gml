@@ -531,6 +531,17 @@ switch(state) {
 	}
 }
 
+// walking up / down stairs change layers, set solids for enemies on this layer (done in updateRoomLayers)
+if instance_nearest(x,y,obj_stairs) != noone {
+	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone {
+		layer = layerToChangeTo;
+		if type == CombatantTypes.Enemy {
+			show_debug_message("changing to " + layer_get_name(layerToChangeTo));
+		}
+		updateRoomLayers();
+		climbingDir = noone;
+	}
+}
 
 
 

@@ -115,3 +115,9 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 		}
 	}
 }
+
+with obj_solid_parent {
+	if layer == playerLayer {
+		solid = true;
+	} else solid = false;
+}

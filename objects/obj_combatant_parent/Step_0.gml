@@ -517,12 +517,7 @@ switch(state) {
 						facingDirection = direction;
 					}
 					
-					//if layer == global.player.layer {
-					//if isSlowed {
-						//mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,obj_solid_parent);
-					//} else {
-						//mp_potential_path_object(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,obj_solid_parent);
-					//var p = path_add();
+					/*
 					var target = lockOnTarget;
 					if lockOnTarget.layer != layer {
 						// go to nearest staircase near lockOnTarget
@@ -534,11 +529,14 @@ switch(state) {
 							target = nearestStairs;
 							//show_debug_message(string(target.x) + ", " + string(target.y));
 							//if path_speed > 0 path_speed = 0;
-							if !place_meeting(x,y,target) /*&& mp_grid_get_cell(personalGrid,target.x,target.y) != -1*/  {
-								//show_debug_message(mp_grid_get_cell(personalGrid,target.x,target.y));
-								if mp_grid_path(personalGrid,path,x,y,target.x,target.y,1) {
-									path_start(path,functionalSpeed,path_action_continue,false);
-								}
+							var a = mp_grid_path(personalGrid,path,x,y,target.x,target.y,0); 
+							var b = path_get_length(path);
+							if !place_meeting(x,y,target) && a && mp_grid_get_cell(personalGrid,target.x,target.y) != -1  {
+								
+								show_debug_message("Going for stairs");
+								path_start(path,functionalSpeed,path_action_stop,false);
+								//break;
+								//}
 							}
 							// go through the stairs obj
 							else if place_meeting(x,y,target) {
@@ -551,7 +549,7 @@ switch(state) {
 								}
 								moveToNearestFreePoint(d,functionalSpeed);
 							} else {
-								path_end();
+								//path_end();
 							}
 						}
 						
@@ -561,28 +559,16 @@ switch(state) {
 						//{
 						path_start(path,functionalSpeed,path_action_stop,false);
 						//} else path_end();
+					}*/
+					if layer == lockOnTarget.layer {
+						mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false);
+						path_start(path,functionalSpeed,path_action_stop,false);
+					} else if postZ == layer {
+						if mp_grid_path(personalGrid,path,x,y,postX,postY,true) {
+							path_start(path,functionalSpeed,path_action_stop,false);
+						} else path_end();
 					}
-						
-					//mp_grid_path(personalGrid,path,x,y,target.x,target.y,1);
-					
-					//}
-					//if target.object_index == obj_stairs {
-						//show_debug_message("stairs");
-						//path_end();
-						//speed = 0;
-						//var path2 = path_add();
-						//show_debug_message(path_get_length(path));
-						//mp_grid_path(personalGrid, path ,x,y,target.x,target.y,1);
-						//path_start(path,functionalSpeed,path_action_stop,false);
-						
-					//} else {
-						//show_debug_message("player");
-						//show_debug_message(path_get_length(path));
-						//path_end();						
-					//}
-					//show_debug_message(path_get_length(path));
-					//path_start(path,functionalSpeed,path_action_stop,false);
-					//mp_potential_step_object(global.player.x,global.player.y,functionalSpeed,obj_solid_parent);
+					else path_end();
 					break;
 
 				}
@@ -712,7 +698,7 @@ switch(state) {
 			if !isRanged && ds_map_size(preparingLimbs) !=0 {
 				// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
 				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] {
-					mp_potential_step_object(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,obj_solid_parent);
+					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,false);
 				}
 			}
 
@@ -1229,13 +1215,7 @@ if jumpFrame <= jumpTotalFrames {
 	jumpFrame++;
 }
 
-if instance_nearest(x,y,obj_stairs) != noone {
-	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone {
-		layer = layerToChangeTo;
-		updateRoomLayers();
-		climbingDir = noone;
-	}
-}
+
 
 
 
