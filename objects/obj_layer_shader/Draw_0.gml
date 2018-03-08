@@ -6,10 +6,11 @@ var pLayerName = layer_get_name(playerLayer);
 var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
 var diff = pLayerNum - real(floorNum);
 if diff == 1 {
-	//light_init(1024, 768, 1024, color, 0.35, 40);
-	color = make_colour_rgb(0.2*255, 0.2*255, 0.2 * 255);
+	light_init(1024, 768, 1024, color, 0.35, 40);
+	//color = make_colour_rgb(1*255, 0.2*255, 0.2 * 255);
 	light_draw(vx,vy, true, true, blur);
 }*/
+
 
 if( !surface_exists(surface_canvas_1) ){
     surface_canvas_1 = surface_create(room_width,room_height);
@@ -29,10 +30,7 @@ var pLayerName = layer_get_name(playerLayer);
 var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
 var diff = pLayerNum - real(floorNum);
 
-var shade = 0;
-if diff == 1 {
-	shade = -.1;
-}
+shade = diff*(-.1);
 
 shader_set_uniform_f(uPOSITION,shade);
 draw_surface(surface_canvas_1,0,0);

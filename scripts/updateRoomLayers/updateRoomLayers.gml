@@ -12,8 +12,8 @@ var instanceLayersAbove = ds_list_create();
 var tileLayersAbove = ds_list_create();
 
 var layers = layer_get_all();
-// reset all floortiles brightness objects
-with obj_floortiles_brightness {
+// reset all layer shader objects
+with obj_layer_shader {
 	instance_destroy(id,false);
 }
 for (var i = 0; i < array_length_1d(layers); i++) {
@@ -23,7 +23,7 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 		var lNum = real(string_char_at(lName,string_length(lName)));
 		// if this layer is some floor above the player, it is not visible
 		if lNum > pLayerNum {
-			//layer_set_visible(l,false);
+			layer_set_visible(l,false);
 		}
 		// make visible layers at or below player's layer
 		// draw layers below a little darker, might need to use a Shader
@@ -37,8 +37,9 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 			var depth2 = layer_get_depth(instancesLayer);
 			var d = mean(depth1,depth2);
 			
+			global.shaderInstanceLayer = instancesLayer;
 			global.floorNum = lNum;
-			instance_create_depth(x,y,d,obj_floortiles_brightness);
+			instance_create_depth(x,y,d,obj_layer_shader);
 
 		}
 	}

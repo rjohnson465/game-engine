@@ -1,7 +1,9 @@
 if isSpell {
 	if spell.spriteName == "magicmissile" {
 		if distance_to_object(owner.lockOnTargetType) < 1000 {
+			
 			var target = instance_nearest(x,y,owner.lockOnTargetType);
+			if target.layer != owner.layer exit;
 			var r = distance_to_object(target);
 			if (r > 10 && target.state != CombatantStates.Dodging) {
 				var theta = point_direction(x,y,target.x,target.y);

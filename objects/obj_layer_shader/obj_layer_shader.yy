@@ -2,7 +2,7 @@
     "id": "26e48bbd-a7bf-49d1-b5d6-84adafb655f1",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_floortiles_brightness",
+    "name": "obj_layer_shader",
     "eventList": [
         {
             "id": "099f2d67-0369-419b-8e0e-860e1179fa06",

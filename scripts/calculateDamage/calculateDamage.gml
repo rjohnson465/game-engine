@@ -4,7 +4,7 @@
 
 //var other = argument0;
 
-//show_debug_message("in calc damage");
+show_debug_message("in calc damage");
 
 if hp <= 0 exit;
 var isFading = false;
@@ -30,7 +30,7 @@ if	state != CombatantStates.Dodging &&
 	|| type == CombatantTypes.Ally && other.owner.type == CombatantTypes.Enemy 
 	|| type == CombatantTypes.Enemy && other.owner.type == CombatantTypes.Ally
 	|| type == CombatantTypes.Enemy && other.owner.type == CombatantTypes.Player) 
-	&& other.id != id
+	&& other.owner.id != id
 {
 	
 	// if combatant has not been hit with this instance before (only get hit with an attack once)
@@ -322,9 +322,9 @@ if	state != CombatantStates.Dodging &&
 		if other.isRanged || (other.isSpell)/* && spell.name != "aoe")*/ {
 			instance_destroy(other,false);
 			// also destroy the ranged attack's light radius, if it exists
-			//var attackObjId = other;
+			var attackObjId = other;
 			with obj_light_radius {
-				if owner == other {
+				if owner == attackObjId {
 					instance_destroy(id);
 				}
 			}
@@ -348,4 +348,8 @@ if	state != CombatantStates.Dodging &&
 		}
 		
 	}
+}
+
+if (other.isRanged  || other.isSpell) && id != other.owner {
+	instance_destroy(other);
 }

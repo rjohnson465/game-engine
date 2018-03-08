@@ -340,13 +340,11 @@ switch(state) {
 				// check if in melee aggro range
 				if	((canSeePlayer(id) || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
 					state = CombatantStates.AggroMelee;
-					show_debug_message("Aggo melee");
 					break;
 				} else
 				// check if in ranged aggro range
 				if canSeePlayer(id) && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
 					state = CombatantStates.AggroRanged;
-					show_debug_message("Aggo range");
 					break;
 				}
 	
@@ -433,7 +431,9 @@ switch(state) {
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
 			if currentMeleeAttack || currentRangedAttack {
 				
-				turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
+				if lockOnTarget != noone {
+					turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
+				} 
 				
 				// CHECK 1: TOO FAR FROM POST?
 				
@@ -509,10 +509,25 @@ switch(state) {
 				
 				// move to lockOnTarget until in range for chosen attack
 				var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
-				// TODO -- maybe move away from lockOnTarget if a rangedAttack has a minRange
+				var allyType = object_is_ancestor(object_index,obj_enemy_parent) ? obj_enemy_parent : obj_goodguy_parent;
+				var alliesBetweenTarget = scr_collision_line_list(x,y,lockOnTarget.x,lockOnTarget.y,allyType,true,true);
+				var enemyObstaclesBetweenTarget = noone; 
+				if type == CombatantTypes.Enemy {
+					enemyObstaclesBetweenTarget = scr_collision_line_list(x,y,lockOnTarget.x,lockOnTarget.y,obj_enemy_obstacle_parent,true,true);
+				}
+				for (var i = 0; i < ds_list_size(enemyObstaclesBetweenTarget); i++) {
+					var el = ds_list_find_value(enemyObstaclesBetweenTarget,i);
+					// enemies, feel free to not consider your targets "obstacles" you dolts
+					if object_is_ancestor(el.object_index,obj_goodguy_parent) {
+						ds_list_delete(enemyObstaclesBetweenTarget,i);
+					}
+				}
+				if ds_list_size(enemyObstaclesBetweenTarget) == 0 enemyObstaclesBetweenTarget = noone;
+				// if predicate is true, you need to keep moving
 				var pred = currentMeleeAttack == noone ? 
 					// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
-					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) || wallsBetweenTarget != noone || (layer != lockOnTarget.layer) : 
+					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) 
+						|| wallsBetweenTarget != noone || alliesBetweenTarget != noone || enemyObstaclesBetweenTarget != noone || (layer != lockOnTarget.layer) : 
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]) || (layer != lockOnTarget.layer);
 				
 				if pred && !isFlinching {
@@ -520,19 +535,34 @@ switch(state) {
 						facingDirection = direction;
 					}
 					
-					if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false) {
+					if layer == lockOnTarget.layer /*&& mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false)*/ {
+						var a = mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false);
+						var xx = path_get_point_x(path,1);
+						var yy = path_get_point_y(path,1);
+						var pdir = point_direction(x,y,xx,yy);
+						//moveToNearestFreePoint(pdir, functionalSpeed);
 						path_start(path,functionalSpeed,path_action_stop,false);
 					} 
 					else if layer == lockOnTarget.layer && !mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false) {
-						if mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0) {
+						//if 
+						//mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0)
+						//{
+						//path_start(path,functionalSpeed,path_action_stop,false);
+						//}
+					}
+					// return to post if player is not on your layer anymore
+					else if postZ == layer && layer != lockOnTarget.layer {
+						if mp_grid_path(personalGrid,path,x,y,postX,postY,0) {
 							path_start(path,functionalSpeed,path_action_stop,false);
+							currentMeleeAttack = noone;
+							currentRangedAttack = noone;
 						}
+						// can aggro while returning to post tho
+					} else {
+						path_end();
 					}
 					//else if postZ == layer {
-					else {
-						/*if mp_grid_path(personalGrid,path,x,y,postX,postY,true) {
-							path_start(path,functionalSpeed,path_action_stop,false);
-						} else path_end();*/
+					/*else {
 						var nearestStairs = noone;
 						with lockOnTarget {
 							nearestStairs = instance_nearest(x,y,obj_stairs);
@@ -564,20 +594,11 @@ switch(state) {
 								}
 								var xxx = nearestStairs.x+lengthdir_x(100,d);
 								var yyy = nearestStairs.y+lengthdir_y(100,d);
-								//mp_grid_path(personalGrid,path,x,y,xxx,yyy,0)
-								//var xx = path_get_point_x(path,1);
-								//var yy = path_get_point_y(path,1);
-								
-								//var pdir = point_direction(x,y,xx,yy);
-								show_debug_message(d);
 								moveToNearestFreePoint(d,functionalSpeed);
-								//path_end();
 							}
-							} 
-							else path_end();
-						
-					}
-					//else path_end();
+						} 
+						else path_end();	
+					}*/
 					break;
 
 				}
@@ -640,31 +661,7 @@ switch(state) {
 			// TODO these checks should come back
 			// if no attack is chosen, we're probably heading back to post
 			// check no one is tryna gank us on our way back tho
-			// first check if in melee aggro range
-			/*else if meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange {
-				state = CombatantStates.AggroMelee;
-				break;
-			}
-			// if not, check if in ranged aggro range
-			else if rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
-				state = CombatantStates.AggroRanged;
-				break;
-			}*/
 			else {
-				//mp_grid_clear_all(personalGrid);
-				//mp_grid_add_instances(personalGrid,obj_wall_parent,true);
-				//if 
-				//show_debug_message("Fuck it im going home");
-				/*mp_grid_path(personalGrid, path,x,y,postX,postY,true) {
-				//if mp_potential_path_object(path,postX,postY,functionalSpeed*2,4,obj_solid_parent) {
-					path_start(path,functionalSpeed*1.25,path_action_stop, false);
-					facingDirection = direction;
-				}
-				if abs(postX-x) < 2 && abs(postY-y) < 2 {
-					onAlert = false;
-					path_end();
-					state = CombatantStates.Idle;
-				}*/
 				state = CombatantStates.Idle;
 				break;
 			}

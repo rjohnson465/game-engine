@@ -538,7 +538,7 @@
             "Key": "26e48bbd-a7bf-49d1-b5d6-84adafb655f1",
             "Value": {
                 "id": "4e7f0f89-f573-44f4-bc98-23fcb44c5ebd",
-                "resourcePath": "objects\\obj_floortiles_brightness\\obj_floortiles_brightness.yy",
+                "resourcePath": "objects\\obj_layer_shader\\obj_layer_shader.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -2199,6 +2199,14 @@
             }
         },
         {
+            "Key": "c1eb91a1-c734-48cb-8620-eeb1a88f1f43",
+            "Value": {
+                "id": "6a47f7af-2cae-4034-8838-524636a44231",
+                "resourcePath": "scripts\\prepareLayerShader\\prepareLayerShader.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c208a45e-4208-4b5c-8838-d008b3ab944e",
             "Value": {
                 "id": "616ccee2-1abc-4ee4-a6db-92e489303d5e",
@@ -2906,6 +2914,7 @@
         "2daf145c-5cdc-4ea1-b6de-fd82a34676ed",
         "53095c17-a8c1-4769-bc3d-922b03d5890d",
         "f0eff6a6-dd20-4359-a231-97e9f908deb3",
+        "c1eb91a1-c734-48cb-8620-eeb1a88f1f43",
         "647eecf8-c981-4a17-81d5-c1258a0b0073",
         "f5b715c1-faf2-409c-9408-e54ded1ebc32",
         "af4faec1-d8c4-4e8c-a879-6cd5e3540170",

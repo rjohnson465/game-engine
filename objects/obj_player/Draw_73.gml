@@ -3,33 +3,6 @@ event_inherited();
 var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
-// draw dodge sprite if dodging
-/*if state == CombatantStates.Dodging {
-	//draw_sprite_ext(asset_get_index("spr_player_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,1);
-} else */ {
-	
-	var isRightHandInUse = ds_map_find_value(preparingLimbs,"r") != undefined || ds_map_find_value(recoveringLimbs,"r") != undefined || ds_map_find_value(attackingLimbs,"r") != undefined;
-	var isLeftHandInUse = ds_map_find_value(preparingLimbs,"l") != undefined || ds_map_find_value(recoveringLimbs,"l") != undefined || ds_map_find_value(attackingLimbs,"l") != undefined;
-	
-	// two handed items always go in right hand
-	/*if !rightHandItem.isTwoHanded {
-		// right hand
-		if (!isRightHandInUse && currentUsingSpell == noone) {
-			draw_sprite_ext(asset_get_index("spr_"+spriteString+"_"+rightHandItem.spriteName),1,x,y,1,1,facingDirection,c_white,1);
-		}
-		// left hand -- only left hands can hold shields. 
-		//if isShielding is true, a block object will be created in front of the combatant
-		if (!isLeftHandInUse && !isShielding && currentUsingSpell == noone) {
-			draw_sprite_ext(asset_get_index("spr_"+spriteString+"_"+leftHandItem.spriteName),1,x,y,1,-1,facingDirection,c_white,1);
-		}
-	} else {
-		// right hand
-		if (!isRightHandInUse && currentUsingSpell == noone) {
-			draw_sprite_ext(asset_get_index("spr_"+spriteString+"_"+rightHandItem.spriteName),1,x,y,1,1,facingDirection,c_white,1);
-		}
-	}*/
-}
-
 if state == CombatantStates.Attacking {
 	
 	// martial spell
