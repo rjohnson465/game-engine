@@ -6,6 +6,11 @@ x = limb.x;
 y = limb.y;
 image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
+image_xscale = 1*owner.fallScaleFactor;
+image_yscale = 1*owner.fallScaleFactor;
+if limbKey == "l" {
+	image_yscale = -1*owner.fallScaleFactor;
+}
 layer = owner.layer;
 // switch weapon sprite
 if limbItem != limb.limbItem {

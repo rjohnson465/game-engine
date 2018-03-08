@@ -1,5 +1,5 @@
+prepareLayerShader();
 // draw based on state
-
 if limbKey == "r" {
 	var leftHand = noone;
 	var oId = owner;
@@ -36,16 +36,18 @@ else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
 	var sprite = getLimbSpriteIndex("recover");
 }
 
-draw_sprite_ext(sprite,frame,owner.x,owner.y,1,ys,rot,c_white,owner.alpha);
+draw_sprite_ext(sprite,frame,owner.x,owner.y,1*owner.fallScaleFactor,ys*owner.fallScaleFactor,rot,c_white,owner.alpha);
 
 if owner.isSlowed {
 	var percentFrozen = ds_map_find_value(owner.conditionPercentages,ICE);
 	var colorAlpha = (3/320)*percentFrozen;
-	draw_sprite_ext(sprite,frame,owner.x,owner.y,1,ys,rot,c_aqua,colorAlpha*owner.alpha);
+	draw_sprite_ext(sprite,frame,owner.x,owner.y,1,ys*owner.fallScaleFactor,rot,c_aqua,colorAlpha*owner.alpha);
 } else if owner.isFrozen {
-	draw_sprite_ext(sprite,frame,owner.x,owner.y,1,ys,rot,c_aqua,.75*owner.alpha);
+	draw_sprite_ext(sprite,frame,owner.x,owner.y,1*owner.fallScaleFactor,ys*owner.fallScaleFactor,rot,c_aqua,.75*owner.alpha);
 } else if owner.isPoisoned {
 	var percentPoisoned = ds_map_find_value(owner.conditionPercentages,POISON);
 	var colorAlpha = (3/320)*percentPoisoned;
-	draw_sprite_ext(sprite,frame,owner.x,owner.y,1,ys,rot,c_aqua,colorAlpha*owner.alpha);
+	draw_sprite_ext(sprite,frame,owner.x,owner.y,1*owner.fallScaleFactor,ys*owner.fallScaleFactor,rot,c_aqua,colorAlpha*owner.alpha);
 }
+
+shader_reset();

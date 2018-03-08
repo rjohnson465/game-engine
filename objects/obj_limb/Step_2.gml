@@ -28,6 +28,11 @@ if leftHandItem {
 }
 image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
+image_xscale = 1*owner.fallScaleFactor;
+image_yscale = 1*owner.fallScaleFactor;
+if limbKey == "l" {
+	image_yscale = -1*owner.fallScaleFactor;
+}
 layer = owner.layer;
 
 if limbItem.subType == HandItemTypes.Shield && owner.isShielding {
@@ -51,6 +56,7 @@ else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
 else {
 	sprite_index = asset_get_index(spriteString);
 }
+
 /*
 if owner.type != CombatantTypes.Player && sprite_index != asset_get_index(spriteString) {
 	show_debug_message(string(sprite_index) + string(image_index));

@@ -4,8 +4,6 @@
 
 //var other = argument0;
 
-show_debug_message("in calc damage");
-
 if hp <= 0 exit;
 var isFading = false;
 with obj_fade {

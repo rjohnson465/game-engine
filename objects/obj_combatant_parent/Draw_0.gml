@@ -47,6 +47,13 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 		scaleFactor = (-.5*abs((2*percentDone)-1))+1.5;
 		scale = scale * scaleFactor;
 	}
+	// falling
+	if fallFrame < fallTotalFrames {
+		var percentDone = fallFrame / fallTotalFrames;
+		// this factor is used by all limbs
+		fallScaleFactor = (.5*abs((2*percentDone)-1))+.5;
+		scale = scale * fallScaleFactor;
+	}
 	if isDying {
 		alpha = (-dyingFrame/dyingTotalFrames)+1;
 	}

@@ -53,8 +53,16 @@ with obj_enemy_obstacle_parent {
 		solid = false;
 	}
 }
-/*
+
 with obj_wall_parent {
+	light_destroy_caster();
+	if layer == playerLayer {
+		light_create_caster();
+	}
+}
+
+/*
+with obj_fallzone {
 	if layer == playerLayer {
 		light_create_caster();
 	} else light_destroy_caster();

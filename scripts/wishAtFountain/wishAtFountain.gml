@@ -37,6 +37,9 @@ else {
 			// actually reposition / heal enemies in this room
 			if roomIndex == room {
 				var enemy = findPersistentRoomElement(obj_enemy_parent,enemyData.postX,enemyData.postY);
+				with enemy {
+					path_end();
+				}
 				enemy.x = enemyData.postX;
 				enemy.y = enemyData.postY;
 				enemy.layer = enemyData.postZ;

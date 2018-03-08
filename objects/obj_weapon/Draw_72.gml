@@ -1,4 +1,7 @@
+prepareLayerShader();
+
 if sprite_index == -1 exit;
+
 if limbKey == "r" {
 	var leftHand = noone;
 	var oId = owner;
@@ -36,4 +39,5 @@ else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
 	sprite = getLimbSpriteIndex("recover");
 }
 
-draw_sprite_ext(sprite,frame,owner.x,owner.y,1,ys,rot,c_white,owner.alpha);
+draw_sprite_ext(sprite,frame,owner.x,owner.y,1*owner.fallScaleFactor,ys*owner.fallScaleFactor,rot,c_white,owner.alpha);
+shader_reset();

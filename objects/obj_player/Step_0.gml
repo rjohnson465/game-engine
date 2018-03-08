@@ -11,6 +11,47 @@ if isFading {
 	path_end();
 	exit;
 }
+
+show_debug_message(layer_get_name(layer));
+
+if fallFrame < fallTotalFrames {
+	// stop preparing attacks
+	if ds_map_size(preparingLimbs) != 0 {
+		var hand = ds_map_find_first(preparingLimbs);
+		for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
+			ds_map_replace(prepFrames,hand,-1);
+			ds_map_replace(prepFrameTotals,hand,0);
+			ds_map_delete(preparingLimbs,hand);
+			hand = ds_map_find_next(preparingLimbs,hand);
+		}
+	}
+	// stop attacking
+	if ds_map_size(attackingLimbs) != 0 {
+		var hand = ds_map_find_first(attackingLimbs);
+		for (var i = 0; i < ds_map_size(attackingLimbs); i++) {
+			ds_map_delete(attackingLimbs,hand);
+			hand = ds_map_find_next(attackingLimbs,hand);
+		}
+	}
+	// stop recovering attacks
+	if ds_map_size(recoveringLimbs) != 0 {
+		var hand = ds_map_find_first(recoveringLimbs);
+		for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
+			ds_map_replace(recoveringLimbs,hand,-1);
+			ds_map_replace(recoveringLimbs,hand,0);
+			ds_map_delete(recoveringLimbs,hand);
+			hand = ds_map_find_next(recoveringLimbs,hand);
+		}
+	}
+	isStrafing = false;
+	currentUsingSpell = noone;
+	attackNumberInChain = noone;
+	state = CombatantStates.Idle;
+	path_end();
+	speed = 0;
+	exit;
+}
+
 leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 

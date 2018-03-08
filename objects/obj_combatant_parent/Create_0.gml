@@ -1,7 +1,7 @@
 // personalGrid is all walls / combatants except for this combatant
 // each combatant has their own grid, telling them where they can't go
-var cell_width = bbox_right-bbox_left;
-var cell_height = bbox_bottom-bbox_top;
+var cell_width = 32;//bbox_right-bbox_left;
+var cell_height = 32; //bbox_bottom-bbox_top;
 
 var hcells = room_width div cell_width;
 var vcells = room_height div cell_height;
@@ -26,9 +26,16 @@ idleFrame = 0;
 
 dodgeStartX = noone;
 dodgeStartY = noone;
+
 // "jumping" -- just has sprite drawn larger until halfway through jumpTotalFrames
 jumpFrame = 12;
 jumpTotalFrames = 12;
+
+// "falling" -- draw sprite from 1-.5, set layer to next lower layer, then from .5 to 1
+fallFrame = 32;
+fallTotalFrames = 32;
+fallScaleFactor = 1;
+floorsFallen = 0;
 
 functionalSpeed = 5;
 normalSpeed = 5;

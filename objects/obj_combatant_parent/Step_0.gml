@@ -16,6 +16,12 @@ if !isAlive && type != CombatantTypes.Player {
 	exit;
 }
 if isDying exit;
+
+if fallFrame < fallTotalFrames {
+	fall();
+	exit;
+}
+
 image_angle = facingDirection;
 
 // Reset personal grid for allies / enemeies
@@ -380,7 +386,6 @@ switch(state) {
 			currentMeleeAttack = round(random_range(1,array_length_1d(meleeAttacks)));
 
 			// close enough to hear, but maybe not see. turn to face the direction of the noise
-			//turnToFacePoint(150,lockOnTarget.x,lockOnTarget.y);
 			var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 			if wallsBetweenTarget == noone || onAlert {
 				onAlert = true;
@@ -423,9 +428,6 @@ switch(state) {
 	case CombatantStates.Moving: {
 		// player overrides this entirely
 		if type != CombatantTypes.Player {
-			
-			//mp_potential_step_object(global.player.x,global.player.y,functionalSpeed,obj_solid_parent);
-			//break;
 			
 			// TODO pick target; may not always be player
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
@@ -543,13 +545,13 @@ switch(state) {
 						//moveToNearestFreePoint(pdir, functionalSpeed);
 						path_start(path,functionalSpeed,path_action_stop,false);
 					} 
-					else if layer == lockOnTarget.layer && !mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false) {
+					/*else if layer == lockOnTarget.layer && !mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false) {
 						//if 
 						//mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0)
 						//{
 						//path_start(path,functionalSpeed,path_action_stop,false);
 						//}
-					}
+					}*/
 					// return to post if player is not on your layer anymore
 					else if postZ == layer && layer != lockOnTarget.layer {
 						if mp_grid_path(personalGrid,path,x,y,postX,postY,0) {
@@ -662,7 +664,16 @@ switch(state) {
 			// if no attack is chosen, we're probably heading back to post
 			// check no one is tryna gank us on our way back tho
 			else {
-				state = CombatantStates.Idle;
+				if layer == postZ && distance_to_point(postX,postY) > 2 {
+					mp_grid_path(personalGrid,path,x,y,postX,postY,0);
+					path_start(path,functionalSpeed,path_action_stop,false);
+					var xx = path_get_x(path,1);
+					var yy = path_get_y(path,1);
+					var pdir = point_direction(x,y,xx,yy);
+					facingDirection = pdir;
+				} else {
+					state = CombatantStates.Idle;
+				}
 				break;
 			}
 		}
@@ -1001,12 +1012,41 @@ switch(state) {
 		speed = 0;	
 		image_angle = dodgeDirection;
 		
-		moveToNearestFreePoint(dodgeDirection,functionalSpeed*2);
+		var dodgeSpeed = functionalSpeed*2;
+		// Do not dodge into fallzones on purpose (if enemy)
+		if type != CombatantTypes.Player {
+			// check every step the dodge in this direction would take us
+			// if its into a fallzone, try a different angle
+			var dir = dodgeDirection;
+			var i = dodgeFrame;
+			var possibleAngles = ds_list_create();
+			while i < totalDodgeFrames {
+				var xx = x+lengthdir_x(dodgeSpeed,dir);
+				var yy = y+lengthdir_y(dodgeSpeed,dir);
+				if !place_meeting_layer(xx,yy,obj_fallzone) {
+					ds_list_add(possibleAngles,dir);
+				} 
+				i++;
+				dir = (dir+10)%360;
+			}
+			// find closest possible angle to dodgeDirection
+			var closestAngleDiff = 360;
+			for (var i = 0; i < ds_list_size(possibleAngles); i++) {
+				var ang = ds_list_find_value(possibleAngles,i);
+				var diff = abs(angle_difference(dodgeDirection,ang));
+				if diff < closestAngleDiff {
+					closestAngleDiff = diff;
+					dir = ang;
+				}				
+			}
+			dodgeDirection = dir;
+		}
+		
+		moveToNearestFreePoint(dodgeDirection,dodgeSpeed);
 
 		dodgeFrame++;
 		// if not dodging, reset some states and values
 		if dodgeFrame >= totalDodgeFrames {
-			//path_end();
 			
 			dodgeStartX = noone;
 			dodgeStartY = noone;
@@ -1221,7 +1261,6 @@ if jumpFrame <= jumpTotalFrames {
 	jumpFrame++;
 }
 
-
 // walking up / down stairs change layers, set solids for enemies on this layer (done in updateRoomLayers)
 if instance_nearest(x,y,obj_stairs) != noone {
 	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone && climbingDir != -4 {
@@ -1232,6 +1271,21 @@ if instance_nearest(x,y,obj_stairs) != noone {
 		updateRoomLayers();
 		climbingDir = noone;
 	}
+}
+
+// check if not on any tile on the current layer
+var layerName = layer_get_name(layer);
+var layerNum = real(string_char_at(layerName,string_length(layerName)));
+var tilemap = layer_tilemap_get_id(layer_get_id("tiles_floor_"+string(layerNum)));
+var w = bbox_right-bbox_left;
+var h = bbox_bottom-bbox_top;
+var t1 = tilemap_get_at_pixel(tilemap,x-(.25*w),y-(.25*h));
+var t2 = tilemap_get_at_pixel(tilemap,x+(.25*w),y-(.25*h));
+var t3 = tilemap_get_at_pixel(tilemap,x-(.25*w),y+(.25*h));
+var t4 = tilemap_get_at_pixel(tilemap,x+(.25*w),y+(.25*h));
+if t1 == 0 && t2 == 0 && t3 == 0 && t4 == 0 {
+	fallFrame = 0;
+	floorsFallen = 1;
 }
 
 
