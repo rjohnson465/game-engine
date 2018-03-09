@@ -15,6 +15,13 @@ if isFading {
 	exit;
 }
 
+if state == CombatantStates.Dodging && ds_list_find_index(beenHitWith,other.id) == -1 {
+	ds_list_add(other.combatantsHit,id);
+	ds_list_add(beenHitWith,other.id);
+	drawCombatText("Evaded!",id);
+	exit;
+}
+
 // if enemy or ally, seek retribution (even if out of normal range)
 if	(type == CombatantTypes.Enemy || type == CombatantTypes.Ally) 
 	&& state == CombatantStates.Idle
@@ -348,6 +355,7 @@ if	state != CombatantStates.Dodging &&
 	}
 }
 
-if (other.isRanged  || other.isSpell) && id != other.owner {
+/*
+if (other.isRanged  || other.isSpell) && id != other.owner && state != CombatantStates.Dodging {
 	instance_destroy(other);
 }

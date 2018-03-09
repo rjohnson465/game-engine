@@ -1591,6 +1591,14 @@
             }
         },
         {
+            "Key": "85972997-15dd-45c7-a31a-086cb63d6dd6",
+            "Value": {
+                "id": "da3f718f-85d8-4eeb-b37b-30413b826d12",
+                "resourcePath": "scripts\\drawCombatText\\drawCombatText.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "88a3faa7-f272-4625-852c-2e17a2971fdf",
             "Value": {
                 "id": "2a20c6a8-508d-4ec4-b04b-e4dbbb22d20f",
@@ -2423,6 +2431,14 @@
             }
         },
         {
+            "Key": "ccab7cec-2064-43e0-9a68-176e5a92a3f1",
+            "Value": {
+                "id": "8d7e677a-641f-4a6e-ab47-f2f6b3beeadd",
+                "resourcePath": "sprites\\spr_block_purple\\spr_block_purple.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "cd4a8f56-c43d-48a1-a419-62c1f163dc75",
             "Value": {
                 "id": "410b1d48-3958-4ab7-94a5-1f13a718ea92",
@@ -2591,6 +2607,14 @@
             }
         },
         {
+            "Key": "de5ba57b-ae8a-47e0-9370-63e7dbf896bd",
+            "Value": {
+                "id": "90f58dcb-4cf0-456e-a4d8-cfba7e19ebae",
+                "resourcePath": "objects\\obj_enemy_blocker\\obj_enemy_blocker.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "dfaca810-a16e-4130-8c49-baf6ec764b5f",
             "Value": {
                 "id": "db1a3a69-99a5-4137-a489-5775c25fa87c",
@@ -2663,6 +2687,14 @@
             }
         },
         {
+            "Key": "e746ffdc-b4f1-421b-8195-fcc9cfa4467a",
+            "Value": {
+                "id": "180c05b9-c9c5-4732-9bad-5a503833d59e",
+                "resourcePath": "objects\\obj_combat_text\\obj_combat_text.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e8895f9f-8cd4-46f8-9062-c275805a99f4",
             "Value": {
                 "id": "8662a611-9e21-46d1-8cf5-ef4dd9077fb1",
@@ -2724,6 +2756,14 @@
                 "id": "91a6b05c-548e-42bb-a983-462a712d054e",
                 "resourcePath": "views\\eecfd3aa-c744-427c-bed1-dc5fb91a948a.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "ef01e871-bca1-4cea-975b-43e89b7ba87d",
+            "Value": {
+                "id": "4c39b5e6-e5e1-4d71-912c-210ff0809cd6",
+                "resourcePath": "objects\\obj_solid_environment\\obj_solid_environment.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2991,6 +3031,7 @@
         "3ba0e475-52bf-40db-82b9-fe6e9814970d",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
         "0b52febd-6e96-49a4-a291-ceddfe554b1a",
+        "85972997-15dd-45c7-a31a-086cb63d6dd6",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",
         "566e567f-06b1-4a92-9cea-84bc4525cdf8",

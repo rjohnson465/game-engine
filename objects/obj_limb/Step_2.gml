@@ -57,6 +57,15 @@ else {
 	sprite_index = asset_get_index(spriteString);
 }
 
+
+with obj_attack {
+	if place_meeting_layer(x,y,other.id) {
+		with other.owner {
+			calculateDamage();
+		}
+	}
+}
+
 /*
 if owner.type != CombatantTypes.Player && sprite_index != asset_get_index(spriteString) {
 	show_debug_message(string(sprite_index) + string(image_index));

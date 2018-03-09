@@ -32,7 +32,7 @@ if type != CombatantTypes.Player {
 	var solids = ds_list_create();
 	var myLayer = layer;
 	var idd = id;
-	with obj_solid_parent {
+	with obj_enemy_obstacle_parent {
 		//show_debug_message(object_get_name(idd.object_index) + string(myLayer) + " | " + object_get_name(object_index) + string(layer));
 		if object_is_ancestor(object_index,obj_combatant_parent) continue;
 		else {
@@ -45,7 +45,7 @@ if type != CombatantTypes.Player {
 	for (var i = 0; i < ds_list_size(solids); i++) {
 		mp_grid_add_instances(personalGrid,ds_list_find_value(solids,i),true);
 	}
-	//mp_grid_add_instances(personalGrid,solids,true);
+	
 	var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
 	for (var i = 0; i < ds_list_size(combatants); i++) {
 		var ci = ds_list_find_value(combatants,i);
@@ -474,6 +474,7 @@ switch(state) {
 					hasCalculatedWillDodge = true;
 				}
 				
+				
 				// CHECK 4: WILL WE SHIELD IN THIS MOVE STATE?
 				if !willDodge {
 					if ds_map_find_value(equippedLimbItems,"l") {
@@ -537,20 +538,22 @@ switch(state) {
 						facingDirection = direction;
 					}
 					
-					if layer == lockOnTarget.layer /*&& mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false)*/ {
+					if layer == lockOnTarget.layer /*&& mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false)*/ {
 						var a = mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false);
 						var xx = path_get_point_x(path,1);
 						var yy = path_get_point_y(path,1);
+						var b = place_meeting_layer(xx,yy,obj_enemy_obstacle_parent);
 						var pdir = point_direction(x,y,xx,yy);
-						//moveToNearestFreePoint(pdir, functionalSpeed);
+						//moveToNearestFreePoint(pdir, functionalSpeed,true);
 						path_start(path,functionalSpeed,path_action_stop,false);
 					} 
-					/*else if layer == lockOnTarget.layer && !mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false) {
-						//if 
-						//mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0)
-						//{
-						//path_start(path,functionalSpeed,path_action_stop,false);
-						//}
+					/*
+					else if layer == lockOnTarget.layer && !mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false) {
+						if 
+						mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0)
+						{
+						path_start(path,functionalSpeed,path_action_stop,false);
+						}
 					}*/
 					// return to post if player is not on your layer anymore
 					else if postZ == layer && layer != lockOnTarget.layer {
@@ -559,7 +562,6 @@ switch(state) {
 							currentMeleeAttack = noone;
 							currentRangedAttack = noone;
 						}
-						// can aggro while returning to post tho
 					} else {
 						path_end();
 					}
@@ -671,6 +673,19 @@ switch(state) {
 					var yy = path_get_y(path,1);
 					var pdir = point_direction(x,y,xx,yy);
 					facingDirection = pdir;
+					
+					// can aggro while returning to post 
+					// check if in melee aggro range
+					if	((canSeePlayer(id) || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
+						state = CombatantStates.AggroMelee;
+						break;
+					} else
+					// check if in ranged aggro range
+					if canSeePlayer(id) && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
+						state = CombatantStates.AggroRanged;
+						break;
+					}
+					
 				} else {
 					state = CombatantStates.Idle;
 				}
@@ -963,7 +978,7 @@ switch(state) {
 			var xx = x+lengthdir_x(sp,dir);
 			var yy = y+lengthdir_y(sp,dir);
 			var i = 0;
-			while place_meeting_layer(xx,yy,obj_solid_parent) && dir != startDir {
+			while place_meeting_layer(xx,yy,obj_enemy_obstacle_parent) && dir != startDir {
 				dir = (dir+10)%360;
 				xx = x+lengthdir_x(sp,dir);
 				yy = y+lengthdir_y(sp,dir);
@@ -1040,9 +1055,10 @@ switch(state) {
 				}				
 			}
 			dodgeDirection = dir;
+			moveToNearestFreePoint(dodgeDirection,dodgeSpeed,true);
+		} else {
+			moveToNearestFreePoint(dodgeDirection,dodgeSpeed);
 		}
-		
-		moveToNearestFreePoint(dodgeDirection,dodgeSpeed);
 
 		dodgeFrame++;
 		// if not dodging, reset some states and values
@@ -1054,8 +1070,8 @@ switch(state) {
 			dodgeFrame = 0;
 			dodgeDirection = noone;
 			
+			// possibly become wary
 			if type != CombatantTypes.Player {
-				// possibly become wary
 				randomize();
 				var rand = random_range(0,100);
 				if rand < skittishness {

@@ -12,8 +12,6 @@ if isFading {
 	exit;
 }
 
-show_debug_message(layer_get_name(layer));
-
 if fallFrame < fallTotalFrames {
 	// stop preparing attacks
 	if ds_map_size(preparingLimbs) != 0 {

@@ -1,26 +1,34 @@
-/// moveToNearestFreePoint(direction,speed,*targetCombatants)
+/// moveToNearestFreePoint(direction,speed,*isEnemy)
 /// @param direction
 /// @param speed
-/// @param *targetCombatants
+/// @param *isEnemy
 
 var d = argument[0];
 var sp = argument[1];
-var targetCombatants = true;
+var isEnemy = false;
 if argument_count == 3 {
-	targetCombatants = argument[2];
+	isEnemy = argument[2];
 }
 
+
 var objectsToAvoid = obj_solid_parent;
-/*if !targetCombatants {
-	objectsToAvoid = obj_solid_environment_parent
+var additionalObjects = ds_list_create();
+/*if isEnemy {
+	with obj_enemy_obstacle_parent {
+		if layer == other.layer {
+			ds_list_add(additionalObjects,id);
+		}
+	}
 }*/
+if isEnemy objectsToAvoid = obj_enemy_obstacle_parent;
+
 var oldX = x;
 var oldY = y;
 
 // invoking instance
 var idd = id;
 
-// if some combatantsre are one level away from invoking instance and 
+/*// if some combatantsre are one level away from invoking instance and 
 // are close to the same stairs objects with identical coordinates, factor these into collisions
 var combatantsToConsider = ds_list_create();
 with obj_stairs {
@@ -36,9 +44,9 @@ with obj_stairs {
 	}
 }
 
-//show_debug_message("Combatants to consider count: " + string(ds_list_size(combatantsToConsider)));
+//show_debug_message("Combatants to consider count: " + string(ds_list_size(combatantsToConsider)));*/
 
-if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid,combatantsToConsider) {
+if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) {
 	x = x+lengthdir_x(sp,d); 
 	y = y+lengthdir_y(sp,d);
 	direction = point_direction(oldX,oldY,x,y);
@@ -49,11 +57,11 @@ else {
 	dir = (dir + 5.625)%360; 
 	while dir != d
 	{
-		if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid,combatantsToConsider) {
+		if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) {
 			
 			x = x+lengthdir_x(sp,dir); 
 			y = y+lengthdir_y(sp,dir); 
-			if place_meeting_layer(x,y,objectsToAvoid,combatantsToConsider) || abs(angle_difference(d,dir) > 100) {
+			if place_meeting_layer(x,y,objectsToAvoid) || abs(angle_difference(d,dir) > 100) {
 				x = oldX;
 				y = oldY;
 			} else {

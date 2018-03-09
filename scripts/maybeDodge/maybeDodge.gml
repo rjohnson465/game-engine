@@ -6,13 +6,14 @@
 // melee dodges
 var isMeleeAttack = false;
 // attackHand is the hand that is currently preparing but will finish preparation sooner
-var prepFrameL = ds_map_find_value(prepFrames,"l") == undefined ? 0 : ds_map_find_value(prepFrames,"l");
-var prepFrameLTotal = ds_map_find_value(prepFrameTotals,"l") == undefined ? 0 : ds_map_find_value(prepFrameTotals,"l");
-var prepFrameR = ds_map_find_value(prepFrames,"r") == undefined ? 0 : ds_map_find_value(prepFrames,"r");
-var prepFrameRTotal = ds_map_find_value(prepFrameTotals,"r") == undefined ? 0 : ds_map_find_value(prepFrameTotals,"r");
+var prepFrameL = ds_map_find_value(lockOnTarget.prepFrames,"l") == undefined ? 0 : ds_map_find_value(lockOnTarget.prepFrames,"l");
+var prepFrameLTotal = ds_map_find_value(lockOnTarget.prepFrameTotals,"l") == undefined ? 0 : ds_map_find_value(lockOnTarget.prepFrameTotals,"l");
+var prepFrameR = ds_map_find_value(lockOnTarget.prepFrames,"r") == undefined ? 0 : ds_map_find_value(lockOnTarget.prepFrames,"r");
+var prepFrameRTotal = ds_map_find_value(lockOnTarget.prepFrameTotals,"r") == undefined ? 0 : ds_map_find_value(lockOnTarget.prepFrameTotals,"r");
 var attackHand = 
 	prepFrameL / prepFrameLTotal >= 
 	prepFrameR / prepFrameRTotal ? "l" : "r";
+
 if lockOnTarget.type == CombatantTypes.Player {
 	isMeleeAttack = attackHand == "l" ? lockOnTarget.leftHandItem.subType == HandItemTypes.Melee : lockOnTarget.rightHandItem.subType == HandItemTypes.Melee;
 } else {
@@ -49,7 +50,7 @@ if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.prep
 	// if agility - playerPercentDonePreparingAttack is the closest it can possibly be to percentageChangeEachFrame, yes, dodge this frame
 	var testNum = (agility / 100) - percentDonePreparingAttack;
 	var shouldDodgeOnThisFrame = false;
-	var nextFrameTestNum = (agility / 100) - (percentDonePreparingAttack + percentageChangeEachFrame)
+	var nextFrameTestNum = (agility / 100) - (percentDonePreparingAttack + percentageChangeEachFrame);
 	var isNextFrameTooFar =  nextFrameTestNum <= percentageChangeEachFrame*2;
 	if  isNextFrameTooFar {
 		shouldDodgeOnThisFrame = true;
