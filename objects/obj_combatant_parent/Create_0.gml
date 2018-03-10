@@ -51,6 +51,11 @@ spriteString = spriteType + "_" + spriteName;
 postX = x;
 postY = y;
 postZ = layer;
+// tempPost is used when not on player layer -- wander around it, but not too far from it
+tempPostX = noone;
+tempPostY = noone;
+wanderDir = 0;
+
 farthestAllowedFromPost = 300;
 //testing...
 path = path_add();

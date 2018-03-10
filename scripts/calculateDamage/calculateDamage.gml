@@ -206,7 +206,6 @@ if	state != CombatantStates.Dodging &&
 			currentDamageType = ds_map_find_next(damagesMap, currentDamageType);
 		}
 		var actualDamage = damage; // the actual damage of the hit (recieved damage might be less if actual damage exceeds hp)
-		show_debug_message(actualDamage);
 		// factor combo mode
 		if assailant.type == CombatantTypes.Player {
 			damage += (assailant.comboModeLevel*.25)*damage;

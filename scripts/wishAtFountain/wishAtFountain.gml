@@ -46,11 +46,11 @@ else {
 				enemy.hp = enemyData.maxHp;
 				enemy.isAlive = true;
 				enemy.isDying = false;
-				enemy.state = CombatantStates.Idle;
-				enemy.showHp = false;
 				enemy.preparingLimbs = ds_map_create();
 				enemy.attackingLimbs = ds_map_create();
 				enemy.recoveringLimbs = ds_map_create();
+				enemy.state = CombatantStates.Idle;
+				enemy.showHp = false;
 				enemy.isShowingLightRadius = true;
 				
 				// cure any and all conditions

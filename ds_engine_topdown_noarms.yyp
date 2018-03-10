@@ -463,6 +463,14 @@
             }
         },
         {
+            "Key": "1d401cd2-ba65-41a1-98c8-2ecec1a0dfef",
+            "Value": {
+                "id": "f108673e-3444-4f42-ac4b-486e67296285",
+                "resourcePath": "scripts\\findNearestLOS\\findNearestLOS.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "1ec854eb-f015-48a1-8edf-7f3339aa5db5",
             "Value": {
                 "id": "3cadf3eb-a328-4ba9-91b2-32e992678fd0",
@@ -2471,6 +2479,14 @@
             }
         },
         {
+            "Key": "d13d442e-333e-4a3b-8173-bd391179d56b",
+            "Value": {
+                "id": "5cca1c8b-8025-4179-8e70-64dd08413e9c",
+                "resourcePath": "scripts\\findNearestLOSY\\findNearestLOSY.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d1928e5a-fe38-44c7-939d-715f3b91292d",
             "Value": {
                 "id": "17d25f90-452d-4281-a342-6a3f88d65a02",
@@ -3032,6 +3048,8 @@
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
         "0b52febd-6e96-49a4-a291-ceddfe554b1a",
         "85972997-15dd-45c7-a31a-086cb63d6dd6",
+        "1d401cd2-ba65-41a1-98c8-2ecec1a0dfef",
+        "d13d442e-333e-4a3b-8173-bd391179d56b",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",
         "566e567f-06b1-4a92-9cea-84bc4525cdf8",

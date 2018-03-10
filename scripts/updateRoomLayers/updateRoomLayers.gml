@@ -49,9 +49,9 @@ with obj_enemy_obstacle_parent {
 	if layer == playerLayer {
 		solid = true;
 	} else solid = false;
-	if object_index == obj_player {
+	/*if object_index == obj_player {
 		solid = false;
-	}
+	}*/
 }
 
 with obj_wall_parent {

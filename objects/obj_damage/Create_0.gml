@@ -3,7 +3,8 @@ victim = global.victim;
 healingSustained = global.healingSustained;
 frame = 0;
 totalFrames = 22;
-depth = -500;
+//depth = -500;
+layer = victim.layer;
 
 // display only one damage count for each victim, cumulative
 var damagesCount = instance_number(obj_damage);

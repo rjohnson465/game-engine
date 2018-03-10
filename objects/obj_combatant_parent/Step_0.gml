@@ -336,12 +336,29 @@ switch(state) {
 				}
 			}
 			
+			// if not on post layer, wander
+			/*if layer != postZ && !canSeePlayer(id) && lockOnTarget == noone {
+				var distToTempPost = point_direction(x,y,tempPostX,tempPostY); 
+				if distToTempPost > 500 {
+					randomize();
+					wanderDir = random_range(0,360);
+				}
+				var origWanderDir = wanderDir%360;
+				while !moveToNearestFreePoint(wanderDir,functionalSpeed*.5,true) {
+					wanderDir = (wanderDir + 10)%360;
+					if wanderDir == origWanderDir break;
+				}
+				var a = moveToNearestFreePoint(wanderDir,functionalSpeed*.5,true);
+				facingDirection = direction;
+				wanderDir = direction;
+			}*/
+			
 			// think for stupidityFrames frames
 			// TODO -- set onAlert to false after Idle for a bit?
 			if (stupidityFrame < stupidity) {
-				speed = 0;
+				//speed = 0;
 				stupidityFrame++;
-				break;
+				//break;
 			} else {
 				// check if in melee aggro range
 				if	((canSeePlayer(id) || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
@@ -362,7 +379,7 @@ switch(state) {
 					} else state = CombatantStates.AggroMelee;
 				}
 				// if no aggro and not at postX/postY, head back there
-				else if distance_to_point(postX, postY) > 1
+				else if distance_to_point(postX, postY) > 1 && layer == postZ
 				{
 					state = CombatantStates.Moving;
 					break;
@@ -370,9 +387,10 @@ switch(state) {
 					// if we're back at post and not in any aggro ranges, just keep thinking
 					stupidityFrame = 0;
 					showHp = false;
-					break;
+					//break;
 				}
 			}
+			
 			break;
 		}
 	}
@@ -534,17 +552,9 @@ switch(state) {
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]) || (layer != lockOnTarget.layer);
 				
 				if pred && !isFlinching {
-					if wallsBetweenTarget != noone {
-						facingDirection = direction;
-					}
 					
 					if layer == lockOnTarget.layer /*&& mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false)*/ {
-						var a = mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false);
-						var xx = path_get_point_x(path,1);
-						var yy = path_get_point_y(path,1);
-						var b = place_meeting_layer(xx,yy,obj_enemy_obstacle_parent);
-						var pdir = point_direction(x,y,xx,yy);
-						//moveToNearestFreePoint(pdir, functionalSpeed,true);
+						mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false);
 						path_start(path,functionalSpeed,path_action_stop,false);
 					} 
 					/*
@@ -562,49 +572,18 @@ switch(state) {
 							currentMeleeAttack = noone;
 							currentRangedAttack = noone;
 						}
-					} else {
-						path_end();
 					}
-					//else if postZ == layer {
-					/*else {
-						var nearestStairs = noone;
-						with lockOnTarget {
-							nearestStairs = instance_nearest(x,y,obj_stairs);
+					// not on post layer, not on lockOnTarget layer
+					else {
+						if mp_grid_path(personalGrid,path,x,y,tempPostX,tempPostY,0) {
+							path_start(path,functionalSpeed,path_action_stop,false);
+							currentMeleeAttack = noone;
+							currentRangedAttack = noone;
+							lockOnTarget = noone;
 						}
-						if nearestStairs != noone {
-
-							var a = mp_grid_path(personalGrid,path,x,y,nearestStairs.x,nearestStairs.y,0); 
-							var b = path_get_length(path);
-							if !place_meeting(x,y,nearestStairs) && a  {
-								//show_debug_message("Going for stairs");
-								// try to go to closest allowed space in grid path
-								path_start(path,functionalSpeed,path_action_stop,false);
-								var xx = path_get_point_x(path,1);
-								var yy = path_get_point_y(path,1);
-								//show_debug_message(string(xx) + " ," + string(yy));
-								
-								var pdir = point_direction(x,y,xx,yy);
-								moveToNearestFreePoint(pdir,functionalSpeed);
-								path_end();
-							}
-							// go through the stairs obj
-							else if place_meeting(x,y,nearestStairs) {
-								path_end();
-								var d = 0;
-								if lockOnTarget.layer < layer {
-									d = (nearestStairs.upDirectionMin+90)%360;
-								} else {
-									d = (nearestStairs.upDirectionMax+90)%360;
-								}
-								var xxx = nearestStairs.x+lengthdir_x(100,d);
-								var yyy = nearestStairs.y+lengthdir_y(100,d);
-								moveToNearestFreePoint(d,functionalSpeed);
-							}
-						} 
-						else path_end();	
-					}*/
+						//path_end();
+					}
 					break;
-
 				}
 				// within range for attack
 				else {
@@ -666,8 +645,14 @@ switch(state) {
 			// if no attack is chosen, we're probably heading back to post
 			// check no one is tryna gank us on our way back tho
 			else {
-				if layer == postZ && distance_to_point(postX,postY) > 2 {
-					mp_grid_path(personalGrid,path,x,y,postX,postY,0);
+				var actingPostX = postX;
+				var actingPostY = postY;
+				if layer != postZ {
+					actingPostX = tempPostX;
+					actingPostY = tempPostY;
+				}
+				if distance_to_point(actingPostX,actingPostY) > 2 {
+					mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 					path_start(path,functionalSpeed,path_action_stop,false);
 					var xx = path_get_x(path,1);
 					var yy = path_get_y(path,1);
@@ -1145,6 +1130,7 @@ switch(state) {
 		var sDir = staggerDirection;
 		direction = staggerDirection;
 		// stagger twice as quickly early on
+		var solidsToCheck = type == CombatantTypes.Enemy ? obj_enemy_obstacle_parent : obj_solid_parent;
 		if (staggerFrame > .5*staggerDuration) {
 			
 			var x1 = x+lengthdir_x(.5*sspeed, sDir);
@@ -1152,12 +1138,12 @@ switch(state) {
 			do {
 				x1 = x+lengthdir_x(.5*sspeed, sDir);
 				y1 = y+lengthdir_y(.52*sspeed, sDir);
-				if place_meeting_layer(x1,y1,obj_solid_parent) || place_meeting_layer(x1,y1,obj_combatant_parent) {
+				if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 					sDir = (sDir + 45)%360;
 				}
-			} until ((!place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
+			} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
 			
-			if !place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
+			if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 				speed = .25*sspeed;
 				flinchDirection = sDir;
 			}
@@ -1169,12 +1155,12 @@ switch(state) {
 			do {
 				x1 = x+lengthdir_x(.25*sspeed, sDir);
 				y1 = y+lengthdir_y(.25*sspeed, sDir);
-				if place_meeting_layer(x1,y1,obj_solid_parent) || place_meeting_layer(x1,y1,obj_combatant_parent) {
+				if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 					sDir = (sDir + 45)%360;
 				}
-			} until ((!place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
+			} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
 			
-			if !place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
+			if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 				speed = .5*sspeed;
 				staggerDirection = sDir;
 			}
@@ -1231,6 +1217,7 @@ if isFlinching {
 		flinchDirection = flinchDirection%360;
 		// stagger twice as quickly early on
 		var fDir = flinchDirection;
+		var solidsToCheck = type == CombatantTypes.Enemy ? obj_enemy_obstacle_parent : obj_solid_parent;
 		if (flinchFrame > .5*totalFlinchFrames) {
 			
 			var x1 = x+lengthdir_x(.25*fspeed, fDir);
@@ -1238,12 +1225,12 @@ if isFlinching {
 			do {
 				x1 = x+lengthdir_x(.25*fspeed, fDir);
 				y1 = y+lengthdir_y(.25*fspeed, fDir);
-				if place_meeting_layer(x1,y1,obj_solid_parent) || place_meeting_layer(x1,y1,obj_combatant_parent) {
+				if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 					fDir = (fDir + 45)%360;
 				}
-			} until ((!place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
+			} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
 			
-			if !place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
+			if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 				speed = .1*fspeed;
 				flinchDirection = fDir;
 			}
@@ -1254,12 +1241,12 @@ if isFlinching {
 			do {
 				x1 = x+lengthdir_x(.25*fspeed, fDir);
 				y1 = y+lengthdir_y(.25*fspeed, fDir);
-				if place_meeting_layer(x1,y1,obj_solid_parent) || place_meeting_layer(x1,y1,obj_combatant_parent) {
+				if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 					fDir = (fDir + 45)%360;
 				}
-			} until ((!place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
+			} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
 			
-			if !place_meeting_layer(x1,y1,obj_solid_parent) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
+			if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 				speed = .2*fspeed;
 				flinchDirection = fDir;
 			}
@@ -1277,17 +1264,7 @@ if jumpFrame <= jumpTotalFrames {
 	jumpFrame++;
 }
 
-// walking up / down stairs change layers, set solids for enemies on this layer (done in updateRoomLayers)
-if instance_nearest(x,y,obj_stairs) != noone {
-	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone && climbingDir != -4 {
-		layer = layerToChangeTo;
-		if type == CombatantTypes.Enemy {
-			show_debug_message("changing to " + layer_get_name(layerToChangeTo));
-		}
-		updateRoomLayers();
-		climbingDir = noone;
-	}
-}
+
 
 // check if not on any tile on the current layer
 var layerName = layer_get_name(layer);

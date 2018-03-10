@@ -3,6 +3,8 @@
 /// @param speed
 /// @param *isEnemy
 
+/// returns true if the instance can move in that general direction
+
 var d = argument[0];
 var sp = argument[1];
 var isEnemy = false;
@@ -50,6 +52,7 @@ if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) 
 	x = x+lengthdir_x(sp,d); 
 	y = y+lengthdir_y(sp,d);
 	direction = point_direction(oldX,oldY,x,y);
+	return true;
 }
 else {
 	var dir = d;
@@ -96,6 +99,8 @@ else {
 		x = x+lengthdir_x(sp,dir); 
 		y = y+lengthdir_y(sp,dir);
 		direction = point_direction(oldX,oldY,x,y);
+		return true;
 	}
 }
+return false;
 

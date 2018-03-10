@@ -7,7 +7,7 @@ if fallFrame == .5*fallTotalFrames {
 	var layerNum = real(string_char_at(layerName,string_length(layerName)));
 	var lowerLayerNum = layerNum-1;
 	var lowerLayer = layer_get_id("instances_floor_"+string(lowerLayerNum));
-	show_debug_message("lower layer: " + string(lowerLayerNum));
+
 	layer = lowerLayer;
 	updateRoomLayers();
 	// if we've hit ground...
@@ -30,18 +30,20 @@ if fallFrame == .5*fallTotalFrames {
 		global.y1 = y;
 		global.particleDirection = direction;
 		instance_create_depth(0,0,1,obj_hit_particles);
-		global.damageAmount = 10*floorsFallen;
+		var fallDamage = 10*floorsFallen;
+		if fallDamage > hp {
+			fallDamage = hp;
+		}
+		global.damageAmount = fallDamage;
 		global.victim = id;
 		global.healingSustained = 0;
 		instance_create_depth(x,y,1,obj_damage);
-		hp -= 10*floorsFallen;
+		hp -= fallDamage;
 		floorsFallen = 0;
+		tempPostX = x;
+		tempPostY = y;
 	}
 }
-// TODO handle collisions with solid objects on this floor
-if fallFrame == fallTotalFrames {
-	
-}
-state = CombatantStates.Idle;
+//state = CombatantStates.Idle;
 path_end();
 speed = 0;

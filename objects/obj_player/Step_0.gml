@@ -571,6 +571,15 @@ switch(state) {
 }
 
 
+// walking up / down stairs change layers, set solids for enemies on this layer (done in updateRoomLayers)
+if instance_nearest(x,y,obj_stairs) != noone {
+	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone && climbingDir != -4 {
+		layer = layerToChangeTo;
+		updateRoomLayers();
+		climbingDir = noone;
+	}
+}
+
 
 
 

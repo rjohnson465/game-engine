@@ -3,10 +3,9 @@ var udMax = upDirectionMax;
 var fu = floorUp;
 var fd = floorDown;
 if place_meeting_layer(x,y,obj_player) {
-	var combatantsInside = scr_get_ids_region(obj_player,bbox_left,bbox_top,bbox_right,bbox_bottom);
-	
-	for (var i = 0; i < ds_list_size(combatantsInside); i++) {
-		with ds_list_find_value(combatantsInside,i) {
+	//var combatantsInside = scr_get_ids_region(obj_player,bbox_left,bbox_top,bbox_right,bbox_bottom);
+	//for (var i = 0; i < ds_list_size(combatantsInside); i++) {
+		with obj_player {
 			var layerName = layer_get_name(layer);
 			var layerNum = real(string_char_at(layerName, string_length(layerName)));
 	
@@ -30,5 +29,5 @@ if place_meeting_layer(x,y,obj_player) {
 				climbingDir = "d";
 			}
 		}
-	}
+	//}
 }
