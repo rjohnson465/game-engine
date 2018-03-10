@@ -58,6 +58,7 @@ if owner.currentUsingSpell != noone {
 		sprite_index = asset_get_index("spr_spell_magicmissile_"+attunementSpriteName);
 	}
 	var totalProjectiles = spell.numberOfProjectiles;
+	
 	speed = spell.projectileSpeed;
 	// TODO get a math major -- calculate spread dynamically, not statically
 	if spell.spriteName == "magicmissile" {

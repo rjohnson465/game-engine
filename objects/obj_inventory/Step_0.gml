@@ -1,7 +1,10 @@
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
 
-if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
+
+if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY {
+	exit;
+}
 
 isScrollUpPressed = false;
 isScrollDownPressed = false;

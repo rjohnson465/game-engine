@@ -1,6 +1,6 @@
 /// @description maybeDodge()
 
-if ds_map_size(lockOnTarget.preparingLimbs) == 0 exit;
+//if ds_map_size(lockOnTarget.preparingLimbs) == 0 exit;
 
 // If we're close to our lockOnTarget and they're preparing attack and we've decided to dodge during this Move state,
 // decide exactly what frame in the lockOnTarget's attack prep to dodge on
@@ -15,12 +15,23 @@ var prepFrameRTotal = ds_map_find_value(lockOnTarget.prepFrameTotals,"r") == und
 var attackHand = 
 	prepFrameL / prepFrameLTotal >= 
 	prepFrameR / prepFrameRTotal ? "l" : "r";
-if prepFrameL == -1 && prepFrameR == -1 exit;
+var nearestAttackObj = instance_nearest(x,y,obj_attack);
+if prepFrameL == -1 && prepFrameR == -1 && distance_to_object(nearestAttackObj) > 200 exit;
 if prepFrameL == -1 attackHand = "r";
 else attackHand = "l";
 
 if lockOnTarget.type == CombatantTypes.Player {
-	isMeleeAttack = attackHand == "l" ? lockOnTarget.leftHandItem.subType == HandItemTypes.Melee : lockOnTarget.rightHandItem.subType == HandItemTypes.Melee;
+	//isMeleeAttack = attackHand == "l" ? lockOnTarget.leftHandItem.subType == HandItemTypes.Melee : lockOnTarget.rightHandItem.subType == HandItemTypes.Melee;
+	var lItem = ds_map_find_value(lockOnTarget.equippedLimbItems,"l");
+	var rItem = ds_map_find_value(lockOnTarget.equippedLimbItems,"r");
+	isMeleeAttack = attackHand == "l" ? lItem.subType == HandItemTypes.Melee : rItem.subType == HandItemTypes.Melee;
+	// still might be some ranged attack nearby you should care about more
+	var attackObj = instance_nearest(x,y,obj_attack);
+	if attackObj != noone {
+		if attackObj.owner == lockOnTarget {
+			isMeleeAttack = false;
+		}
+	}
 } else {
 	isMeleeAttack = lockOnTarget.currentMeleeAttack != noone;
 }
@@ -42,6 +53,7 @@ else if lockOnTarget.type != CombatantTypes.Player && isMeleeAttack {
 else if (lockOnTarget.type == CombatantTypes.Ally || lockOnTarget.type == CombatantTypes.Enemy) && isMeleeAttack {
 	range = lockOnTarget.meleeRangeArray[lockOnTarget.currentMeleeAttack-1] + 10; // 10px padding
 }
+
 if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.preparingLimbs) != 0 && willDodge && isMeleeAttack {
 				
 	// the more agile the enemy, the better chance it will dodge when player is almost done preparing attack
@@ -75,10 +87,19 @@ if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.prep
 	}
 }
 				
-// ranged dodges TODO
-// if within range of a ranged attack object (projectile), time dodge based on agility (and if combatant can see the projectile)
-else if distance_to_object(obj_attack) < 200 - agility && script_execute(scr_is_facing,id,attackObj) && willDodge {
-	var attackObj = instance_nearest(x,y,obj_attack);
+// ranged dodges
+// if within range of a ranged attack object (projectile), time dodge based on agility 
+// MAYBE if combatant can see the projectile
+else if distance_to_object(obj_attack) < 200 - agility && willDodge {
+	
+	// if we can't see the projectile, we still might be able to dodge it if we're agile enough
+	if !scr_is_facing(id,attackObj) {
+		randomize();
+		var rand = random_range(0,100);
+		if rand >= agility {
+			exit;
+		}
+	}
 	if attackObj.isMelee exit;
 	var attackObjOwnerIndex = noone;
 	with attackObj.owner {

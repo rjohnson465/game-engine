@@ -12,14 +12,15 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 // all weapons / shields enemy can use
 var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
+var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
-ds_map_add(handItems,"rm1",unarmed);
+ds_map_add(handItems,"rm1",longsword);
 ds_map_add(handItems,"lm1",unarmed);
 ds_map_add(handItems, "lr1",shortbow);
 ds_map_add(handItems, "rr1", unarmed);
 
 ds_map_replace(equippedLimbItems,"l",unarmed);
-ds_map_replace(equippedLimbItems,"r",unarmed);
+ds_map_replace(equippedLimbItems,"r",longsword);
 var rightHand = makeLimb(id,"r");
 var leftHand = makeLimb(id,"l");
 
@@ -51,15 +52,17 @@ meleeRangeArray=[5,5,5,5];
 
 // ATTACKS
 global.owner = id;
+var longswordSwing = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
+longswordSwing.limbKey = "r";
+var meleeChain0 = [longswordSwing];
+meleeAttacks = [meleeChain0];
+/*
 var unarmedHook1 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
 unarmedHook1.limbKey = "l";
 var unarmedHook2 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
 unarmedHook2.limbKey = "o";
 var unarmedHook3 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
 unarmedHook3.limbKey = "o";
-//ds_map_replace(unarmedHook3.damages,ICE,[1,3]);
-//ds_map_replace(unarmedHook2.damages,ICE,[1,3]);
-//ds_map_replace(unarmedHook1.damages,ICE,[1,3]);
 
 var unarmedBackSlap = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_2);
 
@@ -69,6 +72,7 @@ var meleeChain2 = [unarmedHook1,unarmedBackSlap];
 var meleeChain3 = [unarmedHook1,unarmedBackSlap,unarmedHook2];
 var meleeChain4 = [unarmedHook1,unarmedBackSlap,unarmedHook2,unarmedHook3];
 meleeAttacks = [meleeChain1,meleeChain2,meleeChain3];
+*/
 //meleeAttacks = [meleeChain1];
 
 // ranged attacks info

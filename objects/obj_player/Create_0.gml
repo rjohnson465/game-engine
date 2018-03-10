@@ -144,3 +144,4 @@ with obj_light_radius {
 gamePadIndex = noone;
 
 layerToMoveTo = noone;
+
