@@ -48,6 +48,6 @@ if fallFrame == .5*fallTotalFrames {
 		}
 	}
 }
-//state = CombatantStates.Idle;
+state = CombatantStates.Idle;
 path_end();
 speed = 0;

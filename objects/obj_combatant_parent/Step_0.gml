@@ -26,7 +26,7 @@ image_angle = facingDirection;
 
 // Reset personal grid for allies / enemeies
 // The personal grid allows for allies / enemies to plan their path, acommodating walls and other combatants
-if type != CombatantTypes.Player {
+if type != CombatantTypes.Player && layer != global.player.layer {
 	mp_grid_clear_all(personalGrid);
 	// only concern yourself with walls / fountains / solids / combatants in your layer
 	var solids = ds_list_create();
@@ -537,11 +537,10 @@ switch(state) {
 				if pred && !isFlinching {
 					
 					if layer == lockOnTarget.layer /*&& mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false)*/ {
-						
 						if isSlowed {
 							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
 						} else {
-							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false);
+							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false);
 						}
 						path_start(path,functionalSpeed,path_action_stop,false);
 					} 
@@ -703,7 +702,6 @@ switch(state) {
 				// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
 				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] && !place_meeting_layer(x,y,lockOnTarget) {
 					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,false);
-					show_debug_message("Steeping to you");
 				}
 			}
 
@@ -1257,7 +1255,9 @@ if jumpFrame <= jumpTotalFrames {
 
 
 // check if not on any tile on the current layer
-var layerName = layer_get_name(layer);
+
+// check if in fallzone enough to fall
+/*var layerName = layer_get_name(layer);
 var layerNum = real(string_char_at(layerName,string_length(layerName)));
 var tilemap = layer_tilemap_get_id(layer_get_id("tiles_floor_"+string(layerNum)));
 var w = bbox_right-bbox_left;
@@ -1266,9 +1266,18 @@ var t1 = tilemap_get_at_pixel(tilemap,x-(.25*w),y-(.25*h));
 var t2 = tilemap_get_at_pixel(tilemap,x+(.25*w),y-(.25*h));
 var t3 = tilemap_get_at_pixel(tilemap,x-(.25*w),y+(.25*h));
 var t4 = tilemap_get_at_pixel(tilemap,x+(.25*w),y+(.25*h));
-if t1 == 0 && t2 == 0 && t3 == 0 && t4 == 0 {
-	fallFrame = 0;
-	floorsFallen = 1;
+if t1 == 0 && t2 == 0 && t3 == 0 && t4 == 0 {*/
+
+with obj_fallzone {
+	var a = place_meeting_layer(other.bbox_left,other.bbox_top,id);
+	var b = place_meeting_layer(other.bbox_right,other.bbox_bottom,id);
+	var c = place_meeting_layer(x,y,other);
+	var d = point_in_rectangle(other.bbox_left,other.bbox_top,bbox_left,bbox_top,bbox_right,bbox_bottom);
+	var e = point_in_rectangle(other.bbox_right,other.bbox_bottom,bbox_left,bbox_top,bbox_right,bbox_bottom);
+	if	d && e && layer == other.layer {
+		other.fallFrame = 0;
+		other.floorsFallen = 1;
+	}
 }
 
 

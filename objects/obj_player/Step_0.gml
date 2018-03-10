@@ -580,5 +580,4 @@ if instance_nearest(x,y,obj_stairs) != noone {
 	}
 }
 
-show_debug_message(string(x) + "," + string(y));
 
