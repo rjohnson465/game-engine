@@ -49,9 +49,9 @@ with obj_enemy_obstacle_parent {
 	if layer == playerLayer {
 		solid = true;
 	} else solid = false;
-	/*if object_index == obj_player {
+	if object_index == obj_player {
 		solid = false;
-	}*/
+	}
 }
 
 with obj_wall_parent {
@@ -61,9 +61,9 @@ with obj_wall_parent {
 	}
 }
 
-/*
+// this will make enemies avoid fallzones when walking, but lets them dodge into them
 with obj_fallzone {
 	if layer == playerLayer {
-		light_create_caster();
-	} else light_destroy_caster();
+		solid = true;
+	} else solid = false;
 }

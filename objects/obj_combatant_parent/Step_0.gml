@@ -324,7 +324,7 @@ switch(state) {
 		
 		// player overrides this
 		if type != CombatantTypes.Player {
-			
+			speed = 0;
 			// if there are other combatant instances within a certin distance not behind walls who are on alert, this instance will also be alerted
 			var nearbyCombatants = script_execute(scr_get_ids_region,obj_enemy_parent,x-perception,y-perception,x+perception,x+perception);
 			var isNoticingEngagement = false;
@@ -335,23 +335,6 @@ switch(state) {
 					isNoticingEngagement = true;
 				}
 			}
-			
-			// if not on post layer, wander
-			/*if layer != postZ && !canSeePlayer(id) && lockOnTarget == noone {
-				var distToTempPost = point_direction(x,y,tempPostX,tempPostY); 
-				if distToTempPost > 500 {
-					randomize();
-					wanderDir = random_range(0,360);
-				}
-				var origWanderDir = wanderDir%360;
-				while !moveToNearestFreePoint(wanderDir,functionalSpeed*.5,true) {
-					wanderDir = (wanderDir + 10)%360;
-					if wanderDir == origWanderDir break;
-				}
-				var a = moveToNearestFreePoint(wanderDir,functionalSpeed*.5,true);
-				facingDirection = direction;
-				wanderDir = direction;
-			}*/
 			
 			// think for stupidityFrames frames
 			// TODO -- set onAlert to false after Idle for a bit?
@@ -554,7 +537,12 @@ switch(state) {
 				if pred && !isFlinching {
 					
 					if layer == lockOnTarget.layer /*&& mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false)*/ {
-						mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false);
+						
+						if isSlowed {
+							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
+						} else {
+							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false);
+						}
 						path_start(path,functionalSpeed,path_action_stop,false);
 					} 
 					/*
@@ -581,7 +569,6 @@ switch(state) {
 							currentRangedAttack = noone;
 							lockOnTarget = noone;
 						}
-						//path_end();
 					}
 					break;
 				}
@@ -714,8 +701,9 @@ switch(state) {
 			
 			if !isRanged && ds_map_size(preparingLimbs) !=0 {
 				// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
-				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] {
+				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] && !place_meeting_layer(x,y,lockOnTarget) {
 					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,false);
+					show_debug_message("Steeping to you");
 				}
 			}
 
@@ -1015,31 +1003,33 @@ switch(state) {
 		var dodgeSpeed = functionalSpeed*2;
 		// Do not dodge into fallzones on purpose (if enemy)
 		if type != CombatantTypes.Player {
-			// check every step the dodge in this direction would take us
-			// if its into a fallzone, try a different angle
-			var dir = dodgeDirection;
-			var i = dodgeFrame;
-			var possibleAngles = ds_list_create();
-			while i < totalDodgeFrames {
-				var xx = x+lengthdir_x(dodgeSpeed,dir);
-				var yy = y+lengthdir_y(dodgeSpeed,dir);
-				if !place_meeting_layer(xx,yy,obj_fallzone) {
-					ds_list_add(possibleAngles,dir);
-				} 
-				i++;
-				dir = (dir+10)%360;
+			if dodgeFrame == 0 {
+				// check every step the dodge in this direction would take us
+				// if its into a fallzone, try a different angle
+				var dir = dodgeDirection;
+				var i = dodgeFrame;
+				var possibleAngles = ds_list_create();
+				while i < totalDodgeFrames {
+					var xx = x+lengthdir_x(dodgeSpeed,dir);
+					var yy = y+lengthdir_y(dodgeSpeed,dir);
+					if !place_meeting_layer(xx,yy,obj_fallzone) {
+						ds_list_add(possibleAngles,dir);
+					} 
+					i++;
+					dir = (dir+10)%360;
+				}
+				// find closest possible angle to dodgeDirection
+				var closestAngleDiff = 360;
+				for (var i = 0; i < ds_list_size(possibleAngles); i++) {
+					var ang = ds_list_find_value(possibleAngles,i);
+					var diff = abs(angle_difference(dodgeDirection,ang));
+					if diff < closestAngleDiff {
+						closestAngleDiff = diff;
+						dir = ang;
+					}				
+				}
+				dodgeDirection = dir;
 			}
-			// find closest possible angle to dodgeDirection
-			var closestAngleDiff = 360;
-			for (var i = 0; i < ds_list_size(possibleAngles); i++) {
-				var ang = ds_list_find_value(possibleAngles,i);
-				var diff = abs(angle_difference(dodgeDirection,ang));
-				if diff < closestAngleDiff {
-					closestAngleDiff = diff;
-					dir = ang;
-				}				
-			}
-			dodgeDirection = dir;
 			moveToNearestFreePoint(dodgeDirection,dodgeSpeed,true);
 		} else {
 			moveToNearestFreePoint(dodgeDirection,dodgeSpeed);
@@ -1084,7 +1074,7 @@ switch(state) {
 	}
 	case CombatantStates.Staggering: {
 		jumpFrame = jumpTotalFrames;
-		// stop attacking -- TODO need to fix this for non-humanoid combatants
+		// stop attacking -- 
 		if hasHands {
 			// stop preparing attacks
 			if ds_map_size(preparingLimbs) != 0 {

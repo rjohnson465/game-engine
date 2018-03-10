@@ -29,7 +29,6 @@ var oldY = y;
 
 // invoking instance
 var idd = id;
-
 /*// if some combatantsre are one level away from invoking instance and 
 // are close to the same stairs objects with identical coordinates, factor these into collisions
 var combatantsToConsider = ds_list_create();
@@ -45,14 +44,13 @@ with obj_stairs {
 		}
 	}
 }
-
 //show_debug_message("Combatants to consider count: " + string(ds_list_size(combatantsToConsider)));*/
 
 if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) {
 	x = x+lengthdir_x(sp,d); 
 	y = y+lengthdir_y(sp,d);
 	direction = point_direction(oldX,oldY,x,y);
-	return true;
+	//return true;
 }
 else {
 	var dir = d;
@@ -99,8 +97,8 @@ else {
 		x = x+lengthdir_x(sp,dir); 
 		y = y+lengthdir_y(sp,dir);
 		direction = point_direction(oldX,oldY,x,y);
-		return true;
+		//return true;
 	}
 }
-return false;
+//return false;
 

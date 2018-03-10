@@ -1,5 +1,7 @@
 /// @description maybeDodge()
 
+if ds_map_size(lockOnTarget.preparingLimbs) == 0 exit;
+
 // If we're close to our lockOnTarget and they're preparing attack and we've decided to dodge during this Move state,
 // decide exactly what frame in the lockOnTarget's attack prep to dodge on
 // TODO should combatants also pay attention to other enemies around them, other than just their lockOnTarget?
@@ -13,17 +15,21 @@ var prepFrameRTotal = ds_map_find_value(lockOnTarget.prepFrameTotals,"r") == und
 var attackHand = 
 	prepFrameL / prepFrameLTotal >= 
 	prepFrameR / prepFrameRTotal ? "l" : "r";
+if prepFrameL == -1 && prepFrameR == -1 exit;
+if prepFrameL == -1 attackHand = "r";
+else attackHand = "l";
 
 if lockOnTarget.type == CombatantTypes.Player {
 	isMeleeAttack = attackHand == "l" ? lockOnTarget.leftHandItem.subType == HandItemTypes.Melee : lockOnTarget.rightHandItem.subType == HandItemTypes.Melee;
 } else {
 	isMeleeAttack = lockOnTarget.currentMeleeAttack != noone;
 }
-var attackObj = instance_nearest(x,y,obj_attack);
+
 var range = 45; // the range at which to start attempting dodge. default is 45 pixels.
 // if dodging a player's melee attack, range is based on the melee weapon the player is using
 if lockOnTarget.type == CombatantTypes.Player && isMeleeAttack {
-	var weapon = lockOnTarget.currentAttackingHand == "l" ? lockOnTarget.leftHandItem : lockOnTarget.rightHandItem;
+	//var weapon = attackObj.limbKey == "l" ? lockOnTarget.leftHandItem : lockOnTarget.rightHandItem;
+	var weapon = ds_map_find_value(lockOnTarget.equippedLimbItems,attackHand);
 	if weapon.range != 0 {
 		range = weapon.range;
 	}

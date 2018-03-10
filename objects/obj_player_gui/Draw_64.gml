@@ -1,3 +1,4 @@
+//display_set_gui_size(-1, -1);
 draw_set_valign(fa_center);
 // hit points
 var x1 = 10;

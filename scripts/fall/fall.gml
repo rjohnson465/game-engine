@@ -42,6 +42,10 @@ if fallFrame == .5*fallTotalFrames {
 		floorsFallen = 0;
 		tempPostX = x;
 		tempPostY = y;
+		if type == CombatantTypes.Enemy {
+			enemyData.tempPostX = tempPostX;
+			enemyData.tempPostY = tempPostY;
+		}
 	}
 }
 //state = CombatantStates.Idle;
