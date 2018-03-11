@@ -7,3 +7,9 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 if distance_to_object(obj_player) < 20 && interactInputReceived {
 	wishAtFountain();
 }
+
+
+var lDepth = layer_get_depth(layer);
+show_debug_message(lDepth);
+lDepth += 5;
+//depth = layer_get_depth(layer) + 5;

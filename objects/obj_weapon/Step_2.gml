@@ -12,7 +12,7 @@ if limbKey == "l" {
 	image_yscale = -1*owner.fallScaleFactor;
 }
 layer = owner.layer;
-depth = layer_get_depth(layer) - 1;
+depth = layer_get_depth(layer) + 1;
 
 // switch weapon sprite
 if limbItem != limb.limbItem {
@@ -145,21 +145,21 @@ if limbItem != limb.limbItem {
 
 if particle1 != noone {
 	system1 = part_system_create();
-	part_system_depth(system1,4);
+	part_system_depth(system1,depth);
 	emitter1 = part_emitter_create(system1);
 	part_emitter_region(system1,emitter1,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system1,emitter1,particle1, -3);
 }
 if particle2 != noone {
 	system2 = part_system_create();
-	part_system_depth(system2,4);
+	part_system_depth(system2,depth);
 	emitter2 = part_emitter_create(system2);
 	part_emitter_region(system2,emitter2,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system2,emitter2,particle2, -3);
 }
 if particle3 != noone {
 	system3 = part_system_create();
-	part_system_depth(system3,4);
+	part_system_depth(system3,depth);
 	emitter3 = part_emitter_create(system3);
 	part_emitter_region(system3,emitter3,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system3,emitter3,particle3, -3);

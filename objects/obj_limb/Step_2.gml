@@ -34,7 +34,7 @@ if limbKey == "l" {
 	image_yscale = -1*owner.fallScaleFactor;
 }
 layer = owner.layer;
-depth = layer_get_depth(layer) - 1;
+depth = layer_get_depth(layer) + 1;
 
 if limbItem.subType == HandItemTypes.Shield && owner.isShielding {
 	image_angle = owner.facingDirection+90;

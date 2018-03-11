@@ -23,6 +23,7 @@ if fallFrame < fallTotalFrames {
 }
 
 image_angle = facingDirection;
+depth = layer_get_depth(layer);
 
 // stamina / health regen
 // only regen stamina when moving or idle

@@ -2,12 +2,12 @@ limb = global.limb;
 limbKey = limb.limbKey;
 owner = limb.owner;
 limbItem = limb.limbItem;
-depth = 5;
 persistent = limb.persistent;
 
 spriteString = "spr_"+owner.spriteString+"_"+limbItem.spriteName;
 sprite_index = asset_get_index(spriteString);
-
+layer = owner.layer;
+depth = layer_get_depth(layer) + 1;
 
 if limbKey == "l" {
 	image_yscale = -1;
@@ -15,11 +15,11 @@ if limbKey == "l" {
 
 // particle system for elemental effects
 system1 = part_system_create();
-part_system_depth(system1,4);
+part_system_depth(system1,depth);
 system2 = part_system_create();
-part_system_depth(system2,4);
+part_system_depth(system2,depth);
 system3 = part_system_create();
-part_system_depth(system3,4);
+part_system_depth(system3,depth);
 emitter1 = part_emitter_create(system1);
 emitter2 = part_emitter_create(system2);
 emitter3 = part_emitter_create(system3);

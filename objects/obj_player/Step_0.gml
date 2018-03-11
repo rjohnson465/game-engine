@@ -447,8 +447,9 @@ switch(state) {
 					var y1 = y +lengthdir_y(-.5,facingDirection);
 		
 					if weapon.subType == HandItemTypes.Melee && !place_meeting_layer(x1, y1, obj_solid_parent){
-						direction = facingDirection;
-						speed = -.5;
+						/*direction = facingDirection;
+						speed = -.5;*/
+						moveToNearestFreePoint((facingDirection+180)%360,.5);
 					}
 				} else {
 					speed = 0;
@@ -541,9 +542,10 @@ switch(state) {
 				x1 = x + lengthdir_x(2,facingDirection);
 				y1 = y + lengthdir_y(2,facingDirection);
 
-				if attackingMelee && !(place_meeting_layer(x1,y1,obj_solid_parent)) {
-					direction = facingDirection;
-					speed = 1;
+				if attackingMelee && !place_meeting_layer(x1,y1,obj_solid_parent) {
+					/*direction = facingDirection;
+					speed = 1;*/
+					moveToNearestFreePoint(facingDirection,1);
 				} else {
 					speed = 0;
 				}
