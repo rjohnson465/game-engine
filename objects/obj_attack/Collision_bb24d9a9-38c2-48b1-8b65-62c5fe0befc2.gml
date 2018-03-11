@@ -42,7 +42,7 @@ if isMelee && hitsWallFirst {
 		ds_map_delete(owner.attackingLimbs,limbKey);
 	}
 	
-	instance_destroy(id,false);
+	instance_destroy(id,true);
 	owner.state = CombatantStates.Staggering;
 }
 
@@ -60,7 +60,7 @@ if isSpell {
 	global.y1 = bbox_bottom;
 	global.particleDirection = facingDirection;
 	instance_create_depth(0,0,1,obj_hit_particles);
-	instance_destroy(id,false);
+	instance_destroy(id,true);
 }
 
 // make dust particles
@@ -72,7 +72,7 @@ if isRanged {
 	global.y1 = bbox_bottom;
 	global.particleDirection = facingDirection;
 	instance_create_depth(0,0,1,obj_hit_particles);
-	instance_destroy(id,false);
+	instance_destroy(id,true);
 }
 
 if isSpell || isRanged {

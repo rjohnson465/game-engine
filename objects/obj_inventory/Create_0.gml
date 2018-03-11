@@ -3,7 +3,7 @@ global.inventory = id;
 
 // this is the list of item thi inventory object is actually showing,
 // not NECESARILY the complete inventory the player has
-inv = noone;
+inv = ds_list_create();
 
 filtersHeight = 30;
 filtersWidth = 30;

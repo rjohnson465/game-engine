@@ -35,8 +35,5 @@ shade = diff*(-.1);
 shader_set_uniform_f(uPOSITION,shade);
 draw_surface(surface_canvas_1,0,0);
 shader_reset();
+//surface_free(surface_canvas_1);
 
-
-if( !surface_exists(surface_canvas_2) ){
-    surface_canvas_2 = surface_create(room_width,room_height);
-}

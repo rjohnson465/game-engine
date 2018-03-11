@@ -142,7 +142,7 @@ if isLockedOn && gamepad_is_connected(gamePadIndex) {
 				lockOnTarget = el;
 			}
 		}
-		
+		ds_list_destroy(possibleTargets);
 	}
 }
 
@@ -307,13 +307,13 @@ switch(state) {
 		
 			var x1 = x +lengthdir_x(usingSpeed,direction);
 			var y1 = y +lengthdir_y(usingSpeed,direction);
-			canMove = !place_meeting_layer(x1,y1,obj_solid_parent);
+			//canMove = !place_meeting_layer(x1,y1,obj_solid_parent);
 
-			if !canMove {
-				speed = 0;
-			}
+			//if !canMove {
+			//	speed = 0;
+			//}
 		
-			if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && canMove {
+			if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) {
 				// walking backwards is slow
 				dirDiff = abs(direction - facingDirection)
 				if dirDiff > 135 && dirDiff < 225  {
@@ -570,13 +570,22 @@ switch(state) {
 	}
 }
 
-
 // walking up / down stairs change layers, set solids for enemies on this layer (done in updateRoomLayers)
-if instance_nearest(x,y,obj_stairs) != noone {
-	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone && climbingDir != -4 {
+var nearestStairs = instance_nearest(x,y,obj_stairs);
+if distance_to_object(nearestStairs) < 200 {
+	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone {
+		var oldLayer = layer;
 		layer = layerToChangeTo;
 		updateRoomLayers();
 		climbingDir = noone;
+		
+		// reset grids for enemies on the old layer
+		with obj_enemy_parent {
+			if layer == oldLayer {
+				populatePersonalGrid();
+			}
+		}
+		
 	}
 }
 

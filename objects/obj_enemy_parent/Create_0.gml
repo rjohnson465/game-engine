@@ -1,4 +1,5 @@
 event_inherited();
+populatePersonalGrid();
 type = CombatantTypes.Enemy;
 name = "parent enemy";
 spriteName = "dummy";
@@ -80,5 +81,3 @@ instance_create_depth(x,y,1,obj_enemy_gui);
 dropItems = ds_map_create();
 
 xpReward = 100;
-
-stairsTraversed = ds_stack_create();

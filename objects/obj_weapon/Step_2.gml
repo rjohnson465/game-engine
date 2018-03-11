@@ -12,6 +12,8 @@ if limbKey == "l" {
 	image_yscale = -1*owner.fallScaleFactor;
 }
 layer = owner.layer;
+depth = layer_get_depth(layer) - 1;
+
 // switch weapon sprite
 if limbItem != limb.limbItem {
 	limbItem = limb.limbItem;
@@ -25,9 +27,19 @@ if limbItem != limb.limbItem {
 		sprite_index = asset_get_index(spriteString);
 	}
 	
+	part_type_destroy(particle1);
+	part_type_destroy(particle2);
+	part_type_destroy(particle3);
 	particle1 = noone;
 	particle2 = noone;
 	particle3 = noone;
+	part_emitter_destroy(system1,emitter1);
+	part_emitter_destroy(system2,emitter3);
+	part_emitter_destroy(system2,emitter3);
+	part_system_destroy(system1);
+	part_system_destroy(system2);
+	part_system_destroy(system3);
+	part_emitter_destroy(system1,emitter1);
 	
 	if owner.type == CombatantTypes.Player {
 		// iterate over weapon damages
@@ -127,18 +139,28 @@ if limbItem != limb.limbItem {
 				}
 			}
 		}
+		ds_list_destroy(damageTypes);
 	}
 }
 
 if particle1 != noone {
+	system1 = part_system_create();
+	part_system_depth(system1,4);
+	emitter1 = part_emitter_create(system1);
 	part_emitter_region(system1,emitter1,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system1,emitter1,particle1, -3);
 }
 if particle2 != noone {
+	system2 = part_system_create();
+	part_system_depth(system2,4);
+	emitter2 = part_emitter_create(system2);
 	part_emitter_region(system2,emitter2,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system2,emitter2,particle2, -3);
 }
 if particle3 != noone {
+	system3 = part_system_create();
+	part_system_depth(system3,4);
+	emitter3 = part_emitter_create(system3);
 	part_emitter_region(system3,emitter3,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system3,emitter3,particle3, -3);
 }

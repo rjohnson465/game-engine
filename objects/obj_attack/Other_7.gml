@@ -33,6 +33,5 @@ if isMelee {
 		
 		owner.prevAttackHand = limbKey;
 	}
-
-	instance_destroy(id, false);
+	instance_destroy(id, true);
 }

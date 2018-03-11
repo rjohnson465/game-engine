@@ -5,7 +5,7 @@ floorNum = global.floorNum;
 pseudoLayer = global.shaderInstanceLayer;
 surface_canvas_1 = -1;
 surface_canvas_2 = -1;
-layersToShade = ds_list_create();
+//layersToShade = ds_list_create();
 uPOSITION = shader_get_uniform(sh_saturation, "Position"); // control shader
 shade = 0;
 

@@ -24,3 +24,4 @@ while place_meeting_list(xx,yy,obstacles) {
 }
 x = xx;
 y = yy;
+ds_list_destroy(obstacles);

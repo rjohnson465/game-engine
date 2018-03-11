@@ -15,36 +15,10 @@ if argument_count == 3 {
 
 var objectsToAvoid = obj_solid_parent;
 var additionalObjects = ds_list_create();
-/*if isEnemy {
-	with obj_enemy_obstacle_parent {
-		if layer == other.layer {
-			ds_list_add(additionalObjects,id);
-		}
-	}
-}*/
 if isEnemy objectsToAvoid = obj_enemy_obstacle_parent;
 
 var oldX = x;
 var oldY = y;
-
-// invoking instance
-var idd = id;
-/*// if some combatantsre are one level away from invoking instance and 
-// are close to the same stairs objects with identical coordinates, factor these into collisions
-var combatantsToConsider = ds_list_create();
-with obj_stairs {
-	if distance_to_object(idd) < 200 && layer == idd.layer {
-		// get nearby combatants
-		var nearbyCombatants = scr_collision_circle_list(x,y,200,obj_combatant_parent,true,true);
-		for (var i = 0; i < ds_list_size(nearbyCombatants); i++) {
-			var c = ds_list_find_value(nearbyCombatants,i);
-			if c.layer == idd.layer-2 || c.layer == idd.layer+2 || c.layer == idd.layer {
-				ds_list_add(combatantsToConsider,c);
-			}
-		}
-	}
-}
-//show_debug_message("Combatants to consider count: " + string(ds_list_size(combatantsToConsider)));*/
 
 if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) {
 	x = x+lengthdir_x(sp,d); 
@@ -99,6 +73,7 @@ else {
 		direction = point_direction(oldX,oldY,x,y);
 		//return true;
 	}
+	ds_list_destroy(possibleAngles);
 }
-//return false;
+ds_list_destroy(additionalObjects);
 

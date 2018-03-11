@@ -24,37 +24,6 @@ if fallFrame < fallTotalFrames {
 
 image_angle = facingDirection;
 
-// Reset personal grid for allies / enemeies
-// The personal grid allows for allies / enemies to plan their path, acommodating walls and other combatants
-if type != CombatantTypes.Player && layer != global.player.layer {
-	mp_grid_clear_all(personalGrid);
-	// only concern yourself with walls / fountains / solids / combatants in your layer
-	var solids = ds_list_create();
-	var myLayer = layer;
-	var idd = id;
-	with obj_enemy_obstacle_parent {
-		//show_debug_message(object_get_name(idd.object_index) + string(myLayer) + " | " + object_get_name(object_index) + string(layer));
-		if object_is_ancestor(object_index,obj_combatant_parent) continue;
-		else {
-			if layer == myLayer {
-				//show_debug_message("Adding object " + object_get_name(object_index) + "with layer" + string(layer) +" to grid ");
-				ds_list_add(solids,id);
-			}
-		}
-	}
-	for (var i = 0; i < ds_list_size(solids); i++) {
-		mp_grid_add_instances(personalGrid,ds_list_find_value(solids,i),true);
-	}
-	
-	var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
-	for (var i = 0; i < ds_list_size(combatants); i++) {
-		var ci = ds_list_find_value(combatants,i);
-		if ci != id && ci != global.player.id {
-			mp_grid_add_instances(personalGrid,ds_list_find_value(combatants,i),true);
-		} 
-	}
-}
-
 // stamina / health regen
 // only regen stamina when moving or idle
 var SHIFT = keyboard_check(vk_shift) || gamepad_button_check(global.player.gamePadIndex, gp_stickl);
@@ -325,53 +294,31 @@ switch(state) {
 		// player overrides this
 		if type != CombatantTypes.Player {
 			speed = 0;
-			// if there are other combatant instances within a certin distance not behind walls who are on alert, this instance will also be alerted
-			var nearbyCombatants = script_execute(scr_get_ids_region,obj_enemy_parent,x-perception,y-perception,x+perception,x+perception);
-			var isNoticingEngagement = false;
-			for (var i = 0; i < ds_list_size(nearbyCombatants); i++) {
-				var c = ds_list_find_value(nearbyCombatants,i);
-				var wallsBetweenCombatant = script_execute(scr_collision_line_list_layer,x,y,c.x,c.y,obj_wall_parent,true,true);
-				if wallsBetweenCombatant == noone && c.onAlert && c.id != id {
-					isNoticingEngagement = true;
-				}
-			}
 			
-			// think for stupidityFrames frames
-			// TODO -- set onAlert to false after Idle for a bit?
-			if (stupidityFrame < stupidity) {
-				//speed = 0;
-				stupidityFrame++;
-				//break;
-			} else {
-				// check if in melee aggro range
-				if	((canSeePlayer(id) || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
-					state = CombatantStates.AggroMelee;
-					break;
-				} else
-				// check if in ranged aggro range
-				if canSeePlayer(id) && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
-					state = CombatantStates.AggroRanged;
-					break;
-				}
+			if layer != global.player.layer break;
+			
+			if	((canSeePlayer(id) || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
+				state = CombatantStates.AggroMelee;
+				break;
+			} else if canSeePlayer(id) && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
+				state = CombatantStates.AggroRanged;
+				break;
+			}
 	
-				else if isNoticingEngagement || wasJustHit {
-					wasJustHit = false;
-					// first try ranged
-					if array_length_1d(rangedAttacks) > 0 {
-						state = CombatantStates.AggroRanged;
-					} else state = CombatantStates.AggroMelee;
-				}
-				// if no aggro and not at postX/postY, head back there
-				else if distance_to_point(postX, postY) > 1 && layer == postZ
-				{
-					state = CombatantStates.Moving;
-					break;
-				} else {
-					// if we're back at post and not in any aggro ranges, just keep thinking
-					stupidityFrame = 0;
-					showHp = false;
-					//break;
-				}
+			else if /*isNoticingEngagement ||*/ wasJustHit {
+				wasJustHit = false;
+				// first try ranged
+				if array_length_1d(rangedAttacks) > 0 {
+					state = CombatantStates.AggroRanged;
+				} else state = CombatantStates.AggroMelee;
+			}
+			// if no aggro and not at postX/postY, head back there
+			else if distance_to_point(postX, postY) > 10 && layer == postZ
+			{
+				state = CombatantStates.Moving;
+				break;
+			} else {
+				showHp = false;
 			}
 			
 			break;
@@ -533,16 +480,22 @@ switch(state) {
 					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) 
 						|| wallsBetweenTarget != noone || alliesBetweenTarget != noone || enemyObstaclesBetweenTarget != noone || (layer != lockOnTarget.layer) : 
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]) || (layer != lockOnTarget.layer);
+				//var pred = true;
 				
 				if pred && !isFlinching {
 					
 					if layer == lockOnTarget.layer /*&& mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false)*/ {
-						if isSlowed {
-							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
+						if recalculatePathFrame == recalculatePathFrameTotal {
+							//if isSlowed {
+							//	mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
+							//} else {
+							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false);
+							//}
+							path_start(path,functionalSpeed,path_action_stop,false);
+							recalculatePathFrame = 0;
 						} else {
-							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false);
+							recalculatePathFrame++;
 						}
-						path_start(path,functionalSpeed,path_action_stop,false);
 					} 
 					/*
 					else if layer == lockOnTarget.layer && !mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false) {
@@ -558,6 +511,7 @@ switch(state) {
 							path_start(path,functionalSpeed,path_action_stop,false);
 							currentMeleeAttack = noone;
 							currentRangedAttack = noone;
+							lockOnTarget = noone;
 						}
 					}
 					// not on post layer, not on lockOnTarget layer
@@ -1027,6 +981,7 @@ switch(state) {
 					}				
 				}
 				dodgeDirection = dir;
+				ds_list_destroy(possibleAngles);
 			}
 			moveToNearestFreePoint(dodgeDirection,dodgeSpeed,true);
 		} else {
@@ -1268,10 +1223,8 @@ var t3 = tilemap_get_at_pixel(tilemap,x-(.25*w),y+(.25*h));
 var t4 = tilemap_get_at_pixel(tilemap,x+(.25*w),y+(.25*h));
 if t1 == 0 && t2 == 0 && t3 == 0 && t4 == 0 {*/
 
+
 with obj_fallzone {
-	var a = place_meeting_layer(other.bbox_left,other.bbox_top,id);
-	var b = place_meeting_layer(other.bbox_right,other.bbox_bottom,id);
-	var c = place_meeting_layer(x,y,other);
 	var d = point_in_rectangle(other.bbox_left,other.bbox_top,bbox_left,bbox_top,bbox_right,bbox_bottom);
 	var e = point_in_rectangle(other.bbox_right,other.bbox_bottom,bbox_left,bbox_top,bbox_right,bbox_bottom);
 	if	d && e && layer == other.layer {
@@ -1280,8 +1233,3 @@ with obj_fallzone {
 	}
 }
 
-
-/*
-while place_meeting_layer(x,y,obj_combatant_parent) {
-	moveToNearestFreePoint((facingDirection+180)%360,functionalSpeed,false);
-}

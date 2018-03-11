@@ -118,4 +118,5 @@ if particle {
 	part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
 	part_emitter_burst(system,emitter,particle,num);
 }
+
 instance_destroy(id,false);

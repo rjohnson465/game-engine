@@ -324,6 +324,7 @@ if	state != CombatantStates.Dodging &&
 		
 		// destroy most ranged projectiles on impact
 		if other.isRanged || (other.isSpell)/* && spell.name != "aoe")*/ {
+			ds_list_destroy(other.combatantsHit);
 			instance_destroy(other,false);
 			// also destroy the ranged attack's light radius, if it exists
 			var attackObjId = other;
@@ -350,11 +351,8 @@ if	state != CombatantStates.Dodging &&
 		if enemyData != noone && type == CombatantTypes.Enemy {
 			enemyData.hp = hp;
 		}
-		
+		ds_map_destroy(damagesTaken);
 	}
 }
 
-/*
-if (other.isRanged  || other.isSpell) && id != other.owner && state != CombatantStates.Dodging {
-	instance_destroy(other);
-}
+

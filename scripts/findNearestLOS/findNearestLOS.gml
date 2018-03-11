@@ -30,3 +30,4 @@ while place_meeting_list(xx,yy,obstacles) || scr_collision_line_list_layer(xx,yy
 }
 
 return [xx,yy];
+ds_list_destroy(obstacles);

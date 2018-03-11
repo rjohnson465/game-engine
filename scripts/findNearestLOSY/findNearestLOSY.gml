@@ -1,4 +1,4 @@
-/// findNearestLOSX()
+/// findNearestLOSY()
 
 /// for enemies using range who don't have a clean shot
 /// move to the nearest free point that has a clean LOS to lockOnTarget
@@ -28,5 +28,5 @@ while place_meeting_list(xx,yy,obstacles) || scr_collision_line_list_layer(xx,yy
 		return noone;
 	}
 }
-
 return yy;
+ds_list_destroy(obstacles);

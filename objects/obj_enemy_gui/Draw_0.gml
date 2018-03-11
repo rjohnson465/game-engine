@@ -1,4 +1,4 @@
-//draw_path(owner.path,x,y,true);
+draw_path(owner.path,x,y,true);
 draw_set_alpha(0.3);
 //mp_grid_draw(owner.personalGrid);
 draw_set_alpha(1);

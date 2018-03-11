@@ -46,9 +46,9 @@ else {
 				enemy.hp = enemyData.maxHp;
 				enemy.isAlive = true;
 				enemy.isDying = false;
-				enemy.preparingLimbs = ds_map_create();
-				enemy.attackingLimbs = ds_map_create();
-				enemy.recoveringLimbs = ds_map_create();
+				ds_map_clear(enemy.preparingLimbs);
+				ds_map_clear(enemy.attackingLimbs);
+				ds_map_clear(enemy.recoveringLimbs);
 				enemy.state = CombatantStates.Idle;
 				enemy.showHp = false;
 				enemy.isShowingLightRadius = true;

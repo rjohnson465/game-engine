@@ -43,7 +43,7 @@ var inventory = global.player.inventory;
 // move all inventory items offscreen to start (accounts for not displayed items) -- TODO maybe?
 // ALSO only display unequipped items in inventory
 // ALSO filter according to current inventory filter
-inv = ds_list_create();
+ds_list_clear(inv);
 for (var i = 0; i < ds_list_size(inventory); i++) {
 	var el = ds_list_find_value(inventory,i);
 				

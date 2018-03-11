@@ -1,5 +1,5 @@
 event_inherited();
-spriteName = "spr_enemy_unfairy_unarmed";
+spriteName = "spr_enemy_unfairy_longsword";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o

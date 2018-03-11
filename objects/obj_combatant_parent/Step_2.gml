@@ -1,7 +1,9 @@
-with obj_attack {
-	if place_meeting_layer(x,y,other.id) {
-		with other {
-			calculateDamage();
+if layer == global.player.layer {
+	with obj_attack {
+		if place_meeting_layer(x,y,other.id) {
+			with other {
+				calculateDamage();
+			}
 		}
 	}
 }

@@ -48,11 +48,11 @@ meleeAttacksCount = 1;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[5,5,5,5];
+meleeRangeArray=[15];
 
 // ATTACKS
 global.owner = id;
-var longswordSwing = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
+var longswordSwing = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_1_1);
 longswordSwing.limbKey = "r";
 var meleeChain0 = [longswordSwing];
 meleeAttacks = [meleeChain0];

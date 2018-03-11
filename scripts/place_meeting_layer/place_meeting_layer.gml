@@ -68,5 +68,9 @@ if instance_nearest(x,y,obj_stairs) != noone {
 
 if ((place_meeting(xx,yy,obj) && touchingInstanceIsOnSameLayer) || touchingAdditionalObjects) {
 	pred = true;
-} else pred = false;
+	ds_list_destroy(touchingInstances);
+} else {
+	ds_list_destroy(touchingInstances);
+	pred = false;
+}
 return pred;

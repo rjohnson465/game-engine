@@ -6,6 +6,7 @@ var cell_height = 32; //bbox_bottom-bbox_top;
 var hcells = room_width div cell_width;
 var vcells = room_height div cell_height;
 personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
+
 //mp_grid_add_instances(personalGrid, obj_wall_parent, false);
 
 isFairy = true;
@@ -57,7 +58,6 @@ tempPostY = noone;
 wanderDir = 0;
 
 farthestAllowedFromPost = 300;
-//testing...
 path = path_add();
 
 enum CombatantStates {
@@ -233,7 +233,6 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 // slowed / frozen for ice
 // posioned for poison
 // electrified for lightning
-// bleed for physical? perhaps not
 conditionPercentages = ds_map_create();
 for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 	ds_map_add(conditionPercentages,global.ALL_DAMAGE_TYPES[i],0);
@@ -284,3 +283,6 @@ xpReward = 0;
 layerToChangeTo = noone;
 stairsIndex = noone;
 climbingDir = noone;
+
+recalculatePathFrame = 1;
+recalculatePathFrameTotal = 1;

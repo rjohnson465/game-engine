@@ -4,9 +4,9 @@ if hp < 1 && isAlive && !isDying {
 	isDying = true;
 	hp = 0;
 	speed = 0;
-	preparingLimbs = ds_map_create();
-	attackingLimbs = ds_map_create();
-	recoveringLimbs = ds_map_create();
+	ds_map_clear(preparingLimbs);
+	ds_map_clear(attackingLimbs);
+	ds_map_clear(recoveringLimbs);
 	// create death particles
 	global.owner = id;
 	randomize();

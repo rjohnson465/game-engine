@@ -14,6 +14,7 @@ var tileLayersAbove = ds_list_create();
 var layers = layer_get_all();
 // reset all layer shader objects
 with obj_layer_shader {
+	surface_free(surface_canvas_1);
 	instance_destroy(id,false);
 }
 for (var i = 0; i < array_length_1d(layers); i++) {
@@ -68,3 +69,5 @@ with obj_fallzone {
 		solid = true;
 	} else solid = false;
 }
+ds_list_destroy(instanceLayersAbove);
+ds_list_destroy(tileLayersAbove);
