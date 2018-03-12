@@ -24,10 +24,9 @@ while place_meeting_list(xx,yy,obstacles) || scr_collision_line_list_layer(xx,yy
 	if dir == 0 {
 		distanceToTry += 50;
 	}
-	if distanceToTry > 1000 {
+	if distanceToTry > 200 {
 		return noone;
 	}
 }
-
-return [xx,yy];
 ds_list_destroy(obstacles);
+return [xx,yy];

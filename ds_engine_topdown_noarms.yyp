@@ -3178,7 +3178,7 @@
             "Key": "f363be3c-d933-480d-8602-502a5c5a721f",
             "Value": {
                 "id": "d189c54c-1fc4-43c8-ae76-249310c543b3",
-                "resourcePath": "scripts\\moveNotInAttackRange\\moveNotInAttackRange.yy",
+                "resourcePath": "scripts\\maybeMoveNotInAttackRange\\maybeMoveNotInAttackRange.yy",
                 "resourceType": "GMScript"
             }
         },

@@ -283,3 +283,6 @@ xpReward = 0;
 layerToChangeTo = noone;
 stairsIndex = noone;
 climbingDir = noone;
+
+recalculatePathFrame = 15;
+recalculatePathFrameTotal = 15;

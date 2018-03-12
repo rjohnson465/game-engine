@@ -116,7 +116,7 @@ switch(state) {
 				// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
 				maybeShield();
 				
-				// move to lockOnTarget until in range for chosen attack
+				/*// move to lockOnTarget until in range for chosen attack
 				var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 				var allyType = object_is_ancestor(object_index,obj_enemy_parent) ? obj_enemy_parent : obj_goodguy_parent;
 				var alliesBetweenTarget = scr_collision_line_list(x,y,lockOnTarget.x,lockOnTarget.y,allyType,true,true);
@@ -142,7 +142,9 @@ switch(state) {
 				if pred && !isFlinching {
 					moveNotInAttackRange();
 					break;
-				}
+				}*/
+				// if we're not in range for attack, do this
+				if maybeMoveNotInAttackRange() break;
 				// within range for attack
 				else {
 					moveInAttackRange();
