@@ -12,7 +12,7 @@ if limbKey == "l" {
 	image_yscale = -1*owner.fallScaleFactor;
 }
 layer = owner.layer;
-depth = layer_get_depth(layer) + 1;
+//depth = layer_get_depth(layer) + 1;
 
 // switch weapon sprite
 if limbItem != limb.limbItem {

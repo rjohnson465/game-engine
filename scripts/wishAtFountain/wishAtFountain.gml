@@ -11,6 +11,7 @@ if !isRunning {
 		lastFountainRoom = room;
 		lastFountainX = fountain.x+100;
 		lastFountainY = fountain.y+100;
+		lastFountainZ = fountain.layer;
 	}
 }
 	

@@ -24,7 +24,7 @@ if fallFrame == .5*fallTotalFrames {
 		fallFrame = 0;
 		floorsFallen++;
 	} else {
-		fallOnNearestFreePoint();
+		jumpToNearestFreePoint();
 		global.damageType = PHYSICAL;
 		global.x1 = x;
 		global.y1 = y;

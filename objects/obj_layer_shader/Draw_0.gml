@@ -1,16 +1,3 @@
-/*var vx = camera_get_view_x(view_camera[0]);
-var vy = camera_get_view_y(view_camera[0]);
-
-var playerLayer = global.player.layer;
-var pLayerName = layer_get_name(playerLayer);
-var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
-var diff = pLayerNum - real(floorNum);
-if diff == 1 {
-	light_init(1024, 768, 1024, color, 0.35, 40);
-	//color = make_colour_rgb(1*255, 0.2*255, 0.2 * 255);
-	light_draw(vx,vy, true, true, blur);
-}*/
-
 
 if( !surface_exists(surface_canvas_1) ){
     surface_canvas_1 = surface_create(room_width,room_height);
@@ -28,12 +15,15 @@ shader_set(sh_saturation);
 var playerLayer = global.player.layer;
 var pLayerName = layer_get_name(playerLayer);
 var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
-var diff = pLayerNum - real(floorNum);
+var pDepth = layer_get_depth(global.player.layer);
+var fDepth = layer_get_depth(layer_get_id("tiles_floor_"+string(floorNum)));
+//var diff = pLayerNum - real(floorNum);
+//shade = diff*(-.15);
 
-shade = diff*(-.1);
+var diff = fDepth-pDepth;
+shade = (-.05/100)*diff;
 
 shader_set_uniform_f(uPOSITION,shade);
 draw_surface(surface_canvas_1,0,0);
 shader_reset();
-//surface_free(surface_canvas_1);
 

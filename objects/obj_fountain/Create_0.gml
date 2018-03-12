@@ -33,5 +33,5 @@ part_type_direction(water,0,360,0,4);
 part_type_life(water,7,11);
 particle = water;
 
-//testMap = ds_map_create();
+origLayer = layer;
 

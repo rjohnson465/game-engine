@@ -32,9 +32,6 @@ if state == CombatantStates.Attacking {
 			
 			for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 				var attackInChain = ds_map_find_value(preparingLimbs,hand);
-				if attackInChain == 2 {
-					var a = 3;
-				}
 				//var hand = ds_list_find_value(preparingLimbs,i); // l or r
 				var prepHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			

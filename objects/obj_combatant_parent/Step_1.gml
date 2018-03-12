@@ -60,9 +60,3 @@ if !isAlive {
 	x = -1000;
 	y = -1000;
 }
-
-
-/*
-if !canSeePlayer(id) && state == CombatantStates.Idle {
-	visible = false;
-} else visible = true;

@@ -9,7 +9,13 @@ if distance_to_object(obj_player) < 20 && interactInputReceived {
 }
 
 
-var lDepth = layer_get_depth(layer);
-show_debug_message(lDepth);
-lDepth += 5;
+var lDepth = layer_get_depth(origLayer);
+//show_debug_message(origLayer);
+//show_debug_message(lDepth);
+lDepth += 2;
+depth = lDepth;
+
+
+//show_debug_message(string(origLayer) + " " + string(layer));
+//show_debug_message(depth);
 //depth = layer_get_depth(layer) + 5;

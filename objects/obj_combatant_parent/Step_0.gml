@@ -26,267 +26,13 @@ image_angle = facingDirection;
 depth = layer_get_depth(layer);
 
 // stamina / health regen
-// only regen stamina when moving or idle
-var SHIFT = keyboard_check(vk_shift) || gamepad_button_check(global.player.gamePadIndex, gp_stickl);
-if	 stamina < maxStamina && (state == CombatantStates.Idle || state == CombatantStates.Moving 
-	|| (state == CombatantStates.Attacking && type == CombatantTypes.Player)) {
-	// do not regen stamina while dashing
-	if	type != CombatantTypes.Player || (type == CombatantTypes.Player && !SHIFT)
-		|| (type == CombatantTypes.Player && state == CombatantStates.Attacking)
-	{
-		// stamina regens slower if shielding
-		if isShielding {
-			stamina += (.5*staminaRegen)/30;
-		}
-		else if (type == CombatantTypes.Player && state == CombatantStates.Attacking) {
-			var lhItem = ds_map_find_value(equippedLimbItems,"l");
-			if lhItem.isTwoHanded && lhItem.subType == HandItemTypes.Ranged && isReadyToFire {
-				stamina += (.5*staminaRegen)/30;
-			}
-		}
-		else stamina += staminaRegen/30;
-	}
-}
-if hp < maxHp {
-	hp += hpRegen/30;
-}
+regenHealthAndStamina();
 
 // conditionPercentages drain every step
-// TODO Devin fix calculations for draining
-var currentCondition = ds_map_find_first(conditionPercentages);
-var size = ds_map_size(conditionPercentages);
-for (var i = 0; i < size; i++){
-	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
-	
-	// if condition is ice and it just dropped below 85 (coming from condition level 2, frozen), reset to condition level 1 (slow)
-	if conditionPercent < 85 && currentCondition == ICE && ds_map_find_value(conditionLevels,currentCondition) == 2 {
-			isFrozen = false;
-			isSlowed = true;
-			//functionalSpeed = round(.5*normalSpeed);
-			ds_map_replace(conditionLevels,currentCondition,1);
-	}
-	
-	// generally, if conditionPercent exceeds 95, condition level becomes 1
-	// except for ice, in which condition level becomes 2 (frozen)
-	if conditionPercent > 95 && currentCondition == ICE {
-		ds_map_replace(conditionLevels,currentCondition,2);
-		// freeze applied on a burning target, burn is removed
-		if !isFrozen && isBurning {
-			ds_map_replace(conditionPercentages,FIRE,0);
-			isBurning = false;
-		}
-		isSlowed = false;
-		isFrozen = true;
-		functionalSpeed = 0;
-	} else if conditionPercent > 95 {
-		ds_map_replace(conditionLevels,currentCondition,1);
-		switch currentCondition {
-			case POISON: {
-				isPoisoned = true; 
-				lightRadiusColor = c_lime;
-				lightRadiusAlpha = .75;
-				break;
-			}
-			case FIRE: {
-				// if burn applied on a slowed or frozen target, slow / frozen is removed
-				if !isBurning && (isSlowed || isFrozen) {
-					ds_map_replace(conditionPercentages,ICE,0);
-					isSlowed = false;
-					isFrozen = false;
-				}
-				isBurning = true; 
-				lightRadiusColor = c_orange;
-				lightRadiusAlpha = .75;
-				break;
-			}
-			case LIGHTNING: {
-				if !isShocked {
-					// lower all defenses by a static (ha) amount
-					var currentDefense = ds_map_find_first(defenses);
-					for (var i = 0; i < ds_map_size(defenses); i++) {
-						var defense = ds_map_find_value(defenses,currentDefense);
-						ds_map_replace(defenses,currentDefense,defense-25);
-						currentDefense = ds_map_find_next(defenses,currentDefense);
-					}
-				}
-				isShocked = true; 				
-				break;
-			}
-		}
-	}
-	
-	// drain condition levels
-	if conditionPercent > 0 {
-		var decrementAmount = 1/3;
-		var defense = ds_map_find_value(defenses,currentCondition);
-		//decrementAmount += 1-abs((defense/100));
-		decrementAmount = defense > 0 ? decrementAmount + 1-(defense/100) : decrementAmount - 1-(defense/100);
-		if decrementAmount < 0 {
-			decrementAmount = .2;
-		}
-		conditionPercent -= decrementAmount;
-		ds_map_replace(conditionPercentages,currentCondition,conditionPercent);
-	} if conditionPercent <= 0 {
-		ds_map_replace(conditionPercentages,currentCondition,0);
-		// set condition level to 0
-		ds_map_replace(conditionLevels,currentCondition,0);
-		switch currentCondition {
-			case FIRE: {
-				isBurning = false; 
-				burnDamage = 0; 
-				if lightRadiusColor == c_orange {
-					lightRadiusColor = c_white;
-					lightRadiusAlpha = .25;
-					lightRadiusSprite = spr_light_point;
-				}
-				break;
-			}
-			case ICE: {
-				isSlowed = false; isFrozen = false; break;
-			}
-			case POISON: {
-				isPoisoned = false; 
-				poisonDamage = 0; 
-				if lightRadiusColor == c_lime {
-					lightRadiusColor = c_white;
-					lightRadiusAlpha = .25;
-					lightRadiusSprite = spr_light_point;
-				}
-				break;
-			}
-			case LIGHTNING: {
-				if isShocked {
-					// reset all defenses to normal values
-					var currentDefense = ds_map_find_first(defenses);
-					for (var i = 0; i < ds_map_size(defenses); i++) {
-						var defense = ds_map_find_value(defenses,currentDefense);
-						ds_map_replace(defenses,currentDefense,defense+25);
-						currentDefense = ds_map_find_next(defenses,currentDefense);
-					}
-				}
-				isShocked = false; 
-				break;
-			}
-		}
-	}
-	
-	currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
-}
+drainConditions();
 
 // account for any currently active conditions (slowed/frozen, burning, poisoned, electrified)
-var currentCondition = ds_map_find_first(conditionLevels);
-var size = ds_map_size(conditionLevels);
-for (var i = 0; i < size; i++){
-	var conditionLevel = ds_map_find_value(conditionLevels,currentCondition);
-	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
-	var defense = ds_map_find_value(defenses,currentCondition);
-	
-	// particle effects for conditions
-	if conditionLevel > 0 && currentCondition != MAGIC && currentCondition != PHYSICAL {
-		var condParticlesExist = false;
-		var c = currentCondition;
-		var o = id;
-		with (obj_condition_particles) {
-			if condition == c && owner == o {
-				condParticlesExist = true;
-			}
-		}
-		if !condParticlesExist {
-			global.condition = currentCondition;
-			global.owner = id;
-			instance_create_depth(x,y,1,obj_condition_particles);
-		}
-	}
-	
-	// set back old properties when conditions expire
-	if conditionLevel <= 0 {
-		switch currentCondition {
-			case ICE: {
-				functionalSpeed = normalSpeed;
-			}
-		}
-	}
-	else {
-		switch currentCondition {
-			case ICE: {
-				// slowed
-				if conditionLevel == 1 {
-					functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
-				}
-				// frozen
-				else if conditionLevel == 2{
-					//functionalSpeed = 0;
-				}
-				break;
-			}
-			// burning
-			case FIRE: {
-				// burn damage taken every 2 seconds by default
-				// if fire defense is positive, defense% of 60 is added to burn frames
-				burnFrames = (defense >= 0) ? burnFrames + burnFrames*(defense/100) : burnFrames - burnFrames*(defense/100);
-				if burnFrame >= burnFrames {
-
-					var originalBurnDamage = burnDamage;
-					if burnDamage > hp {
-						burnDamage = hp;
-					}
-					hp -= burnDamage;
-					//if type != CombatantTypes.Player {
-						global.damageAmount = burnDamage;
-						global.victim = id;
-						global.healingSustained = 0;
-						instance_create_depth(x,y,1,obj_damage);
-					//}
-					// diminishes every pulse
-					// TODO math major DEVIN
-					burnDamage = originalBurnDamage;
-					burnDamage = defense >= 0 ? 
-						burnDamage - ((.25*burnDamage)-((.25*burnDamage)*(defense/100))) : 
-						burnDamage - ((.25*burnDamage)+((.25*burnDamage)*(defense/100)));
-					if burnDamage < 1 {
-						burnDamage = 1;
-					}
-					burnFrame = 0;
-				}
-				burnFrame++;
-				break;
-			}
-			// poisoned
-			case POISON: {
-				// poison damage taken every 2 seconds by default 
-				// if poison defense is poistive, defense% of 60 is added to burn frames. if less, it is subtracted
-				poisonFrames = (defense >= 0) ? poisonFrames + poisonFrames*(defense/100) : poisonFrames - poisonFrames*(defense/100);
-				if poisonFrame >= poisonFrames {
-					poisonDamage = defense >= 0 ? (poisonDamage - poisonDamage*(defense/100)) : (poisonDamage + poisonDamage*(defense/100));
-					var originalPoisonDamage = poisonDamage;
-					if poisonDamage > hp {
-						poisonDamage = hp;
-					}
-					hp -= poisonDamage;
-
-					global.damageAmount = poisonDamage;
-					global.victim = id;
-					global.healingSustained = 0;
-					instance_create_depth(x,y,1,obj_damage);
-					// builds every pulse
-					// TODO math major DEVIN
-					poisonDamage = originalPoisonDamage;
-					poisonDamage = defense >= 0 ? 
-						poisonDamage + ((.25*poisonDamage)-((.25*poisonDamage)*(defense/100))) : 
-						poisonDamage + ((.25*poisonDamage)+((.25*poisonDamage)*(defense/100)));
-					poisonFrame = 0;
-				}
-				poisonFrame++;
-				break;
-			}
-			case LIGHTNING: {
-				// shock lowers defenses; this is handled just once, when lightning percent is set to 100; i.e. not here
-			}
-		}
-	}
-	
-	currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
-}
+endureConditions();
 
 // huge state machine
 switch(state) {
@@ -296,17 +42,37 @@ switch(state) {
 		if type != CombatantTypes.Player {
 			speed = 0;
 			
-			if layer != global.player.layer break;
+			var actingPostX = postX;
+			var actingPostY = postY;
+			if layer != postZ {
+				actingPostX = tempPostX;
+				actingPostY = tempPostY;
+			}
 			
-			if	((canSeePlayer(id) || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
+			// if not on player layer and close to post, just stand still
+			if layer != global.player.layer && distance_to_point(actingPostX,actingPostY) < 10 {
+				lockOnTarget = noone;
+				break;
+			}
+			
+			// isNoticingEngagement -- if there is some ally you can see that has a lockOnTarget, try aggroing
+			var allyType = object_is_ancestor(object_index,obj_enemy_parent) ? obj_enemy_parent : obj_goodguy_parent;
+			var isNoticingEngagement = false;
+			with allyType {
+				var wallsBetweenAlly = scr_collision_line_list_layer(x,y,other.x,other.y,obj_wall_parent,true,true);
+				if layer == other.layer && lockOnTarget != noone && wallsBetweenAlly == noone {
+					isNoticingEngagement = true;
+				}
+			}
+			if	((canSeeLockOnTarget() || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
 				state = CombatantStates.AggroMelee;
 				break;
-			} else if canSeePlayer(id) && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
+			} else if canSeeLockOnTarget() && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
 				state = CombatantStates.AggroRanged;
 				break;
 			}
 	
-			else if /*isNoticingEngagement ||*/ wasJustHit {
+			else if isNoticingEngagement || wasJustHit {
 				wasJustHit = false;
 				// first try ranged
 				if array_length_1d(rangedAttacks) > 0 {
@@ -314,150 +80,41 @@ switch(state) {
 				} else state = CombatantStates.AggroMelee;
 			}
 			// if no aggro and not at postX/postY, head back there
-			else if distance_to_point(postX, postY) > 10 && layer == postZ
-			{
+			else if distance_to_point(postX, postY) > 10 && layer == postZ {
 				state = CombatantStates.Moving;
 				break;
 			} else {
 				showHp = false;
 			}
-			
 			break;
 		}
 	}
 	case CombatantStates.AggroMelee: {
-		if type != CombatantTypes.Player {
-			// pick a melee attack
-			lockOnTarget = instance_nearest(x,y,lockOnTargetType);
-			currentRangedAttack = noone;
-			attackNumberInChain = noone;
-			randomize();
-			currentMeleeAttack = round(random_range(1,array_length_1d(meleeAttacks)));
-
-			// close enough to hear, but maybe not see. turn to face the direction of the noise
-			var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
-			if wallsBetweenTarget == noone || onAlert {
-				onAlert = true;
-				isShielding = false;
-				
-				// TODO -- melee 2H accounting
-				var rightHandItem = ds_map_find_value(handItems,"rm1");
-				var leftHandItem = ds_map_find_value(handItems,"lm1");
-				ds_map_replace(equippedLimbItems,"l",leftHandItem);
-				ds_map_replace(equippedLimbItems,"r",rightHandItem);
-				state = CombatantStates.Moving;
-			}
-			break;
-		}
+		if type == CombatantTypes.Player break;
+		chooseMeleeAttack();
+		break;
 	}
 	case CombatantStates.AggroRanged: {
-		if type != CombatantTypes.Player {
-			// pick a ranged attack
-			lockOnTarget = instance_nearest(x,y,lockOnTargetType);
-			currentMeleeAttack = noone;
-			attackNumberInChain = noone;
-			currentRangedAttack = round(random_range(1,array_length_1d(rangedAttacks)));
-			// close enough to hear, but maybe not see. turn to face the direction of the noise
-			//turnToFacePoint(150,lockOnTarget.x,lockOnTarget.y);
-			var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
-			if wallsBetweenTarget == noone || onAlert {
-				onAlert = true;
-				isShielding = false;
-				
-				rightHandItem = ds_map_find_value(handItems,"rr1");
-				leftHandItem = ds_map_find_value(handItems,"lr1");
-				ds_map_replace(equippedLimbItems,"l",leftHandItem);
-				ds_map_replace(equippedLimbItems,"r",rightHandItem);
-				
-				state = CombatantStates.Moving;
-			}
-			break;
-		}
+		if type == CombatantTypes.Player break;
+		chooseRangedAttack();
+		break;
 	}
 	case CombatantStates.Moving: {
 		// player overrides this entirely
 		if type != CombatantTypes.Player {
 			
-			// TODO pick target; may not always be player
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
 			if currentMeleeAttack || currentRangedAttack {
 				
-				if lockOnTarget != noone {
-					turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
-				} 
-				
-				// CHECK 1: TOO FAR FROM POST?
-				
-				// if the path back to post is greater than farthestAllowedFromPost, cancel any pending attack 
-				// this will trigger the return to post code (later in this case) on the next step
-				//var pathToPost = path_add();
-				//mp_grid_path(personalGrid, pathToPost,x,y,postX,postY,1);
-				//var pathToPostLength = path_get_length(pathToPost);
-				//if pathToPostLength > farthestAllowedFromPost {
-				//	currentMeleeAttack = noone;
-				///	currentRangedAttack = noone;
-				//	break;
-				//}
-				
-				// CHECK 2: ARE WE OUT OF RANGE FOR THE CURRENTLY CHOSEN ATTACK?
-				
-				// if combatant was going to use a melee attack but their target is out of range and combatant has ranged attacks, switch to a ranged attack
-				if currentMeleeAttack && distance_to_object(lockOnTarget) > meleeAggroRange && array_length_1d(rangedAttacks) > 0 {
-					state = CombatantStates.AggroRanged;
-					break;
-				}
-				// vice versa
-				else if currentRangedAttack && distance_to_object(lockOnTarget) < meleeAggroRange && array_length_1d(meleeAttacks) > 0 {
-					state = CombatantStates.AggroMelee;
-					break;
-				}
-			
-				// CHECK 3: WILL WE DODGE IN THIS MOVE STATE?
-				
-				// if we've not yet calculated if we'll dodge during this Move state, calculate that now
-				// this is calculated only once per move state
-				if !hasCalculatedWillDodge {
-					randomize();
-					var rand = random_range(1,100);
-					willDodge = rand <= agility ? true : false;
-					hasCalculatedWillDodge = true;
-				}
-				
-				
-				// CHECK 4: WILL WE SHIELD IN THIS MOVE STATE?
-				if !willDodge {
-					if ds_map_find_value(equippedLimbItems,"l") {
-						if ds_map_find_value(equippedLimbItems,"l").subType == HandItemTypes.Shield {
-							// if within meleeAggroRange, check every shieldingFrames if should shield
-							if !isShielding {
-								if shieldingFrame < totalShieldingFrames && !hasCalculatedWillShield {
-									randomize();
-									totalShieldingFrames = random_range(shieldingFrequencyFrames[0],shieldingFrequencyFrames[1]);
-									var rand = random_range(0,1);
-									willShield = rand < (cautiousness/100);
-									hasCalculatedWillShield = true;
-								}
-								else if shieldingFrame >= totalShieldingFrames && willShield {
-									isShielding = true;
-									global.owner = id;
-									instance_create_depth(x,y,1,obj_shield_block);
-									shieldingFrame = 0;
-								}
-							} else {
-								if shieldingFrame >= totalShieldingFrames {
-									shieldingFrame = 0;
-									hasCalculatedWillShield = false;
-								}
-							}
-							shieldingFrame++;
-						}
-					}
-				}
-			
-				// dodge check
-				if maybeDodge() {
-					break;
-				}
+				// face the proper direction
+				faceMovingDirection();
+				// CHECK 1: ARE WE OUT OF RANGE FOR THE CURRENTLY CHOSEN ATTACK?
+				if maybeChangeAttack() break;
+				// CHECK 2: WILL WE DODGE IN THIS MOVE STATE?
+				calculateWillDodge();
+				if maybeDodge() break;
+				// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
+				maybeShield();
 				
 				// move to lockOnTarget until in range for chosen attack
 				var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
@@ -481,110 +138,18 @@ switch(state) {
 					(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) 
 						|| wallsBetweenTarget != noone || alliesBetweenTarget != noone || enemyObstaclesBetweenTarget != noone || (layer != lockOnTarget.layer) : 
 					(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]) || (layer != lockOnTarget.layer);
-				//var pred = true;
 				
 				if pred && !isFlinching {
-					
-					if layer == lockOnTarget.layer /*&& mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,10,false)*/ {
-						if recalculatePathFrame == recalculatePathFrameTotal {
-							//if isSlowed {
-							//	mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,1,false);
-							//} else {
-							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false);
-							//}
-							path_start(path,functionalSpeed,path_action_stop,false);
-							recalculatePathFrame = 0;
-						} else {
-							recalculatePathFrame++;
-						}
-					} 
-					/*
-					else if layer == lockOnTarget.layer && !mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,false) {
-						if 
-						mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0)
-						{
-						path_start(path,functionalSpeed,path_action_stop,false);
-						}
-					}*/
-					// return to post if player is not on your layer anymore
-					else if postZ == layer && layer != lockOnTarget.layer {
-						if mp_grid_path(personalGrid,path,x,y,postX,postY,0) {
-							path_start(path,functionalSpeed,path_action_stop,false);
-							currentMeleeAttack = noone;
-							currentRangedAttack = noone;
-							lockOnTarget = noone;
-						}
-					}
-					// not on post layer, not on lockOnTarget layer
-					else {
-						if mp_grid_path(personalGrid,path,x,y,tempPostX,tempPostY,0) {
-							path_start(path,functionalSpeed,path_action_stop,false);
-							currentMeleeAttack = noone;
-							currentRangedAttack = noone;
-							lockOnTarget = noone;
-						}
-					}
+					moveNotInAttackRange();
 					break;
 				}
 				// within range for attack
 				else {
-					path_end();
-					stupidityFrame = 100 - aggressiveness;
-					
-					if attackFrequencyFrame == -1 {
-						randomize();
-						attackFrequencyFrame = round(random_range(attackFrequencyTotalFrames[0],attackFrequencyTotalFrames[1]));
-					} else if attackFrequencyFrame == 0 {
-						// check if should enter attack state every x frames (some number between ranges specified in attackFrequencyTotalFrames)
-						randomize();
-						var rand = random_range(1,100);
-						if rand <= aggressiveness {
-							if !isFrozen {
-								hasCalculatedWillDodge = false;
-								isStrafing = false;
-								state = CombatantStates.Attacking;
-							}
-						}
-						attackFrequencyFrame--;
-					} else {
-						if currentMeleeAttack != noone {
-							// strafe (maybe) and wait
-							if strafeFrame == -1 {
-								randomize();
-								strafeFrame = round(random_range(strafeTotalFrames[0],strafeTotalFrames[1]));
-								// check and see if will strafe this period
-								randomize();
-								var rand = random_range(1,100);
-								if rand <= 75 {
-									isStrafing = true;
-									strafeAngle = point_direction(lockOnTarget.x,lockOnTarget.y,x,y);
-									strafeDirection = rand < 37 ? "l" : "r";
-								} else isStrafing = false;
-							} else {
-								if isStrafing {
-									var dist = distance_to_object(lockOnTarget);
-									var targetRadius = point_distance(x,y,lockOnTarget.x,lockOnTarget.y)-distance_to_object(lockOnTarget);
-									var orbit = targetRadius+distance_to_object(lockOnTarget);
-									/*if dist < meleeRangeArray[currentMeleeAttack-1] {
-										orbit += 1;
-									}*/
-									if dist <= meleeRangeArray[currentMeleeAttack-1] {
-										strafeAroundPoint(lockOnTarget.x,lockOnTarget.y,functionalSpeed*.3,orbit);
-									} 
-									
-								}
-								strafeFrame--;
-							}
-						}
-						attackFrequencyFrame--;
-					}
+					moveInAttackRange();
 					break;
 				}
 			}
-		
-			// TODO these checks should come back
 			// if no attack is chosen, we're probably heading back to post
-			// check no one is tryna gank us on our way back tho
 			else {
 				var actingPostX = postX;
 				var actingPostY = postY;
@@ -595,23 +160,19 @@ switch(state) {
 				if distance_to_point(actingPostX,actingPostY) > 2 {
 					mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 					path_start(path,functionalSpeed,path_action_stop,false);
-					var xx = path_get_x(path,1);
-					var yy = path_get_y(path,1);
-					var pdir = point_direction(x,y,xx,yy);
-					facingDirection = pdir;
+					facingDirection = direction;
 					
 					// can aggro while returning to post 
 					// check if in melee aggro range
-					if	((canSeePlayer(id) || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
+					if	((canSeeLockOnTarget() || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
 						state = CombatantStates.AggroMelee;
 						break;
 					} else
 					// check if in ranged aggro range
-					if canSeePlayer(id) && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
+					if canSeeLockOnTarget() && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
 						state = CombatantStates.AggroRanged;
 						break;
 					}
-					
 				} else {
 					state = CombatantStates.Idle;
 				}
@@ -648,13 +209,13 @@ switch(state) {
 				}
 			}
 			
+			// aim when preparing attack
 			if ds_map_size(preparingLimbs) != 0 {
-				// aim when preparing attack
-				turnToFacePoint(turnSpeed*3,lockOnTarget.x,lockOnTarget.y);
+				turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 			}
 			
+			// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
 			if !isRanged && ds_map_size(preparingLimbs) !=0 {
-				// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
 				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] && !place_meeting_layer(x,y,lockOnTarget) {
 					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,false);
 				}
@@ -684,7 +245,7 @@ switch(state) {
 				}
 				// if this isn't the first attack in chain and there is another attack in chain, decide based on aggresiveness
 				else if (nextAttackInChainExists && !hasCalculatedNextAttack) {
-					randomize();
+					/*randomize();
 					var rand = random_range(0,1);
 					if rand <= (aggressiveness/100) {
 						willAttack = true;
@@ -694,7 +255,9 @@ switch(state) {
 						hasCalculatedNextAttack = true;
 						willAttack = false;
 						attackNumberInChain--; // this is pretty sloppy
-					}
+					}*/
+					// NEW: if a chain has started, it will keep going until it's over or stamina is out
+					willAttack = true; 
 				}
 			
 				// attack logic
@@ -752,112 +315,15 @@ switch(state) {
 			} 
 
 			// iterate over the preparing limbs to see if an attack should fire
-			// TODO what about non humanoid attackers or attacks that do not use limbs?
-			var currentPreparingLimbKey = ds_map_find_first(preparingLimbs); // limbKey
-			for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
-				var prepFrame = ds_map_find_value(prepFrames,currentPreparingLimbKey);
-				var totalPrepFrames = ds_map_find_value(prepFrameTotals,currentPreparingLimbKey);
-				
-				// stop preparing, begin attacking
-				if prepFrame >= totalPrepFrames-1 {
-					
-					// find attack data object for this attack to get stamina cost
-					var limb = findLimb(id,currentPreparingLimbKey);
-					var attackInChain = ds_map_find_value(preparingLimbs,currentPreparingLimbKey);
-					var attackData = noone;
-					if !isRanged {
-						var attackChain = meleeAttacks[attackNumber-1];
-						attackData = attackChain[attackInChain-1];
-					} else {
-						var attackChain = rangedAttacks[attackNumber-1];
-						attackData = attackChain[attackInChain-1];
-					}
-					stamina -= attackData.staminaCost;
-					
-					// update data structures
-					ds_map_replace(prepFrames,currentPreparingLimbKey,-1);
-					ds_map_replace(prepFrameTotals,currentPreparingLimbKey,0);
-					ds_map_delete(preparingLimbs,currentPreparingLimbKey);
-					ds_map_replace(attackingLimbs,currentPreparingLimbKey,attackInChain);
-					
-					// create attack object
-					global.owner = id; // passed as param to attackObj
-					global.limbKey = currentPreparingLimbKey;
-					var attackObj = instance_create_depth(x,y,1,obj_attack);
-					
-					hasCalculatedNextAttack = false;
-				} else {
-					// increment through frames for attack prep
-					if isSlowed {
-						ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+.5);
-					} else {
-						ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+1);
-					}
-				}
-				//show_debug_message("prep: " + string(ds_map_find_value(prepFrames,currentPreparingLimbKey)));
-				currentPreparingLimbKey = ds_map_find_next(preparingLimbs,currentPreparingLimbKey);
-			}
+			iterateOverPreparingLimbs();
 			
 			// attack animation frame logic shit is in obj_attack
 			
 			// update attackFrames values
-			if ds_map_size(attackingLimbs) != 0 {
-				var limb = ds_map_find_first(attackingLimbs);
-				for (var i = 0; i < ds_map_size(attackingLimbs); i++) {
-					var idd = id;
-					var attackObj = noone;
-					with obj_attack {
-						if owner = idd && limbKey == limb {
-							attackObj = id;
-						}
-					}
-					if attackObj != noone {
-						ds_map_replace(attackFrames,limb,attackObj.image_index);
-					}
-					limb = ds_map_find_next(attackingLimbs, limb);
-				}
-			}
+			updateAttackFrames();
 
 			// iterate over the recover frames for all limbs to see if an attack is ended
-			if ds_map_size(recoveringLimbs) != 0 {
-				var currentRecoveringLimbKey = ds_map_find_first(recoveringLimbs);
-				for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
-					var recoverFrame = ds_map_find_value(recoverFrames,currentRecoveringLimbKey);
-					var recoverFrameTotal = ds_map_find_value(recoverFrameTotals,currentRecoveringLimbKey);
-				
-					// check if this hand just started recovering attack
-					if recoverFrame == -1 {
-						prevAttackLimb = currentRecoveringLimbKey;
-						ds_map_replace(recoverFrames,currentRecoveringLimbKey,0);
-						
-						var currentAttack = currentMeleeAttack != noone ? currentMeleeAttack : currentRangedAttack;
-						var attacksChainArray = currentMeleeAttack != noone ? meleeAttacks : rangedAttacks;
-						var attackChainArray = attacksChainArray[currentAttack-1];
-						var attackInChain = ds_map_find_value(recoveringLimbs,currentRecoveringLimbKey);
-						var attackData = attackChainArray[attackInChain-1];
-						var spriteAttackNumber = attackData.spriteAttackNumber;
-						var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
-						
-						var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
-						ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,sprite_get_number(recoverSprite));
-					}
-					// if at end of recover, we may need to leave attack state (if no other limbs are recovering or preparing or attacking)
-					else if recoverFrame >= recoverFrameTotal-1 {
-						// no matter what, we need to remove this limb from recoveringLimbs and reset frame values
-						ds_map_delete(recoveringLimbs,currentRecoveringLimbKey);
-						ds_map_replace(recoverFrames,currentRecoveringLimbKey,-1);
-						ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,0);
-					} else {
-						if isSlowed {
-							ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+.5);
-						} else {
-							ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+1);
-						}
-					}
-					//show_debug_message("recover: " + string(ds_map_find_value(recoverFrames,currentRecoveringLimbKey)));
-					currentRecoveringLimbKey = ds_map_find_next(recoveringLimbs,currentRecoveringLimbKey);
-				}
-			}
+			iterateOverRecoveringLimbs();
 
 			// get out of attack sequence
 			if ds_map_size(preparingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 && ds_map_size(attackingLimbs) == 0 {
@@ -871,7 +337,11 @@ switch(state) {
 		break;
 	}
 	case CombatantStates.Wary: {
-		// speed = 0;
+		// do not stay in wary state if lockOnTarget is out of sight
+		var wallsBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
+		if wallsBetweenTarget != noone {
+			waryFrame = 0;
+		}
 		
 		// if waryFrame is 0, return to Move state
 		if waryFrame == 0 {
@@ -879,49 +349,12 @@ switch(state) {
 		}
 		// calculate -- will we dodge during this Wary state?
 		// if we've not yet calculated if we'll dodge during this Wary state, calculate that now
-		// this is calculated only once per wary state
-		if !hasCalculatedWillDodge {
-			randomize();
-			var rand = random_range(1,100);
-			willDodge = rand <= agility ? true : false;
-			hasCalculatedWillDodge = true;
-		}
-		
-		if maybeDodge() {
-			break;
-		}
-		
-		// if struck before we reach wary distance, revert to Move state
-		// handled in collision with obj_attack event
+		// this is calculated only once per Wary state
+		calculateWillDodge();
+		if maybeDodge() break; 
 		
 		// if not at wary distance, get there
-		if (distance_to_object(lockOnTarget) < waryDistance && !hasReachedWaryDistance) || jumpFrame < jumpTotalFrames {
-			// pick direction
-			// start with opposite direction of player
-			var startDir = (facingDirection+180)%360;
-			var dir = (startDir+10)%360;
-			var sp = jumpFrame >= jumpTotalFrames ? functionalSpeed*.5 : functionalSpeed*2;
-			var xx = x+lengthdir_x(sp,dir);
-			var yy = y+lengthdir_y(sp,dir);
-			var i = 0;
-			while place_meeting_layer(xx,yy,obj_enemy_obstacle_parent) && dir != startDir {
-				dir = (dir+10)%360;
-				xx = x+lengthdir_x(sp,dir);
-				yy = y+lengthdir_y(sp,dir);
-				i++;
-			}
-			// possibly don't always turn the same way
-			if dir != startDir {
-				x += lengthdir_x(sp,dir);
-				y += lengthdir_y(sp,dir);
-			} else {
-				hasCalculatedWillDodge = false;
-				state = CombatantStates.Idle;
-			}
-			turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
-		} else {
-			hasReachedWaryDistance = true;
-		}
+		moveToWaryDistance();
 		
 		if !hasReachedWaryDistance && distance_to_object(obj_solid_parent) == 0 {
 			hasReachedWaryDistance = true;
@@ -948,48 +381,8 @@ switch(state) {
 		break;
 	}
 	case CombatantStates.Dodging: {
-		attackNumberInChain = noone;
-		isShielding = false;
-		speed = 0;	
-		image_angle = dodgeDirection;
-		
-		var dodgeSpeed = functionalSpeed*2;
-		// Do not dodge into fallzones on purpose (if enemy)
-		if type != CombatantTypes.Player {
-			if dodgeFrame == 0 {
-				// check every step the dodge in this direction would take us
-				// if its into a fallzone, try a different angle
-				var dir = dodgeDirection;
-				var i = dodgeFrame;
-				var possibleAngles = ds_list_create();
-				while i < totalDodgeFrames {
-					var xx = x+lengthdir_x(dodgeSpeed,dir);
-					var yy = y+lengthdir_y(dodgeSpeed,dir);
-					if !place_meeting_layer(xx,yy,obj_fallzone) {
-						ds_list_add(possibleAngles,dir);
-					} 
-					i++;
-					dir = (dir+10)%360;
-				}
-				// find closest possible angle to dodgeDirection
-				var closestAngleDiff = 360;
-				for (var i = 0; i < ds_list_size(possibleAngles); i++) {
-					var ang = ds_list_find_value(possibleAngles,i);
-					var diff = abs(angle_difference(dodgeDirection,ang));
-					if diff < closestAngleDiff {
-						closestAngleDiff = diff;
-						dir = ang;
-					}				
-				}
-				dodgeDirection = dir;
-				ds_list_destroy(possibleAngles);
-			}
-			moveToNearestFreePoint(dodgeDirection,dodgeSpeed,true);
-		} else {
-			moveToNearestFreePoint(dodgeDirection,dodgeSpeed);
-		}
-
-		dodgeFrame++;
+		// actual dodge
+		dodge();
 		// if not dodging, reset some states and values
 		if dodgeFrame >= totalDodgeFrames {
 			
@@ -1000,237 +393,60 @@ switch(state) {
 			dodgeDirection = noone;
 			
 			// possibly become wary
-			if type != CombatantTypes.Player {
-				randomize();
-				var rand = random_range(0,100);
-				if rand < skittishness {
-					jumpFrame = 0; 
-					waryFrame = round(random_range(waryTotalFrames[0],waryTotalFrames[1]));
-					waryDistance = round(random_range(waryDistanceRange[0],waryDistanceRange[1]));
-					hasReachedWaryDistance = false;
-					if ds_map_find_value(equippedLimbItems,"l") {
-						var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
-						if leftHandItem.subType == HandItemTypes.Shield {
-							isShielding = true;
-							global.owner = id;
-							instance_create_depth(x,y,1,obj_shield_block);
-						}
-					}
-					
-					shieldingFrame = 0;
-					state = CombatantStates.Wary;
-					break;
-				}
-			}
+			if maybeBecomeWary() break;
 			state = CombatantStates.Moving;
 		}
 		break;
 	}
 	case CombatantStates.Staggering: {
-		jumpFrame = jumpTotalFrames;
-		// stop attacking -- 
-		if hasHands {
-			// stop preparing attacks
-			if ds_map_size(preparingLimbs) != 0 {
-				var hand = ds_map_find_first(preparingLimbs);
-				for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
-					ds_map_replace(prepFrames,hand,-1);
-					ds_map_replace(prepFrameTotals,hand,0);
-					ds_map_delete(preparingLimbs,hand);
-					hand = ds_map_find_next(preparingLimbs,hand);
-				}
-			}
-			// stop attacking
-			if ds_map_size(attackingLimbs) != 0 {
-				var hand = ds_map_find_first(attackingLimbs);
-				for (var i = 0; i < ds_map_size(attackingLimbs); i++) {
-					ds_map_delete(attackingLimbs,hand);
-					hand = ds_map_find_next(attackingLimbs,hand);
-				}
-			}
-			// stop recovering attacks
-			if ds_map_size(recoveringLimbs) != 0 {
-				var hand = ds_map_find_first(recoveringLimbs);
-				for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
-					ds_map_replace(recoveringLimbs,hand,-1);
-					ds_map_replace(recoveringLimbs,hand,0);
-					ds_map_delete(recoveringLimbs,hand);
-					hand = ds_map_find_next(recoveringLimbs,hand);
-				}
-			}
-		}
-		isStrafing = false;
-		currentUsingSpell = noone;
-		attackNumberInChain = noone;
 		
-		var sspeed = staggerSpeed == noone ? functionalSpeed : staggerSpeed;
+		// stop attacking 
+		stopAllAttacks();
 		
-		while staggerDirection < 0 {
-			staggerDirection += 360;
-		}
-		staggerDirection = staggerDirection%360;
-	
-		speed = 0;
-		var sDir = staggerDirection;
-		direction = staggerDirection;
-		// stagger twice as quickly early on
-		var solidsToCheck = type == CombatantTypes.Enemy ? obj_enemy_obstacle_parent : obj_solid_parent;
-		if (staggerFrame > .5*staggerDuration) {
-			
-			var x1 = x+lengthdir_x(.5*sspeed, sDir);
-			var y1 = y+lengthdir_y(.5*sspeed, sDir);
-			do {
-				x1 = x+lengthdir_x(.5*sspeed, sDir);
-				y1 = y+lengthdir_y(.52*sspeed, sDir);
-				if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
-					sDir = (sDir + 45)%360;
-				}
-			} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
-			
-			if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
-				speed = .25*sspeed;
-				flinchDirection = sDir;
-			}
-		} else {
-			
-			var x1 = x+lengthdir_x(.25*sspeed, sDir);
-			var y1 = y+lengthdir_y(.25*sspeed, sDir);
-			
-			do {
-				x1 = x+lengthdir_x(.25*sspeed, sDir);
-				y1 = y+lengthdir_y(.25*sspeed, sDir);
-				if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
-					sDir = (sDir + 45)%360;
-				}
-			} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
-			
-			if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
-				speed = .5*sspeed;
-				staggerDirection = sDir;
-			}
-			
-		}
-		staggerFrame++;
+		// stagger
+		stagger();
+		
 		if (staggerFrame >= staggerDuration) {
 			staggerDuration = 0;
 			staggerFrame = 0;
 			speed = 0;
 			staggerSpeed = noone;
 			
-			if type != CombatantTypes.Player {
-				// possibly become wary (less chance after stagger than dodging)
-				randomize();
-				var rand = random_range(0,100);
-				if rand < skittishness/1.5 {
-					jumpFrame = 0; 
-					waryFrame = round(random_range(waryTotalFrames[0],waryTotalFrames[1]));
-					waryDistance = round(random_range(waryDistanceRange[0],waryDistanceRange[1]));
-					hasReachedWaryDistance = false;
-					if ds_map_find_value(equippedLimbItems,"l") {
-						var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
-						if leftHandItem.subType == HandItemTypes.Shield {
-							isShielding = true;
-							global.owner = id;
-							instance_create_depth(x,y,1,obj_shield_block);
-						}
-					}
-					shieldingFrame = 0;
-					state = CombatantStates.Wary;
-					break;
-				}
-			}
+			// possibly become wary (less chance after stagger than dodging)
+			if maybeBecomeWary(1.5) break;
 			state = CombatantStates.Idle;
-			
 		}
 		break;
 	}
 }
 
-// flinching just move you back a little in a given direction
+// flinching just moves you back a little in a given direction
 // its like staggering but doesnt interrupt attacks
 if isFlinching {
-	isStrafing = false;
-	if flinchFrame < totalFlinchFrames {
-		var fspeed = flinchSpeed == 0 ? functionalSpeed : flinchSpeed;
-	
-		speed = 0;
-		direction = flinchDirection;
-		while flinchDirection < 0 {
-			flinchDirection += 360;
-		}
-		flinchDirection = flinchDirection%360;
-		// stagger twice as quickly early on
-		var fDir = flinchDirection;
-		var solidsToCheck = type == CombatantTypes.Enemy ? obj_enemy_obstacle_parent : obj_solid_parent;
-		if (flinchFrame > .5*totalFlinchFrames) {
-			
-			var x1 = x+lengthdir_x(.25*fspeed, fDir);
-			var y1 = y+lengthdir_y(.25*fspeed, fDir);
-			do {
-				x1 = x+lengthdir_x(.25*fspeed, fDir);
-				y1 = y+lengthdir_y(.25*fspeed, fDir);
-				if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
-					fDir = (fDir + 45)%360;
-				}
-			} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
-			
-			if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
-				speed = .1*fspeed;
-				flinchDirection = fDir;
-			}
-		} else {
-			var x1 = x+lengthdir_x(.5*fspeed, fDir);
-			var y1 = y+lengthdir_y(.5*fspeed, fDir);
-			
-			do {
-				x1 = x+lengthdir_x(.25*fspeed, fDir);
-				y1 = y+lengthdir_y(.25*fspeed, fDir);
-				if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
-					fDir = (fDir + 45)%360;
-				}
-			} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || fDir == flinchDirection)
-			
-			if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
-				speed = .2*fspeed;
-				flinchDirection = fDir;
-			}
-		}
-		flinchFrame++;
-	} else {
-		flinchFrame = 0;
-		totalFlinchFrames = 0;
-		isFlinching = false;
-		flinchSpeed = 0;
-	}
+	flinch();
 }
 
+// always increment jumpFrames if jumping
 if jumpFrame <= jumpTotalFrames {
 	jumpFrame++;
 }
 
-
-
-// check if not on any tile on the current layer
-
-// check if in fallzone enough to fall
-/*var layerName = layer_get_name(layer);
-var layerNum = real(string_char_at(layerName,string_length(layerName)));
-var tilemap = layer_tilemap_get_id(layer_get_id("tiles_floor_"+string(layerNum)));
-var w = bbox_right-bbox_left;
-var h = bbox_bottom-bbox_top;
-var t1 = tilemap_get_at_pixel(tilemap,x-(.25*w),y-(.25*h));
-var t2 = tilemap_get_at_pixel(tilemap,x+(.25*w),y-(.25*h));
-var t3 = tilemap_get_at_pixel(tilemap,x-(.25*w),y+(.25*h));
-var t4 = tilemap_get_at_pixel(tilemap,x+(.25*w),y+(.25*h));
-if t1 == 0 && t2 == 0 && t3 == 0 && t4 == 0 {*/
-
-
+// check if we should be falling
 with obj_fallzone {
-	var d = point_in_rectangle(other.bbox_left,other.bbox_top,bbox_left,bbox_top,bbox_right,bbox_bottom);
-	var e = point_in_rectangle(other.bbox_right,other.bbox_bottom,bbox_left,bbox_top,bbox_right,bbox_bottom);
+	var d = point_in_rectangle(other.bbox_left+10,other.bbox_top+10,bbox_left,bbox_top,bbox_right,bbox_bottom);
+	var e = point_in_rectangle(other.bbox_right-10,other.bbox_bottom-10,bbox_left,bbox_top,bbox_right,bbox_bottom);
 	if	d && e && layer == other.layer {
 		other.fallFrame = 0;
 		other.floorsFallen = 1;
 	}
+}
+
+if type == CombatantTypes.Enemy {
+	//if place_meeting_layer(x,y,) {
+	// if colliding with a solid object, jump to nearest free point
+	if !place_free(x,y) {
+		jumpToNearestFreePoint();
+	}
+	//}
 }
 

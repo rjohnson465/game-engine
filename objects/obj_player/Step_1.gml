@@ -98,11 +98,3 @@ if gamepad_is_connected(gamePadIndex) {
 		}
 	}
 }
-
-with all {
-	//if solid {
-		if place_meeting_layer(x,y,other) && id != other.id {
-			var a = 3;
-		}
-	//}
-}

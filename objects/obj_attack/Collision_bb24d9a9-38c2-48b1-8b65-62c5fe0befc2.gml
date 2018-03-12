@@ -2,7 +2,7 @@ if object_is_ancestor(other.object_index,obj_combatant_parent) {
 	exit;
 }
 
-if other.layer != layer {
+if (other.layer != layer && abs(abs(other.depth)-abs(depth)) > 5) {
 	exit;
 }
 
@@ -15,7 +15,7 @@ if possibleSolids != noone {
 	var closestDist = 1000;
 	for (var i = 0; i < ds_list_size(possibleSolids); i++) {
 		var el = ds_list_find_value(possibleSolids,i);
-		if !object_is_ancestor(el.object_index,obj_combatant_parent) && distance_to_object(el) < closestDist && el.layer == layer {
+		if !object_is_ancestor(el.object_index,obj_combatant_parent) && distance_to_object(el) < closestDist {
 			firstObj = el;
 		}
 	}
@@ -24,7 +24,6 @@ if possibleSolids != noone {
 var hitsWallFirst = firstObj == other.id;
 if isMelee && hitsWallFirst {
 	owner.staggerFrame = 0;
-	
 	owner.staggerDuration = 5;
 	owner.staggerDirection = (owner.facingDirection+180)%360;
 	path_end();

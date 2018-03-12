@@ -133,6 +133,7 @@ ds_list_add(inventory,longsword);
 lastFountainRoom = noone;
 lastFountainX = noone;
 lastFountainY = noone;
+lastFountainZ = noone;
 
 var playerId = id;
 with obj_light_radius {

@@ -3,9 +3,10 @@
 //  Returns the id of the nth nearest instance of an object
 //  to a given point or noone if none is found.
 //
-//      x,y       point coordinates, real
-//      obj       object index (or all), real
-//      n         proximity, real
+/// @param x
+/// @param y       point coordinates, real
+/// @param obj       object index (or all), real
+/// @param n         proximity, real
 //
 /// GMLscripts.com/license
 {

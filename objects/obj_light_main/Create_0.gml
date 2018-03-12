@@ -1,4 +1,4 @@
-depth = 0;
+depth = -1; // just above the top layer
 color = make_colour_rgb(0.2*255, 0.2*255, 0.2 * 255) // The darker the color, the darker the shadow.
 //color = c_gray;
 var w = camera_get_view_width(view_camera[0]);

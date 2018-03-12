@@ -3,7 +3,7 @@ limbKey = global.limbKey;
 limbItem = ds_map_find_value(owner.equippedLimbItems,limbKey);
 persistent = global.isPersistent;
 layer = owner.layer;
-depth = layer_get_depth(layer) + 1;
+//depth = layer_get_depth(layer) + 1;
 
 global.limb = id;
 instance_create_depth(x,y,1,obj_weapon);

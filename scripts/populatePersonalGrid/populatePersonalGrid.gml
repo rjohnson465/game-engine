@@ -8,11 +8,9 @@ var solids = ds_list_create();
 var myLayer = layer;
 var idd = id;
 with obj_enemy_obstacle_parent {
-	//show_debug_message(object_get_name(idd.object_index) + string(myLayer) + " | " + object_get_name(object_index) + string(layer));
 	if object_is_ancestor(object_index,obj_combatant_parent) continue;
 	else {
 		if layer == myLayer {
-			//show_debug_message("Adding object " + object_get_name(object_index) + "with layer" + string(layer) +" to grid ");
 			ds_list_add(solids,id);
 		}
 	}
