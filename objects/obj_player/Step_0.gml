@@ -264,7 +264,8 @@ switch(state) {
 	}
 	case CombatantStates.Attacking: {
 		
-		if !isFlinching {
+		var lhItem = ds_map_find_value(equippedLimbItems,"l");
+		if !isFlinching && currentUsingSpell != noone || (leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded){
 			speed = 0;
 		
 			var canMove = false;
@@ -304,27 +305,20 @@ switch(state) {
 				}
 			}
 		
-		
-			var x1 = x +lengthdir_x(usingSpeed,direction);
-			var y1 = y +lengthdir_y(usingSpeed,direction);
-			//canMove = !place_meeting_layer(x1,y1,obj_solid_parent);
-
-			//if !canMove {
-			//	speed = 0;
-			//}
-		
 			if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) {
+				var useSpeed = functionalSpeed;
+				if SHIFT && stamina > 0 {
+					useSpeed = .5*(functionalSpeed*1.25);
+					stamina -= .35;
+				}
 				// walking backwards is slow
-				dirDiff = abs(direction - facingDirection)
+				dirDiff = abs(direction - facingDirection);
 				if dirDiff > 135 && dirDiff < 225  {
-					speed = .25*functionalSpeed;
+					moveToNearestFreePoint(direction,.25*useSpeed);
 				}	
-				else speed = .5*functionalSpeed;
-			}	
-			// run
-			if SHIFT && stamina > 0 && canMove {
-				speed = .5*(speed*1.25);
-				stamina -= .5;
+				else {
+					moveToNearestFreePoint(direction,.5*useSpeed);
+				}
 			}
 		}
 		

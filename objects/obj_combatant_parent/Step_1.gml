@@ -25,6 +25,8 @@ if hp < 1 && isAlive && !isDying {
 		ds_map_replace(conditionPercentages,currentCondition,0);
 		currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
 	}
+	global.xpAmount = xpReward;
+	instance_create_depth(x,y,1,obj_xp);
 }
 
 if isDying && isAlive {

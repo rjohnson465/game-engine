@@ -16,7 +16,7 @@ if !isRunning {
 }
 	
 // wish at fountain
-else {
+else if isDoneFilling {
 		
 	// show water particles from "wish"
 	randomize();

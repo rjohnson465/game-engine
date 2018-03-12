@@ -11,18 +11,21 @@
 
 var x1 = argument[0],
   y1 = argument[1],
-  text = argument[2];
-  c1 = argument[3];
+  text = argument[2],
+  c1 = argument[3],
   c2 = argument[4];
-  outlineColor = c_black;
-  xs = 1;
-  ys = 1;
-  a = 0;
+  var outlineColor = c_black
+  var xs = 1;
+  var ys = 1;
+  var a = 0;
 
 //var c2 = draw_get_colour();
 
 if (argument_count == 9)
 {
+	xs = argument[5];
+	ys = argument[6];
+	a = argument[7];
   outlineColor = argument[8];
 }
 else if argument_count == 8 {

@@ -118,3 +118,15 @@ equipSelector = instance_create_depth(x,y,1,obj_item_selector);
 
 global.selectorType = SelectorTypes.Imbue;
 imbueSelector = instance_create_depth(x,y,1,obj_item_selector);
+
+// input prompt enums
+// these are all mk values but can be translated to Xbox controller sprites in draw_prompt
+enum Input {
+	F,
+	Backspace,
+	Escape,
+	LMB,
+	RMB,
+	MMB,
+	Space
+}

@@ -1,3 +1,4 @@
+if victim.layer != global.player.layer exit;
 draw_set_color(c_white);
 draw_set_font(font_damage);
 draw_set_halign(fa_left);

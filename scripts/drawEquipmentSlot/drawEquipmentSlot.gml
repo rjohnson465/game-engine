@@ -18,6 +18,17 @@ var drawGreen = false;
 if arrayIncludes(global.ui.equipSelector.acceptableEquipmentSlots, slot) {
 	drawGreen = true;
 }
+var drawBlack = false; 
+if	(slot == EquipmentSlots.RightHand1 && 
+	arrayIncludes(global.ui.equipSelector.acceptableEquipmentSlots,EquipmentSlots.LeftHand1) &&
+	getItemAtSelectorPosition(global.ui.moveSelector).isTwoHanded)
+	||
+	(slot == EquipmentSlots.RightHand2 && 
+	arrayIncludes(global.ui.equipSelector.acceptableEquipmentSlots,EquipmentSlots.LeftHand2) &&
+	getItemAtSelectorPosition(global.ui.moveSelector).isTwoHanded)
+	{
+	drawBlack = true;
+}
 
 // if this slot holds the equipment manager's selectd item, draw dark
 
@@ -37,4 +48,8 @@ else if drawGreen {
 	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_green,.75);
 } else if drawDark {
 	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_gray,.75);
-} else draw_sprite(spr_item_slot,1,xx,yy);
+} else if drawBlack {
+	draw_sprite(spr_item_slot,1,xx,yy);
+	draw_line_color(xx,yy,xx+global.inventory.slotWidth,yy+global.inventory.slotHeight,c_red,c_red);
+}
+else draw_sprite(spr_item_slot,1,xx,yy);

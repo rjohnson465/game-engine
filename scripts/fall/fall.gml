@@ -10,20 +10,21 @@ if fallFrame == .5*fallTotalFrames {
 
 	layer = lowerLayer;
 	updateRoomLayers();
-	// if we've hit ground...
-	var layerName = layer_get_name(layer);
-	var layerNum = real(string_char_at(layerName,string_length(layerName)));
-	var tilemap = layer_tilemap_get_id(layer_get_id("tiles_floor_"+string(layerNum)));
-	var w = bbox_right-bbox_left;
-	var h = bbox_bottom-bbox_top;
-	var t1 = tilemap_get_at_pixel(tilemap,x-(.25*w),y-(.25*h));
-	var t2 = tilemap_get_at_pixel(tilemap,x+(.25*w),y-(.25*h));
-	var t3 = tilemap_get_at_pixel(tilemap,x-(.25*w),y+(.25*h));
-	var t4 = tilemap_get_at_pixel(tilemap,x+(.25*w),y+(.25*h));
-	if t1 == 0 && t2 == 0 && t3 == 0 && t4 == 0 {
+	
+	// check if we should keep falling
+	var keepFalling = false;
+	with obj_fallzone {
+		var d = point_in_rectangle(other.bbox_left+10,other.bbox_top+10,bbox_left,bbox_top,bbox_right,bbox_bottom);
+		var e = point_in_rectangle(other.bbox_right-10,other.bbox_bottom-10,bbox_left,bbox_top,bbox_right,bbox_bottom);
+		if	d && e && layer == other.layer {
+			keepFalling = true;
+		}
+	}
+	if keepFalling {
 		fallFrame = 0;
 		floorsFallen++;
-	} else {
+	}
+	else {
 		jumpToNearestFreePoint();
 		global.damageType = PHYSICAL;
 		global.x1 = x;

@@ -1,13 +1,13 @@
-/// isSelectorInEquippedItems
+/// isSelectorInEquippedItems(*selector)
+/// @param *selector
 // must be called by an instance of selector
 
-var selectorX = x1;
-var selectorY = y1;
-
-/*with obj_item_selector {
-	selectorX = x1;
-	selectorY = y1;
-}*/
+var s = id;
+if argument_count == 1 {
+	s = argument[0];
+}
+var selectorX = s.x1;
+var selectorY = s.y1;
 
 var eq = global.equippedItemsManager;
 

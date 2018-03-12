@@ -1,9 +1,14 @@
 path_end();
-stupidityFrame = 100 - aggressiveness;
+//stupidityFrame = 100 - aggressiveness;
 					
 if attackFrequencyFrame == -1 {
 	randomize();
-	attackFrequencyFrame = round(random_range(attackFrequencyTotalFrames[0],attackFrequencyTotalFrames[1]));
+	var isRanged = currentMeleeAttack == noone ? true : false;
+	if isRanged {
+		attackFrequencyFrame = round(random_range(attackFrequencyTotalFramesRanged[0],attackFrequencyTotalFramesRanged[1]));
+	} else {
+		attackFrequencyFrame = round(random_range(attackFrequencyTotalFramesMelee[0],attackFrequencyTotalFramesMelee[1]));
+	}
 } else if attackFrequencyFrame == 0 {
 	// check if should enter attack state every x frames (some number between ranges specified in attackFrequencyTotalFrames)
 	randomize();

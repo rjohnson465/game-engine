@@ -158,91 +158,23 @@ draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBo
 // show selected inventory item info
 if selectedItem {
 	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,selectedItem);
-	/*draw_set_color(c_olive);
-	var descriptionHandleX2 = itemDescriptionTopLeftX+width
-	var descriptionHandleY2 = itemDescriptionTopLeftY+itemDescriptionHandleHeight;
-	draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,descriptionHandleX2,descriptionHandleY2,false);
-	draw_set_color(c_white);
-	draw_set_halign(fa_left);
-	var s = selectedItem.name;
-	if selectedItem.totalCharges != noone {
-		if selectedItem.totalCharges > 0 {
-			s += " (" + string(selectedItem.charges) + "/" + string(selectedItem.totalCharges) + " charges)";
-		}
-	}
-	draw_text(itemDescriptionTopLeftX+1,(descriptionHandleY2+itemDescriptionTopLeftY)/2.025,s);
-				
-	// all shields and weapons share many properties, so it makes sense to lump them together when showing properties
-	if selectedItem.type == ItemTypes.HandItem {
-					
-		// auto weapon / shield description 
-		var numHands = selectedItem.isTwoHanded ? "2H" : "1H";
-		var itemType = "";
-		if selectedItem.totalCharges != 0 {
-			itemType = "Magical Implement";
-		} else if selectedItem.subType == HandItemTypes.Ranged {
-			itemType = "Ranged Weapon";
-		} else if selectedItem.subType == HandItemTypes.Shield {
-			itemType = "Shield";
-		} else {
-			itemType = "Melee Weapon";
-		}
-					
-		var autoDescription = numHands + " " + itemType;
-		draw_text(itemDescriptionCol1X, itemDescriptionColY+20, autoDescription);
-					
-		// speed (no shield)
-		if selectedItem.subType != HandItemTypes.Shield {
-			var s = selectedItem.weaponSpeed + " Attack Speed";
-			draw_text(itemDescriptionCol1X, itemDescriptionColY+40, s);
-		}
-					
-		// weight
-		var s = "Weight: " + string(selectedItem.weight);
-		draw_text(itemDescriptionCol1X,itemDescriptionColY+60,s);
-		// value 
-		var s = "Value: " + string(selectedItem.value);
-		draw_text(itemDescriptionCol1X,itemDescriptionColY+80,s);
-					
-		// damages
-		if selectedItem.subType == HandItemTypes.Melee || selectedItem.subType == HandItemTypes.Ranged {
-			for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
-				var damageType = global.ALL_DAMAGE_TYPES[i];
-				var damageArray = ds_map_find_value(selectedItem.damages,damageType);
-				var minDamage = 100000; var maxDamage = 0;
-				if damageType == PHYSICAL {
-					for (var j = 0; j < array_length_1d(damageArray); j++) {
-						var num = damageArray[j];
-						if num < minDamage {
-							minDamage = num;
-						} 
-						if num > maxDamage {
-							maxDamage = num;
-						}
-					}
-				}
-				else {
-					minDamage = damageArray[0];
-					maxDamage = damageArray[1];
-				}
-				// draw damage texts in second column
-				if minDamage == 0 && maxDamage == 0 {
-					draw_text(itemDescriptionCol2X,itemDescriptionColY+(i*20),damageType + ": 0");
-				} else {
-					draw_text(itemDescriptionCol2X,itemDescriptionColY+(i*20),damageType + ": " + string(minDamage) + "-" + string(maxDamage));
-				}
-			}
-		} else if selectedItem.subType == HandItemTypes.Shield {
-			for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
-				var defenseType = global.ALL_DAMAGE_TYPES[i];
-				var blockPercentage = ds_map_find_value(selectedItem.defenses,defenseType);
-				// draw damage texts in second column
-				draw_text(itemDescriptionCol2X,itemDescriptionColY+(i*20),defenseType + ": " + string(blockPercentage));
-			}
-		}
-		
-	}*/
 } 
+
+// instructions / prompts
+if gamepad_is_connected(global.player.gamePadIndex) {
+	var promptsStartX = topLeftX+18;
+	var promptsY = bottomRightY+25;
+	var xOffset = 20;
+	var w = drawPrompt("Equip Item",Input.F,promptsStartX,promptsY)+xOffset;
+	if global.ui.equipSelector.isActive {
+		w += drawPrompt("Cancel Equip",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+	} 
+	else if isSelectorInEquippedItems(global.ui.moveSelector) 
+		&& getItemAtSelectorPosition(global.ui.moveSelector) != noone {
+		w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+	} 
+	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
+}
 
 
 
