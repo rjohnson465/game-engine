@@ -5,13 +5,28 @@ var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMe
 if attackNumber == noone exit;
 var isRanged = currentRangedAttack != noone;
 
+// find attack data object
+var attackData = noone;
+var attackChain = isRanged ? rangedAttacks[attackNumber-1] : meleeAttacks[attackNumber-1];
+if attackNumberInChain == noone {
+	attackData = attackChain[0];
+} else {
+	attackData = attackChain[attackNumberInChain-1];
+}
+
 var currentPreparingLimbKey = ds_map_find_first(preparingLimbs); // limbKey
 for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 	var prepFrame = ds_map_find_value(prepFrames,currentPreparingLimbKey);
 	var totalPrepFrames = ds_map_find_value(prepFrameTotals,currentPreparingLimbKey);
-				
+	
 	// stop preparing, begin attacking
 	if prepFrame >= totalPrepFrames-1 {
+					
+		if attackData.type == AttackTypes.Charge {
+			var targetDir = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
+			chargePointX = x+lengthdir_x(200,targetDir);
+			chargePointY = y+lengthdir_y(200,targetDir);
+		}
 					
 		// find attack data object for this attack to get stamina cost
 		var limb = findLimb(id,currentPreparingLimbKey);
@@ -44,6 +59,14 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 			ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+.5);
 		} else {
 			ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+1);
+		}
+		// if not in proper range, try to get there before attack begins
+		if attackData.type == AttackTypes.Charge {
+			var minRange = attackData.minRange;
+			if distance_to_object(lockOnTarget) < minRange {
+				var startDir = (facingDirection+180)%360;
+				moveToNearestFreePoint(startDir,functionalSpeed,true);
+			}
 		}
 	}
 	currentPreparingLimbKey = ds_map_find_next(preparingLimbs,currentPreparingLimbKey);

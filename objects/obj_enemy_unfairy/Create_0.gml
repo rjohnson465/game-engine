@@ -51,14 +51,19 @@ meleeAttacksCount = 1;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[15];
+meleeRangeArray=[15, 65];
 
 // ATTACKS
 global.owner = id;
 var longswordSwing = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_1_1);
 longswordSwing.limbKey = "l";
+
+var longswordStab = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
+longswordStab.limbKey = "l";
+
 var meleeChain0 = [longswordSwing];
-meleeAttacks = [meleeChain0];
+var meleeChain1 = [longswordStab];
+meleeAttacks = [meleeChain0, meleeChain1];
 /*
 var unarmedHook1 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
 unarmedHook1.limbKey = "l";
@@ -88,14 +93,13 @@ var shortbowShot = instance_create_depth(x,y,1,obj_attack_unfairy_shortbow_1_1);
 var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
-//rangedAttacks = noone;
 
 hp = 50;
 maxHp = 50;
 
 stamina = 60;
 maxStamina = 60;
-staminaRegen = 7;
+staminaRegen = 10;
 
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)

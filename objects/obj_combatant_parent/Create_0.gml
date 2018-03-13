@@ -188,7 +188,7 @@ maxHp = 100;
 hpRegen = .5; // per second
 stamina = 50;
 maxStamina = 50;
-staminaRegen = 5; // per second
+staminaRegen = 10; // per second
 
 // attributes
 strength = 10;
@@ -287,3 +287,6 @@ climbingDir = noone;
 
 recalculatePathFrame = 15;
 recalculatePathFrameTotal = 15;
+
+chargePointX = noone;
+chargePointY = noone;

@@ -165,6 +165,15 @@ switch(state) {
 			if attackNumber == noone break;
 			var isRanged = currentRangedAttack != noone;
 			
+			// find attack data object
+			var attackData = noone;
+			var attackChain = isRanged ? rangedAttacks[attackNumber-1] : meleeAttacks[attackNumber-1];
+			if attackNumberInChain == noone {
+				attackData = attackChain[0];
+			} else {
+				attackData = attackChain[attackNumberInChain-1];
+			}
+			
 			// get previous attacking limb
 			if attackNumberInChain == noone && !isRanged && hasHands {
 				var attackChain = meleeAttacks[attackNumber-1];
@@ -190,7 +199,7 @@ switch(state) {
 			}
 			
 			// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
-			if !isRanged && ds_map_size(preparingLimbs) !=0 {
+			if !isRanged && ds_map_size(preparingLimbs) !=0 && attackData.type != AttackTypes.Charge {
 				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] && !place_meeting_layer(x,y,lockOnTarget) {
 					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,false);
 				}

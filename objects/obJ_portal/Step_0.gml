@@ -5,9 +5,8 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 }
 
 var fade = noone;
-var idd = id;
 with obj_fade {
-	if owner == idd {
+	if owner == other.id {
 		fade = id;
 	}
 }

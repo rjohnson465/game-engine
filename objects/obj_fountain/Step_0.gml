@@ -4,13 +4,38 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	interactInputReceived = keyboard_check_released(ord("F")) || 
 	(gamepad_button_check_pressed(global.player.gamePadIndex,gp_face1) && !global.ui.isShowingMenus)
 }
+/*
 if distance_to_object(obj_player) < 20 && interactInputReceived {
 	wishAtFountain();
-}
+}*/
 
 
 var lDepth = layer_get_depth(origLayer);
 lDepth += 2;
 depth = lDepth;
 
+var fade = noone;
+with obj_fade {
+	if owner == other.id {
+		fade = id;
+	}
+}
+
+if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone {
+	if !isRunning {
+		wishAtFountain(); // turn fountain on ;)
+	} else {
+		global.fadeDuration = 30;
+		global.owner = id;
+		instance_create_depth(x,y,-100000,obj_fade);
+		//global.condition = "Fountain";
+		//global.owner = id;
+		//instance_create_depth(x,y,1,obj_condition_particles);
+	}
+} 
+else if fade != noone {
+	if fade.frame == .5*fade.fadeDuration && isDoneFilling {
+		wishAtFountain(); // reposition enemies when screen is all fucked up
+	} 
+}
 

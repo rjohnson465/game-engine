@@ -655,6 +655,14 @@
             }
         },
         {
+            "Key": "26bebc1f-8f2d-4b25-b39c-e8fcc23c40b4",
+            "Value": {
+                "id": "24698266-7aae-4775-a664-ac765f92f4df",
+                "resourcePath": "sprites\\spr_enemy_unfairy_longsword_attack_2_1\\spr_enemy_unfairy_longsword_attack_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "26e48bbd-a7bf-49d1-b5d6-84adafb655f1",
             "Value": {
                 "id": "4e7f0f89-f573-44f4-bc98-23fcb44c5ebd",
@@ -731,6 +739,14 @@
             "Value": {
                 "id": "42dbb03c-276e-45bb-bf0c-367f0746528a",
                 "resourcePath": "sprites\\spr_player_longsword_prep_3\\spr_player_longsword_prep_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2c3b5285-0cdb-4299-b13e-915cb51b5ed4",
+            "Value": {
+                "id": "31cbd1cc-de71-4ec2-aa7e-255f56eb20a1",
+                "resourcePath": "sprites\\spr_enemy_unfairy_longsword_recover_2_1\\spr_enemy_unfairy_longsword_recover_2_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1083,6 +1099,14 @@
             "Value": {
                 "id": "286f8cff-a3ef-41df-9637-e94bbc9899de",
                 "resourcePath": "sprites\\spr_player_unarmed_attack_1\\spr_player_unarmed_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "48bbe7c2-c6a8-4260-9d28-579889a3a925",
+            "Value": {
+                "id": "affe42d4-4f69-48a9-8f9c-3feb339d6d24",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_longsword_attack_2_1\\spr_enemy_unfairy_limb_longsword_attack_2_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1887,6 +1911,14 @@
             }
         },
         {
+            "Key": "85083e4f-691a-40fe-8efc-1582736de910",
+            "Value": {
+                "id": "fc96826b-3c6a-4ec4-969f-810bfc8a70e7",
+                "resourcePath": "sprites\\spr_enemy_unfairy_longsword_prep_2_1\\spr_enemy_unfairy_longsword_prep_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "85972997-15dd-45c7-a31a-086cb63d6dd6",
             "Value": {
                 "id": "da3f718f-85d8-4eeb-b37b-30413b826d12",
@@ -2026,7 +2058,7 @@
             "Key": "8ff10341-f96e-4865-a2d9-827c7683196c",
             "Value": {
                 "id": "447b9de3-16ab-4d4a-9b46-1f825c3715ac",
-                "resourcePath": "objects\\obJ_portal\\obJ_portal.yy",
+                "resourcePath": "objects\\obj_portal\\obj_portal.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -2279,6 +2311,14 @@
             }
         },
         {
+            "Key": "a17f1504-d55e-4e37-93dc-c92f3d82b0fc",
+            "Value": {
+                "id": "39992e10-0ef3-4d9b-8fb2-4ceb0f38488e",
+                "resourcePath": "objects\\obj_attack_unfairy_longsword_2_1\\obj_attack_unfairy_longsword_2_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a18a05b8-832c-4429-a35a-540e9b7f1fab",
             "Value": {
                 "id": "fbb9498c-d88f-4ecf-bfd3-ee1a39e8b359",
@@ -2331,6 +2371,14 @@
             "Value": {
                 "id": "d08a5fb8-cbb4-4094-933b-93f477381d33",
                 "resourcePath": "sprites\\spr_player_unarmed\\spr_player_unarmed.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a8606b42-c06c-4af2-b2c8-75bed32d94dc",
+            "Value": {
+                "id": "7b075857-820e-4b83-a43b-bcc8a57ee927",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_longsword_prep_2_1\\spr_enemy_unfairy_limb_longsword_prep_2_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2660,6 +2708,14 @@
                 "id": "80e035a8-2865-47b5-809c-128ea02f000b",
                 "resourcePath": "scripts\\draw_surface_blurred\\draw_surface_blurred.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "bb522331-acc1-42f3-94cb-139223b61539",
+            "Value": {
+                "id": "cbff13ae-6d3d-4416-86a8-9aa79a7693f2",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_longsword_recover_2_1\\spr_enemy_unfairy_limb_longsword_recover_2_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

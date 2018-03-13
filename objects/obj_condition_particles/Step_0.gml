@@ -1,8 +1,11 @@
-/*if owner.hp <= 0 && condition != "Death" {
-	//instance_destroy(id);
-	alarm[0] = 60;
-	
-}*/
+if condition == "Fountain" && !hasSetAlarm {
+	if fadeObj.frame == fadeObj.fadeDuration-1 {
+		alarm[0] = 30;
+		hasSetAlarm = true;
+	}
+}
+
+
 if (condition == "Death") && (!owner.isAlive || owner.hp > 0) && !hasSetAlarm {
 	//instance_destroy(id);
 	alarm[0] = 60;
@@ -12,20 +15,31 @@ if (condition == "Death") && (!owner.isAlive || owner.hp > 0) && !hasSetAlarm {
 var conditionLevel = 0;
 if condition == "Phase" {
 	conditionLevel = owner.isPhasing;
-} else {
+} else if condition == "Fountain" {
+	conditionLevel = 1; 
+}
+else {
 	conditionLevel = ds_map_find_value(owner.conditionLevels,condition);
 }
+
 if conditionLevel == 0 {
 	instance_destroy(id,false);
 	part_emitter_destroy(system,emitter);
 } else {
-	var x1 = owner.x - (.5*owner.sprite_width);
-	var y1 = owner.y - (.5*owner.sprite_height);
-	var x2 = owner.x + (.5*owner.sprite_width);
-	var y2 = owner.y + (.5*owner.sprite_height);
-	part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,0);
+	if owner.object_index == obj_fountain {
+		part_emitter_region(system,emitter,0,room_width,0,room_height,0,0);
+	} else {
+		var x1 = owner.x - (.5*owner.sprite_width);
+		var y1 = owner.y - (.5*owner.sprite_height);
+		var x2 = owner.x + (.5*owner.sprite_width);
+		var y2 = owner.y + (.5*owner.sprite_height);
+		part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,0);
+	}
 	var num = 1;
-	var conditionPercent = ds_map_find_value(owner.conditionPercentages,condition);
+	var conditionPercent = 0;
+	if condition != "Fountain" {
+		conditionPercent = ds_map_find_value(owner.conditionPercentages,condition);
+	}
 	var num2 = -10;
 	switch condition {
 		case FIRE: {
@@ -77,8 +91,19 @@ if conditionLevel == 0 {
 			} else num = -3;
 			break;
 		}
-		case "Phase": {
-			num = -10;
+		case "Fountain": {
+			if instance_exists(fadeObj) {
+				conditionPercent = (fadeObj.frame / fadeObj.fadeDuration*100);
+				if conditionPercent > 90 {
+					num = 400;
+				} else if conditionPercent > 75 {
+					num = 800;
+				} else if conditionPercent > 50 {
+					num = 1600;
+				} else if conditionPercent > 25 {
+					num = 800;
+				} else num = 400;
+			}
 			break;
 		}
 		case "Death": {
