@@ -14,12 +14,13 @@ var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
-ds_map_add(handItems,"rm1",longsword);
-ds_map_add(handItems,"lm1",unarmed);
+ds_map_add(handItems,"lm1",longsword);
+//ds_map_add(handItems,"lm1",unarmed);
+ds_map_add(handItems,"rm1",woodshield);
 ds_map_add(handItems, "lr1",shortbow);
 ds_map_add(handItems, "rr1", unarmed);
 
-ds_map_replace(equippedLimbItems,"l",unarmed);
+ds_map_replace(equippedLimbItems,"l",woodshield);
 ds_map_replace(equippedLimbItems,"r",longsword);
 var rightHand = makeLimb(id,"r");
 var leftHand = makeLimb(id,"l");
@@ -36,13 +37,13 @@ rangedAggroRange = 600;
 //rangedAggroRange = noone;
 farthestAllowedFromPost = 10000;
 aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
-//attackFrequencyTotalFrames = [5,15];
-attackFrequencyTotalFramesMelee = [5,15];
-attackFrequencyTotalFramesRanged = [120,150];
+attackFrequencyTotalFramesMelee = [25,45];
+attackFrequencyTotalFramesRanged = [60,90];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
 waryTotalFrames=[120,200];
 skittishness = 100;
+cautiousness = 100;
 
 // melee attacks info
 // meleeAttacksCount is number of separate attack chains, not individual attacks
@@ -55,7 +56,7 @@ meleeRangeArray=[15];
 // ATTACKS
 global.owner = id;
 var longswordSwing = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_1_1);
-longswordSwing.limbKey = "r";
+longswordSwing.limbKey = "l";
 var meleeChain0 = [longswordSwing];
 meleeAttacks = [meleeChain0];
 /*
@@ -103,7 +104,7 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 20;
 
 // dodge stuff
-agility = 50; // 0 - 100% chance to try a dodge
+agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
 

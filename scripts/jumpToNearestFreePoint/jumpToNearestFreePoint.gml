@@ -1,8 +1,19 @@
-/// jumpToNearestFreePoint()
+/// jumpToNearestFreePoint(*isEnemy)
+/// @param *isEnemy
+
+var isEnemy = false;
+if argument_count == 1 {
+	isEnemy = argument[0];
+}
+
+var obstacleType = obj_solid_parent;
+if isEnemy {
+	obstacleType = obj_enemy_obstacle_parent;
+}
 
 // get all obstacles to avoid
 var obstacles = ds_list_create();
-with obj_solid_parent {
+with obstacleType {
 	if layer == other.layer {
 		ds_list_add(obstacles,id);
 	}

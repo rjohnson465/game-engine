@@ -22,7 +22,7 @@ for (var i = 0; i < ds_list_size(solids); i++) {
 var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
 for (var i = 0; i < ds_list_size(combatants); i++) {
 	var ci = ds_list_find_value(combatants,i);
-	if ci != id && ci != global.player.id {
+	if ci != id && ci != global.player.id && ci.solid {
 		mp_grid_add_instances(personalGrid,ds_list_find_value(combatants,i),true);
 	} 
 }

@@ -161,7 +161,7 @@ if selectedItem {
 } 
 
 // instructions / prompts
-if gamepad_is_connected(global.player.gamePadIndex) {
+//if gamepad_is_connected(global.player.gamePadIndex) {
 	var promptsStartX = topLeftX+18;
 	var promptsY = bottomRightY+25;
 	var xOffset = 20;
@@ -170,11 +170,12 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 		w += drawPrompt("Cancel Equip",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 	} 
 	else if isSelectorInEquippedItems(global.ui.moveSelector) 
-		&& getItemAtSelectorPosition(global.ui.moveSelector) != noone {
+		&& getItemAtSelectorPosition(global.ui.moveSelector) != noone 
+		&& !object_is_ancestor(getItemAtSelectorPosition(global.ui.moveSelector).object_index,obj_unarmed_parent) { 
 		w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 	} 
 	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
-}
+//}
 
 
 

@@ -60,7 +60,7 @@ if owner.showHp {
 	}
 		
 	
-	/*
+	
 	// total stamina bar outline
 	var x1 = owner.x-(.5*owner.sprite_width);
 	var y1 = owner.y-(.5*owner.sprite_height)-20;
@@ -79,5 +79,5 @@ if owner.showHp {
 		x2,
 		y2,
 		false);
-		*/
+		
 }

@@ -1,8 +1,12 @@
-if owner.hp <= 0 && condition != "Death" {
-	instance_destroy(id);
-}
-if (condition == "Death") && (!owner.isAlive || owner.hp > 0) {
-	instance_destroy(id);
+/*if owner.hp <= 0 && condition != "Death" {
+	//instance_destroy(id);
+	alarm[0] = 60;
+	
+}*/
+if (condition == "Death") && (!owner.isAlive || owner.hp > 0) && !hasSetAlarm {
+	//instance_destroy(id);
+	alarm[0] = 60;
+	hasSetAlarm = true;
 }
 
 var conditionLevel = 0;

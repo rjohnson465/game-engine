@@ -6,7 +6,8 @@
     "children": [
         "155670c4-f495-4610-96c5-7c3e3f57adfd",
         "c7381f5a-8182-4754-822b-ac76e8bf0885",
-        "938a964c-f8b3-440e-bfc0-a2abc38e657b"
+        "938a964c-f8b3-440e-bfc0-a2abc38e657b",
+        "84a24c7b-6c21-4ddd-92fd-153621dbf823"
     ],
     "filterType": "GMSprite",
     "folderName": "weapons",

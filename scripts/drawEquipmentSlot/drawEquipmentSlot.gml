@@ -21,11 +21,13 @@ if arrayIncludes(global.ui.equipSelector.acceptableEquipmentSlots, slot) {
 var drawBlack = false; 
 if	(slot == EquipmentSlots.RightHand1 && 
 	arrayIncludes(global.ui.equipSelector.acceptableEquipmentSlots,EquipmentSlots.LeftHand1) &&
-	getItemAtSelectorPosition(global.ui.moveSelector).isTwoHanded)
+	getItemAtSelectorPosition(global.ui.moveSelector).isTwoHanded &&
+	global.ui.equipSelector.x1 == getEquipmentSlotObject(EquipmentSlots.LeftHand1).x1)
 	||
 	(slot == EquipmentSlots.RightHand2 && 
 	arrayIncludes(global.ui.equipSelector.acceptableEquipmentSlots,EquipmentSlots.LeftHand2) &&
-	getItemAtSelectorPosition(global.ui.moveSelector).isTwoHanded)
+	getItemAtSelectorPosition(global.ui.moveSelector).isTwoHanded &&
+	global.ui.equipSelector.x1 == getEquipmentSlotObject(EquipmentSlots.LeftHand2).x1)
 	{
 	drawBlack = true;
 }
@@ -50,6 +52,8 @@ else if drawGreen {
 	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_gray,.75);
 } else if drawBlack {
 	draw_sprite(spr_item_slot,1,xx,yy);
-	draw_line_color(xx,yy,xx+global.inventory.slotWidth,yy+global.inventory.slotHeight,c_red,c_red);
+	var twoHandedItem = getItemAtSelectorPosition(global.ui.moveSelector);
+	draw_sprite_ext(twoHandedItem.itemSprite,1,xx,yy,1,1,0,c_black,.5);
+	//draw_line_color(xx,yy,xx+global.inventory.slotWidth,yy+global.inventory.slotHeight,c_red,c_red);
 }
 else draw_sprite(spr_item_slot,1,xx,yy);

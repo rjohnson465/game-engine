@@ -1,1 +1,1 @@
-//instance_deactivate_object(obj_light_radius);
+instance_deactivate_object(obj_light_radius);

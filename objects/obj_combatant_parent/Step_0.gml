@@ -420,7 +420,11 @@ with obj_fallzone {
 // this mainly resolves issues when enemies are using mp_grids and suddenly switch to mp_potential_* stuff
 if type == CombatantTypes.Enemy {
 	if !place_free(x,y) {
-		jumpToNearestFreePoint();
+		//if lockOnTarget {
+		//	if mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,5,false) {
+				jumpToNearestFreePoint(true);
+		//	}
+		//}
 	}
 }
 

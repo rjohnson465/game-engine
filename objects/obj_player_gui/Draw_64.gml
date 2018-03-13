@@ -84,7 +84,7 @@ if leftHandItem.spriteName != "unarmed" {
 		draw_set_color(c_white);
 		draw_set_font(font_main);
 		draw_set_halign(fa_left);
-		draw_text(10,725,s);
+		draw_text(10,750,s);
 	}
 }
 

@@ -13,40 +13,7 @@ if isFading {
 }
 
 if fallFrame < fallTotalFrames {
-	// stop preparing attacks
-	if ds_map_size(preparingLimbs) != 0 {
-		var hand = ds_map_find_first(preparingLimbs);
-		for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
-			ds_map_replace(prepFrames,hand,-1);
-			ds_map_replace(prepFrameTotals,hand,0);
-			ds_map_delete(preparingLimbs,hand);
-			hand = ds_map_find_next(preparingLimbs,hand);
-		}
-	}
-	// stop attacking
-	if ds_map_size(attackingLimbs) != 0 {
-		var hand = ds_map_find_first(attackingLimbs);
-		for (var i = 0; i < ds_map_size(attackingLimbs); i++) {
-			ds_map_delete(attackingLimbs,hand);
-			hand = ds_map_find_next(attackingLimbs,hand);
-		}
-	}
-	// stop recovering attacks
-	if ds_map_size(recoveringLimbs) != 0 {
-		var hand = ds_map_find_first(recoveringLimbs);
-		for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
-			ds_map_replace(recoveringLimbs,hand,-1);
-			ds_map_replace(recoveringLimbs,hand,0);
-			ds_map_delete(recoveringLimbs,hand);
-			hand = ds_map_find_next(recoveringLimbs,hand);
-		}
-	}
-	isStrafing = false;
-	currentUsingSpell = noone;
-	attackNumberInChain = noone;
-	state = CombatantStates.Idle;
-	path_end();
-	speed = 0;
+	fall();
 	exit;
 }
 
@@ -61,7 +28,7 @@ if gamepad_is_connected(gamePadIndex) {
 }
 if lockOnInputReceived {
 	// always refresh lockOnList (enemies could have left radius or entered
-	lockOnList = script_execute(scr_collision_circle_list,x,y,LOCK_ON_DISTANCE,obj_enemy_parent, true, true);
+	lockOnList = scr_collision_circle_list_layer(x,y,LOCK_ON_DISTANCE,obj_enemy_parent, true, true);
 	if (lockOnList == noone) {
 		lockOnTarget = noone;
 		isLockedOn = false;
@@ -71,7 +38,7 @@ if lockOnInputReceived {
 		var closestInstance = noone;
 		var foundClosest = false; var i = 1;
 		while !foundClosest && i <= ds_list_size(lockOnList) {
-			closestInstance = script_execute(scr_find_nth_closest,x,y,obj_enemy_parent, i);
+			closestInstance = scr_find_nth_closest_layer(x,y,obj_enemy_parent, i);
 			if ds_list_find_index(lockOnListSeen, closestInstance) == -1 {
 				foundClosest = true;
 			} else {
@@ -85,7 +52,7 @@ if lockOnInputReceived {
 		} else {
 			// we've cycled through all targets; begin cycle again
 			ds_list_clear(lockOnListSeen);
-			var closestInstance = script_execute(scr_find_nth_closest,x,y,obj_enemy_parent, 1);
+			var closestInstance = scr_find_nth_closest(x,y,obj_enemy_parent, 1);
 			if closestInstance != noone {
 				lockOnTarget = closestInstance;
 				isLockedOn = true;
@@ -95,7 +62,7 @@ if lockOnInputReceived {
 	}
 	// if not locked on just get the nearest enemy in the list 
 	else if (lockOnList != noone){
-		var closestInstance = script_execute(scr_find_nth_closest,x,y,obj_enemy_parent, 1);
+		var closestInstance = scr_find_nth_closest_layer(x,y,obj_enemy_parent, 1);
 		if closestInstance != noone {
 			lockOnTarget = closestInstance;
 			isLockedOn = true;
@@ -105,7 +72,7 @@ if lockOnInputReceived {
 }
 var wallsBetweenLockOnTarget = noone;
 if lockOnTarget {
-	wallsBetweenLockOnTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
+	wallsBetweenLockOnTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 }
 // if too far from current lockon target, or esc pressed, or cannot see lockOnTarget no more lock on
 var cancelLockOnInputReceived = keyboard_check(vk_escape);
@@ -115,7 +82,8 @@ if gamepad_is_connected(gamePadIndex) {
 }
 if	isLockedOn && ((cancelLockOnInputReceived && !global.ui.isShowingMenus) 
 	|| distance_to_object(lockOnTarget) > LOCK_ON_DISTANCE
-	|| wallsBetweenLockOnTarget != noone ) {
+	|| wallsBetweenLockOnTarget != noone 
+	|| lockOnTarget.layer != layer) {
 	lockOnTarget = noone;
 	isLockedOn = false;
 }

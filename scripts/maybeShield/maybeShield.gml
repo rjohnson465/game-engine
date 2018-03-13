@@ -2,7 +2,7 @@ if !willDodge {
 	if ds_map_find_value(equippedLimbItems,"r") {
 		if ds_map_find_value(equippedLimbItems,"r").subType == HandItemTypes.Shield {
 			// if within meleeAggroRange, check every shieldingFrames if should shield
-			if !isShielding {
+			if !isShielding && stamina > (maxStamina/5) {
 				if shieldingFrame < totalShieldingFrames && !hasCalculatedWillShield {
 					randomize();
 					totalShieldingFrames = random_range(shieldingFrequencyFrames[0],shieldingFrequencyFrames[1]);

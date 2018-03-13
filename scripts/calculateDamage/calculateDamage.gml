@@ -163,8 +163,8 @@ if	state != CombatantStates.Dodging &&
 			if damageBase > 0 {
 				randomize();
 				var top = 1000;
-				var percentChance = .15;
-				//var percentChance = 1;
+				//var percentChance = .15;
+				var percentChance = 1;
 				//percentChance = 0;
 				if spell != noone && spell.name == "magicmissile" {
 					// every misile has a 20/numProjectiles% chance
@@ -231,7 +231,7 @@ if	state != CombatantStates.Dodging &&
 				
 				// damage needs to be refactored, as shields have their own defenses per element
 				var currentDamageType = ds_map_find_first(damagesTaken);
-				var shield = rightHandItem;
+				var shield = ds_map_find_value(equippedLimbItems,"r");
 				var adjustedDamage = 0;
 				for (var i = 0; i < ds_map_size(damagesTaken); i++) {
 					
@@ -264,7 +264,7 @@ if	state != CombatantStates.Dodging &&
 						if itemHitWith != noone {
 							itemIsMelee = itemHitWith.type == HandItemTypes.Melee;
 						}
-						if assailant.currentMeleeAttack != noone || itemIsMelee {
+						if /*assailant.currentMeleeAttack != noone ||*/ itemIsMelee {
 							isShielding = false;
 							path_end();
 							staggerFrame = 0;

@@ -27,7 +27,7 @@ particle1 = noone;
 particle2 = noone;
 particle3 = noone;
 
-if owner.type == CombatantTypes.Player {
+//if owner.type == CombatantTypes.Player {
 	// iterate over weapon damages
 	var currentDamageType = ds_map_find_first(limbItem.damages);
 	var damageTypes = ds_list_create();
@@ -126,4 +126,4 @@ if owner.type == CombatantTypes.Player {
 		}
 	}
 	ds_list_destroy(damageTypes);
-}
+//}

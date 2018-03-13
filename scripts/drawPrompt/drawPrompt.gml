@@ -54,18 +54,20 @@ switch key {
 	}
 }
 
-var sw = sprite_get_width(sprite)*.2;
-var sh = sprite_get_height(sprite)*.2;
+var sw = sprite_get_width(sprite)*.35;
+var sh = sprite_get_height(sprite)*.35;
 
 draw_set_halign(fa_left);
 draw_set_font(font_main);
 
 var promptWidth = string_width(msg)+sw;
+draw_set_alpha(.5);
 draw_set_color(c_black);
 draw_rectangle(xx-5,yy-5,xx+promptWidth+5,yy+sh+5,false);
+draw_set_alpha(1);
 draw_set_color(c_white);
-draw_rectangle(xx-(.5*sw)-5,yy-(.5*sh)-5,xx+promptWidth+5,yy+(.5*sh)+5,true);
-draw_sprite_ext(sprite,1,xx,yy,.25,.25,0,c_white,1);
-scr_draw_text_outline(xx+sw,yy,msg,msgColor,msgColor);
+draw_rectangle(xx-5,yy-5,xx+promptWidth+5,yy+sh+5,true);
+draw_sprite_ext(sprite,1,xx,yy,.35,.35,0,c_white,1);
+scr_draw_text_outline(xx+sw,yy+(sh*.5)+2,msg,msgColor,msgColor);
 
 return promptWidth+10; // 10px padding

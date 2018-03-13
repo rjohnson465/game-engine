@@ -41,7 +41,7 @@ if limbItem != limb.limbItem {
 	part_system_destroy(system3);
 	part_emitter_destroy(system1,emitter1);
 	
-	if owner.type == CombatantTypes.Player {
+	//if owner.layer <= global.player.layer {
 		// iterate over weapon damages
 		var currentDamageType = ds_map_find_first(limbItem.damages);
 		var damageTypes = ds_list_create();
@@ -116,7 +116,7 @@ if limbItem != limb.limbItem {
 					part_type_direction(poison,0,360,0,4);
 					part_type_life(poison,15,20);
 					part_type_color2(poison,c_green,c_olive);
-					part_type_alpha3(poison,.75,.5,.25);
+					part_type_alpha3(poison,.85,.65,.45);
 					if i == 0 particle1 = poison;
 					else if i == 1 particle2 = poison;
 					else particle3 = poison;
@@ -140,29 +140,31 @@ if limbItem != limb.limbItem {
 			}
 		}
 		ds_list_destroy(damageTypes);
-	}
+	//}
 }
 
-if particle1 != noone {
-	system1 = part_system_create();
-	part_system_depth(system1,depth);
-	emitter1 = part_emitter_create(system1);
-	part_emitter_region(system1,emitter1,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
-	part_emitter_burst(system1,emitter1,particle1, -3);
-}
-if particle2 != noone {
-	system2 = part_system_create();
-	part_system_depth(system2,depth);
-	emitter2 = part_emitter_create(system2);
-	part_emitter_region(system2,emitter2,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
-	part_emitter_burst(system2,emitter2,particle2, -3);
-}
-if particle3 != noone {
-	system3 = part_system_create();
-	part_system_depth(system3,depth);
-	emitter3 = part_emitter_create(system3);
-	part_emitter_region(system3,emitter3,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
-	part_emitter_burst(system3,emitter3,particle3, -3);
+if owner.layer >= global.player.layer {
+	if particle1 != noone {
+		system1 = part_system_create();
+		part_system_depth(system1,depth);
+		emitter1 = part_emitter_create(system1);
+		part_emitter_region(system1,emitter1,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
+		part_emitter_burst(system1,emitter1,particle1, -3);
+	}
+	if particle2 != noone {
+		system2 = part_system_create();
+		part_system_depth(system2,depth);
+		emitter2 = part_emitter_create(system2);
+		part_emitter_region(system2,emitter2,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
+		part_emitter_burst(system2,emitter2,particle2, -3);
+	}
+	if particle3 != noone {
+		system3 = part_system_create();
+		part_system_depth(system3,depth);
+		emitter3 = part_emitter_create(system3);
+		part_emitter_region(system3,emitter3,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
+		part_emitter_burst(system3,emitter3,particle3, -3);
+	}
 }
 
 if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {

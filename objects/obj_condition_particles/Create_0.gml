@@ -4,6 +4,10 @@ emitter = noone;
 system = noone;
 particle = noone;
 particle2 = noone;
+alarm[0] = noone;
+hasSetAlarm = false;
+
+if owner == global.player persistent = true;
 
 system = part_system_create();
 part_system_depth(system,-4);

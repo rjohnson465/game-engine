@@ -1,6 +1,6 @@
 // condition outline
 draw_set_alpha(.75);
-var x1 = 100-(32);
+var x1 = 10
 var y1 = 100-(32)-20 + conditionBarNumber*25; 
 var x2 = 100+(32);
 var y2 = 100-(32)-15 + conditionBarNumber*25;
@@ -11,7 +11,7 @@ draw_rectangle(x1,y1,x2,y2,true);
 // current condition percent
 var conditionPercent = ds_map_find_value(owner.conditionPercentages,condition);
 conditionPercent = conditionPercent / 100;
-var x2 = x1 + (64 * conditionPercent);
+var x2 = x1 + (122 * conditionPercent);
 if (x2 < x1) x2 = x1;
 
 switch condition {
@@ -28,10 +28,6 @@ switch condition {
 		break;
 	}
 	case LIGHTNING: {
-		draw_set_color(c_yellow);
-		break;
-	}
-	case BLEED: {
 		draw_set_color(c_yellow);
 		break;
 	}

@@ -51,6 +51,7 @@ with obj_enemy_obstacle_parent {
 		solid = true;
 	} else solid = false;
 	
+	if object_index == obj_enemy_parent solid = false;
 	
 	if object_index == obj_player {
 		solid = false;

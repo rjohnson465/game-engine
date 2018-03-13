@@ -210,7 +210,7 @@
             "Key": "0a4176ec-a759-40b2-b0bc-1c71c885b048",
             "Value": {
                 "id": "48dfc02d-3439-4d5e-a2d0-ff3e77e270b7",
-                "resourcePath": "sprites\\spr_enemy_unfairy_woodshield\\spr_enemy_unfairy_woodshield.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_woodshield11\\spr_enemy_unfairy_woodshield11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -252,6 +252,14 @@
                 "id": "58ca8d60-55ae-4efa-85c9-f24ae7e6eb20",
                 "resourcePath": "sprites\\spr_item_slot\\spr_item_slot.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0f4de6cd-e1e0-49e9-81da-f3affe3ab20a",
+            "Value": {
+                "id": "4c9dde46-8141-4cf6-82db-3555c5d5fade",
+                "resourcePath": "scripts\\scr_find_nth_closest_layer\\scr_find_nth_closest_layer.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -563,6 +571,14 @@
             "Value": {
                 "id": "78ba548f-a8ee-49c4-834f-db5bbdf7ad8c",
                 "resourcePath": "scripts\\regenHealthAndStamina\\regenHealthAndStamina.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "2169cab8-d610-44a5-af9c-277f0707a879",
+            "Value": {
+                "id": "d1e4ebcc-7245-4714-94a5-ef9a5f12135d",
+                "resourcePath": "scripts\\enemyUnfairyUnarmedInit\\enemyUnfairyUnarmedInit.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1079,10 +1095,26 @@
             }
         },
         {
+            "Key": "4a0f14f3-342c-4905-a6c5-266f0952cf1a",
+            "Value": {
+                "id": "c6371225-d144-4ef7-801c-4ee991297f89",
+                "resourcePath": "scripts\\scr_collision_circle_list_layer\\scr_collision_circle_list_layer.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4a1b84d2-ec69-4409-8688-39b1095d95ec",
             "Value": {
                 "id": "d7888e98-47a0-4033-979a-f446d8150926",
                 "resourcePath": "views\\4a1b84d2-ec69-4409-8688-39b1095d95ec.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4bf59e42-3313-4bba-910a-6211420b1ea0",
+            "Value": {
+                "id": "7c6a2db0-1ed1-434f-bc24-8b13099f73a2",
+                "resourcePath": "views\\4bf59e42-3313-4bba-910a-6211420b1ea0.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -1252,6 +1284,14 @@
                 "id": "f2b19b29-afa7-497f-a28a-cf169b54f110",
                 "resourcePath": "sprites\\spr_player_longsword_prep_21\\spr_player_longsword_prep_21.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "59093129-8839-457b-889f-56c3aef3fc2d",
+            "Value": {
+                "id": "e715edeb-677f-4b7e-8795-e4a1c3916122",
+                "resourcePath": "views\\59093129-8839-457b-889f-56c3aef3fc2d.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1527,6 +1567,14 @@
             }
         },
         {
+            "Key": "6e85e585-2ec9-4d94-ad4f-4a02080b5aa7",
+            "Value": {
+                "id": "1563bbca-b7b0-40c0-83b2-4f3f97daadbc",
+                "resourcePath": "scripts\\enemyUnfairyDualSwordsInit\\enemyUnfairyDualSwordsInit.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "6f3da4cc-9ba6-4720-8f54-082043638332",
             "Value": {
                 "id": "94212656-7c8e-4679-85f9-b3c49f25a876",
@@ -1571,6 +1619,14 @@
             "Value": {
                 "id": "bcfad7b5-80af-4d51-b34d-a38bcb08ba77",
                 "resourcePath": "sprites\\sprite22\\sprite22.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "71989cbb-1e9c-4413-8041-4c741fc353b3",
+            "Value": {
+                "id": "9df1bf76-f396-4bf1-b63e-cfa081d2fa56",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_woodshield\\spr_enemy_unfairy_limb_woodshield.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1807,10 +1863,26 @@
             }
         },
         {
+            "Key": "83e7c785-a541-4589-8263-c998fa422cc8",
+            "Value": {
+                "id": "0cf275d0-4c64-4b5b-b8e8-0000b0a47959",
+                "resourcePath": "sprites\\spr_player_woodshield_block\\spr_player_woodshield_block.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "849889f2-91c5-435f-8cea-c2578cc62a6a",
             "Value": {
                 "id": "893173cc-070f-4343-a322-be9b3f7730d8",
                 "resourcePath": "views\\849889f2-91c5-435f-8cea-c2578cc62a6a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "84a24c7b-6c21-4ddd-92fd-153621dbf823",
+            "Value": {
+                "id": "a4910a77-2aeb-4dbf-bbe9-924e4568c785",
+                "resourcePath": "views\\84a24c7b-6c21-4ddd-92fd-153621dbf823.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -1828,6 +1900,14 @@
                 "id": "f2a3053d-2a47-4ca9-95ea-913762c4deee",
                 "resourcePath": "scripts\\chooseMeleeAttack\\chooseMeleeAttack.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "88550843-33b6-462c-972e-3c67e9a702e5",
+            "Value": {
+                "id": "33ff4626-4259-4cc8-8058-7747160f8684",
+                "resourcePath": "sprites\\spr_enemy_unfairy_woodshield\\spr_enemy_unfairy_woodshield.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1882,7 +1962,7 @@
             "Key": "8acf3d48-3276-4fed-95b5-aa1aa0b9cd98",
             "Value": {
                 "id": "b8112f73-a1c4-45f7-8312-3b078cfa4d9e",
-                "resourcePath": "sprites\\spr_prompt_mk_esc\\spr_prompt_mk_esc.yy",
+                "resourcePath": "sprites\\spr_prompt_mk_escape\\spr_prompt_mk_escape.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2855,6 +2935,14 @@
             }
         },
         {
+            "Key": "cdd86726-f1bf-4d96-b363-cebb104d6c8a",
+            "Value": {
+                "id": "bebf3723-ad1b-4d59-87f4-07247404f969",
+                "resourcePath": "sprites\\spr_enemy_unfairy_woodshield_block\\spr_enemy_unfairy_woodshield_block.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ce34f157-6b7c-4d73-990f-568d24721e23",
             "Value": {
                 "id": "05b8db66-bd6c-4396-a054-852d4e44ad23",
@@ -3535,6 +3623,8 @@
         "de1eaff5-ae4f-4519-bd0f-9ed553ce3f47",
         "a2f28e3f-1517-4014-9dc6-0fac94b0977c",
         "5e90dd3c-2bd9-43f1-9861-e77c03900217",
+        "4a0f14f3-342c-4905-a6c5-266f0952cf1a",
+        "0f4de6cd-e1e0-49e9-81da-f3affe3ab20a",
         "e4374775-f49c-4989-8fc4-9ae3a9545331",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "89e792c3-5306-41a1-8e55-479f0f2db5de",
@@ -3553,7 +3643,9 @@
         "8d7dea9e-cfb1-4e07-9fdb-d9830e8ca447",
         "ae63b109-c91f-4c8d-897e-780763c34a0f",
         "2c8e8f25-16c3-4d22-8fda-849a321d4dd8",
-        "95635d4e-ed7c-48f5-876a-c6e2335065ca"
+        "95635d4e-ed7c-48f5-876a-c6e2335065ca",
+        "2169cab8-d610-44a5-af9c-277f0707a879",
+        "6e85e585-2ec9-4d94-ad4f-4a02080b5aa7"
     ],
     "tutorial": ""
 }

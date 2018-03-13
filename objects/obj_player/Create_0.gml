@@ -128,16 +128,19 @@ ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
 ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
+ds_map_replace(longsword.damages,MAGIC,[2,4]);
 ds_list_add(inventory,longsword);
+var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
+ds_map_replace(longsword2.damages,ICE,[2,4]);
+ds_list_add(inventory,longsword2);
 
 lastFountainRoom = noone;
 lastFountainX = noone;
 lastFountainY = noone;
 lastFountainZ = noone;
 
-var playerId = id;
 with obj_light_radius {
-	if owner == playerId {
+	if owner == other.id {
 		persistent = true;
 	}
 }
