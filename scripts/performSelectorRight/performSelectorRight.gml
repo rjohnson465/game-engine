@@ -1,6 +1,4 @@
-performSelectorRight();
-
-/*if !isActive || !ui.isShowingMenus exit;
+if !isActive || !ui.isShowingMenus exit;
 
 // move selector to next slot on right, if it exists
 if !isSelectorAtLastInventoryColumn() && isSelectorInInventory() {

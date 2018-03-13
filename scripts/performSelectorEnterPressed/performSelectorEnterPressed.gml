@@ -1,5 +1,8 @@
-performSelectorEnterPressed();
-/*if !isActive || !ui.isShowingMenus exit;
+/// performSelectorEnterPressed()
+
+/// Equip / Enter equip mode for selectors
+
+if !isActive || !ui.isShowingMenus exit;
 
 // if item equipped items, enter "Equip Mode"
 switch type {

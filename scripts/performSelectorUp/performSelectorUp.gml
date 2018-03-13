@@ -1,5 +1,4 @@
-performSelectorUp();
-/*if !isActive || !ui.isShowingMenus exit;
+if !isActive || !ui.isShowingMenus exit;
 
 if isSelectorInEquippedItems() {
 	moveSelectorInEquippedItems("up");

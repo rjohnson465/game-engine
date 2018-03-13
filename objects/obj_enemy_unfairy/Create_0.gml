@@ -5,6 +5,7 @@ spriteString = "enemy_unfairy";
 
 functionalSpeed = 5;
 normalSpeed = 5;
+turnSpeed = 10;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
@@ -35,7 +36,7 @@ stupidityFrame = 0;
 meleeAggroRange = 200;
 rangedAggroRange = 600;
 //rangedAggroRange = noone;
-farthestAllowedFromPost = 10000;
+farthestAllowedFromPost = 500;
 aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFramesMelee = [25,45];
 attackFrequencyTotalFramesRanged = [60,90];

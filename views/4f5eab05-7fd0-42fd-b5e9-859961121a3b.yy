@@ -14,7 +14,7 @@
         "16070f53-6c31-48b2-be15-9acba2821031"
     ],
     "filterType": "GMScript",
-    "folderName": "Controller Selector Stuff",
+    "folderName": "Selectors",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

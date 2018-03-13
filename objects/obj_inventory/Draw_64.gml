@@ -165,13 +165,22 @@ if selectedItem {
 	var promptsStartX = topLeftX+18;
 	var promptsY = bottomRightY+25;
 	var xOffset = 20;
+	
+	var eq = global.player.equippedItems;
+	var itemAtMoveSelector = getItemAtSelectorPosition(global.ui.moveSelector);
+	var a = ds_list_find_index(global.player.equippedItems,getItemAtSelectorPosition(global.ui.moveSelector));
+	
 	var w = drawPrompt("Equip Item",Input.F,promptsStartX,promptsY)+xOffset;
 	if global.ui.equipSelector.isActive {
 		w += drawPrompt("Cancel Equip",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 	} 
-	else if isSelectorInEquippedItems(global.ui.moveSelector) 
-		&& getItemAtSelectorPosition(global.ui.moveSelector) != noone 
-		&& !object_is_ancestor(getItemAtSelectorPosition(global.ui.moveSelector).object_index,obj_unarmed_parent) { 
+	// if item at move selector position is equipped
+	else if /*isSelectorInEquippedItems(global.ui.moveSelector)*/ 
+		//&& 
+		getItemAtSelectorPosition(global.ui.moveSelector) != noone 
+		&& ds_list_find_index(eq,itemAtMoveSelector) != -1
+		&& !object_is_ancestor(itemAtMoveSelector.object_index,obj_unarmed_parent) { 
+			
 		w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 	} 
 	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;

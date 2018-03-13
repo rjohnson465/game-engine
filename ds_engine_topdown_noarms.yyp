@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "01a586ae-1990-4a09-aa7b-413bc1526884",
+            "Value": {
+                "id": "40bd8579-4c11-40b4-a0e2-d041407f1b25",
+                "resourcePath": "scripts\\maybeReturnToPost\\maybeReturnToPost.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "020ae970-9049-4636-8526-df7f18d014a5",
             "Value": {
                 "id": "00457ae9-6ab3-46fd-8807-70556dcbde49",
@@ -223,6 +231,14 @@
             }
         },
         {
+            "Key": "0aafa26c-a5fb-4aac-940c-a8f1df7e71c4",
+            "Value": {
+                "id": "432a8a66-693f-4bd4-a18c-77be3b28c23f",
+                "resourcePath": "scripts\\performSelectorDown\\performSelectorDown.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "0b52febd-6e96-49a4-a291-ceddfe554b1a",
             "Value": {
                 "id": "10cbd740-efbe-43fd-a2f4-ac73e35fb226",
@@ -308,6 +324,14 @@
                 "id": "4c1d79df-fac4-4973-9a34-387364f48d6f",
                 "resourcePath": "sprites\\spr_enemy_unfairy_longsword\\spr_enemy_unfairy_longsword.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "10d0376b-80b4-497a-80bd-9cc1603812d0",
+            "Value": {
+                "id": "dc45bce5-7233-4c8c-9d90-c5b87f5e106e",
+                "resourcePath": "scripts\\performSelectorBackspacePressed\\performSelectorBackspacePressed.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1319,6 +1343,22 @@
             }
         },
         {
+            "Key": "59193461-39c3-474a-bf33-0000cf5d5321",
+            "Value": {
+                "id": "75f092f6-b2d0-4327-9868-571924381ea9",
+                "resourcePath": "views\\59193461-39c3-474a-bf33-0000cf5d5321.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "5999c26c-6d24-44fc-ab4b-62ea7b2ec60e",
+            "Value": {
+                "id": "daf6eeae-09f1-4456-93f6-663de47a1bd8",
+                "resourcePath": "scripts\\performSelectorUp\\performSelectorUp.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "5c6981df-e7e6-4891-919e-e6948df8b3b2",
             "Value": {
                 "id": "addb44e3-53b2-4031-9f92-df3fc5809ab7",
@@ -1551,6 +1591,14 @@
             }
         },
         {
+            "Key": "6970c333-d11e-4ae7-9620-8d123358cb30",
+            "Value": {
+                "id": "f15152f9-45bb-4994-a951-f99b9e8922d1",
+                "resourcePath": "scripts\\performSelectorRight\\performSelectorRight.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "69e332ce-f6c3-48da-b4fc-23b7699d0bdb",
             "Value": {
                 "id": "b12c0c1f-3c11-48c2-ac3c-8896bef0fe18",
@@ -1588,6 +1636,14 @@
                 "id": "36e9b1c4-9358-4612-9393-caab237950a9",
                 "resourcePath": "views\\6d8a8cae-2d25-4a24-a745-7921097bb852.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6da5f93c-6f96-4d0c-b15b-05c85460df1f",
+            "Value": {
+                "id": "55c315eb-0adf-4a5c-b261-17ec50df08fa",
+                "resourcePath": "scripts\\performSelectorLeft\\performSelectorLeft.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -3103,6 +3159,14 @@
             }
         },
         {
+            "Key": "d71156eb-88da-49f3-9763-924764294166",
+            "Value": {
+                "id": "a4191fae-eb4d-4d1d-81c6-ad0d500dc93c",
+                "resourcePath": "scripts\\performSelectorEnterPressed\\performSelectorEnterPressed.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d7610202-6648-4002-9031-4371d5202a79",
             "Value": {
                 "id": "e7215a99-9974-42d0-b686-741a833d7196",
@@ -3648,6 +3712,12 @@
         "49c3814e-d8c4-4d0e-b35d-1ddee2964762",
         "e8895f9f-8cd4-46f8-9062-c275805a99f4",
         "1f175613-05fb-4f3d-9aca-9a25fb29344e",
+        "10d0376b-80b4-497a-80bd-9cc1603812d0",
+        "d71156eb-88da-49f3-9763-924764294166",
+        "6da5f93c-6f96-4d0c-b15b-05c85460df1f",
+        "5999c26c-6d24-44fc-ab4b-62ea7b2ec60e",
+        "6970c333-d11e-4ae7-9620-8d123358cb30",
+        "0aafa26c-a5fb-4aac-940c-a8f1df7e71c4",
         "00feb608-5eda-4896-afe4-aa97abfda795",
         "3ba0e475-52bf-40db-82b9-fe6e9814970d",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
@@ -3689,6 +3759,7 @@
         "d4742d0e-dea3-4fe8-8f4b-ced8207ca109",
         "f363be3c-d933-480d-8602-502a5c5a721f",
         "c86c3fc8-df04-4ccf-a457-36ff93d7cf49",
+        "01a586ae-1990-4a09-aa7b-413bc1526884",
         "85ab87d2-fc88-4cbf-919f-eecfe09947f4",
         "cd615c88-1626-485a-a27f-9b20e17a6a15",
         "665b024d-e45b-499a-b0f1-36247fa53d9e",

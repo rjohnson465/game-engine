@@ -28,7 +28,7 @@ var pred = currentMeleeAttack == noone ?
 				
 if pred && !isFlinching {
 	// Movement for AI combatants not in attack range
-	if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,10,false) {
+	if layer == lockOnTarget.layer /*&& mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,10,false)*/ {
 		mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,10,false);
 		path_start(path,functionalSpeed,path_action_stop,false);
 	} 

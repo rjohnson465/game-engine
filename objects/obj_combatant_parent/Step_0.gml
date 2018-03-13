@@ -103,6 +103,9 @@ switch(state) {
 		// player overrides this entirely
 		if type != CombatantTypes.Player {
 			
+			// maybe return to post
+			maybeReturnToPost();
+			
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
 			if currentMeleeAttack || currentRangedAttack {
 				
@@ -139,7 +142,7 @@ switch(state) {
 					
 					// can aggro while returning to post 
 					// check if in melee aggro range
-					if	((canSeeLockOnTarget() || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
+					if	((canSeeLockOnTarget()) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
 						state = CombatantStates.AggroMelee;
 						break;
 					} else
