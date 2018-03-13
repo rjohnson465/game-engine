@@ -119,7 +119,7 @@ var UP = keyboard_check(ord("W"));
 var DOWN = keyboard_check(ord("S"));
 var LEFT = keyboard_check(ord("A"));
 var RIGHT = keyboard_check(ord("D"));
-var SHIFT = keyboard_check(vk_shift) || gamepad_button_check(gamePadIndex, gp_stickl);
+var SHIFT = keyboard_check(vk_shift) || gamepad_button_check(gamePadIndex, gp_stickl) || gamepad_button_check(gamePadIndex,gp_face4);
 var GAMEPADHMOVE = false;
 var GAMEPADVMOVE = false;
 if gamepad_is_connected(gamePadIndex) {
@@ -228,6 +228,16 @@ switch(state) {
 			}
 		}	
 		
+		if gamepad_is_connected(gamePadIndex) {
+			var h_point = gamepad_axis_value(gamePadIndex, gp_axisrh);
+			var v_point = gamepad_axis_value(gamePadIndex, gp_axisrv);
+			if h_point == 0 && v_point == 0 && lockOnTarget == noone {
+				var xx = x+lengthdir_x(100,direction);
+				var yy = y+lengthdir_y(100,direction);
+				turnToFacePoint(turnSpeed,xx,yy);
+			}
+		}
+		
 		break;
 	}
 	case CombatantStates.Attacking: {
@@ -299,7 +309,7 @@ switch(state) {
 			var MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle);
 			if gamepad_is_connected(gamePadIndex) {
 				MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle) || 
-				gamepad_button_check_released(gamePadIndex,gp_shoulderlb);
+				gamepad_button_check_released(gamePadIndex,gp_shoulderl);
 			}
 			
 			if ds_map_size(attackingLimbs) == 0 && ds_map_size(preparingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
@@ -357,12 +367,12 @@ switch(state) {
 		var LEFTRELEASED = mouse_check_button_pressed(mb_left);
 		if gamepad_is_connected(gamePadIndex) {
 			LEFTRELEASED = mouse_check_button_pressed(mb_left) 
-			|| gamepad_button_check_pressed(gamePadIndex,gp_shoulderl);
+			|| gamepad_button_check_pressed(gamePadIndex,gp_shoulderlb);
 		}
 		var RIGHTRELEASED = mouse_check_button_pressed(mb_right);
 		if gamepad_is_connected(gamePadIndex) {
 			RIGHTRELEASED = mouse_check_button_pressed(mb_left) 
-			|| gamepad_button_check_released(gamePadIndex,gp_shoulderr);
+			|| gamepad_button_check_released(gamePadIndex,gp_shoulderrb);
 		}
 		
 		// iterate over preparing hands 

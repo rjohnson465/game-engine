@@ -22,25 +22,25 @@ isMouseInMenu = global.ui.isShowingMenus &&
 	mouse_y > vy + MENUS_TOPLEFT_Y && mouse_y < vy + MENUS_BOTTOMRIGHT_Y;
 	
 if gamepad_is_connected(gamePadIndex) {
-	if gamepad_button_check_released(gamePadIndex,gp_shoulderl) && !global.ui.isShowingMenus {
+	if gamepad_button_check_released(gamePadIndex,gp_shoulderlb) && !global.ui.isShowingMenus {
 		performLeftHandReleaseAction();
 	}
-	if gamepad_button_check_released(gamePadIndex,gp_shoulderr) && !global.ui.isShowingMenus {
+	if gamepad_button_check_released(gamePadIndex,gp_shoulderrb) && !global.ui.isShowingMenus {
 		performRightHandReleaseAction();
 	}
-	if gamepad_button_check(gamePadIndex,gp_shoulderl) {
+	if gamepad_button_check(gamePadIndex,gp_shoulderlb) {
 		performLeftHandDownAction();
 	}
-	if gamepad_button_check(gamePadIndex,gp_shoulderr) {
+	if gamepad_button_check(gamePadIndex,gp_shoulderrb) {
 		performRightHandDownAction();
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderrb) && !global.ui.isShowingMenus {
+	if gamepad_button_check_pressed(gamePadIndex,gp_face2) && !global.ui.isShowingMenus {
 		performDodge();
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_face2) && !global.ui.isShowingMenus {
+	if gamepad_button_check_pressed(gamePadIndex,gp_face3) && !global.ui.isShowingMenus {
 		performSwapWeaponSet();
 	}
-	if gamepad_button_check(gamePadIndex,gp_shoulderlb) && !global.ui.isShowingMenus {
+	if gamepad_button_check(gamePadIndex,gp_shoulderl) && !global.ui.isShowingMenus {
 		performChargeSpell();
 	}
 	if gamepad_button_check_pressed(gamePadIndex,gp_padu) && !global.ui.isShowingMenus {
