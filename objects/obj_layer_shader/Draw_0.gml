@@ -17,8 +17,6 @@ var pLayerName = layer_get_name(playerLayer);
 var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
 var pDepth = layer_get_depth(global.player.layer);
 var fDepth = layer_get_depth(layer_get_id("tiles_floor_"+string(floorNum)));
-//var diff = pLayerNum - real(floorNum);
-//shade = diff*(-.15);
 
 var diff = fDepth-pDepth;
 shade = (-.05/100)*diff;

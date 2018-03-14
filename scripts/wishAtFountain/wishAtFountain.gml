@@ -8,10 +8,11 @@ if !isRunning {
 	isRunning = true;
 	sprite_index = asset_get_index("spr_fountain_filling");		
 	with obj_player {
+		lastFountain = other.id;
 		lastFountainRoom = room;
-		lastFountainX = fountain.x+100;
-		lastFountainY = fountain.y+100;
-		lastFountainZ = fountain.layer;
+		lastFountainX = fountain.spawnX;
+		lastFountainY = fountain.spawnY;
+		lastFountainZ = fountain.layerName;
 	}
 }
 	
@@ -26,43 +27,7 @@ else if isDoneFilling {
 	part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
 	part_emitter_burst(system,emitter,particle,num);
 		
-	// re-spawn all enemies in all maps
-	with obj_room_data {
-		for (var i = 0; i < ds_list_size(enemiesData); i++) {
-			var enemyData = ds_list_find_value(enemiesData,i);
-			enemyData.currentX = enemyData.postX;
-			enemyData.currentY = enemyData.postY;
-			enemyData.hp = enemyData.maxHp;
-			enemyData.isAlive = true;
-				
-			// actually reposition / heal enemies in this room
-			if roomIndex == room {
-				var enemy = findPersistentRoomElement(obj_enemy_parent,enemyData.postX,enemyData.postY);
-				with enemy {
-					path_end();
-				}
-				enemy.x = enemyData.postX;
-				enemy.y = enemyData.postY;
-				enemy.layer = enemyData.postZ;
-				enemy.hp = enemyData.maxHp;
-				enemy.isAlive = true;
-				enemy.isDying = false;
-				ds_map_clear(enemy.preparingLimbs);
-				ds_map_clear(enemy.attackingLimbs);
-				ds_map_clear(enemy.recoveringLimbs);
-				enemy.state = CombatantStates.Idle;
-				enemy.showHp = false;
-				enemy.isShowingLightRadius = true;
-				
-				// cure any and all conditions
-				var currentCondition = ds_map_find_first(enemy.conditionPercentages);
-				for (var j = 0; j < ds_map_size(enemy.conditionPercentages);j++) {
-					ds_map_replace(enemy.conditionPercentages,currentCondition,0);
-					currentCondition = ds_map_find_next(enemy.conditionPercentages, currentCondition);
-				}
-			}
-		}
-	}
+	respawnEnemies();
 		
 	// refill player health and stamina
 	with obj_player {

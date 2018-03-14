@@ -36,3 +36,9 @@ if limbKey == "l" {
 
 sprite_index = asset_get_index(spriteString);
 
+// particle system for spell casting
+particle = part_type_create();
+system = part_system_create();
+part_system_depth(system,depth);
+emitter = part_emitter_create(system);
+

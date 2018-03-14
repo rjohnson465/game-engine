@@ -84,9 +84,10 @@ lockOnTargetType = obj_enemy_parent;
 LOCK_ON_DISTANCE = 800;
 
 // hp / stamina
-hp = 100;
+hp = 1;
 maxHp = 100;
-hpRegen = .5; // per second
+//hpRegen = .5; // per second
+hpRegen = 0;
 stamina = 50;
 maxStamina = 50;
 staminaRegen = 10; // per second
@@ -134,6 +135,7 @@ var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 ds_map_replace(longsword2.damages,ICE,[2,4]);
 ds_list_add(inventory,longsword2);
 
+lastFountain = noone;
 lastFountainRoom = noone;
 lastFountainX = noone;
 lastFountainY = noone;
@@ -149,3 +151,15 @@ gamePadIndex = noone;
 
 layerToMoveTo = noone;
 
+dyingParticleColor1 = c_white;
+dyingParticleColor2 = c_gray;
+justRevivedAtFountain = false;
+
+/*
+if lastFountainRoom == noone {
+	var nearestFountain = instance_nearest(x,y,obj_fountain);
+	lastFountainRoom = nearestFountain.nativeRoom;
+	lastFountainX = nearestFountain.spawnX;
+	lastFountainY = nearestFountain.spawnY;
+	lastFountainZ = nearestFountain.layer;
+}

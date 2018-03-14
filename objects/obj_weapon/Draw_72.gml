@@ -1,3 +1,4 @@
+if owner.currentUsingSpell != noone exit;
 prepareLayerShader();
 
 if sprite_index == -1 exit;

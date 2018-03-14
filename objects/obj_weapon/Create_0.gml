@@ -61,7 +61,6 @@ particle3 = noone;
 				break;
 			}
 			case MAGIC: {
-				num = random_range(10,15);
 				// magic particle
 				var magic = part_type_create();
 				part_type_shape(magic, pt_shape_sphere);

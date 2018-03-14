@@ -14,5 +14,19 @@ if layerToMoveTo != noone {
 	layer = layer_get_id(layerToMoveTo);
 }
 
+if justRevivedAtFountain {
+	justRevivedAtFountain = false;
+	var f = instance_nearest(x,y,obj_fountain);
+	with f {
+		if !isRunning {
+			isRunning = true;
+			isDoneFilling = true;
+			//fountainData.isDoneFilling = true;
+			sprite_index = asset_get_index("spr_fountain_full");
+		}
+		respawnEnemies();
+	}
+}
+
 // handles layer shading
 updateRoomLayers();

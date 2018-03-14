@@ -12,6 +12,9 @@ if limbKey == "l" {
 	image_yscale = -1*owner.fallScaleFactor;
 }
 layer = owner.layer;
+if owner.currentUsingSpell != noone {
+	visible = false;
+}
 //depth = layer_get_depth(layer) + 1;
 
 // switch weapon sprite
@@ -143,7 +146,7 @@ if limbItem != limb.limbItem {
 	//}
 }
 
-if owner.layer >= global.player.layer {
+if owner.layer >= global.player.layer && owner.currentUsingSpell == noone {
 	if particle1 != noone {
 		system1 = part_system_create();
 		part_system_depth(system1,depth);
@@ -185,3 +188,4 @@ else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
 else {
 	sprite_index = asset_get_index(spriteString);
 }
+

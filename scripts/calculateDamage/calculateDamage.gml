@@ -262,14 +262,16 @@ if	state != CombatantStates.Dodging &&
 					with assailant {
 						var itemIsMelee = false;
 						if itemHitWith != noone {
-							itemIsMelee = itemHitWith.type == HandItemTypes.Melee;
+							itemIsMelee = itemHitWith.subType == HandItemTypes.Melee;
 						}
-						if /*assailant.currentMeleeAttack != noone ||*/ itemIsMelee {
+						var pred = assailant.type == CombatantTypes.Player ? itemIsMelee : assailant.currentMeleeAttack != noone;
+						if pred {
 							isShielding = false;
 							path_end();
 							staggerFrame = 0;
-							staggerDuration = 1;
-							staggerSpeed = 1;
+							staggerDuration = 30;
+							staggerDirection = other.facingDirection;
+							staggerSpeed = 3;
 							state = CombatantStates.Staggering;
 						}
 					}

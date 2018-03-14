@@ -16,24 +16,29 @@ if limbKey == "r" {
 
 var ys = limbKey == "l" ? -1 : 1;
 var rot = owner.facingDirection;
-if limbItem.subType == HandItemTypes.Shield && owner.isShielding rot+=90;
+//if limbItem.subType == HandItemTypes.Shield && owner.isShielding rot+=90;
 var frame = 0; var sprite = asset_get_index(spriteString);
-// preparing limb
-if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {
-	var frame = ds_map_find_value(owner.prepFrames,limbKey)
-	var sprite = getLimbSpriteIndex("prep");
-}
+if owner.currentUsingSpell == noone {
+	// preparing limb
+	if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {
+		var frame = ds_map_find_value(owner.prepFrames,limbKey)
+		var sprite = getLimbSpriteIndex("prep");
+	}
 
-// attacking limb
-else if ds_map_find_value(owner.attackingLimbs,limbKey) >= 0 {
-	var frame = ds_map_find_value(owner.attackFrames,limbKey)
-	var sprite = getLimbSpriteIndex("attack");
-}
+	// attacking limb
+	else if ds_map_find_value(owner.attackingLimbs,limbKey) >= 0 {
+		var frame = ds_map_find_value(owner.attackFrames,limbKey)
+		var sprite = getLimbSpriteIndex("attack");
+	}
 
-// recovering limb
-else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
-	var frame = ds_map_find_value(owner.recoverFrames,limbKey)
-	var sprite = getLimbSpriteIndex("recover");
+	// recovering limb
+	else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
+		var frame = ds_map_find_value(owner.recoverFrames,limbKey)
+		var sprite = getLimbSpriteIndex("recover");
+	}
+} else {
+	var frame = ds_map_find_value(owner.prepFrames,"l");
+	var sprite = asset_get_index("spr_player_hand_spellprep");
 }
 
 draw_sprite_ext(sprite,frame,owner.x,owner.y,1*owner.fallScaleFactor,ys*owner.fallScaleFactor,rot,c_white,owner.alpha);

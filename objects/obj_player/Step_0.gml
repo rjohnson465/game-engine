@@ -5,7 +5,7 @@ with obj_fade {
 		isFading = true;
 	}
 }
-if isFading {
+if isFading || isDying || !isAlive {
 	speed = 0;
 	state = CombatantStates.Idle;
 	path_end();

@@ -1,5 +1,5 @@
 {
-    "id": "cdd86726-f1bf-4d96-b363-cebb104d6c8a",
+    "id": "f9ce57f9-4b35-4874-a7bd-23bb0af884c7",
     "modelName": "GMSprite",
     "mvc": "1.12",
     "name": "spr_enemy_unfairy_woodshield_block",
@@ -16,24 +16,24 @@
     "edgeFiltering": false,
     "frames": [
         {
-            "id": "65a7b160-009f-48ad-bf84-b428a97f7587",
+            "id": "a1b1b79d-53eb-4731-9145-a68ca7fa91b7",
             "modelName": "GMSpriteFrame",
             "mvc": "1.0",
-            "SpriteId": "cdd86726-f1bf-4d96-b363-cebb104d6c8a",
+            "SpriteId": "f9ce57f9-4b35-4874-a7bd-23bb0af884c7",
             "compositeImage": {
-                "id": "97082e22-d7c2-44b6-8078-dc641736c990",
+                "id": "0a87f397-7fc6-4db1-9888-fc670df5c8e4",
                 "modelName": "GMSpriteImage",
                 "mvc": "1.0",
-                "FrameId": "65a7b160-009f-48ad-bf84-b428a97f7587",
+                "FrameId": "a1b1b79d-53eb-4731-9145-a68ca7fa91b7",
                 "LayerId": "00000000-0000-0000-0000-000000000000"
             },
             "images": [
                 {
-                    "id": "28763ff5-fbf3-485a-a255-ebc60eaa312c",
+                    "id": "7fe2cc7d-e7dd-4209-805c-1fe4badcc554",
                     "modelName": "GMSpriteImage",
                     "mvc": "1.0",
-                    "FrameId": "65a7b160-009f-48ad-bf84-b428a97f7587",
-                    "LayerId": "c52a9386-5b64-46bd-90d6-6375fef4f429"
+                    "FrameId": "a1b1b79d-53eb-4731-9145-a68ca7fa91b7",
+                    "LayerId": "9b063169-5a2c-4855-a586-97fd3336a397"
                 }
             ]
         }
@@ -43,10 +43,10 @@
     "height": 128,
     "layers": [
         {
-            "id": "c52a9386-5b64-46bd-90d6-6375fef4f429",
+            "id": "9b063169-5a2c-4855-a586-97fd3336a397",
             "modelName": "GMImageLayer",
             "mvc": "1.0",
-            "SpriteId": "cdd86726-f1bf-4d96-b363-cebb104d6c8a",
+            "SpriteId": "f9ce57f9-4b35-4874-a7bd-23bb0af884c7",
             "blendMode": 0,
             "isLocked": false,
             "name": "default",

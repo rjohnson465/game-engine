@@ -2,14 +2,14 @@ if frame < fadeDuration {
 	frame++;
 }
 else if !hasSetAlarm {
-	//hasSetAlarm = true;
-	//alarm[0] = 60;
-	instance_destroy(id,true);
+	hasSetAlarm = true;
+	alarm[0] = 15;
+	//instance_destroy(id,true);
 }
 
 // fountain creates particles everywhere when wished at
 if instance_exists(owner) {
-	if owner.object_index == obj_fountain {
+	if owner.object_index == obj_fountain && !hasSetAlarm {
 		var num = 4;
 		var conditionPercent = (frame / fadeDuration*100);
 		if conditionPercent > 90 {

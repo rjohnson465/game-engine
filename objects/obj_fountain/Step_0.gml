@@ -28,9 +28,6 @@ if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone
 		global.fadeDuration = 30;
 		global.owner = id;
 		instance_create_depth(x,y,-100000,obj_fade);
-		//global.condition = "Fountain";
-		//global.owner = id;
-		//instance_create_depth(x,y,1,obj_condition_particles);
 	}
 } 
 else if fade != noone {

@@ -1,5 +1,3 @@
-
-
 isRunning = false;
 isDoneFilling = false;
 
@@ -15,6 +13,9 @@ nativeRoom = room;
 
 postX = x;
 postY = y;
+// override on instance creation
+spawnX = postX + 100;
+spawnY = postY + 100;
 
 system = part_system_create();
 part_system_depth(system,-4);
@@ -34,4 +35,5 @@ part_type_life(water,7,11);
 particle = water;
 
 origLayer = layer;
+layerName = layer_get_name(layer);
 
