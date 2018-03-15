@@ -18,7 +18,7 @@ if isFading {
 if state == CombatantStates.Dodging && ds_list_find_index(beenHitWith,other.id) == -1 {
 	//ds_list_add(other.combatantsHit,id);
 	//ds_list_add(beenHitWith,other.id);
-	drawCombatText("Evaded!",id);
+	//drawCombatText("Evaded!",id);
 	exit;
 }
 
@@ -282,6 +282,7 @@ if	state != CombatantStates.Dodging &&
 		else {			
 			// critical?
 			hp -= damage;
+			
 			global.damageAmount = damage;
 			global.healingSustained = 0;
 			global.victim = id;
@@ -304,6 +305,9 @@ if	state != CombatantStates.Dodging &&
 			randomize();
 			var rand = random_range(0,1);
 			if rand < chanceToStagger {
+				if ds_map_size(preparingLimbs) != 0 {
+					drawCombatText("Interrupt!",id);
+				}
 				staggerFrame = 0;
 				// stagger duration is 6 frames + damage% of of total hp frames
 				staggerDuration = 6 + (percentOfHp*100);

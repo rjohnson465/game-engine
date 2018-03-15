@@ -10,14 +10,17 @@ with obj_fade {
 	}
 }
 
+if !surface_exists(surf2) {
+	surf2 = surface_create(var_resolution_x, var_resolution_y);
+} 
+
 shader_set(shd_greyscale);
     shader_set_uniform_f(uni_time, var_time_var);
     shader_set_uniform_f(uni_mouse_pos, var_mouse_pos_x, var_mouse_pos_y);
     shader_set_uniform_f(uni_resolution, var_resolution_x, var_resolution_y);
     shader_set_uniform_f(uni_greyscale_fade, var_greyscale_fade);
     if full_screen_effect {
-		
-		draw_surface(surf,0,0);
+		draw_surface_stretched(surf,0,0,display_get_gui_width(),display_get_gui_height());
 	}
 shader_reset();
 
@@ -50,7 +53,11 @@ var x2 = s1x+(.5*s1w)+5; var y2 = s1y+(.5*s1h)+5;
 if selectedOption == ReviveOptions.Fountain {
 	draw_set_color(c_gray);
 } else draw_set_color(c_dkgray);
+reviveAtFountainButtonCoordinates = [x1,y1,x2,y2];
 draw_rectangle(x1,y1,x2,y2,false);
+
+draw_circle(x1,y1,5,false);
+draw_circle(x2,y2,5,false);
 draw_set_halign(fa_center);
 scr_draw_text_outline(s1x,s1y,s1,c_white,c_white);
 
@@ -60,6 +67,7 @@ var y3 = y1 + 50; var y4 = y2+50;
 if selectedOption == ReviveOptions.Orb {
 	draw_set_color(c_gray);
 } else draw_set_color(c_dkgray);
+reviveWithOrbButtonCoordinates = [x1,y3,x2,y4];
 draw_rectangle(x1,y3,x2,y4,false);
 scr_draw_text_outline(s1x,s1y+50,s2,c_white,c_white);
 

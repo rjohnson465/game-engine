@@ -3,6 +3,8 @@ if type == CombatantTypes.Player exit;
 if hp < 1 && isAlive && !isDying {
 	isDying = true;
 	hp = 0;
+	fallFrame = fallTotalFrames;
+	fallScaleFactor = 1;
 	speed = 0;
 	ds_map_clear(preparingLimbs);
 	ds_map_clear(attackingLimbs);

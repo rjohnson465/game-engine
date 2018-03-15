@@ -6,6 +6,7 @@ var cell_height = 32; //bbox_bottom-bbox_top;
 var hcells = room_width div cell_width;
 var vcells = room_height div cell_height;
 personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
+gridPath = path_add();
 
 //mp_grid_add_instances(personalGrid, obj_wall_parent, false);
 

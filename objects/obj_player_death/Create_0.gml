@@ -20,6 +20,7 @@ full_screen_effect = true;
 surf = surface_create(var_resolution_x, var_resolution_y);
 surf2 = surface_create(var_resolution_x, var_resolution_y);
 view_set_surface_id(0, surf);
+//view_surface_id[0] = surf;
 
 room_speed = 15;
 
@@ -33,3 +34,7 @@ enum ReviveOptions {
 	Orb
 }
 selectedOption = ReviveOptions.Fountain;
+
+reviveAtFountainButtonCoordinates = [];
+reviveWithOrbButtonCoordinates = [];
+//mouseOverFountainRevive = false;

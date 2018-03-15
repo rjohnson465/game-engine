@@ -28,10 +28,41 @@ var pred = currentMeleeAttack == noone ?
 				
 if pred && !isFlinching {
 	// Movement for AI combatants not in attack range
-	if layer == lockOnTarget.layer /*&& mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,10,false)*/ {
-		mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,10,false);
+	if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false) {
+		mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false);
 		path_start(path,functionalSpeed,path_action_stop,false);
-	} 
+	}
+	// if can't find potential path directly to player, find grid path to player and potential path steps on it
+	else if layer == lockOnTarget.layer {
+		var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,lockOnTarget.x,lockOnTarget.y,true);
+		if isGridPathAvailable /*&& recalculatePathFrame >= recalculatePathFrameTotal*/ {
+			var xx = path_get_x(gridPath,.1);
+			var yy = path_get_y(gridPath,.1);
+			mp_potential_path(path,xx,yy,functionalSpeed,1,0);
+			path_start(path,functionalSpeed,path_action_stop,false);
+			//recalculatePathFrame = 0;
+		} else {
+			//recalculatePathFrame++;
+			if postZ == layer {
+				var a = mp_grid_path(personalGrid,path,x,y,postX,postY,0);
+				if a {
+					path_start(path,functionalSpeed,path_action_stop,false);
+					currentMeleeAttack = noone;
+					currentRangedAttack = noone;
+					lockOnTarget = noone;
+				}
+			}
+			// not on post layer, not on lockOnTarget layer
+			else {
+				if mp_grid_path(personalGrid,path,x,y,tempPostX,tempPostY,0) {
+					path_start(path,functionalSpeed,path_action_stop,false);
+					currentMeleeAttack = noone;
+					currentRangedAttack = noone;
+					lockOnTarget = noone;
+				}
+			}
+		}
+	}
 	// return to post if no path to target can be found
 	else if postZ == layer {
 		var a = mp_grid_path(personalGrid,path,x,y,postX,postY,0);

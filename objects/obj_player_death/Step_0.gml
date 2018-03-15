@@ -1,5 +1,30 @@
-//if keyboard_check(ord("Q")) and var_greyscale_fade<1 var_greyscale_fade+=0.005;
-//if keyboard_check(ord("A")) and var_greyscale_fade>0 var_greyscale_fade-=0.005;
+// if mouse enters a button, highlight it
+var vx = camera_get_view_x(view_camera[0]);
+var vy = camera_get_view_y(view_camera[0]);
+
+// fountain revive
+var mouseOverFountainRevive = mouse_x > vx + reviveAtFountainButtonCoordinates[0] && mouse_y > vy + reviveAtFountainButtonCoordinates[1]
+	&& mouse_x < vx +reviveAtFountainButtonCoordinates[2] && mouse_y < vy + reviveAtFountainButtonCoordinates[3];
+var a = point_in_rectangle(mouse_x,mouse_y,vx+reviveAtFountainButtonCoordinates[0],
+	vy+reviveAtFountainButtonCoordinates[1],vx+reviveAtFountainButtonCoordinates[2],
+	vy+reviveAtFountainButtonCoordinates[3]);
+
+if mouse_check_button_released(mb_left) {
+	show_debug_message(string(mouse_x)+","+string(mouse_y));
+}
+
+//show_debug_message(string(mouse_x) + "," + string(mouse_y));
+//show_debug_message(string(vx+reviveAtFountainButtonCoordinates[0]));
+
+if a selectedOption = ReviveOptions.Fountain; 
+var mouseOverOrbRevive = acceptingInput && mouse_x > vx + reviveWithOrbButtonCoordinates[0] && mouse_y > vy + reviveWithOrbButtonCoordinates[1]
+	&& mouse_x < vx + reviveWithOrbButtonCoordinates[2] && mouse_y < vy + reviveWithOrbButtonCoordinates[3];
+if mouseOverOrbRevive selectedOption = ReviveOptions.Orb;
+
+
+if !surface_exists(surf) {
+	surf = surface_create(var_resolution_x, var_resolution_y);
+} 
 
 if var_greyscale_fade < 1 var_greyscale_fade+= .1;
 
@@ -36,7 +61,7 @@ if gamepad_is_connected(p.gamePadIndex) {
 	ENTER = keyboard_check_released(vk_enter) || gamepad_button_check_released(p.gamePadIndex,gp_face1);
 }
 
-if ENTER && acceptingInput {
+if (ENTER || ((mouseOverFountainRevive) && mouse_check_button_released(mb_left))) && acceptingInput {
 	
 	global.fadeDuration = 30;
 	global.owner = id;

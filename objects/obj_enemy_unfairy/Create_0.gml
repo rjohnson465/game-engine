@@ -33,10 +33,10 @@ stupidity = 15; // default .5 second in thinking state
 stupidityFrame = 0;
 
 // general attacks info
-meleeAggroRange = 200;
+meleeAggroRange = 500;
 rangedAggroRange = 600;
 //rangedAggroRange = noone;
-farthestAllowedFromPost = 500;
+farthestAllowedFromPost = 5000;
 aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
 attackFrequencyTotalFramesMelee = [25,45];
 attackFrequencyTotalFramesRanged = [60,90];
@@ -95,8 +95,8 @@ var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
 
-hp = 50;
-maxHp = 50;
+hp = 500;
+maxHp = 500;
 
 stamina = 60;
 maxStamina = 60;

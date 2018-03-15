@@ -5,7 +5,11 @@ if instance_exists(owner) {
 		instance_create_depth(x,y,1,obj_light_radius);
 		instance_destroy(id,false);
 	}
-	layer = owner.layer;
+	if owner.object_index == obj_fountain {
+		layer = layer_get_id(owner.layerName);
+	} else {
+		layer = owner.layer;
+	}
 }
 
 

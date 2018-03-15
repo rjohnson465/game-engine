@@ -13,6 +13,8 @@ numberOfTargets = 1;
 
 maxChargeCost = 10;
 
+staggersAgainstBlocks = false;
+
 minDamage = 0;
 maxDamage = 0;
 // damages of each type

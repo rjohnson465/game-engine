@@ -1,8 +1,10 @@
 event_inherited();
-
+/*
 // death
 if hp < 1 && isAlive && !isDying {
 	isDying = true;
+	fallFrame = fallTotalFrames;
+	fallScaleFactor = 1;
 	hp = 0;
 	speed = 0;
 	ds_map_clear(preparingLimbs);
