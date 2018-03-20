@@ -6,19 +6,7 @@ enum HandItemTypes {
 	Ranged
 }
 
-enum WeaponTypes {
-	Sword1H,
-	Sword2H,
-	Rapier,
-	Unarmed,
-	Axe1H,
-	Axe2H,
-	Blunt1H, // includes wands
-	Blunt2H, // includes staves
-	Dagger,
-	Bow,
-	Crossbow
-}
+
 
 subType = ""; // HandItemType
 weaponType = WeaponTypes.Sword1H;

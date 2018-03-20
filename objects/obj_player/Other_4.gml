@@ -30,3 +30,13 @@ if justRevivedAtFountain {
 
 // handles layer shading
 updateRoomLayers();
+
+isShowingLightRadius = true;
+
+/*
+with obj_light_radius {
+	if owner == other.id {
+		persistent = true;
+		playerLightRadius = id;
+	}
+}

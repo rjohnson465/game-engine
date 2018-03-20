@@ -21,4 +21,10 @@ if	(state == CombatantStates.Idle || state == CombatantStates.Moving)  {
 	if rightHandItem2 unequipItem(rightHandItem2);
 	if rightHandItem equipItem(rightHandItem,EquipmentSlots.RightHand2);
 	if rightHandItem2 equipItem(rightHandItem2,EquipmentSlots.RightHand1);
+	
+	comboNumber = 0;
+	comboEffectiveNumber = 0;
+	// new combo hits to next level dependent on weapon in main hand
+	var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
+	comboHitsToNextLevel = ds_map_find_value(comboHitsToNextLevelMap,leftHandItem.weaponType);
 } 

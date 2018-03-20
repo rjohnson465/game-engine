@@ -1,5 +1,6 @@
 path_end();
-//stupidityFrame = 100 - aggressiveness;
+
+// TODO do not commit to a charge attack if there are obstacles between target
 					
 if attackFrequencyFrame == -1 {
 	randomize();

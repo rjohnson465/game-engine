@@ -135,7 +135,7 @@ if !isMoveInputReceived && state == CombatantStates.Moving {
 	state = CombatantStates.Idle;
 }
 
-if state != CombatantStates.Staggering && !isMouseInMenu {
+if state != CombatantStates.Staggering && !isMouseInMenu && !global.ui.isShowingMenus {
 	// player faces mouse if not locked on
 	if state == CombatantStates.Idle || state == CombatantStates.Moving 
 	|| (ds_map_size(preparingLimbs)!=0)
@@ -171,7 +171,7 @@ switch(state) {
 		break;
 	}
 	case CombatantStates.Moving: {
-		if isFlinching {
+		if isFlinching || global.ui.isShowingMenus {
 			break;
 		}
 		speed = 0;
@@ -212,7 +212,7 @@ switch(state) {
 			}
 		}
 		
-		if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) {
+		if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowingMenus {
 			var useSpeed = functionalSpeed;
 			if SHIFT && stamina > 0 {
 				useSpeed = functionalSpeed*1.25;
@@ -283,7 +283,7 @@ switch(state) {
 				}
 			}
 		
-			if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) {
+			if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowingMenus {
 				var useSpeed = functionalSpeed;
 				if SHIFT && stamina > 0 {
 					useSpeed = .5*(functionalSpeed*1.25);
@@ -472,6 +472,17 @@ switch(state) {
 					ds_map_replace(recoverFrames,hand,-1);
 					ds_map_replace(recoverFrameTotals,hand,0);
 					ds_map_delete(recoveringLimbs,hand);
+					
+					// if attackAgain, restart chain
+					if ds_map_find_value(attackAgain,hand) {
+						//var prepString = "spr_"+spriteString+"_"+itemSprite+"_prep_1";
+						ds_map_replace(preparingLimbs,hand,1);
+						ds_map_delete(recoveringLimbs,hand);
+						ds_map_replace(recoverFrames,hand,-1);
+						ds_map_replace(recoverFrameTotals,hand,0);
+						ds_map_replace(attackAgain,hand,false);
+					}
+					
 					ds_map_replace(attackAgain,hand,false);
 					
 					if ds_map_size(preparingLimbs) == 0 && ds_map_size(attackingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
@@ -485,6 +496,7 @@ switch(state) {
 					// then create new preparingLimb / prepFrames
 					var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
 					var prepString = "spr_"+spriteString+"_"+itemSprite+"_prep_"+string(attackInChain+1);
+					
 					if ds_map_find_value(attackAgain,hand) != 0 && asset_get_index(prepString) != -1 {
 						
 						if recoverFrame == 0 {

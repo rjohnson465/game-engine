@@ -17,6 +17,7 @@ if frame > 11 {
 	var a = 1 - ((frame-11)/11);
 	draw_set_alpha(1-((frame-11)/11));
 }
-scr_draw_text_outline(x1,y1,text,c_white,c_purple,c_black);
+var c2 = isCriticalHit ? c_red : c_purple;
+scr_draw_text_outline(x1,y1,text,c_white,c2,c_black);
 draw_set_alpha(1);
 

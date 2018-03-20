@@ -16,19 +16,26 @@ if state == CombatantStates.Staggering {
 
 // draw dodge sprite if dodging
 if state == CombatantStates.Dodging {
-	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,1);
+	var a = alpha;
+	if isFairy a = alpha*.5;
+	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"),dodgeFrame,x,y,1,1,dodgeDirection,c_white,a);
 	// slowed
 	if isSlowed {
 		var percentFrozen = ds_map_find_value(conditionPercentages,ICE);
 		var colorAlpha = (3/320)*percentFrozen;
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, colorAlpha*alpha);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, colorAlpha*a);
 	} else if isPoisoned {
 		var percentPoisoned = ds_map_find_value(conditionPercentages,POISON);
 		var colorAlpha = (3/320)*percentPoisoned;
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_green, colorAlpha*alpha);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_green, colorAlpha*a);
 	}
 	
 } 
+
+if state == CombatantStates.Attacking {
+	//var a = currentRangedAttack == noone ? meleeAttacks[attackNumber-1] : rangedAttacks[attackNumber-1];
+
+}
 
 if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 	// normally draw base sprite -- on top of hands

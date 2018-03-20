@@ -1,4 +1,4 @@
-if distance_to_object(obj_player) < 20 {
+if distance_to_object(obj_player) < 20 && global.player.isAlive {
 	if !isRunning {
 		drawPrompt("Fill Fountain",Input.F);
 	}

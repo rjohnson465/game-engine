@@ -16,12 +16,22 @@ ds_map_replace(longsword1.damages,POISON,[1,2]);
 // ATTACKS
 global.owner = id;
 var longswordSwing1 = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_1_1);
-longswordSwing1.limbKey = "e";
+longswordSwing1.limbKey = "l";
 ds_map_replace(longswordSwing1.damages,POISON,[1,2]);
 var longswordSwing2 = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_1_1);
 longswordSwing2.limbKey = "o";
 ds_map_replace(longswordSwing2.damages,FIRE,[1,2]);
 
+var longswordStabFire = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
+longswordStabFire.limbKey = "r";
+ds_map_replace(longswordStabFire.damages,FIRE,[3,5]);
+
+var longswordStabPoison = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
+longswordStabPoison.limbKey = "l";
+ds_map_replace(longswordStabPoison.damages,POISON,[3,5]);
+
 var meleeChain0 = [longswordSwing1,longswordSwing2];
-meleeAttacks = [meleeChain0];
-meleeRangeArray = [15];
+var meleeChain1 = [longswordStabFire];
+var meleeChain2 = [longswordStabPoison];
+meleeAttacks = [meleeChain0,meleeChain1,meleeChain2];
+meleeRangeArray = [15,65,65];

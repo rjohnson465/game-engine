@@ -33,3 +33,6 @@ switch type {
 
 // for equip selector only -- set if moveSelector selects an item in inventory to equip
 acceptableEquipmentSlots = [];
+
+joystickInputFrame = 0;
+joystickInputTotalFrames = 30;

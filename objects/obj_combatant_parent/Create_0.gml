@@ -10,7 +10,7 @@ gridPath = path_add();
 
 //mp_grid_add_instances(personalGrid, obj_wall_parent, false);
 
-isFairy = true;
+isFairy = false;
 isPhasing = false;
 randomize()
 floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
@@ -177,7 +177,7 @@ flinchSpeed = 0;
 // shielding stuff
 cautiousness = 100; // 0-100% chance to shield (when able, i.e. not attacking, dodging, staggering)
 shieldingFrame = 0;
-shieldingFrequencyFrames = [30,60]; // range of values for how often to check if should shield
+shieldingFrequencyFrames = [90,120]; // range of values for how often to check if should shield
 totalShieldingFrames = 0; //stores a value between shieldingFrequencyFrames[0] - [1]
 isShielding = false;
 hasCalculatedWillShield = false;

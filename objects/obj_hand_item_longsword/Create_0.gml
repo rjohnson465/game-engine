@@ -1,6 +1,6 @@
 event_inherited();
 subType = HandItemTypes.Melee;
-weaponType = WeaponTypes.Sword1H;
+weaponType = SWORD1H;
 
 name = "Longsword";
 spriteName = "longsword";
@@ -17,9 +17,9 @@ range = 80;
 weaponSpeed = "Medium";
 weight = 10;
 staggerDuration = 25; // frames
-ds_map_set(damages,PHYSICAL,[10,20,10,20,25,30]);
+ds_map_set(damages,SLASH,[10,20,10,20,25,30]);
 staminaCostArray=[20,20,25];
-physicalDamageTypeArray = ["slashing","slashing","piercing"];
+//physicalDamageTypeArray = ["slashing","slashing","piercing"];
 
 //ds_map_replace(damages,POISON,[5,10]);
 //ds_map_replace(damages,ICE,[1,2]);

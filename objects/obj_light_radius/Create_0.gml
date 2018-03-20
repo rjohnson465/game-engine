@@ -1,4 +1,10 @@
 owner = global.owner;
+
+if owner.object_index == obj_player {
+	persistent = true;
+	owner.playerLightRadius = id;
+}
+
 makeLightOnCreate = global.makeLightOnCreate;
 color = owner.lightRadiusColor;
 colorAlpha = owner.lightRadiusAlpha;

@@ -33,6 +33,12 @@ else if isDoneFilling {
 	with obj_player {
 		hp = maxHp;
 		stamina = maxStamina;
+		// cure any and all conditions
+		var currentCondition = ds_map_find_first(conditionPercentages);
+		for (var i = 0; i < ds_map_size(conditionPercentages);i++) {
+			ds_map_replace(conditionPercentages,currentCondition,0);
+			currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
+		}
 		
 		// refill all weapon charges for inventory weapons
 		for (var i = 0 ; i < ds_list_size(inventory); i++) {

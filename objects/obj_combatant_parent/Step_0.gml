@@ -369,6 +369,11 @@ switch(state) {
 	}
 	case CombatantStates.Dodging: {
 		// actual dodge
+		if dodgeFrame == 0 && isFairy {
+			global.condition = "FairyDodge";
+			global.owner = id;
+			instance_create_depth(x,y,1,obj_condition_particles);
+		}
 		dodge();
 		// if not dodging, reset some states and values
 		if dodgeFrame >= totalDodgeFrames {

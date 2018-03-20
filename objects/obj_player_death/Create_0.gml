@@ -8,8 +8,11 @@ var_mouse_pos_x = mouse_x - camera_get_view_x(0);
 var_mouse_pos_y = mouse_y - camera_get_view_y(0);
 
 uni_resolution = shader_get_uniform(shd_greyscale,"resolution");
-var_resolution_x = camera_get_view_width(0);
-var_resolution_y = camera_get_view_height(0);
+//var_resolution_x = camera_get_view_width(0);
+//var_resolution_y = camera_get_view_height(0);
+
+var_resolution_x = view_get_wport(0);
+var_resolution_y = view_get_hport(0);
 
 uni_greyscale_fade = shader_get_uniform(shd_greyscale,"fade");
 var_greyscale_fade = 0.0;
@@ -17,24 +20,22 @@ var_greyscale_fade = 0.0;
 shader_enabled = true;
 full_screen_effect = true;
 
-surf = surface_create(var_resolution_x, var_resolution_y);
-surf2 = surface_create(var_resolution_x, var_resolution_y);
-view_set_surface_id(0, surf);
-//view_surface_id[0] = surf;
-
 room_speed = 15;
 
 textFadeFrame = 0;
 textFadeTotalFrames = 30;
 acceptingInput = false;
 
-// 1 = fountain, 2 = revive orb
 enum ReviveOptions {
 	Fountain,
 	Orb
 }
 selectedOption = ReviveOptions.Fountain;
 
+application_surface_draw_enable(false);
+
 reviveAtFountainButtonCoordinates = [];
 reviveWithOrbButtonCoordinates = [];
-//mouseOverFountainRevive = false;
+mouseOverFountainRevive = false;
+mouseOverOrbRevive = false;
+fade = noone;

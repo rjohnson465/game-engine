@@ -6,7 +6,7 @@ image_angle = dodgeDirection;
 var dodgeSpeed = functionalSpeed*2;
 // Do not dodge into fallzones on purpose (if enemy)
 if type != CombatantTypes.Player {
-	if dodgeFrame == 0 {
+	if dodgeFrame == 0 && instance_exists(obj_fallzone) {
 		// check every step the dodge in this direction would take us
 		// if its into a fallzone, try a different angle
 		var dir = dodgeDirection;

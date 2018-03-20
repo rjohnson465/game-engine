@@ -159,7 +159,7 @@ if owner.currentUsingSpell != noone {
 			break;
 		}
 	}
-	
+	part_system_depth(system,depth);
 	part_emitter_region(system,emitter,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system,emitter,particle, 2);
 	

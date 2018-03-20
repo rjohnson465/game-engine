@@ -4,12 +4,9 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	interactInputReceived = keyboard_check_released(ord("F")) || 
 	(gamepad_button_check_pressed(global.player.gamePadIndex,gp_face1) && !global.ui.isShowingMenus)
 }
-/*
-if distance_to_object(obj_player) < 20 && interactInputReceived {
-	wishAtFountain();
-}*/
 
 
+// to draw under hands
 var lDepth = layer_get_depth(origLayer);
 lDepth += 2;
 depth = lDepth;
@@ -21,7 +18,7 @@ with obj_fade {
 	}
 }
 
-if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone {
+if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone && global.player.isAlive {
 	if !isRunning {
 		wishAtFountain(); // turn fountain on ;)
 	} else {

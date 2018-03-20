@@ -31,7 +31,7 @@ for (var i = 0; i < size; i++){
 			case POISON: {
 				isPoisoned = true; 
 				lightRadiusColor = c_lime;
-				lightRadiusAlpha = .75;
+				//lightRadiusAlpha = .75;
 				break;
 			}
 			case FIRE: {
@@ -43,7 +43,7 @@ for (var i = 0; i < size; i++){
 				}
 				isBurning = true; 
 				lightRadiusColor = c_orange;
-				lightRadiusAlpha = .75;
+				//lightRadiusAlpha = .75;
 				break;
 			}
 			case LIGHTNING: {
@@ -83,7 +83,7 @@ for (var i = 0; i < size; i++){
 				burnDamage = 0; 
 				if lightRadiusColor == c_orange {
 					lightRadiusColor = c_white;
-					lightRadiusAlpha = .25;
+					//lightRadiusAlpha = .25;
 					lightRadiusSprite = spr_light_point;
 				}
 				break;
@@ -96,7 +96,7 @@ for (var i = 0; i < size; i++){
 				poisonDamage = 0; 
 				if lightRadiusColor == c_lime {
 					lightRadiusColor = c_white;
-					lightRadiusAlpha = .25;
+					//lightRadiusAlpha = .25;
 					lightRadiusSprite = spr_light_point;
 				}
 				break;

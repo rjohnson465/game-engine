@@ -1,6 +1,9 @@
 
 // use macros for elements rather than enums (helps with sprite getting)
 #macro PHYSICAL "physical"
+#macro SLASH "slash"
+#macro PIERCE "pierce"
+#macro CRUSH "crush"
 #macro MAGIC "magic"
 #macro FIRE "fire"
 #macro ICE "ice"
@@ -8,7 +11,8 @@
 #macro LIGHTNING "lightning"
 
 global.ALL_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
-global.ALL_DAMAGE_TYPES = [PHYSICAL, MAGIC,FIRE,ICE,POISON,LIGHTNING];
+global.ALL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH,MAGIC,FIRE,ICE,POISON,LIGHTNING];
+playerLightRadius = noone;
 
 event_inherited();
 global.player = id;
@@ -18,6 +22,7 @@ facingDirection = 0;
 
 spriteType = "player";
 spriteString = "player";
+isFairy = true;
 type = CombatantTypes.Player;
 
 // gui
@@ -84,10 +89,9 @@ lockOnTargetType = obj_enemy_parent;
 LOCK_ON_DISTANCE = 800;
 
 // hp / stamina
-hp = 1;
+hp = 100;
 maxHp = 100;
-//hpRegen = .5; // per second
-hpRegen = 0;
+hpRegen = .5; // per second
 stamina = 50;
 maxStamina = 50;
 staminaRegen = 10; // per second
@@ -125,13 +129,19 @@ currentSpellAttunement = MAGIC;
 // inventory -- holds all items
 inventory = ds_list_create();
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
+woodshield.persistent = true;
+ds_list_add(inventory,woodshield);
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
+shortbow.persistent = true;
+ds_list_add(inventory,shortbow);
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
+longsword.persistent = true;
 ds_map_replace(longsword.damages,MAGIC,[2,4]);
 ds_list_add(inventory,longsword);
 var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
+longsword2.persistent = true;
 ds_map_replace(longsword2.damages,ICE,[2,4]);
 ds_list_add(inventory,longsword2);
 
@@ -141,12 +151,6 @@ lastFountainX = noone;
 lastFountainY = noone;
 lastFountainZ = noone;
 
-with obj_light_radius {
-	if owner == other.id {
-		persistent = true;
-	}
-}
-
 gamePadIndex = noone;
 
 layerToMoveTo = noone;
@@ -155,11 +159,69 @@ dyingParticleColor1 = c_white;
 dyingParticleColor2 = c_gray;
 justRevivedAtFountain = false;
 
-/*
-if lastFountainRoom == noone {
-	var nearestFountain = instance_nearest(x,y,obj_fountain);
-	lastFountainRoom = nearestFountain.nativeRoom;
-	lastFountainX = nearestFountain.spawnX;
-	lastFountainY = nearestFountain.spawnY;
-	lastFountainZ = nearestFountain.layer;
+enum WeaponTypes {
+	Sword1H,
+	Sword2H,
+	Unarmed,
+	Pointy1H, // Rapiers
+	Pointy2H, // Spears, Halberd, Trident
+	Axe1H,
+	Axe2H,
+	Blunt1H, // includes wands
+	Blunt2H, // includes staves
+	Dagger,
+	Bow,
+	Crossbow,
+	Shuriken,
+	Musket,
+	Thrown,
+	Pistol
 }
+
+#macro SWORD1H "1H Sword"
+#macro SWORD2H "2H Sword"
+#macro DAGGER "Dagger"
+#macro UNARMED "Unarmed"
+#macro AXE1H "1H Axe"
+#macro AXE2H "2H Axe"
+#macro BLUNT1H "1H Club"
+#macro BLUNT2H "2H Club"
+#macro RAPIER "Rapier"
+#macro SPEAR "Spear"
+#macro BOW "Bow"
+#macro CROSSBOW "Crossbow"
+#macro SHURIKEN "Shuriken"
+#macro MUSKET "Musket"
+#macro THROWN "Thrown"
+#macro PISTOL "Pistol"
+global.ALL_WEAPON_TYPES = [
+	SWORD1H, SWORD2H, DAGGER, UNARMED, AXE1H, AXE2H, BLUNT1H, BLUNT2H, RAPIER, SPEAR,
+	BOW, CROSSBOW, SHURIKEN, MUSKET, THROWN, PISTOL
+];
+
+criticalsChance = ds_map_create(); // 0 - 100% chance for criticals with weapon types
+criticalsDamage = ds_map_create(); // 0 - 100% additional damage on critical hit with weapon types
+comboHitsToNextLevelMap = ds_map_create(); // each weapon type starts with x hits needed to get combo multiplier
+
+for (var i = 0; i < array_length_1d(global.ALL_WEAPON_TYPES); i++) {
+	var wt = global.ALL_WEAPON_TYPES[i];
+	ds_map_replace(criticalsChance,wt,15);
+	ds_map_replace(criticalsDamage,wt,50); // by default, +50% base damage on crits
+	if wt == UNARMED {
+		ds_map_replace(comboHitsToNextLevelMap,wt,3);
+	} else {
+		ds_map_replace(comboHitsToNextLevelMap,wt,5);
+	}
+}
+
+// criticals chances / damages with spells
+var cs = ds_map_find_first(knownSpells);
+for (var i = 0; i < ds_map_size(knownSpells); i++) {
+	ds_map_replace(criticalsChance,cs,15);
+	ds_map_replace(criticalsDamage,cs,50);
+	cs = ds_map_find_next(knownSpells,cs);
+}
+
+var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
+comboHitsToNextLevel = ds_map_find_value(comboHitsToNextLevelMap,leftHandItem.weaponType);
+

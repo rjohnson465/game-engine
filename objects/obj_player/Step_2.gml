@@ -1,5 +1,5 @@
 event_inherited();
-/*
+
 // death
 if hp < 1 && isAlive && !isDying {
 	isDying = true;
@@ -28,8 +28,7 @@ if hp < 1 && isAlive && !isDying {
 		ds_map_replace(conditionPercentages,currentCondition,0);
 		currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
 	}
-	global.xpAmount = xpReward;
-	instance_create_depth(x,y,1,obj_xp);
+	global.ui.isShowingMenus = false;
 	lockOnTarget = noone;
 }
 
@@ -47,22 +46,6 @@ if isDying && isAlive {
 
 if !isAlive {
 	speed = 0;
-	if type == CombatantTypes.Enemy {
-		showHp = false;
-		isShowingLightRadius = false;
-		lightRadiusColor = c_white;
-				
-		enemyData.hp = 0;
-		enemyData.isAlive = false;
-				
-		var idd = id;
-		with obj_light_radius {
-			if owner == idd {
-				x = -1000;
-				y = -1000;
-			}
-		}
-	}
 	//x = -1000;
 	//y = -1000;
 	alpha = 0;

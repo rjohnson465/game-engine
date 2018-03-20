@@ -1,4 +1,7 @@
 type = global.damageType;
+if type == SLASH || type == PIERCE || type == CRUSH {
+	type = PHYSICAL;
+}
 x1 = global.x1;
 y1 = global.y1;
 particleDirection = global.particleDirection;

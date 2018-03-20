@@ -2,6 +2,7 @@ event_inherited();
 name = "Unfairy";
 spriteName = "unfairy";
 spriteString = "enemy_unfairy";
+isFairy = true;
 
 functionalSpeed = 5;
 normalSpeed = 5;
@@ -33,8 +34,8 @@ stupidity = 15; // default .5 second in thinking state
 stupidityFrame = 0;
 
 // general attacks info
-meleeAggroRange = 500;
-rangedAggroRange = 600;
+meleeAggroRange = 200;
+rangedAggroRange = 700;
 //rangedAggroRange = noone;
 farthestAllowedFromPost = 5000;
 aggressiveness = 100; // aggressiveness 0-100%, decides how often to keep going with attack chain
@@ -95,8 +96,8 @@ var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
 
-hp = 500;
-maxHp = 500;
+hp = 50;
+maxHp = 50;
 
 stamina = 60;
 maxStamina = 60;
@@ -109,7 +110,7 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 20;
 
 // dodge stuff
-agility = 0; // 0 - 100% chance to try a dodge
+agility = 50; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
 

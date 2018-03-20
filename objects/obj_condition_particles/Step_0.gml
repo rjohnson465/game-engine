@@ -1,15 +1,20 @@
-
+if owner.layer != global.player.layer exit;
 if (condition == "Death") && (!owner.isAlive || owner.hp > 0) && !hasSetAlarm {
 	//instance_destroy(id);
 	alarm[0] = 60;
 	hasSetAlarm = true;
 }
 
+if condition == "FairyDodge" && owner.state != CombatantStates.Dodging && !hasSetAlarm {
+	alarm[0] = 10;
+	hasSetAlarm = true;
+}
+
 if hasSetAlarm exit;
 
 var conditionLevel = 0;
-if condition == "Phase" {
-	conditionLevel = owner.isPhasing;
+if condition == "FairyDodge" {
+	conditionLevel = owner.state == CombatantStates.Dodging;
 } 
 else {
 	conditionLevel = ds_map_find_value(owner.conditionLevels,condition);

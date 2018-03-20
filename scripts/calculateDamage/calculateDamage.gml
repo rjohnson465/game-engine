@@ -2,8 +2,6 @@
 /// @param attack
 /// Pre-Condition -- must be called by the victim in a collision event with attackObj
 
-//var other = argument0;
-
 if hp <= 0 exit;
 var isFading = false;
 with obj_fade {
@@ -105,6 +103,23 @@ if	state != CombatantStates.Dodging &&
 		// keep track of how much of each type of damage is taken (shields absorb different percentages of elements)
 		var damagesTaken = ds_map_create(); 
 		
+		// is this a critical hit?
+		var isCriticalHit = false;
+		if other.owner.type == CombatantTypes.Player {
+			var player = other.owner;
+			randomize();
+			var rand = random_range(0,100);
+			show_debug_message(rand);
+			if !other.isSpell {
+				var threshold = ds_map_find_value(player.criticalsChance,other.weapon.weaponType);
+				if rand <  threshold {
+					isCriticalHit = true;
+				}
+			} else if rand < ds_map_find_value(player.criticalsChance,other.spell.spriteName) {
+				isCriticalHit = true;
+			}
+		}
+		
 		var currentDamageType = ds_map_find_first(damagesMap);
 		var size = ds_map_size(damagesMap);
 		for (var i = 0; i < size; i++) {
@@ -130,6 +145,10 @@ if	state != CombatantStates.Dodging &&
 			}
 			randomize();
 			var damageBase = random_range(damageMin,damageMax);
+			// off hand weapons deal less damage
+			if other.limbKey == "r" {
+				damageBase = damageBase*.5;
+			}
 			// account for defense against this damageType
 			var defense = ds_map_find_value(defenses,currentDamageType);
 			
@@ -160,7 +179,8 @@ if	state != CombatantStates.Dodging &&
 				
 			// elemental conditions applied?			
 			// roll random and compare against defense
-			if damageBase > 0 {
+			var nonConditioningDamageTypes = [PHYSICAL,MAGIC,CRUSH,PIERCE,SLASH];
+			if damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType) {
 				randomize();
 				var top = 1000;
 				//var percentChance = .15;
@@ -175,9 +195,9 @@ if	state != CombatantStates.Dodging &&
 				rand -= defense;
 				var topNum = 1000-(percentChance*1000);
 				// only apply the condition if the condition is not currently ongoing
-				if rand > topNum && ds_map_find_value(conditionPercentages,currentDamageType) == 0{
+				if rand > topNum && ds_map_find_value(conditionPercentages,currentDamageType) == 0 {
 					ds_map_replace(conditionPercentages,currentDamageType,100);
-					if type == CombatantTypes.Player && currentDamageType != PHYSICAL && currentDamageType != MAGIC {
+					if type == CombatantTypes.Player {
 						var conditionBar = noone;
 						with (obj_condition_bar) {
 							if condition == currentDamageType && owner == global.player.id {
@@ -209,6 +229,19 @@ if	state != CombatantStates.Dodging &&
 		// factor combo mode
 		if assailant.type == CombatantTypes.Player {
 			damage += (assailant.comboModeLevel*.25)*damage;
+		}
+		
+		// factor critical hit
+		if isCriticalHit {
+			var criticalsDamageMap = other.owner.criticalsDamage;
+			var t = noone;
+			if other.isSpell {
+				t = other.spell.spriteName;
+			} else {
+				t = other.weapon.weaponType;
+			}
+			var modifier = ds_map_find_value(criticalsDamageMap,t)/100
+			damage += damage*modifier;
 		}
 		
 		if damage > hp {
@@ -246,6 +279,7 @@ if	state != CombatantStates.Dodging &&
 				global.damageAmount = adjustedDamage;
 				global.victim = id;
 				global.healingSustained = 0;
+				global.isCriticalHit = isCriticalHit;
 				instance_create_depth(x,y,1,obj_damage);
 				if stamina < 1 {
 					isShielding = false;
@@ -286,6 +320,7 @@ if	state != CombatantStates.Dodging &&
 			global.damageAmount = damage;
 			global.healingSustained = 0;
 			global.victim = id;
+			global.isCriticalHit = isCriticalHit;
 			instance_create_depth(x,y,1,obj_damage);
 		}
 	

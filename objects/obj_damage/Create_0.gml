@@ -1,6 +1,7 @@
 amount = global.damageAmount;
 victim = global.victim;
 healingSustained = global.healingSustained;
+isCriticalHit = global.isCriticalHit;
 frame = 0;
 totalFrames = 22;
 depth = -500;

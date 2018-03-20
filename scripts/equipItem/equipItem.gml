@@ -49,6 +49,7 @@ item.y1 = equipmentSlotObj.y1;
 // set equippedLimbItem if slot was LeftHand1 or RightHand1
 if slot == EquipmentSlots.LeftHand1 {
 	ds_map_replace(global.player.equippedLimbItems, "l", item);
+	global.player.comboHitsToNextLevel = ds_map_find_value(global.player.comboHitsToNextLevelMap,item.weaponType);
 } else if slot == EquipmentSlots.RightHand1 {
 	ds_map_replace(global.player.equippedLimbItems, "r", item);
 }

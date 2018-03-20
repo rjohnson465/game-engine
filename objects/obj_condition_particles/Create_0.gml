@@ -93,6 +93,20 @@ switch condition {
 		particle = spark;
 		break;
 	}
+	case "FairyDodge": {
+		// smoke particle
+		var smoke = part_type_create();
+		part_type_shape(smoke, pt_shape_smoke);
+		part_type_color2(smoke,owner.dyingParticleColor1,owner.dyingParticleColor2);
+		part_type_orientation(smoke,0,0,0,15,1);
+		part_type_size(smoke,0.15,0.45,0,0);
+		part_type_speed(smoke,2,4,0,0);
+		part_type_direction(smoke,0,360,0,4);
+		part_type_life(smoke,10,15);
+		part_type_alpha3(smoke,.75,.5,.25);
+		particle = smoke;
+		break;
+	}
 	case "Death": {
 		// death particle
 		var blood = part_type_create();

@@ -66,6 +66,7 @@ if item.type == ItemTypes.HandItem {
 			var damageType = global.ALL_DAMAGE_TYPES[i];
 			var damageArray = ds_map_find_value(item.damages,damageType);
 			var minDamage = 100000; var maxDamage = 0;
+			// TODO account for slash / pierce / crush
 			if damageType == PHYSICAL {
 				for (var j = 0; j < array_length_1d(damageArray); j++) {
 					var num = damageArray[j];
