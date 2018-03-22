@@ -7,3 +7,4 @@ ds_map_add(damages,PHYSICAL,[10,20]);
 isRanged = true;
 staminaCost = 5;
 projectileSpeed = 25;
+staggerDuration = 5;

@@ -7,7 +7,7 @@ numberOfProjectiles = 1;
 //projectileSpriteIndex = asset_get_index("spr_spell_"+ spriteName);
 projectileSpeed = 30;
 staminaCost = 25;
-
+staggerDuration = 20;
 maxChargeCost = level*4;
 
 // per projectile

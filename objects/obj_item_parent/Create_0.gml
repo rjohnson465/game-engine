@@ -3,7 +3,7 @@ y1 = -50;
 sprite_index = spr_item_slot;
 visible = false;
 depth = -2;
-persistent = true;
+//persistent = true;
 name = "";
 
 copyOf = noone;

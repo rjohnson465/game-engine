@@ -7,3 +7,4 @@ ds_map_add(damages,PHYSICAL,[15,30]);
 isRanged = false;
 staminaCost = 10;
 //nextChoices = [];
+staggerDuration = 25;

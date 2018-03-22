@@ -14,6 +14,7 @@ numberOfTargets = 1;
 maxChargeCost = 10;
 
 staggersAgainstBlocks = false;
+staggerDuration = 5;
 
 minDamage = 0;
 maxDamage = 0;

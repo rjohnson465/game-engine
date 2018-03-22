@@ -65,8 +65,11 @@ itemDescriptionTopLeftY = topLeftY+filtersHeight+invHeight;
 itemDescriptionBottomRightX = topLeftX+width;
 itemDescriptionBottomRightY = MENUS_BOTTOMRIGHT_Y;
 itemDescriptionHandleHeight = 20;
-itemDescriptionCol1X = itemDescriptionTopLeftX;
-itemDescriptionCol2X = itemDescriptionTopLeftX+(.5*width);
+itemDescriptionCol1XPictures = itemDescriptionTopLeftX+1;
+itemDescriptionCol1XText = itemDescriptionTopLeftX+20;
+itemDescriptionCol1Width = (.5*width)+85;
+itemDescriptionCol2XPictures = itemDescriptionTopLeftX+itemDescriptionCol1Width;
+itemDescriptionCol2XText = itemDescriptionCol2XPictures + 20;
 itemDescriptionColY = itemDescriptionTopLeftY+itemDescriptionHandleHeight;
 
 

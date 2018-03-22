@@ -1,3 +1,4 @@
+global.player.hp = 0; // keep player hp at 0
 // if mouse enters a button, highlight it
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
@@ -47,7 +48,7 @@ if gamepad_is_connected(p.gamePadIndex) {
 	ENTER = keyboard_check_pressed(vk_enter) || gamepad_button_check_pressed(p.gamePadIndex,gp_face1);
 }
 
-if (ENTER || ((mouseOverFountainRevive) && mouse_check_button_released(mb_left))) && acceptingInput {
+if (ENTER || (mouseOverFountainRevive && mouse_check_button_released(mb_left))) && acceptingInput {
 	global.fadeDuration = 30;
 	global.owner = id;
 	fade = instance_create_depth(x,y,-100000,obj_fade);
@@ -111,7 +112,6 @@ if fade != noone && selectedOption == ReviveOptions.Fountain {
 			currentUsingSpell = noone;
 			attackNumberInChain = noone;
 			isShielding = false;
-
 		}
 		
 		instance_destroy(id,true);

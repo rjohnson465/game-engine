@@ -1,10 +1,10 @@
 
-var fade = noone;
+/*var fade = noone;
 with obj_fade {
 	if owner == other.id {
 		fade = id;
 	}
-}
+}*/
 
 var alpha = textFadeFrame/textFadeTotalFrames;
 

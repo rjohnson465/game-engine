@@ -6,7 +6,7 @@ isFairy = true;
 
 functionalSpeed = 5;
 normalSpeed = 5;
-turnSpeed = 10;
+turnSpeed = 7;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
@@ -62,6 +62,7 @@ longswordSwing.limbKey = "l";
 
 var longswordStab = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
 longswordStab.limbKey = "l";
+longswordStab.isBlockable = false;
 
 var meleeChain0 = [longswordSwing];
 var meleeChain1 = [longswordStab];

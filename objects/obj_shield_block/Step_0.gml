@@ -12,4 +12,7 @@ if	!owner.isShielding
 	instance_destroy(id,false);
 }
 
+if owner.type == CombatantTypes.Player && global.ui.isShowingMenus {
+	owner.isShielding = false;
+}
 

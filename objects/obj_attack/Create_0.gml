@@ -242,9 +242,10 @@ else {
 
 
 	// get sprite string -- physical attacks
-	var sprStr = "";
+	var sprStr = ""; var maskString = "";
 	if owner.type == CombatantTypes.Player {
-		var sprStr = "spr_"+owner.spriteString+attackItemSprite+"_attack_"+string(attackNumber);
+		sprStr = "spr_"+owner.spriteString+attackItemSprite+"_attack_"+string(attackNumber);
+		maskString = sprStr + "_mask";
 	} else {
 		//sprStr = "_"+string(owner.attackNumberInChain);
 		sprStr = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain);
@@ -254,8 +255,12 @@ else {
 	if limbKey == "l" {
 		image_yscale = -1;
 	}
-
-	sprite_index = asset_get_index(sprStr);
+	
+	if asset_get_index(maskString) != -1 {
+		sprite_index = asset_get_index(maskString);
+	} else {
+		sprite_index = asset_get_index(sprStr);
+	}
 	
 	// ranged attacks 
 	if isRanged {

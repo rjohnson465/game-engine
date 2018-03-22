@@ -104,7 +104,7 @@ xpToNextLevel = 1000;
 // list of enemy attack instances been hit with -- only get hit once / attack
 beenHitWith = ds_list_create();
 
-poise = 15;
+poise = 100;
 staggerDuration = 0;
 staggerFrame = 0;
 staggerDirection = 0;
@@ -224,4 +224,6 @@ for (var i = 0; i < ds_map_size(knownSpells); i++) {
 
 var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
 comboHitsToNextLevel = ds_map_find_value(comboHitsToNextLevelMap,leftHandItem.weaponType);
+
+offHandDamagePercent = 50; // by default, offhand weapon deals 50% damage
 

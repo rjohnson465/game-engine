@@ -80,6 +80,12 @@ if	state != CombatantStates.Dodging &&
 			var attackChain = isRanged ? other.owner.rangedAttacks[attackNumber-1] : other.owner.meleeAttacks[attackNumber-1];
 			attackData = attackChain[attackNumberInChain-1];
 			damagesMap = attackData.damages;
+			
+			// unblockable attacks break guard / kill stamina
+			if !attackData.isBlockable && isShielding {
+				stamina = -10;
+				isShielding = false;
+			}
 		}
 		
 		// limit number of combatants hit per attack based on num targets an attack can hit
@@ -109,14 +115,31 @@ if	state != CombatantStates.Dodging &&
 			var player = other.owner;
 			randomize();
 			var rand = random_range(0,100);
-			show_debug_message(rand);
+			// melee or ranged attack
 			if !other.isSpell {
 				var threshold = ds_map_find_value(player.criticalsChance,other.weapon.weaponType);
 				if rand <  threshold {
 					isCriticalHit = true;
 				}
-			} else if rand < ds_map_find_value(player.criticalsChance,other.spell.spriteName) {
-				isCriticalHit = true;
+				// back stabs are instant criticals
+				var ad1 = angle_difference(other.owner.facingDirection,facingDirection);
+				if other.weapon.subType == HandItemTypes.Melee {
+					/*if angle_difference(other.owner.facingDirection,facingDirection) > 90 &&
+						angle_difference(other.owner.facingDirection,facingDirection) < 180 {
+							var a = 3;
+						}*/
+					var a1 = ((facingDirection-45)+360)%360;
+					var a2 = (facingDirection+45)%360;
+					if angleBetween(a1,a2,other.owner.facingDirection) {
+						isCriticalHit = true;
+					}
+				}
+			}
+			// spell attack
+			else {
+				if rand < ds_map_find_value(player.criticalsChance,other.spell.spriteName) {
+					isCriticalHit = true;
+				}
 			}
 		}
 		
@@ -146,8 +169,13 @@ if	state != CombatantStates.Dodging &&
 			randomize();
 			var damageBase = random_range(damageMin,damageMax);
 			// off hand weapons deal less damage
-			if other.limbKey == "r" {
-				damageBase = damageBase*.5;
+			if other.owner.type == CombatantTypes.Player && other.limbKey == "r" {
+				if !other.isSpell {
+					if other.weapon.weaponType != UNARMED {
+						var modifier = other.owner.offHandDamagePercent/100;
+						damageBase = damageBase*modifier;
+					}
+				}
 			}
 			// account for defense against this damageType
 			var defense = ds_map_find_value(defenses,currentDamageType);
@@ -331,27 +359,38 @@ if	state != CombatantStates.Dodging &&
 	
 		// STAGGER OR FLINCH
 	
-		if state != CombatantStates.Staggering {
+		//if state != CombatantStates.Staggering {
 
 			var percentOfHp = actualDamage / maxHp;
 			// maybe stagger
 			// always a 15% + damage% of totalHp chance to stagger
-			var chanceToStagger = .15 + percentOfHp;
+			//var chanceToStagger = .15 + percentOfHp;
+			var chanceToStagger = (100-poise)/100;
 			randomize();
 			var rand = random_range(0,1);
 			if rand < chanceToStagger {
 				if ds_map_size(preparingLimbs) != 0 {
 					drawCombatText("Interrupt!",id);
 				}
+			if state != CombatantStates.Staggering {
 				staggerFrame = 0;
-				// stagger duration is 6 frames + damage% of of total hp frames
-				staggerDuration = 6 + (percentOfHp*100);
-				if staggerDuration > 25 {
-					staggerDuration = 25;
+
+				// stagger duration is (100-poise)% of weapon / attack staggerDuration
+				var modifier = (100-poise)/100;
+				if other.attackData != noone {
+					staggerDuration = other.attackData.staggerDuration*modifier;
+				} else if other.isSpell {
+					staggerDuration = other.spell.staggerDuration;
+				} else {
+					staggerDuration = other.weapon.staggerDuration;
 				}
+
 				staggerDirection = (assailant.facingDirection+360)%360;
 				path_end();
 				state = CombatantStates.Staggering;
+			} else {
+				staggerDuration += (percentOfHp*100);
+			}
 			}
 			// if not stagger, then flinch
 			// all flinch values should be half of what a stagger value would have been
@@ -361,10 +400,10 @@ if	state != CombatantStates.Dodging &&
 				totalFlinchFrames = 5 + (.5*(percentOfHp*100)); 
 				flinchDirection = (assailant.facingDirection+360)%360;				
 			}
-		}
+		//}
 		
 		// destroy most ranged projectiles on impact
-		if other.isRanged || (other.isSpell)/* && spell.name != "aoe")*/ {
+		if other.isRanged || (other.isSpell) {
 			ds_list_destroy(other.combatantsHit);
 			instance_destroy(other,false);
 			// also destroy the ranged attack's light radius, if it exists

@@ -6,7 +6,7 @@ level = 1;
 numberOfProjectiles = 8;
 projectileSpeed = 20;
 staminaCost = 25;
-
+staggerDuration = 10;
 maxChargeCost = level*6;
 // per projectile
 minDamage = 10;

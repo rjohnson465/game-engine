@@ -13,11 +13,15 @@ if victim.type == CombatantTypes.Enemy {
 	y1 = 15 + vy;
 }
 var text = round(amount);
+var scale = 1;
+if frame < 11 && isCriticalHit {
+	scale = ((-1/11)*frame)+2;
+}
 if frame > 11 {
 	var a = 1 - ((frame-11)/11);
 	draw_set_alpha(1-((frame-11)/11));
 }
 var c2 = isCriticalHit ? c_red : c_purple;
-scr_draw_text_outline(x1,y1,text,c_white,c2,c_black);
+scr_draw_text_outline(x1,y1,text,c_white,c2,scale,scale,0,c_black);
 draw_set_alpha(1);
 

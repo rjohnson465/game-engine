@@ -68,6 +68,7 @@ draw_set_alpha(1);
 draw_set_color(c_white);
 draw_rectangle(xx-5,yy-5,xx+promptWidth+5,yy+sh+5,true);
 draw_sprite_ext(sprite,1,xx,yy,.35,.35,0,c_white,1);
+draw_set_valign(fa_center);
 scr_draw_text_outline(xx+sw,yy+(sh*.5)+2,msg,msgColor,msgColor);
 
 return promptWidth+10; // 10px padding

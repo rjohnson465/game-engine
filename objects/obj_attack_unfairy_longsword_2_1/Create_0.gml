@@ -9,3 +9,4 @@ staminaCost = 10;
 type = AttackTypes.Charge;
 minRange = 50;
 //nextChoices = [];
+staggerDuration = 35;

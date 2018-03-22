@@ -73,6 +73,7 @@ if fallFrame == .5*fallTotalFrames {
 		global.damageAmount = fallDamage;
 		global.victim = id;
 		global.healingSustained = 0;
+		global.isCriticalHit = false;
 		instance_create_depth(x,y,1,obj_damage);
 		hp -= fallDamage;
 		floorsFallen = 0;

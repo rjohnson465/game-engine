@@ -7,6 +7,7 @@ numberOfProjectiles = level;
 projectileSpeed = 15;
 staminaCost = 20;
 
+staggerDuration = 5;
 // make it dependent on level?
 maxChargeCost = 4;
 

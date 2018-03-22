@@ -24,6 +24,9 @@ level = 1;
 isTwoHanded = false;
 staminaCostArray=[];
 
+durability = 50;
+durabilityMax = 50;
+
 // damages of each type
 // keys are the damage type
 // values are arrays with 2 elements damage range of that type
