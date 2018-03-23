@@ -1,0 +1,2 @@
+enemyUnfairyDualSwordsInit();
+agility = 0;

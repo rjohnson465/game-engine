@@ -74,7 +74,7 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 				var y1 = y +lengthdir_y(-.5,facingDirection);
 		
 				if !attackData.isRanged && !place_meeting_layer(x1, y1, obj_solid_parent){
-					moveToNearestFreePoint((facingDirection+180)%360,.5);
+					//moveToNearestFreePoint((facingDirection+180)%360,.5);
 				}
 			}
 		}

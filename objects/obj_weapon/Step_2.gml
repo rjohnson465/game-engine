@@ -36,6 +36,9 @@ if limbItem != limb.limbItem {
 	particle1 = noone;
 	particle2 = noone;
 	particle3 = noone;
+	num1 = -3;
+	num2 = -3;
+	num3 = -3;
 	part_emitter_destroy(system1,emitter1);
 	part_emitter_destroy(system2,emitter3);
 	part_emitter_destroy(system2,emitter3);
@@ -129,15 +132,24 @@ if limbItem != limb.limbItem {
 					var spark = part_type_create();
 					part_type_shape(spark, pt_shape_spark);
 					part_type_orientation(spark,0,359,0,15,1);
-					part_type_size(spark,0.25,.35,0,0);
-					part_type_speed(spark,8,12,0,0);
+					part_type_size(spark,0.01,.15,0,0);
+					part_type_speed(spark,5,8,0,0);
 					part_type_direction(spark,0,360,0,4);
 					part_type_life(spark,3,6);
 					part_type_color2(spark,c_blue,c_white);
 					part_type_alpha3(spark,1,.85,.75);
-					if i == 0 particle1 = spark;
-					else if i == 1 particle2 = spark;
-					else particle3 = spark;
+					if i == 0 {
+						particle1 = spark;
+						num1 = 2;
+					}
+					else if i == 1 {
+						particle2 = spark;
+						num2 = 2;
+					}
+					else {
+						particle3 = spark;
+						num3 = 2;
+					}
 					break;
 				}
 			}
@@ -152,21 +164,21 @@ if owner.layer >= global.player.layer && owner.currentUsingSpell == noone {
 		part_system_depth(system1,depth);
 		emitter1 = part_emitter_create(system1);
 		part_emitter_region(system1,emitter1,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
-		part_emitter_burst(system1,emitter1,particle1, -3);
+		part_emitter_burst(system1,emitter1,particle1, num1);
 	}
 	if particle2 != noone {
 		system2 = part_system_create();
 		part_system_depth(system2,depth);
 		emitter2 = part_emitter_create(system2);
 		part_emitter_region(system2,emitter2,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
-		part_emitter_burst(system2,emitter2,particle2, -3);
+		part_emitter_burst(system2,emitter2,particle2, num2);
 	}
 	if particle3 != noone {
 		system3 = part_system_create();
 		part_system_depth(system3,depth);
 		emitter3 = part_emitter_create(system3);
 		part_emitter_region(system3,emitter3,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
-		part_emitter_burst(system3,emitter3,particle3, -3);
+		part_emitter_burst(system3,emitter3,particle3, num3);
 	}
 }
 

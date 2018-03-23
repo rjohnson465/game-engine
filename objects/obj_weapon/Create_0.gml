@@ -26,6 +26,9 @@ emitter3 = part_emitter_create(system3);
 particle1 = noone;
 particle2 = noone;
 particle3 = noone;
+num1 = -3;
+num2 = -3
+num3 = -3;
 
 //if owner.type == CombatantTypes.Player {
 	// iterate over weapon damages
@@ -111,15 +114,24 @@ particle3 = noone;
 				var spark = part_type_create();
 				part_type_shape(spark, pt_shape_spark);
 				part_type_orientation(spark,0,359,0,15,1);
-				part_type_size(spark,0.25,.35,0,0);
-				part_type_speed(spark,8,12,0,0);
+				part_type_size(spark,0.01,.15,0,0);
+				part_type_speed(spark,5,8,0,0);
 				part_type_direction(spark,0,360,0,4);
 				part_type_life(spark,3,6);
 				part_type_color2(spark,c_blue,c_white);
 				part_type_alpha3(spark,1,.85,.75);
-				if i == 0 particle1 = spark;
-				else if i == 1 particle2 = spark;
-				else particle3 = spark;
+				if i == 0 {
+					particle1 = spark;
+					num1 = 2;
+				}
+				else if i == 1 {
+					particle2 = spark;
+					num2 = 2;
+				}
+				else {
+					particle3 = spark;
+					num3 = 2;
+				}
 				break;
 			}
 		}

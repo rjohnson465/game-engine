@@ -231,6 +231,23 @@ if	state != CombatantStates.Dodging &&
 				// only apply the condition if the condition is not currently ongoing
 				if rand > topNum && ds_map_find_value(conditionPercentages,currentDamageType) == 0 {
 					ds_map_replace(conditionPercentages,currentDamageType,100);
+					switch currentDamageType {
+						case FIRE: {
+							alert("Burning!",c_red);
+							break;
+						}
+						case ICE: {
+							alert("Frozen!",c_red);
+							break;
+						}
+						case POISON: {
+							alert("Poisoned!",c_red);
+							break;
+						}
+						case LIGHTNING: {
+							alert("Shocked!",c_red);
+						}
+					}
 					if type == CombatantTypes.Player {
 						var conditionBar = noone;
 						with (obj_condition_bar) {
@@ -372,8 +389,10 @@ if	state != CombatantStates.Dodging &&
 				}
 				
 				// damage weapons that strike shields 
-				if other.owner.type == CombatantTypes.Player && itemIsMelee && itemHitWith.weaponType != UNARMED {
-					damageItem(itemHitWith,.15*actualDamage);
+				if other.owner.type == CombatantTypes.Player && other.isMelee {
+					if other.weapon.weaponType != UNARMED {
+						damageItem(itemHitWith,.15*actualDamage);
+					}
 				}
 			}
 		// hit
@@ -387,8 +406,10 @@ if	state != CombatantStates.Dodging &&
 			global.isCriticalHit = isCriticalHit; // critical?
 			instance_create_depth(x,y,1,obj_damage);
 			// if assailant was player, damage their weapon a bit
-			if assailant.type == CombatantTypes.Player {
-				damageItem(itemHitWith,.05*actualDamage);
+			if assailant.type == CombatantTypes.Player && other.isMelee {
+				if other.weapon.weaponType != UNARMED {
+					damageItem(itemHitWith,.05*actualDamage);
+				}
 			}
 		}
 	
