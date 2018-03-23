@@ -28,10 +28,10 @@ if leftHandItem {
 }
 image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
-image_xscale = 1*owner.fallScaleFactor;
-image_yscale = 1*owner.fallScaleFactor;
+image_xscale = 1*owner.scale;
+image_yscale = 1*owner.scale;
 if limbKey == "l" {
-	image_yscale = -1*owner.fallScaleFactor;
+	image_yscale = -1*owner.scale;
 }
 layer = owner.layer;
 //depth = layer_get_depth(layer) + 1;

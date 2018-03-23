@@ -240,6 +240,19 @@ if	state != CombatantStates.Dodging &&
 						}
 					}
 				}
+				// if the condition is already ongoing, increase duration based on how hard the hit was
+				else if rand > topNum {
+					// what percent damage of health was this hit? 
+					var percentOfHp = (damageBase/maxHp)*100;
+					var currentConditionPercent = ds_map_find_value(conditionPercentages,currentDamageType);
+					if currentConditionPercent + percentOfHp > 100 {
+						ds_map_replace(conditionPercentages,currentDamageType,100);
+					} else if percentOfHp < 10 {
+						ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+10);
+					} else {
+						ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+percentOfHp);
+					}
+				}
 			}
 			
 			// if this was fire or poison damage, record an altered version of the base amount in case this is the attack that burns or poisons 

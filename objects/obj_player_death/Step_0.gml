@@ -66,17 +66,24 @@ if fade != noone && selectedOption == ReviveOptions.Fountain {
 			room_speed = 30;
 			application_surface_draw_enable(true);
 		
+			var nearestFountain = instance_nearest(x,y,obj_fountain);
 			if lastFountainRoom == noone {
-				var nearestFountain = instance_nearest(x,y,obj_fountain);
-				lastFountain = nearestFountain;
+				
+				//lastFountain = nearestFountain;
 				lastFountainRoom = nearestFountain.nativeRoom;
 				lastFountainX = nearestFountain.spawnX;
 				lastFountainY = nearestFountain.spawnY;
 				lastFountainZ = nearestFountain.layerName;
+				
 			}
 			room = lastFountainRoom;
 			x = lastFountainX;
 			y = lastFountainY;
+			if lastFountain = noone {
+				global.owner = nearestFountain;
+				global.makeLightOnCreate = true;
+				instance_create_depth(x,y,1,obj_light_radius);
+			}
 
 			layerToMoveTo = lastFountainZ;
 			justRevivedAtFountain = true;

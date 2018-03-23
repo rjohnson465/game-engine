@@ -89,8 +89,8 @@ lockOnTargetType = obj_enemy_parent;
 LOCK_ON_DISTANCE = 800;
 
 // hp / stamina
-hp = 100;
-maxHp = 100;
+hp = 1000;
+maxHp = 1000;
 hpRegen = .5; // per second
 stamina = 50;
 maxStamina = 50;
@@ -227,3 +227,8 @@ comboHitsToNextLevel = ds_map_find_value(comboHitsToNextLevelMap,leftHandItem.we
 
 offHandDamagePercent = 50; // by default, offhand weapon deals 50% damage
 
+moveSprite = asset_get_index("spr_"+spriteString+"_move");
+moveSpriteImageSpeed = 30;
+if moveSprite != -1 {
+	moveSpriteImageSpeed = sprite_get_speed(moveSprite);
+}

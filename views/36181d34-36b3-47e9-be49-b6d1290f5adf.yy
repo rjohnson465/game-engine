@@ -6,7 +6,8 @@
     "children": [
         "8fb16676-422f-481d-8c63-c1f47959c0d9",
         "2f0e53fa-cbe1-4adc-96ca-045316416b56",
-        "8acf3d48-3276-4fed-95b5-aa1aa0b9cd98"
+        "8acf3d48-3276-4fed-95b5-aa1aa0b9cd98",
+        "33ccf91d-6ab0-4962-8820-e9ab8205d9ca"
     ],
     "filterType": "GMSprite",
     "folderName": "Mouse\/Keyboard",

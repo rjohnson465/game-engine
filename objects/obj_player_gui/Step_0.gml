@@ -6,12 +6,11 @@ if gamepad_is_connected(pad) {
 		showHideInventory();
 	} else if gamepad_button_check_pressed(pad,gp_start) && isShowingMenus
 		|| (isShowingMenus && gamepad_button_check_pressed(pad,gp_face2) /*&& moveSelector.isActive*/) {
-		/*isShowingMenus = false;
-		moveSelector.isActive = true;
-		equipSelector.isActive = false;
-		imbueSelector.isActive = false;
-		equipSelector.acceptableEquipmentSlots = [];*/
 		showHideInventory();
+	}
+	
+	if gamepad_button_check_pressed(pad,gp_face4) && isShowingMenus {
+		isShowingExplanations = !isShowingExplanations;
 	}
 
 }

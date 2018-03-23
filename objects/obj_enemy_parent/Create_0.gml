@@ -65,6 +65,9 @@ willDodge = noone;
 agility = 0; // 0 - 100% chance to try a dodge
 dodgeFrame = 0;
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
+// .5 sec to 1 sec delay between dodges by default
+dodgeFrequencyFrames = [15,30];
+dodgeFrequencyFrame = 0; // counts down -- when 0, a dodge may happen
 
 // shielding stuff
 isShielding = false;

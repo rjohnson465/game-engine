@@ -1,6 +1,9 @@
 /// @description maybeDodge()
 
-//if ds_map_size(lockOnTarget.preparingLimbs) == 0 exit;
+if dodgeFrequencyFrame > 0 {
+	dodgeFrequencyFrame--;
+	exit;
+}
 
 // If we're close to our lockOnTarget and they're preparing attack and we've decided to dodge during this Move state,
 // decide exactly what frame in the lockOnTarget's attack prep to dodge on

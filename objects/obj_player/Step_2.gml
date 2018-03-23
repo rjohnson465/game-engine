@@ -7,6 +7,7 @@ if hp < 1 && isAlive && !isDying {
 	fallScaleFactor = 1;
 	hp = 0;
 	speed = 0;
+	flinchFrame = 0;
 	ds_map_clear(preparingLimbs);
 	ds_map_clear(attackingLimbs);
 	ds_map_clear(recoveringLimbs);
@@ -47,9 +48,6 @@ if isDying && isAlive {
 
 if !isAlive {
 	speed = 0;
-	//x = -1000;
-	//y = -1000;
 	alpha = 0;
 	visible = false;
-	
 }

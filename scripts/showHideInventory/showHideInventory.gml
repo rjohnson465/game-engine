@@ -21,4 +21,5 @@ if !isShowingMenus {
 	equipSelector.isActive = false;
 	imbueSelector.isActive = false;
 	equipSelector.acceptableEquipmentSlots = [];
+	isShowingExplanations = false;
 }

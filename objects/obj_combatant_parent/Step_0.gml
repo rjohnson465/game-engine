@@ -308,6 +308,9 @@ switch(state) {
 			
 			// update attackFrames values
 			updateAttackFrames();
+			
+			// maybe move forward if this is a melee attack
+			maybeMoveDuringAttack();
 
 			// iterate over the recover frames for all limbs to see if an attack is ended
 			iterateOverRecoveringLimbs();
@@ -378,6 +381,12 @@ switch(state) {
 		// if not dodging, reset some states and values
 		if dodgeFrame >= totalDodgeFrames {
 			
+			// reset dodgeFrequencyFrame for AI combatant
+			if type != CombatantTypes.Player {
+				randomize();
+				dodgeFrequencyFrame = random_range(dodgeFrequencyFrames[0],dodgeFrequencyFrames[1]);
+			}
+			
 			dodgeStartX = noone;
 			dodgeStartY = noone;
 			stupidityFrame = 0;
@@ -437,11 +446,7 @@ with obj_fallzone {
 // this mainly resolves issues when enemies are using mp_grids and suddenly switch to mp_potential_* stuff
 if type == CombatantTypes.Enemy {
 	if !place_free(x,y) {
-		//if lockOnTarget {
-		//	if mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,5,false) {
-				jumpToNearestFreePoint(true);
-		//	}
-		//}
+		jumpToNearestFreePoint(true);
 	}
 }
 

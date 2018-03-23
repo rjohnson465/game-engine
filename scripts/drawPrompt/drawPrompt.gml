@@ -52,6 +52,10 @@ switch key {
 			asset_get_index("spr_prompt_mk_escape");
 			break;
 	}
+	case Input.Shift: {
+		sprite = isGamepadConnected ? spr_prompt_xbox_y : spr_prompt_mk_shift;
+		break;
+	}
 }
 
 var sw = sprite_get_width(sprite)*.35;

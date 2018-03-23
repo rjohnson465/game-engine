@@ -11,6 +11,7 @@ gridPath = path_add();
 //mp_grid_add_instances(personalGrid, obj_wall_parent, false);
 
 isFairy = false;
+isFloating = false; // being a Fairy means you float; floating doesn't mean you're a fairy
 isPhasing = false;
 randomize()
 floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
@@ -278,6 +279,7 @@ dyingParticleColor1 = c_red;
 dyingParticleColor2 = c_maroon;
 
 alpha = 1;
+scale = 1;
 
 xpReward = 0;
 
@@ -291,3 +293,6 @@ recalculatePathFrameTotal = 15;
 
 chargePointX = noone;
 chargePointY = noone;
+
+moveSprite = -1;
+moveSpriteImageSpeed = 30;

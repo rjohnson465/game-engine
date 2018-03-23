@@ -42,13 +42,9 @@ if ds_map_size(preparingLimbs) != 0 {
 			var y1 = y +lengthdir_y(-.5,facingDirection);
 		
 			if weapon.subType == HandItemTypes.Melee && !place_meeting_layer(x1, y1, obj_solid_parent){
-				/*direction = facingDirection;
-				speed = -.5;*/
 				moveToNearestFreePoint((facingDirection+180)%360,.5);
 			}
-		} else {
-			speed = 0;
-		}
+		} 
 		hand = ds_map_find_next(preparingLimbs,hand);
 	}
 }

@@ -64,7 +64,7 @@ if x2 < x1 {
 draw_set_color(c_green);
 draw_rectangle(x1,y1,x2,y2,false);
 
-// xp
+// xp bar
 var xpPercent = (global.player.xp / global.player.xpToNextLevel)*100;
 draw_healthbar(0,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpPercent,c_black,c_white,c_white,0,true,true);
 
@@ -86,6 +86,7 @@ if leftHandItem.spriteName != "unarmed" {
 		draw_set_halign(fa_left);
 		draw_text(10,750,s);
 	}
+	
 }
 
 // middle button (spell)

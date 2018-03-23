@@ -183,6 +183,12 @@ if selectedItem {
 			
 		w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 	} 
+	if global.ui.isShowingExplanations {
+		w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+	} else {
+		w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+	}
+	
 	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 //}
 

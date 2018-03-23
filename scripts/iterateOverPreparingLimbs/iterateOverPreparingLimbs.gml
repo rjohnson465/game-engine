@@ -67,6 +67,16 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 				var startDir = (facingDirection+180)%360;
 				moveToNearestFreePoint(startDir,functionalSpeed,true);
 			}
+		} else {
+			// if preparing a STANDARD melee attack and no attacks are happening with other hand, move back a bit (if you can)
+			if ds_map_size(attackingLimbs) == 0 {
+				var x1 = x +lengthdir_x(-.5,facingDirection);
+				var y1 = y +lengthdir_y(-.5,facingDirection);
+		
+				if !attackData.isRanged && !place_meeting_layer(x1, y1, obj_solid_parent){
+					moveToNearestFreePoint((facingDirection+180)%360,.5);
+				}
+			}
 		}
 	}
 	currentPreparingLimbKey = ds_map_find_next(preparingLimbs,currentPreparingLimbKey);
