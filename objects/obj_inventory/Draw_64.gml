@@ -47,11 +47,9 @@ ds_list_clear(inv);
 for (var i = 0; i < ds_list_size(inventory); i++) {
 	var el = ds_list_find_value(inventory,i);
 				
-	//if !el.isEquipped {
-		ds_list_add(inv,el);
-		el.x1 = -50;
-		el.y1 = -50;
-	//}
+	ds_list_add(inv,el);
+	el.x1 = -50;
+	el.y1 = -50;
 	
 	// if we're equipping something using the Equip Selector, 
 	// automatically only show what is possible to equip
@@ -140,6 +138,13 @@ for (var i = 0; i < 20; i++) {
 		if item.equipmentSlot != noone {
 			draw_set_color(c_maroon);
 			draw_circle(x1+5,y1+5,5,false);
+		}
+		// if this item is broken, signify that
+		if item.type == ItemTypes.HandItem {
+			if item.durability <= 0 {
+				draw_line_width_color(x1,y1,x1+10,y1+10,3,c_red,c_red);
+				draw_line_width_color(x1+10,y1,x1,y1+10,3,c_red,c_red);
+			}
 		}
 	} 
 }

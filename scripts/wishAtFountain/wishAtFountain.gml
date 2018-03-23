@@ -33,6 +33,7 @@ else if isDoneFilling {
 	with obj_player {
 		hp = maxHp;
 		stamina = maxStamina;
+		
 		// cure any and all conditions
 		var currentCondition = ds_map_find_first(conditionPercentages);
 		for (var i = 0; i < ds_map_size(conditionPercentages);i++) {
@@ -40,13 +41,22 @@ else if isDoneFilling {
 			currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
 		}
 		
-		// refill all weapon charges for inventory weapons
+		// refill all weapon charges for inventory weapons, repair all durability
 		for (var i = 0 ; i < ds_list_size(inventory); i++) {
 			var item = ds_list_find_value(inventory,i);
 			if item.type == ItemTypes.HandItem {
+				var copy = noone;
+				with item.object_index {
+					if copyOf == item {
+						copy = id;
+					}
+				}
 				if item.totalCharges > 0 {
 					item.charges = item.totalCharges;
+					if copy != noone copy.charges = item.totalCharges;
 				}
+				item.durability = item.durabilityMax;
+				if copy != noone copy.durability = item.durabilityMax;
 			}
 		}
 		
@@ -54,9 +64,18 @@ else if isDoneFilling {
 		for (var i = 0 ; i < ds_list_size(equippedItems); i++) {
 			var item = ds_list_find_value(equippedItems,i);
 			if item.type == ItemTypes.HandItem {
+				var copy = noone;
+				with item.object_index {
+					if copyOf == item {
+						copy = id;
+					}
+				}
 				if item.totalCharges > 0 {
 					item.charges = item.totalCharges;
+					if copy != noone copy.charges = item.totalCharges;
 				}
+				item.durability = item.durabilityMax;
+				if copy != noone copy.durability = item.durabilityMax;
 			}
 		}
 	}

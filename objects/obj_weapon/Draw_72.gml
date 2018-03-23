@@ -40,5 +40,5 @@ else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
 	sprite = getLimbSpriteIndex("recover");
 }
 
-draw_sprite_ext(sprite,frame,owner.x,owner.y,1*owner.scale,ys*owner.scale,rot,c_white,owner.alpha);
+draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_white,owner.alpha);
 shader_reset();

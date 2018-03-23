@@ -75,48 +75,54 @@ var rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
 var rightHandItem2 = getItemInEquipmentSlot(EquipmentSlots.RightHand2);
 
 // left hand
-draw_sprite_ext(spr_item_slot,1,10,698,1,1,0,c_white,.5);
+var vh = view_get_hport(view_camera[0]);
+draw_sprite_ext(spr_item_slot,1,10,vh-70,1,1,0,c_white,.5);
 if leftHandItem.spriteName != "unarmed" {
 	var leftHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
-	draw_sprite(leftHandItemSprite,1,10,698);
+	draw_sprite(leftHandItemSprite,1,10,vh-70);
 	if leftHandItem.totalCharges != 0 {
 		var s = string(leftHandItem.charges) + "/" + string(leftHandItem.totalCharges);
 		draw_set_color(c_white);
 		draw_set_font(font_main);
 		draw_set_halign(fa_left);
-		draw_text(10,750,s);
+		draw_text(10,vh-18,s);
 	}
-	
+	// durability bar
+	var durabilityPercent = (leftHandItem.durability / leftHandItem.durabilityMax)*100;
+	draw_healthbar(10,vh-9,71,vh-6,durabilityPercent,c_black,c_red,c_red,0,1,0);
 }
 
 // middle button (spell)
-draw_sprite_ext(spr_item_slot,1,80,698,1,1,0,c_white,.5);
+draw_sprite_ext(spr_item_slot,1,80,vh-70,1,1,0,c_white,.5);
 var spell = asset_get_index("spr_item_"+global.player.currentSpell+"_"+global.player.currentSpellAttunement);
 if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
-	draw_sprite(spell,1,80,698);
+	draw_sprite(spell,1,80,vh-70);
 } else {
-	draw_sprite_ext(spell,1,80,698,1,1,0,c_gray,.75);
+	draw_sprite_ext(spell,1,80,vh-70,1,1,0,c_gray,.75);
 }
 
 // right hand
-draw_sprite_ext(spr_item_slot,1,150,698,1,1,0,c_white,.5);
+draw_sprite_ext(spr_item_slot,1,150,vh-70,1,1,0,c_white,.5);
 if rightHandItem.spriteName != "unarmed" {
 	var rightHandItemSprite = asset_get_index("spr_item_"+rightHandItem.spriteName);
-	draw_sprite(rightHandItemSprite,1,150,698);
+	draw_sprite(rightHandItemSprite,1,150,vh-70);
 
 	if rightHandItem.totalCharges != 0 {
 		var s = string(rightHandItem.charges) + "/" + string(rightHandItem.totalCharges);
 		draw_set_color(c_white);
 		draw_set_font(font_main);
 		draw_set_halign(fa_left);
-		draw_text(150,750,s);
+		draw_text(150,vh-18,s);
 	}
+	// durability bar
+	var durabilityPercent = (rightHandItem.durability / rightHandItem.durabilityMax)*100;
+	draw_healthbar(150,vh-9,211,vh-6,durabilityPercent,c_black,c_red,c_red,0,1,0);
 }
 
 // two handed, show right hand with grayed out left hand equip
 if leftHandItem.isTwoHanded {
 	var rightHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
-	draw_sprite_ext(rightHandItemSprite,1,150,698,1,1,1,c_black,.75);
+	draw_sprite_ext(rightHandItemSprite,1,150,vh-70,1,1,1,c_black,.75);
 }
 
 // draw attunements
@@ -132,12 +138,12 @@ if rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0 {
 		var x1 = init_x + (i*40);
 		
 		if global.player.currentSpellAttunement != el {
-			draw_sprite_ext(attunementSpriteIndex,1,x1,660,1,1,0,c_gray,.75);
+			draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_gray,.75);
 		} else {
-			draw_sprite_ext(attunementSpriteIndex,1,x1,660,1,1,0,c_white,1);
+			draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_white,1);
 		}
 		if !gamepad_is_connected(global.player.gamePadIndex) {
-			script_execute(scr_draw_text_outline,x1+1,661,string(i+1),c_white,c_white);
+			script_execute(scr_draw_text_outline,x1+1,vh-107,string(i+1),c_white,c_white);
 		}
 	}
 } else {

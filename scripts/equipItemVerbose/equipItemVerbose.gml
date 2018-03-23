@@ -9,6 +9,18 @@ var slotObj = argument1;
 var equippedItems = global.player.equippedItems;
 var unarmed = global.player.unarmed;
 
+if droppedItem.type == ItemTypes.HandItem {
+	if droppedItem.durability <= 0 {
+		alert("Cannot equip broken items",c_red);
+		exit;
+	}
+}
+
+if droppedItem.copyOf != noone {
+	droppedItem = droppedItem.copyOf;
+	//instance_destroy(copy,false);
+}
+
 with slotObj {
 	// first, make sure the dropped item can go in this slot 
 	var handItemPredicate = droppedItem.type == ItemTypes.HandItem 

@@ -1,4 +1,5 @@
-// display alert at nearest loc to (512,100)
+// display alert at nearest loc to center top screen
+depth = global.ui.depth-1;
 message = global.alertMessage;
 color = global.alertMessageColor;
 alertNumber = instance_number(obj_alert);

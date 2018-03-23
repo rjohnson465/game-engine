@@ -3,6 +3,8 @@ display_set_gui_size(1024, 768);
 global.conditionBarCount = 0;
 depth = -1000;
 
+display_set_gui_size(view_get_wport(view_camera[0]),view_get_hport(view_camera[0]));
+
 // UI menus
 isShowingMenus = false;
 #macro INVENTORY "Inventory & Stats"
@@ -59,7 +61,8 @@ currentMenu = INVENTORY;
 isShowingMenus = false;
 
 // attunment objects
-global.y1 = 660; 
+var vh = view_get_hport(view_camera[0]);
+global.y1 = vh-108; 
 global.x1 = 12; // used for attunement instance creation
 global.spellAttunementString = MAGIC;
 attunementMagic = instance_create_depth(12,660,1,obj_attunement);

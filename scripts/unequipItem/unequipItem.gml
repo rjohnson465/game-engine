@@ -34,6 +34,8 @@ if item.type == ItemTypes.HandItem && item.weaponType == WeaponTypes.Unarmed {
 	}
 	
 }
-			
+
+//instance_destroy(item,false);
+
 // add this item back to player inventory
 //ds_list_add(global.player.inventory,item);

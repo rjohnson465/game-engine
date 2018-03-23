@@ -12,6 +12,11 @@ var topLeftY = argument1;
 var item = argument2;
 
 if item == undefined || !instance_exists(item) || item == noone exit;
+if item.type == ItemTypes.HandItem {
+	if item.subType == HandItemTypes.Melee {
+		if item.weaponType == UNARMED exit; // do not display info for Unarmed
+	}
+}
 
 draw_set_color(c_olive);
 var descriptionHandleX2 = topLeftX+width

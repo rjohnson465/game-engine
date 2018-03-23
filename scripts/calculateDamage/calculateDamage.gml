@@ -51,6 +51,7 @@ if	state != CombatantStates.Dodging &&
 		var spell = noone;
 		var attackNumber; var attackNumberInChain;
 		var percentCharged = 1;
+		var isBlockBroken = false;
 		// case AI combatant as assailant
 		var attackData = noone;
 		// case: Player as assailant; this could be a melee weapon, ranged weapon, or spell (I think??) -- Check attack_parent
@@ -85,6 +86,11 @@ if	state != CombatantStates.Dodging &&
 			if !attackData.isBlockable && isShielding {
 				stamina = -10;
 				isShielding = false;
+				// damage shield durability (1/10 of attack's damage)
+				if type == CombatantTypes.Player {
+					var shield = ds_map_find_value(equippedLimbItems,"r");
+					isBlockBroken = true;
+				}
 			}
 		}
 		
@@ -289,6 +295,12 @@ if	state != CombatantStates.Dodging &&
 			damage = hp;
 		}
 		
+		// shielding was broken earlier by an unblockable attack
+		if isBlockBroken {
+			var shield = ds_map_find_value(equippedLimbItems,"r");
+			damageItem(shield,.2*actualDamage);
+		}
+		
 		// hit a shield
 		if	isShielding 
 			&& script_execute(scr_is_facing,assailant,id)
@@ -298,6 +310,9 @@ if	state != CombatantStates.Dodging &&
 				global.y1 = __y;
 				global.particleDirection = facingDirection;
 				instance_create_depth(0,0,1,obj_hit_particles);
+				var shield = ds_map_find_value(equippedLimbItems,"r");
+					
+				
 				// remove the same percentage of stamina as it would have removed health
 				var percentageOfHealth = actualDamage / maxHp;
 				stamina -= maxStamina*(percentageOfHealth*1.5);
@@ -305,7 +320,6 @@ if	state != CombatantStates.Dodging &&
 				
 				// damage needs to be refactored, as shields have their own defenses per element
 				var currentDamageType = ds_map_find_first(damagesTaken);
-				var shield = ds_map_find_value(equippedLimbItems,"r");
 				var adjustedDamage = 0;
 				for (var i = 0; i < ds_map_size(damagesTaken); i++) {
 					
@@ -352,17 +366,30 @@ if	state != CombatantStates.Dodging &&
 					}
 				}
 				
+				// damage shield durability (1/10 of attack's damage)
+				if type == CombatantTypes.Player {
+					damageItem(shield,.1*actualDamage);
+				}
+				
+				// damage weapons that strike shields 
+				if other.owner.type == CombatantTypes.Player && itemIsMelee && itemHitWith.weaponType != UNARMED {
+					damageItem(itemHitWith,.15*actualDamage);
+				}
 			}
 		// hit
-		else {			
-			// critical?
+		if !isShielding {			
+			
 			hp -= damage;
 			
 			global.damageAmount = damage;
 			global.healingSustained = 0;
 			global.victim = id;
-			global.isCriticalHit = isCriticalHit;
+			global.isCriticalHit = isCriticalHit; // critical?
 			instance_create_depth(x,y,1,obj_damage);
+			// if assailant was player, damage their weapon a bit
+			if assailant.type == CombatantTypes.Player {
+				damageItem(itemHitWith,.05*actualDamage);
+			}
 		}
 	
 		// if this is the first time an enemy was hit, show the hp of the enemy

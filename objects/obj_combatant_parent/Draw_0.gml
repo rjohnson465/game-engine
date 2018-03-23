@@ -32,54 +32,9 @@ if state == CombatantStates.Dodging {
 	
 } 
 
-if state == CombatantStates.Attacking {
-	
-
-}
-
 if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 	
-	var sprString = "spr_"+spriteString;
-	if asset_get_index(sprString+"_move") && state == CombatantStates.Moving {
-		sprString = sprString+"_move";
-	}
-
-	if asset_get_index(sprString+"_move") && type == CombatantTypes.Player {
-		// if 2h ranged preparing
-		var lhItem = ds_map_find_value(equippedLimbItems,"l");
-		var ir = lhItem.subType == HandItemTypes.Ranged;
-		var th = lhItem.isTwoHanded;
-		var ms = ds_map_size(preparingLimbs) != 0;
-		if (lhItem.subType == HandItemTypes.Ranged && lhItem.isTwoHanded && ds_map_size(preparingLimbs) != 0) 
-			|| currentUsingSpell != noone
-			{
-			// iff movement input given
-			var UP = keyboard_check(ord("W"));
-			var DOWN = keyboard_check(ord("S"));
-			var LEFT = keyboard_check(ord("A"));
-			var RIGHT = keyboard_check(ord("D"));
-			var gamePadInputReceived = false;
-			if gamepad_is_connected(gamePadIndex) {
-				var h_point = gamepad_axis_value(gamePadIndex, gp_axislh);
-				var v_point = gamepad_axis_value(gamePadIndex, gp_axislv);
-				if h_point != 0 || v_point != 0 {
-					gamePadInputReceived = true;
-					direction = (point_direction(0,0,h_point,v_point))%360;
-				}
-			}
-			if UP || DOWN || LEFT || RIGHT || gamePadInputReceived {
-				sprString = sprString+"_move";
-				image_speed = .5;
-			} else image_speed = 1;
-		} else image_speed = 1;
-	} else image_speed = 1;
-	
-	// moving backwards makes move animation go backwards and slow
-	if abs(angle_difference(facingDirection,direction)) > 90 {
-		image_speed = -.5;
-	}
-	
-	sprite_index = asset_get_index(sprString);
+	updateMoveSpriteAndImageSpeed();
 	
 	// normally draw base sprite -- on top of hands
 	alpha = 1;
@@ -108,8 +63,7 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 		alpha = (-dyingFrame/dyingTotalFrames)+1;
 	}
 	
-	//draw_sprite_ext(asset_get_index("spr_"+spriteString), idleFrame, x, y, scale, scale, facingDirection, c_white, alpha);
-	draw_sprite_ext(asset_get_index(sprString), image_index, x, y, scale, scale, facingDirection, c_white, alpha);
+	draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_white, alpha);
 	
 	if isSlowed {
 		var percentFrozen = ds_map_find_value(conditionPercentages,ICE);

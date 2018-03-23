@@ -10,9 +10,10 @@ with player {
 		draw_set_alpha((frameInReference/totalFramesToFade));
 	}
 	
-	//y1 is where to start drawing things based on whether or not attunements are visible
+	// y1 is where to start drawing things based on whether or not attunements are visible
+	var vh = view_get_hport(view_camera[0]);
 	var y1 = (rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0) ?
-			625 : 650;
+			vh-143 : vh-118;
 	if comboEffectiveNumber > 0 || comboModeLevel > 0 {
 		// draw a circle for each combo
 		for (var i = 0; i < comboHitsToNextLevel; i++) {

@@ -16,13 +16,19 @@ if itemOriginal.copyOf != noone {
 	item = temp;
 }
 else {
-	// see if there is already an "equipped" copy of item
+	// see if there is already a copy of item
+	with itemOriginal.object_index {
+		if copyOf == itemOriginal {
+			item = id;
+		}
+	}
+	/*
 	for (var i = 0; i < ds_list_size(global.player.equippedItems); i++) {
 		var el = ds_list_find_value(global.player.equippedItems,i);
 		if el.copyOf == itemOriginal {
 			item = el;
 		}
-	}
+	}*/
 
 	if item == noone {
 		with itemOriginal {

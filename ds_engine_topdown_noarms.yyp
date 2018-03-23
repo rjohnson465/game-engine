@@ -1383,6 +1383,14 @@
             }
         },
         {
+            "Key": "51987875-f623-4cc1-8d81-642e539deca1",
+            "Value": {
+                "id": "ba1ceb00-21eb-4fd6-ad02-b45ca1b2b3e3",
+                "resourcePath": "scripts\\damageItem\\damageItem.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "51bfb0f8-cd04-4008-9404-4b2d9c5d2fa3",
             "Value": {
                 "id": "e241dadb-b295-4523-9376-34a75468efcb",
@@ -1556,6 +1564,14 @@
                 "id": "b5bb2f9c-a2a6-47e2-a329-d144c4846284",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_attack_1_1\\spr_enemy_unfairy_limb_unarmed_attack_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5dc1c55a-d410-4fc7-a098-b9544d713bf6",
+            "Value": {
+                "id": "a8430218-01a4-4325-a0d2-9d0cd60a1aa1",
+                "resourcePath": "scripts\\updateMoveSpriteAndImageSpeed\\updateMoveSpriteAndImageSpeed.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -4132,6 +4148,7 @@
         "020ae970-9049-4636-8526-df7f18d014a5",
         "80ea5c9e-c7f8-4af0-852a-e5066729ab00",
         "e4374775-f49c-4989-8fc4-9ae3a9545331",
+        "5dc1c55a-d410-4fc7-a098-b9544d713bf6",
         "00feb608-5eda-4896-afe4-aa97abfda795",
         "3ba0e475-52bf-40db-82b9-fe6e9814970d",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
@@ -4143,6 +4160,7 @@
         "0c226cda-89bd-4c9d-b5f3-d0380142f2a2",
         "21302456-61a8-44bb-bb88-cd733bf50335",
         "9fb2ef17-119c-4f0d-8632-6df0a4b53aae",
+        "51987875-f623-4cc1-8d81-642e539deca1",
         "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
         "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
         "366ba9cd-aa4e-49d1-9f44-28270833e64a",

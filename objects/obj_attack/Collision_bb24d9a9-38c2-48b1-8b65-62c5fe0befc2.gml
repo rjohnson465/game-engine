@@ -23,6 +23,11 @@ if possibleSolids != noone {
 
 var hitsWallFirst = firstObj == other.id;
 if isMelee && hitsWallFirst {
+	if owner.type == CombatantTypes.Player {
+		if weapon.weaponType != UNARMED {
+			damageItem(weapon,100);
+		}
+	}
 	owner.staggerFrame = 0;
 	owner.staggerDuration = 5;
 	owner.staggerDirection = (owner.facingDirection+180)%360;
