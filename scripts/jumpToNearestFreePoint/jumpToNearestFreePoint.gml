@@ -25,14 +25,17 @@ var dir = 10;
 // until the proposed x/y coordinates would not make a collision with an obstacle
 var xx = x;
 var yy = y;
-while place_meeting_list(xx,yy,obstacles) {
+var obstaclesInside = place_meeting_list(xx,yy,obstacles);
+while obstaclesInside {
 	dir = (dir + 10)%360;
 	xx = x+lengthdir_x(distanceToTry,dir);
 	yy = y+lengthdir_y(distanceToTry,dir);
 	if dir == 0 {
 		distanceToTry += 10;
 	}
+	obstaclesInside = place_meeting_list(xx,yy,obstacles);
 }
 x = xx;
 y = yy;
 ds_list_destroy(obstacles);
+ds_list_destroy(obstaclesInside);

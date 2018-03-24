@@ -25,7 +25,17 @@ var pred = currentMeleeAttack == noone ?
 	(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) 
 		|| wallsBetweenTarget != noone || alliesBetweenTarget != noone || enemyObstaclesBetweenTarget != noone || (layer != lockOnTarget.layer) : 
 	(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]) || (layer != lockOnTarget.layer);
-				
+
+if wallsBetweenTarget != noone {
+	ds_list_destroy(wallsBetweenTarget);
+}
+if alliesBetweenTarget != noone {
+	ds_list_destroy(alliesBetweenTarget);
+}
+if enemyObstaclesBetweenTarget != noone {
+	ds_list_destroy(enemyObstaclesBetweenTarget);
+}
+
 if pred && !isFlinching {
 	// Movement for AI combatants not in attack range
 	if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false) {

@@ -5,12 +5,15 @@
 if !isActive || !ui.isShowingMenus exit;
 
 // if item equipped items, enter "Equip Mode"
+var item = getItemAtSelectorPosition(id);
 switch type {
 	// if selector type and hovering over an equipped item, activate the equip selector object
 	case SelectorTypes.Select: {
-		if isSelectorInEquippedItems() || isSelectorInInventory() {
+		if isSelectorInEquippedItems() || isSelectorInInventory() && item.type != ItemTypes.Other {
 			isActive = false;
 			// find Equip selector and activate it (in End Step event)
+		} else if item.type == ItemTypes.Other && item.isUsable {
+			item.isInUse = true;
 		}
 		break;
 	}

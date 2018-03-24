@@ -1,4 +1,4 @@
-draw_set_font(font_alert);
+draw_set_font(font_main);
 draw_set_color(color);
 draw_set_halign(fa_center);
 var vw = view_get_wport(view_camera[0]);

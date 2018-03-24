@@ -23,13 +23,14 @@ var descriptionHandleX2 = topLeftX+width
 var descriptionHandleY2 = topLeftY+itemDescriptionHandleHeight;
 draw_rectangle(topLeftX,topLeftY,descriptionHandleX2,descriptionHandleY2,false);
 draw_set_color(c_white);
-draw_set_halign(fa_left);
+draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 var s = item.name;
 
-draw_text(topLeftX+1,mean(descriptionHandleY2+topLeftY)/2,s);
+draw_text(mean(topLeftX,topLeftX+width),mean(descriptionHandleY2+topLeftY)/2,s);
 
 draw_set_valign(fa_left);
+draw_set_halign(fa_left);
 // all shields and weapons share many properties, so it makes sense to lump them together when showing properties
 if item.type == ItemTypes.HandItem {
 					
@@ -53,7 +54,7 @@ if item.type == ItemTypes.HandItem {
 		draw_text(itemDescriptionCol1XText, itemDescriptionColY+25, autoDescription);
 	} else {
 		if item.subType != HandItemTypes.Shield {
-			draw_text(itemDescriptionCol1XText, itemDescriptionColY+25, "Type / Attack speed");
+			draw_text(itemDescriptionCol1XText, itemDescriptionColY+25, "Type/1H or 2H/Speed");
 		} else {
 			draw_text(itemDescriptionCol1XText, itemDescriptionColY+25, "Type");
 		}
@@ -71,50 +72,10 @@ if item.type == ItemTypes.HandItem {
 	// damages
 	if item.subType == HandItemTypes.Melee || item.subType == HandItemTypes.Ranged {
 		
-		// keys -- attack number, values -- [damageType, rangeMin, rangeMax]
-		var physicalDamagesMap = ds_map_create();
-	
-		for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
-			var damageType = global.ALL_DAMAGE_TYPES[i];
-			var damageArray = ds_map_find_value(item.damages,damageType);
-			var minDamage = 100000; var maxDamage = 0;
-			// TODO account for slash / pierce / crush
-			if damageType == CRUSH || damageType == PIERCE || damageType == SLASH {
-				
-				for (var j = 0; j < array_length_1d(damageArray); j+=2) {
-					var num = damageArray[j];
-					if num > 0 {
-						ds_map_add(physicalDamagesMap,j/2,[damageType,num,damageArray[j+1]]);
-					}
-				}
-			}
-		}
+		var damagesStrings = getPhysicalDamageTypesString(item);
+		var physicalDamageTypesString = damagesStrings[0];
+		var physicalDamagesString = damagesStrings[1];
 		
-		// order attacks
-		var currentPhysicalDamageIndex = ds_map_find_first(physicalDamagesMap);
-		var physicalDamageTypesArray = [];
-		for (var i = 0; i < ds_map_size(physicalDamagesMap); i++) {
-			var damageArray = ds_map_find_value(physicalDamagesMap,currentPhysicalDamageIndex);
-			var damageType = damageArray[0];
-			physicalDamageTypesArray[currentPhysicalDamageIndex] = damageType;
-			currentPhysicalDamageIndex = ds_map_find_next(physicalDamagesMap,currentPhysicalDamageIndex);
-		}
-		var physicalDamageTypesString = ""; var physicalDamagesString = "";
-		for (var i = 0; i < array_length_1d(physicalDamageTypesArray); i++) {
-			var damageType = physicalDamageTypesArray[i];
-			var damageArray = ds_map_find_value(physicalDamagesMap,i);
-			var minDamage = damageArray[1]; var maxDamage = damageArray[2];
-			var damageString = string(minDamage) + "-" + string(maxDamage);
-			if i == 0 {
-				physicalDamageTypesString = damageType;
-				physicalDamagesString = damageString;
-			}
-			else {
-				physicalDamageTypesString += "/" + damageType;
-				physicalDamagesString += "/" + damageString;
-			}
-			
-		}
 		// draw physical damages types / values
 		draw_sprite(spr_item_info_damage_types,1,itemDescriptionCol1XPictures,itemDescriptionColY+50);
 		if !global.ui.isShowingExplanations {
@@ -135,8 +96,6 @@ if item.type == ItemTypes.HandItem {
 		} else {
 			draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+75,"Phys. attacks damage",scale,scale,0);
 		}
-		
-		ds_map_destroy(physicalDamagesMap); // prevent mem leak
 		
 		// draw magic charges (if applicable)
 		if item.totalCharges > 0 {
@@ -242,5 +201,7 @@ if item.type == ItemTypes.HandItem {
 			}
 		}
 	}
-		
+} else if item.type == ItemTypes.Other {
+	var sh = string_height(item.description);
+	draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,item.description,sh,width-5);
 }

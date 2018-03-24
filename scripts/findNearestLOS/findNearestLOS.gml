@@ -17,7 +17,8 @@ var dir = 45;
 // until the proposed x/y coordinates would not make a collision with an obstacle
 var xx = x;
 var yy = y;
-while place_meeting_list(xx,yy,obstacles) || scr_collision_line_list_layer(xx,yy,lockOnTarget.x,lockOnTarget.y,obj_enemy_obstacle_parent,true,true) != noone {
+var obstaclesInside = place_meeting_list(xx,yy,obstacles);
+while obstaclesInside != noone || scr_collision_line_list_layer(xx,yy,lockOnTarget.x,lockOnTarget.y,obj_enemy_obstacle_parent,true,true) != noone {
 	dir = (dir + 45)%360;
 	xx = x+lengthdir_x(distanceToTry,dir);
 	yy = y+lengthdir_y(distanceToTry,dir);
@@ -27,6 +28,7 @@ while place_meeting_list(xx,yy,obstacles) || scr_collision_line_list_layer(xx,yy
 	if distanceToTry > 200 {
 		return noone;
 	}
+	obstaclesInside = place_meeting_list(xx,yy,obstacles);
 }
 ds_list_destroy(obstacles);
 return [xx,yy];

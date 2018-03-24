@@ -1,2 +1,0 @@
-enemyUnfairyDualSwordsInit();
-agility = 0;

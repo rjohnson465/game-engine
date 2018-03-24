@@ -9,6 +9,9 @@ if lockOnTarget != noone {
 	} else {
 		facingDirection = direction;
 	}
+	if wallsBetweenTarget != noone {
+		ds_list_destroy(wallsBetweenTarget);
+	}
 } else {
 	facingDirection = direction;
 }

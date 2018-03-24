@@ -33,13 +33,28 @@ var c = mouseOverFountainRevive ? c_white : c_ltgray;
 scr_draw_text_outline(s1x,s1y,s1,c,c);
 
 // Use revive orb
-var s2 = "Use revive orb";
-var y3 = y1 + 50; var y4 = y2+50;
-if selectedOption == ReviveOptions.Orb {
-	draw_set_color(c_gray);
-} else draw_set_color(c_dkgray);
-reviveWithOrbButtonCoordinates = [x1,y3,x2,y4];
-draw_rectangle(x1,y3,x2,y4,false);
-scr_draw_text_outline(s1x,s1y+50,s2,c_white,c_white);
+if reviveOrbs != noone {
+	var s2 = "Use revive orb";
+
+	var y3 = y1 + 50; var y4 = y2+50;
+	if selectedOption == ReviveOptions.Orb {
+		draw_set_color(c_gray);
+	} else draw_set_color(c_dkgray);
+	if reviveOrbs == noone {
+		draw_set_alpha(alpha*.5);
+		draw_set_color(c_maroon);
+	}
+	reviveWithOrbButtonCoordinates = [x1,y3,x2,y4];
+	draw_rectangle(x1,y3,x2,y4,false);
+	scr_draw_text_outline(s1x,s1y+50,s2,c_white,c_white);
+	if reviveOrbs != noone {
+		draw_set_font(font_small);
+		scr_draw_text_outline(s1x,s1y+75,string(reviveOrbs.count) + " orb remaining",c_white,c_white);
+	} else {
+		draw_set_font(font_small);
+		scr_draw_text_outline(s1x,s1y+75,"No orb in inventory",c_ltgray,c_ltgray);
+	}
+}
 
 draw_set_alpha(1);
+draw_set_font(font_main);

@@ -23,6 +23,11 @@ itemSprite = "";
 value = 0;
 description = "Sample description";
 
+isStackable = true;
+count = 1;
+isUsable = false;
+isInUse = false;
+
 // only for hand items, head items, and ring items
 acceptableEquipmentSlots = [];
 
@@ -33,3 +38,11 @@ equipmentSlot = noone;
 mightGrab = false;
 grabFrame = 0;
 grabFrames = 1;
+
+enum ItemProperties {
+	HpMax,
+	HpRegen,
+	StaminaMax,
+	StaminaRegen
+}
+itemProperties = ds_map_create();

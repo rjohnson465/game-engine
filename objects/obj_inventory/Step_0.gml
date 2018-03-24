@@ -44,10 +44,10 @@ if mouse_check_button(mb_left) {
 					pressedFilter = InventoryFilters.Ranged;
 					break;
 				}
-				case InventoryFilters.Magic: {
+				/*case InventoryFilters.Magic: {
 					pressedFilter = InventoryFilters.Magic;
 					break;
-				}
+				}*/
 				case InventoryFilters.Shields: {
 					pressedFilter = InventoryFilters.Shields;
 					break;

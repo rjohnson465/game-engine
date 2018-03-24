@@ -13,27 +13,27 @@ titleHeight = 0;
 
 eqHeight = inventory.invHeight;
 
-headItemSlotX = 478;
+headItemSlotX = topLeftX+135;
 headItemSlotY = 125;
 
-leftHandItem1SlotX = 346;
+leftHandItem1SlotX = topLeftX+3;
 leftHandItem1SlotY = 185;
-rightHandItem1SlotX = 411;
+rightHandItem1SlotX = topLeftX+68;
 rightHandItem1SlotY = 185;
 
-leftHandItem2SlotX = 545;
+leftHandItem2SlotX = topLeftX+202;
 leftHandItem2SlotY = 185;
-rightHandItem2SlotX = 610;
+rightHandItem2SlotX = topLeftX+267;
 rightHandItem2SlotY = 185;
 
-leftRing1SlotX = 378;
+leftRing1SlotX = topLeftX+35;
 leftRing1SlotY = 250;
-leftRing2SlotX = 378;
+leftRing2SlotX = topLeftX+35;
 leftRing2SlotY = 315;
 
-rightRing1SlotX = 577;
+rightRing1SlotX = topLeftX+234;
 rightRing1SlotY = 250;
-rightRing2SlotX = 577;
+rightRing2SlotX = topLeftX+234;
 rightRing2SlotY = 315;
 
 // description box

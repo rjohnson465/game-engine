@@ -22,13 +22,6 @@ else {
 			item = id;
 		}
 	}
-	/*
-	for (var i = 0; i < ds_list_size(global.player.equippedItems); i++) {
-		var el = ds_list_find_value(global.player.equippedItems,i);
-		if el.copyOf == itemOriginal {
-			item = el;
-		}
-	}*/
 
 	if item == noone {
 		with itemOriginal {
@@ -60,6 +53,9 @@ if slot == EquipmentSlots.LeftHand1 {
 	ds_map_replace(global.player.equippedLimbItems, "r", item);
 }
 
+updatePlayerPropertiesItem(item,true);
+
+/*
 // if this was the inventory selected item, its not anymore
 if global.inventory.selectedItem == item {
 	global.inventory.selectedItem = noone;

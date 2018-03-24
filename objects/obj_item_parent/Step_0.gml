@@ -1,4 +1,12 @@
 event_inherited();
+
+if count < 1 {
+	if ds_list_find_index(global.player.inventory,id) != -1 {
+		ds_list_delete(global.player.inventory,ds_list_find_index(global.player.inventory,id));
+	}
+	instance_destroy(id);
+}
+
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
 
 if !position_meeting(mouse_x,mouse_y,id) && grabFrame < grabFrames {

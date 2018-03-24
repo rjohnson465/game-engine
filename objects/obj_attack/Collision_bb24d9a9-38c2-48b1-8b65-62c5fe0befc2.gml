@@ -20,6 +20,9 @@ if possibleSolids != noone {
 		}
 	}
 }
+if possibleSolids != noone {
+	ds_list_destroy(possibleSolids);
+}
 
 var hitsWallFirst = firstObj == other.id;
 if isMelee && hitsWallFirst {

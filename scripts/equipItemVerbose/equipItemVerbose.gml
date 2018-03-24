@@ -9,6 +9,8 @@ var slotObj = argument1;
 var equippedItems = global.player.equippedItems;
 var unarmed = global.player.unarmed;
 
+if droppedItem == noone || droppedItem == undefined exit;
+
 if droppedItem.type == ItemTypes.HandItem {
 	if droppedItem.durability <= 0 {
 		alert("Cannot equip broken items",c_red);

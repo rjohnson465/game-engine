@@ -7,7 +7,9 @@
         "394c6ff6-e190-4edc-82cf-3e979d5a3aa4",
         "060ce5d0-f6ff-4986-b857-6ff16bdc0da2",
         "e6073e5f-34f2-4f40-b398-b2b7e7b4a922",
-        "d55191c8-237c-4c85-b82f-d230e9d22750"
+        "d55191c8-237c-4c85-b82f-d230e9d22750",
+        "f37cde83-20be-406a-8352-ceb1697d5e43",
+        "61b92407-eb29-4c32-acbb-df489b654ee2"
     ],
     "filterType": "GMSprite",
     "folderName": "Xbox",

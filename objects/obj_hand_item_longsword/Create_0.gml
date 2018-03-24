@@ -20,6 +20,7 @@ staggerDuration = 25; // frames
 ds_map_set(damages,SLASH,[10,20,10,20,0,0]);
 ds_map_set(damages,PIERCE,[0,0,0,0,25,30]);
 staminaCostArray=[20,20,25];
+
 //physicalDamageTypeArray = ["slashing","slashing","piercing"];
 
 //ds_map_replace(damages,POISON,[5,10]);

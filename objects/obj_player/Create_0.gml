@@ -141,12 +141,17 @@ ds_list_add(inventory,shortbow);
 var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword2.persistent = true;
 ds_map_replace(longsword2.damages,ICE,[2,4]);
-ds_list_add(inventory,longsword2);
+//ds_list_add(inventory,longsword2);
+addItemToInventory(longsword2);
 
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword.persistent = true;
 ds_map_replace(longsword.damages,MAGIC,[2,4]);
-ds_list_add(inventory,longsword);
+//ds_list_add(inventory,longsword);
+addItemToInventory(longsword);
+
+addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
+addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 
 lastFountain = noone;
 lastFountainRoom = noone;
@@ -162,41 +167,23 @@ dyingParticleColor1 = c_white;
 dyingParticleColor2 = c_gray;
 justRevivedAtFountain = false;
 
-enum WeaponTypes {
-	Sword1H,
-	Sword2H,
-	Unarmed,
-	Pointy1H, // Rapiers
-	Pointy2H, // Spears, Halberd, Trident
-	Axe1H,
-	Axe2H,
-	Blunt1H, // includes wands
-	Blunt2H, // includes staves
-	Dagger,
-	Bow,
-	Crossbow,
-	Shuriken,
-	Musket,
-	Thrown,
-	Pistol
-}
-
-#macro SWORD1H "1H Sword"
-#macro SWORD2H "2H Sword"
-#macro DAGGER "Dagger"
+#macro SWORD1H "Sword/1H"
+#macro SWORD2H "Sword/1H"
+#macro DAGGER "Dagger/1H"
 #macro UNARMED "Unarmed"
-#macro AXE1H "1H Axe"
-#macro AXE2H "2H Axe"
-#macro BLUNT1H "1H Club"
-#macro BLUNT2H "2H Club"
-#macro RAPIER "Rapier"
-#macro SPEAR "Spear"
-#macro BOW "Bow"
-#macro CROSSBOW "Crossbow"
-#macro SHURIKEN "Shuriken"
-#macro MUSKET "Musket"
-#macro THROWN "Thrown"
-#macro PISTOL "Pistol"
+#macro AXE1H "Axe/1H"
+#macro AXE2H "Axe/1H"
+#macro BLUNT1H "Club/1H"
+#macro BLUNT2H "Club/2H"
+#macro RAPIER "Rapier/1H"
+#macro SPEAR "Spear/2H"
+#macro BOW "Bow/2H"
+#macro CROSSBOW "Crossbow/1H"
+#macro SHURIKEN "Shuriken/2H"
+#macro MUSKET "Musket/2H"
+#macro THROWN "Thrown/1H"
+#macro PISTOL "Pistol/1H"
+
 global.ALL_WEAPON_TYPES = [
 	SWORD1H, SWORD2H, DAGGER, UNARMED, AXE1H, AXE2H, BLUNT1H, BLUNT2H, RAPIER, SPEAR,
 	BOW, CROSSBOW, SHURIKEN, MUSKET, THROWN, PISTOL

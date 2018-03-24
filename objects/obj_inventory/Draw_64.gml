@@ -7,10 +7,11 @@ var rightHandItem2 = ds_map_find_value(global.player.equippedLimbItems,"r2");
 
 // tabs /filters 
 // filters background
-draw_set_color(c_gray);
+draw_set_color(c_black);
 draw_rectangle(topLeftX,topLeftY,topLeftX+width,topLeftY+filtersHeight,false);
 
 var currentFilter = ds_map_find_first(filterSprites);
+var filtersTotalWidth = 0;
 for (var i = 0; i < ds_map_size(filterSprites); i++) {
 	var spr = ds_map_find_value(filterSprites,currentFilter);
 	if pressedFilter == currentFilter {
@@ -21,9 +22,45 @@ for (var i = 0; i < ds_map_size(filterSprites); i++) {
 	} else {
 		draw_sprite_ext(spr,1,topLeftX+(i*filtersWidth),topLeftY,1,1,0,c_gray,.75);
 	}
-	
+	filtersTotalWidth += filtersWidth;
 	currentFilter = ds_map_find_next(filterSprites,currentFilter);
 }	
+
+var filterString = "";
+switch filter {
+	case InventoryFilters.Melee: {
+		filterString = "Melee";
+		break;
+	}
+	case InventoryFilters.Ranged: {
+		filterString = "Ranged";
+		break;
+	}
+	case InventoryFilters.Shields: {
+		filterString = "Shields";
+		break;
+	}
+	case InventoryFilters.Rings: {
+		filterString = "Rings";
+		break;
+	}
+	case InventoryFilters.Head: {
+		filterString = "Hats";
+		break;
+	}
+	case InventoryFilters.Other: {
+		filterString = "Misc.";
+		break;
+	}
+	case InventoryFilters.None: {
+		filterString = "All";
+		break;
+	}
+}
+draw_set_color(c_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_center);
+draw_text(mean(topLeftX+filtersTotalWidth,topLeftX+width),mean(topLeftY,topLeftY+filtersHeight),filterString);
 
 // scrolling
 draw_set_color(c_black);
@@ -65,12 +102,12 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 		
 		var slotId = equipmentSlotToFill.slot;
 		if slotId == EquipmentSlots.RightHand1 || slotId == EquipmentSlots.RightHand2 {
-			if el.isTwoHanded {
+			if (el.type == ItemTypes.HandItem && el.isTwoHanded) || el.type != ItemTypes.HandItem {
 				var pos = ds_list_find_index(inv,el);
 				ds_list_delete(inv,pos);
 			}
 		} else if slotId == EquipmentSlots.LeftHand1 || slotId == EquipmentSlots.LeftHand2 {
-			if el.subType == HandItemTypes.Shield {
+			if el.subType == HandItemTypes.Shield || el.type != ItemTypes.HandItem {
 				var pos = ds_list_find_index(inv,el);
 				ds_list_delete(inv,pos);
 			}
@@ -99,8 +136,22 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 			}
 			break;
 		}
-		case InventoryFilters.Magic: {
-			if el.totalCharges == 0 {
+		case InventoryFilters.Rings: {
+			if el.type != ItemTypes.Ring {
+				var pos = ds_list_find_index(inv,el);
+				ds_list_delete(inv,pos);
+			}
+			break;
+		}
+		case InventoryFilters.Head: {
+			if el.type != ItemTypes.Head {
+				var pos = ds_list_find_index(inv,el);
+				ds_list_delete(inv,pos);
+			}
+			break;
+		}
+		case InventoryFilters.Other: {
+			if el.type != ItemTypes.Other {
 				var pos = ds_list_find_index(inv,el);
 				ds_list_delete(inv,pos);
 			}
@@ -146,6 +197,14 @@ for (var i = 0; i < 20; i++) {
 				draw_line_width_color(x1+10,y1,x1,y1+10,3,c_red,c_red);
 			}
 		}
+		// if item is stackable and has more than 1 in stack, show item count
+		if item.isStackable {
+			if item.count > 1 {
+				draw_set_valign(fa_top);
+				draw_set_halign(fa_left);
+				scr_draw_text_outline(x1+1,y1+1,item.count,c_white,c_white);
+			}
+		}
 	} 
 }
 
@@ -166,7 +225,7 @@ if selectedItem {
 } 
 
 // instructions / prompts
-//if gamepad_is_connected(global.player.gamePadIndex) {
+if gamepad_is_connected(global.player.gamePadIndex) {
 	var promptsStartX = topLeftX+18;
 	var promptsY = bottomRightY+25;
 	var xOffset = 20;
@@ -175,27 +234,42 @@ if selectedItem {
 	var itemAtMoveSelector = getItemAtSelectorPosition(global.ui.moveSelector);
 	var a = ds_list_find_index(global.player.equippedItems,getItemAtSelectorPosition(global.ui.moveSelector));
 	
-	var w = drawPrompt("Equip Item",Input.F,promptsStartX,promptsY)+xOffset;
+	var w = 0;
+	if itemAtMoveSelector != noone && itemAtMoveSelector.isUsable {
+		w += drawPrompt("Use Item",Input.F,promptsStartX,promptsY)+xOffset;
+	} else {
+		if itemAtMoveSelector != noone && itemAtMoveSelector.type == ItemTypes.Other {
+		} else if itemAtMoveSelector != noone && !isSelectorInEquippedItems(global.ui.moveSelector) {
+			w += drawPrompt("Equip "+itemAtMoveSelector.name,Input.F,promptsStartX,promptsY)+xOffset;
+		} else if isSelectorInEquippedItems(global.ui.moveSelector) {
+			var s = getSlotAtSelector(global.ui.moveSelector);
+			var slotName = s.name;
+			w += drawPrompt("Equip for "+slotName,Input.F,promptsStartX,promptsY)+xOffset;
+		}
+	}
 	if global.ui.equipSelector.isActive {
 		w += drawPrompt("Cancel Equip",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 	} 
 	// if item at move selector position is equipped
-	else if /*isSelectorInEquippedItems(global.ui.moveSelector)*/ 
-		//&& 
+	else if 
 		getItemAtSelectorPosition(global.ui.moveSelector) != noone 
 		&& ds_list_find_index(eq,itemAtMoveSelector) != -1
 		&& !object_is_ancestor(itemAtMoveSelector.object_index,obj_unarmed_parent) { 
 			
 		w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 	} 
+	
 	if global.ui.isShowingExplanations {
 		w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
 	} else {
 		w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
 	}
 	
+	// cycle through filters
+	w += drawPrompt("Cycle Filters",[Input.LMB, Input.RMB],promptsStartX+w,promptsY)+xOffset;
+	
 	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
-//}
+}
 
 
 

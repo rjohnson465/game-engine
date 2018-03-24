@@ -17,6 +17,9 @@ if lockOnTarget == noone {
 				if wallsBetweenTarget == noone {
 					lockOnTarget = target;
 				}
+				if wallsBetweenTarget != noone {
+					ds_list_destroy(wallsBetweenTarget);
+				}
 				break;
 			}
 		}

@@ -18,7 +18,7 @@ spell = noone;
 particle = noone;
 particle2 = noone;
 spellElement = noone;
-percentCharged = 0;
+percentCharged = 1;
 system = part_system_create();
 part_system_depth(system,-4);
 emitter = part_emitter_create(system);

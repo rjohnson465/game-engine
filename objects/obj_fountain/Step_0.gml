@@ -18,12 +18,17 @@ with obj_fade {
 	}
 }
 
-var nearbyEnemies = scr_get_ids_region(obj_enemy_parent,x-400,y+-400,x+400,y+400);
-var areActiveEnemiesNearby = false;
-for (var i = 0; i < ds_list_size(nearbyEnemies); i++) {
-	var enemy = ds_list_find_value(nearbyEnemies,i);
-	if enemy.lockOnTarget != noone {
-		areActiveEnemiesNearby = true;
+if instance_exists(obj_enemy_parent) {
+	var nearbyEnemies = scr_get_ids_region(obj_enemy_parent,x-400,y+-400,x+400,y+400);
+	var areActiveEnemiesNearby = false;
+	for (var i = 0; i < ds_list_size(nearbyEnemies); i++) {
+		var enemy = ds_list_find_value(nearbyEnemies,i);
+		if enemy.lockOnTarget != noone {
+			areActiveEnemiesNearby = true;
+		}
+	}
+	if nearbyEnemies != noone {
+		ds_list_destroy(nearbyEnemies);
 	}
 }
 

@@ -6,7 +6,7 @@ enum HandItemTypes {
 	Ranged
 }
 
-
+isStackable = false;
 
 subType = ""; // HandItemType
 weaponType = SWORD1H;

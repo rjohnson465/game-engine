@@ -39,10 +39,10 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 				filter = InventoryFilters.Ranged;
 				break;
 			}
-			case InventoryFilters.Magic: {
+			/*case InventoryFilters.Magic: {
 				filter = InventoryFilters.Magic;
 				break;
-			}
+			}*/
 			case InventoryFilters.Shields: {
 				filter = InventoryFilters.Shields;
 				break;

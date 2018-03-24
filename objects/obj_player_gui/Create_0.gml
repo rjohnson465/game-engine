@@ -12,13 +12,19 @@ isShowingMenus = false;
 //#macro STATS "Statistics"
 #macro OPTIONS "Options"
 
-#macro MENUS_TOPLEFT_X 12
+var vw = view_get_wport(view_camera[0]);
+var tlx = (vw-1000)/2;
+var blx = tlx+1000;
+
+menusWidth = 1000;
+menusHeight = 500;
+
+#macro MENUS_TOPLEFT_X (view_get_wport(view_camera[0])-1000)/2
 #macro MENUS_TOPLEFT_Y 84
-#macro MENUS_BOTTOMRIGHT_X 1012
+#macro MENUS_BOTTOMRIGHT_X ((view_get_wport(view_camera[0])-1000)/2)+1000
 #macro MENUS_BOTTOMRIGHT_Y 584
 
-menusWidth = MENUS_BOTTOMRIGHT_X-MENUS_TOPLEFT_X;
-menusHeight = MENUS_BOTTOMRIGHT_Y-MENUS_TOPLEFT_Y;
+
 
 menuButtonCoordinates = ds_map_create();
 var closeButtonWidth = sprite_get_width(spr_close_button);
@@ -47,14 +53,6 @@ for (var i = 0; i < array_length_1d(menuTypes); i++) {
 	var el = menuTypes[i];
 	var coordinates = [x1,yy,x1+tabWidth,yy+menuTabsHeight];
 	ds_map_add(menuButtonCoordinates,el,coordinates);
-	/*if currentMenu != el {
-		draw_set_color(c_gray);
-		draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,true);			
-	} else {
-		draw_set_color(c_ltgray);
-		draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,true);
-	}
-	draw_text((x1+(x1+tabWidth))/2,((yy+menuTabsHeight)+yy)/2.15,el);*/
 }
 
 currentMenu = INVENTORY;
@@ -90,7 +88,6 @@ instance_deactivate_object(obj_attunement);
 // grabbing items
 grabbedItem = noone;
 
-
 // inventory
 instance_create_depth(x,y,-1001,obj_inventory);
 
@@ -99,6 +96,9 @@ instance_create_depth(x,y,-1001,obj_equipped_items_manager);
 
 // combos
 instance_create_depth(x,y,-100,obj_combo_manager);
+
+// stats
+instance_create_depth(x,y,-1001,obj_stats);
 
 // selected equipment slot
 selectedEquipmentSlot = noone;

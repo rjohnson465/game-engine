@@ -6,10 +6,9 @@ var vy = camera_get_view_y(view_camera[0]);
 // fountain revive
 mouseOverFountainRevive = acceptingInput && mouse_x > vx + reviveAtFountainButtonCoordinates[0] && mouse_y > vy + reviveAtFountainButtonCoordinates[1]
 	&& mouse_x < vx +reviveAtFountainButtonCoordinates[2] && mouse_y < vy + reviveAtFountainButtonCoordinates[3];
-
 if mouseOverFountainRevive selectedOption = ReviveOptions.Fountain;
 
-mouseOverOrbRevive = acceptingInput && mouse_x > vx + reviveWithOrbButtonCoordinates[0] && mouse_y > vy + reviveWithOrbButtonCoordinates[1]
+mouseOverOrbRevive = acceptingInput && reviveOrbs != noone && mouse_x > vx + reviveWithOrbButtonCoordinates[0] && mouse_y > vy + reviveWithOrbButtonCoordinates[1]
 	&& mouse_x < vx + reviveWithOrbButtonCoordinates[2] && mouse_y < vy + reviveWithOrbButtonCoordinates[3];
 if mouseOverOrbRevive selectedOption = ReviveOptions.Orb;
 
@@ -28,7 +27,6 @@ if textFadeFrame >= textFadeTotalFrames {
 
 var p = global.player;
 
-
 var UP = keyboard_check_pressed(vk_up);
 if gamepad_is_connected(p.gamePadIndex) {
 	UP = keyboard_check_pressed(vk_up) || gamepad_button_check_pressed(p.gamePadIndex,gp_padu);
@@ -41,7 +39,10 @@ if gamepad_is_connected(p.gamePadIndex) {
 
 if UP || DOWN && fade == noone && acceptingInput {
 	selectedOption = selectedOption == ReviveOptions.Fountain ? ReviveOptions.Orb : ReviveOptions.Fountain;
-}
+	if reviveOrbs == noone {
+		selectedOption = ReviveOptions.Fountain;
+	}
+} 
 
 var ENTER = keyboard_check_pressed(vk_enter);
 if gamepad_is_connected(p.gamePadIndex) {
@@ -55,10 +56,11 @@ if (ENTER || (mouseOverFountainRevive && mouse_check_button_released(mb_left))) 
 	acceptingInput = false;
 }
 
-if instance_exists(fade) && selectedOption == ReviveOptions.Fountain {
+if instance_exists(fade) {
 	if fade.frame == .5*fade.fadeDuration {
 		with p {
 			hp = maxHp;
+			stamina = maxStamina;
 			isDying = false;
 			isAlive = true;
 			visible = true;
@@ -66,28 +68,35 @@ if instance_exists(fade) && selectedOption == ReviveOptions.Fountain {
 			room_speed = 30;
 			application_surface_draw_enable(true);
 		
-			var nearestFountain = instance_nearest(x,y,obj_fountain);
-			if lastFountainRoom == noone {
-				
-				//lastFountain = nearestFountain;
-				lastFountainRoom = nearestFountain.nativeRoom;
-				lastFountainX = nearestFountain.spawnX;
-				lastFountainY = nearestFountain.spawnY;
-				lastFountainZ = nearestFountain.layerName;
-				
-			}
-			room = lastFountainRoom;
-			x = lastFountainX;
-			y = lastFountainY;
-			if lastFountain = noone {
+			// iff reviving at fountain
+			if other.selectedOption == ReviveOptions.Fountain {
 				var nearestFountain = instance_nearest(x,y,obj_fountain);
-				global.owner = nearestFountain;
-				global.makeLightOnCreate = true;
-				instance_create_depth(x,y,1,obj_light_radius);
-			}
+				if lastFountainRoom == noone {
+				
+					//lastFountain = nearestFountain;
+					lastFountainRoom = nearestFountain.nativeRoom;
+					lastFountainX = nearestFountain.spawnX;
+					lastFountainY = nearestFountain.spawnY;
+					lastFountainZ = nearestFountain.layerName;
+				
+				}
+				room = lastFountainRoom;
+				x = lastFountainX;
+				y = lastFountainY;
+				if lastFountain = noone {
+					var nearestFountain = instance_nearest(x,y,obj_fountain);
+					global.owner = nearestFountain;
+					global.makeLightOnCreate = true;
+					instance_create_depth(x,y,1,obj_light_radius);
+				}
 
-			layerToMoveTo = lastFountainZ;
-			justRevivedAtFountain = true;
+				layerToMoveTo = lastFountainZ;
+				justRevivedAtFountain = true;
+			} 
+			// or used revive orb
+			else {
+				other.reviveOrbs.count--;
+			}
 			// stop preparing attacks
 			if ds_map_size(preparingLimbs) != 0 {
 				var hand = ds_map_find_first(preparingLimbs);
