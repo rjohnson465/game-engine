@@ -1,7 +1,7 @@
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
 
 if type == ItemTypes.HandItem {
-	if weaponType == WeaponTypes.Unarmed exit;
+	if weaponType == UNARMED exit;
 }
 
 

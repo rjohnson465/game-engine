@@ -25,7 +25,7 @@ var hitsWallFirst = firstObj == other.id;
 if isMelee && hitsWallFirst {
 	if owner.type == CombatantTypes.Player {
 		if weapon.weaponType != UNARMED {
-			damageItem(weapon,100);
+			damageItem(weapon,1);
 		}
 	}
 	owner.staggerFrame = 0;

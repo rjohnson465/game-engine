@@ -48,8 +48,6 @@ skittishness = 100;
 cautiousness = 100;
 
 // melee attacks info
-// meleeAttacksCount is number of separate attack chains, not individual attacks
-meleeAttacksCount = 1;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
@@ -62,32 +60,14 @@ longswordSwing.limbKey = "l";
 
 var longswordStab = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
 longswordStab.limbKey = "l";
-longswordStab.isBlockable = false;
+//longswordStab.isBlockable = false;
 
 var meleeChain0 = [longswordSwing];
 var meleeChain1 = [longswordStab];
 meleeAttacks = [meleeChain0, meleeChain1];
-/*
-var unarmedHook1 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
-unarmedHook1.limbKey = "l";
-var unarmedHook2 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
-unarmedHook2.limbKey = "o";
-var unarmedHook3 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
-unarmedHook3.limbKey = "o";
-
-var unarmedBackSlap = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_2);
-
-var meleeChain0 = [unarmedHook1];
-var meleeChain1 = [unarmedHook1,unarmedHook2,unarmedHook3];
-var meleeChain2 = [unarmedHook1,unarmedBackSlap];
-var meleeChain3 = [unarmedHook1,unarmedBackSlap,unarmedHook2];
-var meleeChain4 = [unarmedHook1,unarmedBackSlap,unarmedHook2,unarmedHook3];
-meleeAttacks = [meleeChain1,meleeChain2,meleeChain3];
-*/
-//meleeAttacks = [meleeChain1];
 
 // ranged attacks info
-//rangedAttacksCount = 0; 
+
 // currently chosen ranged attack
 currentRangedAttack = noone;
 rangedRangeArray=[300,500];

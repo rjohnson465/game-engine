@@ -13,3 +13,4 @@ if frame > frameCutoff {
 }
 
 scr_draw_text_outline(x1,y1,message,color,color,1,1,0,c_black);
+draw_set_alpha(1);

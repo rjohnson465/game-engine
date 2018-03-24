@@ -11,6 +11,7 @@ copyOf = noone;
 enum ItemTypes {	
 	HandItem,
 	Ring,
+	Head,
 	Other
 }
 
@@ -22,7 +23,8 @@ itemSprite = "";
 value = 0;
 description = "Sample description";
 
-//cloneOf = noone;
+// only for hand items, head items, and ring items
+acceptableEquipmentSlots = [];
 
 //isEquipped = false;
 equippedItemsManager = global.equippedItemsManager;

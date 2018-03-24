@@ -8,7 +8,17 @@ if ds_map_size(attackingLimbs) != 0 {
 		var y1 = y + lengthdir_y(2,facingDirection);
 
 		if attackingMelee && !place_meeting_layer(x1,y1,obj_solid_parent) {
-			moveToNearestFreePoint(facingDirection,1);
+			// get in range of shortest range weapon, iff both are melee and we have a lock on target
+			var weaponL = ds_map_find_value(equippedLimbItems,"l");
+			var weaponR = ds_map_find_value(equippedLimbItems,"r");
+			var r = weaponL.range > weaponR.range ? weaponR.range : weaponL.range;
+			var distanceToTarget = distance_to_object(lockOnTarget);
+			if lockOnTarget != noone && distance_to_object(lockOnTarget) > r/2 {
+				var dirToTarget = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
+				moveToNearestFreePoint(dirToTarget,functionalSpeed);
+			} else {
+				moveToNearestFreePoint(facingDirection,functionalSpeed);
+			}
 		} else {
 			speed = 0;
 		}

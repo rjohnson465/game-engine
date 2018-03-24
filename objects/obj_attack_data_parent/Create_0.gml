@@ -29,3 +29,6 @@ type = AttackTypes.Standard;
 
 // must be within this number of pixels of target to begin attack
 minRange = 0;
+
+// if this is the last attack in a chain, the combatant's attackFrequencyFrames is set to this array
+coolDownFrames = [25,40]; 

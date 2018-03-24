@@ -18,7 +18,16 @@ with obj_fade {
 	}
 }
 
-if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone && global.player.isAlive {
+var nearbyEnemies = scr_get_ids_region(obj_enemy_parent,x-400,y+-400,x+400,y+400);
+var areActiveEnemiesNearby = false;
+for (var i = 0; i < ds_list_size(nearbyEnemies); i++) {
+	var enemy = ds_list_find_value(nearbyEnemies,i);
+	if enemy.lockOnTarget != noone {
+		areActiveEnemiesNearby = true;
+	}
+}
+
+if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive {
 	if !isRunning {
 		wishAtFountain(); // turn fountain on ;)
 	} else {
@@ -31,5 +40,7 @@ else if fade != noone {
 	if fade.frame == .5*fade.fadeDuration && isDoneFilling {
 		wishAtFountain(); // reposition enemies when screen is all fucked up
 	} 
+} else if distance_to_object(obj_player) < 20 && interactInputReceived && areActiveEnemiesNearby {
+	alert("Cannot use fountains when enemies are nearby",c_red);
 }
 

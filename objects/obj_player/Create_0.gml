@@ -128,7 +128,7 @@ currentSpellAttunement = MAGIC;
 
 // inventory -- holds all items
 inventory = ds_list_create();
-/*
+
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
 woodshield.persistent = true;
@@ -141,7 +141,7 @@ ds_list_add(inventory,shortbow);
 var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword2.persistent = true;
 ds_map_replace(longsword2.damages,ICE,[2,4]);
-ds_list_add(inventory,longsword2);*/
+ds_list_add(inventory,longsword2);
 
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword.persistent = true;

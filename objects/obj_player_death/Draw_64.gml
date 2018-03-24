@@ -1,14 +1,8 @@
 
-/*var fade = noone;
-with obj_fade {
-	if owner == other.id {
-		fade = id;
-	}
-}*/
 
 var alpha = textFadeFrame/textFadeTotalFrames;
 
-if fade != noone {
+if instance_exists(fade) {
 	var fadePercent = fade.frame / fade.fadeDuration;
 	alpha = (-2*(fadePercent))+1;
 }

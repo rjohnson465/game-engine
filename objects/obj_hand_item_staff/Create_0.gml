@@ -1,6 +1,6 @@
 event_inherited();
 subType = HandItemTypes.Melee;
-weaponType = WeaponTypes.Blunt2H;
+weaponType = BLUNT2H;
 name = "Staff";
 spriteName = "staff";
 itemSprite = spr_item_staff;

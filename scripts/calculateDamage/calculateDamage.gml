@@ -130,10 +130,6 @@ if	state != CombatantStates.Dodging &&
 				// back stabs are instant criticals
 				var ad1 = angle_difference(other.owner.facingDirection,facingDirection);
 				if other.weapon.subType == HandItemTypes.Melee {
-					/*if angle_difference(other.owner.facingDirection,facingDirection) > 90 &&
-						angle_difference(other.owner.facingDirection,facingDirection) < 180 {
-							var a = 3;
-						}*/
 					var a1 = ((facingDirection-45)+360)%360;
 					var a2 = (facingDirection+45)%360;
 					if angleBetween(a1,a2,other.owner.facingDirection) {
@@ -217,8 +213,8 @@ if	state != CombatantStates.Dodging &&
 			if damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType) {
 				randomize();
 				var top = 1000;
-				//var percentChance = .15;
-				var percentChance = 1;
+				var percentChance = .15;
+				//var percentChance = 1;
 				//percentChance = 0;
 				if spell != noone && spell.name == "magicmissile" {
 					// every misile has a 20/numProjectiles% chance
@@ -231,24 +227,24 @@ if	state != CombatantStates.Dodging &&
 				// only apply the condition if the condition is not currently ongoing
 				if rand > topNum && ds_map_find_value(conditionPercentages,currentDamageType) == 0 {
 					ds_map_replace(conditionPercentages,currentDamageType,100);
-					switch currentDamageType {
-						case FIRE: {
-							alert("Burning!",c_red);
-							break;
-						}
-						case ICE: {
-							alert("Frozen!",c_red);
-							break;
-						}
-						case POISON: {
-							alert("Poisoned!",c_red);
-							break;
-						}
-						case LIGHTNING: {
-							alert("Shocked!",c_red);
-						}
-					}
 					if type == CombatantTypes.Player {
+						switch currentDamageType {
+							case FIRE: {
+								alert("Burning!",c_red);
+								break;
+							}
+							case ICE: {
+								alert("Frozen!",c_red);
+								break;
+							}
+							case POISON: {
+								alert("Poisoned!",c_red);
+								break;
+							}
+							case LIGHTNING: {
+								alert("Shocked!",c_red);
+							}
+						}
 						var conditionBar = noone;
 						with (obj_condition_bar) {
 							if condition == currentDamageType && owner == global.player.id {
@@ -396,7 +392,7 @@ if	state != CombatantStates.Dodging &&
 				}
 			}
 		// hit
-		if !isShielding {			
+		if !isShielding || !scr_is_facing(assailant,id) {			
 			
 			hp -= damage;
 			

@@ -631,6 +631,14 @@
             }
         },
         {
+            "Key": "1ce7034f-4159-4cb7-9ae7-b872c2aa1bf0",
+            "Value": {
+                "id": "824d80e0-b549-4c10-853c-1fb241531685",
+                "resourcePath": "sprites\\spr_slot_off_hand\\spr_slot_off_hand.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1d2c5934-19c8-4b69-8108-9a1dd6bbfe19",
             "Value": {
                 "id": "bd939d18-0f05-4638-80c5-6833a091c456",
@@ -911,6 +919,14 @@
             }
         },
         {
+            "Key": "2ddbbafa-9ef2-4999-ab98-cac46eda5f73",
+            "Value": {
+                "id": "781000c9-7312-44d4-91d2-9c73995975c7",
+                "resourcePath": "sprites\\spr_enemy_unfairy_stagger\\spr_enemy_unfairy_stagger.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2eb33c61-0aef-4506-a6e9-f2dde9c5062c",
             "Value": {
                 "id": "16addf84-1366-4202-b2ae-1c6ff3e6b0cc",
@@ -963,6 +979,14 @@
             "Value": {
                 "id": "e9748874-adf6-4360-82ea-db3fbd9df17a",
                 "resourcePath": "sprites\\spr_player_move\\spr_player_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3388d61e-899a-46d7-b4a4-d6ca771233bc",
+            "Value": {
+                "id": "468d17eb-a82c-4e83-a927-ebca3b821dea",
+                "resourcePath": "sprites\\spr_slot_head\\spr_slot_head.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1284,6 +1308,14 @@
                 "id": "affe42d4-4f69-48a9-8f9c-3feb339d6d24",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_longsword_attack_2_1\\spr_enemy_unfairy_limb_longsword_attack_2_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "492f0088-4fff-40b5-b7b6-8eb2b21d33c7",
+            "Value": {
+                "id": "4c9ec66b-b082-41ee-9dc5-c66cf73e97c7",
+                "resourcePath": "views\\492f0088-4fff-40b5-b7b6-8eb2b21d33c7.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -2703,6 +2735,14 @@
             }
         },
         {
+            "Key": "a4973aec-9b6b-473e-b07d-4ab12711834f",
+            "Value": {
+                "id": "0eb50a42-706a-4b96-8360-94e193d9d7ca",
+                "resourcePath": "sprites\\spr_enemy_unfairy_move\\spr_enemy_unfairy_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a5ee90e2-bf80-4016-9099-e97b50ffaeb9",
             "Value": {
                 "id": "6ede9aa8-a44c-49ae-bc33-0e416ca6150d",
@@ -2900,6 +2940,14 @@
                 "id": "04eeb81d-db05-40cd-822b-a17d9b5319e3",
                 "resourcePath": "scripts\\maybeBecomeWary\\maybeBecomeWary.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ae82a787-18af-46a8-97c2-d04f904e1504",
+            "Value": {
+                "id": "56df0beb-a58b-42bd-bc0d-12cbed537ee0",
+                "resourcePath": "sprites\\spr_slot_ring\\spr_slot_ring.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3354,7 +3402,7 @@
             "Key": "cb2bbbcb-124b-4845-95ed-1d0b674f5d61",
             "Value": {
                 "id": "4ac9ab6c-7c09-469f-8d3e-7c5fe791e21c",
-                "resourcePath": "sprites\\spr_enemy_unfairy\\spr_enemy_unfairy.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy1\\spr_enemy_unfairy1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3428,6 +3476,14 @@
                 "id": "05b8db66-bd6c-4396-a054-852d4e44ad23",
                 "resourcePath": "views\\ce34f157-6b7c-4d73-990f-568d24721e23.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "cf10f946-5302-4761-a66f-62c83f0a91e7",
+            "Value": {
+                "id": "d5915814-3cb4-44b0-8aea-222f8d80e0b9",
+                "resourcePath": "sprites\\spr_enemy_unfairy\\spr_enemy_unfairy.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3818,7 +3874,7 @@
             "Key": "eca751e0-2ff7-4e6b-a791-f9e311021bdf",
             "Value": {
                 "id": "5d530be4-add4-4838-a009-cdbcc7c33e75",
-                "resourcePath": "sprites\\spr_enemy_unfairy_stagger\\spr_enemy_unfairy_stagger.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy_stagger1\\spr_enemy_unfairy_stagger1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4055,6 +4111,14 @@
             }
         },
         {
+            "Key": "f9d66fc5-35be-4bce-9b4f-c6b72b484221",
+            "Value": {
+                "id": "122fd514-aec3-447f-9ef4-b755b0ee7318",
+                "resourcePath": "sprites\\spr_slot_main_hand\\spr_slot_main_hand.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f9e29305-332d-4c80-9256-e38cdeb68e67",
             "Value": {
                 "id": "8c56302a-5434-4c6b-89c5-b445b58525b6",
@@ -4225,7 +4289,6 @@
         "ca359ec9-6c44-402d-a8a7-9d9274d457cd",
         "92aa7deb-1b0d-49da-9251-72f340bb3be5",
         "da20dcdd-afa6-4cdb-a97b-1ba94de0fe6e",
-        "647a77fa-c761-4821-b235-45ed34677ddb",
         "9bd32a79-2503-44b5-a00f-a63b87284907",
         "16568123-5957-4757-92be-a766ccac59ff",
         "b876bddf-c38a-44ab-bca5-d50240d22cea",
@@ -4244,15 +4307,16 @@
         "3b0962d3-6c78-45da-9736-65a842e5320e",
         "187d3c49-dd60-4c42-8f9c-51dbf74ddea2",
         "49c3814e-d8c4-4d0e-b35d-1ddee2964762",
-        "e8895f9f-8cd4-46f8-9062-c275805a99f4",
-        "1f175613-05fb-4f3d-9aca-9a25fb29344e",
         "10d0376b-80b4-497a-80bd-9cc1603812d0",
         "d71156eb-88da-49f3-9763-924764294166",
         "6da5f93c-6f96-4d0c-b15b-05c85460df1f",
         "5999c26c-6d24-44fc-ab4b-62ea7b2ec60e",
         "6970c333-d11e-4ae7-9620-8d123358cb30",
         "0aafa26c-a5fb-4aac-940c-a8f1df7e71c4",
-        "f9e29305-332d-4c80-9256-e38cdeb68e67"
+        "f9e29305-332d-4c80-9256-e38cdeb68e67",
+        "e8895f9f-8cd4-46f8-9062-c275805a99f4",
+        "1f175613-05fb-4f3d-9aca-9a25fb29344e",
+        "647a77fa-c761-4821-b235-45ed34677ddb"
     ],
     "tutorial": ""
 }

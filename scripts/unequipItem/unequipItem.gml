@@ -21,7 +21,7 @@ if item.equipmentSlot == EquipmentSlots.LeftHand1 {
 }
 			
 // remove this item from player's equipped items list
-if item.type == ItemTypes.HandItem && item.weaponType == WeaponTypes.Unarmed {
+if item.type == ItemTypes.HandItem && item.weaponType == UNARMED {
 } else {
 	ds_list_delete(global.player.equippedItems,ds_list_find_index(global.player.equippedItems,item));
 	//ds_list_delete(global.player.inventory,ds_list_find_index(global.player.inventory,item));

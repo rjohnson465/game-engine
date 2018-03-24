@@ -1,6 +1,6 @@
 event_inherited();
 subType = HandItemTypes.Ranged;
-weaponType = WeaponTypes.Bow;
+weaponType = BOW;
 
 weaponSpeed = "Medium";
 

@@ -55,7 +55,7 @@ if (ENTER || (mouseOverFountainRevive && mouse_check_button_released(mb_left))) 
 	acceptingInput = false;
 }
 
-if fade != noone && selectedOption == ReviveOptions.Fountain {
+if instance_exists(fade) && selectedOption == ReviveOptions.Fountain {
 	if fade.frame == .5*fade.fadeDuration {
 		with p {
 			hp = maxHp;
@@ -80,6 +80,7 @@ if fade != noone && selectedOption == ReviveOptions.Fountain {
 			x = lastFountainX;
 			y = lastFountainY;
 			if lastFountain = noone {
+				var nearestFountain = instance_nearest(x,y,obj_fountain);
 				global.owner = nearestFountain;
 				global.makeLightOnCreate = true;
 				instance_create_depth(x,y,1,obj_light_radius);

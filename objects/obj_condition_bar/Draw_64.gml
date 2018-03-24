@@ -5,9 +5,7 @@ var x1 = 10
 var y1 = 100-(32)-20 + conditionBarNumber*25; 
 var x2 = 100+(32);
 var y2 = 100-(32)-15 + conditionBarNumber*25;
-//draw_set_color(c_white);
-//draw_set_font(font_damage);
-//draw_text(x2,y1,condition);
+
 var spriteX = x2;
 var spriteY = y1-5;
 var sprite = noone;

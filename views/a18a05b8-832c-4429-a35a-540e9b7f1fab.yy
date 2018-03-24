@@ -9,7 +9,10 @@
         "bd77900c-9045-4695-9b26-5daf87540007",
         "08a0e74a-a190-43ee-abe3-67fa6372df10",
         "39207408-f4a7-42f6-bea6-c63dcb4d63f9",
-        "a669f5f2-1a31-4f63-beaf-62c345b562bd"
+        "a669f5f2-1a31-4f63-beaf-62c345b562bd",
+        "cf10f946-5302-4761-a66f-62c83f0a91e7",
+        "2ddbbafa-9ef2-4999-ab98-cac46eda5f73",
+        "a4973aec-9b6b-473e-b07d-4ab12711834f"
     ],
     "filterType": "GMSprite",
     "folderName": "unfairy",

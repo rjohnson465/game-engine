@@ -12,7 +12,7 @@ numberOfTargets = [3];
 charges = 200;
 totalCharges = 200;
 
-range = 80;
+range = 50;
 
 weaponSpeed = "Medium";
 weight = 10;

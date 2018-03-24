@@ -112,7 +112,7 @@ switch(state) {
 				// face the proper direction
 				faceMovingDirection();
 				// CHECK 1: ARE WE OUT OF RANGE FOR THE CURRENTLY CHOSEN ATTACK?
-				if maybeChangeAttack() break;
+				//if maybeChangeAttack() break;
 				// CHECK 2: WILL WE DODGE IN THIS MOVE STATE?
 				calculateWillDodge();
 				if maybeDodge() break;
@@ -232,17 +232,6 @@ switch(state) {
 				}
 				// if this isn't the first attack in chain and there is another attack in chain, decide based on aggresiveness
 				else if (nextAttackInChainExists && !hasCalculatedNextAttack) {
-					/*randomize();
-					var rand = random_range(0,1);
-					if rand <= (aggressiveness/100) {
-						willAttack = true;
-						hasCalculatedNextAttack = true;
-					}
-					else {
-						hasCalculatedNextAttack = true;
-						willAttack = false;
-						attackNumberInChain--; // this is pretty sloppy
-					}*/
 					// NEW: if a chain has started, it will keep going until it's over or stamina is out
 					willAttack = true; 
 				}
@@ -322,6 +311,7 @@ switch(state) {
 				stupidityFrame = 0;
 				state = CombatantStates.Idle;
 				hasCalculatedNextAttack = false;
+				attackFrequencyTotalFrames = attackData.coolDownFrames;
 			}
 		}
 		break;

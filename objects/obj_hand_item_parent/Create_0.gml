@@ -9,10 +9,10 @@ enum HandItemTypes {
 
 
 subType = ""; // HandItemType
-weaponType = WeaponTypes.Sword1H;
+weaponType = SWORD1H;
 // Fast | Medium | Slow -- dependent on WeaponType
 weaponSpeed = "";
-range = 0; // in pixels
+range = 1000; // in pixels
 numberOfTargets = [1];
 staggersAgainstBlocks = true;
 charges = 0;

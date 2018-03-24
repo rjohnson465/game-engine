@@ -7,7 +7,11 @@ if hp < 1 && isAlive && !isDying {
 	fallScaleFactor = 1;
 	hp = 0;
 	speed = 0;
-	flinchFrame = 0;
+	totalFlinchFrames = 0;
+	
+	// lose combo mode
+	comboModeLevel = 0;
+	
 	ds_map_clear(preparingLimbs);
 	ds_map_clear(attackingLimbs);
 	ds_map_clear(recoveringLimbs);

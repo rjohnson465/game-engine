@@ -18,11 +18,11 @@ if owner.type != CombatantTypes.Player {
 	} 
 	else if limbItem.subType == HandItemTypes.Melee {
 		switch limbItem.weaponType {
-			case WeaponTypes.Sword1H: {
+			case SWORD1H: {
 				spriteString = "spr_player_hand_sword_1h";
 				break;
 			}
-			case WeaponTypes.Unarmed: {
+			case UNARMED: {
 				spriteString = "spr_player_hand_unarmed";
 				break;
 			}

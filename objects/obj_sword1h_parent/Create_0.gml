@@ -1,6 +1,6 @@
 event_inherited();
 subType = HandItemTypes.Melee;
-weaponType = WeaponTypes.Sword1H;
+weaponType = SWORD1H;
 
 handSpriteString = "spr_player_hand_sword_1h";
 

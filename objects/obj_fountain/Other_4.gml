@@ -12,7 +12,7 @@ if roomDataObj == noone {
 
 // re-renter room and fountain has been actived before
 fountainData = findPersistentRoomElementData(obj_fountain_data,id);
-if isRunning {
+if isRunning || (global.player.justRevivedAtFountain && distance_to_object(obj_player) < 100) {
 	sprite_index = asset_get_index("spr_fountain_full");
 	isDoneFilling = true;
 	global.owner = id;
