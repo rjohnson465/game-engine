@@ -8,7 +8,7 @@ with obj_attunement {
 	}
 }
 
-if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMouseOverAttunement {
+if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMouseOverAttunement && !isMouseInMenu {
 
 	if leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded {
 		

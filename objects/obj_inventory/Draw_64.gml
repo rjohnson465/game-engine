@@ -111,6 +111,18 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 				var pos = ds_list_find_index(inv,el);
 				ds_list_delete(inv,pos);
 			}
+		} else if	slotId == EquipmentSlots.LeftRing1 || slotId == EquipmentSlots.LeftRing2
+					|| slotId == EquipmentSlots.RightRing1 || slotId == EquipmentSlots.RightRing2 
+		{
+			if el.type != ItemTypes.Ring {
+				var pos = ds_list_find_index(inv,el);
+				ds_list_delete(inv,pos);
+			}
+		} else if slotId == EquipmentSlots.Head {
+			if el.type != ItemTypes.Head {
+				var pos = ds_list_find_index(inv,el);
+				ds_list_delete(inv,pos);
+			}
 		}
 	}
 	

@@ -22,14 +22,22 @@ draw_set_halign(fa_left);
 draw_set_color(c_white);
 line++;
 
+
+// TODO account for item / skill bonuses for damages
 var damagesStrings = getPhysicalDamageTypesString(weapon,isOffHand);
 var physicalDamagesTypesString = damagesStrings[0];
 var physicalDamagesString = damagesStrings[1];
 
+// physical damages
 draw_sprite(spr_item_info_damage_types,1,wdCol1XPictures,startingY+(line*20));
-draw_text(wdCol1XText,startingY+(line*20),physicalDamagesTypesString);
+var stringWidth = string_width(physicalDamagesTypesString);
+var scale = 1;
+if stringWidth > (wdCol1Width-21) {
+	scale = (wdCol1Width-21) / stringWidth;
+}
+draw_text_transformed(wdCol1XText,startingY+(line*20),physicalDamagesTypesString,scale,scale,0);
 
-
+// col2
 for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	var el = global.ALL_ELEMENTS[i];
 	var val = ds_map_find_value(weapon.damages,el);
@@ -70,8 +78,16 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	}
 }
 line++;
+
+
 draw_sprite(spr_item_info_damage_physical,1,wdCol1XPictures,startingY+(line*20));
-draw_text(wdCol1XText,startingY+(line*20),"Phys:" + physicalDamagesString);
+var stringWidth = string_width(physicalDamagesString);
+var scale = 1;
+if stringWidth > (wdCol1Width-21) {
+	scale = (wdCol1Width-21) / stringWidth;
+}
+draw_text_transformed(wdCol1XText,startingY+(line*20),physicalDamagesString,scale,scale,0);
 line++;
-draw_text(wdCol1XText,startingY+(line*20),"Critical chance: " + string(ds_map_find_value(p.criticalsChance,weapon.weaponType))+"%");
-line++;
+draw_sprite(spr_stats_critical,1,wdCol1XPictures,startingY+(line*20));
+var criticalsDamageBonus = ds_map_find_value(p.criticalsDamage,weapon.weaponType);
+draw_text(wdCol1XText,startingY+(line*20),string(ds_map_find_value(p.criticalsChance,weapon.weaponType))+"%" + "/" + string(criticalsDamageBonus+100)+"%");

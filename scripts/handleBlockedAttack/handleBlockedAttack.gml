@@ -68,7 +68,7 @@ if itemOrAttack.staggersAgainstBlocks {
 			path_end();
 			staggerFrame = 0;
 			staggerDuration = 30;
-			staggerDirection = attackObj.facingDirection;
+			staggerDirection = (attackObj.owner.facingDirection+180)%360;;
 			staggerSpeed = 3;
 			state = CombatantStates.Staggering;
 		}

@@ -10,18 +10,25 @@ draw_set_valign(fa_top); draw_set_halign(fa_left);
 draw_set_color(c_white);
 
 // level / xp
+draw_sprite(spr_stats_level,1,wdCol1XPictures,topLeftY+(line*20));
 draw_text(basicCol1XText,topLeftY,"Level: " + string(p.level));
+// xp
+draw_sprite(spr_stats_xp,1,basicCol2XPictures,topLeftY+(line*20));
 draw_text(basicCol2XText,topLeftY,string(p.xp) + "/" + string(p.xpToNextLevel));
 line++;
 
 // hp
-draw_text(basicCol1XText,topLeftY+(line*20),"HP: " + string(round(p.hp)) + "/" + string(p.maxHp));
-draw_text(basicCol2XText,topLeftY+(line*20),p.hpRegen);
+draw_sprite(spr_stats_hp,1,basicCol1XPictures,topLeftY+(line*20));
+draw_text(basicCol1XText,topLeftY+(line*20),string(round(p.hp)) + "/" + string(p.maxHp));
+draw_sprite(spr_stats_hp_regen,1,basicCol2XPictures,topLeftY+(line*20));
+draw_text(basicCol2XText,topLeftY+(line*20),string(p.hpRegen) + "/second");
 line++;
 
 // stamina
-draw_text(basicCol1XText,topLeftY+(line*20),"Stamina: " + string(round(p.stamina)) + "/" + string(p.maxStamina));
-draw_text(basicCol2XText,topLeftY+(line*20),p.staminaRegen);
+draw_sprite(spr_stats_stamina,1,wdCol1XPictures,topLeftY+(line*20));
+draw_text(basicCol1XText,topLeftY+(line*20),string(round(p.stamina)) + "/" + string(p.maxStamina));
+draw_sprite(spr_stats_stamina_regen,1,basicCol2XPictures,topLeftY+(line*20));
+draw_text(basicCol2XText,topLeftY+(line*20),string(p.staminaRegen)+"/second");
 line++;
 
 // main hand weapon
@@ -30,23 +37,8 @@ line += 6;
 
 if !leftHandItem.isTwoHanded && rightHandItem.subType != HandItemTypes.Shield {
 	drawWeaponStats(rightHandItem,topLeftY+(line*20),true);
-}
-
-
-
-
-// col2
-/*
-// offhand
-if !leftHandItem.isTwoHanded || rightHandItem.subType != HandItemTypes.Shield {
-	var damagesStrings = getPhysicalDamageTypesString(rightHandItem,true);
-	var physicalDamagesTypesString = damagesStrings[0];
-	var physicalDamagesString = damagesStrings[1];
-	draw_text(topLeftX,topLeftY+(line*20),"Main hand: " + rightHandItem.name + "(" + physicalDamagesTypesString + ")");
-	line++;
-	draw_text(topLeftX,topLeftY+(line*20),"Phys:" + physicalDamagesString);
-	line++;
-	draw_text(topLeftX,topLeftY+(line*20),"Critical chance: " + string(ds_map_find_value(p.criticalsChance,rightHandItem.weaponType))+"%");
+	line+=6;
 }
 
 // defenses / poise
+drawDefensesStats(topLeftY+(line*20));
