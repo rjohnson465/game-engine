@@ -49,7 +49,7 @@ if reviveOrbs != noone {
 	scr_draw_text_outline(s1x,s1y+50,s2,c_white,c_white);
 	if reviveOrbs != noone {
 		draw_set_font(font_small);
-		scr_draw_text_outline(s1x,s1y+75,string(reviveOrbs.count) + " orb remaining",c_white,c_white);
+		scr_draw_text_outline(s1x,s1y+75,string(reviveOrbs.count) + " orb(s) remaining",c_white,c_white);
 	} else {
 		draw_set_font(font_small);
 		scr_draw_text_outline(s1x,s1y+75,"No orb in inventory",c_ltgray,c_ltgray);

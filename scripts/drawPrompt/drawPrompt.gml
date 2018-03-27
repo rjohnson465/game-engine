@@ -77,9 +77,7 @@ for (var i = 0; i < array_length_1d(keys); i++) {
 	draw_set_font(font_main);
 
 	promptWidth += sw;
-	
-	//draw_sprite_ext(sprite,1,xx+spritesWidth,yy,.35,.35,0,c_white,1);
-	//spritesWidth += (sw+2);
+
 }
 
 draw_set_alpha(.5);

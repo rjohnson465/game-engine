@@ -4,8 +4,9 @@ roomIndex = room;
 fountainsData = ds_list_create();
 with obj_fountain {
 	global.fountain = id;
-	var fountainData = instance_create_depth(x,y,1,obj_fountain_data);
-	ds_list_add(other.fountainsData,fountainData);
+	var fd = instance_create_depth(x,y,1,obj_fountain_data);
+	fountainData = fd;
+	ds_list_add(other.fountainsData,fd);
 }
 
 //fountainsData = fountainsDataTemp;

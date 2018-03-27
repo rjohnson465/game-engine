@@ -43,7 +43,7 @@ attackFrequencyTotalFramesMelee = [25,45];
 attackFrequencyTotalFramesRanged = [60,90];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
-waryTotalFrames=[120,200];
+waryTotalFrames=[60,90];
 skittishness = 100;
 cautiousness = 100;
 

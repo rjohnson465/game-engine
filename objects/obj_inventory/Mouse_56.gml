@@ -39,12 +39,20 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 				filter = InventoryFilters.Ranged;
 				break;
 			}
-			/*case InventoryFilters.Magic: {
-				filter = InventoryFilters.Magic;
+			case InventoryFilters.Other: {
+				filter = InventoryFilters.Other;
 				break;
-			}*/
+			}
 			case InventoryFilters.Shields: {
 				filter = InventoryFilters.Shields;
+				break;
+			}
+			case InventoryFilters.Rings: {
+				filter = InventoryFilters.Rings;
+				break;
+			}
+			case InventoryFilters.Head: {
+				filter = InventoryFilters.Head;
 				break;
 			}
 			

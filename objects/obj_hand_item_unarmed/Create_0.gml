@@ -9,6 +9,6 @@ weight = 0;
 numberOfTargets = [1,2];
 
 staggerDuration = 15; // frames
-staminaCostArray=[5,10];
+staminaCostArray=[7,15];
 
-ds_map_set(damages,CRUSH,[5,10,10,15]);
+ds_map_set(damages,CRUSH,[2,5,4,7]);

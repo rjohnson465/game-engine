@@ -1,6 +1,6 @@
 
 // use macros for elements rather than enums (helps with sprite getting)
-#macro PHYSICAL "ohysical"
+#macro PHYSICAL "physical"
 #macro SLASH "slash"
 #macro PIERCE "pierce"
 #macro CRUSH "crush"
@@ -222,3 +222,5 @@ moveSpriteImageSpeed = 30;
 if moveSprite != -1 {
 	moveSpriteImageSpeed = sprite_get_speed(moveSprite);
 }
+
+ds_map_replace(defenses,PIERCE,15);

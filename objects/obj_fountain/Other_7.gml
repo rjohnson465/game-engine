@@ -3,7 +3,7 @@ if isRunning && !isDoneFilling {
 	
 	fountainData.isDoneFilling = true;
 	
-	sprite_index = asset_get_index("spr_fountain_full");
+	sprite_index = spr_fountain_full;
 	
 	global.owner = id;
 	global.makeLightOnCreate = true;
