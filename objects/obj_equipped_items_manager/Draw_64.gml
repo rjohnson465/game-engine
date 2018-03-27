@@ -5,7 +5,10 @@ var leftHandItem2 = getItemInEquipmentSlot(EquipmentSlots.LeftHand2);
 var rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
 var rightHandItem2 = getItemInEquipmentSlot(EquipmentSlots.RightHand2);
 
-// equipped items header
+var leftRing1 = getItemInEquipmentSlot(EquipmentSlots.LeftRing1);
+var leftRing2 = getItemInEquipmentSlot(EquipmentSlots.LeftRing2);
+var rightRing1 = getItemInEquipmentSlot(EquipmentSlots.RightRing1);
+var rightRing2 = getItemInEquipmentSlot(EquipmentSlots.RightRing2);
 			
 // head slot
 drawEquipmentSlot(headItemSlotX, headItemSlotY, EquipmentSlots.Head);
@@ -31,8 +34,14 @@ draw_text(rightHandItem1SlotX,leftHandItem2SlotY-15,"1");
 
 // left ring 1 
 drawEquipmentSlot(leftRing1SlotX,leftRing1SlotY, EquipmentSlots.LeftRing1);
+if leftRing1 {
+	draw_sprite(leftRing1.itemSprite,1,leftRing1SlotX,leftRing1SlotY);
+}
 // left ring 2
 drawEquipmentSlot(leftRing2SlotX,leftRing2SlotY, EquipmentSlots.LeftRing2);
+if leftRing2 {
+	draw_sprite(leftRing2.itemSprite,1,leftRing2SlotX,leftRing2SlotY);
+}
 
 // left hand 2
 drawEquipmentSlot(leftHandItem2SlotX,leftHandItem2SlotY, EquipmentSlots.LeftHand2);
@@ -52,9 +61,14 @@ draw_text(rightHandItem2SlotX,rightHandItem2SlotY-15,"2");
 
 // right ring 1 
 drawEquipmentSlot(rightRing1SlotX,rightRing1SlotY, EquipmentSlots.RightRing1);
+if rightRing1 {
+	draw_sprite(rightRing1.itemSprite,1,rightRing1SlotX,rightRing1SlotY);
+}
 // right ring 2
 drawEquipmentSlot(rightRing2SlotX,rightRing2SlotY, EquipmentSlots.RightRing2);
-
+if rightRing2 {
+	draw_sprite(rightRing2.itemSprite,1,rightRing2SlotX,rightRing2SlotY);
+}
 // description box
 draw_set_color(c_dkgray);
 draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBottomRightX,itemDescriptionBottomRightY,false);

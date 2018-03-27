@@ -11,6 +11,7 @@ if argument_count == 3 {
 	isOffHand = argument[2];
 }
 
+var ui = global.ui;
 var p = global.player;
 // col1 
 var line = 0;
@@ -37,12 +38,12 @@ physicalDamagesTypesString = string_replace_all(physicalDamagesTypesString,"/","
 var stringWidth = string_width(physicalDamagesTypesString);
 var additionalLine = 0;
 if stringWidth > (wdCol1Width-21) {
-	//scale = (wdCol1Width-21) / stringWidth;
 	additionalLine++;
 }
-//draw_text_transformed(wdCol1XText,startingY+(line*20),physicalDamagesTypesString,scale,scale,0); 
-draw_text_ext(wdCol1XText,startingY+(line*20),physicalDamagesTypesString,20,wdCol1Width-21);
-//draw_set_font(font_main);
+if ui.isShowingExplanations {
+	drawTextWidth(wdCol1XText,startingY+(line*20),"Phys. attacks type(s)",wdCol1Width-21);
+	additionalLine = 0;
+} else draw_text_ext(wdCol1XText,startingY+(line*20),physicalDamagesTypesString,20,wdCol1Width-21);
 
 // col2
 for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
@@ -78,10 +79,12 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 		}
 	}
 	draw_sprite(sprite,1,wdCol2XPictures,startingY+(line*20)+(i*20));
-	if minDamage == 0 {
+	if minDamage == 0 && !ui.isShowingExplanations {
 		draw_text(wdCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el)+ ": 0");
-	} else {
+	} else if minDamage != 0 && !ui.isShowingExplanations {
 		draw_text(wdCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) + ": " + string(minDamage) + "-" + string(maxDamage));
+	} else {
+		drawTextWidth(wdCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) + " damage",wdCol1Width-21);
 	}
 }
 line++;
@@ -92,21 +95,25 @@ draw_sprite(spr_item_info_damage_physical,1,wdCol1XPictures,startingY+(line*20))
 
 physicalDamagesString = string_replace_all(physicalDamagesString,"/","/ ");
 var stringWidth = string_width(physicalDamagesString);
-//var scale = 1;
 var additionalLine = 0;
 if stringWidth > (wdCol1Width-21) {
-	//scale = (wdCol1Width-21) / stringWidth;
 	additionalLine++;
 }
 if stringWidth > (wdCol1Width-21) {
 	scale = (wdCol1Width-21) / stringWidth;
 }
-//draw_text_transformed(wdCol1XText,startingY+(line*20),physicalDamagesString,scale,scale,0);
+if ui.isShowingExplanations {
+	drawTextWidth(wdCol1XText,startingY+(line*20),"Phys. attacks damage",wdCol1Width-21);
+	additionalLine = 0;
+} else draw_text_ext(wdCol1XText,startingY+(line*20),physicalDamagesString,20,wdCol1Width-21);
 
-draw_text_ext(wdCol1XText,startingY+(line*20),physicalDamagesString,20,wdCol1Width-21);
 line++; 
 line+= additionalLine;
 draw_sprite(spr_stats_critical,1,wdCol1XPictures,startingY+(line*20));
 var criticalsDamageBonus = ds_map_find_value(p.criticalsDamage,weapon.weaponType);
-draw_text(wdCol1XText,startingY+(line*20),string(ds_map_find_value(p.criticalsChance,weapon.weaponType))+"%" + "/" + string(criticalsDamageBonus+100)+"%");
+if ui.isShowingExplanations {
+	var s = "Critical hit chance/ damage";
+	var stringWidth = string_width(s);
+	draw_text_ext(wdCol1XText,startingY+(line*20),s,20,wdCol1Width-21);
+} else draw_text(wdCol1XText,startingY+(line*20),string(ds_map_find_value(p.criticalsChance,weapon.weaponType))+"%" + "/" + string(criticalsDamageBonus+100)+"%");
 draw_set_font(font_main);

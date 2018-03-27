@@ -45,4 +45,5 @@ enum ItemProperties {
 	StaminaMax,
 	StaminaRegen
 }
+
 itemProperties = ds_map_create();

@@ -57,6 +57,7 @@ for (var i = 0; i < size; i++) {
 		randomize();
 		var damageReduction = random_range(0,defense);
 		damageBase -= damageReduction;
+		if damageBase < 0 damageBase = 0;
 	} 
 	// case MAGIC | FIRE | ICE | POISON | LIGHTNING -- damage reduction by percent
 	else {

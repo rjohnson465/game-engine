@@ -20,5 +20,9 @@ switch item.type {
 		
 		break;
 	}
+	case ItemTypes.Ring: {
+		return [EquipmentSlots.LeftRing1,EquipmentSlots.LeftRing2,EquipmentSlots.RightRing1,EquipmentSlots.RightRing2];
+		break;
+	}
 
 }

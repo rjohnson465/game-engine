@@ -204,4 +204,20 @@ if item.type == ItemTypes.HandItem {
 } else if item.type == ItemTypes.Other {
 	var sh = string_height(item.description);
 	draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,item.description,sh,width-5);
+} else if item.type == ItemTypes.Ring {
+	var ringProps = item.itemProperties;
+	var currentProperty = ds_map_find_first(ringProps);
+	var line = 1;
+	for(var i = 0; i < ds_map_size(ringProps); i++) {
+		
+		var val = ds_map_find_value(ringProps,currentProperty);
+		var s = getItemPropertyString(currentProperty);
+		
+		var sgn = val > 0 ? "+" : "-";
+		var finalString = sgn + string(val) + s;
+		draw_text(itemDescriptionCol1XText,itemDescriptionColY+(line*25),finalString);
+		line++;
+		
+		currentProperty = ds_map_find_next(ringProps,currentProperty);
+	}
 }

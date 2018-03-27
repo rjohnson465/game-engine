@@ -104,7 +104,7 @@ xpToNextLevel = 1000;
 // list of enemy attack instances been hit with -- only get hit once / attack
 beenHitWith = ds_list_create();
 
-poise = 100;
+poise = 0;
 staggerDuration = 0;
 staggerFrame = 0;
 staggerDirection = 0;
@@ -132,26 +132,26 @@ inventory = ds_list_create();
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
 woodshield.persistent = true;
-ds_list_add(inventory,woodshield);
+addItemToInventory(woodshield);
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
 shortbow.persistent = true;
-ds_list_add(inventory,shortbow);
+//ds_list_add(inventory,shortbow);
+addItemToInventory(shortbow);
 
 var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword2.persistent = true;
 ds_map_replace(longsword2.damages,ICE,[2,4]);
-//ds_list_add(inventory,longsword2);
 addItemToInventory(longsword2);
 
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword.persistent = true;
 ds_map_replace(longsword.damages,MAGIC,[2,4]);
-//ds_list_add(inventory,longsword);
 addItemToInventory(longsword);
 
 addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
+addItemToInventory(instance_create_depth(x,y,1,obj_item_ring));
 
 lastFountain = noone;
 lastFountainRoom = noone;

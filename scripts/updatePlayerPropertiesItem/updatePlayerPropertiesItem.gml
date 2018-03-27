@@ -21,6 +21,10 @@ for (var i = 0; i < ds_map_size(props); i++) {
 			p.hpRegen += val;
 			break;
 		}
+		case ItemProperties.HpMax: {
+			p.maxHp += val;
+			break;
+		}
 	}
 	
 	currentProperty = ds_map_find_next(props,currentProperty);

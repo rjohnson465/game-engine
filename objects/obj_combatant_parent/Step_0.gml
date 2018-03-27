@@ -201,7 +201,7 @@ switch(state) {
 			
 			// aim when preparing attack
 			if ds_map_size(preparingLimbs) != 0 {
-				turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
+				turnToFacePoint(attackData.turnSpeed,lockOnTarget.x,lockOnTarget.y);
 			}
 			
 			// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again

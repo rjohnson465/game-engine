@@ -51,7 +51,7 @@ cautiousness = 100;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[15, 65];
+meleeRangeArray=[15, 65, 65];
 
 // ATTACKS
 global.owner = id;
@@ -60,11 +60,16 @@ longswordSwing.limbKey = "l";
 
 var longswordStab = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
 longswordStab.limbKey = "l";
+var longswordStab2 = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
+longswordStab2.limbKey = "l";
+longswordStab2.coolDownFrames = [90,100];
+longswordStab2.turnSpeed = 45;
 //longswordStab.isBlockable = false;
 
 var meleeChain0 = [longswordSwing];
-var meleeChain1 = [longswordStab];
-meleeAttacks = [meleeChain0, meleeChain1];
+var meleeChain1 = [longswordStab,longswordStab2];
+var meleeChain2 = [longswordStab];
+meleeAttacks = [meleeChain0, meleeChain1, meleeChain2];
 
 // ranged attacks info
 

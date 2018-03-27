@@ -29,13 +29,15 @@ with slotObj {
 							&& (slot == EquipmentSlots.LeftHand1 || slot == EquipmentSlots.LeftHand2 ||
 							slot == EquipmentSlots.RightHand1 || slot == EquipmentSlots.RightHand2);
 	// TODO add more predicates to determine dropped item can go in this slot (for Rings and Head)
+	var ringPredicate = droppedItem.type == ItemTypes.Ring 
+						&& (slot == EquipmentSlots.LeftRing1 || slot == EquipmentSlots.LeftRing2 ||
+						slot == EquipmentSlots.RightRing1 || slot == EquipmentSlots.RightRing2);
+	
 	if handItemPredicate {		
-		
 		// if this item was equipped anywhere else, unequip it from that slot
 		if droppedItem.equipmentSlot != noone {
 			unequipItem(droppedItem);
 		}
-		
 		var actualSlot = slot;
 		// I. unequip anything that will be replaced by this dropped item
 		
@@ -139,16 +141,30 @@ with slotObj {
 				}
 			}
 		}
-		// rings / headwear is nice and easy -- just unequip whatever was in that slot before
+		/*// rings / headwear is nice and easy -- just unequip whatever was in that slot before
 		else {
 			// if dropped item is already equipped anywhere else, unequip it from that slot
 			var alreadyEquippedItem = getItemInEquipmentSlot(slot);
 			if alreadyEquippedItem && alreadyEquippedItem.spriteName != "unarmed" {
 				unequipItem(alreadyEquippedItem);
 			}
-		}
+		}*/
 		
 		// equip the item to this slot
 		equipItem(droppedItem,actualSlot);	
+	} else if ringPredicate {
+		
+		// if this item was equipped anywhere else, unequip it from that slot
+		if droppedItem.equipmentSlot != noone {
+			unequipItem(droppedItem);
+		}
+		
+		// if dropped item is already equipped anywhere else, unequip it from that slot
+		var alreadyEquippedItem = getItemInEquipmentSlot(slot);
+		if alreadyEquippedItem && alreadyEquippedItem.spriteName != "unarmed" {
+			unequipItem(alreadyEquippedItem);
+		}
+		
+		equipItem(droppedItem,slot);
 	}
 }
