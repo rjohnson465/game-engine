@@ -50,14 +50,14 @@ var physicalDamageTypesString = ""; var physicalDamagesString = "";
 for (var i = 0; i < array_length_1d(physicalDamageTypesArray); i++) {
 	var damageType = physicalDamageTypesArray[i];
 	var damageArray = ds_map_find_value(physicalDamagesMap,i);
-	var minDamage = damageArray[1]; var maxDamage = damageArray[2];
+	var minDamage = round(damageArray[1]); var maxDamage = round(damageArray[2]);
 	var damageString = string(minDamage) + "-" + string(maxDamage);
 	if i == 0 {
-		physicalDamageTypesString = damageType;
+		physicalDamageTypesString = stringCapitalize(damageType);
 		physicalDamagesString = damageString;
 	}
 	else {
-		physicalDamageTypesString += "/" + damageType;
+		physicalDamageTypesString += "/" + stringCapitalize(damageType);
 		physicalDamagesString += "/" + damageString;
 	}
 			

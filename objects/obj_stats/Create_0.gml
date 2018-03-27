@@ -20,6 +20,6 @@ basicCol2XText = basicCol2XPictures+20;
 // weapons / defenses columns
 wdCol1XPictures = basicCol1XPictures;
 wdCol1XText = wdCol1XPictures+20;
-wdCol1Width = (.5*width)+70;
-wdCol2XPictures = bottomRightX-75;
+wdCol1Width = (.5*width);//+70;
+wdCol2XPictures = topLeftX+wdCol1Width;
 wdCol2XText = wdCol2XPictures+20;

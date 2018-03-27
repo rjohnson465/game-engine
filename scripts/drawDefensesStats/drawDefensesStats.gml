@@ -8,15 +8,24 @@ var line = 0;
 
 draw_set_halign(fa_center);
 draw_set_color(c_ltgray);
+draw_set_font(font_main);
 draw_text(mean(topLeftX,topLeftX+width),startingY+(line*20),"Defenses");
 line++;
 draw_set_halign(fa_left);
 draw_set_color(c_white);
+draw_set_font(font_small);
 
-draw_sprite(spr_item_info_defense_physical,1,wdCol1XPictures,startingY+(line*20));
-draw_text(wdCol1XText,startingY+(line*20),string(ds_map_find_value(p.defenses,PHYSICAL))+"%");
+draw_sprite(spr_item_info_defense_slash,1,wdCol1XPictures,startingY+(line*20));
+draw_text(wdCol1XText,startingY+(line*20),"vs. Slash: " + string(ds_map_find_value(p.defenses,SLASH)));
+line++;
+draw_sprite(spr_item_info_defense_crush,1,wdCol1XPictures,startingY+(line*20));
+draw_text(wdCol1XText,startingY+(line*20),"vs. Crush: " + string(ds_map_find_value(p.defenses,CRUSH)));
+line++;
+draw_sprite(spr_item_info_defense_pierce,1,wdCol1XPictures,startingY+(line*20));
+draw_text(wdCol1XText,startingY+(line*20),"vs. Pierce: " + string(ds_map_find_value(p.defenses,PIERCE)));
 line++;
 
+line -= 3;
 for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	var el = global.ALL_ELEMENTS[i];
 	var sprite = noone; 
@@ -42,10 +51,11 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 			break;
 		}
 	}
-	draw_sprite(sprite,1,wdCol1XPictures,startingY+(line*20)+(i*20));
-	draw_text(wdCol1XText,startingY+(line*20)+(i*20),string(ds_map_find_value(p.defenses,el))+"%");
+	draw_sprite(sprite,1,basicCol2XPictures,startingY+(line*20)+(i*20));
+	draw_text(basicCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) +": "+ string(ds_map_find_value(p.defenses,el))+"%");
 }
-line+=5;
+line+=3;
 
 draw_sprite(spr_stats_poise,1,wdCol1XPictures,startingY+(line*20));
 draw_text(wdCol1XText,startingY+(line*20),"Poise: " + string(p.poise));
+draw_set_font(font_main);

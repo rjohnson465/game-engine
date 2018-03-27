@@ -11,3 +11,4 @@ shade = 0;
 
 blur = 0.4
 color = make_colour_rgb(1*255, 1*255, 1 * 255); // The darker the color, the darker the shadow.
+

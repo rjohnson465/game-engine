@@ -767,6 +767,14 @@
             }
         },
         {
+            "Key": "23bfb945-f45a-4dfd-95f9-6312af1fc4e7",
+            "Value": {
+                "id": "9ff80a31-634f-419e-8313-b504356eebcd",
+                "resourcePath": "sprites\\spr_item_info_defense_slash\\spr_item_info_defense_slash.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "240f247c-40ed-42a9-9444-9e82c1b4d513",
             "Value": {
                 "id": "9abfa4a4-e88f-4138-9b4c-b911e56c7e7d",
@@ -1731,6 +1739,14 @@
             "Value": {
                 "id": "f2ac9ece-79bf-49b0-8bfc-81faa1952456",
                 "resourcePath": "sprites\\spr_prompt_xbox_lb\\spr_prompt_xbox_lb.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "62064e3c-f867-413c-bc89-729986c25ca9",
+            "Value": {
+                "id": "65eb20b5-ae03-4f6b-95a5-6281a95acefc",
+                "resourcePath": "sprites\\spr_item_info_defense_pierce\\spr_item_info_defense_pierce.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2860,6 +2876,22 @@
                 "id": "cf3b2b6a-a0ce-4f7c-9f99-a607d748a093",
                 "resourcePath": "views\\a669f5f2-1a31-4f63-beaf-62c345b562bd.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a6c55488-e68a-49b0-a929-3922ef7cef07",
+            "Value": {
+                "id": "c1d3b409-2722-4004-840a-cd0727dc31e2",
+                "resourcePath": "sprites\\spr_item_info_defense_crush\\spr_item_info_defense_crush.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a6f26049-a607-47ee-b64b-b1906ab0f37e",
+            "Value": {
+                "id": "e9d31833-35eb-4fed-a6e3-441484f0b3ee",
+                "resourcePath": "scripts\\stringCapitalize\\stringCapitalize.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -4535,6 +4567,7 @@
         "5e90dd3c-2bd9-43f1-9861-e77c03900217",
         "4a0f14f3-342c-4905-a6c5-266f0952cf1a",
         "0f4de6cd-e1e0-49e9-81da-f3affe3ab20a",
+        "a6f26049-a607-47ee-b64b-b1906ab0f37e",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "89e792c3-5306-41a1-8e55-479f0f2db5de",
         "295e5a03-8983-4afd-bdb3-14c23bed2058",

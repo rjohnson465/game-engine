@@ -51,15 +51,23 @@ for (var i = 0; i < size; i++) {
 	}
 	// account for defense against this damageType
 	var defense = ds_map_find_value(defenses,currentDamageType);
-			
-	// positive defense will offset x% of damageBase
-	// negative defense will increase damageBase by abs(x)%
-	damageBase = defense >= 0 ? damageBase - (defense/100)*damageBase : damageBase + abs((defense/100))*damageBase;
-	// account for charge amount (spells, mostly)
-	damageBase = round(damageBase*attackObj.percentCharged);
-	// this could happen if defense is over 100
-	if damageBase < 0 {
-		damageBase = 0;
+	
+	// case PHYSICAL | CRUSH | SLASH | PIERCE -- damage reduction by constant value
+	if currentDamageType == PHYSICAL || currentDamageType == CRUSH || currentDamageType == PIERCE || currentDamageType == SLASH {
+		randomize();
+		var damageReduction = random_range(0,defense);
+		damageBase -= damageReduction;
+	} 
+	// case MAGIC | FIRE | ICE | POISON | LIGHTNING -- damage reduction by percent
+	else {
+		// positive defense will offset x% of damageBase, negative defense increase damageBase by abs(x)%
+		damageBase = defense >= 0 ? damageBase - (defense/100)*damageBase : damageBase + abs((defense/100))*damageBase;
+		// account for charge amount (spells, mostly)
+		damageBase = round(damageBase*attackObj.percentCharged);
+		// this could happen if defense is over 100
+		if damageBase < 0 {
+			damageBase = 0;
+		}
 	}
 	ds_map_replace(damagesTaken,currentDamageType,damageBase);
 	damage += damageBase;

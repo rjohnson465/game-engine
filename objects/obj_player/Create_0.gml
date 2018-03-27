@@ -1,6 +1,6 @@
 
 // use macros for elements rather than enums (helps with sprite getting)
-#macro PHYSICAL "physical"
+#macro PHYSICAL "ohysical"
 #macro SLASH "slash"
 #macro PIERCE "pierce"
 #macro CRUSH "crush"
