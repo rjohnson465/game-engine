@@ -99,6 +99,7 @@ staminaRegen = 10; // per second
 // level stuff
 level = 1;
 xp = 500;
+xpTemp = 0;
 xpToNextLevel = 1000;
 
 // list of enemy attack instances been hit with -- only get hit once / attack

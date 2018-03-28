@@ -196,41 +196,7 @@ for (var i = 0; i < 20; i++) {
 			draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,c_gray,.75);
 		}
 		else draw_sprite(spr_item_slot,1,x1,y1);
-		draw_sprite(item.itemSprite,1,x1,y1);
-		// if this item is currently equipped, signify that
-		if item.equipmentSlot != noone {
-			draw_set_color(c_maroon);
-			draw_circle(x1+5,y1+5,5,false);
-		}
-		// if this item is broken, signify that
-		if item.type == ItemTypes.HandItem {
-			if item.durability <= 0 {
-				draw_line_width_color(x1,y1,x1+10,y1+10,3,c_red,c_red);
-				draw_line_width_color(x1+10,y1,x1,y1+10,3,c_red,c_red);
-			}
-		}
-		// if item is stackable and has more than 1 in stack, show item count
-		if item.isStackable {
-			if item.count > 1 {
-				draw_set_valign(fa_top);
-				draw_set_halign(fa_left);
-				scr_draw_text_outline(x1+1,y1+1,item.count,c_white,c_white);
-			}
-		}
-		// if this item is socketed, show sockets (and any gems that are in those sockets)
-		if item.numberOfSockets != 0 {
-			var socketWidth = slotWidth/3; var socketHeight = slotWidth/3;
-			for(var i = 0; i < item.numberOfSockets; i++) {
-				draw_set_color(c_white);
-				//draw_rectangle(x1+(socketWidth*i),y1+(slotHeight-socketHeight),x1+(socketWidth*i)+socketWidth,y1+slotHeight,true);
-				draw_circle(mean(x1+(socketWidth*i),x1+(socketWidth*i)+socketWidth),y1+(slotHeight-(.5*socketHeight)),socketWidth/2,true);
-				var gem = ds_list_find_value(item.socketedGems,i);
-				if gem != undefined {
-					var scale = socketWidth/slotWidth;
-					draw_sprite_ext(gem.itemSprite,1,x1+(socketWidth*i),y1+(slotHeight-socketHeight),scale,scale,0,c_white,.75);
-				}
-			}
-		}
+		drawItem(item,x1,y1);
 	} 
 }
 

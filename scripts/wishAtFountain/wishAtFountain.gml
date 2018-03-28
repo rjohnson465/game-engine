@@ -26,13 +26,18 @@ else if isDoneFilling {
 
 	part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
 	part_emitter_burst(system,emitter,particle,num);
-		
+	
+	// respawn all enemies
 	respawnEnemies();
 		
 	// refill player health and stamina
 	with obj_player {
 		hp = maxHp;
 		stamina = maxStamina;
+		
+		// convert temp xp to real xp
+		xp += xpTemp;
+		xpTemp = 0;
 		
 		// cure any and all conditions
 		var currentCondition = ds_map_find_first(conditionPercentages);
@@ -41,7 +46,7 @@ else if isDoneFilling {
 			currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
 		}
 		
-		// refill all weapon charges for inventory weapons, repair all durability
+		// refill all weapon charges / durability for inventory weapons, repair all durability
 		for (var i = 0 ; i < ds_list_size(inventory); i++) {
 			var item = ds_list_find_value(inventory,i);
 			if item.type == ItemTypes.HandItem {
@@ -56,11 +61,15 @@ else if isDoneFilling {
 					if copy != noone copy.charges = item.totalCharges;
 				}
 				item.durability = item.durabilityMax;
-				if copy != noone copy.durability = item.durabilityMax;
+				item.hasIssuedDurabilityWarning = false;
+				if copy != noone {
+					copy.durability = item.durabilityMax;
+					copy.hasIssuedDurabilityWarning = false;
+				}
 			}
 		}
 		
-		// refill all weapon charges for equipped weapons
+		// refill all weapon charges / durability for equipped weapons
 		for (var i = 0 ; i < ds_list_size(equippedItems); i++) {
 			var item = ds_list_find_value(equippedItems,i);
 			if item.type == ItemTypes.HandItem {
@@ -75,7 +84,11 @@ else if isDoneFilling {
 					if copy != noone copy.charges = item.totalCharges;
 				}
 				item.durability = item.durabilityMax;
-				if copy != noone copy.durability = item.durabilityMax;
+				item.hasIssuedDurabilityWarning = false;
+				if copy != noone {
+					copy.durability = item.durabilityMax;
+					copy.hasIssuedDurabilityWarning = false;
+				}
 			}
 		}
 	}

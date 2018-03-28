@@ -83,6 +83,7 @@ if instance_exists(fade) {
 				room = lastFountainRoom;
 				x = lastFountainX;
 				y = lastFountainY;
+				xpTemp = 0;
 				if lastFountain = noone {
 					var nearestFountain = instance_nearest(x,y,obj_fountain);
 					global.owner = nearestFountain;

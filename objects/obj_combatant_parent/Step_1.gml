@@ -39,7 +39,7 @@ if isDying && isAlive {
 		dyingFrame = 0;
 		isAlive = false;
 		isDying = false;
-		global.player.xp += xpReward;
+		global.player.xpTemp += xpReward;
 	}
 }
 

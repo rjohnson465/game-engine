@@ -2303,6 +2303,14 @@
             }
         },
         {
+            "Key": "7f697406-76f7-4073-8fea-2189307747de",
+            "Value": {
+                "id": "fdeb3295-4bbe-4d2b-9d5a-debf2cf7c53d",
+                "resourcePath": "scripts\\drawItem\\drawItem.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "7fd2f0d6-f2a7-4a1b-91c8-92acdea108c0",
             "Value": {
                 "id": "cd6c1770-4199-4f2a-a8c0-da11f6f5230d",
@@ -4753,6 +4761,7 @@
         "c2bdd15f-855e-4d69-be38-6691914aab55",
         "dc20bdfa-f2bb-4664-bd11-181fd24ce23b",
         "37c6da58-a207-4b69-b302-d28fa96bb578",
+        "7f697406-76f7-4073-8fea-2189307747de",
         "10d0376b-80b4-497a-80bd-9cc1603812d0",
         "d71156eb-88da-49f3-9763-924764294166",
         "6da5f93c-6f96-4d0c-b15b-05c85460df1f",

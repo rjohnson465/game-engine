@@ -47,6 +47,18 @@ if limbItem != limb.limbItem {
 	part_system_destroy(system3);
 	part_emitter_destroy(system1,emitter1);
 	
+	system1 = part_system_create();
+	part_system_depth(system1,depth);
+	emitter1 = part_emitter_create(system1);
+	
+	system2 = part_system_create();
+	part_system_depth(system2,depth);
+	emitter2 = part_emitter_create(system2);
+	
+	system3 = part_system_create();
+	part_system_depth(system3,depth);
+	emitter3 = part_emitter_create(system3);
+	
 	//if owner.layer <= global.player.layer {
 		// iterate over weapon damages
 		var currentDamageType = ds_map_find_first(limbItem.damages);
@@ -158,25 +170,17 @@ if limbItem != limb.limbItem {
 	//}
 }
 
+// TODO this is causing a memory leak
 if owner.layer >= global.player.layer && owner.currentUsingSpell == noone {
 	if particle1 != noone {
-		system1 = part_system_create();
-		part_system_depth(system1,depth);
-		emitter1 = part_emitter_create(system1);
 		part_emitter_region(system1,emitter1,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 		part_emitter_burst(system1,emitter1,particle1, num1);
 	}
 	if particle2 != noone {
-		system2 = part_system_create();
-		part_system_depth(system2,depth);
-		emitter2 = part_emitter_create(system2);
 		part_emitter_region(system2,emitter2,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 		part_emitter_burst(system2,emitter2,particle2, num2);
 	}
 	if particle3 != noone {
-		system3 = part_system_create();
-		part_system_depth(system3,depth);
-		emitter3 = part_emitter_create(system3);
 		part_emitter_region(system3,emitter3,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 		part_emitter_burst(system3,emitter3,particle3, num3);
 	}
