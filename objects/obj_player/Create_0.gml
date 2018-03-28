@@ -141,17 +141,21 @@ addItemToInventory(shortbow);
 
 var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword2.persistent = true;
-ds_map_replace(longsword2.damages,ICE,[2,4]);
+//ds_map_replace(longsword2.damages,ICE,[2,4]);
 addItemToInventory(longsword2);
 
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword.persistent = true;
-ds_map_replace(longsword.damages,MAGIC,[2,4]);
+longsword.numberOfSockets = 3;
+insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
+insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
+insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 addItemToInventory(longsword);
 
 addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 addItemToInventory(instance_create_depth(x,y,1,obj_item_ring));
+addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 
 lastFountain = noone;
 lastFountainRoom = noone;

@@ -9,9 +9,14 @@ var leftRing1 = getItemInEquipmentSlot(EquipmentSlots.LeftRing1);
 var leftRing2 = getItemInEquipmentSlot(EquipmentSlots.LeftRing2);
 var rightRing1 = getItemInEquipmentSlot(EquipmentSlots.RightRing1);
 var rightRing2 = getItemInEquipmentSlot(EquipmentSlots.RightRing2);
+
+var headItem = getItemInEquipmentSlot(EquipmentSlots.Head);
 			
 // head slot
 drawEquipmentSlot(headItemSlotX, headItemSlotY, EquipmentSlots.Head);
+if headItem {
+	draw_sprite(headItem.itemSprite,1,headItemSlotX,headItemSlotY);
+}
 
 // left hand 1
 drawEquipmentSlot(leftHandItem1SlotX,leftHandItem1SlotY, EquipmentSlots.LeftHand1);

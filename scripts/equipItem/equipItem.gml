@@ -53,6 +53,17 @@ if slot == EquipmentSlots.LeftHand1 {
 	ds_map_replace(global.player.equippedLimbItems, "r", item);
 }
 
+// update player defenses based on Head item defenses
+if item.type == ItemTypes.Head {
+	var currentDefense = ds_map_find_first(item.defenses);
+	for (var i = 0; i < ds_map_size(item.defenses); i++) {
+		var hatDefense = ds_map_find_value(item.defenses,currentDefense);
+		var currentPlayerDefense = ds_map_find_value(global.player.defenses,currentDefense);
+		ds_map_replace(global.player.defenses,currentDefense,currentPlayerDefense+hatDefense);
+		currentDefense = ds_map_find_next(item.defenses,currentDefense);
+	}
+}
+
 updatePlayerPropertiesItem(item,true);
 
 /*

@@ -268,7 +268,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 		&& ds_list_find_index(eq,itemAtMoveSelector) != -1
 		&& !object_is_ancestor(itemAtMoveSelector.object_index,obj_unarmed_parent) { 
 			
-		w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+		w += drawPrompt("Unequip "+itemAtMoveSelector.name,Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 	} 
 	
 	if global.ui.isShowingExplanations {

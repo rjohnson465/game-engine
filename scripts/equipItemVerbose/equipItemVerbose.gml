@@ -33,6 +33,8 @@ with slotObj {
 						&& (slot == EquipmentSlots.LeftRing1 || slot == EquipmentSlots.LeftRing2 ||
 						slot == EquipmentSlots.RightRing1 || slot == EquipmentSlots.RightRing2);
 	
+	var headItemPredicate = droppedItem.type == ItemTypes.Head && slot == EquipmentSlots.Head;
+	
 	if handItemPredicate {		
 		// if this item was equipped anywhere else, unequip it from that slot
 		if droppedItem.equipmentSlot != noone {
@@ -141,14 +143,6 @@ with slotObj {
 				}
 			}
 		}
-		/*// rings / headwear is nice and easy -- just unequip whatever was in that slot before
-		else {
-			// if dropped item is already equipped anywhere else, unequip it from that slot
-			var alreadyEquippedItem = getItemInEquipmentSlot(slot);
-			if alreadyEquippedItem && alreadyEquippedItem.spriteName != "unarmed" {
-				unequipItem(alreadyEquippedItem);
-			}
-		}*/
 		
 		// equip the item to this slot
 		equipItem(droppedItem,actualSlot);	
@@ -163,6 +157,13 @@ with slotObj {
 		var alreadyEquippedItem = getItemInEquipmentSlot(slot);
 		if alreadyEquippedItem && alreadyEquippedItem.spriteName != "unarmed" {
 			unequipItem(alreadyEquippedItem);
+		}
+		
+		equipItem(droppedItem,slot);
+	} else if headItemPredicate {
+		// if this item was equipped anywhere else, unequip it from that slot
+		if droppedItem.equipmentSlot != noone {
+			unequipItem(droppedItem);
 		}
 		
 		equipItem(droppedItem,slot);

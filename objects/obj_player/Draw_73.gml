@@ -89,6 +89,14 @@ if state == CombatantStates.Attacking {
 	}
 }
 
+// hat 
+
+if state != CombatantStates.Dodging && getItemInEquipmentSlot(EquipmentSlots.Head) != noone {
+	var hat = getItemInEquipmentSlot(EquipmentSlots.Head);
+	var hatSprite = asset_get_index("spr_player_"+hat.spriteName);
+	draw_sprite_ext(hatSprite,1,x,y,scale,scale,facingDirection,c_white,alpha);
+}
+
 // casting a spell
 if ds_map_size(preparingLimbs) != 0 && currentUsingSpell != noone {
 	// spell bar outline
