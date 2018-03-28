@@ -5,4 +5,6 @@
 event_inherited();
 
 subType = GemTypes.Aquamarine;
-name = "Aquamarine";
+name = stringCapitalize(condition)+" Aquamarine";
+
+itemSprite = asset_get_index("spr_gem_aquamarine_"+condition);

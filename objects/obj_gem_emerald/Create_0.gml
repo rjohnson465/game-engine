@@ -5,4 +5,5 @@
 event_inherited();
 
 subType = GemTypes.Emerald;
-name = "Emerald";
+name = stringCapitalize(condition) + " Emerald";
+itemSprite = asset_get_index("spr_gem_emerald_"+condition);

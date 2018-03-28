@@ -44,7 +44,7 @@ line++;
 draw_sprite(spr_stats_stamina,1,wdCol1XPictures,topLeftY+(line*20));
 if ui.isShowingExplanations {
 	drawTextWidth(basicCol1XText,topLeftY+(line*20),"Stamina/Max Stamina",basicCol1Width-21);
-} else draw_text(basicCol1XText,topLeftY+(line*20),string(round(p.stamina)) + "/" + string(p.maxStamina));
+} else draw_text(basicCol1XText,topLeftY+(line*20),"Stamina"+string(round(p.stamina)) + "/" + string(p.maxStamina));
 draw_sprite(spr_stats_stamina_regen,1,basicCol2XPictures,topLeftY+(line*20));
 if ui.isShowingExplanations {
 	drawTextWidth(basicCol2XText,topLeftY+(line*20),"Stamina regained/sec",basicCol1Width-21);

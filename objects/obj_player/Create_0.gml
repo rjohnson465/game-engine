@@ -135,6 +135,7 @@ woodshield.persistent = true;
 addItemToInventory(woodshield);
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
+//shortbow.numberOfSockets = 2;
 shortbow.persistent = true;
 //ds_list_add(inventory,shortbow);
 addItemToInventory(shortbow);
@@ -156,6 +157,14 @@ addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 addItemToInventory(instance_create_depth(x,y,1,obj_item_ring));
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
+addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
+
+addItemToInventory(makeGem(obj_gem_lapis,CRACKED));
+addItemToInventory(makeGem(obj_gem_topaz,CRACKED));
+addItemToInventory(makeGem(obj_gem_emerald,CRACKED));
+addItemToInventory(makeGem(obj_gem_ruby,CRACKED));
+addItemToInventory(makeGem(obj_gem_hematite,CRACKED));
 
 lastFountain = noone;
 lastFountainRoom = noone;
@@ -226,5 +235,3 @@ moveSpriteImageSpeed = 30;
 if moveSprite != -1 {
 	moveSpriteImageSpeed = sprite_get_speed(moveSprite);
 }
-
-ds_map_replace(defenses,PIERCE,15);

@@ -9,7 +9,12 @@ if item.isStackable {
 	var stack = noone;
 	for (var i = 0; i < ds_list_size(p.inventory); i++) {
 		var el = ds_list_find_value(p.inventory,i);
-		if el.object_index == item.object_index {
+		if object_is_ancestor(el.object_index,obj_gem_parent) {
+			if el.object_index == item.object_index && el.condition == item.condition {
+				stack = el;
+			}
+		}
+		else if el.object_index == item.object_index {
 			stack = el;
 		}
 	}

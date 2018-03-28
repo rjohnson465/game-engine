@@ -13,10 +13,10 @@ enum GemTypes {
 	Hematite	
 }
 
-#macro CRACKED "Cracked"
+#macro CRACKED "cracked"
 #macro NORMAL ""
-#macro FINE "Fine"
-#macro EXQUISITE "Exquisite"
+#macro FINE "fine"
+#macro EXQUISITE "exquisite"
 
 global.ALL_GEM_CONDITIONS = [CRACKED,NORMAL,FINE,EXQUISITE];
 subType = GemTypes.Hematite;

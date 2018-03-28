@@ -703,6 +703,14 @@
             }
         },
         {
+            "Key": "1e1cc541-5332-4836-83d2-9eeb30526b90",
+            "Value": {
+                "id": "5b2dad2e-84ad-4375-8074-1eda6dba616b",
+                "resourcePath": "views\\1e1cc541-5332-4836-83d2-9eeb30526b90.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "1e866d8a-91d4-40b7-82f5-6395ffd7977c",
             "Value": {
                 "id": "00f15ce5-5861-4577-9b11-cdf81ff8e3e3",
@@ -1703,6 +1711,14 @@
             }
         },
         {
+            "Key": "5eba2af9-7743-4931-a568-e71e3ae96134",
+            "Value": {
+                "id": "53518ccf-242e-4b8d-99a8-d54216bf3128",
+                "resourcePath": "sprites\\spr_gem_aquamarine_cracked\\spr_gem_aquamarine_cracked.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5ebd45fd-fb58-49ff-bdc8-e719bf7ed7d0",
             "Value": {
                 "id": "4f3c60ef-fecd-41d9-86a0-3be5da5ce4fb",
@@ -1831,6 +1847,14 @@
             }
         },
         {
+            "Key": "645bfffc-ff00-414b-aa4e-ec0bd9ebf91f",
+            "Value": {
+                "id": "f04ce2c5-dcb8-441a-8119-f93e9f58edbd",
+                "resourcePath": "sprites\\spr_gem_topaz_cracked\\spr_gem_topaz_cracked.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "647a77fa-c761-4821-b235-45ed34677ddb",
             "Value": {
                 "id": "f183f4c1-dbdc-48a5-9dea-7895beb58553",
@@ -1876,6 +1900,14 @@
                 "id": "f4aeb9cd-5141-4913-9874-3a9a54004243",
                 "resourcePath": "scripts\\showItemInfo\\showItemInfo.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "662e3f2a-c8bd-449c-b750-8079adeeab10",
+            "Value": {
+                "id": "595e275e-273b-4588-9a81-52077d628267",
+                "resourcePath": "sprites\\spr_gem_emerald_cracked\\spr_gem_emerald_cracked.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1948,6 +1980,14 @@
                 "id": "b12c0c1f-3c11-48c2-ac3c-8896bef0fe18",
                 "resourcePath": "objects\\obj_enemy_dead\\obj_enemy_dead.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "6bf32f1c-db56-4116-90a6-21503ca2654e",
+            "Value": {
+                "id": "24c44040-3f2a-43db-8dd6-f0f4b18050e7",
+                "resourcePath": "sprites\\spr_gem_lapis_cracked\\spr_gem_lapis_cracked.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3183,6 +3223,14 @@
             }
         },
         {
+            "Key": "b2b75580-f486-4d4b-ba6d-e7cbc0e93b37",
+            "Value": {
+                "id": "9d17a75d-51d8-456b-870a-fe27dcadd725",
+                "resourcePath": "sprites\\spr_gem_ruby_cracked\\spr_gem_ruby_cracked.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b2c857d6-9d45-4af9-b4cd-805adc7bdccc",
             "Value": {
                 "id": "3b7f7661-e494-40c4-9735-defb91b0576c",
@@ -3228,6 +3276,14 @@
                 "id": "ad525231-f8e2-43de-a296-3f2d2115046d",
                 "resourcePath": "views\\b46f1693-ea6a-46a7-a457-11dcef6a2aaf.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b4f44d8d-d934-48b7-a56e-4a5245b0acac",
+            "Value": {
+                "id": "fa38072a-a1a0-4208-b461-6047637a96cd",
+                "resourcePath": "sprites\\spr_gem_hematite_cracked\\spr_gem_hematite_cracked.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

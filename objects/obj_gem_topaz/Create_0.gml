@@ -5,4 +5,5 @@
 event_inherited();
 
 subType = GemTypes.Topaz;
-name = "Topaz";
+name = stringCapitalize(condition) + " Topaz";
+itemSprite = asset_get_index("spr_gem_topaz_"+condition);

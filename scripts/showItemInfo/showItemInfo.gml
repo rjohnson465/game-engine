@@ -201,10 +201,56 @@ if item.type == ItemTypes.HandItem {
 			}
 		}
 	}
-} else if item.type == ItemTypes.Other {
-	var sh = string_height(item.description);
-	draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,item.description,sh,width-5);
-} else if item.type == ItemTypes.Ring {
+}
+// Misc items, show item description
+else if item.type == ItemTypes.Other {
+	if object_is_ancestor(item.object_index,obj_gem_parent) {
+		var el = noone;
+		var damageSprite = noone; var defenseSprite = noone;
+		switch item.subType {
+			case GemTypes.Aquamarine: {
+				el = ICE; damageSprite = spr_item_info_damage_ice; defenseSprite = spr_item_info_defense_ice; break;
+			}
+			case GemTypes.Lapis: {
+				el = MAGIC; damageSprite = spr_item_info_damage_magic; defenseSprite = spr_item_info_defense_magic; break;
+			}
+			case GemTypes.Emerald: {
+				el = POISON; damageSprite = spr_item_info_damage_poison; defenseSprite = spr_item_info_defense_poison; break;
+			}
+			case GemTypes.Topaz: {
+				el = LIGHTNING; damageSprite = spr_item_info_damage_lightning; defenseSprite = spr_item_info_defense_lightning; break;
+			}
+			case GemTypes.Hematite: {
+				el = PHYSICAL; damageSprite = spr_item_info_damage_physical; defenseSprite = spr_item_info_defense_physical; break;
+			}
+			case GemTypes.Ruby: {
+				el = FIRE; damageSprite = spr_item_info_damage_fire; defenseSprite = spr_item_info_defense_fire; break;
+			}
+		}
+		
+		var minValue = 0; var maxValue = 0; var shieldValue = 0; var headValue = 0;
+		switch item.condition {
+			case CRACKED: {
+				minValue = 2; maxValue = 4; shieldValue = 5; headValue = 3; break;
+			}
+		}
+		
+		draw_text(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,"Insert into socketed item");
+		
+		draw_sprite(damageSprite,1,itemDescriptionCol1XPictures,topLeftY+itemDescriptionHandleHeight+30);
+		draw_text(itemDescriptionCol1XText,topLeftY+itemDescriptionHandleHeight+30,"Weapons: +" + string(minValue) + "-" + string(maxValue) + " " + el + " damage");
+		draw_sprite(defenseSprite,1,itemDescriptionCol1XPictures,topLeftY+itemDescriptionHandleHeight+55);
+		draw_text(itemDescriptionCol1XText,topLeftY+itemDescriptionHandleHeight+55,"Shields: +" + string(shieldValue) + " " + el + " absorption");
+		var defenseOrResist = el == PHYSICAL ? " defense" : " resistance";
+		draw_sprite(defenseSprite,1,itemDescriptionCol1XPictures,topLeftY+itemDescriptionHandleHeight+80);
+		draw_text(itemDescriptionCol1XText,topLeftY+itemDescriptionHandleHeight+80,"Hats: +" + string(headValue) + " " + el + defenseOrResist);
+	} else {
+		var sh = string_height(item.description);
+		draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,item.description,sh,width-5);
+	}
+}
+// Ring items, show all properties
+else if item.type == ItemTypes.Ring {
 	var ringProps = item.itemProperties;
 	var currentProperty = ds_map_find_first(ringProps);
 	var line = 1;
@@ -219,5 +265,51 @@ if item.type == ItemTypes.HandItem {
 		line++;
 		
 		currentProperty = ds_map_find_next(ringProps,currentProperty);
+	}
+}
+// Head items, show defenses
+else if item.type == ItemTypes.Head {
+	
+	// slash
+	draw_sprite(spr_item_info_defense_slash,1,itemDescriptionCol1XPictures,itemDescriptionColY+25);
+	draw_text(itemDescriptionCol1XText,itemDescriptionColY+25,"vs. Slash: "+string(ds_map_find_value(item.defenses,SLASH)));
+	// crush 
+	draw_sprite(spr_item_info_defense_crush,1,itemDescriptionCol1XPictures,itemDescriptionColY+50);
+	draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,"vs. Crush: " + string(ds_map_find_value(item.defenses,CRUSH)));
+	// pierce
+	draw_sprite(spr_item_info_defense_pierce,1,itemDescriptionCol1XPictures,itemDescriptionColY+75);
+	draw_text(itemDescriptionCol1XText,itemDescriptionColY+75,"vs. Pierce: "+ string(ds_map_find_value(item.defenses,PIERCE)));
+	// durability?
+	draw_sprite(spr_item_info_durability,1,itemDescriptionCol1XPictures,itemDescriptionColY+100);
+	draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,string(item.durability)+"/"+string(item.durabilityMax));
+	
+	for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
+		var el = global.ALL_ELEMENTS[i];
+		var val = ds_map_find_value(item.defenses,el);
+		var sprite = noone;
+		switch el {
+			case MAGIC: {
+				sprite = spr_item_info_defense_magic;
+				break;
+			}
+			case FIRE: {
+				sprite = spr_item_info_defense_fire;
+				break;
+			}
+			case ICE: {
+				sprite = spr_item_info_defense_ice;
+				break;
+			}
+			case POISON: {
+				sprite = spr_item_info_defense_poison;
+				break;
+			}
+			case LIGHTNING: {
+				sprite = spr_item_info_defense_lightning;
+				break;
+			}
+		}
+		draw_sprite(sprite,1,itemDescriptionCol2XPictures,itemDescriptionColY+((i+1)*25));
+		draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),string(val)+"%");
 	}
 }
