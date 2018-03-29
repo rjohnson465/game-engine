@@ -3087,6 +3087,14 @@
             }
         },
         {
+            "Key": "ac126cd6-08eb-4008-8e3d-c55905e634d8",
+            "Value": {
+                "id": "035de820-1c9d-4a9a-8282-53d520f3fb6a",
+                "resourcePath": "sprites\\spr_prompt_mk_mouse\\spr_prompt_mk_mouse.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ac131643-158f-4944-a026-3cfa7ef93762",
             "Value": {
                 "id": "81e8bc7b-af06-4b70-9281-2361741a2dcd",
@@ -3983,6 +3991,14 @@
             }
         },
         {
+            "Key": "d9cb0c53-3363-4b47-bc4c-333f3a5a4f68",
+            "Value": {
+                "id": "77daa652-c0cf-4a2a-b610-a8113e0a09a8",
+                "resourcePath": "sprites\\spr_prompt_mk_mb\\spr_prompt_mk_mb.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "da20dcdd-afa6-4cdb-a97b-1ba94de0fe6e",
             "Value": {
                 "id": "4d4abe71-2af8-4bc3-b23f-a3774f62d89c",
@@ -4551,6 +4567,14 @@
             }
         },
         {
+            "Key": "fa7ad02b-0643-4312-a17d-b79441f2e1e4",
+            "Value": {
+                "id": "1a943f69-d922-43d3-9597-8141327e3d88",
+                "resourcePath": "scripts\\calculateLightRadiusAlpha\\calculateLightRadiusAlpha.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fa919d4a-b795-4d96-b686-27852f546029",
             "Value": {
                 "id": "d9929d52-be27-4881-a77b-d8a4c9e1d0f2",
@@ -4651,6 +4675,7 @@
         "53095c17-a8c1-4769-bc3d-922b03d5890d",
         "f0eff6a6-dd20-4359-a231-97e9f908deb3",
         "c1eb91a1-c734-48cb-8620-eeb1a88f1f43",
+        "fa7ad02b-0643-4312-a17d-b79441f2e1e4",
         "af4faec1-d8c4-4e8c-a879-6cd5e3540170",
         "b60cbf73-d564-44ac-aeb7-c7d4b94e9b78",
         "06f9a3f8-d8da-41ce-9324-cb2200c4dbf0",

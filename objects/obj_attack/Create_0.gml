@@ -169,7 +169,7 @@ if owner.currentUsingSpell != noone {
 if isSpell {
 
 	lightRadius = 256;
-	lightRadiusAlpha = .5;
+	lightRadiusAlpha = calculateLightRadiusAlpha();
 	lightRadiusScale = .15;
 	if spell.spriteName == "projectile" {
 		lightRadiusScale = .23;

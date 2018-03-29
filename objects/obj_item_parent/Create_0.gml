@@ -50,3 +50,4 @@ itemProperties = ds_map_create();
 numberOfSockets = 0;
 
 hasIssuedDurabilityWarning = false;
+hasIssuedDurabilityObituary = false;

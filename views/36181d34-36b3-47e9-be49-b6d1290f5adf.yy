@@ -9,7 +9,9 @@
         "8acf3d48-3276-4fed-95b5-aa1aa0b9cd98",
         "33ccf91d-6ab0-4962-8820-e9ab8205d9ca",
         "c6520d01-19d4-4fbe-99e0-9c3d517a3f9e",
-        "e184c8a9-8f2a-4127-88c5-ecb799c6d19a"
+        "e184c8a9-8f2a-4127-88c5-ecb799c6d19a",
+        "ac126cd6-08eb-4008-8e3d-c55905e634d8",
+        "d9cb0c53-3363-4b47-bc4c-333f3a5a4f68"
     ],
     "filterType": "GMSprite",
     "folderName": "Mouse\/Keyboard",

@@ -217,16 +217,16 @@ if selectedItem {
 } 
 
 // instructions / prompts
+var promptsStartX = topLeftX+18;
+var promptsY = bottomRightY+25;
+var xOffset = 20;
+var eq = global.player.equippedItems;
+var w = 0;
 if gamepad_is_connected(global.player.gamePadIndex) {
-	var promptsStartX = topLeftX+18;
-	var promptsY = bottomRightY+25;
-	var xOffset = 20;
 	
-	var eq = global.player.equippedItems;
 	var itemAtMoveSelector = getItemAtSelectorPosition(global.ui.moveSelector);
 	var a = ds_list_find_index(global.player.equippedItems,getItemAtSelectorPosition(global.ui.moveSelector));
 	
-	var w = 0;
 	if itemAtMoveSelector != noone && itemAtMoveSelector.isUsable {
 		w += drawPrompt("Use Item",Input.F,promptsStartX,promptsY)+xOffset;
 	} else {
@@ -260,6 +260,11 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	// cycle through filters
 	w += drawPrompt("Cycle Filters",[Input.LMB, Input.RMB],promptsStartX+w,promptsY)+xOffset;
 	
+	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
+} else {
+	w += drawPrompt("View item info",Input.LMB,promptsStartX+w,promptsY)+xOffset;
+	w += drawPrompt("Drag items to equip / unequip",Input.Mouse,promptsStartX+w,promptsY)+xOffset;
+	w += drawPrompt("Use item",Input.RMB,promptsStartX+w,promptsY)+xOffset;
 	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 }
 

@@ -31,7 +31,7 @@ else {
 	}
 }
 
-
+if item.type == ItemTypes.HandItem && item.weaponType == UNARMED exit;
 
 // set equipmentSlot property for item and add it to equippedItems list
 var equippedItems = global.player.equippedItems;

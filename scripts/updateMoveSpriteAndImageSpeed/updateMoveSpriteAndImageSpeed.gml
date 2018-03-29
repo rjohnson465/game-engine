@@ -49,5 +49,9 @@ if type == CombatantTypes.Player && SHIFT && state == CombatantStates.Moving {
 if abs(angle_difference(facingDirection,direction)) > 90 {
 	image_speed = -.5;
 }
-	
+if isSlowed {
+	var is = image_speed;
+	is = is*.5;
+	image_speed = is
+}
 sprite_index = asset_get_index(sprString);

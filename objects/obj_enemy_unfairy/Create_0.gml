@@ -1,5 +1,6 @@
 event_inherited();
 name = "Unfairy";
+description = "Magic Resistant";
 spriteName = "unfairy";
 spriteString = "enemy_unfairy";
 isFairy = true;
@@ -99,5 +100,6 @@ poise = 20;
 agility = 20; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
+ds_map_replace(defenses,MAGIC,20);
 
 

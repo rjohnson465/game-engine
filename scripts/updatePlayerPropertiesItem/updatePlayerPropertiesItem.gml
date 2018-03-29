@@ -29,3 +29,6 @@ for (var i = 0; i < ds_map_size(props); i++) {
 	
 	currentProperty = ds_map_find_next(props,currentProperty);
 }
+
+if p.hp > p.maxHp p.hp = p.maxHp;
+if p.stamina > p.maxStamina p.stamina = p.maxStamina;

@@ -239,11 +239,12 @@ else if item.type == ItemTypes.Other {
 		
 		draw_sprite(damageSprite,1,itemDescriptionCol1XPictures,topLeftY+itemDescriptionHandleHeight+30);
 		draw_text(itemDescriptionCol1XText,topLeftY+itemDescriptionHandleHeight+30,"Weapons: +" + string(minValue) + "-" + string(maxValue) + " " + el + " damage");
+		var percentOrNah = el == PHYSICAL ? "" : "%";
 		draw_sprite(defenseSprite,1,itemDescriptionCol1XPictures,topLeftY+itemDescriptionHandleHeight+55);
-		draw_text(itemDescriptionCol1XText,topLeftY+itemDescriptionHandleHeight+55,"Shields: +" + string(shieldValue) + " " + el + " absorption");
-		var defenseOrResist = el == PHYSICAL ? " defense" : " resistance";
+		draw_text(itemDescriptionCol1XText,topLeftY+itemDescriptionHandleHeight+55,"Shields: +" + string(shieldValue) + percentOrNah + " " + el + "% absorption");
+		var defenseOrResist = el == PHYSICAL ? " defense" : "% resistance";
 		draw_sprite(defenseSprite,1,itemDescriptionCol1XPictures,topLeftY+itemDescriptionHandleHeight+80);
-		draw_text(itemDescriptionCol1XText,topLeftY+itemDescriptionHandleHeight+80,"Hats: +" + string(headValue) + " " + el + defenseOrResist);
+		draw_text(itemDescriptionCol1XText,topLeftY+itemDescriptionHandleHeight+80,"Hats: +" + string(headValue) + percentOrNah + " " + el + defenseOrResist);
 	} else {
 		var sh = string_height(item.description);
 		draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,item.description,sh,width-5);

@@ -132,7 +132,8 @@ enum Input {
 	RMB,
 	MMB,
 	Space,
-	Shift // Y
+	Shift, // Y
+	Mouse
 }
 
 isShowingExplanations = false;

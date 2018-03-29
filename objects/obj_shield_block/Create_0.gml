@@ -1,4 +1,5 @@
 owner = global.owner;
+if owner == global.player solid = true;
 side = "r"; // by default, shields can only be equipped in right hand
 image_yscale = 1;
 //image_angle = owner.facingDirection+90;

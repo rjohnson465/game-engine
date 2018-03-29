@@ -23,6 +23,7 @@ with obj_room_data {
 			ds_map_clear(enemy.attackingLimbs);
 			ds_map_clear(enemy.recoveringLimbs);
 			enemy.state = CombatantStates.Idle;
+			enemy.lockOnTarget = noone;
 			enemy.showHp = false;
 			enemy.isShowingLightRadius = true;
 				

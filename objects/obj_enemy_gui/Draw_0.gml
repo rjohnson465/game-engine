@@ -6,6 +6,8 @@ draw_set_alpha(1);
 if owner.layer != global.player.layer exit;
 if owner.showHp {
 	
+	
+	
 	// totalhp bar outline
 	var hpOutlineLeftX = owner.x-(.5*owner.sprite_width);
 	var hpOutlineTopY = owner.y-(.5*owner.sprite_height)-10;

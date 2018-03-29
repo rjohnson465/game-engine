@@ -62,9 +62,11 @@ else if isDoneFilling {
 				}
 				item.durability = item.durabilityMax;
 				item.hasIssuedDurabilityWarning = false;
+				item.hasIssuedDurabilityObituary = false;
 				if copy != noone {
 					copy.durability = item.durabilityMax;
 					copy.hasIssuedDurabilityWarning = false;
+					copy.hasIssuedDurabilityObituary = false;
 				}
 			}
 		}
@@ -85,9 +87,11 @@ else if isDoneFilling {
 				}
 				item.durability = item.durabilityMax;
 				item.hasIssuedDurabilityWarning = false;
+				item.hasIssuedDurabilityObituary = false;
 				if copy != noone {
 					copy.durability = item.durabilityMax;
 					copy.hasIssuedDurabilityWarning = false;
+					copy.hasIssuedDurabilityObituary = false;
 				}
 			}
 		}

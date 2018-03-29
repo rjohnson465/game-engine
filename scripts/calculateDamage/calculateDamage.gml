@@ -120,7 +120,9 @@ if	state != CombatantStates.Dodging &&
 	}
 		
 	// hit a shield
+	var hitShield = false;
 	if isShielding && script_execute(scr_is_facing,assailant,id) {
+		hitShield = true;
 		handleBlockedAttack(attackObj,assailant,damagesTaken,actualDamage,isCriticalHit,itemHitWith,attackData);
 	}
 	// hit
@@ -135,7 +137,9 @@ if	state != CombatantStates.Dodging &&
 	
 	// STAGGER OR FLINCH
 	staggerOrFlinch(attackObj,assailant,actualDamage);
-		
+	
+	
+	
 	// destroy most ranged projectiles on impact
 	if attackObj.isRanged || (attackObj.isSpell) {
 		ds_list_destroy(attackObj.combatantsHit);
@@ -148,6 +152,8 @@ if	state != CombatantStates.Dodging &&
 			}
 		}
 	}
+	// destroy melee attack objects if they hit a shield (otherwise the weapon will take durability damage every frame)
+	//else if attackObj.isMelee && hitShield instance_destroy(attackObj);
 		
 	// combo
 	if assailant.type == CombatantTypes.Player {
@@ -165,6 +171,7 @@ if	state != CombatantStates.Dodging &&
 	if enemyData != noone && type == CombatantTypes.Enemy {
 		enemyData.hp = hp;
 	}
+	
 	ds_map_destroy(damagesTaken);
 }
 

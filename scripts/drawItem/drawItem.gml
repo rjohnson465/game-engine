@@ -11,8 +11,8 @@ var slotWidth = inv.slotWidth;
 var slotHeight = inv.slotHeight;
 
 draw_sprite(item.itemSprite,1,x1,y1);
-// if this item is currently equipped, signify that
-if item.equipmentSlot != noone {
+// if this item is currently equipped, signify that (only for inventory items)
+if item.equipmentSlot != noone && item.copyOf == noone {
 	draw_set_color(c_maroon);
 	draw_circle(x1+5,y1+5,5,false);
 }
