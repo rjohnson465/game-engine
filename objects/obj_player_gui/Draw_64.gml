@@ -163,6 +163,7 @@ if isShowingMenus {
 	draw_set_color(c_gray);
 	draw_set_alpha(.75);
 	draw_rectangle(MENUS_TOPLEFT_X,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_BOTTOMRIGHT_Y,c_black);
+	draw_set_alpha(1);
 	
 	// current menu title handle
 	draw_set_color(c_olive);
@@ -192,6 +193,15 @@ if isShowingMenus {
 			draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,true);
 		}
 		draw_text((x1+(x1+tabWidth))/2,((yy+menuTabsHeight)+yy)/2,el);
+		
+		// if we have skill points, alert
+		if el == SKILLS && playerId.skillPoints > 0 {
+			var numSkillPoints = playerId.skillPoints;
+			draw_set_color(c_red);
+			draw_circle(x1+15,mean(yy,yy+menuTabsHeight),10,0);
+			draw_set_color(c_white);
+			draw_text(x1+15,mean(yy,yy+menuTabsHeight),numSkillPoints);
+		}
 	}
 
 	

@@ -55,13 +55,13 @@ switch item.type {
 				var pierceDamageArray = ds_map_find_value(item.damages,PIERCE);
 				var physicalDamagesLength = array_length_1d(slashDamageArray);
 				for (var i = 0; i < physicalDamagesLength; i += 2) {
-					if slashDamageArray[i] != 0 {
+					if array_length_1d(slashDamageArray) >= i && slashDamageArray[i] != 0 {
 						slashDamageArray[i] += damageMin;
 						slashDamageArray[i+1] += damageMax;
-					} else if crushDamageArray[i] != 0 {
+					} else if array_length_1d(crushDamageArray) >= i && crushDamageArray[i] != 0 {
 						crushDamageArray[i] += damageMin;
 						crushDamageArray[i+1] += damageMax;
-					} else if pierceDamageArray[i] != 0 {
+					} else if array_length_1d(pierceDamageArray) >= i && pierceDamageArray[i] != 0 {
 						pierceDamageArray[i] += damageMin;
 						pierceDamageArray[i+1] += damageMax;
 					}

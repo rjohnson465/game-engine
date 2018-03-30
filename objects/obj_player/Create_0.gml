@@ -101,6 +101,7 @@ level = 1;
 xp = 500;
 xpTemp = 0;
 xpToNextLevel = 1000;
+skillPoints = 0;
 
 // list of enemy attack instances been hit with -- only get hit once / attack
 beenHitWith = ds_list_create();

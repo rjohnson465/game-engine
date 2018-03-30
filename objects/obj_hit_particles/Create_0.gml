@@ -13,6 +13,9 @@ system = part_system_create();
 part_system_depth(system,0);
 emitter = part_emitter_create(system);
 particle = noone;
+particle2 = noone;
+particle3 = noone;
+particle4 = noone;
 
 switch type {
 	case PHYSICAL: {
@@ -116,10 +119,24 @@ switch type {
 		particle = snowflake;
 		break;
 	}
+	case "LevelUp": {
+		// confetti particle
+		particle = makeConfettiParticle(c_blue);
+		particle2 = makeConfettiParticle(c_yellow);
+		particle3 = makeConfettiParticle(c_lime);
+		particle4 = makeConfettiParticle(c_red);
+		num = 4;
+		break;
+	}
 }
 if particle {
 	part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
 	part_emitter_burst(system,emitter,particle,num);
+	if type == "LevelUp" {
+		part_emitter_burst(system,emitter,particle2,num);
+		part_emitter_burst(system,emitter,particle3,num);
+		part_emitter_burst(system,emitter,particle4,num);
+	}
 }
 
 instance_destroy(id,false);

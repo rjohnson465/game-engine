@@ -104,8 +104,22 @@ if distance_to_object(nearestStairs) < 200 {
 				populatePersonalGrid();
 			}
 		}
-		
 	}
 }
 
+// level up?
+if (xp + xpTemp) >= xpToNextLevel {
+	xp = 0; xpTemp = 0;
+	level += 1;
+	xpToNextLevel = round(1000*(power(level,1.1)));
+	skillPoints++;
+	alert("Level " + string(level) + " reached!",c_lime,90);
+	//var s = skillPoints > 1 ? "points" : "point";
+	//alert("You have " + string(skillPoints) + " skill " + s + " to spend",c_lime,90);
+	
+	global.damageType = "LevelUp"; global.x1 = x; global.y1 = y; global.particleDirection = noone;
+	instance_create_depth(x,y,1,obj_hit_particles);
+	room_speed = 15;
+	alarm[0] = 15;
+}
 

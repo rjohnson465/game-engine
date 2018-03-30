@@ -2831,6 +2831,14 @@
             }
         },
         {
+            "Key": "9dd2b6af-0262-4b17-83e1-cf366fcc496d",
+            "Value": {
+                "id": "2632bca2-7e86-488e-b0f9-80850d563f45",
+                "resourcePath": "scripts\\makeConfettiParticle\\makeConfettiParticle.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "9e0777e2-84c9-4202-9d7f-7b4098e94e86",
             "Value": {
                 "id": "7148538a-9885-4fd4-a162-38abd66201ac",
@@ -4415,6 +4423,14 @@
             }
         },
         {
+            "Key": "f2df19a9-5892-437b-9503-4fe34e043b8a",
+            "Value": {
+                "id": "76d546d9-b8b6-4897-8867-334a0e1280b1",
+                "resourcePath": "sprites\\spr_particle_confetti\\spr_particle_confetti.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f363be3c-d933-480d-8602-502a5c5a721f",
             "Value": {
                 "id": "d189c54c-1fc4-43c8-ae76-249310c543b3",
@@ -4764,6 +4780,7 @@
         "ca359ec9-6c44-402d-a8a7-9d9274d457cd",
         "92aa7deb-1b0d-49da-9251-72f340bb3be5",
         "da20dcdd-afa6-4cdb-a97b-1ba94de0fe6e",
+        "9dd2b6af-0262-4b17-83e1-cf366fcc496d",
         "9bd32a79-2503-44b5-a00f-a63b87284907",
         "16568123-5957-4757-92be-a766ccac59ff",
         "b876bddf-c38a-44ab-bca5-d50240d22cea",

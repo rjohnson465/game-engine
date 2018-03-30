@@ -26,7 +26,7 @@ if ui.isShowingExplanations {
 draw_sprite(spr_stats_xp,1,basicCol2XPictures,topLeftY+(line*20));
 if ui.isShowingExplanations {
 	draw_text(basicCol2XText,topLeftY+(line*20),"XP/Next Level At");
-} else draw_text(basicCol2XText,topLeftY+(line*20),"XP: "+string(p.xp) + "/" + string(p.xpToNextLevel));
+} else draw_text(basicCol2XText,topLeftY+(line*20),"XP: "+string(p.xp+p.xpTemp) + "/" + string(p.xpToNextLevel));
 line++;
 
 // hp
