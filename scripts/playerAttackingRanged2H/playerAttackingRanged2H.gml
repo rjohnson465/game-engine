@@ -1,10 +1,19 @@
 // handle 2h ranged weapon attacks
 // this is a 2h ranged weapon, so limb must be "l"
-var RIGHTRELEASED = mouse_check_button_pressed(mb_right);
+var RIGHTRELEASED = mouse_check_button_released(mb_right);
+var RIGHTHELD = mouse_check_button(mb_right);
 if gamepad_is_connected(gamePadIndex) {
-	RIGHTRELEASED = mouse_check_button_pressed(mb_left) 
+	RIGHTRELEASED = mouse_check_button_released(mb_left) 
 	|| gamepad_button_check_released(gamePadIndex,gp_shoulderrb);
+	RIGHTHELD = gamepad_button_check(gamePadIndex,gp_shoulderrb);
 }
+
+/*if RIGHTHELD && chargeFrame < CHARGE_FRAME_THRESHOLD {
+	chargeFrame++;
+}
+else if RIGHTHELD && chargeFrame <= CHARGE_FRAME_TOTAL {
+	chargeFrame++;
+}*/
 
 if isReadyToFire && RIGHTRELEASED && stamina > 0 {
 	speed = 0;
@@ -17,5 +26,10 @@ if isReadyToFire && RIGHTRELEASED && stamina > 0 {
 	ds_map_delete(preparingLimbs,"l");
 	global.owner = id;
 	global.limbKey = "l";
-	instance_create_depth(x,y,1,obj_attack);
+	/*if chargeFrame > 0 {
+		instance_create_depth(x,y,1,obj_attack_charge);
+		chargeFrame = -10;
+	} else {*/
+		instance_create_depth(x,y,1,obj_attack);
+	//}
 }

@@ -142,8 +142,8 @@ if	state != CombatantStates.Dodging &&
 	
 	// destroy most ranged projectiles on impact
 	if attackObj.isRanged || (attackObj.isSpell) {
-		ds_list_destroy(attackObj.combatantsHit);
-		instance_destroy(attackObj,false);
+		//ds_list_destroy(attackObj.combatantsHit);
+		instance_destroy(attackObj,true);
 		// also destroy the ranged attack's light radius, if it exists
 		var attackObjId = attackObj;
 		with obj_light_radius {

@@ -66,12 +66,12 @@ draw_rectangle(x1,y1,x2,y2,false);
 
 // xp bar
 var xpPercent = (global.player.xp / global.player.xpToNextLevel)*100;
-draw_healthbar(0,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpPercent,c_black,c_white,c_white,0,true,true);
+draw_healthbar(0,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpPercent,c_black,c_blue,c_blue,0,true,true);
 var xpBarRightX = (xpPercent/100)*view_get_wport(view_camera[0]);
 var xpTemp = global.player.xpTemp;
 var xpTempTotal = global.player.xpToNextLevel-global.player.xp;
 var xpTempPercent = (xpTemp/xpTempTotal)*100;
-draw_healthbar(xpBarRightX,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpTempPercent,c_black,c_gray,c_gray,0,1,1);
+draw_healthbar(xpBarRightX,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpTempPercent,c_black,c_aqua,c_aqua,0,1,1);
 
 
 // current equipped items / spells

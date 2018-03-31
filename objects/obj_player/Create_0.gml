@@ -64,6 +64,11 @@ ds_map_replace(attackAgain,"r",false);
 ds_map_replace(attackAgain,"l",false);
 isReadyToFire = false; // ranged only boolean
 
+// can only do one charge attack at a time, while charging, cannot perform any other attacks
+chargeFrame = -10;
+CHARGE_FRAME_THRESHOLD = 0; // 5 frames to start a charge attack
+CHARGE_FRAME_TOTAL = 25; // additional frames to hold charge for
+
 comboTimeQuantum = 60; // 60 frames for a move to count as part of a combo
 comboNumber = 0; // number of hits landed in combo
 comboEffectiveNumber = 0; // used to determine the comboModeLevel
@@ -183,11 +188,11 @@ dyingParticleColor2 = c_gray;
 justRevivedAtFountain = false;
 
 #macro SWORD1H "Sword/1H"
-#macro SWORD2H "Sword/1H"
+#macro SWORD2H "Sword/2H"
 #macro DAGGER "Dagger/1H"
 #macro UNARMED "Unarmed"
 #macro AXE1H "Axe/1H"
-#macro AXE2H "Axe/1H"
+#macro AXE2H "Axe/2H"
 #macro BLUNT1H "Club/1H"
 #macro BLUNT2H "Club/2H"
 #macro RAPIER "Rapier/1H"

@@ -2,10 +2,11 @@
 
 /// Equip / Enter equip mode for selectors
 
-if !isActive || !ui.isShowingMenus exit;
+if !isActive || !ui.isShowingMenus || ui.currentMenu != INVENTORY exit;
 
 // if item equipped items, enter "Equip Mode"
 var item = getItemAtSelectorPosition(id);
+//if item == noone || item == undefined exit;
 switch type {
 	// if selector type and hovering over an equipped item, activate the equip selector object
 	case SelectorTypes.Select: {

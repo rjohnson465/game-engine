@@ -58,6 +58,11 @@ image_angle = owner.facingDirection;
 
 if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {
 	image_index = ds_map_find_value(owner.prepFrames,limbKey);
+	
+	if ds_map_find_value(owner.preparingLimbs,limbKey) == 2 {
+		var a = 3;
+	}
+	
 	sprite_index = getLimbSpriteIndex("prep");
 }
 
@@ -165,7 +170,7 @@ if owner.currentUsingSpell != noone {
 	
 }
 
-/*
-if owner.type != CombatantTypes.Player && sprite_index != asset_get_index(spriteString) {
-	show_debug_message(string(sprite_index) + string(image_index));
+
+if owner.type == CombatantTypes.Player && sprite_index != asset_get_index(spriteString) {
+	show_debug_message(string(sprite_get_name(sprite_index)) + ": " + string(image_index));
 }

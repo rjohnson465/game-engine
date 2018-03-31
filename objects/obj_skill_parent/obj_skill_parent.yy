@@ -5,7 +5,17 @@
     "name": "obj_skill_parent",
     "eventList": [
         {
-            "id": "d491bf6b-da2c-4b10-9ccb-14f987726b81",
+            "id": "90dfca90-4857-49c1-adb5-364251974fa3",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "693fb689-73cc-465a-b7e1-209d1b4b6129"
+        },
+        {
+            "id": "ca81d7f5-a248-4aa1-8dc1-3609da55eaed",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
@@ -17,7 +27,7 @@
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "parentObjectId": "221be4e0-07fe-4954-a0d3-a5656c5ed6d6",
     "persistent": true,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,

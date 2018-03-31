@@ -1,4 +1,4 @@
-// on room start, create an instance of obj_room_data if there is not one fot this room yet
+// on room start, create an instance of obj_room_data if there is not one for this room yet
 var roomDataObj = noone;
 with obj_room_data {
 	if roomIndex == room {
@@ -7,7 +7,7 @@ with obj_room_data {
 }
 
 if roomDataObj == noone {
-	instance_create_depth(x,y,1,obj_room_data);
+	roomDataObj = instance_create_depth(x,y,1,obj_room_data);
 }
 
 if layerToMoveTo != noone {

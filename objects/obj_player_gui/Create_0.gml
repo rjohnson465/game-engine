@@ -100,6 +100,9 @@ instance_create_depth(x,y,-100,obj_combo_manager);
 // stats
 instance_create_depth(x,y,-1001,obj_stats);
 
+// skills
+instance_create_depth(x,y,-1001,obj_skill_manager);
+
 // selected equipment slot
 selectedEquipmentSlot = noone;
 
@@ -121,6 +124,10 @@ equipSelector = instance_create_depth(x,y,1,obj_item_selector);
 
 global.selectorType = SelectorTypes.Imbue;
 imbueSelector = instance_create_depth(x,y,1,obj_item_selector);
+
+// skill selector
+global.selectorType = SelectorTypes.Select;
+skillSelector = instance_create_depth(x,y,1,obj_skill_selector);
 
 // input prompt enums
 // these are all mk values but can be translated to Xbox controller sprites in draw_prompt

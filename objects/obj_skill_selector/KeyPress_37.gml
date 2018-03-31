@@ -1,0 +1,2 @@
+moveSkillSelector("left");
+//performSelectorLeft();

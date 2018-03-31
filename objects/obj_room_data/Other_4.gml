@@ -8,6 +8,7 @@ if room == roomIndex {
 			fountain.isDoneFilling = false;
 			fountain.isRunning = true;
 		}
+		fountain.fountainData = fountainData;
 	}
 	
 	// set all enemies 
@@ -22,5 +23,7 @@ if room == roomIndex {
 		enemy.isAlive = enemyData.isAlive;
 		enemy.tempPostX = enemyData.tempPostX;
 		enemy.tempPostY = enemyData.tempPostY;
+		enemy.enemyData = enemyData;
+		var a = 3;
 	}
 }

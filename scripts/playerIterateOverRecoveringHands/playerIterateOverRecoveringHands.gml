@@ -25,8 +25,12 @@ if ds_map_size(recoveringLimbs) != 0 {
 					
 			// if attackAgain, restart chain
 			if ds_map_find_value(attackAgain,hand) {
+				var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
+				var prepString = "spr_"+spriteString+"_"+itemSprite+"_prep_1";
 				//var prepString = "spr_"+spriteString+"_"+itemSprite+"_prep_1";
 				ds_map_replace(preparingLimbs,hand,1);
+				ds_map_replace(prepFrames,hand,0);
+				ds_map_replace(prepFrameTotals,hand,sprite_get_number(asset_get_index(prepString)));
 				ds_map_delete(recoveringLimbs,hand);
 				ds_map_replace(recoverFrames,hand,-1);
 				ds_map_replace(recoverFrameTotals,hand,0);
@@ -51,6 +55,8 @@ if ds_map_size(recoveringLimbs) != 0 {
 						
 				if recoverFrame == 0 {
 					ds_map_replace(preparingLimbs,hand,attackInChain+1);
+					ds_map_replace(prepFrames,hand,0);
+					ds_map_replace(prepFrameTotals,hand,sprite_get_number(asset_get_index(prepString)));
 					ds_map_delete(recoveringLimbs,hand);
 					ds_map_replace(recoverFrames,hand,-1);
 					ds_map_replace(recoverFrameTotals,hand,0);

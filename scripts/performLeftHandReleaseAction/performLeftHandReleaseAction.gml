@@ -18,6 +18,7 @@ if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMo
 		ds_map_delete(attackingLimbs,"l");
 		
 		isReadyToFire = false;
+		chargeFrame = -10;
 		ds_map_delete(recoveringLimbs,"l");
 		state = CombatantStates.Idle;
 	}

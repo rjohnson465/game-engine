@@ -1,2 +1,17 @@
-level = 1; // spells can be leveled up with skill points
-maxLevel = 10;
+/// @description Insert description here
+// You can write your code in this editor
+
+// Inherit the parent event
+event_inherited();
+level = 0;
+name = "";
+description = "";
+
+if x1 == noone || x1 == undefined {
+	x1 = -100; y1 = -100;
+}
+
+bonusesMap = ds_map_create();
+nextLevelBonusesMap = ds_map_create();
+
+isLevelingUp = false;

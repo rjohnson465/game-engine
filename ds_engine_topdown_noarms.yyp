@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "06555a88-e780-4bf4-ae56-5bba19e8fa04",
+            "Value": {
+                "id": "d3a7146c-0a95-4428-afb4-1fe732c11585",
+                "resourcePath": "sprites\\spr_player_hand_sword_1h_prep_2\\spr_player_hand_sword_1h_prep_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "06b4832f-96df-47a1-a57f-43b60eb86623",
             "Value": {
                 "id": "c61e41e8-5652-4789-838c-72e458be0726",
@@ -663,6 +671,14 @@
             }
         },
         {
+            "Key": "1c867bd0-458b-414b-ba90-de38f0ae6413",
+            "Value": {
+                "id": "253b67b5-10d0-4fed-8fe4-a3542d309c23",
+                "resourcePath": "sprites\\spr_player_longsword_attack_3\\spr_player_longsword_attack_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1ce7034f-4159-4cb7-9ae7-b872c2aa1bf0",
             "Value": {
                 "id": "824d80e0-b549-4c10-853c-1fb241531685",
@@ -739,6 +755,14 @@
             "Value": {
                 "id": "2a3764ee-4767-460a-bff4-b9eaaf165b87",
                 "resourcePath": "scripts\\drawPrompt\\drawPrompt.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "20fe7479-9f3d-434a-b93e-e4db65294b86",
+            "Value": {
+                "id": "a7a34f94-a556-453a-9ef8-93d92db5ea28",
+                "resourcePath": "scripts\\levelUpSkill\\levelUpSkill.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -911,6 +935,14 @@
             }
         },
         {
+            "Key": "29d11945-971f-4004-9062-93050f331c8f",
+            "Value": {
+                "id": "3ec413dc-c96f-4490-b09c-47667b75c88a",
+                "resourcePath": "objects\\obj_skill_manager\\obj_skill_manager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "29f3aa6f-faae-45ca-ba0a-b96edba633a5",
             "Value": {
                 "id": "7a47be1d-0b2d-43b7-880e-0f3e4f073a27",
@@ -967,6 +999,14 @@
             }
         },
         {
+            "Key": "2c944890-7e16-4cc4-bf93-38165a2d4437",
+            "Value": {
+                "id": "54997632-4de4-4e52-9a2f-8d01e287ec18",
+                "resourcePath": "sprites\\spr_player_hand_sword_1h_attack_2\\spr_player_hand_sword_1h_attack_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2d92b7aa-fb04-470e-9ab7-8e555cf4905f",
             "Value": {
                 "id": "416e54c5-7064-4e97-a487-c4a169ee95c6",
@@ -1011,6 +1051,14 @@
             "Value": {
                 "id": "0ab49103-38d4-4b5d-8696-398ed1e2c837",
                 "resourcePath": "sprites\\spr_item_info_defense_poison\\spr_item_info_defense_poison.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "31d42caa-bb09-45da-94d2-1720bb7b47bd",
+            "Value": {
+                "id": "bd5e2d44-957d-4521-b47b-f1576bfb7acd",
+                "resourcePath": "sprites\\spr_player_hand_sword_1h_base\\spr_player_hand_sword_1h_base.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1303,6 +1351,22 @@
             }
         },
         {
+            "Key": "400cabfd-8c83-491b-94fc-d45b765b17bf",
+            "Value": {
+                "id": "67059b5b-b9ed-48c8-a5f2-528a003cc87b",
+                "resourcePath": "views\\400cabfd-8c83-491b-94fc-d45b765b17bf.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "40195e35-4240-400e-9483-5ed48bcedcd8",
+            "Value": {
+                "id": "352fb621-8d68-4770-947e-31a7ca2be6b1",
+                "resourcePath": "objects\\obj_attack_charge\\obj_attack_charge.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "40878b55-7be4-4b55-9bd7-6027f8cae96b",
             "Value": {
                 "id": "455630da-7e2a-4b6c-8391-eca1e1a868ac",
@@ -1364,6 +1428,14 @@
                 "id": "02641905-eda2-46be-b8c2-28a0a08005e6",
                 "resourcePath": "objects\\obj_player\\obj_player.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "478523d3-04ad-497d-8568-ebe75e28b943",
+            "Value": {
+                "id": "72e2516d-903c-4008-abab-cc42d4416f65",
+                "resourcePath": "sprites\\spr_player_hand_sword_1h_attack_3\\spr_player_hand_sword_1h_attack_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1444,6 +1516,14 @@
                 "id": "29c84c13-03f9-424b-9901-679eb05ccbd6",
                 "resourcePath": "views\\4c121ab6-d8ee-4847-8cb4-b2db7781bf12.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4c813d7f-0d61-4afc-ac71-f32a99fed74f",
+            "Value": {
+                "id": "d315f3b0-fb4d-43e1-87de-57256e993c78",
+                "resourcePath": "sprites\\spr_player_longsword_attack_2\\spr_player_longsword_attack_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1572,6 +1652,14 @@
                 "id": "e43811d2-3863-4c69-a3f3-0a819a44c0c8",
                 "resourcePath": "objects\\obj_hand_item_unarmed\\obj_hand_item_unarmed.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "546d4b55-1222-456c-ae34-82297d894be7",
+            "Value": {
+                "id": "5eb00022-d85c-4253-b9c8-1b4637a96d73",
+                "resourcePath": "sprites\\spr_player_hand_sword_1h_prep_3\\spr_player_hand_sword_1h_prep_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1983,6 +2071,14 @@
             }
         },
         {
+            "Key": "6b4212a9-0072-44d0-91ce-195a94eaf709",
+            "Value": {
+                "id": "0b8f3623-cd3f-47ed-9c90-2dc4073230aa",
+                "resourcePath": "scripts\\moveSkillSelector\\moveSkillSelector.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "6bf32f1c-db56-4116-90a6-21503ca2654e",
             "Value": {
                 "id": "24c44040-3f2a-43db-8dd6-f0f4b18050e7",
@@ -2103,6 +2199,22 @@
             }
         },
         {
+            "Key": "70df6c66-46b6-47f0-a3a7-fc03b3fa5329",
+            "Value": {
+                "id": "7aadfd2b-6766-441d-ba5d-b26f10e6371d",
+                "resourcePath": "scripts\\makeSkillObj\\makeSkillObj.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "713608f5-37ce-4c21-ae6a-7c69ae17fe7f",
+            "Value": {
+                "id": "0d23db3d-c382-4e79-a2cb-2b5eaf155d87",
+                "resourcePath": "objects\\obj_skill_blade_mastery\\obj_skill_blade_mastery.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "71989cbb-1e9c-4413-8041-4c741fc353b3",
             "Value": {
                 "id": "9df1bf76-f396-4bf1-b63e-cfa081d2fa56",
@@ -2207,10 +2319,26 @@
             }
         },
         {
+            "Key": "782c299b-dc7f-4aed-ac16-917774e31d70",
+            "Value": {
+                "id": "7c03d1b9-04b4-45e8-9769-3d45f82df29b",
+                "resourcePath": "objects\\obj_skill_hpmax\\obj_skill_hpmax.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "78852dbc-c039-4408-85ac-342920fc18ac",
             "Value": {
                 "id": "cff847b9-2973-4b5d-a010-3c31606ad8c8",
                 "resourcePath": "views\\78852dbc-c039-4408-85ac-342920fc18ac.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "78960275-5d63-4d32-af6b-b520ec763a72",
+            "Value": {
+                "id": "b3af31b2-d0ca-4841-8d9c-e41e8ed25da3",
+                "resourcePath": "views\\78960275-5d63-4d32-af6b-b520ec763a72.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -2479,6 +2607,14 @@
             }
         },
         {
+            "Key": "86fbf01d-9b04-444b-aeea-d11eb05e6e0c",
+            "Value": {
+                "id": "9b670961-8a7e-4a52-bc07-97277dbd8061",
+                "resourcePath": "sprites\\spr_player_longsword_prep_2\\spr_player_longsword_prep_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "88550843-33b6-462c-972e-3c67e9a702e5",
             "Value": {
                 "id": "33ff4626-4259-4cc8-8058-7747160f8684",
@@ -2508,6 +2644,14 @@
                 "id": "703d93b4-76fa-4842-a4f9-02f488197150",
                 "resourcePath": "objects\\obj_hand_item_staff\\obj_hand_item_staff.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "8926061d-2921-4813-958d-73e583d15501",
+            "Value": {
+                "id": "1c067c76-a03d-415e-8bac-74b459bcd3a9",
+                "resourcePath": "sprites\\spr_player_bow_attack_charge\\spr_player_bow_attack_charge.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2751,10 +2895,26 @@
             }
         },
         {
+            "Key": "95d7f342-e8bf-417e-a0b0-6f2c92a5584c",
+            "Value": {
+                "id": "56b21dcb-ab08-4dd1-a143-16eb16327c9c",
+                "resourcePath": "scripts\\showSkillInfo\\showSkillInfo.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "95eac100-68c1-438e-8224-388375a5b2c7",
             "Value": {
                 "id": "362600dc-79a2-4494-9a36-f0fb5df7e6ca",
                 "resourcePath": "sprites\\spr_enemy_unfairy_unarmed_prep_1_1\\spr_enemy_unfairy_unarmed_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "964e2ccc-4c50-46a2-8d08-e5d26b5fb540",
+            "Value": {
+                "id": "c0e7f002-eed1-48c1-b7ba-cd696fdce504",
+                "resourcePath": "sprites\\spr_player_hand_sword_1h_recover_2\\spr_player_hand_sword_1h_recover_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3015,6 +3175,14 @@
             }
         },
         {
+            "Key": "a874d630-3f11-46ad-8f3d-6c8c676ec18c",
+            "Value": {
+                "id": "ce2cbbca-2e88-49fe-a2aa-a3384b7aa7aa",
+                "resourcePath": "scripts\\drawSkillSlot\\drawSkillSlot.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a8838c0e-18b3-401b-9b30-aacd9aace9c1",
             "Value": {
                 "id": "336e2f62-ab25-44de-9537-07caea520eec",
@@ -3212,6 +3380,14 @@
                 "id": "4f764e18-2ae9-4148-8e82-f70c4d9cddc7",
                 "resourcePath": "scripts\\strafeAroundPoint\\strafeAroundPoint.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "af50f7b9-32ca-4866-a897-b565fa599998",
+            "Value": {
+                "id": "34c41eec-6f1e-4e17-b062-ed4ef76bac02",
+                "resourcePath": "sprites\\spr_player_hand_sword_1h_recover_3\\spr_player_hand_sword_1h_recover_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3503,6 +3679,14 @@
             }
         },
         {
+            "Key": "c101aa12-5fa4-4c00-a8a3-d9a51f3e7081",
+            "Value": {
+                "id": "1017cb2b-23d7-496b-b87c-c8368cd3bc96",
+                "resourcePath": "sprites\\spr_player_longsword_recover_2\\spr_player_longsword_recover_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c1eb91a1-c734-48cb-8620-eeb1a88f1f43",
             "Value": {
                 "id": "6a47f7af-2cae-4034-8838-524636a44231",
@@ -3604,6 +3788,14 @@
                 "id": "c092815b-9e47-4fbe-972c-78397ba3ec36",
                 "resourcePath": "scripts\\maybeDodge\\maybeDodge.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c60c4691-2d57-4066-b52a-6cf4ebf2d7e8",
+            "Value": {
+                "id": "d3758a18-a7e5-4a31-a1a9-c32a289d748d",
+                "resourcePath": "sprites\\spr_player_longsword_recover_3\\spr_player_longsword_recover_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4015,6 +4207,14 @@
             }
         },
         {
+            "Key": "da3548e5-b1c6-401b-a5b1-c5cef4a3d471",
+            "Value": {
+                "id": "c4ce005a-4864-4606-8669-a21bf7141291",
+                "resourcePath": "sprites\\spr_player_longsword_prep_3\\spr_player_longsword_prep_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "db2140f3-1136-4eb1-bb59-f40aced65d44",
             "Value": {
                 "id": "fe3b3e79-80d1-4641-a756-4a276f72ba74",
@@ -4107,6 +4307,14 @@
             "Value": {
                 "id": "90f58dcb-4cf0-456e-a4d8-cfba7e19ebae",
                 "resourcePath": "objects\\obj_enemy_blocker\\obj_enemy_blocker.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "dedba530-1c38-4fad-858c-fbe7ee28d01a",
+            "Value": {
+                "id": "94fd01ac-592f-452a-be4a-f9fead50ce43",
+                "resourcePath": "objects\\obj_skill_selector\\obj_skill_selector.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -4255,6 +4463,14 @@
             }
         },
         {
+            "Key": "e72beab0-d6e9-4fb0-962c-cd25d7c5bf97",
+            "Value": {
+                "id": "ac96370c-4755-4b03-bf8d-1a05b90ab934",
+                "resourcePath": "scripts\\showHideSkills\\showHideSkills.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e746ffdc-b4f1-421b-8195-fcc9cfa4467a",
             "Value": {
                 "id": "180c05b9-c9c5-4732-9bad-5a503833d59e",
@@ -4316,6 +4532,14 @@
                 "id": "ff9f49fd-7c08-4a62-a361-32ccc2692499",
                 "resourcePath": "scripts\\moveSelectorInEquippedItems\\moveSelectorInEquippedItems.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "edd2a38d-e1be-4e36-b189-7ff47b2d3288",
+            "Value": {
+                "id": "f48d2f44-a66c-44c8-8881-4c012f728a9a",
+                "resourcePath": "objects\\obj_skill_staminamax\\obj_skill_staminamax.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -4810,12 +5034,18 @@
         "5999c26c-6d24-44fc-ab4b-62ea7b2ec60e",
         "6970c333-d11e-4ae7-9620-8d123358cb30",
         "0aafa26c-a5fb-4aac-940c-a8f1df7e71c4",
-        "f9e29305-332d-4c80-9256-e38cdeb68e67",
         "e8895f9f-8cd4-46f8-9062-c275805a99f4",
         "1f175613-05fb-4f3d-9aca-9a25fb29344e",
         "647a77fa-c761-4821-b235-45ed34677ddb",
         "dd81e1ce-4a77-4bc1-8ed5-c587f5516221",
         "922c9cb8-23d7-4b95-b555-6a6f746ce3ea",
+        "70df6c66-46b6-47f0-a3a7-fc03b3fa5329",
+        "a874d630-3f11-46ad-8f3d-6c8c676ec18c",
+        "95d7f342-e8bf-417e-a0b0-6f2c92a5584c",
+        "6b4212a9-0072-44d0-91ce-195a94eaf709",
+        "20fe7479-9f3d-434a-b93e-e4db65294b86",
+        "e72beab0-d6e9-4fb0-962c-cd25d7c5bf97",
+        "f9e29305-332d-4c80-9256-e38cdeb68e67",
         "e5ce9bf6-3d4c-4f77-8492-608ccf49b126",
         "7bae9fcb-d567-413b-9dc9-0993f6654191",
         "21e32d81-d55d-44bf-bd06-58f623c3a573",
