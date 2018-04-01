@@ -6,10 +6,10 @@ description = "Increases critical hit chance, critical hit damage, and overall d
 #macro CRITCHANCE " % critical hit chance"
 #macro CRITDAMAGE " % critical hit damage"
 
-ds_map_replace(bonusesMap,DAMAGE,0);
-ds_map_replace(bonusesMap,CRITCHANCE,0);
-ds_map_replace(bonusesMap,CRITDAMAGE,0);
+ds_map_replace(bonusesMap,ModifiableProperties.WeaponTypesDamage,0);
+ds_map_replace(bonusesMap,ModifiableProperties.CriticalsChance,0);
+ds_map_replace(bonusesMap,ModifiableProperties.CriticalsDamage,0);
 
-ds_map_replace(nextLevelBonusesMap,DAMAGE,1);
-ds_map_replace(nextLevelBonusesMap,CRITCHANCE,2);
-ds_map_replace(nextLevelBonusesMap,CRITDAMAGE,5);
+ds_map_replace(nextLevelBonusesMap,ModifiableProperties.WeaponTypesDamage,1);
+ds_map_replace(nextLevelBonusesMap,ModifiableProperties.CriticalsChance,2);
+ds_map_replace(nextLevelBonusesMap,ModifiableProperties.CriticalsDamage,5);

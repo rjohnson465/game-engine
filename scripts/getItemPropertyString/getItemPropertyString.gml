@@ -4,11 +4,11 @@
 var prop = argument[0];
 
 switch prop {
-	case ItemProperties.HpMax: {
+	case ModifiableProperties.HpMax: {
 		return " max HP";
 		break;
 	}
-	case ItemProperties.HpRegen: {
+	case ModifiableProperties.HpRegen: {
 		return " HP regen";
 		break;
 	}

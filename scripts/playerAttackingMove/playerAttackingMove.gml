@@ -1,4 +1,15 @@
-if !isFlinching && currentUsingSpell != noone || (leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded) {
+var isLeftHandInUse = 
+				ds_map_find_value(recoveringLimbs,"l") != undefined 
+				|| ds_map_find_value(attackingLimbs,"l") != undefined;
+var isRightHandInUse = 
+				ds_map_find_value(recoveringLimbs,"r") != undefined 
+				|| ds_map_find_value(attackingLimbs,"r") != undefined;
+if	!isFlinching 
+	&& currentUsingSpell != noone || 
+	(leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded) 
+	|| (leftHandItem.weaponType == DAGGER && rightHandItem.weaponType == DAGGER)
+	|| (leftHandItem.weaponType == DAGGER && !isRightHandInUse) 
+	|| (rightHandItem.weaponType == DAGGER && !isLeftHandInUse) {
 	speed = 0;
 	var UP = keyboard_check(ord("W"));
 	var DOWN = keyboard_check(ord("S"));

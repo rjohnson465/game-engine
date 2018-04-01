@@ -3,6 +3,7 @@ if ds_map_size(attackingLimbs) != 0 {
 	var attackingMelee = 
 		(ds_map_find_value(attackingLimbs,"l") && leftHandItem.subType == HandItemTypes.Melee)	||
 		(ds_map_find_value(attackingLimbs,"r") && rightHandItem.subType == HandItemTypes.Melee)
+		
 	if ds_map_size(preparingLimbs) == 0 {
 		var x1 = x + lengthdir_x(2,facingDirection);
 		var y1 = y + lengthdir_y(2,facingDirection);

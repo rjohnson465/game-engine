@@ -16,19 +16,8 @@ for (var i = 0; i < ds_map_size(props); i++) {
 		val = isEquipping ? val : val*-1;
 	}
 	
-	switch currentProperty {
-		case ItemProperties.HpRegen: {
-			p.hpRegen += val;
-			break;
-		}
-		case ItemProperties.HpMax: {
-			p.maxHp += val;
-			break;
-		}
-	}
+	/// updatePlayerProperty(property, val)
+	updatePlayerProperty(currentProperty,val,1);
 	
 	currentProperty = ds_map_find_next(props,currentProperty);
 }
-
-if p.hp > p.maxHp p.hp = p.maxHp;
-if p.stamina > p.maxStamina p.stamina = p.maxStamina;

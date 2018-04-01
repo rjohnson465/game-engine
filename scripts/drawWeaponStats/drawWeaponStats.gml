@@ -27,8 +27,9 @@ line++;
 
 
 // TODO account for item / skill bonuses for damages
-var damagesStrings = getPhysicalDamageTypesString(weapon,isOffHand);
+var damagesStrings = getPhysicalDamageTypesString(weapon,isOffHand,1);
 var physicalDamagesTypesString = damagesStrings[0];
+
 var physicalDamagesString = damagesStrings[1];
 
 // physical damages

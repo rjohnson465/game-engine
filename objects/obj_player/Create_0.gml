@@ -93,13 +93,39 @@ lockOnTarget = noone;
 lockOnTargetType = obj_enemy_parent;
 LOCK_ON_DISTANCE = 800;
 
+#macro SWORD1H "Sword/1H"
+#macro SWORD2H "Sword/2H"
+#macro DAGGER "Dagger/1H"
+#macro UNARMED "Unarmed"
+#macro AXE1H "Axe/1H"
+#macro AXE2H "Axe/2H"
+#macro BLUNT1H "Club/1H"
+#macro BLUNT2H "Club/2H"
+#macro RAPIER "Rapier/1H"
+#macro SPEAR "Spear/2H"
+#macro BOW "Bow/2H"
+#macro CROSSBOW "Crossbow/1H"
+#macro SHURIKEN "Shuriken/2H"
+#macro MUSKET "Musket/2H"
+#macro THROWN "Thrown/1H"
+#macro PISTOL "Pistol/1H"
+
+global.ALL_WEAPON_TYPES = [
+	SWORD1H, SWORD2H, DAGGER, UNARMED, AXE1H, AXE2H, BLUNT1H, BLUNT2H, RAPIER, SPEAR,
+	BOW, CROSSBOW, SHURIKEN, MUSKET, THROWN, PISTOL
+];
+
+propertiesBaseValues = defineBasePlayerProperties();
+itemPropertyBonuses = ds_map_create();
+skillPropertyBonuses = ds_map_create();
+
 // hp / stamina
-hp = 100;
-maxHp = 100;
-hpRegen = .5; // per second
-stamina = 50;
-maxStamina = 50;
-staminaRegen = 10; // per second
+hp = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpMax); 
+maxHp = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpMax);
+hpRegen = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpRegen)
+stamina = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaMax)
+maxStamina = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaMax)
+staminaRegen = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaRegen)
 
 // level stuff
 level = 1;
@@ -187,36 +213,27 @@ dyingParticleColor1 = c_white;
 dyingParticleColor2 = c_gray;
 justRevivedAtFountain = false;
 
-#macro SWORD1H "Sword/1H"
-#macro SWORD2H "Sword/2H"
-#macro DAGGER "Dagger/1H"
-#macro UNARMED "Unarmed"
-#macro AXE1H "Axe/1H"
-#macro AXE2H "Axe/2H"
-#macro BLUNT1H "Club/1H"
-#macro BLUNT2H "Club/2H"
-#macro RAPIER "Rapier/1H"
-#macro SPEAR "Spear/2H"
-#macro BOW "Bow/2H"
-#macro CROSSBOW "Crossbow/1H"
-#macro SHURIKEN "Shuriken/2H"
-#macro MUSKET "Musket/2H"
-#macro THROWN "Thrown/1H"
-#macro PISTOL "Pistol/1H"
-
-global.ALL_WEAPON_TYPES = [
-	SWORD1H, SWORD2H, DAGGER, UNARMED, AXE1H, AXE2H, BLUNT1H, BLUNT2H, RAPIER, SPEAR,
-	BOW, CROSSBOW, SHURIKEN, MUSKET, THROWN, PISTOL
-];
+// CRITICALS / Weapon Types Damage / Combos
 
 criticalsChance = ds_map_create(); // 0 - 100% chance for criticals with weapon types
-criticalsDamage = ds_map_create(); // 0 - 100% additional damage on critical hit with weapon types
+criticalsDamage = ds_map_create(); // 0 - x% additional damage on critical hit with weapon types
+weaponTypesDamage = ds_map_create(); // additional base damage for each weapon type
 comboHitsToNextLevelMap = ds_map_create(); // each weapon type starts with x hits needed to get combo multiplier
 
 for (var i = 0; i < array_length_1d(global.ALL_WEAPON_TYPES); i++) {
 	var wt = global.ALL_WEAPON_TYPES[i];
-	ds_map_replace(criticalsChance,wt,15);
-	ds_map_replace(criticalsDamage,wt,50); // by default, +50% base damage on crits
+	
+	var chanceMap = ds_map_find_value(propertiesBaseValues,ModifiableProperties.CriticalsChance);
+	var chanceVal = ds_map_find_value(chanceMap,wt);
+	var damageMap = ds_map_find_value(propertiesBaseValues,ModifiableProperties.CriticalsDamage);
+	var damageVal = ds_map_find_value(damageMap,wt);
+	ds_map_replace(criticalsChance,wt,chanceVal);
+	ds_map_replace(criticalsDamage,wt,damageVal);
+	var wtDamageMap = ds_map_find_value(propertiesBaseValues,ModifiableProperties.WeaponTypesDamage);
+	var wtDamageVal = ds_map_find_value(wtDamageMap,wt);
+	ds_map_replace(weaponTypesDamage,wt,wtDamageVal);
+	
+	// TODO -- define in defineBaseProperties function
 	if wt == UNARMED {
 		ds_map_replace(comboHitsToNextLevelMap,wt,3);
 	} else {

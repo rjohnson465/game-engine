@@ -8,7 +8,8 @@
         "a874d630-3f11-46ad-8f3d-6c8c676ec18c",
         "95d7f342-e8bf-417e-a0b0-6f2c92a5584c",
         "6b4212a9-0072-44d0-91ce-195a94eaf709",
-        "20fe7479-9f3d-434a-b93e-e4db65294b86"
+        "20fe7479-9f3d-434a-b93e-e4db65294b86",
+        "b4948a9d-d947-4b64-a2a9-c5e55ead5137"
     ],
     "filterType": "GMScript",
     "folderName": "skills",

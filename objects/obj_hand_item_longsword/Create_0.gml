@@ -1,6 +1,5 @@
 event_inherited();
 subType = HandItemTypes.Melee;
-weaponType = SWORD1H;
 
 name = "Longsword";
 baseName = "Longsword";

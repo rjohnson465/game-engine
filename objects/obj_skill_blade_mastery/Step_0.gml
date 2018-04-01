@@ -5,32 +5,21 @@
 event_inherited();
 
 if isLevelingUp {
-	ds_map_replace(bonusesMap,DAMAGE,level*1);
-	ds_map_replace(bonusesMap,CRITCHANCE,level*2);
-	ds_map_replace(bonusesMap,CRITDAMAGE,level*5);
-	ds_map_replace(nextLevelBonusesMap,DAMAGE,(level+1)*1);
-	ds_map_replace(nextLevelBonusesMap,CRITCHANCE,(level+1)*2);
-	ds_map_replace(nextLevelBonusesMap,CRITDAMAGE,(level+1)*5);
+	ds_map_replace(bonusesMap,ModifiableProperties.WeaponTypesDamage,level*1);
+	ds_map_replace(bonusesMap,ModifiableProperties.CriticalsChance,level*2);
+	ds_map_replace(bonusesMap,ModifiableProperties.CriticalsDamage,level*5);
+	ds_map_replace(nextLevelBonusesMap,ModifiableProperties.WeaponTypesDamage,(level+1)*1);
+	ds_map_replace(nextLevelBonusesMap,ModifiableProperties.CriticalsChance,(level+1)*2);
+	ds_map_replace(nextLevelBonusesMap,ModifiableProperties.CriticalsDamage,(level+1)*5);
 	
 	// update all blade related stats
-	ds_map_replace(global.player.criticalsChance,
-		DAGGER,
-		ds_map_find_value(global.player.criticalsChance,DAGGER)+2);
-	ds_map_replace(global.player.criticalsChance,
-		SWORD1H,
-		ds_map_find_value(global.player.criticalsChance,SWORD1H)+2);
-	ds_map_replace(global.player.criticalsChance,
-		SWORD2H,
-		ds_map_find_value(global.player.criticalsChance,SWORD2H)+2);
+	var bladeTypes = [SWORD1H,SWORD2H,DAGGER];
+	for (var i = 0; i < array_length_1d(bladeTypes); i++) {
+		var wt = bladeTypes[i];
+		updatePlayerProperty(ModifiableProperties.CriticalsChance,2,0,wt);
+		updatePlayerProperty(ModifiableProperties.CriticalsDamage,5,0,wt);
+		updatePlayerProperty(ModifiableProperties.WeaponTypesDamage,1,0,wt);
+	}
 	
-	ds_map_replace(global.player.criticalsDamage,
-		DAGGER,
-		ds_map_find_value(global.player.criticalsDamage,DAGGER)+5);
-	ds_map_replace(global.player.criticalsDamage,
-		SWORD1H,
-		ds_map_find_value(global.player.criticalsDamage,SWORD1H)+5);
-	ds_map_replace(global.player.criticalsDamage,
-		SWORD2H,
-		ds_map_find_value(global.player.criticalsDamage,SWORD2H)+5);
 	isLevelingUp = false;
 }

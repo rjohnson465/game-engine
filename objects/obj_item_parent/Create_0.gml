@@ -39,12 +39,20 @@ mightGrab = false;
 grabFrame = 0;
 grabFrames = 1;
 
-enum ItemProperties {
+enum ModifiableProperties {
 	HpMax,
 	HpRegen,
 	StaminaMax,
-	StaminaRegen
+	StaminaRegen,
+	CriticalsDamage,
+	CriticalsChance,
+	WeaponTypesDamage,
+	length
 }
+
+#macro MAXHP " HP"
+#macro MAXSTAMINA " Stamina"
+#macro HPREGEN " HP Regen"
 
 itemProperties = ds_map_create();
 numberOfSockets = 0;

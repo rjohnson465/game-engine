@@ -6,8 +6,12 @@ event_inherited();
 
 if isLevelingUp {
 	var amount = 10*level;
-	ds_map_replace(bonusesMap,MAXHP,amount);
-	ds_map_replace(nextLevelBonusesMap,MAXHP,10*(level+1));
-	global.player.maxHp += 10;
+	ds_map_replace(bonusesMap,ModifiableProperties.HpMax,amount);
+	ds_map_replace(nextLevelBonusesMap,ModifiableProperties.HpMax,10*(level+1));
+	
+	updatePlayerProperty(ModifiableProperties.HpMax,10,0);
+	
+	//global.player.maxHp += 10;
+	
 	isLevelingUp = false;
 }

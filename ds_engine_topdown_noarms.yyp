@@ -1743,6 +1743,14 @@
             }
         },
         {
+            "Key": "5ab9eecd-e179-4fa9-b500-a50690b2fce9",
+            "Value": {
+                "id": "451bf017-1659-408f-883e-0f6f875facbb",
+                "resourcePath": "scripts\\defineBasePlayerProperties\\defineBasePlayerProperties.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "5c6981df-e7e6-4891-919e-e6948df8b3b2",
             "Value": {
                 "id": "addb44e3-53b2-4031-9f92-df3fc5809ab7",
@@ -3479,6 +3487,14 @@
             }
         },
         {
+            "Key": "b4948a9d-d947-4b64-a2a9-c5e55ead5137",
+            "Value": {
+                "id": "d4f90068-4264-4350-be69-5aeb2f5bca0d",
+                "resourcePath": "scripts\\getSkillPropertyString\\getSkillPropertyString.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "b4f44d8d-d934-48b7-a56e-4a5245b0acac",
             "Value": {
                 "id": "fa38072a-a1a0-4208-b461-6047637a96cd",
@@ -3963,6 +3979,14 @@
             "Value": {
                 "id": "2bf13380-3ed3-472e-893e-ee1bba463376",
                 "resourcePath": "scripts\\canSeeLockOnTarget\\canSeeLockOnTarget.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "cda49b31-bcf2-4350-bbe9-2e239a24e6ba",
+            "Value": {
+                "id": "33902ac9-4ec0-44f9-b273-cfdb04179306",
+                "resourcePath": "scripts\\updatePlayerProperty\\updatePlayerProperty.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -5005,6 +5029,9 @@
         "92aa7deb-1b0d-49da-9251-72f340bb3be5",
         "da20dcdd-afa6-4cdb-a97b-1ba94de0fe6e",
         "9dd2b6af-0262-4b17-83e1-cf366fcc496d",
+        "5ab9eecd-e179-4fa9-b500-a50690b2fce9",
+        "c2bdd15f-855e-4d69-be38-6691914aab55",
+        "cda49b31-bcf2-4350-bbe9-2e239a24e6ba",
         "9bd32a79-2503-44b5-a00f-a63b87284907",
         "16568123-5957-4757-92be-a766ccac59ff",
         "b876bddf-c38a-44ab-bca5-d50240d22cea",
@@ -5024,7 +5051,6 @@
         "3b0962d3-6c78-45da-9736-65a842e5320e",
         "187d3c49-dd60-4c42-8f9c-51dbf74ddea2",
         "49c3814e-d8c4-4d0e-b35d-1ddee2964762",
-        "c2bdd15f-855e-4d69-be38-6691914aab55",
         "dc20bdfa-f2bb-4664-bd11-181fd24ce23b",
         "37c6da58-a207-4b69-b302-d28fa96bb578",
         "7f697406-76f7-4073-8fea-2189307747de",
@@ -5044,6 +5070,7 @@
         "95d7f342-e8bf-417e-a0b0-6f2c92a5584c",
         "6b4212a9-0072-44d0-91ce-195a94eaf709",
         "20fe7479-9f3d-434a-b93e-e4db65294b86",
+        "b4948a9d-d947-4b64-a2a9-c5e55ead5137",
         "e72beab0-d6e9-4fb0-962c-cd25d7c5bf97",
         "f9e29305-332d-4c80-9256-e38cdeb68e67",
         "e5ce9bf6-3d4c-4f77-8492-608ccf49b126",

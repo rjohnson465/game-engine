@@ -21,11 +21,18 @@ for (var i = 0; i < size; i++) {
 	var damageArray = ds_map_find_value(damagesMap,currentDamageType);
 	var damageMin; var damageMax;
 	// physical damage is dependent on attack number -- assuming the damage array is specified as such
-	if currentDamageType == PHYSICAL && array_length_1d(damageArray) > (attackNumber - 1)*2 {
+	var physicalDamages = [SLASH,CRUSH,PIERCE];
+	if arrayIncludes(physicalDamages,currentDamageType) && array_length_1d(damageArray) > (attackNumber - 1)*2 {
 		if attackObj.owner.type == CombatantTypes.Player {
 			var index = (attackNumber - 1)*2;
 			damageMin = damageArray[index];
 			damageMax = damageArray[index+1];
+			if damageMin > 0 {
+				// account for weapon damage modifier (+ k constant)
+				var weaponDamageModifier = ds_map_find_value(attackObj.owner.weaponTypesDamage,attackObj.weapon.weaponType);
+				damageMin += weaponDamageModifier;
+				damageMax += weaponDamageModifier;
+			}
 		}
 		// damages are pre-loaded ranges for each attack data object for ai combatants
 		else {
