@@ -178,13 +178,29 @@ if isShowingMenus {
 	draw_sprite(spr_close_button,1,MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y);
 	
 	// menu category tabs (3)
-	var tabWidth = menusWidth / array_length_1d(menuTypes);
+	var tabWidth = 0;
+	if gamepad_is_connected(global.player.gamePadIndex) {
+		tabWidth = (menusWidth-100) / array_length_1d(menuTypes); // 100px allows 2 trigger prompts
+	} else {
+		tabWidth = menusWidth / array_length_1d(menuTypes);
+	}
 	var xx = MENUS_TOPLEFT_X;
 	var yy = MENUS_TOPLEFT_Y+menusHandleHeight;
+	if gamepad_is_connected(global.player.gamePadIndex) {
+		xx = MENUS_TOPLEFT_X + 50;
+		var scale = menuTabsHeight / sprite_get_height(spr_prompt_xbox_lt);
+		draw_set_color(c_dkgray);
+		draw_set_alpha(1);
+		draw_rectangle(MENUS_TOPLEFT_X,yy,MENUS_TOPLEFT_X+50,MENUS_TOPLEFT_Y+menusHandleHeight+menuTabsHeight,0);
+		draw_sprite_ext(spr_prompt_xbox_lt,1,MENUS_TOPLEFT_X+50-menuTabsHeight,yy,scale,scale,0,c_white,1);
+		var rx = MENUS_BOTTOMRIGHT_X-50;
+		draw_rectangle(rx,yy,MENUS_BOTTOMRIGHT_X,MENUS_TOPLEFT_Y+menusHandleHeight+menuTabsHeight,0);
+		draw_sprite_ext(spr_prompt_xbox_rt,1,rx,yy,scale,scale,0,c_white,1);
+	}
 	for (var i = 0; i < array_length_1d(menuTypes); i++) {
 		var x1 = xx + (i*tabWidth);
 		var el = menuTypes[i];
-		
+		draw_set_alpha(1);
 		if currentMenu != el {
 			draw_set_color(c_gray);
 			draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,true);			

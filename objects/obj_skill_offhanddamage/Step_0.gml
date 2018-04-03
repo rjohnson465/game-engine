@@ -5,8 +5,9 @@
 event_inherited();
 
 if isLevelingUp {
-	ds_map_replace(bonusesMap,ModifiableProperties.OffHandDamage,5*level);
-	ds_map_replace(nextLevelBonusesMap,ModifiableProperties.OffHandDamage,5*(level+1));
+	var base = ds_map_find_value(global.player.propertiesBaseValues,ModifiableProperties.OffHandDamage);
+	ds_map_replace(bonusesMap,ModifiableProperties.OffHandDamage,base+(5*level));
+	ds_map_replace(nextLevelBonusesMap,ModifiableProperties.OffHandDamage,base+(5*(level+1)));
 	
 	updatePlayerProperty(ModifiableProperties.OffHandDamage,5,0);
 	

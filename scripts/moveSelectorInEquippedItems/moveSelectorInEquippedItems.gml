@@ -2,6 +2,8 @@
 /// @param direction up | down | left | right
 /// Must be called with the selector object
 
+if global.ui.currentMenu != INVENTORY exit;
+
 var dir = argument0;
 
 var eq = global.equippedItemsManager;

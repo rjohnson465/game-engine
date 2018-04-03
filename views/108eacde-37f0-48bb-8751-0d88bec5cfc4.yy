@@ -9,7 +9,8 @@
         "dedba530-1c38-4fad-858c-fbe7ee28d01a",
         "8029570c-e3f2-43f8-91dc-8057d63e7041",
         "12c05179-c972-48b7-ad94-243f8d869952",
-        "cd4a8f56-c43d-48a1-a419-62c1f163dc75"
+        "cd4a8f56-c43d-48a1-a419-62c1f163dc75",
+        "ca54a322-952c-4adf-ae91-077980b8a563"
     ],
     "filterType": "GMObject",
     "folderName": "skills",

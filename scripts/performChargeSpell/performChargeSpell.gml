@@ -11,6 +11,8 @@ if !isMouseInMenu {
 		{
 			currentUsingSpell = currentSpell;
 			state = CombatantStates.Attacking;
+		} else {
+			alert("No magic charges",c_red);
 		}
 	}
 }

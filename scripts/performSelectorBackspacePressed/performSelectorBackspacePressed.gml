@@ -2,6 +2,8 @@
 
 /// Either backspace or X button event for Selectors
 
+if !ui.isShowingMenus || ui.currentMenu != INVENTORY exit;
+
 // if Equip or Imbue selectors are active, deactivate them and re-activate the Select selector
 if type == SelectorTypes.Equip || type == SelectorTypes.Imbue {
 	isActive = false;

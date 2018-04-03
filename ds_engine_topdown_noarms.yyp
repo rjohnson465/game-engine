@@ -103,6 +103,14 @@
             }
         },
         {
+            "Key": "02add645-3afa-42da-8d8b-0a2952a21e22",
+            "Value": {
+                "id": "68ef3a54-fabc-4916-bee9-625827561cd3",
+                "resourcePath": "objects\\obj_skill_axe_mastery\\obj_skill_axe_mastery.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "02be513e-1fd8-4065-bd46-e856db09e176",
             "Value": {
                 "id": "499eda86-2f38-46e3-a49a-321d9fa9c215",
@@ -2087,6 +2095,14 @@
             }
         },
         {
+            "Key": "6a6ee0c5-59ba-4edf-94c1-c3f5d0bfa495",
+            "Value": {
+                "id": "bd18d37e-719a-4886-aae3-69b1e9ab8438",
+                "resourcePath": "objects\\obj_skill_pointy_mastery\\obj_skill_pointy_mastery.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6b4212a9-0072-44d0-91ce-195a94eaf709",
             "Value": {
                 "id": "0b8f3623-cd3f-47ed-9c90-2dc4073230aa",
@@ -2492,6 +2508,14 @@
                 "id": "47e9244b-cc36-495f-93b8-91c501fae51f",
                 "resourcePath": "scripts\\flinch\\flinch.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "81535f08-ed8a-45cd-9bf0-9354572b41a7",
+            "Value": {
+                "id": "723509cb-5e77-45ed-b641-58ce0e851836",
+                "resourcePath": "objects\\obj_skill_bow_mastery\\obj_skill_bow_mastery.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3135,6 +3159,14 @@
             }
         },
         {
+            "Key": "a4f8b464-23f9-4148-95a0-c1f6c6ac1152",
+            "Value": {
+                "id": "272b41fa-88a5-495b-bb45-641bb306734d",
+                "resourcePath": "objects\\obj_skill_club_mastery\\obj_skill_club_mastery.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a5ee90e2-bf80-4016-9099-e97b50ffaeb9",
             "Value": {
                 "id": "6ede9aa8-a44c-49ae-bc33-0e416ca6150d",
@@ -3172,6 +3204,14 @@
                 "id": "e9d31833-35eb-4fed-a6e3-441484f0b3ee",
                 "resourcePath": "scripts\\stringCapitalize\\stringCapitalize.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a702c0db-ebd6-4974-a9c6-8062567cf13b",
+            "Value": {
+                "id": "389fb500-3bf4-4d04-9df4-b2c6816621f9",
+                "resourcePath": "sprites\\spr_prompt_xbox_lt\\spr_prompt_xbox_lt.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3647,6 +3687,14 @@
             }
         },
         {
+            "Key": "bb264e09-ed70-4e38-9359-018114e69bfe",
+            "Value": {
+                "id": "0604d685-7533-47e8-a3a2-ce49555eab96",
+                "resourcePath": "objects\\obj_skill_gun_mastery\\obj_skill_gun_mastery.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "bb522331-acc1-42f3-94cb-139223b61539",
             "Value": {
                 "id": "cbff13ae-6d3d-4416-86a8-9aa79a7693f2",
@@ -3911,6 +3959,14 @@
             }
         },
         {
+            "Key": "ca1331a5-3849-449e-a779-6f10b1625245",
+            "Value": {
+                "id": "aa285f75-6ded-4975-9c6e-f841d344445c",
+                "resourcePath": "sprites\\spr_prompt_xbox_rt\\spr_prompt_xbox_rt.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ca2ebd59-dce7-43e8-96de-922f35a0fb7f",
             "Value": {
                 "id": "09ff5558-8dc8-42f1-aef3-58e4e907d6c6",
@@ -3924,6 +3980,14 @@
                 "id": "bd51906a-cc59-4022-a938-52e8f10e511b",
                 "resourcePath": "scripts\\playerIterateOverRecoveringHands\\playerIterateOverRecoveringHands.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ca54a322-952c-4adf-ae91-077980b8a563",
+            "Value": {
+                "id": "743487b1-509b-443f-a9c9-7acf7f96c92b",
+                "resourcePath": "views\\ca54a322-952c-4adf-ae91-077980b8a563.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -4044,6 +4108,14 @@
                 "id": "b4fdc6b9-7f25-48ad-9d2a-92257f2808af",
                 "resourcePath": "sprites\\spr_player_unarmed_recover_1\\spr_player_unarmed_recover_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "cfc764bc-d0ac-42f0-b6d6-387799bf2c3e",
+            "Value": {
+                "id": "bb278b1f-1a5a-4e93-a5ea-c30f58efd356",
+                "resourcePath": "objects\\obj_skill_assassin_mastery\\obj_skill_assassin_mastery.yy",
+                "resourceType": "GMObject"
             }
         },
         {

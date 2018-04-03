@@ -1,6 +1,8 @@
 event_inherited();
 name = "Ambidextrous";
-description = "Increases damage with offhand weapon";
+description = "Increases damage dealt with offhand weapon.";
+levelMax = 10;
 
-ds_map_replace(bonusesMap,ModifiableProperties.OffHandDamage,50);
-ds_map_replace(nextLevelBonusesMap,ModifiableProperties.OffHandDamage,55);
+var base = 50;
+ds_map_replace(bonusesMap,ModifiableProperties.OffHandDamage,base+0);
+ds_map_replace(nextLevelBonusesMap,ModifiableProperties.OffHandDamage,base+5);

@@ -1,4 +1,4 @@
-if !isActive || !ui.isShowingMenus exit;
+if !isActive || !ui.isShowingMenus || ui.currentMenu != INVENTORY exit;
 
 if isSelectorInEquippedItems() {
 	moveSelectorInEquippedItems("up");

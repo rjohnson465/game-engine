@@ -1,17 +1,43 @@
 event_inherited();
 spriteName = "projectile"; // i.e. magicmissile, fireball ...
 name = "Blast";
-castFrames = 45; // how long spell can be charged
-level = 1;
-numberOfProjectiles = 1;
-//projectileSpriteIndex = asset_get_index("spr_spell_"+ spriteName);
+description = "Smite your foes with a powerful blast.";
+
+maxChargeCostByLevel = ds_map_create();
+ds_map_replace(maxChargeCostByLevel,0,4);
+ds_map_replace(maxChargeCostByLevel,1,5);
+ds_map_replace(maxChargeCostByLevel,2,6);
+ds_map_replace(maxChargeCostByLevel,3,6);
+ds_map_replace(maxChargeCostByLevel,4,6);
+ds_map_replace(maxChargeCostByLevel,5,8);
+ds_map_replace(maxChargeCostByLevel,6,8);
+ds_map_replace(maxChargeCostByLevel,7,10);
+ds_map_replace(maxChargeCostByLevel,8,10);
+ds_map_replace(maxChargeCostByLevel,9,12);
+ds_map_replace(maxChargeCostByLevel,10,15);
+damageRangesByLevel = ds_map_create();
+ds_map_replace(damageRangesByLevel,0,[4,8]);
+ds_map_replace(damageRangesByLevel,1,[6,10]);
+ds_map_replace(damageRangesByLevel,2,[8,10]);
+ds_map_replace(damageRangesByLevel,3,[10,13]);
+ds_map_replace(damageRangesByLevel,4,[10,15]);
+ds_map_replace(damageRangesByLevel,5,[12,16]);
+ds_map_replace(damageRangesByLevel,6,[15,18]);
+ds_map_replace(damageRangesByLevel,7,[18,22]);
+ds_map_replace(damageRangesByLevel,8,[20,25]);
+ds_map_replace(damageRangesByLevel,9,[22,28]);
+ds_map_replace(damageRangesByLevel,10,[25,32]);
+
+level = 0;
+levelMax = 10;
 projectileSpeed = 30;
 staminaCost = 25;
 staggerDuration = 20;
-maxChargeCost = level*4;
+maxChargeCost = ds_map_find_value(maxChargeCostByLevel,level);
 
 // per projectile
-minDamage = 20;
-maxDamage = 30;
-//ds_map_add(damages,MAGIC,[20,30]); 
-//ds_map_add(damages,DamageTypes.Magic,3+(10*level));
+var range = ds_map_find_value(damageRangesByLevel,level);
+minDamage = range[0];
+maxDamage = range[1];
+castFrames = 45; // how long spell can be charged
+numberOfProjectiles = 1;

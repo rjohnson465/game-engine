@@ -1,4 +1,4 @@
-if !isActive || !ui.isShowingMenus exit;
+if !isActive || !ui.isShowingMenus || ui.currentMenu != INVENTORY exit;
 
 // move selector to next slot on left, if it exists
 if !isSelectorAtFirstInventoryColumn() && isSelectorInInventory() {
