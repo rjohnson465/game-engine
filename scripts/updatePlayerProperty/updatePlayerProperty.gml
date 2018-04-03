@@ -31,8 +31,6 @@ if macro == noone {
 	if otherVal == undefined otherVal = 0;
 } else {
 	
-	// yo this is fucked.
-	
 	// get the map of all macro values (i.e. critical hit chances)
 	var macroMap = ds_map_find_value(mapToUpdate,prop);
 	// if macroMap is not defined yet, create it 
@@ -105,8 +103,14 @@ switch prop {
 	case ModifiableProperties.HpMax: {
 		p.maxHp = newVal; break;
 	}
+	case ModifiableProperties.Poise: {
+		p.poise = newVal; break;
+	}
 	case ModifiableProperties.OffHandDamage: {
 		p.offHandDamagePercent = newVal; break;
+	}
+	case ModifiableProperties.XpMultiplier: {
+		p.xpMultiplier = newVal; break;
 	}
 	case ModifiableProperties.CriticalsChance: {
 		// update the entry in the player's criticalsChance map with the right macro key
@@ -117,6 +121,15 @@ switch prop {
 	}
 	case ModifiableProperties.WeaponTypesDamage: {
 		ds_map_replace(p.weaponTypesDamage,macro,newVal); break;
+	}
+	case ModifiableProperties.Defenses: {
+		ds_map_replace(p.defenses,macro,newVal); break;
+	}
+	case ModifiableProperties.PhysicalDamageTypesMultiplier: {
+		ds_map_replace(p.physicalDamageTypesMultipliers,macro,newVal); break;
+	}
+	case ModifiableProperties.ElementalDamageTypesMultiplier: {
+		ds_map_replace(p.elementalDamageTypesMultipliers,macro,newVal); break;
 	}
 }
 

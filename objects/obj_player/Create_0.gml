@@ -126,10 +126,22 @@ hpRegen = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpRegen)
 stamina = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaMax)
 maxStamina = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaMax)
 staminaRegen = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaRegen)
+physicalDamageTypesMultipliers = ds_map_create();
+var physicalDamages = [SLASH, PIERCE, CRUSH, PHYSICAL];
+for (var i = 0; i < array_length_1d(physicalDamages); i++) {
+	var mapToSearch = ds_map_find_value(propertiesBaseValues,ModifiableProperties.PhysicalDamageTypesMultiplier);
+	ds_map_replace(physicalDamageTypesMultipliers,physicalDamages[i],ds_map_find_value(mapToSearch,physicalDamages[i]));
+}
+elementalDamageTypesMultipliers = ds_map_create();
+for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
+	var mapToSearch = ds_map_find_value(propertiesBaseValues,ModifiableProperties.ElementalDamageTypesMultiplier);
+	ds_map_replace(elementalDamageTypesMultipliers,global.ALL_ELEMENTS[i],ds_map_find_value(mapToSearch,global.ALL_ELEMENTS[i]));
+}
 
 // level stuff
 level = 1;
 xp = 500;
+xpMultiplier = ds_map_find_value(propertiesBaseValues,ModifiableProperties.XpMultiplier); 
 xpTemp = 0;
 xpToNextLevel = 1000;
 skillPoints = 0;
@@ -137,7 +149,7 @@ skillPoints = 0;
 // list of enemy attack instances been hit with -- only get hit once / attack
 beenHitWith = ds_list_create();
 
-poise = 0;
+poise = ds_map_find_value(propertiesBaseValues,ModifiableProperties.Poise);
 staggerDuration = 0;
 staggerFrame = 0;
 staggerDirection = 0;

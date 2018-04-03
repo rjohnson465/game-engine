@@ -51,6 +51,11 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	var el = global.ALL_ELEMENTS[i];
 	var val = ds_map_find_value(weapon.damages,el);
 	var minDamage = val[0]; var maxDamage = val[1];
+	
+	var elementalDamageTypeMultiplier = ds_map_find_value(p.elementalDamageTypesMultipliers,el) / 100;
+	minDamage = minDamage * elementalDamageTypeMultiplier;
+	maxDamage = maxDamage * elementalDamageTypeMultiplier;
+	
 	if isOffHand {
 		var modifier = p.offHandDamagePercent/100;
 		minDamage = minDamage*modifier;

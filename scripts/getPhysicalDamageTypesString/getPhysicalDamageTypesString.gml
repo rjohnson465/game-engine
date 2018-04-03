@@ -37,6 +37,10 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 				// maybe account for bonus damage
 				
 				if useModifiers {
+					// account for physical damage multipliers (%)
+					var physicalDamageMultiplier = ds_map_find_value(p.physicalDamageTypesMultipliers,damageType) / 100;
+					num1 = num1*physicalDamageMultiplier;
+					num2 = num2*physicalDamageMultiplier;
 					// account for weapon damage modifier (+ k constant)
 					var weaponDamageModifier = ds_map_find_value(p.weaponTypesDamage,item.weaponType);
 					num1 += weaponDamageModifier;

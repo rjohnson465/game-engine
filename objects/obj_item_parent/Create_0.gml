@@ -47,13 +47,14 @@ enum ModifiableProperties {
 	CriticalsDamage,
 	CriticalsChance,
 	WeaponTypesDamage,
+	PhysicalDamageTypesMultiplier, // Rarer than elemental damage types multiplier
+	ElementalDamageTypesMultiplier,
 	OffHandDamage,
+	Poise,
+	Defenses,
+	XpMultiplier,
 	length
 }
-
-#macro MAXHP " HP"
-#macro MAXSTAMINA " Stamina"
-#macro HPREGEN " HP Regen"
 
 itemProperties = ds_map_create();
 numberOfSockets = 0;

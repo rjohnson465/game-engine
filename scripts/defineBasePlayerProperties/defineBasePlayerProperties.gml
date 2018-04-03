@@ -17,11 +17,47 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 		case ModifiableProperties.StaminaMax: {
 			ds_map_replace(basePlayerProperties,i,50); break;
 		}
+		case ModifiableProperties.XpMultiplier: {
+			ds_map_replace(basePlayerProperties,i,100); break;
+		}
 		case ModifiableProperties.StaminaRegen: {
 			ds_map_replace(basePlayerProperties,i,10); break;
 		}
 		case ModifiableProperties.OffHandDamage: {
 			ds_map_replace(basePlayerProperties,i,50); break;
+		}
+		case ModifiableProperties.Poise: {
+			ds_map_replace(basePlayerProperties,i,0); break;
+		}
+		case ModifiableProperties.Defenses: {
+			// a map in a map wowee
+			var defensesMap = ds_map_create();
+			for (var j = 0; j < array_length_1d(global.ALL_DAMAGE_TYPES); j++) {
+				var wt = global.ALL_DAMAGE_TYPES[j];
+				ds_map_replace(defensesMap,wt,0);
+			}
+			ds_map_replace(basePlayerProperties,i,defensesMap);
+			//ds_map_destroy(criticalsChanceMap);
+			break;
+		}
+		case ModifiableProperties.PhysicalDamageTypesMultiplier: {
+			var physicalDamageTypes = [SLASH,CRUSH,PIERCE,PHYSICAL];
+			var damagesMap = ds_map_create();
+			for (var j = 0; j < array_length_1d(physicalDamageTypes); j++) {
+				var dt = physicalDamageTypes[j];
+				ds_map_replace(damagesMap,dt,100);
+			}
+			ds_map_replace(basePlayerProperties,i,damagesMap);
+			break;
+		}
+		case ModifiableProperties.ElementalDamageTypesMultiplier: {
+			var damagesMap = ds_map_create();
+			for (var j = 0; j < array_length_1d(global.ALL_ELEMENTS); j++) {
+				var dt = global.ALL_ELEMENTS[j];
+				ds_map_replace(damagesMap,dt,100);
+			}
+			ds_map_replace(basePlayerProperties,i,damagesMap);
+			break;
 		}
 		case ModifiableProperties.CriticalsChance: {
 			// a map in a map wowee

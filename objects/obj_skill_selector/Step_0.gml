@@ -2,6 +2,8 @@ if global.ui.currentMenu != SKILLS || !global.ui.isShowingMenus {
 	isActive = false; exit;
 } else isActive = true;
 
+//x1 = selectedSkill.x1; y1 = selectedSkill.y1;
+
 with obj_skill_parent {
 	if x1 == other.x1 && y1 == other.y1 {
 		other.selectedSkill = id;
