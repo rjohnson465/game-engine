@@ -252,7 +252,7 @@ for (var i = 0; i < ds_map_size(knownSpells); i++) {
 var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
 comboHitsToNextLevel = ds_map_find_value(comboHitsToNextLevelMap,leftHandItem.weaponType);
 
-offHandDamagePercent = 50; // by default, offhand weapon deals 50% damage
+offHandDamagePercent = ds_map_find_value(propertiesBaseValues,ModifiableProperties.OffHandDamage); // by default, offhand weapon deals 50% damage
 
 moveSprite = asset_get_index("spr_"+spriteString+"_move");
 moveSpriteImageSpeed = 30;

@@ -47,6 +47,7 @@ enum ModifiableProperties {
 	CriticalsDamage,
 	CriticalsChance,
 	WeaponTypesDamage,
+	OffHandDamage,
 	length
 }
 

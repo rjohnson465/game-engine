@@ -89,30 +89,34 @@ if macro == noone {
 	base = ds_map_find_value(mapToSearch,macro);
 }
 	
+var newVal = base + otherVal + (currentVal + val);
+
 // set actual player property, taking into account item props + skill props
 switch prop {
 	case ModifiableProperties.HpRegen: {
-		p.hpRegen = base + otherVal + (currentVal + val);
-		break;
+		p.hpRegen = newVal; break;
+	}
+	case ModifiableProperties.StaminaRegen: {
+		p.staminaRegen = newVal; break;
+	}
+	case ModifiableProperties.StaminaMax: {
+		p.maxStamina = newVal; break;
 	}
 	case ModifiableProperties.HpMax: {
-		p.maxHp = base + otherVal + (currentVal + val);
-		break;
+		p.maxHp = newVal; break;
+	}
+	case ModifiableProperties.OffHandDamage: {
+		p.offHandDamagePercent = newVal; break;
 	}
 	case ModifiableProperties.CriticalsChance: {
 		// update the entry in the player's criticalsChance map with the right macro key
-		ds_map_replace(p.criticalsChance,macro,base + otherVal + (currentVal + val));
-		break;
+		ds_map_replace(p.criticalsChance,macro,newVal); break;
 	}
 	case ModifiableProperties.CriticalsDamage: {
-		// update the entry in the player's criticalsChance map with the right macro key
-		ds_map_replace(p.criticalsDamage,macro,base + otherVal + (currentVal + val));
-		break;
+		ds_map_replace(p.criticalsDamage,macro,newVal); break;
 	}
 	case ModifiableProperties.WeaponTypesDamage: {
-		// update the entry in the player's weaponDamages map with the right macro key
-		ds_map_replace(p.weaponTypesDamage,macro,base + otherVal + (currentVal + val));
-		break;
+		ds_map_replace(p.weaponTypesDamage,macro,newVal); break;
 	}
 }
 

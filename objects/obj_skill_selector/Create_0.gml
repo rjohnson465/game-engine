@@ -30,3 +30,5 @@ switch type {
 
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;
+
+selectedSkill = obj_skill_hpmax;

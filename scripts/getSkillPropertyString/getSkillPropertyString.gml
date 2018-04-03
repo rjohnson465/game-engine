@@ -13,12 +13,15 @@ switch prop {
 		break;
 	}
 	case ModifiableProperties.CriticalsChance: {
-		return " crticals chance"; break;
+		return " % critical hit chance"; break;
 	}
 	case ModifiableProperties.CriticalsDamage: {
-		return " crticals damage"; break;
+		return " % critical hit damage"; break;
 	}
 	case ModifiableProperties.WeaponTypesDamage: {
 		return " base damage"; break;
+	}
+	case ModifiableProperties.OffHandDamage: {
+		return " % weapon damage "; break;
 	}
 }

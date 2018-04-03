@@ -4,6 +4,7 @@
 // Inherit the parent event
 event_inherited();
 level = 0;
+levelMax = 1000;
 name = "";
 description = "";
 

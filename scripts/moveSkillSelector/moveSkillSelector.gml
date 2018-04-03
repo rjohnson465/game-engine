@@ -3,6 +3,8 @@
 
 var dir = argument[0];
 
+if !isActive exit;
+
 var closestSkill = selectedSkill; var closestDist = 10000;
 with obj_skill_parent {
 	

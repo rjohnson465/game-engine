@@ -20,6 +20,9 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 		case ModifiableProperties.StaminaRegen: {
 			ds_map_replace(basePlayerProperties,i,10); break;
 		}
+		case ModifiableProperties.OffHandDamage: {
+			ds_map_replace(basePlayerProperties,i,50); break;
+		}
 		case ModifiableProperties.CriticalsChance: {
 			// a map in a map wowee
 			var criticalsChanceMap = ds_map_create();

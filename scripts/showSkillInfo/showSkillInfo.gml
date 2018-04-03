@@ -34,22 +34,23 @@ draw_text(skillDescriptionCol2X,descriptionHandleY2,"Next Level: " + string(skil
 var currentBonus = ds_map_find_first(skill.bonusesMap); // enum value (ModifiableProperty)
 
 for (var i = 0; i < ds_map_size(skill.bonusesMap); i++) {
-	var currentBonusString = getSkillPropertyString(currentBonus); // actaul string
+	var currentBonusString = getSkillPropertyString(currentBonus); // actual string
 	// TODO -- redo how the HP / Stamina bonus is shown
 	if skill.object_index == obj_skill_hpmax || skill.object_index == obj_skill_staminamax {
 		var bonus =	ds_map_find_value(skill.bonusesMap,currentBonus)
 		var bonusNext = ds_map_find_value(skill.nextLevelBonusesMap,currentBonus);
 		var baseStat = skill.object_index == obj_skill_hpmax ? global.player.maxHp : global.player.maxStamina;
-		var s = skill.object_index == obj_skill_hpmax ? "Max HP: " : "Max Stamina: ";
-		draw_text(skillDescriptionCol1X,descriptionHandleY2+(i+1)*25,s + string(baseStat+bonus));
-		draw_text(skillDescriptionCol2X,descriptionHandleY2+(i+1)*25,s + string(baseStat+bonusNext));
+		var s = skill.object_index == obj_skill_hpmax ? "Additonal HP: " : "Additonal Stamina: ";
+		draw_text(skillDescriptionCol1X,descriptionHandleY2+(i+1)*25,s + string(bonus));
+		draw_text(skillDescriptionCol2X,descriptionHandleY2+(i+1)*25,s + string(bonusNext));
 	} else {
 		var currentBonusVal = ds_map_find_value(skill.bonusesMap,currentBonus);
-		var bonusString = "+ " + string(currentBonusVal) + currentBonusString;
+		var includePlus = skill.object_index == obj_skill_offhanddamage ? "" : "+ ";
+		var bonusString = includePlus + string(currentBonusVal) + currentBonusString;
 		draw_text(skillDescriptionCol1X,descriptionHandleY2+((i+1)*25),bonusString);
 		
 		var nextBonusVal = ds_map_find_value(skill.nextLevelBonusesMap,currentBonus);
-		var nextLevelBonusString = "+ " + string(nextBonusVal) + currentBonusString;
+		var nextLevelBonusString = includePlus + string(nextBonusVal) + currentBonusString;
 		draw_text(skillDescriptionCol2X,descriptionHandleY2+((i+1)*25),nextLevelBonusString);
 	}
 	currentBonus = ds_map_find_next(skill.bonusesMap,currentBonus);

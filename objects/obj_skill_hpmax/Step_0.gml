@@ -11,7 +11,5 @@ if isLevelingUp {
 	
 	updatePlayerProperty(ModifiableProperties.HpMax,10,0);
 	
-	//global.player.maxHp += 10;
-	
 	isLevelingUp = false;
 }

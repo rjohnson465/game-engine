@@ -258,11 +258,22 @@ else if item.type == ItemTypes.Ring {
 	for(var i = 0; i < ds_map_size(ringProps); i++) {
 		
 		var val = ds_map_find_value(ringProps,currentProperty);
-		var s = getItemPropertyString(currentProperty);
+		var macro = noone;
+		// if array, its in the form [macro,val]
+		if is_array(val) {
+			macro = val[0];
+			val = val[1];
+		}
+		var s = getItemPropertyString(currentProperty,macro);
 		
 		var sgn = val > 0 ? "+" : "-";
 		var finalString = sgn + string(val) + s;
-		draw_text(itemDescriptionCol1XText,itemDescriptionColY+(line*25),finalString);
+		var scale = 1;
+		var operatingWidth = itemDescriptionBottomRightX-itemDescriptionTopLeftX-21;
+		if string_width(finalString) > operatingWidth {
+			scale = operatingWidth / string_width(finalString);
+		}
+		draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+(line*25),finalString,scale,scale,0);
 		line++;
 		
 		currentProperty = ds_map_find_next(ringProps,currentProperty);
