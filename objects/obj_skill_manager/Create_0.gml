@@ -34,8 +34,11 @@ skillDescriptionHandleHeight = 20;
 skillDescriptionCol1X = topLeftX+5;
 skillDescriptionCol2X = topLeftX+(.5*width)+5;
 
+colWidth = width/4;
+padding = (colWidth-skillWidth)/2;
+
 // General skills
-healthMaxX = topLeftX+5;
+healthMaxX = topLeftX+padding;
 healthMaxY = topLeftY+skillHeight+10;
 
 staminaMaxX = healthMaxX;
@@ -46,7 +49,7 @@ offHandMasteryY = staminaMaxY+skillHeight+5;
 
 // Melee skills
 
-bladeMasteryX = topLeftX+(width/4)
+bladeMasteryX = topLeftX+(width/4)+padding;
 bladeMasteryY = topLeftY+5;
 
 axeMasteryX = bladeMasteryX;
@@ -60,7 +63,7 @@ pointyMasteryY = clubMasteryY+skillHeight+5;
 
 // Ranged skills
 
-bowMasteryX = bladeMasteryX+(width/4);
+bowMasteryX = topLeftX+(2*(width/4))+padding;
 bowMasteryY = topLeftY+5;
 
 gunMasteryX = bowMasteryX;
@@ -71,7 +74,7 @@ assassinMasteryY = gunMasteryY+skillHeight+5;
 
 // Magic skills
 
-blastMasteryX = bowMasteryX+(width/4);
+blastMasteryX = topLeftX+(3*(width/4))+padding;
 blastMasteryY = topLeftY+5;
 
 explosionMasteryX = blastMasteryX;

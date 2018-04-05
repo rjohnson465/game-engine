@@ -6,6 +6,7 @@ event_inherited();
 
 type = ItemTypes.Ring;
 
+isStackable = false;
 name = "Ring";
 spriteName = "ring";
 itemSprite = spr_item_ring1;

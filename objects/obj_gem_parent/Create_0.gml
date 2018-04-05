@@ -15,13 +15,15 @@ enum GemTypes {
 
 #macro CRACKED "cracked"
 #macro NORMAL ""
-#macro FINE "fine"
 #macro EXQUISITE "exquisite"
+#macro FLAWLESS "flawless"
 
-global.ALL_GEM_CONDITIONS = [CRACKED,NORMAL,FINE,EXQUISITE];
+global.ALL_GEM_CONDITIONS = [CRACKED,NORMAL,EXQUISITE,FLAWLESS];
 subType = GemTypes.Hematite;
 type = ItemTypes.Other;
 condition = global.gemCondition;
+
+
 
 isStackable = true;
 //isUsable = true;

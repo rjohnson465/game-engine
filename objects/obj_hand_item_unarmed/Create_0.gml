@@ -5,6 +5,7 @@ spriteName = "unarmed";
 
 range = 20;
 weight = 0;
+act = 0;
 
 numberOfTargets = [1,2];
 

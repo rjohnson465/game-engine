@@ -1,6 +1,7 @@
 event_inherited();
 
 type = ItemTypes.Head;
+isStackable = false;
 
 defenses = ds_map_create();
 for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {

@@ -29,6 +29,8 @@ type = CombatantTypes.Player;
 isMouseInMenu = false;
 instance_create_depth(x,y,1,obj_player_gui);
 
+defineItemsByAct();
+
 enum EquipmentSlots {
 	Head,
 	LeftHand1,
@@ -163,6 +165,7 @@ ds_map_add(knownSpells, "projectile", obj_spell_projectile);
 ds_map_add(knownSpells, "aoe", obj_spell_aoe);
 currentSpell = ds_map_find_first(knownSpells);
 currentUsingSpell = noone;
+hasAlertedNoMagicCharges = false;
 
 attunementLevels = ds_map_create();
 ds_map_add(attunementLevels,MAGIC,1);

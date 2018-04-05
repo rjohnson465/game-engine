@@ -172,7 +172,8 @@ if isShowingMenus {
 	draw_set_color(c_white);
 	draw_set_halign(fa_center);
 	draw_set_font(font_main);
-	var s = currentMenu +  " (" +ds_map_find_value(menuHotKeys,currentMenu) + ")";
+	var hotKey = gamepad_is_connected(global.player.gamePadIndex) ? "" : " (" + ds_map_find_value(menuHotKeys,currentMenu) + ")";
+	var s = currentMenu + hotKey;
 	draw_text((MENUS_BOTTOMRIGHT_X+MENUS_TOPLEFT_X)/2,((MENUS_TOPLEFT_Y+menusHandleHeight)+MENUS_TOPLEFT_Y)/2,s);
 	var closeButtonWidth = sprite_get_width(spr_close_button);
 	draw_sprite(spr_close_button,1,MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y);
@@ -180,20 +181,20 @@ if isShowingMenus {
 	// menu category tabs (3)
 	var tabWidth = 0;
 	if gamepad_is_connected(global.player.gamePadIndex) {
-		tabWidth = (menusWidth-100) / array_length_1d(menuTypes); // 100px allows 2 trigger prompts
+		tabWidth = (menusWidth-(menuTabsHeight*2)) / array_length_1d(menuTypes); // (menuTabsHeight*2) allows 2 trigger prompts
 	} else {
 		tabWidth = menusWidth / array_length_1d(menuTypes);
 	}
 	var xx = MENUS_TOPLEFT_X;
 	var yy = MENUS_TOPLEFT_Y+menusHandleHeight;
 	if gamepad_is_connected(global.player.gamePadIndex) {
-		xx = MENUS_TOPLEFT_X + 50;
+		xx = MENUS_TOPLEFT_X + menuTabsHeight;
 		var scale = menuTabsHeight / sprite_get_height(spr_prompt_xbox_lt);
 		draw_set_color(c_dkgray);
 		draw_set_alpha(1);
-		draw_rectangle(MENUS_TOPLEFT_X,yy,MENUS_TOPLEFT_X+50,MENUS_TOPLEFT_Y+menusHandleHeight+menuTabsHeight,0);
-		draw_sprite_ext(spr_prompt_xbox_lt,1,MENUS_TOPLEFT_X+50-menuTabsHeight,yy,scale,scale,0,c_white,1);
-		var rx = MENUS_BOTTOMRIGHT_X-50;
+		draw_rectangle(MENUS_TOPLEFT_X,yy,MENUS_TOPLEFT_X+menuTabsHeight,MENUS_TOPLEFT_Y+menusHandleHeight+menuTabsHeight,0);
+		draw_sprite_ext(spr_prompt_xbox_lt,1,MENUS_TOPLEFT_X+menuTabsHeight-menuTabsHeight,yy,scale,scale,0,c_white,1);
+		var rx = MENUS_BOTTOMRIGHT_X-menuTabsHeight;
 		draw_rectangle(rx,yy,MENUS_BOTTOMRIGHT_X,MENUS_TOPLEFT_Y+menusHandleHeight+menuTabsHeight,0);
 		draw_sprite_ext(spr_prompt_xbox_rt,1,rx,yy,scale,scale,0,c_white,1);
 	}

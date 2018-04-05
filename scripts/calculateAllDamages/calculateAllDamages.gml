@@ -45,10 +45,10 @@ for (var i = 0; i < size; i++) {
 		}
 	}
 	// any elemental 
-	else if !arrayIncludes(physicalDamages,currentDamageType) {
+	else {
 		damageMin = damageArray[0];
 		damageMax = damageArray[1];
-		if attackObj.owner.type == CombatantTypes.Player {
+		if attackObj.owner.type == CombatantTypes.Player && !arrayIncludes(physicalDamages,currentDamageType) {
 			// account for ElementalDamageTypesMultiplier property (item bonus)
 			var multiplier = ds_map_find_value(attackObj.owner.elementalDamageTypesMultipliers,currentDamageType) / 100;
 			damageMin = damageMin*multiplier;

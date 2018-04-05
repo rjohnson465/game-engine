@@ -19,6 +19,7 @@ charges = 0;
 totalCharges = 0;
 
 level = 1;
+act = 0;
 
 // two handed weapons always held with "right hand" (on right side)
 isTwoHanded = false;
@@ -39,3 +40,6 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 
 numberOfSockets = 0;
 socketedGems = ds_list_create();
+
+
+

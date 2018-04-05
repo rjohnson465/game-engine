@@ -9,6 +9,7 @@ level = 0;
 levelMax = 1000;
 name = "";
 description = "";
+slot = noone;
 
 if x1 == noone || x1 == undefined {
 	x1 = -100; y1 = -100;
