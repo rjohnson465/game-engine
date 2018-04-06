@@ -20,8 +20,10 @@ if owner == global.player.lockOnTarget {
 	var x2 = middleX+(.5*nameWidth)+widthBuffer;
 	var y2 = 15+nameHeight;
 	var percentHp = (owner.hp / owner.maxHp)*100;
+	
 	draw_healthbar(x1,y1,x2,y2,percentHp,c_black,c_red,c_maroon,0,1,1);
 	draw_set_color(c_white);
+	draw_rectangle(x1,y1,x2,y2,1);
 	draw_text(middleX,15,name);
 	draw_set_font(font_small);
 	draw_text(middleX,y2+2,owner.description);

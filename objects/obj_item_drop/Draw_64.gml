@@ -5,7 +5,7 @@ if distance_to_object(obj_player) < 20 && global.player.isAlive {
 }
 
 // loot ui
-if isBeingLooted {
+if isBeingLooted && ds_list_size(items) != -1 {
 
 	draw_set_color(c_gray);
 	draw_rectangle(topLeftX,topLeftY,bottomRightX,bottomRightY,0);
@@ -45,24 +45,27 @@ if isBeingLooted {
 	}
 	
 	// draw selector over selected item
-	var x1 = selectedItem.x1; var y1 = selectedItem.y1;
-	draw_set_color(c_white);
-	draw_rectangle(x1,y1,x1+slotWidth,y1+slotHeight,1);
+	if selectedItem != noone && instance_exists(selectedItem) {
+		var x1 = selectedItem.x1; var y1 = selectedItem.y1;
+		draw_set_color(c_white);
+		draw_rectangle(x1,y1,x1+slotWidth,y1+slotHeight,1);
 	
-	var topMidPointX = mean(x1,x1+slotWidth);
-	draw_triangle(topMidPointX-5,y1,topMidPointX+5,y1,topMidPointX,y1+5,false);
-	draw_triangle(topMidPointX-5,y1+slotHeight,topMidPointX+5,y1+slotHeight,topMidPointX,y1+slotHeight-5,false);
+		var topMidPointX = mean(x1,x1+slotWidth);
+		draw_triangle(topMidPointX-5,y1,topMidPointX+5,y1,topMidPointX,y1+5,false);
+		draw_triangle(topMidPointX-5,y1+slotHeight,topMidPointX+5,y1+slotHeight,topMidPointX,y1+slotHeight-5,false);
 	
-	var sideMidPoint = mean(y1,y1+global.inventory.slotHeight);
-	draw_triangle(x1,sideMidPoint-5,x1,sideMidPoint+5,x1+5,sideMidPoint,false);
-	draw_triangle(x1+slotWidth,sideMidPoint-5,x1+slotWidth,sideMidPoint+5,x1+slotWidth-5,sideMidPoint,false);
+		var sideMidPoint = mean(y1,y1+global.inventory.slotHeight);
+		draw_triangle(x1,sideMidPoint-5,x1,sideMidPoint+5,x1+5,sideMidPoint,false);
+		draw_triangle(x1+slotWidth,sideMidPoint-5,x1+slotWidth,sideMidPoint+5,x1+slotWidth-5,sideMidPoint,false);
+	}
 	
 	// prompts
-	var promptsY = bottomRightY + 10; var promptsX = topLeftX+20; var w = 0;
+	var promptsY = bottomRightY + 10; var promptsX = topLeftX+10; var w = 0;
+	var selectedItemString = instance_exists(selectedItem) ? selectedItem.name : "Item";
 	if gamepad_is_connected(global.player.gamePadIndex) {
-		w += drawPrompt("Loot Item",Input.F,promptsX+w,promptsY);
-		w += drawPrompt("Close",Input.Escape,promptsX+w,promptsY);
+		w += drawPrompt("Loot "+selectedItemString,Input.F,promptsX+w,promptsY);
+		//w += drawPrompt("Close",Input.Escape,promptsX+w,promptsY);
 	} else {
-		w += drawPrompt("Loot Item",Input.LMB,promptsX+w,promptsY);
+		w += drawPrompt("Loot "+selectedItemString,[Input.LMB,Input.F],promptsX+w,promptsY);
 	}
 }

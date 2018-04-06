@@ -7,6 +7,7 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderrb) && glo
 	} else {
 		filter = ds_map_find_first(filterSprites);
 	}
+	scrollLevel = 0;
 
 }
 if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
@@ -17,4 +18,5 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && glo
 	} else {
 		filter = ds_map_find_last(filterSprites);
 	}
+	scrollLevel = 0;
 }

@@ -2,6 +2,7 @@ event_inherited();
 name = "Marskman";
 description = "Increases critical hit chance, critical hit damage, and overall damage with pistols and muskets.";
 levelMax = 15;
+skillSprite = spr_skill_gunmastery;
 
 ds_map_replace(bonusesMap,ModifiableProperties.WeaponTypesDamage,0);
 ds_map_replace(bonusesMap,ModifiableProperties.CriticalsChance,0);

@@ -109,7 +109,8 @@ if distance_to_object(nearestStairs) < 200 {
 
 // level up?
 if (xp + xpTemp) >= xpToNextLevel {
-	xp = 0; xpTemp = 0;
+	var remainingXp = (xp+xpTemp)-xpToNextLevel;
+	xp = 0; xpTemp = remainingXp;
 	level += 1;
 	xpToNextLevel = round(1000*(power(level,1.1)));
 	skillPoints++;

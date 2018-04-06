@@ -9,8 +9,6 @@ with obj_fountain {
 	ds_list_add(other.fountainsData,fd);
 }
 
-//fountainsData = fountainsDataTemp;
-
 // initialize enemies
 enemiesData = ds_list_create();
 with obj_enemy_parent {
@@ -18,6 +16,14 @@ with obj_enemy_parent {
 	var enemyData = instance_create_depth(x,y,1,obj_enemy_data);
 	ds_list_add(other.enemiesData,enemyData);
 }
+
+// initialize itemDrops actually don't this is updated dynamically as items are dropped / pickedup
+itemDropsData = ds_list_create();
+/*with obj_item_drop {
+	global.itemDrop = id;
+	var itemDropData = instance_create_depth(x,y,1,obj_itemdrop_data);
+	ds_list_add(other.itemDropsData,enemyData);
+}*/
 
 // set all fountains
 for (var i = 0; i < ds_list_size(fountainsData); i++) {

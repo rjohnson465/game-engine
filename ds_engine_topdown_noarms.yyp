@@ -599,6 +599,14 @@
             }
         },
         {
+            "Key": "17454f5d-debc-40f7-a39e-92be91a3ddc9",
+            "Value": {
+                "id": "ca06a733-7185-40b0-a9d2-1d13f6e0fca9",
+                "resourcePath": "sprites\\spr_skill_gunmastery\\spr_skill_gunmastery.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "17c7fe2d-dbc6-4bc8-8ce9-4d968c46444f",
             "Value": {
                 "id": "ee42c42f-d3b7-40d6-ac92-cab609fce87c",
@@ -831,6 +839,14 @@
             }
         },
         {
+            "Key": "217b3657-a721-4f8d-8554-97294dc2fcb7",
+            "Value": {
+                "id": "c59943ca-298c-498f-a25c-45d88f2eb483",
+                "resourcePath": "sprites\\spr_skill_spearmastery\\spr_skill_spearmastery.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "21c53d30-346c-4021-b8e0-c4e7b78137f9",
             "Value": {
                 "id": "aa3e5214-766c-4d89-9b17-81a492059334",
@@ -892,6 +908,14 @@
                 "id": "be117479-92e6-4136-b698-737d2adee296",
                 "resourcePath": "objects\\obj_hand_item_parent\\obj_hand_item_parent.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "24803376-1a10-4695-aa55-be8e1c99149c",
+            "Value": {
+                "id": "55937ff5-7cf1-4fab-b990-a0b989e2e184",
+                "resourcePath": "sprites\\spr_skill_blademastery\\spr_skill_blademastery.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1011,6 +1035,14 @@
             "Value": {
                 "id": "1a6ca356-9769-440b-b6d3-79cd7aae6d2a",
                 "resourcePath": "sprites\\spr_player_dodge\\spr_player_dodge.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2ac4c40c-5bd4-4a34-b0d1-ae0054e8adc6",
+            "Value": {
+                "id": "477feee9-f935-483f-a8c9-6ef37cb0ec3e",
+                "resourcePath": "sprites\\spr_skill_clubmastery\\spr_skill_clubmastery.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1607,6 +1639,14 @@
             }
         },
         {
+            "Key": "4dc52287-9b6e-4d2e-a243-c237eefb8268",
+            "Value": {
+                "id": "1481abad-3734-429e-9a6e-b69cbb58df37",
+                "resourcePath": "sprites\\spr_skill_assassinmastery\\spr_skill_assassinmastery.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
             "Value": {
                 "id": "7f92ad17-9476-402f-a4e8-86a2be635d0a",
@@ -2147,14 +2187,6 @@
             "Value": {
                 "id": "e5689ffb-60c6-47ea-b05c-086e9793c0c5",
                 "resourcePath": "objects\\obj_attack_bug_head_1_1\\obj_attack_bug_head_1_1.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
-            "Key": "69e332ce-f6c3-48da-b4fc-23b7699d0bdb",
-            "Value": {
-                "id": "b12c0c1f-3c11-48c2-ac3c-8896bef0fe18",
-                "resourcePath": "objects\\obj_enemy_dead\\obj_enemy_dead.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -3247,6 +3279,22 @@
             }
         },
         {
+            "Key": "a204d204-0adf-4ef0-910e-455256145ce8",
+            "Value": {
+                "id": "0866d1e2-c46c-4ff2-8632-a9f7c8bbe97e",
+                "resourcePath": "objects\\obj_itemdrop_data\\obj_itemdrop_data.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "a28249af-c480-4395-98e3-8e90e96c49f9",
+            "Value": {
+                "id": "4e504899-2a96-4475-bc23-6cdb1f7ea839",
+                "resourcePath": "sprites\\spr_skill_staminamax\\spr_skill_staminamax.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a2a00b8f-d341-4da6-8881-f00adf3d8634",
             "Value": {
                 "id": "6893a9ba-b550-45d7-b467-14ab800de14a",
@@ -3975,6 +4023,14 @@
             }
         },
         {
+            "Key": "c3cd174b-1974-49b1-a0f8-c59fc7c1403e",
+            "Value": {
+                "id": "d13903ff-382c-4551-8eed-574f16924bd9",
+                "resourcePath": "sprites\\spr_skill_ambidextrous\\spr_skill_ambidextrous.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c4791fe0-84a5-4dbf-9392-b4da283f6daa",
             "Value": {
                 "id": "c9547a8d-fef4-4c40-bb24-222e4edd332a",
@@ -4036,6 +4092,14 @@
                 "id": "d66e5c80-71f0-4b26-86ce-6703ea17c7aa",
                 "resourcePath": "views\\c73f800d-811a-4fd2-8749-757d0e160648.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c7b828a4-bf24-4665-ba6a-ca189f84e4cb",
+            "Value": {
+                "id": "4257a3eb-1ede-43f3-a4bd-5fe2e15a6619",
+                "resourcePath": "sprites\\spr_skill_axemastery\\spr_skill_axemastery.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5148,6 +5212,14 @@
                 "id": "84f87f24-ee8d-411b-8173-7d6d859c6cb2",
                 "resourcePath": "views\\fdfbdfd6-c76b-4a69-ad55-f803fb399ad3.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "fef9994e-d1e4-4799-9bd1-2cc1ff8462f4",
+            "Value": {
+                "id": "320368f8-d470-4505-a95a-70bb6f8bc754",
+                "resourcePath": "sprites\\spr_skill_bowmastery\\spr_skill_bowmastery.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

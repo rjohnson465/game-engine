@@ -88,22 +88,22 @@ remainingPointsX = blastMasteryX;
 remainingPointsY = magicMissileMasteryY+skillHeight+skillHeight+5;
 
 // General
-makeSkillObj(obj_skill_hpmax,healthMaxX,healthMaxY);
-makeSkillObj(obj_skill_staminamax,staminaMaxX,staminaMaxY);
-makeSkillObj(obj_skill_offhanddamage,offHandMasteryX,offHandMasteryY);
+skillHpMax = makeSkillObj(obj_skill_hpmax,healthMaxX,healthMaxY);
+skillStaminaMax = makeSkillObj(obj_skill_staminamax,staminaMaxX,staminaMaxY);
+skillAmbidextrous = makeSkillObj(obj_skill_offhanddamage,offHandMasteryX,offHandMasteryY);
 
 // Melee
-makeSkillObj(obj_skill_blade_mastery,bladeMasteryX,bladeMasteryY);
-makeSkillObj(obj_skill_axe_mastery,axeMasteryX,axeMasteryY);
-makeSkillObj(obj_skill_club_mastery,clubMasteryX,clubMasteryY);
-makeSkillObj(obj_skill_pointy_mastery,pointyMasteryX,pointyMasteryY);
+skillBladeMastery = makeSkillObj(obj_skill_blade_mastery,bladeMasteryX,bladeMasteryY);
+skillAxeMastery = makeSkillObj(obj_skill_axe_mastery,axeMasteryX,axeMasteryY);
+skillClubMastery = makeSkillObj(obj_skill_club_mastery,clubMasteryX,clubMasteryY);
+skillPointyMastery = makeSkillObj(obj_skill_pointy_mastery,pointyMasteryX,pointyMasteryY);
 
 // Ranged
-makeSkillObj(obj_skill_bow_mastery,bowMasteryX,bowMasteryY);
-makeSkillObj(obj_skill_gun_mastery,gunMasteryX,gunMasteryY);
-makeSkillObj(obj_skill_assassin_mastery,assassinMasteryX,assassinMasteryY);
+skillBowMastery = makeSkillObj(obj_skill_bow_mastery,bowMasteryX,bowMasteryY);
+skillGunMastery = makeSkillObj(obj_skill_gun_mastery,gunMasteryX,gunMasteryY);
+skillAssassinMastery = makeSkillObj(obj_skill_assassin_mastery,assassinMasteryX,assassinMasteryY);
 
 // Spells
-makeSkillObj(obj_spell_magicmissile,magicMissileMasteryX,magicMissileMasteryY);
-makeSkillObj(obj_spell_projectile,blastMasteryX,blastMasteryY);
-makeSkillObj(obj_spell_aoe,explosionMasteryX,explosionMasteryY);
+skillMagicMissile = makeSkillObj(obj_spell_magicmissile,magicMissileMasteryX,magicMissileMasteryY);
+skillBlast = makeSkillObj(obj_spell_projectile,blastMasteryX,blastMasteryY);
+skillExplosion = makeSkillObj(obj_spell_aoe,explosionMasteryX,explosionMasteryY);

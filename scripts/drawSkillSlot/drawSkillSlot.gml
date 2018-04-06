@@ -1,4 +1,4 @@
-/// drawSkillSlot(x,y,slot)
+/// drawSkillSlot(x,y,slot,skill)
 /// @param x
 /// @param y
 /// @param slot
@@ -6,6 +6,7 @@
 var xx = argument0;
 var yy = argument1;
 var slot = argument2;
+var skill = argument3;
 var ui = global.ui; 
 
 var drawDark = false;
@@ -20,31 +21,17 @@ if drawDark {
 	draw_sprite(spr_item_slot,1,xx,yy);
 }
 
-var sprite = spr_item_leathercap;
-switch slot {
-	case Skills.HealthMax: {
-		sprite = spr_skill_hpmax; break;
-	}
-	case Skills.MagicMissileMastery: {
-		sprite = spr_item_magicmissile_magic; break;
-	}
-	case Skills.BlastMastery: {
-		sprite = spr_item_projectile_magic; break;
-	}
-	case Skills.ExplosionMastery: {
-		sprite = spr_item_aoe_magic; break;
-	}
+var sprite = skill.skillSprite;
+
+if global.player.skillPoints > 0 {
+	draw_sprite(sprite,1,xx,yy);
+} else {
+	shader_set(shd_greyscale);
+    shader_set_uniform_f(shader_get_uniform(shd_greyscale,"fade"), 1);
+	draw_sprite(sprite,1,xx,yy);
+	shader_reset();
 }
 
-draw_sprite(sprite,1,xx,yy);
-
-var skill = noone;
-switch slot {
-	case Skills.HealthMax: {
-		skill = obj_skill_hpmax; break;
-	}
-}
-
-if skill 
+draw_set_valign(fa_top); draw_set_halign(fa_left);
 scr_draw_text_outline(skill.x1,skill.y1,skill.level,c_white,c_white);
 

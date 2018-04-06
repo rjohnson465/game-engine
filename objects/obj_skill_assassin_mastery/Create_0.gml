@@ -2,6 +2,7 @@ event_inherited();
 name = "Assassin";
 description = "Increases critical hit chance, critical hit damage, and overall damage with throwing knives and shurikens.";
 levelMax = 15;
+skillSprite = spr_skill_assassinmastery;
 
 ds_map_replace(bonusesMap,ModifiableProperties.WeaponTypesDamage,0);
 ds_map_replace(bonusesMap,ModifiableProperties.CriticalsChance,0);

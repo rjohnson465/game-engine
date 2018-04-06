@@ -7,6 +7,7 @@ var droppedItems = argument[0];
 for (var i = 0; i < ds_list_size(droppedItems); i++) {
 	var item = ds_list_find_value(droppedItems,i);
 	if item == noone || item == undefined ds_list_delete(droppedItems,i);
+	else item.persistent = true;
 }
 
 if ds_list_size(droppedItems) == 0 return noone;

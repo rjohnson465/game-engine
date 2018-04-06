@@ -34,30 +34,37 @@ if mouse_check_button(mb_left) {
 				}
 				case InventoryFilters.None: {
 					pressedFilter = InventoryFilters.None;
+					scrollLevel = 0;
 					break;
 				}
 				case InventoryFilters.Melee: {
 					pressedFilter = InventoryFilters.Melee;
+					scrollLevel = 0;
 					break;
 				}
 				case InventoryFilters.Ranged: {
 					pressedFilter = InventoryFilters.Ranged;
+					scrollLevel = 0;
 					break;
 				}
 				case InventoryFilters.Other: {
 					pressedFilter = InventoryFilters.Other;
+					scrollLevel = 0;
 					break;
 				}
 				case InventoryFilters.Shields: {
 					pressedFilter = InventoryFilters.Shields;
+					scrollLevel = 0;
 					break;
 				}
 				case InventoryFilters.Rings: {
 					pressedFilter = InventoryFilters.Rings;
+					scrollLevel = 0;
 					break;
 				}
 				case InventoryFilters.Head: {
 					pressedFilter = InventoryFilters.Head;
+					scrollLevel = 0;
 					break;
 				}
 			}

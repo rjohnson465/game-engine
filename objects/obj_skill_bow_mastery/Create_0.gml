@@ -2,6 +2,7 @@ event_inherited();
 name = "Archer";
 description = "Increases critical hit chance, critical hit damage, and overall damage with bows and crossbows.";
 levelMax = 15;
+skillSprite = spr_skill_bowmastery;
 
 ds_map_replace(bonusesMap,ModifiableProperties.WeaponTypesDamage,0);
 ds_map_replace(bonusesMap,ModifiableProperties.CriticalsChance,0);

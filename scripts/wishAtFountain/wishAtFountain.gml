@@ -27,6 +27,19 @@ else if isDoneFilling {
 	part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
 	part_emitter_burst(system,emitter,particle,num);*/
 	
+	// despawn all itemDrops
+	with obj_item_drop {
+		instance_destroy(id,1);
+	}
+	// clear all itemDrop references in room persistence objects
+	with obj_room_data {
+		ds_list_clear(itemDropsData);
+	}
+	// destroy any remaining itemdrop data objects
+	with obj_itemdrop_data {
+		instance_destroy(id,1);
+	}
+	
 	// respawn all enemies
 	respawnEnemies();
 		

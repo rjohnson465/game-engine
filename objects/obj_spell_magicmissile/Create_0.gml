@@ -3,6 +3,7 @@ spriteName = "magicmissile"; // i.e. magicmissile, fireball ...
 name = "Magic Missile";
 description = "Shoot magical projectiles that track enemies.";
 castFrames = 30; // how long spell can be charged
+skillSprite = spr_item_magicmissile_magic;
 
 damageRangesByLevel = ds_map_create();
 ds_map_replace(damageRangesByLevel,0,[4,8]);

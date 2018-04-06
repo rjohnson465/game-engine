@@ -2,6 +2,7 @@ event_inherited();
 spriteName = "projectile"; // i.e. magicmissile, fireball ...
 name = "Blast";
 description = "Smite your foes with a powerful blast.";
+skillSprite = spr_item_projectile_magic;
 
 maxChargeCostByLevel = ds_map_create();
 ds_map_replace(maxChargeCostByLevel,0,4);

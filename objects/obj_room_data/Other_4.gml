@@ -24,6 +24,34 @@ if room == roomIndex {
 		enemy.tempPostX = enemyData.tempPostX;
 		enemy.tempPostY = enemyData.tempPostY;
 		enemy.enemyData = enemyData;
-		var a = 3;
+	}
+	
+	// set all itemDrops
+	for (var i = 0; i < ds_list_size(itemDropsData); i++) {
+		var itemDropDataObj = ds_list_find_value(itemDropsData,i);
+		var itemDrop = findPersistentRoomElement(obj_item_drop,itemDropDataObj.postX,itemDropDataObj.postY);
+		
+		itemDrop.itemDropData = itemDropDataObj;
+		itemDrop.x = itemDropDataObj.postX;
+		itemDrop.y = itemDropDataObj.postY;
+		itemDrop.layer = itemDropDataObj.postZ;
+
+		with itemDrop {
+			global.owner = id;
+			global.makeLightOnCreate = true;
+			lightRadius = instance_create_depth(x,y,1,obj_light_radius);
+			lightRadius.x = x;
+			lightRadius.y = y;
+		}
+
+	}
+} else {
+	// make itemDrops (persistent) not appear on screen at all 
+	for (var i = 0; i < ds_list_size(itemDropsData); i++) {
+		var itemDropDataObj = ds_list_find_value(itemDropsData,i);
+		var itemDrop = findPersistentRoomElement(obj_item_drop,itemDropDataObj.postX,itemDropDataObj.postY);
+		
+		itemDrop.x = -1000;
+		itemDrop.y = -1000;
 	}
 }

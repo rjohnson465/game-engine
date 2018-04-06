@@ -1,4 +1,4 @@
-
+/*
 // e-renter room with previously active enemies?
 if type == CombatantTypes.Enemy && enemyData != noone {
 	// remove your corpse if you've been respawned

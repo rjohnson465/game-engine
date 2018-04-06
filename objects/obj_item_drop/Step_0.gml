@@ -4,7 +4,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	(gamepad_button_check_pressed(global.player.gamePadIndex,gp_face1) && !global.ui.isShowingMenus)
 }
 
-if distance_to_object(obj_player) < 20 && interactInputReceived && global.player.isAlive {
+if distance_to_object(obj_player) < 20 && interactInputReceived && global.player.isAlive && !global.isLooting {
 	isBeingLooted = true;
 } else if distance_to_object(obj_player) >= 20 {
 	isBeingLooted  = false;

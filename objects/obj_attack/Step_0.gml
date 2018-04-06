@@ -57,7 +57,7 @@ if isSpell {
 	if	owner.state == CombatantStates.Staggering 
 	{
 		if isMelee || isSpell {
-			instance_destroy(id, false);
+			instance_destroy(id, 1);
 		}
 	}
 }

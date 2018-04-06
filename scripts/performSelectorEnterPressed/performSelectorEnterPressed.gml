@@ -12,6 +12,7 @@ switch type {
 	case SelectorTypes.Select: {
 		if isSelectorInEquippedItems() || isSelectorInInventory() && item.type != ItemTypes.Other {
 			isActive = false;
+			global.inventory.scrollLevel = 0;
 			// find Equip selector and activate it (in End Step event)
 		} else if item.type == ItemTypes.Other && item.isUsable {
 			item.isInUse = true;

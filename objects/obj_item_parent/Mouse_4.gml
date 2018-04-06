@@ -41,13 +41,7 @@ if x1 >= global.inventory.invTopLeftX && x1 <= global.inventory.invBottomRightX
 }
 // probably being looted?
 else {
-	if itemIsBeingLooted {
-		addItemToInventory(id);
-		ds_list_delete(dropItem.items,itemPos);
-		if ds_list_size(dropItem.items) > 0 {
-			dropItem.selectedItem = ds_list_find_value(dropItem.items,0);
-		}
-	}
+	
 }
 
 mightGrab = true;

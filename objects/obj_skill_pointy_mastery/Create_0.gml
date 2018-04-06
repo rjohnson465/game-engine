@@ -2,6 +2,7 @@ event_inherited();
 name = "Get to the Point";
 description = "Increases critical hit chance, critical hit damage, and overall damage with rapiers and spears.";
 levelMax = 15;
+skillSprite = spr_skill_spearmastery;
 
 ds_map_replace(bonusesMap,ModifiableProperties.WeaponTypesDamage,0);
 ds_map_replace(bonusesMap,ModifiableProperties.CriticalsChance,0);

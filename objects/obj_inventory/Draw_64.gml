@@ -95,7 +95,6 @@ if is_undefined(ds_list_find_value(global.player.inventory, 19 + (5*scrollLevel)
 // inventory itself
 var inventory = global.player.inventory;
 // move all inventory items offscreen to start (accounts for not displayed items) -- TODO maybe?
-// ALSO only display unequipped items in inventory
 // ALSO filter according to current inventory filter
 ds_list_clear(inv);
 for (var i = 0; i < ds_list_size(inventory); i++) {

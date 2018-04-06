@@ -12,7 +12,8 @@
         "edacf328-7cc7-454e-9cda-be7b920592df",
         "8ca404ab-285a-4da0-9506-1dad0ef525e7",
         "16070f53-6c31-48b2-be15-9acba2821031",
-        "893a1094-f15e-4172-943c-4c9fa0258945"
+        "893a1094-f15e-4172-943c-4c9fa0258945",
+        "59193461-39c3-474a-bf33-0000cf5d5321"
     ],
     "filterType": "GMScript",
     "folderName": "Selectors",

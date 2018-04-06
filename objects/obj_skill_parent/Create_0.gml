@@ -4,6 +4,7 @@
 // Inherit the parent event
 event_inherited();
 sprite_index = spr_item_slot;
+skillSprite = spr_item_slot;
 visible = false;
 level = 0;
 levelMax = 1000;

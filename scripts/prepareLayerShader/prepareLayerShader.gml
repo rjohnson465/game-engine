@@ -3,7 +3,7 @@
 /// static -- get the layer shader object for this instance's layer
 
 var shader = noone;
-var l = layer;
+var l = object_index == obj_fountain ? origLayer : layer;
 with obj_layer_shader {
 	if pseudoLayer == l {
 		shader = id;
