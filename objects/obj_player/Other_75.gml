@@ -17,6 +17,7 @@ case "gamepad discovered":                     // A game pad has been discovered
             pad_num = pad;
             }
         }*/
+	window_set_cursor(cr_none);
     break;
 case "gamepad lost":                           // Gamepad has been removed or otherwise disabled
     var pad = async_load[? "pad_index"];       // Get the pad index
@@ -28,5 +29,6 @@ case "gamepad lost":                           // Gamepad has been removed or ot
             }
         player[pad] = noone;                   // Set the controller array to "noone" so it detects a new pad being connected
         }*/
+	window_set_cursor(cr_default);
     break;
 }

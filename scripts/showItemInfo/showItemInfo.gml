@@ -248,6 +248,9 @@ else if item.type == ItemTypes.Other {
 	} else {
 		var sh = string_height(item.description);
 		draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,item.description,sh,width-5);
+		if item.object_index == obj_item_coins {
+			draw_text(itemDescriptionTopLeftX,itemDescriptionBottomRightY-sh,"Quantity: " + string(item.count));
+		}
 	}
 }
 // Ring items, show all properties

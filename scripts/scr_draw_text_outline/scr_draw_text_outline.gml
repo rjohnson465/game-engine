@@ -36,14 +36,14 @@ else if argument_count == 8 {
 
 draw_set_color(outlineColor);
 
-draw_text(x1 - 1, y1 - 1, text);
-draw_text(x1, y1 - 1, text);
-draw_text(x1 + 1, y1 - 1, text);
-draw_text(x1 - 1, y1, text);
-draw_text(x1 + 1, y1, text);
-draw_text(x1 - 1, y1 + 1, text);
-draw_text(x1, y1 + 1, text);
-draw_text(x1 + 1, y1 + 1, text);
+draw_text_transformed(x1 - 1, y1 - 1,text,xs,ys,a);
+draw_text_transformed(x1, y1 - 1, text,xs,ys,a);
+draw_text_transformed(x1 + 1, y1 - 1,text,xs,ys,a);
+draw_text_transformed(x1 - 1, y1,text,xs,ys,a);
+draw_text_transformed(x1 + 1, y1,text,xs,ys,a);
+draw_text_transformed(x1 - 1, y1 + 1,text,xs,ys,a);
+draw_text_transformed(x1, y1 + 1,text,xs,ys,a);
+draw_text_transformed(x1 + 1, y1 + 1,text,xs,ys,a);
 
 //draw_set_color(c2);
 draw_text_transformed_color(x1,y1,text,xs,ys,a,c1,c1,c2,c2,draw_get_alpha());

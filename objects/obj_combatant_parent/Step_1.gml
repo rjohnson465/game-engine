@@ -37,6 +37,14 @@ if isDying && isAlive {
 		dyingFrame++;
 	} else {
 		dyingFrame = 0;
+		if type == CombatantTypes.Enemy {
+			if ds_list_size(droppedItems) > 0 {
+				var drop = makeItemDrop(droppedItems);
+				drop.x = x;
+				drop.y = y;
+				//ds_list_clear(droppedItems);
+			}
+		}
 		isAlive = false;
 		isDying = false;
 		global.player.xpTemp += round((xpReward*(global.player.xpMultiplier/100)));
@@ -44,8 +52,10 @@ if isDying && isAlive {
 }
 
 if !isAlive {
+	
 	speed = 0;
 	if type == CombatantTypes.Enemy {
+		
 		showHp = false;
 		isShowingLightRadius = false;
 		lightRadiusColor = c_white;
@@ -63,4 +73,5 @@ if !isAlive {
 	}
 	x = -1000;
 	y = -1000;
+	
 }

@@ -4,6 +4,8 @@
 var item = argument0;
 var p = global.player;
 
+if item == noone || item == undefined exit;
+
 if item.isStackable {
 	// check if there's another item of this object_index in inventory
 	var stack = noone;
@@ -19,7 +21,8 @@ if item.isStackable {
 		}
 	}
 	if stack != noone {
-		stack.count++;
+		stack.count += item.count;
+		instance_destroy(item,true);
 	} else {
 		ds_list_add(p.inventory,item);
 		if !item.persistent {

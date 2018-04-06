@@ -16,6 +16,7 @@ playerLightRadius = noone;
 
 event_inherited();
 global.player = id;
+global.isLooting = false;
 functionalSpeed = 6;
 normalSpeed = 6;
 facingDirection = 0;
@@ -177,7 +178,7 @@ currentSpellAttunement = MAGIC;
 
 // inventory -- holds all items
 inventory = ds_list_create();
-
+addItemToInventory(makeGold(10,10));
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
 woodshield.persistent = true;

@@ -711,6 +711,14 @@
             }
         },
         {
+            "Key": "1cb8b2a1-a868-43c1-9c56-771f1e278dab",
+            "Value": {
+                "id": "38ee4c55-a8a4-4335-a6e3-26e0efbedc3a",
+                "resourcePath": "objects\\obj_item_drop\\obj_item_drop.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "1ce7034f-4159-4cb7-9ae7-b872c2aa1bf0",
             "Value": {
                 "id": "824d80e0-b549-4c10-853c-1fb241531685",
@@ -1076,6 +1084,14 @@
                 "id": "617cf4ce-1be2-4c66-aa44-5552b967cfbe",
                 "resourcePath": "views\\30320212-c6b0-4448-b3fc-52689343ba5a.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "303fbeca-840f-4b4b-a6b2-5cdebcb3553c",
+            "Value": {
+                "id": "d5899095-48d7-40a8-b1b7-dec42ba06322",
+                "resourcePath": "objects\\obj_item_coins\\obj_item_coins.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1463,6 +1479,14 @@
             }
         },
         {
+            "Key": "474203f1-3ef0-43f6-afa3-c4be7acee77b",
+            "Value": {
+                "id": "f8e852b0-65ac-4456-b61f-546c90accfec",
+                "resourcePath": "scripts\\makeGold\\makeGold.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "478523d3-04ad-497d-8568-ebe75e28b943",
             "Value": {
                 "id": "72e2516d-903c-4008-abab-cc42d4416f65",
@@ -1484,6 +1508,14 @@
                 "id": "286f8cff-a3ef-41df-9637-e94bbc9899de",
                 "resourcePath": "sprites\\spr_player_unarmed_attack_1\\spr_player_unarmed_attack_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4802df56-5c15-4966-8fe7-5c456c4fbf8b",
+            "Value": {
+                "id": "5fba913b-6c03-4179-b4c9-bb98513d1f96",
+                "resourcePath": "scripts\\makeItemDrop\\makeItemDrop.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2295,6 +2327,14 @@
             }
         },
         {
+            "Key": "71e89e85-ad0e-4341-83a7-bfb76fa57f06",
+            "Value": {
+                "id": "e5da1187-636e-4554-94eb-f7b55800cb64",
+                "resourcePath": "sprites\\spr_item_coins\\spr_item_coins.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7370ff1c-662c-4e15-87c4-8b8295ef7538",
             "Value": {
                 "id": "b6ac2f37-887f-4b36-aa40-6bf3f35fcba3",
@@ -2716,6 +2756,14 @@
                 "id": "9b670961-8a7e-4a52-bc07-97277dbd8061",
                 "resourcePath": "sprites\\spr_player_longsword_prep_2\\spr_player_longsword_prep_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "87b41a77-bc5a-4302-a6a9-db1c6c8bbf3a",
+            "Value": {
+                "id": "95059e43-2c86-4344-9b41-7509c39e82b5",
+                "resourcePath": "views\\87b41a77-bc5a-4302-a6a9-db1c6c8bbf3a.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -3799,6 +3847,14 @@
             }
         },
         {
+            "Key": "be342bdb-a747-48b2-8110-d077ac1a87cb",
+            "Value": {
+                "id": "80bd69a6-b411-42ad-be1d-8e31b4891415",
+                "resourcePath": "scripts\\getGoldCount\\getGoldCount.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "be71ebce-9564-47f6-9751-24a4c152e746",
             "Value": {
                 "id": "e3253a73-e297-4e1c-9c30-c99a964c689f",
@@ -4508,6 +4564,14 @@
                 "id": "90f58dcb-4cf0-456e-a4d8-cfba7e19ebae",
                 "resourcePath": "objects\\obj_enemy_blocker\\obj_enemy_blocker.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "deae7a51-1115-4d01-a739-58728e9c68b7",
+            "Value": {
+                "id": "6fc4368d-266d-4a5c-90c1-eac51f362096",
+                "resourcePath": "scripts\\moveLootItemSelector\\moveLootItemSelector.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5230,7 +5294,6 @@
         "b79353b3-8730-4b28-89fd-d8cd4333dcc5",
         "f126bd04-dd3a-43f4-94d6-aefd1b0ce9dc",
         "65e9bda3-e73b-4e5d-a4b0-eb73179ff7fe",
-        "3b0962d3-6c78-45da-9736-65a842e5320e",
         "187d3c49-dd60-4c42-8f9c-51dbf74ddea2",
         "dc20bdfa-f2bb-4664-bd11-181fd24ce23b",
         "7f697406-76f7-4073-8fea-2189307747de",
@@ -5268,7 +5331,12 @@
         "825b7f54-0308-43b0-94fe-6c159cbf7ea9",
         "4830adac-eef5-40c9-8b9f-2305dac46aea",
         "d0be5a3a-fb31-4514-a321-5be9462d25cb",
-        "057f76ec-399e-4b2a-8ed8-7a1acb437b91"
+        "057f76ec-399e-4b2a-8ed8-7a1acb437b91",
+        "3b0962d3-6c78-45da-9736-65a842e5320e",
+        "474203f1-3ef0-43f6-afa3-c4be7acee77b",
+        "be342bdb-a747-48b2-8110-d077ac1a87cb",
+        "4802df56-5c15-4966-8fe7-5c456c4fbf8b",
+        "deae7a51-1115-4d01-a739-58728e9c68b7"
     ],
     "tutorial": ""
 }

@@ -1,6 +1,6 @@
 event_inherited();
 
-if count < 1 {
+if count < 1 && object_index != obj_item_coins {
 	if ds_list_find_index(global.player.inventory,id) != -1 {
 		ds_list_delete(global.player.inventory,ds_list_find_index(global.player.inventory,id));
 	}
@@ -27,8 +27,6 @@ if grabFrame == grabFrames {
 	global.ui.grabbedItem = id;
 } 
 
-var a = global.ui.isShowingMenus;
-var b = global.ui.currentMenu == INVENTORY;
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY {
 	visible = false;
 }

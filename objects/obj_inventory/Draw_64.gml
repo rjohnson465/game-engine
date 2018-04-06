@@ -12,20 +12,37 @@ draw_rectangle(topLeftX,topLeftY,topLeftX+width,topLeftY+filtersHeight,false);
 
 var currentFilter = ds_map_find_first(filterSprites);
 var filtersTotalWidth = 0;
+var filterOffset = 0; // for gamepad inventory
+if gamepad_is_connected(global.player.gamePadIndex) {
+	filterOffset = 1;
+	var scale = filtersWidth / sprite_get_width(spr_prompt_xbox_lb);
+	draw_set_color(c_dkgray);
+	draw_rectangle(topLeftX,topLeftY,topLeftX+filtersWidth,topLeftY+filtersWidth,0);
+	draw_sprite_ext(spr_prompt_xbox_lb,1,topLeftX,topLeftY,scale,scale,0,c_white,1);
+}
 for (var i = 0; i < ds_map_size(filterSprites); i++) {
 	var spr = ds_map_find_value(filterSprites,currentFilter);
 	if pressedFilter == currentFilter {
-		draw_sprite_ext(spr,1,topLeftX+(i*filtersWidth),topLeftY,1,1,0,c_dkgray,.95);
+		draw_sprite_ext(spr,1,topLeftX+((i+filterOffset)*filtersWidth),topLeftY,1,1,0,c_dkgray,.95);
 	}
 	else if filter == currentFilter {
-		draw_sprite(spr,1,topLeftX+(i*filtersWidth),topLeftY);
+		draw_sprite(spr,1,topLeftX+((i+filterOffset)*filtersWidth),topLeftY);
 	} else {
-		draw_sprite_ext(spr,1,topLeftX+(i*filtersWidth),topLeftY,1,1,0,c_gray,.75);
+		draw_sprite_ext(spr,1,topLeftX+((i+filterOffset)*filtersWidth),topLeftY,1,1,0,c_gray,.75);
 	}
 	filtersTotalWidth += filtersWidth;
 	currentFilter = ds_map_find_next(filterSprites,currentFilter);
 }	
 
+/// filter string
+if gamepad_is_connected(global.player.gamePadIndex) {
+	filterOffset = 2;
+	var scale = filtersWidth / sprite_get_width(spr_prompt_xbox_rb);
+	draw_set_color(c_dkgray);
+	draw_rectangle(topLeftX+(filtersTotalWidth+filtersWidth),topLeftY,topLeftX+(filtersTotalWidth+filtersWidth)+filtersWidth,topLeftY+filtersWidth,0);
+	draw_sprite_ext(spr_prompt_xbox_rb,1,topLeftX+(filtersTotalWidth+filtersWidth),topLeftY,scale,scale,0,c_white,1);
+}
+filtersTotalWidth += (filtersWidth*filterOffset);
 var filterString = "";
 switch filter {
 	case InventoryFilters.Melee: {
@@ -258,7 +275,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	}
 	
 	// cycle through filters
-	w += drawPrompt("Cycle Filters",[Input.LMB, Input.RMB],promptsStartX+w,promptsY)+xOffset;
+	//w += drawPrompt("Cycle Filters",[Input.LMB, Input.RMB],promptsStartX+w,promptsY)+xOffset;
 	
 	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 } else {

@@ -1,4 +1,4 @@
-if isFlinching || global.ui.isShowingMenus {
+if isFlinching || global.ui.isShowingMenus || global.isLooting {
 	exit;
 }
 var UP = keyboard_check(ord("W"));

@@ -175,8 +175,10 @@ if isShowingMenus {
 	var hotKey = gamepad_is_connected(global.player.gamePadIndex) ? "" : " (" + ds_map_find_value(menuHotKeys,currentMenu) + ")";
 	var s = currentMenu + hotKey;
 	draw_text((MENUS_BOTTOMRIGHT_X+MENUS_TOPLEFT_X)/2,((MENUS_TOPLEFT_Y+menusHandleHeight)+MENUS_TOPLEFT_Y)/2,s);
-	var closeButtonWidth = sprite_get_width(spr_close_button);
-	draw_sprite(spr_close_button,1,MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y);
+	if !gamepad_is_connected(global.player.gamePadIndex) {
+		var closeButtonWidth = sprite_get_width(spr_close_button);
+		draw_sprite(spr_close_button,1,MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y);
+	}
 	
 	// menu category tabs (3)
 	var tabWidth = 0;

@@ -2,4 +2,6 @@
 
 //xpTemp += 10000;
 
-addItemToInventory(maybeMakeItem(100,noone));
+//addItemToInventory(maybeMakeItem(100,noone));
+
+addItemToInventory(makeGold(1000000,2000000));
