@@ -1,6 +1,8 @@
 var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
+if global.isWishing exit;
+
 if !isMouseInMenu && !isFrozen && !global.ui.isShowingMenus {
 
 	// if using a 2h ranged weapon, holding left allows for aiming

@@ -17,6 +17,8 @@ playerLightRadius = noone;
 event_inherited();
 global.player = id;
 global.isLooting = false;
+global.canLoot = false;
+global.isWishing = false;
 functionalSpeed = 6;
 normalSpeed = 6;
 facingDirection = 0;
@@ -125,10 +127,13 @@ skillPropertyBonuses = ds_map_create();
 // hp / stamina
 hp = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpMax); 
 maxHp = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpMax);
-hpRegen = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpRegen)
-stamina = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaMax)
-maxStamina = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaMax)
-staminaRegen = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaRegen)
+hpRegen = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpRegen);
+stamina = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaMax);
+maxStamina = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaMax);
+staminaRegen = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaRegen);
+hpSteal = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpSteal);
+staminaSteal = ds_map_find_value(propertiesBaseValues,ModifiableProperties.StaminaSteal);
+
 physicalDamageTypesMultipliers = ds_map_create();
 var physicalDamages = [SLASH, PIERCE, CRUSH, PHYSICAL];
 for (var i = 0; i < array_length_1d(physicalDamages); i++) {

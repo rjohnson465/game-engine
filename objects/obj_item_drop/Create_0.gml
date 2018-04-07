@@ -42,9 +42,10 @@ with obj_room_data {
 
 global.isLooting = false;
 
-randomize();
-floatingFrame = random_range(0,59);
-scale = 1;
+//randomize();
+//floatingFrame = random_range(0,59);
+//scale = 1;
+hasSetAlarm = false;
 
 // light radius
 //lightRadius = 256;

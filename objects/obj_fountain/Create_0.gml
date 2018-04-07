@@ -37,3 +37,4 @@ particle = water;
 origLayer = layer;
 layerName = layer_get_name(layer);
 
+inUse = false;

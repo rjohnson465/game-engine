@@ -6,8 +6,13 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 
 if distance_to_object(obj_player) < 20 && interactInputReceived && global.player.isAlive && !global.isLooting {
 	isBeingLooted = true;
-} else if distance_to_object(obj_player) >= 20 {
+} 
+else if distance_to_object(obj_player) < 20 && global.player.isAlive && !global.isLooting {
+	global.canLoot = true;
+}
+else if distance_to_object(obj_player) >= 20 {
 	isBeingLooted  = false;
+	global.canLoot = false;
 }
 
 // ensure items are not anywhere on screen if not being looted
@@ -20,9 +25,9 @@ if !isBeingLooted {
 	global.isLooting = false;
 } else global.isLooting = true;
 
-if ds_list_size(items) == 0 {
-	global.isLooting = false;
-	instance_destroy(id,1);
+if ds_list_size(items) == 0 && !hasSetAlarm {
+	alarm[0]=1;
+	hasSetAlarm = true;
 }
 
 if global.ui.isShowingMenus isBeingLooted = false;

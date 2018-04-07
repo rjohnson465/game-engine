@@ -10,6 +10,8 @@ with obj_attunement {
 
 if global.isLooting && !gamepad_is_connected(gamePadIndex) exit;
 
+if global.isWishing exit;
+
 if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMouseOverAttunement && !isMouseInMenu {
 
 	if leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded {

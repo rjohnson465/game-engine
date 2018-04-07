@@ -1,5 +1,7 @@
 /// performDodge
 
+if global.isWishing exit;
+
 if  stamina > 0 &&
 	(state == CombatantStates.Idle || state == CombatantStates.Moving)
 	&& !isFrozen

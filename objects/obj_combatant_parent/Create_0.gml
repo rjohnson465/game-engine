@@ -191,6 +191,8 @@ hpRegen = .5; // per second
 stamina = 50;
 maxStamina = 50;
 staminaRegen = 10; // per second
+hpSteal = 0;
+staminaSteal = 0;
 
 // attributes
 strength = 10;

@@ -11,7 +11,7 @@ with obj_fade {
 	}
 }
 
-if interactInputReceived && place_meeting(x,y,obj_player) && fade == noone && global.player.isAlive {
+if interactInputReceived && place_meeting(x,y,obj_player) && fade == noone && global.player.isAlive && !global.canLoot {
 	global.fadeDuration = 60;
 	global.owner = id;
 	instance_create_depth(x,y,-100000,obj_fade);

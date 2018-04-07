@@ -53,6 +53,8 @@ enum ModifiableProperties {
 	Poise,
 	Defenses,
 	XpMultiplier,
+	HpSteal,
+	StaminaSteal,
 	length
 }
 

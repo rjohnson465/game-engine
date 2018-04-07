@@ -1,4 +1,7 @@
 // lock on target logic
+
+if global.isWishing exit;
+
 var lockOnInputReceived = keyboard_check_released(vk_control);
 if gamepad_is_connected(gamePadIndex) {
 	lockOnInputReceived = keyboard_check_released(vk_control)

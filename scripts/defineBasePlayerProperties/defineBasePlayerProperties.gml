@@ -29,6 +29,12 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 		case ModifiableProperties.Poise: {
 			ds_map_replace(basePlayerProperties,i,0); break;
 		}
+		case ModifiableProperties.HpSteal: {
+			ds_map_replace(basePlayerProperties,i,0); break;
+		}
+		case ModifiableProperties.StaminaSteal: {
+			ds_map_replace(basePlayerProperties,i,0); break;
+		}
 		case ModifiableProperties.Defenses: {
 			// a map in a map wowee
 			var defensesMap = ds_map_create();

@@ -10,6 +10,7 @@ for (var i = 0; i < ds_list_size(items); i++) {
 }
 
 ds_list_destroy(items);
+global.canLoot = false;
 
 with obj_room_data {
 	if roomIndex == room {

@@ -1,3 +1,7 @@
+if global.isWishing && distance_to_object(obj_player) < 20 {
+	inUse = true;
+} else inUse = false;
+
 // fountain interaction
 var interactInputReceived = keyboard_check_released(ord("F"));
 if gamepad_is_connected(global.player.gamePadIndex) {
@@ -32,7 +36,7 @@ if instance_exists(obj_enemy_parent) {
 	}
 }
 
-if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive {
+if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !global.canLoot && !inUse {
 	if !isRunning {
 		wishAtFountain(); // turn fountain on ;)
 	} else {
@@ -45,6 +49,9 @@ else if fade != noone {
 	if fade.frame == .5*fade.fadeDuration && isDoneFilling {
 		wishAtFountain(); // reposition enemies when screen is all fucked up
 	} 
+	if fade.frame == fade.fadeDuration {
+		global.isWishing = true;
+	}
 } else if distance_to_object(obj_player) < 20 && interactInputReceived && areActiveEnemiesNearby {
 	alert("Cannot use fountains when enemies are nearby",c_red);
 }

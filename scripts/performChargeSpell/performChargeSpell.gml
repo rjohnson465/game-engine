@@ -1,5 +1,7 @@
 /// performChargeSpell
 
+if global.isWishing exit;
+
 var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 

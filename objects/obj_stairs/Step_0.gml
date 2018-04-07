@@ -6,13 +6,15 @@ if place_meeting_layer(x,y,obj_player) {
 	with obj_player {
 		var layerName = layer_get_name(layer);
 		var layerNum = real(string_char_at(layerName, string_length(layerName)));
+		
+		var dir = point_direction(xprevious,yprevious,x,y);
 	
-		if angleBetween(udMin,udMax,direction) && climbingDir != "u" {
+		if angleBetween(udMin,udMax,dir) && climbingDir != "u" {
 			layerToChangeTo = layer_get_id("instances_floor_" + string(fu));
 			climbingDir = "u";
 		} 
 	
-		else if !angleBetween(udMin,udMax,direction) && climbingDir != "d" {
+		else if !angleBetween(udMin,udMax,dir) && climbingDir != "d" {
 			layerToChangeTo = layer_get_id("instances_floor_" + string(fd));
 			climbingDir = "d";
 		}

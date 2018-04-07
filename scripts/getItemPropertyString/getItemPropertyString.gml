@@ -23,6 +23,12 @@ switch prop {
 	case ModifiableProperties.CriticalsDamage: {
 		s = "% critical hit damage"; break;
 	}
+	case ModifiableProperties.HpSteal: {
+		s = "% attack damage added to HP"; break;
+	}
+	case ModifiableProperties.StaminaSteal: {
+		s = "% attack damage added to Stamina"; break;
+	}
 	case ModifiableProperties.WeaponTypesDamage: {
 		s = " base damage"; break;
 	}

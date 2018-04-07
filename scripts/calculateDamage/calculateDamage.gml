@@ -112,6 +112,26 @@ if	state != CombatantStates.Dodging &&
 	if assailant.type == CombatantTypes.Player {
 		damage += (assailant.comboModeLevel*.25)*damage;
 	}
+	
+	// HP steal?
+	if assailant.hpSteal != 0 {
+		var percentStolen = assailant.hpSteal / 100;
+		if attackObj.isSpell {
+			percentStolen = percentStolen / spell.numberOfProjectiles;
+		}
+		assailant.hp += actualDamage*percentStolen;
+		if assailant.hp > assailant.maxHp assailant.hp = assailant.maxHp;
+	}
+	
+	// Stamina Steal?
+	if assailant.staminaSteal != 0 {
+		var percentStolen = assailant.staminaSteal / 100;
+		if attackObj.isSpell {
+			percentStolen = percentStolen / spell.numberOfProjectiles;
+		}
+		assailant.stamina += actualDamage*percentStolen;
+		if assailant.stamina > assailant.maxStamina assailant.stamina = assailant.maxStamina;
+	}
 		
 	// factor critical hit
 	if isCriticalHit damage = calculateCriticalHitDamage(attackObj,damage);	

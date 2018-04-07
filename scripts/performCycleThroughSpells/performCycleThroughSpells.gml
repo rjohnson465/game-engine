@@ -1,6 +1,8 @@
 /// performCycleThroughSpells(dir)
 /// @param dir up | down
 
+if global.isWishing exit;
+
 var dir = argument0;
 
 if dir == "up" {

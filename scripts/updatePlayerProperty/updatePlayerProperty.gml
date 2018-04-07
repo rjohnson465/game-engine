@@ -106,6 +106,12 @@ switch prop {
 	case ModifiableProperties.Poise: {
 		p.poise = newVal; break;
 	}
+	case ModifiableProperties.HpSteal: {
+		p.hpSteal = newVal; break;
+	}
+	case ModifiableProperties.StaminaSteal: {
+		p.staminaSteal = newVal; break;
+	}
 	case ModifiableProperties.OffHandDamage: {
 		p.offHandDamagePercent = newVal; break;
 	}

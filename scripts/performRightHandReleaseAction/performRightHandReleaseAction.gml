@@ -1,6 +1,8 @@
 var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
+if global.isWishing exit;
+
 if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMouseInMenu {
 	if  !leftHandItem.isTwoHanded
 		&& rightHandItem.subType != HandItemTypes.Shield
