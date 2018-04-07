@@ -10,3 +10,5 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 
 durability = 50;
 durabilityMax = 50;
+
+socketedGems = ds_list_create();

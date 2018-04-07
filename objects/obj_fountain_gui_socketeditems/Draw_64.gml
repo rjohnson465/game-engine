@@ -1,8 +1,20 @@
-if global.fountainGui.currentSubMenu != CHOOSEITEM {
+draw_set_halign(fa_center); draw_set_valign(fa_center);
+draw_set_alpha(1);
+if global.fountainGui.currentSubMenu == CHOOSEITEM {
+	draw_text(mean(MENUS_TOPLEFT_X,MENUS_TOPLEFT_X+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),"Choose Item");
+} else {
+	draw_text(mean(MENUS_TOPLEFT_X,MENUS_TOPLEFT_X+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),selectedItem.name);
+}
+
+/*
+if global.fountainGui.currentSubMenu != CHOOSEITEM || global.fountainGui.currentSubMenu != NAMEPRICE {
 	draw_set_alpha(.2);
 } else {
 	draw_set_alpha(1);
-}
+}*/
+
+// SUB MENU 1 -- select item
+
 
 // basically show the inventory, filtered for only socketed items
 // SCROLL BAR 1 (for select item menu)
@@ -35,10 +47,12 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 		ds_list_delete(inv,pos);
 	}
 	
-	/*if !object_is_ancestor(el.object_index, obj_gem_parent) {
-		var pos = ds_list_find_index(inv,el);
-		ds_list_delete(inv,pos);
-	}*/
+}
+
+for (var i = 0; i < ds_list_size(inv); i++) {
+	var el = ds_list_find_value(inv,i);
+	el.x1 = -50;
+	el.y1 = -50;
 }
 	
 var row = 1; var col = 1;

@@ -33,11 +33,6 @@ switch currentMenu {
 	
 	case INSERTGEM: {
 		
-		// SUB MENU 1 -- select item
-		
-		draw_set_halign(fa_center);
-		draw_text(mean(MENUS_TOPLEFT_X,MENUS_TOPLEFT_X+subMenuWidth),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),"Choose Item");
-		
 		
 		break;
 		

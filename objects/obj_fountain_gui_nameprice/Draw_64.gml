@@ -1,16 +1,39 @@
-if global.fountainGui.currentSubMenu == CHOOSEITEM {
+if global.fountainGui.currentSubMenu != NAMEPRICE {
 	draw_set_alpha(.2);
 } else {
 	draw_set_alpha(1);
 }
 
 draw_set_halign(fa_center); draw_set_valign(fa_center); draw_set_color(c_white);
-if global.fountainGui.currentSubMenu == CHOOSEGEM || global.fountainGui.currentSubMenu == CHOOSEITEM {
-	draw_text(mean(topLeftX,topLeftX+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),"Choose Gem");
-} else {
-	draw_text(mean(topLeftX,topLeftX+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),selectedItem.name);
+draw_text(mean(topLeftX,topLeftX+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),"Name Price");
+
+// named price box
+var x1 = topLeftX+1 var y1 = topLeftY+1+subMenuTitleHeight;
+var x2 = topLeftX+1+(width-1); var y2 = topLeftY+1+subMenuTitleHeight+25;
+draw_set_color(c_black);
+draw_rectangle(x1,y1,x2,y2,0);
+draw_set_color(c_white);
+draw_rectangle(x1,y1,x2,y2,1);
+draw_text(mean(x1,x2),mean(y1,y2),string(namedPrice));
+
+draw_set_valign(fa_top);
+// options
+for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
+	var str = ds_list_find_value(allPriceIncrements,i);
+	if selectedPriceIncrease == str {
+		draw_set_alpha(1);
+	} else {
+		draw_set_alpha(.5);
+	}
+	draw_text(mean(x1,x2),y2+(25*i),str);
 }
 
+// likeliness of it working
+odds = namedPrice >= guaranteedPrice ? 100 : 0;
+draw_text(mean(x1,x2),y2+((ds_list_size(allPriceIncrements)+1)*25),"Odds of it working: " + string(odds) + "%" );
+
+
+/*
 // basically show the inventory, filtered for only socketed items
 // SCROLL BAR 2 (for select gem menu)
 draw_set_color(c_black);
@@ -34,17 +57,13 @@ ds_list_clear(inv);
 for (var i = 0; i < ds_list_size(inventory); i++) {
 	var el = ds_list_find_value(inventory,i);
 	ds_list_add(inv,el);
+	//el.x1 = -50;
+	//el.y1 = -50;
 	
 	if !object_is_ancestor(el.object_index, obj_gem_parent) {
 		var pos = ds_list_find_index(inv,el);
 		ds_list_delete(inv,pos);
 	}
-}
-
-for (var i = 0; i < ds_list_size(inv); i++) {
-	var el = ds_list_find_value(inv,i);
-	el.x1 = -50;
-	el.y1 = -50;
 }
 	
 var row = 1; var col = 1;

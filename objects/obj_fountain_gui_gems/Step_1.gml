@@ -1,3 +1,4 @@
+if !isAcceptingInput exit;
 // controller stuff
 var pad = global.player.gamePadIndex;
 
@@ -46,7 +47,10 @@ if gamepad_is_connected(pad) {
 	
 	// select gem to insert, move on to name price
 	if gamepad_button_check_pressed(pad,gp_face1) {
-
+		var namePriceGui = instance_nearest(x,y,obj_fountain_gui_nameprice);
+		namePriceGui.isAcceptingInput = false;
+		namePriceGui.alarm[0] = 1;
+		global.fountainGui.currentSubMenu = NAMEPRICE; 
 	} 
 	
 	if gamepad_button_check_pressed(pad,gp_face2) {

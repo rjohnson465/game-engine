@@ -46,6 +46,9 @@ if gamepad_is_connected(pad) {
 	
 	// select item to insert gem into (selectedItem), move onto to choose gem
 	if gamepad_button_check_pressed(pad,gp_face1) {
+		var gemGui = instance_nearest(x,y,obj_fountain_gui_gems);
+		gemGui.isAcceptingInput = false;
+		gemGui.alarm[0] = 1;
 		global.fountainGui.currentSubMenu = CHOOSEGEM; 
 	} 
 	
@@ -53,6 +56,7 @@ if gamepad_is_connected(pad) {
 	if gamepad_button_check_pressed(pad,gp_face2)  {
 		global.fountainGui.currentMenu = FOUNTAIN;
 		instance_destroy(obj_fountain_gui_gems,1);
+		instance_destroy(obj_fountain_gui_nameprice,1);
 		instance_destroy(id,1);
 	}
 }

@@ -1,4 +1,5 @@
 depth = -1001;
+isAcceptingInput = false;
 
 menusHandleHeight = 20;
 inv = ds_list_create();
@@ -31,14 +32,14 @@ scrollBarBottomRightY = scrollBarTopLeftY+invHeight;
 scrollBarWidth = scrollBarBottomRightX - scrollBarTopLeftX;
 // scroll button up
 var scrollButtonScale = scrollBarWidth / scrollSpriteWidth;
-scrollButtonUpTopLeftX = scrollBarTopLeftX+width;
+scrollButtonUpTopLeftX = scrollBarTopLeftX;
 scrollButtonUpTopLeftY = scrollBarTopLeftY;
-scrollButtonUpBottomRightX = scrollButtonUpTopLeftX+(scrollSpriteWidth*scrollButtonScale)+width;
+scrollButtonUpBottomRightX = scrollButtonUpTopLeftX+(scrollSpriteWidth*scrollButtonScale);
 scrollButtonUpBottomRightY = scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale);
 // scroll button down
-scrollButtonDownTopLeftX = scrollBarTopLeftX+width+width;
+scrollButtonDownTopLeftX = scrollBarTopLeftX;
 scrollButtonDownTopLeftY = scrollBarBottomRightY-(scrollSpriteHeight*scrollButtonScale);
-scrollButtonDownBottomRightX = scrollButtonDownTopLeftX+(scrollSpriteWidth*scrollButtonScale)+width;
+scrollButtonDownBottomRightX = scrollButtonDownTopLeftX+(scrollSpriteWidth*scrollButtonScale);
 scrollButtonDownBottomRightY = scrollBarBottomRightY;
 
 menuButtonCoordinates = ds_map_create();

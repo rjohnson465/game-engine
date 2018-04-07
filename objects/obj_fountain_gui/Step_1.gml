@@ -19,6 +19,7 @@ if gamepad_is_connected(pad) {
 					currentSubMenu = CHOOSEITEM; 
 					instance_create_depth(x,y,1,obj_fountain_gui_socketeditems);
 					instance_create_depth(x,y,1,obj_fountain_gui_gems);
+					instance_create_depth(x,y,1,obj_fountain_gui_nameprice);
 					break;
 				}
 				case FountainOptions.BreakdownItem: {

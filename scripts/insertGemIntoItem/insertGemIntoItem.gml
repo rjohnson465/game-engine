@@ -27,6 +27,9 @@ switch gem.subType {
 	case GemTypes.Emerald: {
 		gemElement = POISON; break;
 	}
+	case GemTypes.Ruby: {
+		gemElement = FIRE; break;
+	}
 }
 
 switch item.type {

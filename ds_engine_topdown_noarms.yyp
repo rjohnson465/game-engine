@@ -4607,6 +4607,14 @@
             }
         },
         {
+            "Key": "dcef21f7-1995-4aae-b0c7-f312c9eef74a",
+            "Value": {
+                "id": "580fa332-b065-4179-9fdf-a3d532cbbd73",
+                "resourcePath": "views\\dcef21f7-1995-4aae-b0c7-f312c9eef74a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "dd4d6319-b4ee-40bd-8871-8366790582c4",
             "Value": {
                 "id": "2f3ff104-d186-46fe-92d8-c9c65f29bf6a",
@@ -4700,6 +4708,14 @@
                 "id": "e81ad174-4471-4b9c-bb33-decc69f3c969",
                 "resourcePath": "sprites\\spr_player_hand_unarmed_recover_2\\spr_player_hand_unarmed_recover_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "dfbe4249-3bd1-4873-bd58-a0b5fe130660",
+            "Value": {
+                "id": "50050641-bcd2-47ba-92ec-059191ff2aa4",
+                "resourcePath": "objects\\obj_fountain_gui_nameprice\\obj_fountain_gui_nameprice.yy",
+                "resourceType": "GMObject"
             }
         },
         {

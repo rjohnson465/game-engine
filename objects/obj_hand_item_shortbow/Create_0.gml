@@ -1,6 +1,7 @@
 event_inherited();
 subType = HandItemTypes.Ranged;
 name = "Shortbow";
+baseName = "Shortbow";
 spriteName = "shortbow";
 itemSprite = spr_item_shortbow;
 
@@ -17,3 +18,5 @@ staminaCostArray=[15];
 physicalDamageTypeArray = ["piercing"];
 
 act = 1;
+
+numberOfSockets = 1;
