@@ -51,6 +51,9 @@ else if fade != noone {
 	} 
 	if fade.frame == fade.fadeDuration {
 		global.isWishing = true;
+		if !instance_exists(obj_fountain_gui) {
+			instance_create_depth(x,y,1,obj_fountain_gui);
+		}
 	}
 } else if distance_to_object(obj_player) < 20 && interactInputReceived && areActiveEnemiesNearby {
 	alert("Cannot use fountains when enemies are nearby",c_red);

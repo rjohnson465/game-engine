@@ -1,4 +1,5 @@
 if global.player.hp <= 0 exit;
+if global.isWishing exit;
 isShowingMenus = !isShowingMenus;
 currentMenu = INVENTORY;
 if isShowingMenus {

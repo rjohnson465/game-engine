@@ -167,6 +167,14 @@
             }
         },
         {
+            "Key": "06344b42-2fc1-42d7-b34c-419b2ee7ec39",
+            "Value": {
+                "id": "831bb562-2fdb-4c30-8fc5-10f220ae7f3e",
+                "resourcePath": "objects\\obj_fountain_gui_socketeditems\\obj_fountain_gui_socketeditems.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "06555a88-e780-4bf4-ae56-5bba19e8fa04",
             "Value": {
                 "id": "d3a7146c-0a95-4428-afb4-1fe732c11585",
@@ -340,6 +348,14 @@
                 "id": "4df52aac-c94b-4e88-af39-e51d8e984d69",
                 "resourcePath": "sprites\\spr_stats_xp\\spr_stats_xp.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0d57633b-3daa-43b9-89f1-48f308a21fa4",
+            "Value": {
+                "id": "7c0c61ce-86d9-4f69-8562-5487ea819b99",
+                "resourcePath": "objects\\obj_fountain_gui\\obj_fountain_gui.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1188,6 +1204,14 @@
                 "id": "255df568-bf88-4859-9e68-d68fb8e9b764",
                 "resourcePath": "sprites\\spr_player_shortbow22\\spr_player_shortbow22.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "34fec2cb-8501-4452-9960-023d7ca708db",
+            "Value": {
+                "id": "74e71852-ef5e-4979-95db-52bc4ed0deab",
+                "resourcePath": "views\\34fec2cb-8501-4452-9960-023d7ca708db.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -2663,6 +2687,14 @@
             }
         },
         {
+            "Key": "8305d611-d802-438b-a7f2-7d475431cb73",
+            "Value": {
+                "id": "82585a7c-f59d-4a9a-a55b-c018c4ccea86",
+                "resourcePath": "scripts\\moveFountainInvSelector\\moveFountainInvSelector.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "8311881f-4b37-431c-af09-32d314f64213",
             "Value": {
                 "id": "d88ec360-0abd-4428-972a-3313a55dd69c",
@@ -3308,6 +3340,14 @@
                 "id": "5a7802b0-fc8e-4c78-b4a7-fae66c511726",
                 "resourcePath": "scripts\\scr_collision_line_list_layer\\scr_collision_line_list_layer.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a3aea2d1-e62e-48ed-95f0-3d334e8dbca7",
+            "Value": {
+                "id": "2da51ab5-dfe5-45f6-b846-147162721635",
+                "resourcePath": "objects\\obj_fountain_gui_gems\\obj_fountain_gui_gems.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -5272,7 +5312,6 @@
         "5dc1c55a-d410-4fc7-a098-b9544d713bf6",
         "00feb608-5eda-4896-afe4-aa97abfda795",
         "3ba0e475-52bf-40db-82b9-fe6e9814970d",
-        "ec462f34-0172-423c-9dbb-db8ad4f99d84",
         "85972997-15dd-45c7-a31a-086cb63d6dd6",
         "1d401cd2-ba65-41a1-98c8-2ecec1a0dfef",
         "327761e8-0a30-4d64-a3e2-db49dcbac73f",
@@ -5408,7 +5447,9 @@
         "474203f1-3ef0-43f6-afa3-c4be7acee77b",
         "be342bdb-a747-48b2-8110-d077ac1a87cb",
         "4802df56-5c15-4966-8fe7-5c456c4fbf8b",
-        "deae7a51-1115-4d01-a739-58728e9c68b7"
+        "deae7a51-1115-4d01-a739-58728e9c68b7",
+        "ec462f34-0172-423c-9dbb-db8ad4f99d84",
+        "8305d611-d802-438b-a7f2-7d475431cb73"
     ],
     "tutorial": ""
 }

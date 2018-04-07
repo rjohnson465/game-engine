@@ -190,13 +190,14 @@ woodshield.persistent = true;
 addItemToInventory(woodshield);
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
-//shortbow.numberOfSockets = 2;
+shortbow.numberOfSockets = 2;
 shortbow.persistent = true;
 //ds_list_add(inventory,shortbow);
 addItemToInventory(shortbow);
 
 var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword2.persistent = true;
+longsword2.numberOfSockets = 1;
 //ds_map_replace(longsword2.damages,ICE,[2,4]);
 addItemToInventory(longsword2);
 

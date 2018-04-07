@@ -56,13 +56,13 @@ if gamepad_is_connected(gamePadIndex) {
 	if gamepad_button_check(gamePadIndex,gp_shoulderl) && !global.ui.isShowingMenus {
 		performChargeSpell();
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_padu) && !global.ui.isShowingMenus {
+	if gamepad_button_check_pressed(gamePadIndex,gp_padu) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
 		performCycleThroughSpells("up");
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_padd) && !global.ui.isShowingMenus {
+	if gamepad_button_check_pressed(gamePadIndex,gp_padd) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
 		performCycleThroughSpells("down");
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_padr) && !global.ui.isShowingMenus && !global.isLooting {
+	if gamepad_button_check_pressed(gamePadIndex,gp_padr) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
 		switch currentSpellAttunement {
 			case MAGIC: {
 				currentSpellAttunement = FIRE;
@@ -86,7 +86,7 @@ if gamepad_is_connected(gamePadIndex) {
 			}
 		}
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_padl) && !global.ui.isShowingMenus && !global.isLooting {
+	if gamepad_button_check_pressed(gamePadIndex,gp_padl) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
 		switch currentSpellAttunement {
 			case MAGIC: {
 				currentSpellAttunement = LIGHTNING;
