@@ -54,6 +54,9 @@ switch ds_list_size(gemTypesSeen) {
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Lapis,GemTypes.Aquamarine]) {
 			weapon.name = "Santa's " + weapon.baseName; break;
 		}
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Lapis,GemTypes.Aquamarine]) {
+			weapon.name = "Santa's " + weapon.baseName; break;
+		}
 	}
 	case 3: {
 		var gemType1 = ds_list_find_value(gemTypesSeen,0);

@@ -61,8 +61,17 @@ if gamepad_is_connected(pad) {
 				var item = itemsGui.selectedItem;
 				var gemGui = instance_nearest(x,y,obj_fountain_gui_gems);
 				var gem = gemGui.selectedItem;
+				alert(string(gem.name)+ " sucessfully inserted into " + string(item.name),c_lime);
+				spendGold(namedPrice);
 				insertGemIntoItem(gem,item);
-				alert(string(gem.name)+ "sucessfully inserted into " + string(item.name),c_lime);
+				
+				// refresh item if equipped
+				with obj_weapon {
+					if owner == global.player {
+						refreshParticles = true;
+					}
+				}
+				
 				global.fountainGui.currentMenu = FOUNTAIN;
 				instance_destroy(obj_fountain_gui_gems,1);
 				instance_destroy(obj_fountain_gui_socketeditems,1);

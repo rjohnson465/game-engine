@@ -51,7 +51,11 @@ if room == roomIndex {
 		var itemDropDataObj = ds_list_find_value(itemDropsData,i);
 		var itemDrop = findPersistentRoomElement(obj_item_drop,itemDropDataObj.postX,itemDropDataObj.postY);
 		
-		itemDrop.x = -1000;
-		itemDrop.y = -1000;
+		if itemDrop {
+			itemDrop.x = -1000;
+			itemDrop.y = -1000;
+		} else {
+			ds_list_delete(itemDropsData,i);
+		}
 	}
 }

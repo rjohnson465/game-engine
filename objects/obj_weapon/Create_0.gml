@@ -14,6 +14,7 @@ if limbKey == "l" {
 }
 
 // particle system for elemental effects
+refreshParticles = false;
 system1 = part_system_create();
 part_system_depth(system1,depth);
 system2 = part_system_create();

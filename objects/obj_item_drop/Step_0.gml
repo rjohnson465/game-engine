@@ -16,7 +16,7 @@ else if distance_to_object(obj_player) >= 20 {
 }
 
 // ensure items are not anywhere on screen if not being looted
-if !isBeingLooted {
+if !isBeingLooted && items {
 	for (var i = 0; i < ds_list_size(items); i++) {
 		var item = ds_list_find_value(items,i);
 		item.x1 = -100;
@@ -33,5 +33,7 @@ if ds_list_size(items) == 0 && !hasSetAlarm {
 if global.ui.isShowingMenus isBeingLooted = false;
 
 // particles
-part_emitter_region(system,emitter,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
-part_emitter_burst(system,emitter,particle, 1);
+if layer == global.player.layer {
+	part_emitter_region(system,emitter,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
+	part_emitter_burst(system,emitter,particle, 1);
+}

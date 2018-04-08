@@ -29,7 +29,7 @@ if item.type == ItemTypes.HandItem {
 }
 // if item is stackable and has more than 1 in stack, show item count
 if item.isStackable {
-	if item.count != 1 {
+	if item.count != 1 || item.object_index == obj_item_coins {
 		draw_set_valign(fa_top); draw_set_halign(fa_left);
 		if item.object_index == obj_item_coins {
 			var s = noone;

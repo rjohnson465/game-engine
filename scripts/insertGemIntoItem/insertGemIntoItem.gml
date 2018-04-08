@@ -79,3 +79,8 @@ switch item.type {
 		break;
 	}
 }
+
+var gemIndex = ds_list_find_index(global.player.inventory,gem);
+if gemIndex != -1 {
+	ds_list_delete(global.player.inventory,gemIndex);
+}

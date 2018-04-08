@@ -11,7 +11,9 @@
         "825b7f54-0308-43b0-94fe-6c159cbf7ea9",
         "4830adac-eef5-40c9-8b9f-2305dac46aea",
         "d0be5a3a-fb31-4514-a321-5be9462d25cb",
-        "057f76ec-399e-4b2a-8ed8-7a1acb437b91"
+        "057f76ec-399e-4b2a-8ed8-7a1acb437b91",
+        "5fd912f7-c761-4d86-88a7-c18e9c3443d3",
+        "80bfbbe2-8740-495a-8131-4c267d5cf476"
     ],
     "filterType": "GMScript",
     "folderName": "Generation",

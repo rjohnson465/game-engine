@@ -18,8 +18,9 @@ if owner.currentUsingSpell != noone {
 //depth = layer_get_depth(layer) + 1;
 
 // switch weapon sprite
-if limbItem != limb.limbItem {
+if limbItem != limb.limbItem || refreshParticles {
 	limbItem = limb.limbItem;
+	refreshParticles = false;
 	if owner.type == CombatantTypes.Player {
 		//if limbItem.subType != HandItemTypes.Shield {
 			spriteString = "spr_"+owner.spriteString+"_"+limb.limbItem.spriteName;

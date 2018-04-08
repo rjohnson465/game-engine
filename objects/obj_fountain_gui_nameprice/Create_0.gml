@@ -11,6 +11,9 @@ width = (MENUS_BOTTOMRIGHT_X-MENUS_TOPLEFT_X)/3;
 topLeftX = MENUS_TOPLEFT_X+(2*width);
 topLeftY = MENUS_TOPLEFT_Y+menusHandleHeight;
 
+slotWidth = sprite_get_width(spr_item_slot);
+slotHeight = sprite_get_height(spr_item_slot);
+
 namedPrice = 0;
 
 guaranteedPrice = 1000; // TODO make function to assess insertion cost

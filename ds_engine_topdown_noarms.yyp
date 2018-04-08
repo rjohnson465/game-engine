@@ -1975,6 +1975,14 @@
             }
         },
         {
+            "Key": "5fd912f7-c761-4d86-88a7-c18e9c3443d3",
+            "Value": {
+                "id": "5efd7f5d-c39d-4414-93eb-6ba16c94a7b7",
+                "resourcePath": "scripts\\getNormalizedWeightMap\\getNormalizedWeightMap.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "606db894-fe11-42f4-bedb-4635a78875a1",
             "Value": {
                 "id": "1b55b1ad-931e-4918-b375-5febf5653d46",
@@ -2012,6 +2020,14 @@
                 "id": "f2ac9ece-79bf-49b0-8bfc-81faa1952456",
                 "resourcePath": "sprites\\spr_prompt_xbox_lb\\spr_prompt_xbox_lb.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "61e0e756-75c7-4d25-be38-b1909fb5f675",
+            "Value": {
+                "id": "b0997c57-1563-4dda-8d03-2bd3ea4d675a",
+                "resourcePath": "scripts\\spendGold\\spendGold.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2644,6 +2660,14 @@
                 "id": "e7809f2d-9b4e-4598-be63-6bc3ef7ba723",
                 "resourcePath": "objects\\obj_attack_unfairy_unarmed_1_1\\obj_attack_unfairy_unarmed_1_1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "80bfbbe2-8740-495a-8131-4c267d5cf476",
+            "Value": {
+                "id": "dcf4595d-8616-4b8d-bf9d-3bb0453e0abb",
+                "resourcePath": "scripts\\getCumulativeProbabilitiesMap\\getCumulativeProbabilitiesMap.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5459,11 +5483,14 @@
         "4830adac-eef5-40c9-8b9f-2305dac46aea",
         "d0be5a3a-fb31-4514-a321-5be9462d25cb",
         "057f76ec-399e-4b2a-8ed8-7a1acb437b91",
+        "5fd912f7-c761-4d86-88a7-c18e9c3443d3",
+        "80bfbbe2-8740-495a-8131-4c267d5cf476",
         "3b0962d3-6c78-45da-9736-65a842e5320e",
         "474203f1-3ef0-43f6-afa3-c4be7acee77b",
         "be342bdb-a747-48b2-8110-d077ac1a87cb",
         "4802df56-5c15-4966-8fe7-5c456c4fbf8b",
         "deae7a51-1115-4d01-a739-58728e9c68b7",
+        "61e0e756-75c7-4d25-be38-b1909fb5f675",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
         "8305d611-d802-438b-a7f2-7d475431cb73"
     ],
