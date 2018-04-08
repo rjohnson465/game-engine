@@ -1,9 +1,13 @@
-/// maybeMakeItem(dropChance,raritiesMap,*typeMap,*act,*gemTypeMap)
+/// maybeMakeItem(dropChance,raritiesMap,*typeMap,*act,*gemTypeMap,*itemPropertiesChanceAddendums)
 /// @param dropChance number 0-100
 /// @param raritiesMap map (<RarityType>, [minRange,maxRange])
 /// @param *typeMap map (<ItemType>, [minRange,maxRange])
 /// @param *act number
 /// @param *gemTypeMap map stating drop chances for each Gem 
+/// @param *itemPropertiesChanceAddendums 
+/// ^ this property lets one modify the odds of ModifiableProperties attached to the generated item
+/// pass a map of form (<ModifiableProperty>,<prob>) -- the default propertyChanceMap will be updated with 
+/// this new probability for that ModifiableProperty
 
 // return item or noone
 
@@ -12,9 +16,9 @@ randomize();
 var rand1 = random_range(0,100);
 if rand1 >= dropChance return noone;
 
-// select base item type
+// PART 1: Select base item type
 var typeMap = getDefaultItemTypeChanceMap();
-if argument_count >=3 {
+if argument_count >=3 && argument[2] != noone {
 	typeMap = argument[2];
 }
 
@@ -32,9 +36,9 @@ for (var i = 0; i < ds_map_size(typeMap); i++) {
 if itemType == noone itemType = ItemTypes.HandItem;
 ds_map_destroy(typeMap); // prevent mem leak
 
-// select object based on "act"
+// PART 2: Select object based on "act"
 var act = getRoomAct();
-if argument_count >= 4 {
+if argument_count >= 4 && argument[3] != noone {
 	act = argument[3];
 }
 
@@ -60,12 +64,13 @@ if item.object_index == obj_gem_parent {
 		}
 		currentItemType = ds_map_find_next(gemQualityMap,currentItemType);
 	}
+	ds_map_destroy(gemQualityMap);
 	
 	// decide gemType (ruby, hematite, etc)
 	randomize();
 	var rand = random_range(0,100);
 	var gemTypeChanceMap = getDefaultGemTypeChanceMap();
-	if argument_count >= 5 {
+	if argument_count >= 5 && argument[4] != noone {
 		gemTypeChanceMap = argument[4];
 	}
 	var lowestSeen = 100; var gemType = noone;
@@ -81,8 +86,44 @@ if item.object_index == obj_gem_parent {
 		}
 		currentItemType = ds_map_find_next(gemTypeChanceMap,currentItemType);
 	}
+	ds_map_destroy(gemTypeChanceMap);
 	
 	item = makeGem(gemType,qualityType);
+}
+
+// PART 3: Decide Rarity, apply gems and / or item properties
+var rarityMap = getItemRarityMapFromAct(act);
+if argument[1] != noone {
+	rarityMap = argument[1];
+}
+
+// normalize rarityMap, change all probs to 0-1 s.t. sum(probs) == 1
+rarityMap = getNormalizedWeightMap(rarityMap);
+rarityMap = getCumulativeProbabilitiesMap(rarityMap);
+
+randomize();
+var rand = random_range(0,1);
+var currentRarity = ds_map_find_first(rarityMap);
+var lowestSeen = 2; var rarityType = noone;
+for (var i = 0; i < ds_map_size(rarityMap); i++) {
+	var prob = ds_map_find_value(rarityMap,currentRarity);
+	
+	if prob < lowestSeen && rand < prob {
+		lowestSeen = prob;
+		rarityType = currentRarity;
+	}
+	currentRarity = ds_map_find_next(rarityMap,currentRarity);
+}
+
+// gems
+if itemType == ItemTypes.HandItem || itemType == ItemTypes.Head {
+	addSocketsAndGemsByRarity(item,rarityType);
+}
+
+// item properties
+if itemType == ItemTypes.Ring {
+	var addendums = argument_count >=6 ? argument[5] : noone;
+	addItemPropertiesByRarityAndAct(item,rarityType,act,addendums);
 }
 
 return item;

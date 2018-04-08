@@ -13,7 +13,13 @@
         "d0be5a3a-fb31-4514-a321-5be9462d25cb",
         "057f76ec-399e-4b2a-8ed8-7a1acb437b91",
         "5fd912f7-c761-4d86-88a7-c18e9c3443d3",
-        "80bfbbe2-8740-495a-8131-4c267d5cf476"
+        "80bfbbe2-8740-495a-8131-4c267d5cf476",
+        "9fcb31b6-d754-4a83-9890-51404b3ee126",
+        "ea5bd953-d797-41d4-85a5-66272127240f",
+        "78acb90e-69d5-4bc9-80ee-f377bd21749a",
+        "70ffadee-face-44a4-9fb9-5e7ca87d93c0",
+        "b703250b-f19e-42f5-bff5-23449c2dd5a4",
+        "fecfb900-0dd0-4169-ac95-7ac6b9e7d550"
     ],
     "filterType": "GMScript",
     "folderName": "Generation",

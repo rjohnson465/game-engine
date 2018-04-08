@@ -40,3 +40,6 @@ if point_in_rectangle(mouse_x,mouse_y,vx+eim.topLeftX,vy+eim.topLeftY,vx+eim.bot
 } else {
 	acceptableEquipmentSlots = [];
 }
+
+
+

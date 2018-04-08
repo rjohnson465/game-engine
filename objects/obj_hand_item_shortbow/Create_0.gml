@@ -18,5 +18,3 @@ staminaCostArray=[15];
 physicalDamageTypeArray = ["piercing"];
 
 act = 1;
-
-numberOfSockets = 1;

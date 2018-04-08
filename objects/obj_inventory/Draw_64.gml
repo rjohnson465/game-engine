@@ -99,93 +99,97 @@ var inventory = global.player.inventory;
 ds_list_clear(inv);
 for (var i = 0; i < ds_list_size(inventory); i++) {
 	var el = ds_list_find_value(inventory,i);
-				
-	ds_list_add(inv,el);
-	el.x1 = -50;
-	el.y1 = -50;
 	
-	// if we're equipping something using the Equip Selector, 
-	// automatically only show what is possible to equip
-	if ui.equipSelector.isActive && isSelectorInInventory(ui.equipSelector) {
-		// get equipment slot the equipSelector is on
-		var esx1 = ui.moveSelector.x1; var esy1 = ui.moveSelector.y1;
-		var equipmentSlotToFill = noone;
-		with obj_equipmentslot {
-			if id.x1 == esx1 && id.y1 == esy1 {
-				equipmentSlotToFill = id;
+	//if instance_exists(el) {
+		ds_list_add(inv,el);
+		el.x1 = -50;
+		el.y1 = -50;
+	
+		// if we're equipping something using the Equip Selector, 
+		// automatically only show what is possible to equip
+		if ui.equipSelector.isActive && isSelectorInInventory(ui.equipSelector) {
+			// get equipment slot the equipSelector is on
+			var esx1 = ui.moveSelector.x1; var esy1 = ui.moveSelector.y1;
+			var equipmentSlotToFill = noone;
+			with obj_equipmentslot {
+				if id.x1 == esx1 && id.y1 == esy1 {
+					equipmentSlotToFill = id;
+				}
 			}
-		}
 		
-		var slotId = equipmentSlotToFill.slot;
-		if slotId == EquipmentSlots.RightHand1 || slotId == EquipmentSlots.RightHand2 {
-			if (el.type == ItemTypes.HandItem && el.isTwoHanded) || el.type != ItemTypes.HandItem {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
-			}
-		} else if slotId == EquipmentSlots.LeftHand1 || slotId == EquipmentSlots.LeftHand2 {
-			if el.subType == HandItemTypes.Shield || el.type != ItemTypes.HandItem {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
-			}
-		} else if	slotId == EquipmentSlots.LeftRing1 || slotId == EquipmentSlots.LeftRing2
-					|| slotId == EquipmentSlots.RightRing1 || slotId == EquipmentSlots.RightRing2 
-		{
-			if el.type != ItemTypes.Ring {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
-			}
-		} else if slotId == EquipmentSlots.Head {
-			if el.type != ItemTypes.Head {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
+			var slotId = equipmentSlotToFill.slot;
+			if slotId == EquipmentSlots.RightHand1 || slotId == EquipmentSlots.RightHand2 {
+				if (el.type == ItemTypes.HandItem && el.isTwoHanded) || el.type != ItemTypes.HandItem {
+					var pos = ds_list_find_index(inv,el);
+					ds_list_delete(inv,pos);
+				}
+			} else if slotId == EquipmentSlots.LeftHand1 || slotId == EquipmentSlots.LeftHand2 {
+				if el.subType == HandItemTypes.Shield || el.type != ItemTypes.HandItem {
+					var pos = ds_list_find_index(inv,el);
+					ds_list_delete(inv,pos);
+				}
+			} else if	slotId == EquipmentSlots.LeftRing1 || slotId == EquipmentSlots.LeftRing2
+						|| slotId == EquipmentSlots.RightRing1 || slotId == EquipmentSlots.RightRing2 
+			{
+				if el.type != ItemTypes.Ring {
+					var pos = ds_list_find_index(inv,el);
+					ds_list_delete(inv,pos);
+				}
+			} else if slotId == EquipmentSlots.Head {
+				if el.type != ItemTypes.Head {
+					var pos = ds_list_find_index(inv,el);
+					ds_list_delete(inv,pos);
+				}
 			}
 		}
-	}
 	
-	switch filter {
-		case InventoryFilters.Melee: {
-			if el.subType != HandItemTypes.Melee || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
+		switch filter {
+			case InventoryFilters.Melee: {
+				if el.subType != HandItemTypes.Melee || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
+					var pos = ds_list_find_index(inv,el);
+					ds_list_delete(inv,pos);
+				}
+				break;
 			}
-			break;
-		}
-		case InventoryFilters.Shields: {
-			if el.subType != HandItemTypes.Shield || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
+			case InventoryFilters.Shields: {
+				if el.subType != HandItemTypes.Shield || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
+					var pos = ds_list_find_index(inv,el);
+					ds_list_delete(inv,pos);
+				}
+				break;
 			}
-			break;
-		}
-		case InventoryFilters.Ranged: {
-			if el.subType != HandItemTypes.Ranged || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
+			case InventoryFilters.Ranged: {
+				if el.subType != HandItemTypes.Ranged || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
+					var pos = ds_list_find_index(inv,el);
+					ds_list_delete(inv,pos);
+				}
+				break;
 			}
-			break;
-		}
-		case InventoryFilters.Rings: {
-			if el.type != ItemTypes.Ring {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
+			case InventoryFilters.Rings: {
+				if el.type != ItemTypes.Ring {
+					var pos = ds_list_find_index(inv,el);
+					ds_list_delete(inv,pos);
+				}
+				break;
 			}
-			break;
-		}
-		case InventoryFilters.Head: {
-			if el.type != ItemTypes.Head {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
+			case InventoryFilters.Head: {
+				if el.type != ItemTypes.Head {
+					var pos = ds_list_find_index(inv,el);
+					ds_list_delete(inv,pos);
+				}
+				break;
 			}
-			break;
-		}
-		case InventoryFilters.Other: {
-			if el.type != ItemTypes.Other {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
+			case InventoryFilters.Other: {
+				if el.type != ItemTypes.Other {
+					var pos = ds_list_find_index(inv,el);
+					ds_list_delete(inv,pos);
+				}
+				break;
 			}
-			break;
 		}
-	}
+	//} else {
+		// el does not exist, what?
+	//}
 }
 	
 var row = 1; var col = 1;
@@ -251,8 +255,10 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 			w += drawPrompt("Equip "+itemAtMoveSelector.name,Input.F,promptsStartX,promptsY)+xOffset;
 		} else if isSelectorInEquippedItems(global.ui.moveSelector) {
 			var s = getSlotAtSelector(global.ui.moveSelector);
-			var slotName = s.name;
-			w += drawPrompt("Equip for "+slotName,Input.F,promptsStartX,promptsY)+xOffset;
+			if s {
+				var slotName = s.name;
+				w += drawPrompt("Equip for "+slotName,Input.F,promptsStartX,promptsY)+xOffset;
+			}
 		}
 	}
 	if global.ui.equipSelector.isActive {

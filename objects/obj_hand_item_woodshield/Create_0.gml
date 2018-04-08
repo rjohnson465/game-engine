@@ -11,5 +11,3 @@ ds_map_replace(defenses,CRUSH,100);
 ds_map_replace(defenses,PHYSICAL,100);
 
 act = 1;
-
-numberOfSockets = 1;

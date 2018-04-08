@@ -4,7 +4,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	(gamepad_button_check_pressed(global.player.gamePadIndex,gp_face1) && !global.ui.isShowingMenus)
 }
 
-if distance_to_object(obj_player) < 20 && interactInputReceived && global.player.isAlive && !global.isLooting {
+if distance_to_object(obj_player) < 20 && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting {
 	isBeingLooted = true;
 } 
 else if distance_to_object(obj_player) < 20 && global.player.isAlive && !global.isLooting {
@@ -33,7 +33,7 @@ if ds_list_size(items) == 0 && !hasSetAlarm {
 if global.ui.isShowingMenus isBeingLooted = false;
 
 // particles
-if layer == global.player.layer {
+if layer >= global.player.layer {
 	part_emitter_region(system,emitter,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system,emitter,particle, 1);
 }

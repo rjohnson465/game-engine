@@ -1,4 +1,4 @@
-if distance_to_object(obj_player) < 20 && global.player.isAlive {
+if distance_to_object(obj_player) < 20 && global.player.isAlive && layer == global.player.layer {
 	if !isBeingLooted {
 		drawPrompt("Loot Items",Input.F);
 	}

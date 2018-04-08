@@ -1,3 +1,4 @@
+
 if type == SelectorTypes.Select && !isActive && isSelectorInEquippedItems() && !ui.equipSelector.isActive {
 	ui.equipSelector.isActive = true;
 	ui.equipSelector.x1 = global.inventory.invTopLeftX;

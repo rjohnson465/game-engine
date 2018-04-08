@@ -13,6 +13,7 @@ for (var i = 0; i < ds_list_size(weapon.socketedGems); i++) {
 	}
 }
 
+var newName = "";
 switch ds_list_size(gemTypesSeen) {
 	case 0: {
 		break;
@@ -21,27 +22,27 @@ switch ds_list_size(gemTypesSeen) {
 		var gemType = ds_list_find_value(gemTypesSeen,0);
 		switch gemType {
 			case GemTypes.Lapis: {
-				weapon.name = "Enchanted " + weapon.baseName;
+				newName = "Enchanted " + weapon.baseName;
 				break;
 			}
 			case GemTypes.Aquamarine: {
-				weapon.name = "Frozen " + weapon.baseName;
+				newName = "Frozen " + weapon.baseName;
 				break;
 			}
 			case GemTypes.Topaz: {
-				weapon.name = "Electrified " + weapon.baseName;
+				newName = "Electrified " + weapon.baseName;
 				break;
 			}
 			case GemTypes.Ruby: {
-				weapon.name = "Burning " + weapon.baseName;
+				newName = "Burning " + weapon.baseName;
 				break;
 			}
 			case GemTypes.Emerald: {
-				weapon.name = "Poisoned " + weapon.baseName;
+				newName = "Poisoned " + weapon.baseName;
 				break;
 			}
 			case GemTypes.Hematite: {
-				weapon.name = "Sharp " + weapon.baseName;
+				newName = "Sharp " + weapon.baseName;
 				break;
 			}
 		}
@@ -52,11 +53,9 @@ switch ds_list_size(gemTypesSeen) {
 		var gemTypes = [gemType1,gemType2];
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Lapis,GemTypes.Aquamarine]) {
-			weapon.name = "Santa's " + weapon.baseName; break;
+			newName = "Santa's " + weapon.baseName; break;
 		}
-		if arrayIncludesMultiple(gemTypes,[GemTypes.Lapis,GemTypes.Aquamarine]) {
-			weapon.name = "Santa's " + weapon.baseName; break;
-		}
+
 	}
 	case 3: {
 		var gemType1 = ds_list_find_value(gemTypesSeen,0);
@@ -65,9 +64,16 @@ switch ds_list_size(gemTypesSeen) {
 		var gemTypes = [gemType1,gemType2,gemType3];
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Lapis,GemTypes.Aquamarine,GemTypes.Hematite]) {
-			weapon.name = "Unrequited " + weapon.baseName; break;
+			newName = "Unrequited " + weapon.baseName; break;
 		}
 	}
 }
+
+weapon.name = newName;
+/*with obj_hand_item_parent {
+	if copyOf != noone && copyOf == weapon {
+		name = newName;
+	}
+}*/
 
 ds_list_destroy(gemTypesSeen);

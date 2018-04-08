@@ -15,6 +15,13 @@ enum ItemTypes {
 	Other
 }
 
+enum ItemRarities {
+	Normal,
+	Fine,
+	Masterwork,
+	Legendary
+}
+
 type = ItemTypes.HandItem;
 subType = noone;
 
