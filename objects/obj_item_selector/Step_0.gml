@@ -5,7 +5,7 @@ if joystickInputFrame < joystickInputTotalFrames {
 }
 
 // gamepad input
-if gamepad_is_connected(pad) {
+if gamepad_is_connected(pad) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
 	
 	var h_point = gamepad_axis_value(pad, gp_axislh);
 	var v_point = gamepad_axis_value(pad, gp_axislv);

@@ -81,6 +81,6 @@ if rightRing2 {
 draw_set_color(c_dkgray);
 draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBottomRightX,itemDescriptionBottomRightY,false);
 
-if selectedItem != noone {
+if selectedItem != noone && instance_exists(selectedItem) && selectedItem.equipmentSlot != noone {
 	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,selectedItem);
 }

@@ -983,6 +983,14 @@
             }
         },
         {
+            "Key": "28bd2792-4d6d-42ce-b407-ed6d81e03136",
+            "Value": {
+                "id": "05e34203-dcac-4dba-8c0c-61a5bf25212a",
+                "resourcePath": "scripts\\chooseItemPropertyToAdd\\chooseItemPropertyToAdd.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "29406d29-dcaa-4510-af93-4d19b8e90e98",
             "Value": {
                 "id": "a517e65f-e6ed-4a00-a628-644eef81d4cc",
@@ -2700,6 +2708,14 @@
                 "id": "723509cb-5e77-45ed-b641-58ce0e851836",
                 "resourcePath": "objects\\obj_skill_bow_mastery\\obj_skill_bow_mastery.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "8161caa8-eb66-4d81-818f-a2d7575fa309",
+            "Value": {
+                "id": "44448813-cf25-44a1-83ed-41f49b3adacb",
+                "resourcePath": "scripts\\getKeyFromCumulativeProbMap\\getKeyFromCumulativeProbMap.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5539,6 +5555,8 @@
         "70ffadee-face-44a4-9fb9-5e7ca87d93c0",
         "b703250b-f19e-42f5-bff5-23449c2dd5a4",
         "fecfb900-0dd0-4169-ac95-7ac6b9e7d550",
+        "28bd2792-4d6d-42ce-b407-ed6d81e03136",
+        "8161caa8-eb66-4d81-818f-a2d7575fa309",
         "3b0962d3-6c78-45da-9736-65a842e5320e",
         "474203f1-3ef0-43f6-afa3-c4be7acee77b",
         "be342bdb-a747-48b2-8110-d077ac1a87cb",

@@ -17,9 +17,22 @@ var numPropertiesChanceMap = ds_map_create();
 switch rarity {
 	// normal Rings can have 1-2 properties
 	case ItemRarities.Normal: {
-		ds_map_replace(numPropertiesChanceMap,1,0);
-		ds_map_replace(numPropertiesChanceMap,2,0);
-		ds_map_replace(numPropertiesChanceMap,5,500);
+		ds_map_replace(numPropertiesChanceMap,1,5);
+		ds_map_replace(numPropertiesChanceMap,2,5);
+		ds_map_replace(numPropertiesChanceMap,3,0);
+		ds_map_replace(numPropertiesChanceMap,4,0);
+		ds_map_replace(numPropertiesChanceMap,5,0);
+		numPropertiesChanceMap = getNormalizedWeightMap(numPropertiesChanceMap);
+		numPropertiesChanceMap = getCumulativeProbabilitiesMap(numPropertiesChanceMap);
+		
+		break;
+	}
+	case ItemRarities.Fine: {
+		ds_map_replace(numPropertiesChanceMap,1,2);
+		ds_map_replace(numPropertiesChanceMap,2,5);
+		ds_map_replace(numPropertiesChanceMap,3,5);
+		ds_map_replace(numPropertiesChanceMap,4,1);
+		ds_map_replace(numPropertiesChanceMap,5,0);
 		numPropertiesChanceMap = getNormalizedWeightMap(numPropertiesChanceMap);
 		numPropertiesChanceMap = getCumulativeProbabilitiesMap(numPropertiesChanceMap);
 		
@@ -43,7 +56,7 @@ for (var i = 0; i < ds_map_size(numPropertiesChanceMap); i++) {
 	currentNumProps = ds_map_find_next(numPropertiesChanceMap,currentNumProps);
 }
 
-//show_debug_message(numProps);
+show_debug_message(string(rarity) + "||" + string(numProps));
 
 var propsChanceMap = getDefaultItemPropertiesChanceMap();
 if addendums != noone {
@@ -58,35 +71,25 @@ propsChanceMap = getNormalizedWeightMap(propsChanceMap);
 propsChanceMap = getCumulativeProbabilitiesMap(propsChanceMap);
 // add num props properties to item
 for (var i = 0; i < numProps; i++) {
-	// decide what property it will be
-	randomize();
-	var rand = random_range(0,1);
-	var lowestSeen = 2; var propKey = noone;
-	var currentPropKey = ds_map_find_first(propsChanceMap);
-	for (var j = 0; j < ds_map_size(propsChanceMap); j++) {
-			
-		var prob = ds_map_find_value(propsChanceMap,currentPropKey);
-		if rand < prob && prob < lowestSeen {
-			lowestSeen = prob;
-			propKey = currentPropKey;
-		}
-			
-		currentPropKey = ds_map_find_next(propsChanceMap,currentPropKey);
-	}
 	
-	// decide property "intensity" by act
+	// decide what property it will be 
+	// if we've already added this property, choose a different one (roll again)
+	var propKey = chooseItemPropertyToAdd(item,propsChanceMap);
+	
+	// decide property value "intensity" by act
 	var propRange = getItemPropertyValueRangeByAct(propKey,act);
 	randomize();
-	var rand = round(random_range(propRange[0],propRange[1]));
+	var rand = random_range(propRange[0],propRange[1]);
+	// maybe round
+	if propKey != ModifiableProperties.HpRegen && propKey != ModifiableProperties.StaminaRegen {
+		rand = round(rand);
+	}
 	var propVal = rand;
 	
 	// might need a macro value
 	var macro = getPropertyMacro(propKey);
 	if macro != noone {
-		//var currentVal = ds_map_find_value(item.itemProperties,propKey);
-		//if currentVal == noone || currentVal == undefined {
-			ds_map_replace(item.itemProperties,propKey,[macro,propVal]);
-		//}
+		ds_map_replace(item.itemProperties,propKey,[macro,propVal]);
 	} else {
 		ds_map_replace(item.itemProperties,propKey,propVal);
 	}

@@ -70,10 +70,10 @@ switch ds_list_size(gemTypesSeen) {
 }
 
 weapon.name = newName;
-/*with obj_hand_item_parent {
+with obj_hand_item_parent {
 	if copyOf != noone && copyOf == weapon {
 		name = newName;
 	}
-}*/
+}
 
 ds_list_destroy(gemTypesSeen);

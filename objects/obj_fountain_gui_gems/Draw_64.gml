@@ -98,5 +98,3 @@ if selectedItem != noone && instance_exists(selectedItem) {
 	draw_triangle(x1,sideMidPoint-5,x1,sideMidPoint+5,x1+5,sideMidPoint,false);
 	draw_triangle(x1+slotWidth,sideMidPoint-5,x1+slotWidth,sideMidPoint+5,x1+slotWidth-5,sideMidPoint,false);
 }
-
-show_debug_message(selectedItem.x1);

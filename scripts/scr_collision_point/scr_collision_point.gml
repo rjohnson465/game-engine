@@ -60,6 +60,7 @@ if(argument2)
             }
 
         }
+		__x = left; __y = top;
         return 0;
     }
     else
@@ -98,6 +99,7 @@ if(argument2)
             }
 
         }
+		__x = left; __y = top;
         return 0;
     }
 }
