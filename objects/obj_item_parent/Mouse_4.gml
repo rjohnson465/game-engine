@@ -18,11 +18,13 @@ if type == ItemTypes.HandItem {
 	if weaponType == UNARMED exit;
 }
 
-if (global.fountainGui != noone) {
+if (global.isWishing) {
 	if global.fountainGui.currentMenu == INSERTGEM {
 		if global.fountainGui.currentSubMenu == CHOOSEITEM {
 			var si = instance_nearest(x,y,obj_fountain_gui_socketeditems);
-			si.selectedItem = id;
+			if ds_list_find_index(si.inv,id) != -1 {
+				si.selectedItem = id;
+			}
 		} else if global.fountainGui.currentSubMenu == CHOOSEGEM {
 			var gemsel = instance_nearest(x,y,obj_fountain_gui_gems);
 			gemsel.selectedItem = id;

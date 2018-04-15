@@ -3,6 +3,8 @@ if global.fountainGui.currentSubMenu != NAMEPRICE exit;
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
 
+isBackButtonPressed = false;
+
 // cycle through buttons and see if we've clicked on one
 var currentButton = ds_map_find_first(menuButtonCoordinates);
 for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
@@ -12,8 +14,13 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 	var x2 = arr[2];
 	var y2 = arr[3];
 	
-	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && currentButton != "Back" {
-		selectedPriceIncrease = currentButton;
+	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
+		
+		if currentButton != "Back" {
+			selectedPriceIncrease = currentButton;
+		} else if mouse_check_button(mb_left) {
+			isBackButtonPressed = true;
+		}
 	}
 	
 	currentButton = ds_map_find_next(menuButtonCoordinates,currentButton);

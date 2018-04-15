@@ -8,7 +8,11 @@ if global.fountainGui.currentSubMenu != NAMEPRICE {
 
 if !gamepad_is_connected(global.player.gamePadIndex) {
 	// draw back button
-	draw_sprite_ext(spr_button_next,1,backButtonTopLeftX+30,backButtonTopLeftY,-1,1,0,c_white,draw_get_alpha());
+	if !isBackButtonPressed {
+		draw_sprite_ext(spr_button_next,1,backButtonTopLeftX+30,backButtonTopLeftY,-1,1,0,c_white,draw_get_alpha());
+	} else {
+		draw_sprite_ext(spr_button_next,1,backButtonTopLeftX+30,backButtonTopLeftY,-1,1,0,c_gray,draw_get_alpha());
+	}
 }
 
 draw_set_halign(fa_center); draw_set_valign(fa_center); draw_set_color(c_white);

@@ -11,12 +11,14 @@ if rand <= odds {
 	spendGold(namedPrice);
 	insertGemIntoItem(gem,item);
 				
-	// refresh item if equipped
+	// refresh item particles if equipped
 	with obj_weapon {
 		if owner == global.player {
 			refreshParticles = true;
 		}
 	}
+				
+	global.fountainGui.alarm[1] = 2;
 				
 	global.fountainGui.currentMenu = FOUNTAIN;
 	instance_destroy(obj_fountain_gui_gems,1);

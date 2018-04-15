@@ -76,6 +76,58 @@ switch item.type {
 			updateItemName(item);
 			break;
 		}
+		// Case: Shields
+		else {
+			ds_list_add(item.socketedGems,gem);
+			
+			var absorptionBoost = 0;
+			switch gem.condition {
+				case CRACKED: {
+					absorptionBoost = 5;
+					break;
+				}
+			}
+			var oldAbs = ds_map_find_value(item.defenses,gemElement);
+			var newAbs = oldAbs + absorptionBoost;
+			if newAbs > 100 newAbs = 100;
+			if gem.subType != GemTypes.Hematite {
+				ds_map_replace(item.defenses,gemElement,newAbs);
+			}
+			// hematite is an annoying special case
+			else {
+				ds_map_replace(item.defenses,SLASH,newAbs);
+				ds_map_replace(item.defenses,CRUSH,newAbs);
+				ds_map_replace(item.defenses,PIERCE,newAbs);
+				ds_map_replace(item.defenses,PHYSICAL,newAbs);
+			}
+			updateItemName(item);
+			break;
+		}
+		break;
+	}
+	case ItemTypes.Head: {
+		ds_list_add(item.socketedGems,gem);
+		
+		var defOrResBoost = 0;
+		switch gem.condition {
+			case CRACKED: {
+				defOrResBoost = 3;
+			}
+		}
+		var oldDef = ds_map_find_value(item.defenses,gemElement);
+		var newDef = oldDef + defOrResBoost;
+		if gemElement != PHYSICAL {
+			if newDef > 100 newDef = 100;
+		}
+		if gem.subType != GemTypes.Hematite {
+			ds_map_replace(item.defenses,gemElement,newDef);
+		} else {
+			ds_map_replace(item.defenses,SLASH,newDef);
+			ds_map_replace(item.defenses,CRUSH,newDef);
+			ds_map_replace(item.defenses,PIERCE,newDef);
+			ds_map_replace(item.defenses,PHYSICAL,newDef);
+		}
+		updateItemName(item);
 		break;
 	}
 }

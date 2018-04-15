@@ -4,13 +4,14 @@
 
 var item = argument[0];
 
+/*
 switch item.type {
 	case ItemTypes.HandItem: {
-		if item.subType != HandItemTypes.Shield {
+		//if item.subType HandItemTypes.Shield {
 			updateWeaponName(item);
 			break;
-		} else {
-		}
+		//} else {
+		//}
 		break;
 	}
 	case ItemTypes.Ring: {
@@ -18,4 +19,6 @@ switch item.type {
 	}
 	case ItemTypes.Head: {
 	}
-}
+	
+}*/
+updateItemNameGems(item);

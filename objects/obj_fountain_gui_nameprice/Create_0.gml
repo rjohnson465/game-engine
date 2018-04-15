@@ -26,6 +26,7 @@ backButtonTopLeftY = topLeftY;
 backButtonBottomRightX = topLeftX+subMenuTitleHeight;
 backButtonBottomRightY = topLeftY+subMenuTitleHeight;
 ds_map_replace(menuButtonCoordinates,"Back",[backButtonTopLeftX,backButtonTopLeftY,backButtonBottomRightX,backButtonBottomRightY]);
+isBackButtonPressed = false;
 
 #macro WISH "Make Wish"
 #macro RESETPRICE "Reset Wish Amount"

@@ -1,6 +1,6 @@
 var pad = global.player.gamePadIndex;
 
-if gamepad_is_connected(pad) {
+if gamepad_is_connected(pad) && isAcceptingInput {
 	
 	if currentMenu == FOUNTAIN {
 		

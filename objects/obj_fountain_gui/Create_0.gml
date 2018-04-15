@@ -38,13 +38,12 @@ for (var i = 0; i < ds_list_size(menuOptions); i++) {
 	ds_map_replace(menuButtonCoordinates,opt,[x1,y1,x2,y2]);
 }
 
-/*
-var insertGemWidth = string_width(INSERTGEM); var insertGemHeight = string_height(INSERTGEM);
-insertGemTopLeftX = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X)-(.5*insertGemWidth);
-insertGemTopLeftY = mean(MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_Y)-(.5*insertGemHeight);
-insertGemBottomRightX = insertGemTopLeftX+insertGemWidth;
-insertGemBottomRightY = insertGemTopLeftY+insertGemHeight;
-ds_map_replace(menuButtonCoordinates,INSERTGEM,[insertGemTopLeftX,insertGemTopLeftY,insertGemBottomRightX,insertGemBottomRightY])*/
+var closeButtonWidth = sprite_get_width(spr_close_button);
+var closeButtonHeight = sprite_get_height(spr_close_button);
+var closeButtonCoordinates = 
+	[MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_TOPLEFT_Y+closeButtonHeight];
+ds_map_replace(menuButtonCoordinates,"closeButton",closeButtonCoordinates);
 
 depth = -1000;
 hasSetAlarm = false;
+isAcceptingInput = true;

@@ -1,7 +1,6 @@
-if currentMenu != FOUNTAIN exit;
-
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
+
 
 // cycle through buttons and see if we've clicked on one
 var currentButton = ds_map_find_first(menuButtonCoordinates);
@@ -15,11 +14,20 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 		switch (currentButton) {
 			case INSERTGEM: {
+				if currentMenu != FOUNTAIN exit;
 				startInsertGemMenu();
 				break;
 			}
 			case LEAVEFOUNTAIN: {
+				if currentMenu != FOUNTAIN exit;
 				leaveFountain();
+				break;
+			}
+			case "closeButton": {
+				if !hasSetAlarm {
+					alarm[0] = 1;
+					hasSetAlarm = true;
+				}
 				break;
 			}
 		}

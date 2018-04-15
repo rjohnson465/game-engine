@@ -2626,7 +2626,7 @@
             "Key": "7bae9fcb-d567-413b-9dc9-0993f6654191",
             "Value": {
                 "id": "6f7fb5c3-1594-4614-8336-11ddb3397869",
-                "resourcePath": "scripts\\updateWeaponName\\updateWeaponName.yy",
+                "resourcePath": "scripts\\updateItemNameGems\\updateItemNameGems.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -4935,6 +4935,14 @@
             }
         },
         {
+            "Key": "e42eb592-6e1a-4fe0-a160-e0b6cca7d487",
+            "Value": {
+                "id": "d88eb5c6-5fb4-405c-997a-2ed842c676a8",
+                "resourcePath": "views\\e42eb592-6e1a-4fe0-a160-e0b6cca7d487.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "e4374775-f49c-4989-8fc4-9ae3a9545331",
             "Value": {
                 "id": "dfa8a9a3-f8d6-43a1-83b8-e89ba99687a3",
@@ -5619,11 +5627,6 @@
         "abca50c0-c8ec-4b83-a5dc-8fbe73c60039",
         "c821f30b-35d9-4723-a8a0-689902641f36",
         "9a41a007-6774-413c-a1fb-fe18560d5702",
-        "e5ce9bf6-3d4c-4f77-8492-608ccf49b126",
-        "7bae9fcb-d567-413b-9dc9-0993f6654191",
-        "21e32d81-d55d-44bf-bd06-58f623c3a573",
-        "0c219689-8aff-48df-af31-5466c39f7240",
-        "37c6da58-a207-4b69-b302-d28fa96bb578",
         "1949d661-bf35-49e3-906d-36ee6139f2e2",
         "49c3814e-d8c4-4d0e-b35d-1ddee2964762",
         "2c63982b-75f5-4392-b9b2-2399e82fb6d4",
@@ -5651,6 +5654,11 @@
         "4802df56-5c15-4966-8fe7-5c456c4fbf8b",
         "deae7a51-1115-4d01-a739-58728e9c68b7",
         "61e0e756-75c7-4d25-be38-b1909fb5f675",
+        "7bae9fcb-d567-413b-9dc9-0993f6654191",
+        "e5ce9bf6-3d4c-4f77-8492-608ccf49b126",
+        "0c219689-8aff-48df-af31-5466c39f7240",
+        "21e32d81-d55d-44bf-bd06-58f623c3a573",
+        "37c6da58-a207-4b69-b302-d28fa96bb578",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
         "8305d611-d802-438b-a7f2-7d475431cb73"
     ],
