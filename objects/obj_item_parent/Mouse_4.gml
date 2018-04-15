@@ -8,10 +8,26 @@ with obj_item_drop {
 	}
 }
 
-if (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) && !itemIsBeingLooted exit;
+if (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) && !itemIsBeingLooted 
+	&& (global.fountainGui == noone)
+	{
+	exit;
+}
 
 if type == ItemTypes.HandItem {
 	if weaponType == UNARMED exit;
+}
+
+if (global.fountainGui != noone) {
+	if global.fountainGui.currentMenu == INSERTGEM {
+		if global.fountainGui.currentSubMenu == CHOOSEITEM {
+			var si = instance_nearest(x,y,obj_fountain_gui_socketeditems);
+			si.selectedItem = id;
+		} else if global.fountainGui.currentSubMenu == CHOOSEGEM {
+			var gemsel = instance_nearest(x,y,obj_fountain_gui_gems);
+			gemsel.selectedItem = id;
+		}
+	}
 }
 
 // select this item if in inv or equipped items

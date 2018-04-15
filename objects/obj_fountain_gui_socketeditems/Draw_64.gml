@@ -1,20 +1,34 @@
 draw_set_halign(fa_center); draw_set_valign(fa_center);
 draw_set_alpha(1);
+
+if global.fountainGui.currentSubMenu != CHOOSEITEM {
+	draw_set_alpha(.5);
+}
+
 if global.fountainGui.currentSubMenu == CHOOSEITEM {
 	draw_text(mean(MENUS_TOPLEFT_X,MENUS_TOPLEFT_X+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),"Choose Item");
 } else {
 	draw_text(mean(MENUS_TOPLEFT_X,MENUS_TOPLEFT_X+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),selectedItem.name);
 }
 
-/*
-if global.fountainGui.currentSubMenu != CHOOSEITEM || global.fountainGui.currentSubMenu != NAMEPRICE {
-	draw_set_alpha(.2);
-} else {
-	draw_set_alpha(1);
-}*/
+if !gamepad_is_connected(global.player.gamePadIndex) {
+
+	// draw back button
+	if !isBackButtonPressed {
+		draw_sprite_ext(spr_button_next,1,backButtonTopLeftX+30,backButtonTopLeftY,-1,1,0,c_white,draw_get_alpha());
+	} else {
+		draw_sprite_ext(spr_button_next,1,backButtonTopLeftX+30,backButtonTopLeftY,-1,1,0,c_gray,draw_get_alpha());
+	}
+
+	// draw next button
+	if !isNextButtonPressed {
+		draw_sprite_ext(spr_button_next,1,nextButtonTopLeftX,nextButtonTopLeftY,1,1,0,c_white,draw_get_alpha());
+	} else {
+		draw_sprite_ext(spr_button_next,1,nextButtonTopLeftX,nextButtonTopLeftY,1,1,0,c_gray,draw_get_alpha());
+	}
+}
 
 // SUB MENU 1 -- select item
-
 
 // basically show the inventory, filtered for only socketed items
 // SCROLL BAR 1 (for select item menu)
@@ -26,7 +40,7 @@ if scrollLevel == 0 || isScrollUpPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale),scrollButtonScale,-scrollButtonScale,0,c_gray,.75);
 } else draw_sprite_ext(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale),scrollButtonScale,-scrollButtonScale,0,c_white,1);
 // scroll button down			
-if is_undefined(ds_list_find_value(global.player.inventory, 9 + (5*scrollLevel))) || isScrollDownPressed {
+if is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) || isScrollDownPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_gray,.75);
 } else draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_white,1);
 		

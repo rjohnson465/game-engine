@@ -153,7 +153,7 @@ if owner.currentUsingSpell != noone {
 			var spark = part_type_create();
 			part_type_shape(spark, pt_shape_spark);
 			part_type_orientation(spark,0,359,0,15,1);
-			part_type_size(spark,0.25,.35,0,0);
+			part_type_size(spark,0.01,.15,0,0);
 			part_type_speed(spark,8,12,0,0);
 			part_type_direction(spark,0,360,0,4);
 			part_type_life(spark,3,6);

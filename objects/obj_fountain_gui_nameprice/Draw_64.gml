@@ -1,7 +1,14 @@
+var alphaMod = 1;
 if global.fountainGui.currentSubMenu != NAMEPRICE {
+	alphaMod = .2;
 	draw_set_alpha(.2);
 } else {
 	draw_set_alpha(1);
+}
+
+if !gamepad_is_connected(global.player.gamePadIndex) {
+	// draw back button
+	draw_sprite_ext(spr_button_next,1,backButtonTopLeftX+30,backButtonTopLeftY,-1,1,0,c_white,draw_get_alpha());
 }
 
 draw_set_halign(fa_center); draw_set_valign(fa_center); draw_set_color(c_white);
@@ -37,17 +44,25 @@ draw_set_valign(fa_top); draw_set_halign(fa_center);
 for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
 	var str = ds_list_find_value(allPriceIncrements,i);
 	if selectedPriceIncrease == str {
-		draw_set_alpha(1);
+		draw_set_alpha(1*alphaMod);
 	} else {
-		draw_set_alpha(.5);
+		draw_set_alpha(.5*alphaMod);
 	}
 	draw_text(mean(x1,x2),y2+(25*i),str);
 }
 
-/*var coinsY = y2+((ds_list_size(allPriceIncrements)+1)*25);
-draw_sprite(spr_item_coins,1,topLeftX+10,coinsY);
-draw_text(topLeftX+10+slotWidth+10,mean(coinsY,coinsY+slotHeight),string(getGoldCount()));*/
+/*// click zones
+var midW = mean(topLeftX,topLeftX+width); var midH = 200;
+for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
+	var opt = ds_list_find_value(allPriceIncrements,i);
+	var w = string_width(opt); var h = string_height(opt);
+	var yy = midH+((i)*25);
+	var x1 = midW-(.5*w); var y1 = yy-(.5*h);
+	var x2 = midW+w; var y2 = yy+h;
+	draw_rectangle(x1,y1,x2,y2,1);
+}*/
 
 // likeliness of it working
 odds = namedPrice >= guaranteedPrice ? 100 : 0;
+draw_set_alpha(.5);
 draw_text(mean(x1,x2),y2+((ds_list_size(allPriceIncrements)+1)*25)+slotHeight,"Odds of it working: " + string(odds) + "%" );

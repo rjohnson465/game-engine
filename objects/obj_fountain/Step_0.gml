@@ -36,7 +36,7 @@ if instance_exists(obj_enemy_parent) {
 	}
 }
 
-if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !global.canLoot && !inUse {
+if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !global.canLoot && !inUse && !global.ui.isShowingMenus {
 	if !isRunning {
 		wishAtFountain(); // turn fountain on ;)
 	} else {

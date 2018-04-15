@@ -13,9 +13,12 @@ subMenuTitleHeight = 30;
 
 invTopLeftX = MENUS_TOPLEFT_X;
 invTopLeftY = MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight;
+invBottomRightX = invTopLeftX+invWidth;
+invBottomRightY = invTopLeftY+invHeight;
 
 topLeftX = MENUS_TOPLEFT_X;
 topLeftY = MENUS_TOPLEFT_Y+menusHandleHeight;
+
 
 selectedItem = noone;
 
@@ -47,6 +50,22 @@ menuButtonCoordinates = ds_map_create();
 ds_map_add(menuButtonCoordinates,"InventoryScrollUp",[scrollButtonUpTopLeftX,scrollButtonUpTopLeftY,scrollButtonUpBottomRightX,scrollButtonUpBottomRightY]);
 ds_map_add(menuButtonCoordinates,"InventoryScrollDown", [scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonDownBottomRightX,scrollButtonDownBottomRightY]);
 
+// back button
+backButtonTopLeftX = topLeftX;
+backButtonTopLeftY = topLeftY;
+backButtonBottomRightX = topLeftX+subMenuTitleHeight;
+backButtonBottomRightY = topLeftY+subMenuTitleHeight;
+ds_map_replace(menuButtonCoordinates,"Back",[backButtonTopLeftX,backButtonTopLeftY,backButtonBottomRightX,backButtonBottomRightY]);
+
+// next button
+nextButtonTopLeftX = topLeftX+width-subMenuTitleHeight;
+nextButtonTopLeftY = topLeftY;
+nextButtonBottomRightX = nextButtonTopLeftX+subMenuTitleHeight;
+nextButtonBottomRightY = nextButtonTopLeftY + subMenuTitleHeight;
+ds_map_replace(menuButtonCoordinates,"Next",[nextButtonTopLeftX,nextButtonTopLeftY,nextButtonBottomRightX,nextButtonBottomRightY]);
+
+isBackButtonPressed = false;
+isNextButtonPressed = false;
 isScrollUpPressed = false;
 isScrollDownPressed = false;
 

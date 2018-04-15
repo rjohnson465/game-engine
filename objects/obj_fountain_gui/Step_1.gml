@@ -1,56 +1,21 @@
-var pad = global.player.gamePadIndex;
+if currentMenu != FOUNTAIN exit;
 
-if gamepad_is_connected(pad) {
+var vx = camera_get_view_x(view_camera[0]);
+var vy = camera_get_view_y(view_camera[0]);
+
+// cycle through buttons and see if we've clicked on one
+var currentButton = ds_map_find_first(menuButtonCoordinates);
+for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
+	var arr = ds_map_find_value(menuButtonCoordinates,currentButton);
+	var x1 = arr[0];
+	var y1 = arr[1];
+	var x2 = arr[2];
+	var y2 = arr[3];
 	
-	if currentMenu == FOUNTAIN {
-		
-		if gamepad_button_check_pressed(pad, gp_face2) {
-			if !hasSetAlarm {
-				alarm[0] = 1;
-				hasSetAlarm = true;
-			}
-			
-		}
-		
-		if gamepad_button_check_pressed(pad,gp_face1) {
-			switch selectedOption {
-				case FountainOptions.InsertGem: {
-					currentMenu = INSERTGEM; 
-					currentSubMenu = CHOOSEITEM; 
-					instance_create_depth(x,y,1,obj_fountain_gui_socketeditems);
-					instance_create_depth(x,y,1,obj_fountain_gui_gems);
-					instance_create_depth(x,y,1,obj_fountain_gui_nameprice);
-					break;
-				}
-				case FountainOptions.BreakdownItem: {
-					currentMenu = BREAKDOWNITEM; break;
-				}
-			}
-		}
-		
-		if gamepad_button_check_pressed(pad,gp_padd) {
-			switch selectedOption {
-				case FountainOptions.InsertGem: {
-					selectedOption = FountainOptions.BreakdownItem; break;
-				}
-				case FountainOptions.BreakdownItem: {
-					selectedOption = FountainOptions.InsertGem; break;
-				}
-			}
-		}
-	
-		if gamepad_button_check_pressed(pad,gp_padu) {
-			switch selectedOption {
-				case FountainOptions.InsertGem: {
-					selectedOption = FountainOptions.BreakdownItem; break;
-				}
-				case FountainOptions.BreakdownItem: {
-					selectedOption = FountainOptions.InsertGem; break;
-				}
-			}
-		}
+	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
+		selectedOption = currentButton;
 	}
 	
-	// other menus
-	
+	currentButton = ds_map_find_next(menuButtonCoordinates,currentButton);
 }
+

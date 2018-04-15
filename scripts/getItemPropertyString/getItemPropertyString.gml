@@ -55,17 +55,51 @@ switch prop {
 
 switch macro {
 	case SWORD1H: {
-		s += " with 1H Swords";
-		break;
+		s += " with 1H Swords"; break;
+	}
+	case DAGGER: {
+		s+= " with Daggers"; break;
 	}
 	case SWORD2H: {
-		s += " with 2H Swords";
-		break;
+		s += " with 2H Swords"; break;
+	}
+	case AXE1H: {
+		s+= " with 1H Axes"; break;
+	}
+	case AXE2H: {
+		s+= " with 2H Axes"; break;
+	}
+	case BLUNT1H: {
+		s+= " with 1H Clubs"; break;
+	}
+	case BLUNT2H: {
+		s+= " with 2H Clubs"; break;
+	}
+	case SPEAR: {
+		s+= " with Spears"; break;
+	}
+	case RAPIER: {
+		s+= " with Rapiers"; break;
 	}
 	case BOW: {
-		s += " with bows";
-		break;
+		s += " with Bows"; break;
 	}
+	case CROSSBOW: {
+		s += " with Crossbows"; break;
+	}
+	case MUSKET: {
+		s += " with Muskets"; break;
+	}
+	case PISTOL: {
+		s += " with Pistols"; break;
+	}
+	case SHURIKEN: {
+		s += " with Shurikens"; break;
+	}
+	case THROWN: {
+		s += " with Thrown Weapons"; break;
+	}
+	
 	case CRUSH: {
 		if	prop == ModifiableProperties.PhysicalDamageTypesMultiplier {
 			s += " with crush attacks";

@@ -23,3 +23,5 @@ ds_map_set(damages,PIERCE,[0,0,0,0,25,30]);
 staminaCostArray=[10,10,25];
 
 act = 1;
+
+numberOfSockets = 1;

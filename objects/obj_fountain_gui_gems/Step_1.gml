@@ -47,13 +47,10 @@ if gamepad_is_connected(pad) {
 	
 	// select gem to insert, move on to name price
 	if gamepad_button_check_pressed(pad,gp_face1) {
-		var namePriceGui = instance_nearest(x,y,obj_fountain_gui_nameprice);
-		namePriceGui.isAcceptingInput = false;
-		namePriceGui.alarm[0] = 1;
-		global.fountainGui.currentSubMenu = NAMEPRICE; 
+		proceedFromChooseGem();
 	} 
 	
 	if gamepad_button_check_pressed(pad,gp_face2) {
-		global.fountainGui.currentSubMenu = CHOOSEITEM;
+		goBackFromChooseGem();
 	}
 }

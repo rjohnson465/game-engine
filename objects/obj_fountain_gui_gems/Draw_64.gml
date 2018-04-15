@@ -1,5 +1,8 @@
 if global.fountainGui.currentSubMenu == CHOOSEITEM {
 	draw_set_alpha(.2);
+}
+else if global.fountainGui.currentSubMenu == NAMEPRICE {
+	draw_set_alpha(.5);
 } else {
 	draw_set_alpha(1);
 }
@@ -11,8 +14,25 @@ if global.fountainGui.currentSubMenu == CHOOSEGEM || global.fountainGui.currentS
 	draw_text(mean(topLeftX,topLeftX+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),selectedItem.name);
 }
 
-// basically show the inventory, filtered for only socketed items
-// SCROLL BAR 2 (for select gem menu)
+if !gamepad_is_connected(global.player.gamePadIndex) {
+
+	// draw back button
+	if !isBackButtonPressed {
+		draw_sprite_ext(spr_button_next,1,backButtonTopLeftX+30,backButtonTopLeftY,-1,1,0,c_white,draw_get_alpha());
+	} else {
+		draw_sprite_ext(spr_button_next,1,backButtonTopLeftX+30,backButtonTopLeftY,-1,1,0,c_gray,draw_get_alpha());
+	}
+
+	// draw next button
+	if !isNextButtonPressed {
+		draw_sprite_ext(spr_button_next,1,nextButtonTopLeftX,nextButtonTopLeftY,1,1,0,c_white,draw_get_alpha());
+	} else {
+		draw_sprite_ext(spr_button_next,1,nextButtonTopLeftX,nextButtonTopLeftY,1,1,0,c_gray,draw_get_alpha());
+	}
+}
+
+// basically show the inventory, filtered for only gems
+// SCROLL BAR
 draw_set_color(c_black);
 draw_rectangle(scrollBarTopLeftX,scrollBarTopLeftY,scrollBarBottomRightX,scrollBarBottomRightY,false);
 var scrollButtonScale = scrollBarWidth / scrollSpriteWidth;
@@ -21,7 +41,7 @@ if scrollLevel == 0 || isScrollUpPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale),scrollButtonScale,-scrollButtonScale,0,c_gray,.75);
 } else draw_sprite_ext(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale),scrollButtonScale,-scrollButtonScale,0,c_white,1);
 // scroll button down			
-if is_undefined(ds_list_find_value(global.player.inventory, 9 + (5*scrollLevel))) || isScrollDownPressed {
+if is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) || isScrollDownPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_gray,.75);
 } else draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_white,1);
 		

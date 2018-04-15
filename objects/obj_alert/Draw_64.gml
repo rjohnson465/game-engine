@@ -1,3 +1,4 @@
+draw_set_alpha(1);
 draw_set_font(font_main);
 draw_set_color(color);
 draw_set_halign(fa_center);

@@ -17,26 +17,43 @@ draw_text((MENUS_BOTTOMRIGHT_X+MENUS_TOPLEFT_X)/2,((MENUS_TOPLEFT_Y+menusHandleH
 	
 switch currentMenu {
 	case FOUNTAIN: {
+		
+		var midW = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X); var midH = mean(MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_Y);
+		
+		/*
+		// click zones
+		for (var i = 0; i < ds_list_size(menuOptions); i++) {
+			draw_set_color(c_red);
+			var opt = ds_list_find_value(menuOptions,i);
+			var w = string_width(opt); var h = string_height(opt);
+			var yy = midH+((i)*25);
+			var x1 = midW-(.5*w); var y1 = yy-(.5*h);
+			var x2 = midW+w; var y2 = yy+h;
+			draw_rectangle(x1,y1,x2,y2,1);
+		}*/
+		
+		draw_set_color(c_white);
 		// draw options
-		if selectedOption == FountainOptions.InsertGem {
+		if selectedOption == INSERTGEM {
 			draw_set_alpha(1);
 		} else draw_set_alpha(.5);
-		draw_text(mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X),mean(MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_Y),INSERTGEM);
+		draw_text(midW,midH,INSERTGEM);
 			
-		if selectedOption == FountainOptions.BreakdownItem {
+		if selectedOption == BREAKDOWNITEM {
 			draw_set_alpha(1);
 		} else draw_set_alpha(.5);
-		draw_text(mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X),mean(MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_Y)+25,"Break Down Item");
+		draw_text(midW,midH+25,BREAKDOWNITEM);
 		draw_set_alpha(1);
+		
+		if selectedOption == LEAVEFOUNTAIN {
+			draw_set_alpha(1);
+		} else draw_set_alpha(.5);
+		draw_text(midW,midH+50,LEAVEFOUNTAIN);
+		draw_set_alpha(1);
+		
+		//draw_rectangle(insertGemTopLeftX,insertGemTopLeftY,insertGemBottomRightX,insertGemBottomRightY,0);
+		//draw_point(insertGemTopLeftX,insertGemTopLeftY);
+		
 		break;
-	}
-	
-	case INSERTGEM: {
-		
-		
-		break;
-		
-			
-			
 	}
 }
