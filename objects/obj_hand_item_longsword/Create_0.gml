@@ -24,4 +24,4 @@ staminaCostArray=[10,10,25];
 
 act = 1;
 
-numberOfSockets = 1;
+numberOfSockets = 3;

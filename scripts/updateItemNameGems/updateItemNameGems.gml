@@ -120,8 +120,84 @@ switch ds_list_size(gemTypesSeen) {
 		var gemType3 = ds_list_find_value(gemTypesSeen,2);
 		var gemTypes = [gemType1,gemType2,gemType3];
 		
-		if arrayIncludesMultiple(gemTypes,[GemTypes.Lapis,GemTypes.Aquamarine,GemTypes.Hematite]) {
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Emerald,GemTypes.Aquamarine]) {
+			newName = "Apocalyptic " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Emerald,GemTypes.Lapis]) {
+			newName = "Alcoholic " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Emerald,GemTypes.Topaz]) {
+			newName = "Nuclear " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Emerald,GemTypes.Hematite]) {
+			newName = "Serpentine " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Aquamarine,GemTypes.Lapis]) {
+			newName = "Satanic " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Aquamarine,GemTypes.Topaz]) {
+			newName = "Torturous " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Aquamarine,GemTypes.Hematite]) {
+			newName = "Culinary " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Lapis,GemTypes.Topaz]) {
+			newName = "Cauterizing " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Lapis,GemTypes.Hematite]) {
+			newName = "Draconic " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Topaz,GemTypes.Hematite]) {
+			newName = "Jupiter's " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Aquamarine,GemTypes.Lapis]) {
+			newName = "Petrifying " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Aquamarine,GemTypes.Topaz]) {
+			newName = "Paralyzing " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Aquamarine,GemTypes.Hematite]) {
+			newName = "Murderous " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Lapis,GemTypes.Topaz]) {
+			newName = "Fuming " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Lapis,GemTypes.Hematite]) {
+			newName = "Infectious " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Topaz,GemTypes.Hematite]) {
+			newName = "Ionizing " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Lapis,GemTypes.Hematite]) {
+			newName = "Refrigerating " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Lapis,GemTypes.Hematite]) {
 			newName = "Unrequited " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Topaz,GemTypes.Hematite]) {
+			newName = "Exacerbating " + item.baseName; break;
+		}
+		
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Lapis,GemTypes.Topaz,GemTypes.Hematite]) {
+			newName = "Electrocuting " + item.baseName; break;
 		}
 	}
 }

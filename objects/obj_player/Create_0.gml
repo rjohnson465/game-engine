@@ -184,7 +184,7 @@ currentSpellAttunement = MAGIC;
 
 // inventory -- holds all items
 inventory = ds_list_create();
-addItemToInventory(makeGold(1000,2000));
+addItemToInventory(makeGold(100000,200000));
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
 woodshield.persistent = true;
