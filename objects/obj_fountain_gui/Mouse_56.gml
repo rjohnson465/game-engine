@@ -18,6 +18,11 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 				startInsertGemMenu();
 				break;
 			}
+			case BREAKDOWNITEM: {
+				if currentMenu != FOUNTAIN exit;
+				startBreakDownItemMenu();
+				break;
+			}
 			case LEAVEFOUNTAIN: {
 				if currentMenu != FOUNTAIN exit;
 				leaveFountain();

@@ -1,13 +1,20 @@
-/// insertGemIntoItem(gem,item)
+/// insertGemIntoItem(gem,item,*isRemoving)
 /// @param gem
 /// @param item
+/// @param *isRemoving
 
 var gem = argument[0];
 var item = argument[1];
+var isRemoving = false;
+if argument_count > 2 {
+	isRemoving = argument[2];
+}
 
-if item.numberOfSockets == 0 || ds_list_size(item.socketedGems) >= item.numberOfSockets {
-	alert(item.name + " does not have any free sockets",c_yellow);
-	exit;
+if !isRemoving {
+	if item.numberOfSockets == 0 || ds_list_size(item.socketedGems) >= item.numberOfSockets {
+		alert(item.name + " does not have any free sockets",c_red);
+		exit;
+	}
 }
 
 var gemElement = noone;
@@ -32,11 +39,17 @@ switch gem.subType {
 	}
 }
 
+if isRemoving {
+	var gemIndex = ds_list_find_index(item.socketedGems,gem);
+	ds_list_delete(item.socketedGems,gemIndex);
+} else {
+	ds_list_add(item.socketedGems,gem);
+}
+
 switch item.type {
 	case ItemTypes.HandItem: {
 		// for weapons, gems increase damage
 		if item.subType != HandItemTypes.Shield {
-			ds_list_add(item.socketedGems,gem);
 			
 			var damageMin = 0; var damageMax = 0;
 			switch gem.condition {
@@ -46,8 +59,13 @@ switch item.type {
 					break;
 				}
 			}
+			if isRemoving {
+				damageMin = damageMin * -1;
+				damageMax = damageMax * -1;
+			}
 			if gem.subType != GemTypes.Hematite {
 				var oldDamageArray = ds_map_find_value(item.damages,gemElement);
+				var newDamageArray = noone;
 				var newDamageArray = [oldDamageArray[0]+damageMin,oldDamageArray[1]+damageMax];
 				ds_map_replace(item.damages,gemElement,newDamageArray);
 			}
@@ -78,7 +96,6 @@ switch item.type {
 		}
 		// Case: Shields
 		else {
-			ds_list_add(item.socketedGems,gem);
 			
 			var absorptionBoost = 0;
 			switch gem.condition {
@@ -87,9 +104,11 @@ switch item.type {
 					break;
 				}
 			}
+			if isRemoving absorptionBoost = absorptionBoost * -1;
 			var oldAbs = ds_map_find_value(item.defenses,gemElement);
 			var newAbs = oldAbs + absorptionBoost;
-			if newAbs > 100 newAbs = 100;
+			//if newAbs > 100 newAbs = 100;
+			// newAbs can be greater than 100, but only 100 is displayed in gui
 			if gem.subType != GemTypes.Hematite {
 				ds_map_replace(item.defenses,gemElement,newAbs);
 			}
@@ -99,6 +118,7 @@ switch item.type {
 				ds_map_replace(item.defenses,CRUSH,newAbs);
 				ds_map_replace(item.defenses,PIERCE,newAbs);
 				ds_map_replace(item.defenses,PHYSICAL,newAbs);
+				
 			}
 			updateItemName(item);
 			break;
@@ -106,7 +126,6 @@ switch item.type {
 		break;
 	}
 	case ItemTypes.Head: {
-		ds_list_add(item.socketedGems,gem);
 		
 		var defOrResBoost = 0;
 		switch gem.condition {
@@ -114,6 +133,7 @@ switch item.type {
 				defOrResBoost = 3;
 			}
 		}
+		if isRemoving defOrResBoost = defOrResBoost * -1;
 		var oldDef = ds_map_find_value(item.defenses,gemElement);
 		var newDef = oldDef + defOrResBoost;
 		if gemElement != PHYSICAL {
@@ -122,10 +142,14 @@ switch item.type {
 		if gem.subType != GemTypes.Hematite {
 			ds_map_replace(item.defenses,gemElement,newDef);
 		} else {
-			ds_map_replace(item.defenses,SLASH,newDef);
-			ds_map_replace(item.defenses,CRUSH,newDef);
-			ds_map_replace(item.defenses,PIERCE,newDef);
-			ds_map_replace(item.defenses,PHYSICAL,newDef);
+			var slashDef = ds_map_find_value(item.defenses,SLASH);
+			ds_map_replace(item.defenses,SLASH,slashDef+defOrResBoost);
+			var crushDef = ds_map_find_value(item.defenses,CRUSH);
+			ds_map_replace(item.defenses,CRUSH,crushDef+defOrResBoost);
+			var pierceDef = ds_map_find_value(item.defenses,PIERCE);
+			ds_map_replace(item.defenses,PIERCE,pierceDef+defOrResBoost);
+			var physDef = ds_map_find_value(item.defenses,PHYSICAL);
+			ds_map_replace(item.defenses,PHYSICAL,physDef+defOrResBoost);
 		}
 		updateItemName(item);
 		break;
@@ -134,5 +158,8 @@ switch item.type {
 
 var gemIndex = ds_list_find_index(global.player.inventory,gem);
 if gemIndex != -1 {
-	ds_list_delete(global.player.inventory,gemIndex);
+	var gemObj = ds_list_find_value(global.player.inventory,gemIndex);
+	if gemObj.count == 1 {
+		ds_list_delete(global.player.inventory,gemIndex);
+	} else gemObj.count--;
 }

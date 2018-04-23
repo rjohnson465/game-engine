@@ -32,6 +32,20 @@ switch type {
 		particle = blood;
 		break;
 	}
+	case LIGHTNING: {
+		var spark = part_type_create();
+		part_type_shape(spark, pt_shape_spark);
+		part_type_orientation(spark,0,359,0,15,1);
+		part_type_size(spark,0.02,.15,0,0);
+		part_type_speed(spark,8,12,0,0);
+		part_type_direction(spark,0,360,0,4);
+		part_type_life(spark,4,7);
+		part_type_color2(spark,c_blue,c_white);
+		part_type_alpha3(spark,1,.85,.75);
+		num = 3;
+		particle = spark;
+		break;
+	}
 	case MAGIC: {
 		num = random_range(10,15);
 		// magic particle
@@ -139,4 +153,6 @@ if particle {
 	}
 }
 
-instance_destroy(id,false);
+if type != LIGHTNING {
+	instance_destroy(id,false);
+} else alarm[0] = 15;

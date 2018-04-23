@@ -54,7 +54,11 @@ if gamepad_is_connected(pad) {
 	// attempt to insert gem with this price
 	if gamepad_button_check_pressed(pad,gp_face1) {
 		if selectedPriceIncrease == WISH {
-			attemptGemInsertion();
+			if global.fountainGui.currentMenu == INSERTGEM {
+				attemptGemInsertion(); 
+			} else if global.fountainGui.currentMenu == BREAKDOWNITEM {
+				attemptItemBreakDown();
+			}
 		} else {
 			var newProposal = namedPrice;
 			switch selectedPriceIncrease {

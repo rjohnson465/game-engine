@@ -70,3 +70,24 @@ for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
 odds = namedPrice >= guaranteedPrice ? 100 : 0;
 draw_set_alpha(.5);
 draw_text(mean(x1,x2),y2+((ds_list_size(allPriceIncrements)+1)*25)+slotHeight,"Odds of it working: " + string(odds) + "%" );
+
+// draw prompts
+var promptsStartX = MENUS_TOPLEFT_X+18;
+var promptsY = MENUS_BOTTOMRIGHT_Y+25;
+var xOffset = 20;
+var w = 0;
+if global.fountainGui.currentSubMenu == NAMEPRICE {
+	// controller prompts
+	if gamepad_is_connected(global.player.gamePadIndex) {
+		w += drawPrompt("Select option", Input.F,promptsStartX+w,promptsY)+xOffset;
+		if global.fountainGui.currentMenu == INSERTGEM {
+			w += drawPrompt("Return to Choose Gem", Input.Escape, promptsStartX+w,promptsY);
+		} else {
+			w += drawPrompt("Return to Choose Item", Input.Escape, promptsStartX+w,promptsY);
+		}
+	}
+	// m/k prompts
+	else {
+		w += drawPrompt("Select option", Input.LMB,promptsStartX+w,promptsY)+xOffset;
+	}
+}

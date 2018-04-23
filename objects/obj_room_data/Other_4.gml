@@ -29,7 +29,9 @@ if room == roomIndex {
 	// set all itemDrops
 	for (var i = 0; i < ds_list_size(itemDropsData); i++) {
 		var itemDropDataObj = ds_list_find_value(itemDropsData,i);
+		if itemDropDataObj == undefined || itemDropDataObj == noone || !itemDropDataObj break;
 		var itemDrop = findPersistentRoomElement(obj_item_drop,itemDropDataObj.postX,itemDropDataObj.postY);
+		if !itemDrop || itemDrop == noone break;
 		
 		itemDrop.itemDropData = itemDropDataObj;
 		itemDrop.x = itemDropDataObj.postX;

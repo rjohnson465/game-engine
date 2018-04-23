@@ -4,6 +4,8 @@ if distance_to_object(obj_player) < 20 && global.player.isAlive && layer == glob
 	}
 }
 
+draw_set_font(font_main); 
+
 // loot ui
 if isBeingLooted && ds_list_size(items) != -1 && ds_list_size(items) != 0 {
 

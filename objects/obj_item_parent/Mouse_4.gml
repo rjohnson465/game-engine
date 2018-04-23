@@ -30,6 +30,15 @@ if (global.isWishing) {
 			gemsel.selectedItem = id;
 		}
 	}
+	else if global.fountainGui.currentMenu == BREAKDOWNITEM {
+		if global.fountainGui.currentSubMenu == CHOOSEITEM {
+			var gi = instance_nearest(x,y,obj_fountain_gui_gemmeditems);
+			if ds_list_find_index(gi.inv,id) != -1 {
+				gi.selectedItem = id;
+			}
+		}
+	}
+	exit;
 }
 
 // select this item if in inv or equipped items

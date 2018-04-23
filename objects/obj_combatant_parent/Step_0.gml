@@ -320,6 +320,7 @@ switch(state) {
 		break;
 	}
 	case CombatantStates.Wary: {
+		if lockOnTarget == noone lockOnTarget = global.player;
 		// do not stay in wary state if lockOnTarget is out of sight
 		var wallsBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 		if wallsBetweenTarget != noone {

@@ -54,6 +54,9 @@ switch prop {
 }
 
 switch macro {
+	case UNARMED: {
+		s += " with Unarmed"; break;
+	}
 	case SWORD1H: {
 		s += " with 1H Swords"; break;
 	}

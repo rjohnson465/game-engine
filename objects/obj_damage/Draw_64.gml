@@ -1,16 +1,18 @@
-if victim.layer != global.player.layer exit;
+if victim.layer != global.player.layer || (!victim.showHp && victim.type != CombatantTypes.Player) exit;
+var vx = camera_get_view_x(view_camera[0]);
+var vy = camera_get_view_y(view_camera[0]);
 draw_set_color(c_white);
 draw_set_font(font_damage);
 draw_set_halign(fa_left);
 var x1 = 0; var y1 = 0;
 if victim.type == CombatantTypes.Enemy {
-	x1 = victim.x+(victim.sprite_width*.5)+5;
-	y1 = victim.y-(victim.sprite_height*.5)-15;
+	x1 = (victim.x-vx)+(victim.sprite_width*.5)+5;
+	y1 = (victim.y-vy)-(victim.sprite_height*.5)-15;
 } else if victim.type == CombatantTypes.Player {
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
-	x1 = 215 + vx;
-	y1 = 15 + vy;
+	x1 = 215; //+ vx;
+	y1 = 15; //+ vy;
 }
 var text = round(amount);
 var scale = 1;

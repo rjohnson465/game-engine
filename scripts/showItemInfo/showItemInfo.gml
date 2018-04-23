@@ -158,6 +158,7 @@ if item.type == ItemTypes.HandItem {
 	else if item.subType == HandItemTypes.Shield {
 		
 		var physBlockPercentage = ds_map_find_value(item.defenses,PHYSICAL);
+		if physBlockPercentage > 100 physBlockPercentage = 100;
 		draw_sprite(spr_item_info_defense_physical,1,itemDescriptionCol1XPictures,itemDescriptionColY+50);
 		if !global.ui.isShowingExplanations {
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,string(physBlockPercentage) + "%");
@@ -192,6 +193,8 @@ if item.type == ItemTypes.HandItem {
 				}
 			}
 			var blockPercentage = ds_map_find_value(item.defenses,defenseType);
+			if blockPercentage > 100 blockPercentage = 100;
+			if blockPercentage < 0 blockPercentage = 0;
 			// draw damage texts in second column
 			draw_sprite(sprite,1,itemDescriptionCol2XPictures,itemDescriptionColY+((i+1)*25));
 			if !global.ui.isShowingExplanations {

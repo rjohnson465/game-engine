@@ -12,6 +12,7 @@
 
 global.ALL_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
 global.ALL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH,MAGIC,FIRE,ICE,POISON,LIGHTNING];
+global.ALL_PHYSICAL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH];
 playerLightRadius = noone;
 
 event_inherited();
@@ -126,6 +127,7 @@ itemPropertyBonuses = ds_map_create();
 skillPropertyBonuses = ds_map_create();
 
 // hp / stamina
+showHp = true;
 hp = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpMax); 
 maxHp = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpMax);
 hpRegen = ds_map_find_value(propertiesBaseValues,ModifiableProperties.HpRegen);
@@ -198,7 +200,6 @@ addItemToInventory(shortbow);
 
 var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword2.persistent = true;
-longsword2.numberOfSockets = 1;
 //ds_map_replace(longsword2.damages,ICE,[2,4]);
 addItemToInventory(longsword2);
 

@@ -34,6 +34,7 @@ isStrafing = false;
 currentUsingSpell = noone;
 attackNumberInChain = noone;
 isShielding = false;
+dodgeFrame = 0;
 
 jumpFrame = jumpTotalFrames; // cannot jump while falling
 fallFrame++;

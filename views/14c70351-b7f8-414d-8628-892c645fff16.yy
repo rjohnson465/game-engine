@@ -11,7 +11,9 @@
         "832822e0-db3e-4cd5-853f-b79ddf2e8fc1",
         "abca50c0-c8ec-4b83-a5dc-8fbe73c60039",
         "c821f30b-35d9-4723-a8a0-689902641f36",
-        "9a41a007-6774-413c-a1fb-fe18560d5702"
+        "9a41a007-6774-413c-a1fb-fe18560d5702",
+        "26040ac5-183d-4bc3-a182-8919cf6af574",
+        "1d3e5606-89ed-4877-9048-9b101ea33246"
     ],
     "filterType": "GMScript",
     "folderName": "FountainGui",

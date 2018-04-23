@@ -65,7 +65,7 @@ if limbItem != limb.limbItem || refreshParticles {
 		var currentDamageType = ds_map_find_first(limbItem.damages);
 		var damageTypes = ds_list_create();
 		for (var i = 0; i < ds_map_size(limbItem.damages); i++) {
-			if currentDamageType != PHYSICAL {
+			if !arrayIncludes(global.ALL_PHYSICAL_DAMAGE_TYPES,currentDamageType) {
 				var damagesArray = ds_map_find_value(limbItem.damages,currentDamageType);
 				if damagesArray[0] > 0 || damagesArray[1] > 0 {
 					ds_list_add(damageTypes,currentDamageType);
@@ -171,8 +171,7 @@ if limbItem != limb.limbItem || refreshParticles {
 	//}
 }
 
-// TODO this is causing a memory leak
-if owner.layer >= global.player.layer && owner.currentUsingSpell == noone {
+if owner.layer == global.player.layer && owner.currentUsingSpell == noone {
 	if particle1 != noone {
 		part_emitter_region(system1,emitter1,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 		part_emitter_burst(system1,emitter1,particle1, num1);

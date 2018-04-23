@@ -14,7 +14,12 @@ else if isSelectorInInventory {
 		y1 += inv.slotHeight;
 		if getItemAtSelectorPosition(id) {
 			inv.selectedItem = getItemAtSelectorPosition(id);
-		} else y1 -= inv.slotHeight;
+		} else {
+			do {
+				x1 -= inv.slotWidth;
+			} until getItemAtSelectorPosition(id);
+			//y1 -= inv.slotHeight;
+		}
 	}
 	
 	// are there more items than shown?

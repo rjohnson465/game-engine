@@ -94,6 +94,7 @@ if owner.currentUsingSpell != noone {
 	sprite_index = asset_get_index("spr_player_hand_spellprep");
 	
 	var atn = owner.currentSpellAttunement;
+	var num = 2;
 	switch atn {
 		case ICE: {
 			// snowflake particle
@@ -154,19 +155,20 @@ if owner.currentUsingSpell != noone {
 			var spark = part_type_create();
 			part_type_shape(spark, pt_shape_spark);
 			part_type_orientation(spark,0,359,0,15,1);
-			part_type_size(spark,0.1,.2,0,0);
+			part_type_size(spark,0.05,.15,0,0);
 			part_type_speed(spark,8,12,0,0);
 			part_type_direction(spark,0,360,0,4);
 			part_type_life(spark,3,6);
 			part_type_color2(spark,c_blue,c_white);
 			part_type_alpha3(spark,1,.85,.75);
+			num = 1;
 			particle = spark;
 			break;
 		}
 	}
 	part_system_depth(system,depth);
 	part_emitter_region(system,emitter,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
-	part_emitter_burst(system,emitter,particle, 2);
+	part_emitter_burst(system,emitter,particle, num);
 }
 
 /*

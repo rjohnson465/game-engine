@@ -56,7 +56,7 @@ for (var i = 0; i < ds_map_size(numPropertiesChanceMap); i++) {
 	currentNumProps = ds_map_find_next(numPropertiesChanceMap,currentNumProps);
 }
 
-show_debug_message(string(rarity) + "||" + string(numProps));
+//show_debug_message(string(rarity) + "||" + string(numProps));
 
 var propsChanceMap = getDefaultItemPropertiesChanceMap();
 if addendums != noone {
@@ -67,8 +67,8 @@ if addendums != noone {
 		ds_map_replace(propsChanceMap,prop,val);
 	}
 }
-propsChanceMap = getNormalizedWeightMap(propsChanceMap);
-propsChanceMap = getCumulativeProbabilitiesMap(propsChanceMap);
+//propsChanceMap = getNormalizedWeightMap(propsChanceMap);
+//propsChanceMap = getCumulativeProbabilitiesMap(propsChanceMap);
 // add num props properties to item
 for (var i = 0; i < numProps; i++) {
 	

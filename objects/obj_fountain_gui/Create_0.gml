@@ -18,6 +18,9 @@ selectedOption = INSERTGEM;
 currentMenu = FOUNTAIN;
 currentSubMenu = noone;
 
+joystickInputFrame = 0;
+joystickInputTotalFrames = 30;
+
 // GUI stuff
 menusHandleHeight = 20;
 subMenuWidth = (MENUS_BOTTOMRIGHT_X-MENUS_TOPLEFT_X)/3;

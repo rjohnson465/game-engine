@@ -8,14 +8,17 @@ var item = argument[0];
 var gemTypesSeen = ds_list_create(); // stores up to three different gem types
 for (var i = 0; i < ds_list_size(item.socketedGems); i++) {
 	var gem = ds_list_find_value(item.socketedGems,i);
-	if ds_list_find_index(gemTypesSeen,gem.subType) == -1 {
-		ds_list_add(gemTypesSeen,gem.subType);
+	if instance_exists(gem) {
+		if ds_list_find_index(gemTypesSeen,gem.subType) == -1 {
+			ds_list_add(gemTypesSeen,gem.subType);
+		}
 	}
 }
 
 var newName = "";
 switch ds_list_size(gemTypesSeen) {
 	case 0: {
+		newName = item.baseName;
 		break;
 	}
 	case 1: {
@@ -184,7 +187,7 @@ switch ds_list_size(gemTypesSeen) {
 			newName = "Ionizing " + item.baseName; break;
 		}
 		
-		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Lapis,GemTypes.Hematite]) {
+		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Lapis,GemTypes.Topaz]) {
 			newName = "Refrigerating " + item.baseName; break;
 		}
 		

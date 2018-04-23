@@ -5,6 +5,8 @@ if dodgeFrequencyFrame > 0 {
 	exit;
 }
 
+if lockOnTarget == noone || !lockOnTarget exit;
+
 // If we're close to our lockOnTarget and they're preparing attack and we've decided to dodge during this Move state,
 // decide exactly what frame in the lockOnTarget's attack prep to dodge on
 // TODO should combatants also pay attention to other enemies around them, other than just their lockOnTarget?

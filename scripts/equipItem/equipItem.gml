@@ -59,7 +59,12 @@ if item.type == ItemTypes.Head {
 	for (var i = 0; i < ds_map_size(item.defenses); i++) {
 		var hatDefense = ds_map_find_value(item.defenses,currentDefense);
 		var currentPlayerDefense = ds_map_find_value(global.player.defenses,currentDefense);
+		// do not directly manipulate the defenses map ??? -- instead, update the base def val
 		ds_map_replace(global.player.defenses,currentDefense,currentPlayerDefense+hatDefense);
+		
+		var defMap = ds_map_find_value(global.player.propertiesBaseValues,ModifiableProperties.Defenses);
+		ds_map_replace(defMap,currentDefense,hatDefense);
+		
 		currentDefense = ds_map_find_next(item.defenses,currentDefense);
 	}
 }

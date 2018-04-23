@@ -42,6 +42,8 @@ if item.type == ItemTypes.Head {
 		var hatDefense = ds_map_find_value(item.defenses,currentDefense);
 		var currentPlayerDefense = ds_map_find_value(global.player.defenses,currentDefense);
 		ds_map_replace(global.player.defenses,currentDefense,currentPlayerDefense-hatDefense);
+		var defMap = ds_map_find_value(global.player.propertiesBaseValues,ModifiableProperties.Defenses);
+		ds_map_replace(defMap,currentDefense,0);
 		currentDefense = ds_map_find_next(item.defenses,currentDefense);
 	}
 }

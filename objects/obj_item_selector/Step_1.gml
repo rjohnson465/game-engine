@@ -10,7 +10,7 @@ if isActive && isSelectorInInventory() && getItemAtSelectorPosition(id) == noone
 	}
 }
 
-if isActive && isSelectorInInventory() {
+if isActive && !isSelectorInEquippedItems() {
 	inv.selectedItem = getItemAtSelectorPosition(id);
 }
 

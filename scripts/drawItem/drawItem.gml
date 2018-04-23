@@ -67,11 +67,13 @@ if item.numberOfSockets != 0 {
 	for(var j = 0; j < item.numberOfSockets; j++) {
 		draw_set_color(c_white);
 		draw_circle(mean(x1+(socketWidth*j),x1+(socketWidth*j)+socketWidth),y1+(slotHeight-(.5*socketHeight)),socketWidth/2,true);
-		var gem = ds_list_find_value(item.socketedGems,j);
-		if gem != undefined {
-			var scale = socketWidth/slotWidth;
-			var alpha = (inv.selectedItem == item || global.equippedItemsManager.selectedItem == item) ? .75 : .25;
-			draw_sprite_ext(gem.itemSprite,1,x1+(socketWidth*j),y1+(slotHeight-socketHeight),scale,scale,0,c_white,alpha);
+		if item.socketedGems {
+			var gem = ds_list_find_value(item.socketedGems,j);
+			if gem != undefined {
+				var scale = socketWidth/slotWidth;
+				var alpha = (inv.selectedItem == item || global.equippedItemsManager.selectedItem == item) ? .75 : .25;
+				draw_sprite_ext(gem.itemSprite,1,x1+(socketWidth*j),y1+(slotHeight-socketHeight),scale,scale,0,c_white,alpha);
+			}
 		}
 	}
 }

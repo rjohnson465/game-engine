@@ -120,3 +120,20 @@ if selectedItem != noone && instance_exists(selectedItem) {
 	draw_triangle(x1,sideMidPoint-5,x1,sideMidPoint+5,x1+5,sideMidPoint,false);
 	draw_triangle(x1+slotWidth,sideMidPoint-5,x1+slotWidth,sideMidPoint+5,x1+slotWidth-5,sideMidPoint,false);
 }
+
+// draw prompts
+var promptsStartX = MENUS_TOPLEFT_X+18;
+var promptsY = MENUS_BOTTOMRIGHT_Y+25;
+var xOffset = 20;
+var w = 0;
+if global.fountainGui.currentSubMenu == CHOOSEITEM {
+	// controller prompts
+	if gamepad_is_connected(global.player.gamePadIndex) {
+		w += drawPrompt("Select " + string(selectedItem.name) + " for gem insertion", Input.F,promptsStartX+w,promptsY)+xOffset;
+		w += drawPrompt("Return to menu", Input.Escape, promptsStartX+w,promptsY);
+	}
+	// m/k prompts
+	else {
+		w += drawPrompt("Select item for gem insertion", Input.LMB,promptsStartX+w,promptsY)+xOffset;
+	}
+}

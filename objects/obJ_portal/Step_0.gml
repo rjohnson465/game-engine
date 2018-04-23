@@ -12,6 +12,43 @@ with obj_fade {
 }
 
 if interactInputReceived && place_meeting(x,y,obj_player) && fade == noone && global.player.isAlive && !global.canLoot {
+
+	with obj_player {
+		// stop preparing attacks
+		if ds_map_size(preparingLimbs) != 0 {
+			var hand = ds_map_find_first(preparingLimbs);
+			for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
+				ds_map_replace(prepFrames,hand,-1);
+				ds_map_replace(prepFrameTotals,hand,0);
+				ds_map_delete(preparingLimbs,hand);
+				hand = ds_map_find_next(preparingLimbs,hand);
+			}
+		}
+		// stop attacking
+		if ds_map_size(attackingLimbs) != 0 {
+			var hand = ds_map_find_first(attackingLimbs);
+			for (var i = 0; i < ds_map_size(attackingLimbs); i++) {
+				ds_map_delete(attackingLimbs,hand);
+				hand = ds_map_find_next(attackingLimbs,hand);
+			}
+		}
+		// stop recovering attacks
+		if ds_map_size(recoveringLimbs) != 0 {
+			var hand = ds_map_find_first(recoveringLimbs);
+			for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
+				ds_map_replace(recoveringLimbs,hand,-1);
+				ds_map_replace(recoveringLimbs,hand,0);
+				ds_map_delete(recoveringLimbs,hand);
+				hand = ds_map_find_next(recoveringLimbs,hand);
+			}
+		}
+		isStrafing = false;
+		currentUsingSpell = noone;
+		attackNumberInChain = noone;
+		isShielding = false;
+		dodgeFrame = 0;
+	}
+	
 	global.fadeDuration = 60;
 	global.owner = id;
 	instance_create_depth(x,y,-100000,obj_fade);

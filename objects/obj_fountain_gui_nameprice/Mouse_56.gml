@@ -19,7 +19,12 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 				goBackFromNamePrice(); exit;
 			}
 			case WISH: {
-				attemptGemInsertion(); exit;
+				if global.fountainGui.currentMenu == INSERTGEM {
+					attemptGemInsertion();
+				} else if global.fountainGui.currentMenu == BREAKDOWNITEM {
+					attemptItemBreakDown();
+				}
+				exit;
 			}
 			case RESETPRICE: {
 				newProposal = 0; break;

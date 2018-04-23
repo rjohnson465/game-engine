@@ -91,8 +91,11 @@ switch(state) {
 
 // walking up / down stairs change layers, set solids for enemies on this layer (done in updateRoomLayers)
 var nearestStairs = instance_nearest(x,y,obj_stairs);
-if distance_to_object(nearestStairs) < 200 {
+if distance_to_object(nearestStairs) < 200 /*&& nearestStairs.layer == layer*/ {
 	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone {
+		
+		show_debug_message("up dir min: " + string(nearestStairs.upDirectionMin) + " | up dir max: " + string(nearestStairs.upDirectionMax) + " | curdir: " + string(direction));
+		
 		var oldLayer = layer;
 		layer = layerToChangeTo;
 		updateRoomLayers();
