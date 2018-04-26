@@ -15,3 +15,4 @@ if selectedSkill.level >= selectedSkill.levelMax {
 selectedSkill.level++;
 selectedSkill.isLevelingUp = true;
 global.player.skillPoints--;
+alert(selectedSkill.name + " is now level " + string(selectedSkill.level), c_lime);

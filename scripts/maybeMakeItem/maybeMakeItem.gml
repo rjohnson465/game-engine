@@ -98,9 +98,10 @@ if argument[1] != noone {
 }
 
 // normalize rarityMap, change all probs to 0-1 s.t. sum(probs) == 1
-rarityMap = getNormalizedWeightMap(rarityMap);
-rarityMap = getCumulativeProbabilitiesMap(rarityMap);
+//rarityMap = getNormalizedWeightMap(rarityMap);
+//rarityMap = getCumulativeProbabilitiesMap(rarityMap);
 
+/*
 randomize();
 var rand = random_range(0,1);
 var currentRarity = ds_map_find_first(rarityMap);
@@ -113,14 +114,41 @@ for (var i = 0; i < ds_map_size(rarityMap); i++) {
 		rarityType = currentRarity;
 	}
 	currentRarity = ds_map_find_next(rarityMap,currentRarity);
+}*/
+
+var cumSum = 0;
+var currentRarityKey = ds_map_find_first(rarityMap);
+for (var i = 0; i < ds_map_size(rarityMap); i++) {
+	var weight = ds_map_find_value(rarityMap,currentRarityKey);
+	cumSum += weight;
+	currentRarityKey = ds_map_find_next(rarityMap,currentRarityKey);
 }
 
-// gems
+randomize(); 
+var rand = random_range(0,cumSum);
+	
+var currentRarityKey = ds_map_find_first(rarityMap);
+var rarityType = noone; // the chosen rarityType based on this roll
+var lowerBound = 0; var upperBound = 0;
+for (var i = 0; i < ds_map_size(rarityMap); i++) {
+	var weight = ds_map_find_value(rarityMap,currentRarityKey);
+	upperBound += weight;
+	if rand >= lowerBound && rand <= upperBound {
+		rarityType = currentRarityKey; break;
+	}
+		
+	lowerBound += weight;
+	currentRarityKey = ds_map_find_next(rarityMap,currentRarityKey);
+}
+
+item.rarity = rarityType;
+
+// gems -- hand items and head items
 if itemType == ItemTypes.HandItem || itemType == ItemTypes.Head {
 	addSocketsAndGemsByRarity(item,rarityType);
 }
 
-// item properties
+// item properties -- rings only, for now
 if itemType == ItemTypes.Ring {
 	var addendums = argument_count >=6 ? argument[5] : noone;
 	addItemPropertiesByRarityAndAct(item,rarityType,act,addendums);

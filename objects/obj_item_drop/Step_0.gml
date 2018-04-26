@@ -26,7 +26,7 @@ if (!isBeingLooted && items) || (distance_to_object(obj_player) > 20 && items)  
 } else global.isLooting = true;
 
 if items && (ds_list_size(items) == 0 && !hasSetAlarm) {
-	alarm[0]=1;
+	alarm[0]=3;
 	hasSetAlarm = true;
 }
 

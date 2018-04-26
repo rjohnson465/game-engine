@@ -115,6 +115,15 @@ switch prop {
 		}
 		break;
 	}
+	case ModifiableProperties.OffHandDamage: {
+		switch act {
+			case 1: {
+				return [10,20];
+				break;
+			}
+		}
+		break;
+	}
 }
 
 return range;

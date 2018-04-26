@@ -71,4 +71,6 @@ else {
 	
 }
 
-mightGrab = true;
+if type != ItemTypes.Other {
+	mightGrab = true;
+}

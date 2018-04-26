@@ -11,7 +11,7 @@ var skill = argument[0];
 var topLeftX = skillDescriptionTopLeftX;
 var topLeftY = skillDescriptionTopLeftY;
 
-draw_set_color(c_olive);
+draw_set_color(C_HANDLES);
 var descriptionHandleX2 = topLeftX+width
 var descriptionHandleY2 = topLeftY+skillDescriptionHandleHeight;
 draw_rectangle(topLeftX,topLeftY,descriptionHandleX2,descriptionHandleY2,false);

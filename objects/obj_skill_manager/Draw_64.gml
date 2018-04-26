@@ -23,11 +23,45 @@ drawSkillSlot(explosionMasteryX,explosionMasteryY,Skills.ExplosionMastery,skillE
 drawSkillSlot(magicMissileMasteryX,magicMissileMasteryY,Skills.MagicMissileMastery,skillMagicMissile);
 
 // Remaining skill points
-draw_set_alpha(1); draw_set_color(c_white);
-draw_text(remainingPointsX,remainingPointsY,string(p.skillPoints) + " points remaining");
+draw_set_alpha(1); draw_set_color(c_white); draw_set_halign(fa_right);
+draw_text(remainingPointsX,remainingPointsY,string(p.skillPoints) + " skill points");
+
+// selected item details box
+draw_set_color(c_dkgray);
+draw_rectangle(skillDescriptionTopLeftX,skillDescriptionTopLeftY,skillDescriptionBottomRightX,skillDescriptionBottomRightY,false);
 
 // skill description
-//showSkillInfo(skillSelector.selectedSkill);
 if skillSelector != noone {
 	showSkillInfo(skillSelector.selectedSkill);
+}
+
+// prompts
+// draw prompts
+var promptsStartX = MENUS_TOPLEFT_X+18;
+var promptsY = MENUS_BOTTOMRIGHT_Y+25;
+var xOffset = 20;
+var w = 0;
+if ui.currentMenu == SKILLS && skillSelector.selectedSkill && skillSelector.selectedSkill != noone {
+	// controller prompts
+	if gamepad_is_connected(global.player.gamePadIndex) {
+		w += drawPrompt("Level up " + string(skillSelector.selectedSkill.name), Input.F,promptsStartX+w,promptsY)+xOffset;
+	}
+	// m/k prompts
+	else {
+		w += drawPrompt("Select skill", Input.LMB,promptsStartX+w,promptsY)+xOffset;
+		
+		var hoveredSkill = noone;
+		with obj_skill_parent {
+			if point_in_rectangle(mouse_x,mouse_y,bbox_left,bbox_top,bbox_right,bbox_bottom) {
+				hoveredSkill = id;
+			}
+		}
+		
+		if hoveredSkill != noone {
+			w += drawPrompt("Level up " + string(hoveredSkill.name), Input.RMB,promptsStartX+w,promptsY)+xOffset;
+		}
+		else {
+			w += drawPrompt("Level up skill", Input.RMB,promptsStartX+w,promptsY)+xOffset;
+		}
+	}
 }

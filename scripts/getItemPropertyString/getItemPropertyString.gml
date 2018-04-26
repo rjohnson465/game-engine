@@ -29,6 +29,9 @@ switch prop {
 	case ModifiableProperties.StaminaSteal: {
 		s = "% attack damage added to Stamina"; break;
 	}
+	case ModifiableProperties.OffHandDamage: {
+		s = "% damage dealt with offhand weapon"; break;
+	}
 	case ModifiableProperties.WeaponTypesDamage: {
 		s = " base damage"; break;
 	}

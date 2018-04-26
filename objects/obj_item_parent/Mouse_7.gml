@@ -13,5 +13,7 @@ if itemIsBeingLooted {
 	ds_list_delete(dropItem.items,itemPos);
 	if ds_list_size(dropItem.items) > 0 {
 		dropItem.selectedItem = ds_list_find_value(dropItem.items,0);
+	} else {
+		dropItem.alarm[0] = 3;
 	}
 }

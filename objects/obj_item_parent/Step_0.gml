@@ -1,5 +1,6 @@
 event_inherited();
 
+// destroy empty stacks
 if count < 1 && object_index != obj_item_coins {
 	if ds_list_find_index(global.player.inventory,id) != -1 {
 		ds_list_delete(global.player.inventory,ds_list_find_index(global.player.inventory,id));
@@ -20,12 +21,15 @@ if mightGrab && grabFrame < grabFrames && mouse_check_button(mb_left) {
 
 visible = false;
 if grabFrame == grabFrames {
-	cursor_sprite = itemSprite;
+	//cursor_sprite = itemSprite;
 	visible = true;
 	x = mouse_x;
 	y = mouse_y;
 	global.ui.grabbedItem = id;
-} 
+	//window_set_cursor(cr_none);
+} else {
+	window_set_cursor(cr_default);
+}
 
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY {
 	visible = false;

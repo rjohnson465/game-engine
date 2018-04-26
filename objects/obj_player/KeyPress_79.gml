@@ -2,7 +2,7 @@
 
 //xpTemp += 1000;
 
-var propChance = [[ModifiableProperties.HpRegen,10000]];
+var propChance = [[ModifiableProperties.OffHandDamage,10000]];
 addItemToInventory(maybeMakeItem(100,noone,noone,noone,noone,propChance));
 
 //addItemToInventory(makeGold(1000000,2000000));

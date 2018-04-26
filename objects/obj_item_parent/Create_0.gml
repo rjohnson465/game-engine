@@ -2,8 +2,9 @@ x1 = -50;
 y1 = -50;
 sprite_index = spr_item_slot;
 visible = false;
-depth = -2;
-//persistent = true;
+//depth = -2;
+depth = -1001;
+persistent = true;
 name = "";
 
 copyOf = noone;
@@ -21,6 +22,8 @@ enum ItemRarities {
 	Masterwork,
 	Legendary
 }
+
+rarity = ItemRarities.Normal;
 
 type = ItemTypes.HandItem;
 subType = noone;

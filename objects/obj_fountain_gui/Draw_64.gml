@@ -5,7 +5,7 @@ draw_rectangle(MENUS_TOPLEFT_X,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_BOTTOMR
 draw_set_alpha(1);
 	
 // current menu title handle
-draw_set_color(c_olive);
+draw_set_color(C_HANDLES);
 draw_rectangle(MENUS_TOPLEFT_X,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_TOPLEFT_Y+menusHandleHeight,false);
 	
 draw_set_color(c_white);

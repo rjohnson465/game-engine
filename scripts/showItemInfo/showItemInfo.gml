@@ -18,11 +18,27 @@ if item.type == ItemTypes.HandItem {
 	}
 }
 
-draw_set_color(c_olive);
+draw_set_color(C_HANDLES);
 var descriptionHandleX2 = topLeftX+width
 var descriptionHandleY2 = topLeftY+itemDescriptionHandleHeight;
 draw_rectangle(topLeftX,topLeftY,descriptionHandleX2,descriptionHandleY2,false);
-draw_set_color(c_white);
+
+// draw item name in color according to item rarity
+switch item.rarity {
+	case ItemRarities.Normal: {
+		draw_set_color(c_white); break;
+	}
+	case ItemRarities.Fine: {
+		draw_set_color(c_aqua); break;
+	}
+	case ItemRarities.Masterwork: {
+		draw_set_color(c_purple); break;
+	}
+	case ItemRarities.Legendary: {
+		draw_set_color(c_lime); break;
+	}
+}
+
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 var s = item.name;
@@ -31,6 +47,7 @@ draw_text(mean(topLeftX,topLeftX+width),mean(descriptionHandleY2+topLeftY)/2,s);
 
 draw_set_valign(fa_left);
 draw_set_halign(fa_left);
+draw_set_color(c_white);
 // all shields and weapons share many properties, so it makes sense to lump them together when showing properties
 if item.type == ItemTypes.HandItem {
 					
