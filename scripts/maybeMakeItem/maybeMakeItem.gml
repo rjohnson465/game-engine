@@ -92,30 +92,12 @@ if item.object_index == obj_gem_parent {
 }
 
 // PART 3: Decide Rarity, apply gems and / or item properties
-var rarityMap = getItemRarityMapFromAct(act);
+var rarityMap = getDefaultItemRarityMap();
 if argument[1] != noone {
 	rarityMap = argument[1];
 }
 
-// normalize rarityMap, change all probs to 0-1 s.t. sum(probs) == 1
-//rarityMap = getNormalizedWeightMap(rarityMap);
-//rarityMap = getCumulativeProbabilitiesMap(rarityMap);
-
-/*
-randomize();
-var rand = random_range(0,1);
-var currentRarity = ds_map_find_first(rarityMap);
-var lowestSeen = 2; var rarityType = noone;
-for (var i = 0; i < ds_map_size(rarityMap); i++) {
-	var prob = ds_map_find_value(rarityMap,currentRarity);
-	
-	if prob < lowestSeen && rand < prob {
-		lowestSeen = prob;
-		rarityType = currentRarity;
-	}
-	currentRarity = ds_map_find_next(rarityMap,currentRarity);
-}*/
-
+// set item rarity from rarityMap
 var cumSum = 0;
 var currentRarityKey = ds_map_find_first(rarityMap);
 for (var i = 0; i < ds_map_size(rarityMap); i++) {

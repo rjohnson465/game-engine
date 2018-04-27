@@ -35,6 +35,9 @@ do {
 	}
 	
 	var currentVal = ds_map_find_value(item.itemProperties,propKey);
+	// TODO: ?? check if includes a macro; if so, make sure this is a unique macro
+	//if is_array(currentVal) {
+	//}
 	
 } until (currentVal == undefined)
 

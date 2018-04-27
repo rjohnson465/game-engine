@@ -2,6 +2,14 @@
 
 if global.isWishing exit;
 
+var isFading = false;
+with obj_fade {
+	if instance_count > 0 {
+		isFading = true;
+	}
+}
+if isFading exit;
+
 if  stamina > 0 &&
 	(state == CombatantStates.Idle || state == CombatantStates.Moving)
 	&& !isFrozen

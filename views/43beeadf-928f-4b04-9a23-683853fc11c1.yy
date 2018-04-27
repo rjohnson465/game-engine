@@ -8,7 +8,8 @@
         "70ffadee-face-44a4-9fb9-5e7ca87d93c0",
         "b703250b-f19e-42f5-bff5-23449c2dd5a4",
         "fecfb900-0dd0-4169-ac95-7ac6b9e7d550",
-        "28bd2792-4d6d-42ce-b407-ed6d81e03136"
+        "28bd2792-4d6d-42ce-b407-ed6d81e03136",
+        "1aae0560-6d48-43c0-827d-164f45f5c15e"
     ],
     "filterType": "GMScript",
     "folderName": "Properties Generation",

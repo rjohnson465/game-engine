@@ -8,6 +8,14 @@ with obj_attunement {
 	}
 }
 
+var isFading = false;
+with obj_fade {
+	if instance_count > 0 {
+		isFading = true;
+	}
+}
+if isFading exit;
+
 if global.isLooting && !gamepad_is_connected(gamePadIndex) exit;
 
 if global.isWishing exit;

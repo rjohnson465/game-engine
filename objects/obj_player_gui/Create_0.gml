@@ -82,7 +82,7 @@ global.spellAttunementString = LIGHTNING;
 attunementLightning = instance_create_depth(12,660,1,obj_attunement);
 
 // not active until visible
-instance_deactivate_object(obj_attunement);
+//instance_deactivate_object(obj_attunement);
 
 
 // grabbing items

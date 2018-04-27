@@ -3,6 +3,14 @@
 
 if global.isWishing exit;
 
+var isFading = false;
+with obj_fade {
+	if instance_count > 0 {
+		isFading = true;
+	}
+}
+if isFading exit;
+
 var dir = argument0;
 
 if dir == "up" {

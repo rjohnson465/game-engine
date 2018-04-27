@@ -14,8 +14,14 @@ switch prop {
 	case ModifiableProperties.HpMax: {
 		s = " max HP"; break;
 	}
+	case ModifiableProperties.StaminaMax: {
+		s = " max Stamina"; break;
+	}
 	case ModifiableProperties.HpRegen: {
 		s = " HP regen"; break;
+	}
+	case ModifiableProperties.StaminaRegen: {
+		s = " Stamina regen"; break;
 	}
 	case ModifiableProperties.CriticalsChance: {
 		s = "% critical hit chance"; break;

@@ -1,5 +1,6 @@
 x = owner.x;
 y = owner.y;
+depth = owner.depth;
 // shields always on the right hand
 image_angle = owner.facingDirection;
 

@@ -2,6 +2,14 @@
 
 if global.isWishing exit;
 
+var isFading = false;
+with obj_fade {
+	if instance_count > 0 {
+		isFading = true;
+	}
+}
+if isFading exit;
+
 var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 

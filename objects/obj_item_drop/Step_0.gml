@@ -1,3 +1,4 @@
+global.isLooting = false;
 var interactInputReceived = keyboard_check_released(ord("F"));
 if gamepad_is_connected(global.player.gamePadIndex) {
 	interactInputReceived = keyboard_check_released(ord("F")) || 
@@ -23,7 +24,9 @@ if (!isBeingLooted && items) || (distance_to_object(obj_player) > 20 && items)  
 		item.y1 = -100;
 	}
 	global.isLooting = false;
-} else global.isLooting = true;
+} else if isBeingLooted {
+	global.isLooting = true;
+}
 
 if items && (ds_list_size(items) == 0 && !hasSetAlarm) {
 	alarm[0]=3;

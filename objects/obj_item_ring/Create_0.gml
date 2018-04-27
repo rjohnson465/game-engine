@@ -12,6 +12,6 @@ spriteName = "ring";
 itemSprite = spr_item_ring1;
 
 //ds_map_replace(itemProperties,ModifiableProperties.XpMultiplier,10);
-ds_map_replace(itemProperties,ModifiableProperties.Defenses,[PIERCE,7]);
+//ds_map_replace(itemProperties,ModifiableProperties.Defenses,[PIERCE,7]);
 //ds_map_replace(itemProperties,ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC,100]);
 //ds_map_replace(itemProperties,ModifiableProperties.StaminaSteal,10);

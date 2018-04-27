@@ -1,3 +1,7 @@
+if place_meeting(x,y,obj_player) {
+	jumpToNearestFreePoint(1);
+}
+
 /*
 // e-renter room with previously active enemies?
 if type == CombatantTypes.Enemy && enemyData != noone {

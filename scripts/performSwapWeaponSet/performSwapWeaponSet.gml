@@ -2,6 +2,14 @@
 
 if global.isWishing exit;
 
+var isFading = false;
+with obj_fade {
+	if instance_count > 0 {
+		isFading = true;
+	}
+}
+if isFading exit;
+
 var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
 var rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
 var leftHandItem2 = getItemInEquipmentSlot(EquipmentSlots.LeftHand2);

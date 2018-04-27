@@ -3,6 +3,14 @@ var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
 if global.isWishing exit;
 
+var isFading = false;
+with obj_fade {
+	if instance_count > 0 {
+		isFading = true;
+	}
+}
+if isFading exit;
+
 if !isMouseInMenu && !isFrozen && !global.ui.isShowingMenus {
 
 	// if using a 2h ranged weapon, holding left allows for aiming

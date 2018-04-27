@@ -66,7 +66,7 @@ draw_rectangle(x1,y1,x2,y2,false);
 
 // xp bar
 var xpPercent = (global.player.xp / global.player.xpToNextLevel)*100;
-draw_healthbar(0,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpPercent,c_black,c_blue,c_blue,0,true,true);
+draw_healthbar(0,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpPercent,c_black,C_HANDLES,C_HANDLES,0,true,true);
 var xpBarRightX = (xpPercent/100)*view_get_wport(view_camera[0]);
 var xpTemp = global.player.xpTemp;
 var xpTempTotal = global.player.xpToNextLevel-global.player.xp;
@@ -134,7 +134,7 @@ if leftHandItem.isTwoHanded {
 // draw attunements
 if rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0 {
 	
-	instance_activate_object(obj_attunement);
+	//instance_activate_object(obj_attunement);
 	
 	var init_x = 12; // changes on each iteration
 	global.y1 = 658; // used for attunement instance creation
@@ -153,7 +153,7 @@ if rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0 {
 		}
 	}
 } else {
-	instance_deactivate_object(obj_attunement);
+	//instance_deactivate_object(obj_attunement);
 }
 
 // menus
