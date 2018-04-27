@@ -122,6 +122,14 @@ switch(state) {
 				// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
 				maybeShield();
 				
+				// CHECK 4: Maybe switch to melee / range
+				if currentRangedAttack > -1 && distance_to_object(lockOnTarget) < meleeAggroRange {
+					state = CombatantStates.AggroMelee; break;
+				}
+				else if currentMeleeAttack > -1 && distance_to_object(lockOnTarget) > meleeAggroRange {
+					state = CombatantStates.AggroRanged; break;
+				}
+				
 				// if we're not in range for attack, do this
 				if maybeMoveNotInAttackRange() break;
 				// within range for attack

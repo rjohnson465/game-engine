@@ -316,3 +316,5 @@ moveSpriteImageSpeed = 30;
 if moveSprite != -1 {
 	moveSpriteImageSpeed = sprite_get_speed(moveSprite);
 }
+
+hasIssuedAmmoOut = false;

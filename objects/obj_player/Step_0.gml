@@ -95,6 +95,8 @@ if distance_to_object(nearestStairs) < 200 /*&& nearestStairs.layer == layer*/ {
 	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone {
 		
 		show_debug_message("up dir min: " + string(nearestStairs.upDirectionMin) + " | up dir max: " + string(nearestStairs.upDirectionMax) + " | curdir: " + string(direction));
+		show_debug_message(string(layerToChangeTo));
+		show_debug_message(string(layer_get_name(layerToChangeTo)));
 		
 		var oldLayer = layer;
 		layer = layerToChangeTo;

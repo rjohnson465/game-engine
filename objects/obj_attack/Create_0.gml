@@ -13,6 +13,7 @@ isRanged = false;
 isMelee = false;
 attackData = noone;
 combatantsHit = ds_list_create();
+hasSetAlarm = false;
 
 spell = noone;
 particle = noone;

@@ -6,6 +6,7 @@ weaponSpeed = "Medium";
 
 projectileSpeed = 25;
 isTwoHanded = true;
+isRanged = true;
 staggerDuration = 2; // frames
 physicalDamageTypeArray = ["piercing"];
 handSpriteString = "spr_player_hand_bow";

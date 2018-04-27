@@ -1,4 +1,4 @@
-if isSpell {
+if isSpell && !hasSetAlarm {
 	if spell.spriteName == "magicmissile" {
 		if distance_to_object(owner.lockOnTargetType) < 1000 {
 			
@@ -58,6 +58,16 @@ if isSpell {
 	{
 		if isMelee || isSpell {
 			instance_destroy(id, 1);
+		}
+	}
+}
+
+// dim spell light linearly
+if isSpell && hasSetAlarm {
+	var idd = id;
+	with obj_light_radius {
+		if owner == idd {
+			light_set_alpha(other.alarm[0]/15);
 		}
 	}
 }

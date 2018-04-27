@@ -25,8 +25,13 @@ act = 0;
 isTwoHanded = false;
 staminaCostArray=[];
 
+isRanged = false;
+
 durability = 50;
 durabilityMax = 50;
+
+ammo = 5;
+ammoMax = 5;
 
 // damages of each type
 // keys are the damage type

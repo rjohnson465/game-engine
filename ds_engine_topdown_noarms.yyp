@@ -471,6 +471,14 @@
             }
         },
         {
+            "Key": "115656bb-1594-4120-8af9-32f93786fca5",
+            "Value": {
+                "id": "dd2fd650-9a62-4a9b-8617-3c22e5d368d3",
+                "resourcePath": "scripts\\light_set_alpha\\light_set_alpha.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "115ec47d-22d2-4ec3-87f9-3cfddaa49c7f",
             "Value": {
                 "id": "e39d5955-6a29-40f3-8104-7e77f46c40c3",
@@ -2212,6 +2220,14 @@
                 "id": "1d4b863d-9b9c-441e-a4b4-4acd6dd9a03e",
                 "resourcePath": "views\\65b185f4-4258-4448-a221-3e50549229f5.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "65daeba5-ad3c-48bc-9f00-c797fa12f7d1",
+            "Value": {
+                "id": "e2e4b3e5-ed21-4c61-9dae-779389e97290",
+                "resourcePath": "scripts\\light_set_scale\\light_set_scale.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5223,6 +5239,14 @@
             }
         },
         {
+            "Key": "f033b67f-26e2-408a-a4b2-a470f65e8a7c",
+            "Value": {
+                "id": "0c76ca9f-adf0-41d9-8345-b53951f837ad",
+                "resourcePath": "sprites\\spr_item_info_ammo\\spr_item_info_ammo.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f0eff6a6-dd20-4359-a231-97e9f908deb3",
             "Value": {
                 "id": "84561c9c-e281-4ab1-89a8-31386cb4efab",
@@ -5532,6 +5556,8 @@
         "f0eff6a6-dd20-4359-a231-97e9f908deb3",
         "c1eb91a1-c734-48cb-8620-eeb1a88f1f43",
         "fa7ad02b-0643-4312-a17d-b79441f2e1e4",
+        "115656bb-1594-4120-8af9-32f93786fca5",
+        "65daeba5-ad3c-48bc-9f00-c797fa12f7d1",
         "af4faec1-d8c4-4e8c-a879-6cd5e3540170",
         "b60cbf73-d564-44ac-aeb7-c7d4b94e9b78",
         "06f9a3f8-d8da-41ce-9324-cb2200c4dbf0",

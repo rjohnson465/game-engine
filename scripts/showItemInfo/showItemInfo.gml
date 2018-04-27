@@ -78,12 +78,25 @@ if item.type == ItemTypes.HandItem {
 	}
 					
 	// draw durability
-	var durabilityString = string(item.durability) + "/" + string(item.durabilityMax);
-	draw_sprite(spr_item_info_durability,1,itemDescriptionCol1XPictures,itemDescriptionColY+100);
-	if !global.ui.isShowingExplanations {
-		draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,durabilityString);
-	} else {
-		draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,"durability / max durability");
+	if !item.isRanged {
+		var durabilityString = string(item.durability) + "/" + string(item.durabilityMax);
+		draw_sprite(spr_item_info_durability,1,itemDescriptionCol1XPictures,itemDescriptionColY+100);
+		if !global.ui.isShowingExplanations {
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,durabilityString);
+		} else {
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,"durability / max durability");
+		}
+	}
+	
+	// draw ammo
+	if item.isRanged {
+		var ammoString = string(item.ammo) + "/" + string(item.ammoMax);
+		draw_sprite(spr_item_info_ammo,1,itemDescriptionCol1XPictures,itemDescriptionColY+100);
+		if !global.ui.isShowingExplanations {
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,ammoString);
+		} else {
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,"ammo / max ammo");
+		}
 	}
 	
 	// damages

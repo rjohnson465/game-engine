@@ -81,6 +81,10 @@ else if isDoneFilling {
 					copy.hasIssuedDurabilityWarning = false;
 					copy.hasIssuedDurabilityObituary = false;
 				}
+				item.ammo = item.ammoMax;
+				if copy != noone {
+					copy.ammo = copy.ammoMax;
+				}
 			}
 		}
 		
@@ -105,6 +109,10 @@ else if isDoneFilling {
 					copy.durability = item.durabilityMax;
 					copy.hasIssuedDurabilityWarning = false;
 					copy.hasIssuedDurabilityObituary = false;
+				}
+				item.ammo = item.ammoMax;
+				if copy != noone {
+					copy.ammo = copy.ammoMax;
 				}
 			}
 		}

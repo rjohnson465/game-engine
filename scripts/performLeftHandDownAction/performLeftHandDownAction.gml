@@ -16,6 +16,15 @@ if !isMouseInMenu && !isFrozen && !global.ui.isShowingMenus {
 	// if using a 2h ranged weapon, holding left allows for aiming
 	if	leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded &&
 		(state == CombatantStates.Idle || state == CombatantStates.Moving) {
+		
+		if leftHandItem.ammo < 1 {
+			if !hasIssuedAmmoOut {
+				alert(leftHandItem.name + " out of ammo",c_red);
+			}
+			hasIssuedAmmoOut = true;
+			exit;
+		}
+		
 		if	ds_map_find_value(recoverFrames,"l") == ds_map_find_value(recoverFrameTotals,"l")
 			|| ds_map_find_value(recoveringLimbs,"l") == undefined
 			{

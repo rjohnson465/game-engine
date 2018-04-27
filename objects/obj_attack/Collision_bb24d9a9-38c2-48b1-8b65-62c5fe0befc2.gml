@@ -53,7 +53,21 @@ if isMelee && hitsWallFirst {
 	owner.state = CombatantStates.Staggering;
 }
 
-if isSpell {
+// make dust particles
+if isRanged && !hasSetAlarm {
+	// run to get __x and __y (collision point where attack met wall)
+	//script_execute(scr_collision_point,id,other.id);
+	global.damageType = "Dust";
+	global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
+	global.y1 = bbox_bottom;
+	global.particleDirection = facingDirection;
+	instance_create_depth(0,0,1,obj_hit_particles);
+	if !isSpell {
+		instance_destroy(id,true);
+	}
+}
+
+if isSpell && !hasSetAlarm {
 	var attunement = MAGIC;
 	for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 		var el = global.ALL_ELEMENTS[i];
@@ -67,22 +81,16 @@ if isSpell {
 	global.y1 = bbox_bottom;
 	global.particleDirection = facingDirection;
 	instance_create_depth(0,0,1,obj_hit_particles);
-	instance_destroy(id,true);
+	//instance_destroy(id,true);
+	alarm[0] = 15;
+	visible = 0;
+	speed = 0;
+	x = global.x1;
+	y = global.y1;
+	hasSetAlarm = true;
 }
 
-// make dust particles
-if isRanged {
-	// run to get __x and __y (collision point where attack met wall)
-	//script_execute(scr_collision_point,id,other.id);
-	global.damageType = "Dust";
-	global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
-	global.y1 = bbox_bottom;
-	global.particleDirection = facingDirection;
-	instance_create_depth(0,0,1,obj_hit_particles);
-	instance_destroy(id,true);
-}
-
-if isSpell || isRanged {
+if /*isSpell ||*/ isRanged && !hasSetAlarm {
 	
 	var idd = id;
 	with obj_light_radius {

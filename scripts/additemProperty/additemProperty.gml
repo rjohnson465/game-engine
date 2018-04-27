@@ -28,4 +28,4 @@ if macro != noone {
 	ds_map_replace(item.itemProperties,propKey,[macro,propVal]);
 } else {
 	ds_map_replace(item.itemProperties,propKey,propVal);
-	}
+}

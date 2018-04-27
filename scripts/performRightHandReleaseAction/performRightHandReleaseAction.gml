@@ -11,6 +11,11 @@ with obj_fade {
 }
 if isFading exit;
 
+if rightHandItem.isRanged && rightHandItem.ammo < 1 && !rightHandItem.isTwoHanded {
+	alert(rightHandItem.name + " is out of ammo", c_red);
+	exit;
+}
+
 if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMouseInMenu {
 	if  !leftHandItem.isTwoHanded
 		&& rightHandItem.subType != HandItemTypes.Shield
@@ -37,3 +42,5 @@ if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMo
 		isShielding = false;
 	}
 }
+
+hasIssuedAmmoOut = false;

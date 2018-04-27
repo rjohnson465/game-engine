@@ -4,7 +4,7 @@
 var item = argument0;
 var p = global.player;
 
-if item == noone || item == undefined exit;
+if item == noone || item == undefined || !instance_exists(item) exit;
 
 if item.isStackable {
 	// check if there's another item of this object_index in inventory

@@ -93,9 +93,16 @@ if leftHandItem.spriteName != "unarmed" {
 		draw_set_halign(fa_left);
 		draw_text(10,vh-18,s);
 	}
+	// ammo bar
+	if leftHandItem.isRanged {
+		var ammoPercent = (leftHandItem.ammo / leftHandItem.ammoMax)*100;
+		draw_healthbar(10,vh-9,71,vh-6,ammoPercent,c_black,c_green,c_green,0,1,0);
+	}
 	// durability bar
-	var durabilityPercent = (leftHandItem.durability / leftHandItem.durabilityMax)*100;
-	draw_healthbar(10,vh-9,71,vh-6,durabilityPercent,c_black,c_red,c_red,0,1,0);
+	else {
+		var durabilityPercent = (leftHandItem.durability / leftHandItem.durabilityMax)*100;
+		draw_healthbar(10,vh-9,71,vh-6,durabilityPercent,c_black,c_red,c_red,0,1,0);
+	}
 }
 
 // middle button (spell)

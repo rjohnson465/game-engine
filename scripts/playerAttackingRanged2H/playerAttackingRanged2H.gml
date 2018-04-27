@@ -8,13 +8,6 @@ if gamepad_is_connected(gamePadIndex) {
 	RIGHTHELD = gamepad_button_check(gamePadIndex,gp_shoulderrb);
 }
 
-/*if RIGHTHELD && chargeFrame < CHARGE_FRAME_THRESHOLD {
-	chargeFrame++;
-}
-else if RIGHTHELD && chargeFrame <= CHARGE_FRAME_TOTAL {
-	chargeFrame++;
-}*/
-
 if isReadyToFire && RIGHTRELEASED && stamina > 0 {
 	speed = 0;
 	var attackInChain = ds_map_find_value(preparingLimbs,"l"); // pretty sure this is always gonna be 1
@@ -26,10 +19,10 @@ if isReadyToFire && RIGHTRELEASED && stamina > 0 {
 	ds_map_delete(preparingLimbs,"l");
 	global.owner = id;
 	global.limbKey = "l";
-	/*if chargeFrame > 0 {
-		instance_create_depth(x,y,1,obj_attack_charge);
-		chargeFrame = -10;
-	} else {*/
-		instance_create_depth(x,y,1,obj_attack);
-	//}
+
+	instance_create_depth(x,y,1,obj_attack);
+	leftHandItem.ammo -= 1;
+	if leftHandItem.ammo < 1 {
+		alert(leftHandItem.name + " out of ammo", c_red);
+	}
 }

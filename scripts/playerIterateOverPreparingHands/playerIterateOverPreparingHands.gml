@@ -29,6 +29,12 @@ if ds_map_size(preparingLimbs) != 0 {
 				global.owner = id;
 				global.limbKey = hand;
 				instance_create_depth(x,y,1,obj_attack);
+				if weapon.isRanged {
+					weapon.ammo -= 1;
+					if weapon.ammo < 1 {
+						alert(weapon.name + " out of ammo", c_red);
+					}
+				}
 			}
 			else {
 				ds_map_replace(prepFrames,hand,prepFrame-1);

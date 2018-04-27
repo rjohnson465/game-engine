@@ -91,4 +91,10 @@ if isFairy {
 	floatingFrame = floatingFrame % 60;
 }
 
+with obj_light_radius {
+	if owner == other.id {
+		light_set_scale(other.lightRadiusScale*other.scale);
+	}
+}
+
 shader_reset();
