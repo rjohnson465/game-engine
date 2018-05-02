@@ -1,4 +1,10 @@
-prepareLayerShader();
+if !isBeingHit {
+	prepareLayerShader();
+} else {
+	shader_set(sh_red);
+	var uPOSITION = shader_get_uniform(sh_red, "Position");
+	shader_set_uniform_f(uPOSITION,alarm[5]/5);
+}
 // draw stagger sprite if staggering
 if state == CombatantStates.Staggering {
 	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,1,1,facingDirection,c_white,1);

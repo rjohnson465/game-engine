@@ -152,6 +152,8 @@ if	state != CombatantStates.Dodging &&
 	// hit
 	if !isShielding || !scr_is_facing(assailant,id) {			
 		handleUnblockedAttack(attackObj,assailant,damage,actualDamage,isCriticalHit,itemHitWith);
+		isBeingHit = true;
+		alarm[5] = 5;
 	}
 	
 	// if this is the first time an enemy was hit, show the hp of the enemy

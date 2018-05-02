@@ -9,8 +9,8 @@ itemSprite = spr_item_longsword;
 // for each attack in chain
 numberOfTargets = [3,3,1];
 
-charges = 200;
-totalCharges = 200;
+charges = 10;
+totalCharges = 10;
 
 range = 50;
 

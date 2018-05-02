@@ -1,4 +1,10 @@
-prepareLayerShader();
+if !owner.isBeingHit {
+	prepareLayerShader();
+} else {
+	shader_set(sh_red);
+	var uPOSITION = shader_get_uniform(sh_red, "Position");
+	shader_set_uniform_f(uPOSITION,owner.alarm[5]/5);
+}
 // draw based on state
 if limbKey == "r" {
 	var leftHand = noone;

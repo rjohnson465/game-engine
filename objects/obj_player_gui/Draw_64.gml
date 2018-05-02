@@ -87,11 +87,13 @@ if leftHandItem.spriteName != "unarmed" {
 	var leftHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
 	draw_sprite(leftHandItemSprite,1,10,vh-70);
 	if leftHandItem.totalCharges != 0 {
-		var s = string(leftHandItem.charges) + "/" + string(leftHandItem.totalCharges);
+		/*var s = string(leftHandItem.charges) + "/" + string(leftHandItem.totalCharges);
 		draw_set_color(c_white);
 		draw_set_font(font_main);
 		draw_set_halign(fa_left);
-		draw_text(10,vh-18,s);
+		draw_text(10,vh-18,s);*/
+		var chargesPercent = (leftHandItem.charges / leftHandItem.totalCharges)*100;
+		draw_healthbar(10,vh-12,71,vh-9,chargesPercent,c_black,c_aqua,c_aqua,0,1,0);
 	}
 	// ammo bar
 	if leftHandItem.isRanged {
@@ -121,11 +123,13 @@ if rightHandItem.spriteName != "unarmed" {
 	draw_sprite(rightHandItemSprite,1,150,vh-70);
 
 	if rightHandItem.totalCharges != 0 {
-		var s = string(rightHandItem.charges) + "/" + string(rightHandItem.totalCharges);
+		/*var s = string(rightHandItem.charges) + "/" + string(rightHandItem.totalCharges);
 		draw_set_color(c_white);
 		draw_set_font(font_main);
 		draw_set_halign(fa_left);
-		draw_text(150,vh-18,s);
+		draw_text(150,vh-18,s);*/
+		var chargesPercent = (rightHandItem.charges / rightHandItem.totalCharges)*100;
+		draw_healthbar(10,vh-12,71,vh-9,chargesPercent,c_black,c_aqua,c_aqua,0,1,0);
 	}
 	// durability bar
 	var durabilityPercent = (rightHandItem.durability / rightHandItem.durabilityMax)*100;

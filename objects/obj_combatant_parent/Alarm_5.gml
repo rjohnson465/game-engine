@@ -1,0 +1,2 @@
+// isBeingHit timer
+isBeingHit = false;

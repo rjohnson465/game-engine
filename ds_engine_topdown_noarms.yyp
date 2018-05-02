@@ -4183,6 +4183,14 @@
             }
         },
         {
+            "Key": "c26c330e-c3dc-4c1f-ae76-aa497316ad94",
+            "Value": {
+                "id": "2141f7c9-efeb-4c75-8b0b-0b376d919d24",
+                "resourcePath": "shaders\\sh_red\\sh_red.yy",
+                "resourceType": "GMShader"
+            }
+        },
+        {
             "Key": "c2a56509-08e6-4105-8c41-d6b1b4a71ea6",
             "Value": {
                 "id": "e4515fa8-a7a0-4785-958d-8e5f414536bb",

@@ -55,7 +55,7 @@ else if fade != noone {
 			instance_create_depth(x,y,1,obj_fountain_gui);
 		}
 	}
-} else if distance_to_object(obj_player) < 20 && interactInputReceived && areActiveEnemiesNearby {
+} else if distance_to_object(obj_player) < 20 && interactInputReceived && areActiveEnemiesNearby && !global.isWishing {
 	alert("Cannot use fountains when enemies are nearby",c_red);
 }
 

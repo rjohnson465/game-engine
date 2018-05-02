@@ -11,7 +11,7 @@ with obj_fade {
 	}
 }
 
-if interactInputReceived && place_meeting(x,y,obj_player) && fade == noone && global.player.isAlive && !global.canLoot {
+if interactInputReceived && place_meeting(x,y,obj_player) && fade == noone && global.player.isAlive && !global.canLoot && !global.isLooting {
 
 	with obj_player {
 		// stop preparing attacks

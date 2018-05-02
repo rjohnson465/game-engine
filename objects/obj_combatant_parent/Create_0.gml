@@ -301,3 +301,5 @@ moveSpriteImageSpeed = 30;
 
 damagesAttacksFactor = 1; // 1x normal damage to weapons that strike this combatant
 
+isBeingHit = false;
+
