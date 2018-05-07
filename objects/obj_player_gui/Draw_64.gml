@@ -129,7 +129,7 @@ if rightHandItem.spriteName != "unarmed" {
 		draw_set_halign(fa_left);
 		draw_text(150,vh-18,s);*/
 		var chargesPercent = (rightHandItem.charges / rightHandItem.totalCharges)*100;
-		draw_healthbar(10,vh-12,71,vh-9,chargesPercent,c_black,c_aqua,c_aqua,0,1,0);
+		draw_healthbar(150,vh-12,211,vh-9,chargesPercent,c_black,c_aqua,c_aqua,0,1,0);
 	}
 	// durability bar
 	var durabilityPercent = (rightHandItem.durability / rightHandItem.durabilityMax)*100;

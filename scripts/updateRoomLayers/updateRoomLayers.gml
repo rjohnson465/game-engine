@@ -7,6 +7,9 @@ var pLayerName = layer_get_name(playerLayer);
 var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
 var pLayerDepth = layer_get_depth(playerLayer);
 
+show_debug_message("player layer: " + pLayerName + 
+				" | player layer depth: " + string(pLayerDepth));
+
 // make invisible instance and tile layers above the player's layer
 var instanceLayersAbove = ds_list_create();
 var tileLayersAbove = ds_list_create();
@@ -22,13 +25,16 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 	var lName = layer_get_name(l);
 	if string_pos("_floor_",lName) {
 		var lNum = real(string_char_at(lName,string_length(lName)));
+		
 		// if this layer is some floor above the player, it is not visible
 		if lNum > pLayerNum {
+			show_debug_message("Setting layer " + lName + " to invisible");
 			layer_set_visible(l,false);
 		}
 		// make visible layers at or below player's layer
 		// draw layers below a little darker, might need to use a Shader
 		else {
+			show_debug_message("Setting layer " + lName + " to visible");
 			layer_set_visible(l,true);
 			
 			// depth needs to be average of tiles layer and instances layer for this floor

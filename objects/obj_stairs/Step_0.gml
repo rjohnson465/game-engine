@@ -9,7 +9,7 @@ if place_meeting_layer(x,y,obj_player) {
 		
 		//var dir = point_direction(xprevious,yprevious,x,y);
 		var dir = point_direction(other.x,other.y,x,y);
-		show_debug_message(dir);
+		//show_debug_message(dir);
 		if angleBetween(udMin,udMax,dir) && climbingDir != "u" {
 			layerToChangeTo = layer_get_id("instances_floor_" + string(fu));
 			climbingDir = "u";

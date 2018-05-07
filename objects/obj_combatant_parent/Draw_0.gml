@@ -1,9 +1,11 @@
 if !isBeingHit {
 	prepareLayerShader();
 } else {
+	
 	shader_set(sh_red);
 	var uPOSITION = shader_get_uniform(sh_red, "Position");
-	shader_set_uniform_f(uPOSITION,alarm[5]/5);
+	var amt = alarm[5]/5;
+	shader_set_uniform_f(uPOSITION,amt);
 }
 // draw stagger sprite if staggering
 if state == CombatantStates.Staggering {
@@ -84,6 +86,11 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 		var colorAlpha = (3/320)*percentPoisoned;
 		draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_aqua, colorAlpha*alpha);
 	}
+	
+	/*if isBeingHit {
+		var hitAlpha = alarm[5]/5;
+		draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_red, hitAlpha*alpha);
+	}*/
 	
 	var totalIdleFrames = sprite_get_number(asset_get_index("spr_"+spriteString));
 	

@@ -17,7 +17,7 @@ else if distance_to_object(obj_player) >= 20 {
 }
 
 // ensure items are not anywhere on screen if not being looted
-if (!isBeingLooted && items) || (distance_to_object(obj_player) > 20 && items)  {
+if (!isBeingLooted && ds_exists(items,ds_type_list)) || (distance_to_object(obj_player) > 20 && ds_exists(items,ds_type_list))  {
 	for (var i = 0; i < ds_list_size(items); i++) {
 		var item = ds_list_find_value(items,i);
 		item.x1 = -100;
@@ -28,7 +28,7 @@ if (!isBeingLooted && items) || (distance_to_object(obj_player) > 20 && items)  
 	global.isLooting = true;
 }
 
-if items && (ds_list_size(items) == 0 && !hasSetAlarm) {
+if (!ds_exists(items,ds_type_list) || ds_list_size(items) == 0) && !hasSetAlarm {
 	alarm[0]=3;
 	hasSetAlarm = true;
 }

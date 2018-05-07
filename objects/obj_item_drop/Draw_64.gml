@@ -7,7 +7,7 @@ if distance_to_object(obj_player) < 20 && global.player.isAlive && layer == glob
 draw_set_font(font_main); 
 
 // loot ui
-if isBeingLooted && items && ds_list_size(items) != 0 {
+if isBeingLooted && ds_exists(items,ds_type_list) && ds_list_size(items) != 0 {
 
 	draw_set_color(c_gray);
 	draw_rectangle(topLeftX,topLeftY,bottomRightX,bottomRightY,0);

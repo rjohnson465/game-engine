@@ -55,3 +55,18 @@ if !isAlive {
 	alpha = 0;
 	visible = false;
 }
+
+
+
+
+
+var nearestStairs = instance_nearest(x,y,obj_stairs);
+if distance_to_object(nearestStairs) < 200 /*&& nearestStairs.layer == layer*/ {
+	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone {
+
+		updateRoomLayers();
+		climbingDir = noone;
+		
+
+	}
+}

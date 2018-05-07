@@ -10,15 +10,20 @@ else if isSelectorInInventory {
 	// if we're not at the lowest row in inventory, move down
 	// AND there is an item at the resultant row / column
 	if y1 < inv.invTopLeftY+(3*inv.slotHeight) {
-		
+		var origX = x1;
+		var origY = y1;
 		y1 += inv.slotHeight;
 		if getItemAtSelectorPosition(id) {
 			inv.selectedItem = getItemAtSelectorPosition(id);
 		} else {
 			do {
 				x1 -= inv.slotWidth;
-			} until getItemAtSelectorPosition(id);
+				//y1 -= inv.slotHeight;
+			} until getItemAtSelectorPosition(id) || x1 <= (MENUS_TOPLEFT_X+inv.slotWidth)+camera_get_view_x(view_camera[0]);
 			//y1 -= inv.slotHeight;
+			if getItemAtSelectorPosition(id) == noone {
+				x1 = origX; y1 = origY;
+			}
 		}
 	}
 	

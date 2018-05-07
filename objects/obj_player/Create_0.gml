@@ -213,6 +213,8 @@ insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
 insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 addItemToInventory(longsword);
 
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
+
 addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 addItemToInventory(instance_create_depth(x,y,1,obj_item_ring));
@@ -226,7 +228,7 @@ addItemToInventory(makeGem(obj_gem_emerald,CRACKED));
 addItemToInventory(makeGem(obj_gem_ruby,CRACKED));
 addItemToInventory(makeGem(obj_gem_hematite,CRACKED));
 
-/*
+// bs
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
@@ -251,7 +253,7 @@ addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-*/
+
 
 
 

@@ -1,5 +1,5 @@
 // ACT 1
-global.meleeWeaponsAct1 = [obj_hand_item_longsword];
+global.meleeWeaponsAct1 = [obj_hand_item_longsword, obj_hand_item_dagger];
 global.rangedWeaponsAct1 = [obj_hand_item_shortbow];
 global.shieldsAct1 = [obj_hand_item_woodshield];
 

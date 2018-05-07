@@ -18,6 +18,8 @@ if state == CombatantStates.Dodging && ds_list_find_index(beenHitWith,attackObj.
 	exit;
 }
 
+if attackObj.alarm[0] >= 0 exit;
+
 // if combatant has not been hit with this instance before (only get hit with an attack once)
 if ds_list_find_index(beenHitWith,attackObj.id) != -1 exit;
 

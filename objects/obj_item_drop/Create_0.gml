@@ -71,3 +71,19 @@ part_type_speed(magic,.25,1,0,0);
 part_type_direction(magic,0,360,0,4);
 part_type_life(magic,10,15);
 particle = magic;
+
+show_debug_message(string(items));
+show_debug_message(string(global.droppedItems));
+
+if !items {
+	var a = ds_exists(items,ds_type_list);
+	var b = 3;
+}
+
+/*if !items && global.droppedItems {
+	while items == 0 {
+		ds_list_destroy(items);
+		items = ds_list_create();
+		ds_list_copy(items,global.droppedItems);
+	}
+}
