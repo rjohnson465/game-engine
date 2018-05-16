@@ -21,7 +21,7 @@ if var_greyscale_fade == 1 {
 	}
 } 
 
-if textFadeFrame >= textFadeTotalFrames {
+if textFadeFrame >= textFadeTotalFrames && !instance_exists(fade) {
 	acceptingInput = true;
 }
 

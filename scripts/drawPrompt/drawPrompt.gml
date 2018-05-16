@@ -33,6 +33,7 @@ if argument_count == 5 {
 	msgColor = argument[4];
 }
 
+draw_set_font(font_main);
 var promptWidth = string_width(msg);
 var spritesMap = ds_map_create();
 var isGamepadConnected = gamepad_is_connected(global.player.gamePadIndex);

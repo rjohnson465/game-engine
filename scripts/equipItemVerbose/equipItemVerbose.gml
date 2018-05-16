@@ -166,6 +166,12 @@ with slotObj {
 			unequipItem(droppedItem);
 		}
 		
+		// unequip current hat
+		var alreadyEquippedItem = getItemInEquipmentSlot(slot);
+		if alreadyEquippedItem {
+			unequipItem(alreadyEquippedItem);
+		}
+		
 		equipItem(droppedItem,slot);
 	}
 }

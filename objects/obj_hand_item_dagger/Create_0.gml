@@ -16,7 +16,7 @@ staggerDuration = 10; // frames
 ds_map_set(damages,SLASH,[5,8,5,8,6,9,8,10]);
 //ds_map_set(damages,PIERCE,[0,0,0,0,25,30]);
 //ds_map_set(damages,CRUSH,[0,0,0,0,0,0]);
-staminaCostArray=[10,10,25];
+staminaCostArray=[10,10,10,10];
 
 act = 1;
 

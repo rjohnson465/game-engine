@@ -10,6 +10,14 @@ if argument_count > 2 {
 	isRemoving = argument[2];
 }
 
+
+var isEquipped = item.equipmentSlot != noone;
+var slot = noone;
+if isEquipped {
+	slot = item.equipmentSlot;
+	unequipItem(item);
+}
+
 if !isRemoving {
 	if item.numberOfSockets == 0 || ds_list_size(item.socketedGems) >= item.numberOfSockets {
 		alert(item.name + " does not have any free sockets",c_red);
@@ -152,6 +160,7 @@ switch item.type {
 			ds_map_replace(item.defenses,PHYSICAL,physDef+defOrResBoost);
 		}
 		updateItemName(item);
+		//updatePlayerPropertiesItem(item,0);
 		break;
 	}
 }
@@ -162,4 +171,9 @@ if gemIndex != -1 {
 	if gemObj.count == 1 {
 		ds_list_delete(global.player.inventory,gemIndex);
 	} else gemObj.count--;
+}
+
+
+if isEquipped {
+	equipItem(item,slot)
 }

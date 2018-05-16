@@ -45,6 +45,7 @@ if pred && !isFlinching {
 	// if can't find potential path directly to player, find grid path to player and potential path steps on it
 	else 
 	if layer == lockOnTarget.layer {
+		populatePersonalGrid();
 		var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,lockOnTarget.x,lockOnTarget.y,true);
 		if isGridPathAvailable /*&& recalculatePathFrame >= recalculatePathFrameTotal*/ {
 			var xx = path_get_x(gridPath,.1);

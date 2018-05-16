@@ -12,3 +12,10 @@ shade = 0;
 blur = 0.4
 color = make_colour_rgb(1*255, 1*255, 1 * 255); // The darker the color, the darker the shadow.
 
+isPlayerLayer = false;
+var playerLayer = global.player.layer;
+var pLayerName = layer_get_name(playerLayer);
+var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
+if pLayerNum == floorNum {
+	isPlayerLayer = true;
+}

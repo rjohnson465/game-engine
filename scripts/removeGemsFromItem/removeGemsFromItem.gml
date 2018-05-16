@@ -18,6 +18,19 @@ if ds_list_size(item.socketedGems) == 0 {
 
 var origSize = ds_list_size(item.socketedGems);
 
+var isEquipped = item.equipmentSlot != noone;
+
+var slot = noone;
+if isEquipped {
+	slot = item.equipmentSlot;
+	/*with obj_item_parent {
+		if copyOf == item {
+			instance_destroy(id,1);
+		}
+	}*/
+	unequipItem(item);
+}
+
 for (var i = 0; i < origSize; i++) {
 	var gem = ds_list_find_value(item.socketedGems,0);
 	
@@ -26,6 +39,10 @@ for (var i = 0; i < origSize; i++) {
 	
 	// return gem to inventory
 	addItemToInventory(gem);
+}
+
+if isEquipped {
+	equipItem(item,slot)
 }
 
 //updateItemName(item);

@@ -9,10 +9,6 @@ if gamepad_is_connected(pad) {
 		showHideInventory();
 	}
 	
-	if gamepad_button_check_pressed(pad,gp_face4) && isShowingMenus {
-		isShowingExplanations = !isShowingExplanations;
-	}
-	
 	if gamepad_button_check_pressed(pad,gp_shoulderl) && isShowingMenus {
 		switch currentMenu {
 			case INVENTORY: {

@@ -10,6 +10,8 @@ Blurry shadows generally makes a lower quality lightmap look nicer without the e
 Important note: The object calling this function should have a lower depth than the casters.
 */
 
+if !ds_exists(global._lights, ds_type_list) exit;
+
 global._light_time += delta_time
 if global._light_time >= global._light_max_time
 {

@@ -1,3 +1,5 @@
+// only draw if not player's layer
+if isPlayerLayer exit;
 
 if( !surface_exists(surface_canvas_1) ){
     surface_canvas_1 = surface_create(room_width,room_height);

@@ -1,3 +1,4 @@
+draw_set_font(font_main);
 if global.fountainGui.currentSubMenu == CHOOSEITEM {
 	draw_set_alpha(.2);
 }

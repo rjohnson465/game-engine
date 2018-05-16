@@ -20,3 +20,7 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && glo
 	}
 	scrollLevel = 0;
 }
+
+if gamepad_button_check_pressed(global.player.gamePadIndex,gp_face4) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
+	global.ui.isShowingExplanations = !global.ui.isShowingExplanations;
+}

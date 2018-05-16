@@ -10,7 +10,9 @@ var idd = id;
 with obj_enemy_obstacle_parent {
 	if object_is_ancestor(object_index,obj_combatant_parent) continue;
 	else {
-		if layer == myLayer {
+		if object_index == obj_fountain && origLayer == myLayer {
+			ds_list_add(solids,id);
+		} else if layer == myLayer {
 			ds_list_add(solids,id);
 		}
 	}

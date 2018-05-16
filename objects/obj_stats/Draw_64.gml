@@ -37,7 +37,7 @@ if ui.isShowingExplanations {
 draw_sprite(spr_stats_hp_regen,1,basicCol2XPictures,topLeftY+(line*20));
 if ui.isShowingExplanations {
 	draw_text(basicCol2XText,topLeftY+(line*20),"HP regained/sec");
-} else draw_text(basicCol2XText,topLeftY+(line*20),"HP Regen: "+string(p.hpRegen));
+} else draw_text(basicCol2XText,topLeftY+(line*20),"Regen: "+string(p.hpRegen));
 line++;
 
 // stamina
@@ -48,7 +48,7 @@ if ui.isShowingExplanations {
 draw_sprite(spr_stats_stamina_regen,1,basicCol2XPictures,topLeftY+(line*20));
 if ui.isShowingExplanations {
 	drawTextWidth(basicCol2XText,topLeftY+(line*20),"Stamina regained/sec",basicCol1Width-21);
-} else draw_text(basicCol2XText,topLeftY+(line*20),"Stamina Regen: "+string(p.staminaRegen));
+} else draw_text(basicCol2XText,topLeftY+(line*20),"Regen: "+string(p.staminaRegen));
 line++;
 
 // main hand weapon

@@ -1,8 +1,14 @@
 //items = ds_list_create();
 //items = global.droppedItems; // ds_list
-items = ds_list_create();
+//items = ds_list_create();
+//show_debug_message(string(items));
+
 //droppedItems = global.droppedItems;
-ds_list_copy(items,global.droppedItems);
+//ds_list_copy(items,global.droppedItems);
+
+items = global.droppedItems;
+
+
 owner = global.owner;
 layer = owner.layer;
 isBeingLooted = false;
@@ -72,8 +78,8 @@ part_type_direction(magic,0,360,0,4);
 part_type_life(magic,10,15);
 particle = magic;
 
-show_debug_message(string(items));
-show_debug_message(string(global.droppedItems));
+//show_debug_message(string(items));
+//show_debug_message(string(global.droppedItems));
 
 if !items {
 	var a = ds_exists(items,ds_type_list);

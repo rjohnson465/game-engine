@@ -60,5 +60,8 @@ else if fade != noone {
 		p.y = nextRoomY;
 		p.layerToMoveTo = nextRoomLayer;
 		room = nextRoom;
+		with obj_weapon {
+			refreshParticles = true;
+		}
 	}
 }

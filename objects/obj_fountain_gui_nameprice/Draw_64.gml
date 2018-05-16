@@ -5,6 +5,7 @@ if global.fountainGui.currentSubMenu != NAMEPRICE {
 } else {
 	draw_set_alpha(1);
 }
+draw_set_font(font_main);
 
 if !gamepad_is_connected(global.player.gamePadIndex) {
 	// draw back button

@@ -87,11 +87,6 @@ if leftHandItem.spriteName != "unarmed" {
 	var leftHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
 	draw_sprite(leftHandItemSprite,1,10,vh-70);
 	if leftHandItem.totalCharges != 0 {
-		/*var s = string(leftHandItem.charges) + "/" + string(leftHandItem.totalCharges);
-		draw_set_color(c_white);
-		draw_set_font(font_main);
-		draw_set_halign(fa_left);
-		draw_text(10,vh-18,s);*/
 		var chargesPercent = (leftHandItem.charges / leftHandItem.totalCharges)*100;
 		draw_healthbar(10,vh-12,71,vh-9,chargesPercent,c_black,c_aqua,c_aqua,0,1,0);
 	}
@@ -123,11 +118,6 @@ if rightHandItem.spriteName != "unarmed" {
 	draw_sprite(rightHandItemSprite,1,150,vh-70);
 
 	if rightHandItem.totalCharges != 0 {
-		/*var s = string(rightHandItem.charges) + "/" + string(rightHandItem.totalCharges);
-		draw_set_color(c_white);
-		draw_set_font(font_main);
-		draw_set_halign(fa_left);
-		draw_text(150,vh-18,s);*/
 		var chargesPercent = (rightHandItem.charges / rightHandItem.totalCharges)*100;
 		draw_healthbar(150,vh-12,211,vh-9,chargesPercent,c_black,c_aqua,c_aqua,0,1,0);
 	}
@@ -160,6 +150,8 @@ if rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0 {
 			draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_white,1);
 		}
 		if !gamepad_is_connected(global.player.gamePadIndex) {
+			draw_set_font(font_damage);
+			draw_set_halign(fa_left);
 			script_execute(scr_draw_text_outline,x1+1,vh-107,string(i+1),c_white,c_white);
 		}
 	}

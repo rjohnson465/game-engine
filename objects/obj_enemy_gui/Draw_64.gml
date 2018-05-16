@@ -1,3 +1,7 @@
+//draw_path(owner.path,x,y,1);
+draw_set_alpha(.1);
+//mp_grid_draw(owner.personalGrid);
+draw_set_alpha(1);
 // if player is locked on to this enemy, view hp / name in top middle screen
 if owner == global.player.lockOnTarget {
 	draw_set_font(font_main);

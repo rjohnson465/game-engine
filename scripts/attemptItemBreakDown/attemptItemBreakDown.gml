@@ -9,6 +9,12 @@ if rand <= odds {
 	alert(string(item.name) + " sucessfully broken down ",c_lime);
 
 	removeGemsFromItem(item);
+	for (var i = 0; i < ds_list_size(global.player.equippedItems); i++) {
+		var ei = ds_list_find_value(global.player.equippedItems,i);
+		if ei.copyOf == item {
+			removeGemsFromItem(ei);
+		}
+	}
 
 	spendGold(namedPrice);
 				

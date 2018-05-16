@@ -223,6 +223,14 @@
             }
         },
         {
+            "Key": "0743919d-5f91-4860-9f47-b099a4714f33",
+            "Value": {
+                "id": "0716cb96-6661-46a7-a32e-1d8b2d820237",
+                "resourcePath": "sprites\\spr_player_hand_dagger_recover_3\\spr_player_hand_dagger_recover_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "07ed0573-4245-493b-85b2-5c067785bac9",
             "Value": {
                 "id": "9f2827f2-ff41-407b-a636-1112a90251fc",
@@ -452,6 +460,14 @@
                 "id": "cbd4c42c-8633-4d6a-aa56-08a884566e70",
                 "resourcePath": "views\\108eacde-37f0-48bb-8751-0d88bec5cfc4.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "10a83833-86e0-468a-9aa1-eb1f5fbe1b5f",
+            "Value": {
+                "id": "a9158807-909e-4680-a9f8-cdb463815442",
+                "resourcePath": "sprites\\spr_player_dagger_attack_3\\spr_player_dagger_attack_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1155,6 +1171,14 @@
             "Value": {
                 "id": "477feee9-f935-483f-a8c9-6ef37cb0ec3e",
                 "resourcePath": "sprites\\spr_skill_clubmastery\\spr_skill_clubmastery.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2af7d9fb-3c9c-4d55-bf7a-abf666e52fde",
+            "Value": {
+                "id": "20f174bb-315f-4ef4-80d2-b90fc526e267",
+                "resourcePath": "sprites\\spr_player_dagger_prep_4\\spr_player_dagger_prep_4.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2439,6 +2463,14 @@
             }
         },
         {
+            "Key": "6d333721-f5f7-46c1-be18-36bd289dba92",
+            "Value": {
+                "id": "5e1f875a-b67a-49cf-8e2d-ded9a7a54f3b",
+                "resourcePath": "sprites\\spr_player_hand_dagger_recover_4\\spr_player_hand_dagger_recover_4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6d4bad48-577a-44bd-9580-f4cdd1b9af42",
             "Value": {
                 "id": "7cff3b33-6052-47a9-98ab-c7cd88442ece",
@@ -2935,6 +2967,14 @@
             }
         },
         {
+            "Key": "83737759-e539-4bf3-959c-719a957c745d",
+            "Value": {
+                "id": "aaf079c6-6fde-427d-9c19-474f1714e166",
+                "resourcePath": "sprites\\spr_player_hand_dagger_attack_3\\spr_player_hand_dagger_attack_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "83751bff-e0ca-4386-816f-6fdf7253fb74",
             "Value": {
                 "id": "61b8c2b6-887e-41f8-93b3-9d6d0608f8d5",
@@ -3228,6 +3268,14 @@
                 "id": "795af96a-8b17-4b55-b1e3-43f5a6dd4367",
                 "resourcePath": "objects\\obj_gem_hematite\\obj_gem_hematite.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "90da38af-14fa-4232-8197-5581003d63a6",
+            "Value": {
+                "id": "4ec25ef3-a4a2-45fe-b74c-c9dcc9c1f36e",
+                "resourcePath": "sprites\\spr_player_dagger_recover_4\\spr_player_dagger_recover_4.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3548,6 +3596,14 @@
                 "id": "8aa95f95-7348-4a1b-b30e-7cab0720ea15",
                 "resourcePath": "objects\\obj_fountain_data\\obj_fountain_data.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "a028c6e3-cf68-4972-b419-10e60fc8a4ef",
+            "Value": {
+                "id": "0da62504-7155-4a38-982e-c6b0331087b2",
+                "resourcePath": "sprites\\spr_player_hand_dagger_attack_4\\spr_player_hand_dagger_attack_4.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4055,6 +4111,14 @@
             }
         },
         {
+            "Key": "b4d5292f-5cc0-4e7d-96b9-e3fcc43dbc7c",
+            "Value": {
+                "id": "6fcc16e5-16ca-4c24-8cf5-9050f9325084",
+                "resourcePath": "sprites\\spr_player_dagger_attack_4\\spr_player_dagger_attack_4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b4f44d8d-d934-48b7-a56e-4a5245b0acac",
             "Value": {
                 "id": "fa38072a-a1a0-4208-b461-6047637a96cd",
@@ -4292,6 +4356,14 @@
                 "id": "5a4a876e-f726-48d0-b0b2-bf2e0b86c72c",
                 "resourcePath": "shaders\\sh_greyscale\\sh_greyscale.yy",
                 "resourceType": "GMShader"
+            }
+        },
+        {
+            "Key": "c042324b-bfe3-478d-a1bb-335a34fcd57a",
+            "Value": {
+                "id": "ecb053e8-1125-4da2-8a1f-c7d65ebc862e",
+                "resourcePath": "sprites\\spr_player_dagger_prep_3\\spr_player_dagger_prep_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5047,6 +5119,14 @@
             }
         },
         {
+            "Key": "de790846-221e-4654-afa2-9a97d1a864c4",
+            "Value": {
+                "id": "ccc26848-9a50-4c1b-97c2-1f870962989f",
+                "resourcePath": "sprites\\spr_player_hand_dagger_prep_4\\spr_player_hand_dagger_prep_4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "deae7a51-1115-4d01-a739-58728e9c68b7",
             "Value": {
                 "id": "6fc4368d-266d-4a5c-90c1-eac51f362096",
@@ -5279,6 +5359,14 @@
             }
         },
         {
+            "Key": "ebe36b65-0c43-48c2-89d4-24a8da6465e8",
+            "Value": {
+                "id": "c6337eb0-adc7-4af2-a748-6f0e15233425",
+                "resourcePath": "sprites\\spr_player_dagger_recover_3\\spr_player_dagger_recover_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ec462f34-0172-423c-9dbb-db8ad4f99d84",
             "Value": {
                 "id": "40fdf939-d706-4462-b430-995d135795aa",
@@ -5467,6 +5555,14 @@
             "Value": {
                 "id": "c0bb545b-dfe1-4e19-9ecf-4f3da7bbda4d",
                 "resourcePath": "sprites\\spr_prompt_xbox_rb\\spr_prompt_xbox_rb.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f3ffe2ee-c712-42e5-bc98-4e9d67654a11",
+            "Value": {
+                "id": "f6d7f95e-15a6-41e6-951d-eb08190082b5",
+                "resourcePath": "sprites\\spr_player_hand_dagger_prep_3\\spr_player_hand_dagger_prep_3.yy",
                 "resourceType": "GMSprite"
             }
         },

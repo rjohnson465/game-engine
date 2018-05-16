@@ -6,7 +6,15 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 }
 
 if distance_to_object(obj_player) < 20 && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting {
-	isBeingLooted = true;
+	// only loot the closest item, if multiple items exist that are within 20px of player
+	if instance_nearest(global.player.x,global.player.y,obj_item_drop) == id {
+		var isDestroying = false;
+		with obj_item_drop {
+			if hasSetAlarm isDestroying = true;
+		} if !isDestroying {
+			isBeingLooted = true;
+		}
+	}
 } 
 else if distance_to_object(obj_player) < 20 && global.player.isAlive && !global.isLooting {
 	global.canLoot = true;
