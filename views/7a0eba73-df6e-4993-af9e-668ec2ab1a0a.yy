@@ -5,9 +5,7 @@
     "name": "7a0eba73-df6e-4993-af9e-668ec2ab1a0a",
     "children": [
         "3d23dcb8-3be7-456e-a675-890dc368c13f",
-        "abb20e65-58dd-44fe-a1ed-24b00634fa7d",
-        "14b327bb-f467-4f98-8944-72203e289b4e",
-        "13444776-bd8b-4c90-866b-bf45a90852f9"
+        "14b327bb-f467-4f98-8944-72203e289b4e"
     ],
     "filterType": "GMObject",
     "folderName": "sword_1h",

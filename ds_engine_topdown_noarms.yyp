@@ -383,6 +383,14 @@
             }
         },
         {
+            "Key": "0d34b411-b6ff-4baa-b88c-8de007a8637e",
+            "Value": {
+                "id": "b30687ef-d3f5-4b13-9dfc-280e61f9e8c2",
+                "resourcePath": "sprites\\spr_player_hand_axe_2h_attack_1\\spr_player_hand_axe_2h_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0d57633b-3daa-43b9-89f1-48f308a21fa4",
             "Value": {
                 "id": "7c0c61ce-86d9-4f69-8562-5487ea819b99",
@@ -1679,6 +1687,14 @@
             }
         },
         {
+            "Key": "457e6b2c-1bc9-4a35-9bb9-0edd5e942246",
+            "Value": {
+                "id": "f36d24a8-721d-49ee-8f6c-02c26a6447ee",
+                "resourcePath": "sprites\\spr_player_hand_axe_2h_prep_1\\spr_player_hand_axe_2h_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "459f8509-c010-4594-a1fc-9f14caac5be7",
             "Value": {
                 "id": "19f4ba2a-696a-4751-b014-d8034ac0d8ff",
@@ -1835,6 +1851,14 @@
             "Value": {
                 "id": "71163d52-8bbe-4659-ae45-5537d03f2e9c",
                 "resourcePath": "views\\4cd24ea6-2a87-4e41-80ca-933b635a3b50.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4d75fee2-7351-4c8f-b87c-db8ab35e9db0",
+            "Value": {
+                "id": "7d7a3789-c170-4709-8ad2-332b89d88aea",
+                "resourcePath": "views\\4d75fee2-7351-4c8f-b87c-db8ab35e9db0.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -2175,6 +2199,14 @@
             }
         },
         {
+            "Key": "5f777786-e4e2-402c-8791-d17d7df8b2a9",
+            "Value": {
+                "id": "201c00c4-14f4-4b10-8b05-c92a4fed42ab",
+                "resourcePath": "sprites\\spr_player_battleaxe_base\\spr_player_battleaxe_base.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5fd912f7-c761-4d86-88a7-c18e9c3443d3",
             "Value": {
                 "id": "5efd7f5d-c39d-4414-93eb-6ba16c94a7b7",
@@ -2463,6 +2495,14 @@
             }
         },
         {
+            "Key": "6a6ba4da-50aa-41b9-9a09-37313224114a",
+            "Value": {
+                "id": "213925dc-291c-4f2e-bb60-234d9d17aa31",
+                "resourcePath": "sprites\\spr_player_battleaxe_attack_1\\spr_player_battleaxe_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6a6ee0c5-59ba-4edf-94c1-c3f5d0bfa495",
             "Value": {
                 "id": "bd18d37e-719a-4886-aae3-69b1e9ab8438",
@@ -2580,6 +2620,14 @@
                 "id": "52ef1cd8-f557-499e-ba70-a814e4dea23c",
                 "resourcePath": "objects\\obj_item_selector\\obj_item_selector.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "70381db8-b3b2-4bf1-8561-afece973e267",
+            "Value": {
+                "id": "f589cc19-1f12-4016-8b45-7a4233b1f394",
+                "resourcePath": "sprites\\spr_player_battleaxe_prep_1\\spr_player_battleaxe_prep_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4343,6 +4391,14 @@
             }
         },
         {
+            "Key": "b9815021-14e6-4da4-a42e-128f17e8cc28",
+            "Value": {
+                "id": "332d7fcf-e331-41f1-820d-1b6505965100",
+                "resourcePath": "sprites\\spr_player_battleaxe_recover_1\\spr_player_battleaxe_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b9900e60-5354-4940-a6ad-39b995b95f5f",
             "Value": {
                 "id": "0b73579d-1c59-489c-94f3-06cf0f675105",
@@ -5867,6 +5923,14 @@
             "Value": {
                 "id": "d9929d52-be27-4881-a77b-d8a4c9e1d0f2",
                 "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_attack_1_1\\spr_enemy_unfairy_shortbow_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "faaa4ca8-2068-4831-b218-135fce88a3cb",
+            "Value": {
+                "id": "03c0637a-5b6c-4193-885d-e80bd7506f21",
+                "resourcePath": "sprites\\spr_player_hand_axe_2h_recover_1\\spr_player_hand_axe_2h_recover_1.yy",
                 "resourceType": "GMSprite"
             }
         },

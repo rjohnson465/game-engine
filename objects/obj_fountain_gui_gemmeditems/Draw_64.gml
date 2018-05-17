@@ -98,6 +98,11 @@ for (var i = 0; i < 20; i++) {
 		drawItem(item,x1,y1);
 	} 
 }
+
+if ds_list_size(inv) == 0 {
+	draw_set_color(c_white); draw_set_halign(fa_center); draw_set_valign(fa_center);
+	draw_text(mean(invTopLeftX,invBottomRightX),mean(invTopLeftY,invBottomRightY),"No gemmed items found");
+}
 		
 // selected item details box
 draw_set_color(c_dkgray);

@@ -369,6 +369,6 @@ else if item.type == ItemTypes.Head {
 		draw_sprite(sprite,1,itemDescriptionCol2XPictures,itemDescriptionColY+((i+1)*25));
 		if !global.ui.isShowingExplanations {
 			draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),string(val)+"%");
-		} draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),el);
+		} else draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),el);
 	}
 }

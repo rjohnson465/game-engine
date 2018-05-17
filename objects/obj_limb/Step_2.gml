@@ -18,7 +18,11 @@ if ds_map_find_value(owner.equippedLimbItems,limbKey) != limbItem {
 // if we currently have a 2h weapon equipped, make the right hand fuck off
 var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
 if leftHandItem {
-	if leftHandItem.isTwoHanded && limbKey == "r" {
+	if owner == global.player && owner.currentUsingSpell != noone {
+		x = owner.x;
+		y = owner.y;
+	}
+	else if leftHandItem.isTwoHanded && limbKey == "r" {
 		x = -1000;
 		y = -1000;
 	} else {

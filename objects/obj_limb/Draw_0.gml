@@ -16,7 +16,7 @@ if limbKey == "r" {
 	}
 	if leftHand {
 		var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
-		if leftHandItem.isTwoHanded exit;
+		if leftHandItem.isTwoHanded && owner.currentUsingSpell == noone exit;
 	}
 }
 

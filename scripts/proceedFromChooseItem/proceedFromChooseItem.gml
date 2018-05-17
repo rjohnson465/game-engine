@@ -1,6 +1,11 @@
 /// proceedFromChooseItem()
 /// must be called by instance of obj_fountain_gui_socketeditems
 
+if selectedItem == noone {
+	alert("No item selected",c_red);
+	exit;
+}
+
 if global.fountainGui.currentMenu == INSERTGEM {
 	var gemGui = instance_nearest(x,y,obj_fountain_gui_gems);
 	gemGui.isAcceptingInput = false;
