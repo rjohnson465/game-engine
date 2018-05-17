@@ -37,6 +37,13 @@ if (global.isWishing) {
 				gi.selectedItem = id;
 			}
 		}
+	} else if global.fountainGui.currentMenu == REPAIRITEM {
+		if global.fountainGui.currentSubMenu == CHOOSEITEM {
+			var bi = instance_nearest(x,y,obj_fountain_gui_brokenitems);
+			if ds_list_find_index(bi.inv,id) != -1 {
+				bi.selectedItem = id;
+			}
+		}
 	}
 	exit;
 }

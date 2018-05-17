@@ -34,6 +34,11 @@ if gamepad_is_connected(pad) && isAcceptingInput {
 					startBreakDownItemMenu();
 					break;
 				}
+				case REPAIRITEM: {
+					if currentMenu != FOUNTAIN exit;
+					startRepairItemMenu();
+					break;
+				}
 				case LEAVEFOUNTAIN: {
 					leaveFountain(); break;
 				}

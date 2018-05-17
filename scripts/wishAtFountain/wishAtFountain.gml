@@ -73,11 +73,15 @@ else if isDoneFilling {
 					item.charges = item.totalCharges;
 					if copy != noone copy.charges = item.totalCharges;
 				}
-				item.durability = item.durabilityMax;
+				if item.durability > 0 {
+					item.durability = item.durabilityMax;
+				}
 				item.hasIssuedDurabilityWarning = false;
 				item.hasIssuedDurabilityObituary = false;
 				if copy != noone {
-					copy.durability = item.durabilityMax;
+					if copy.durability > 0 {
+						copy.durability = item.durabilityMax;
+					}
 					copy.hasIssuedDurabilityWarning = false;
 					copy.hasIssuedDurabilityObituary = false;
 				}
@@ -102,11 +106,15 @@ else if isDoneFilling {
 					item.charges = item.totalCharges;
 					if copy != noone copy.charges = item.totalCharges;
 				}
-				item.durability = item.durabilityMax;
+				if item.durability > 0 {
+					item.durability = item.durabilityMax;
+				}
 				item.hasIssuedDurabilityWarning = false;
 				item.hasIssuedDurabilityObituary = false;
 				if copy != noone {
-					copy.durability = item.durabilityMax;
+					if copy.durability > 0 {
+						copy.durability = item.durabilityMax;
+					}
 					copy.hasIssuedDurabilityWarning = false;
 					copy.hasIssuedDurabilityObituary = false;
 				}

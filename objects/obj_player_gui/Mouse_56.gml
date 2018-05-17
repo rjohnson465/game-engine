@@ -15,7 +15,7 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 	
 	
 	//if mouse_x > vx + x1 && mouse_y > vy + y1 && mouse_x < vx + x2 && mouse_y < vy + y2 {
-	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
+	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && global.ui.grabbedItem == noone {
 		switch (currentButton) {
 			case "closeButton": {
 				isShowingMenus = false;

@@ -3,7 +3,8 @@ if isSpell && !hasSetAlarm {
 		if distance_to_object(owner.lockOnTargetType) < 1000 {
 			
 			var target = instance_nearest(x,y,owner.lockOnTargetType);
-			if ds_list_find_index(combatantsHit,target) != -1 exit;
+			
+			if ds_exists(combatantsHit,ds_type_list) && ds_list_find_index(combatantsHit,target) != -1 exit;
 			if target.layer != owner.layer exit;
 			if place_meeting(x,y,target) ds_list_add(combatantsHit,target);
 			var r = distance_to_object(target);

@@ -58,6 +58,8 @@ if gamepad_is_connected(pad) {
 				attemptGemInsertion(); 
 			} else if global.fountainGui.currentMenu == BREAKDOWNITEM {
 				attemptItemBreakDown();
+			} else if global.fountainGui.currentMenu == REPAIRITEM {
+				attemptRepairItem();
 			}
 		} else {
 			var newProposal = namedPrice;

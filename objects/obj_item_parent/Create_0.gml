@@ -75,3 +75,6 @@ numberOfSockets = 0;
 
 hasIssuedDurabilityWarning = false;
 hasIssuedDurabilityObituary = false;
+
+durability = 50;
+durabilityMax = 50;

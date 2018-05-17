@@ -23,6 +23,8 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 					attemptGemInsertion();
 				} else if global.fountainGui.currentMenu == BREAKDOWNITEM {
 					attemptItemBreakDown();
+				} else if global.fountainGui.currentMenu == REPAIRITEM {
+					attemptRepairItem();
 				}
 				exit;
 			}

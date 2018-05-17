@@ -21,12 +21,10 @@ if mightGrab && grabFrame < grabFrames && mouse_check_button(mb_left) {
 
 visible = false;
 if grabFrame == grabFrames {
-	//cursor_sprite = itemSprite;
 	visible = true;
 	x = mouse_x;
 	y = mouse_y;
 	global.ui.grabbedItem = id;
-	//window_set_cursor(cr_none);
 } else {
 	window_set_cursor(cr_default);
 }

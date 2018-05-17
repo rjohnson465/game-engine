@@ -11,6 +11,7 @@
 #macro LIGHTNING "lightning"
 
 #macro C_HANDLES make_color_rgb(47,79,79)
+#macro C_DKRGRAY make_color_rgb(42,42,42)
 
 global.ALL_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
 global.ALL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH,MAGIC,FIRE,ICE,POISON,LIGHTNING];
@@ -202,6 +203,7 @@ addItemToInventory(shortbow);
 
 var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword2.persistent = true;
+longsword2.durability = 0;
 //ds_map_replace(longsword2.damages,ICE,[2,4]);
 addItemToInventory(longsword2);
 
@@ -214,10 +216,14 @@ insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 addItemToInventory(longsword);
 
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_battleaxe));
 
 addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
-addItemToInventory(instance_create_depth(x,y,1,obj_item_ring));
+var ring = instance_create_depth(x,y,1,obj_item_ring);
+ds_map_add(ring.itemProperties,ModifiableProperties.StaminaMax,50);
+ds_map_add(ring.itemProperties,ModifiableProperties.StaminaRegen,10);
+addItemToInventory(ring);
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
@@ -229,6 +235,7 @@ addItemToInventory(makeGem(obj_gem_ruby,CRACKED));
 addItemToInventory(makeGem(obj_gem_hematite,CRACKED));
 
 // bs
+/*
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
@@ -253,8 +260,7 @@ addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-
-
+*/
 
 
 

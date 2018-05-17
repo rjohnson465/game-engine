@@ -9,5 +9,5 @@ handSpriteString = "spr_player_hand_dagger";
 
 weaponSpeed = "Fast";
 staggerDuration = 10; // frames
-staminaCostArray=[10,10,10,10];
+staminaCostArray=[7,7,8,10];
 //physicalDamageTypeArray = ["slashing","slashing","piercing"];

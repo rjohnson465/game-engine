@@ -1,5 +1,6 @@
 /// goBackFromChooseItem() 
-/// must be called by obj_fountain_gui_socketeditems OR obj_fountain_gui_gemmeditems
+/// must be called by obj_fountain_gui_socketeditems OR obj_fountain_gui_gemmeditems OR
+/// obj_fountain_gui_brokenitems
 
 global.fountainGui.currentMenu = FOUNTAIN;
 global.fountainGui.alarm[1] = 2;

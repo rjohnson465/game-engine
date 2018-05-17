@@ -8,6 +8,13 @@ with obj_attunement {
 	}
 }
 
+var isMouseOverHud = false;
+with obj_hud_parent {
+	if position_meeting(mouse_x,mouse_y,id) {
+		isMouseOverHud = true;
+	}
+}
+
 var isFading = false;
 with obj_fade {
 	if instance_count > 0 {
@@ -24,6 +31,8 @@ if leftHandItem.isRanged && leftHandItem.ammo < 1 && !leftHandItem.isTwoHanded {
 	alert(leftHandItem.name + " is out of ammo", c_red);
 	exit;
 }
+
+if isMouseOverAttunement || isMouseOverHud exit;
 
 if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMouseOverAttunement && !isMouseInMenu {
 

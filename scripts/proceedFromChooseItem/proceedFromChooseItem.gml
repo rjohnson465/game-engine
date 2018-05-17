@@ -11,4 +11,9 @@ if global.fountainGui.currentMenu == INSERTGEM {
 	namePrice.isAcceptingInput = false;
 	namePrice.alarm[0] = 1;
 	global.fountainGui.currentSubMenu = NAMEPRICE;
+} else if global.fountainGui.currentMenu == REPAIRITEM {
+	var namePrice = instance_nearest(x,y,obj_fountain_gui_nameprice);
+	namePrice.isAcceptingInput = false;
+	namePrice.alarm[0] = 1;
+	global.fountainGui.currentSubMenu = NAMEPRICE;
 }

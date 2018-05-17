@@ -8,6 +8,7 @@ enum FountainOptions {
 #macro FOUNTAIN "Fountain"
 #macro INSERTGEM "Insert Gem"
 #macro BREAKDOWNITEM "Break Down Item"
+#macro REPAIRITEM "Repair Item"
 #macro LEAVEFOUNTAIN "Leave"
 
 #macro CHOOSEITEM "Choose Item"
@@ -31,6 +32,7 @@ var midW = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X); var midH = mean(MENUS_TOPL
 menuOptions = ds_list_create();
 ds_list_add(menuOptions,INSERTGEM);
 ds_list_add(menuOptions,BREAKDOWNITEM);
+ds_list_add(menuOptions,REPAIRITEM);
 ds_list_add(menuOptions,LEAVEFOUNTAIN);
 for (var i = 0; i < ds_list_size(menuOptions); i++) {
 	var opt = ds_list_find_value(menuOptions,i);

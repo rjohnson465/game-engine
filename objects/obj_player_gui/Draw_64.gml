@@ -1,4 +1,8 @@
 //display_set_gui_size(-1, -1);
+
+var vx = camera_get_view_x(view_camera[0]);
+var vy = camera_get_view_y(view_camera[0]);
+
 draw_set_valign(fa_center);
 // hit points
 var x1 = 10;
@@ -49,6 +53,18 @@ if sustainingDamageObj {
 	draw_rectangle(sustainingDamageLeftX,10,sustainingDamageRightX,20,false);
 }
 
+var x1 = 10;
+var y1 = 10;
+var x2 = 210;
+var y2 = 20;
+if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
+	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center);
+	var s = string(round(global.player.hp)) + "/" + string(round(global.player.maxHp));
+	var sh = string_height(s); 	var ys = 1;
+	//if sh > (y2-y1) ys = (y2-y1)/sh;
+	draw_text_transformed(mean(x1,x2),mean(y1,y2),s,ys,ys,0);
+}
+
 // stamina
 var x1 = 10;
 var y1 = 20;
@@ -64,6 +80,18 @@ if x2 < x1 {
 draw_set_color(c_green);
 draw_rectangle(x1,y1,x2,y2,false);
 
+var x1 = 10;
+var y1 = 20;
+var x2 = 210;
+var y2 = 30;
+if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
+	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center);
+	var s = string(round(global.player.stamina)) + "/" + string(round(global.player.maxStamina));
+	var sh = string_height(s); 	var ys = 1;
+	//if sh > (y2-y1) ys = (y2-y1)/sh;
+	draw_text_transformed(mean(x1,x2),mean(y1,y2),s,ys,ys,0);
+}
+
 // xp bar
 var xpPercent = (global.player.xp / global.player.xpToNextLevel)*100;
 draw_healthbar(0,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpPercent,c_black,C_HANDLES,C_HANDLES,0,true,true);
@@ -73,6 +101,23 @@ var xpTempTotal = global.player.xpToNextLevel-global.player.xp;
 var xpTempPercent = (xpTemp/xpTempTotal)*100;
 draw_healthbar(xpBarRightX,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpTempPercent,c_black,c_aqua,c_aqua,0,1,1);
 
+var x1 = 10;
+var y1 = 20;
+var x2 = 210;
+var y2 = 30;
+if point_in_rectangle(mouse_x,mouse_y,
+	vx+0,
+	vy+view_get_hport(view_camera[0])-5,
+	vx+view_get_wport(view_camera[0]),
+	vy+view_get_hport(view_camera[0]))
+	{
+		draw_set_halign(fa_right); draw_set_font(font_main);
+		var s = "XP: " + string(round(global.player.xpTemp+global.player.xp))+"/"+string(round(global.player.xpToNextLevel));
+		var sw = string_width(s); var sh = string_height(s);
+		var xx = view_get_wport(view_camera[0]); var yy = view_get_hport(view_camera[0])-15
+		draw_set_color(c_white); 
+		draw_text(xx,yy,s);
+	}
 
 // current equipped items / spells
 var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
@@ -145,7 +190,13 @@ if rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0 {
 		var x1 = init_x + (i*40);
 		
 		if global.player.currentSpellAttunement != el {
-			draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_gray,.75);
+			var sw = sprite_get_width(attunementSpriteIndex);
+			if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+vh-108,vx+x1+sw,vy+vh-108+sw) {
+				draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_white,1);
+				draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_gray,.75);
+			} else {
+				draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_gray,.75);
+			}
 		} else {
 			draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_white,1);
 		}
@@ -180,7 +231,15 @@ if isShowingMenus {
 	draw_text((MENUS_BOTTOMRIGHT_X+MENUS_TOPLEFT_X)/2,((MENUS_TOPLEFT_Y+menusHandleHeight)+MENUS_TOPLEFT_Y)/2,s);
 	if !gamepad_is_connected(global.player.gamePadIndex) {
 		var closeButtonWidth = sprite_get_width(spr_close_button);
-		draw_sprite(spr_close_button,1,MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y);
+		var x1 = MENUS_BOTTOMRIGHT_X-closeButtonWidth; var x2 = x1 + closeButtonWidth;
+		var y1 = MENUS_TOPLEFT_Y; var y2 = y1+closeButtonWidth;
+		if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && mouse_check_button(mb_left) {
+			draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_black,1);
+		} else if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
+			draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_gray,1);
+		} else {
+			draw_sprite(spr_close_button,1,x1,y1);
+		}
 	}
 	
 	// menu category tabs (3)
@@ -207,6 +266,17 @@ if isShowingMenus {
 		var x1 = xx + (i*tabWidth);
 		var el = menuTypes[i];
 		draw_set_alpha(1);
+		
+		// draw actual tab "button"
+		if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+yy,vx+x1+tabWidth,vy+yy+menuTabsHeight) && mouse_check_button(mb_left) {
+			draw_set_color(c_black);
+		} else if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+yy,vx+x1+tabWidth,vy+yy+menuTabsHeight) {	
+			draw_set_color(C_DKRGRAY);
+		} else {
+			draw_set_color(c_dkgray);
+		}
+		draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,0);
+		
 		if currentMenu != el {
 			draw_set_color(c_gray);
 			draw_rectangle(x1,yy,x1+tabWidth,yy+menuTabsHeight,true);			

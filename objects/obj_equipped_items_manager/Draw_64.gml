@@ -81,16 +81,15 @@ if rightRing2 {
 draw_set_color(c_dkgray);
 draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBottomRightX,itemDescriptionBottomRightY,false);
 
+draw_set_color(c_black);
+draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBottomRightX,itemDescriptionBottomRightY,1);
+draw_line(bottomRightX,topLeftY,bottomRightX,bottomRightY);
+draw_line(topLeftX,topLeftY,bottomRightX,topLeftY);
+
 if selectedItem != noone && instance_exists(selectedItem) && selectedItem.equipmentSlot != noone {
 	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,selectedItem);
 } else {
 	draw_set_halign(fa_center);
-	/*scr_draw_text_outline(
-		mean(itemDescriptionTopLeftX, itemDescriptionBottomRightX),
-		mean(itemDescriptionTopLeftY, itemDescriptionBottomRightY),
-		"No equipped item selected",
-		c_white, c_white, 1, 1, 0, c_black
-	);*/
 	draw_set_color(c_white);
 	draw_text(
 		mean(itemDescriptionTopLeftX, itemDescriptionBottomRightX),

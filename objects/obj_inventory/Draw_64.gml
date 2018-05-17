@@ -230,6 +230,10 @@ if ds_list_size(inv) == 0 {
 // selected item details box
 draw_set_color(c_dkgray);
 draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBottomRightX,itemDescriptionBottomRightY,false);
+draw_set_color(c_black);
+draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBottomRightX,itemDescriptionBottomRightY,1);
+//draw_line(itemDescriptionBottomRightX,itemDescriptionTopLeftY,itemDescriptionBottomRightX,itemDescriptionBottomRightY);
+//draw_line(bottomRightX,topLeftY,bottomRightX,bottomRightY);
 			
 // show selected inventory item info
 if selectedItem {

@@ -144,3 +144,13 @@ enum Input {
 }
 
 isShowingExplanations = false;
+
+// hud stuff
+global.x1 = 1154; global.y1 = 10;
+hudInventory = instance_create_depth(x,y,1,obj_hud_inventory);
+
+global.x1 = 1196; global.y1 = 10;
+hudSkills = instance_create_depth(x,y,1,obj_hud_skills);
+
+global.x1 = 1238; global.y1 = 10;
+hudOptions = instance_create_depth(x,y,1,obj_hud_skills);

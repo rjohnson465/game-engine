@@ -23,6 +23,11 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 				startBreakDownItemMenu();
 				break;
 			}
+			case REPAIRITEM: {
+				if currentMenu != FOUNTAIN exit;
+				startRepairItemMenu();
+				break;
+			}
 			case LEAVEFOUNTAIN: {
 				if currentMenu != FOUNTAIN exit;
 				leaveFountain();

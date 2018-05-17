@@ -1,7 +1,15 @@
 if global.player.hp <= 0 exit;
 if global.isWishing exit;
-isShowingMenus = !isShowingMenus;
-currentMenu = SKILLS;
+
+if isShowingMenus && currentMenu == SKILLS {
+	isShowingMenus = false;
+} else {
+	isShowingMenus = true;
+	currentMenu = SKILLS;
+}
+
+//isShowingMenus = !isShowingMenus;
+
 if isShowingMenus {
 	// move any items that are equipped to their slots
 	var equippedItems = global.player.equippedItems;
