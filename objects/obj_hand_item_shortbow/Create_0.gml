@@ -16,6 +16,8 @@ staggerDuration = 5; // frames
 ds_map_set(damages,PIERCE,[7,15]);
 staminaCostArray=[15];
 physicalDamageTypeArray = ["piercing"];
+ammo = 20;
+ammoMax = 20;
 
 act = 1;
 

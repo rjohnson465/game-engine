@@ -31,6 +31,7 @@ if ds_map_size(preparingLimbs) != 0 {
 				instance_create_depth(x,y,1,obj_attack);
 				if weapon.isRanged {
 					weapon.ammo -= 1;
+					weapon.copyOf.ammo -=1;
 					if weapon.ammo < 1 {
 						alert(weapon.name + " out of ammo", c_red);
 					}

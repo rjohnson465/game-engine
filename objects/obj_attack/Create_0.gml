@@ -171,6 +171,9 @@ if isSpell {
 
 	lightRadius = 256;
 	lightRadiusAlpha = calculateLightRadiusAlpha();
+	if lightRadiusAlpha <=.01 {
+		lightRadiusAlpha = .3;
+	}
 	lightRadiusScale = .15;
 	if spell.spriteName == "projectile" {
 		lightRadiusScale = .23;

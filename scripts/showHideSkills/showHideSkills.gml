@@ -9,7 +9,7 @@ if isShowingMenus && currentMenu == SKILLS {
 }
 
 //isShowingMenus = !isShowingMenus;
-
+/*
 if isShowingMenus {
 	// move any items that are equipped to their slots
 	var equippedItems = global.player.equippedItems;
