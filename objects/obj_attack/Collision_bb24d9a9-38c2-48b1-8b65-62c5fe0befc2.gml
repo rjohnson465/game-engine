@@ -1,4 +1,4 @@
-if object_is_ancestor(other.object_index,obj_combatant_parent) {
+if object_is_ancestor(other.object_index,obj_combatant_parent) || object_is_ancestor(other.object_index,obj_npc_parent) {
 	exit;
 }
 

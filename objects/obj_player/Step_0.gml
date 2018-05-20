@@ -17,6 +17,7 @@ if fallFrame < fallTotalFrames {
 }
 event_inherited();
 
+audio_listener_position(x, y, 0);
 
 leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 rightHandItem = ds_map_find_value(equippedLimbItems,"r");
