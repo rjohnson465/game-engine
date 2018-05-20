@@ -21,7 +21,7 @@ with obj_item_drop {
 	}
 }
 
-if distance_to_object(obj_player) < 20 && layer == global.player.layer && !global.isWishing && !global.canLoot && !canLoot && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && interactInputReceived && !isInConversation {
+if distance_to_object(obj_player) < 20 && layer == global.player.layer && !global.isWishing && !global.canLoot && !canLoot && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && interactInputReceived && !isInConversation && !isInteractingWithPlayer {
 	isInteractingWithPlayer = true;
 	state = CombatantStates.Idle; speed = 0;
 	audio_play_sound_at(greeting,x,y,0,100,300,1,0,1);
@@ -63,4 +63,8 @@ if state == CombatantStates.Moving {
 	}
 } else {
 	speed = 0;
+}
+
+if place_meeting_layer(x,y,obj_player) {
+	jumpToNearestFreePoint(true);
 }

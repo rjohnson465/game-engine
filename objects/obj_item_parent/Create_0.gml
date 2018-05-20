@@ -49,6 +49,7 @@ mightGrab = false;
 grabFrame = 0;
 grabFrames = 1;
 
+numberOfSockets = 0;
 socketedGems = ds_list_create();
 
 enum ModifiableProperties {

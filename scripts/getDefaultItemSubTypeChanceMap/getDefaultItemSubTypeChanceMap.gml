@@ -6,9 +6,9 @@ var map = ds_map_create();
 
 switch itemType {
 	case ItemTypes.HandItem: {
-		ds_map_replace(map,HandItemTypes.Melee,[60,100]);
-		ds_map_replace(map,HandItemTypes.Ranged,[25,60]);
-		ds_map_replace(map,HandItemTypes.Shield,[0,25]);
+		ds_map_replace(map,HandItemTypes.Melee,[45,100]);
+		ds_map_replace(map,HandItemTypes.Ranged,[15,45]);
+		ds_map_replace(map,HandItemTypes.Shield,[0,15]);
 		break;
 	}
 	case ItemTypes.Other: {

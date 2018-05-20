@@ -135,7 +135,9 @@ var w = 0;
 if global.fountainGui.currentSubMenu == CHOOSEITEM {
 	// controller prompts
 	if gamepad_is_connected(global.player.gamePadIndex) {
-		w += drawPrompt("Select " + string(selectedItem.name) + " for gem insertion", Input.F,promptsStartX+w,promptsY)+xOffset;
+		if selectedItem != noone && selectedItem != undefined {
+			w += drawPrompt("Select " + string(selectedItem.name) + " for gem insertion", Input.F,promptsStartX+w,promptsY)+xOffset;
+		}
 		w += drawPrompt("Return to menu", Input.Escape, promptsStartX+w,promptsY);
 	}
 	// m/k prompts

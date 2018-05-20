@@ -2,6 +2,7 @@ if type == CombatantTypes.Player exit;
 // death
 if hp < 1 && isAlive && !isDying {
 	isDying = true;
+	lockOnTarget = noone;
 	hp = 0;
 	fallFrame = fallTotalFrames;
 	fallScaleFactor = 1;

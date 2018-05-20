@@ -11,7 +11,7 @@ else if global.fountainGui.currentSubMenu == NAMEPRICE {
 draw_set_halign(fa_center); draw_set_valign(fa_center); draw_set_color(c_white);
 if global.fountainGui.currentSubMenu == CHOOSEGEM || global.fountainGui.currentSubMenu == CHOOSEITEM {
 	draw_text(mean(topLeftX,topLeftX+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),"Choose Gem");
-} else {
+} else if selectedItem {
 	draw_text(mean(topLeftX,topLeftX+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),selectedItem.name);
 }
 
@@ -133,7 +133,9 @@ var w = 0;
 if global.fountainGui.currentSubMenu == CHOOSEGEM {
 	// controller prompts
 	if gamepad_is_connected(global.player.gamePadIndex) {
-		w += drawPrompt("Select " + string(selectedItem.name) + " to insert", Input.F,promptsStartX+w,promptsY)+xOffset;
+		if selectedItem != noone && selectedItem != undefined {
+			w += drawPrompt("Select " + string(selectedItem.name) + " to insert", Input.F,promptsStartX+w,promptsY)+xOffset;
+		}
 		w += drawPrompt("Return to Choose Item", Input.Escape, promptsStartX+w,promptsY);
 	}
 	// m/k prompts

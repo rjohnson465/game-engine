@@ -1,4 +1,4 @@
-if object_is_ancestor(other.object_index,obj_combatant_parent) || object_is_ancestor(other.object_index,obj_npc_parent) {
+if object_is_ancestor(other.object_index,obj_combatant_parent) {
 	exit;
 }
 
@@ -25,7 +25,7 @@ if possibleSolids != noone {
 }
 
 var hitsWallFirst = firstObj == other.id;
-if isMelee && hitsWallFirst {
+if isMelee && hitsWallFirst && !object_is_ancestor(other.object_index,obj_npc_parent) {
 	if owner.type == CombatantTypes.Player {
 		if weapon.weaponType != UNARMED {
 			damageItem(weapon,1);
@@ -36,13 +36,14 @@ if isMelee && hitsWallFirst {
 	owner.staggerDirection = (owner.facingDirection+180)%360;
 	path_end();
 	// run to get __x and __y (collision point where attack meet this combatant)
-	script_execute(scr_collision_point,id,other.id);
-	// create stagger condi particles
-	global.damageType = "Block";
-	global.x1 = __x;
-	global.y1 = __y;
-	global.particleDirection = facingDirection;
-	instance_create_depth(0,0,1,obj_hit_particles);
+	if script_execute(scr_collision_point,id,other.id) {
+		// create stagger condi particles
+		global.damageType = "Block";
+		global.x1 = __x;
+		global.y1 = __y;
+		global.particleDirection = facingDirection;
+		instance_create_depth(0,0,1,obj_hit_particles);
+	}
 	
 	if owner.hasHands {
 		var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);

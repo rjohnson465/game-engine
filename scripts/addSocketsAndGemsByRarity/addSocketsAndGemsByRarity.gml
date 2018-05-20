@@ -48,7 +48,7 @@ switch rarity {
 // assign sockets to item based on socketsNumChanceMap
 randomize();
 var rand = random_range(0,1);
-var lowestSeen = 2; var numSockets = noone;
+var lowestSeen = 2; var numSockets = 0;
 var currentSockets = ds_map_find_first(socketsNumChanceMap);
 for (var i = 0; i < ds_map_size(socketsNumChanceMap); i++) {
 			

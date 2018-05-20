@@ -35,13 +35,16 @@ if isInteractingWithPlayer && !isInConversation {
 		var x1 = MENUS_BOTTOMRIGHT_X-closeButtonWidth; var y1 = MENUS_TOPLEFT_Y;
 		var x2 = x1 + closeButtonWidth; var y2 = y1 + closeButtonWidth;
 		if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && mouse_check_button(mb_left) {
-			draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_black,1);
-			isInteractingWithPlayer = false;
-			global.isInteractingWithNpc = false;
+			draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_black,1);	
 		} else if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 			draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_gray,1);
 		} else {
 			draw_sprite(spr_close_button,1,x1,y1);
+		}
+		
+		if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && mouse_check_button_released(mb_left) {
+			isInteractingWithPlayer = false;
+			global.isInteractingWithNpc = false;
 		}
 	}	
 	
