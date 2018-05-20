@@ -45,7 +45,7 @@ if gamepad_is_connected(gamePadIndex) {
 	}
 }
 		
-if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowingMenus {
+if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowingMenus && !global.isInteractingWithNpc {
 	var useSpeed = functionalSpeed;
 	if SHIFT && stamina > 0 {
 		useSpeed = functionalSpeed*1.25;

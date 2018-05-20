@@ -12,7 +12,6 @@ greeting = snd_greeting_francis;
 global.owner = id;
 var c1 = instance_create_depth(x,y,1,obj_conversation_parent);
 c1.name = "Welcome";
-//c1.isRepeatable = true;
 
 var c1s1 = instance_create_depth(x,y,1,obj_conversation_step_parent);
 c1s1.text = "Oh hey, you're definitely going to die without a weapon.";

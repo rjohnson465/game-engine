@@ -5,7 +5,11 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	(gamepad_button_check_pressed(global.player.gamePadIndex,gp_face1) && !global.ui.isShowingMenus)
 }
 
-if distance_to_object(obj_player) < 20 && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting {
+var isInConvo = false;
+with obj_npc_parent {
+	if isInConversation isInConvo = true;
+}
+if distance_to_object(obj_player) < 20 && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting && !isInConvo {
 	// only loot the closest item, if multiple items exist that are within 20px of player
 	if instance_nearest(global.player.x,global.player.y,obj_item_drop) == id {
 		var isDestroying = false;

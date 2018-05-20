@@ -16,6 +16,12 @@ with obj_enemy_parent {
 	var enemyData = instance_create_depth(x,y,1,obj_enemy_data);
 	ds_list_add(other.enemiesData,enemyData);
 }
+npcData = ds_list_create();
+with obj_npc_parent {
+	global.npc = id;
+	var npcdata = instance_create_depth(x,y,1,obj_npc_data);
+	ds_list_add(other.npcData,npcdata);
+}
 
 // initialize itemDrops actually don't this is updated dynamically as items are dropped / pickedup
 itemDropsData = ds_list_create();

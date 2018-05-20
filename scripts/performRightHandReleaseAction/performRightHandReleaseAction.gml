@@ -2,6 +2,7 @@ var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
 if global.isWishing exit;
+if global.isInteractingWithNpc exit;
 
 var isFading = false;
 with obj_fade {

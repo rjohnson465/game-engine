@@ -47,6 +47,34 @@ if room == roomIndex {
 		}
 
 	}
+	
+	// set all npc data 
+	for (var i = 0; i < ds_list_size(npcData); i++) {
+		var npcdata = ds_list_find_value(npcData,i);
+		var npc = npcdata.npc;
+		var currentC = ds_map_find_first(npcdata.conversations);
+		for (var i = 0; i < ds_map_size(npcdata.conversations); i++) {
+			
+			// find conversation object in npc obj by name
+			var cObj = noone;
+			with obj_conversation_parent {
+				if owner = npc && name == currentC {
+					cObj = id;
+				}
+			}
+			cObj.isFinished = ds_map_find_value(npcdata.conversations,currentC);
+			
+			currentC = ds_map_find_next(npcdata.conversations,currentC);
+		}
+		/*
+		if ds_exists(npc.conversations,ds_type_list) {
+			ds_list_destroy(npc.conversations);
+		}
+		npc.conversations = ds_list_create();
+		ds_list_copy(npc.conversations,npcdata.conversations);*/
+		//npc.conversations = npcdata.conversations;
+	}
+	
 } else {
 	// make itemDrops (persistent) not appear on screen at all 
 	for (var i = 0; i < ds_list_size(itemDropsData); i++) {

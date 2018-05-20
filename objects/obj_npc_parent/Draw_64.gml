@@ -37,6 +37,7 @@ if isInteractingWithPlayer && !isInConversation {
 		if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && mouse_check_button(mb_left) {
 			draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_black,1);
 			isInteractingWithPlayer = false;
+			global.isInteractingWithNpc = false;
 		} else if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 			draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_gray,1);
 		} else {

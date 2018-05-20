@@ -3031,6 +3031,14 @@
             }
         },
         {
+            "Key": "7c352d0f-f264-4bad-b2b4-e3596fb7864c",
+            "Value": {
+                "id": "d8b819f7-7bbf-4ac0-8cfd-7770f7cf348f",
+                "resourcePath": "objects\\obj_npc_data\\obj_npc_data.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7c8a0170-097e-4ee8-a805-bec5f7151a71",
             "Value": {
                 "id": "105fe651-fb06-4f0d-95c2-bb71d51fb730",

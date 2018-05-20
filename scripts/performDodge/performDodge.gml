@@ -2,6 +2,8 @@
 
 if global.isWishing exit;
 
+if global.isInteractingWithNpc exit;
+
 var isFading = false;
 with obj_fade {
 	if instance_count > 0 {

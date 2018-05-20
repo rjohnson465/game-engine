@@ -34,6 +34,7 @@ if rand < chanceToStagger {
 		state = CombatantStates.Staggering;
 	} else {
 		staggerDuration += (percentOfHp*100);
+		staggerDirection = (assailant.facingDirection+360)%360;
 	}
 }
 // if not stagger, then flinch

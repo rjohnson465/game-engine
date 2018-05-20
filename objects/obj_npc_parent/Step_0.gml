@@ -34,7 +34,7 @@ if isInteractingWithPlayer && !isInConversation {
 	global.isInteractingWithNpc = true;
 }
 
-if isInteractingWithPlayer {
+if isInteractingWithPlayer || isInConversation {
 	turnToFacePoint(15,global.player.x,global.player.y);
 }
 
@@ -46,12 +46,16 @@ if state == CombatantStates.Moving {
 	if distance_to_point(postX, postY) < 250 && !isInteractingWithPlayer && !isInConversation {
 		moveToNearestFreePoint(direction,normalSpeed,1);
 		facingDirection = direction;
+		//var dirX = lengthdir_x(normalSpeed,direction); var dirY = lengthdir_y(normalSpeed,direction);
+		//turnToFacePoint(10,dirX,dirY);
 	} else {
 		randomize();
 		var goodDir = point_direction(x,y,postX,postY);
 		direction = random_range(goodDir-20,goodDir+20);
 		moveToNearestFreePoint(direction,normalSpeed,1);
 		facingDirection = direction;
+		//var dirX = lengthdir_x(normalSpeed,direction); var dirY = lengthdir_y(normalSpeed,direction);
+		//turnToFacePoint(10,dirX,dirY);
 	}
 	if isInConversation || isInteractingWithPlayer {
 		state = CombatantStates.Idle;

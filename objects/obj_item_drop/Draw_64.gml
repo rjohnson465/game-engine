@@ -1,4 +1,8 @@
-if distance_to_object(obj_player) < 20 && global.player.isAlive && layer == global.player.layer {
+var isInConvo = false;
+with obj_npc_parent {
+	if isInConversation isInConvo = true;
+}
+if distance_to_object(obj_player) < 20 && global.player.isAlive && layer == global.player.layer && !isInConvo {
 	if !isBeingLooted {
 		drawPrompt("Loot Items",Input.F);
 	}

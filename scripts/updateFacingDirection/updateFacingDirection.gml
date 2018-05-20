@@ -1,4 +1,12 @@
-if state != CombatantStates.Staggering && !isMouseInMenu && !global.ui.isShowingMenus {
+//if global.isInteractingWithNpc exit;
+var isInteractingWithNpc = false;
+with obj_npc_parent {
+	if isInteractingWithPlayer isInteractingWithNpc = true;
+}
+
+if global.isWishing exit;
+
+if state != CombatantStates.Staggering && !isMouseInMenu && !global.ui.isShowingMenus && !isInteractingWithNpc {
 	// player faces mouse if not locked on
 	if state == CombatantStates.Idle || state == CombatantStates.Moving 
 	|| (ds_map_size(preparingLimbs)!=0)

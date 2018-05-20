@@ -2,6 +2,7 @@
 /// @param dir up | down
 
 if global.isWishing exit;
+if global.isInteractingWithNpc exit;
 
 var isFading = false;
 with obj_fade {
