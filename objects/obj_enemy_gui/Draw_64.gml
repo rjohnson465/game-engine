@@ -40,7 +40,7 @@ draw_set_alpha(0.3);
 //mp_grid_draw(owner.personalGrid);
 draw_set_alpha(1);
 if owner.layer != global.player.layer exit;
-if owner.showHp {
+if owner.showHp && owner.isAlive && !owner.isDying {
 	
 	
 	

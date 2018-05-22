@@ -17,7 +17,7 @@ if isBeingLooted && ds_exists(items,ds_type_list) && ds_list_size(items) != 0 {
 	draw_rectangle(topLeftX,topLeftY,bottomRightX,bottomRightY,0);
 	
 	// handle
-	draw_set_color(c_olive);
+	draw_set_color(C_HANDLES);
 	draw_rectangle(topLeftX,topLeftY,bottomRightX,topLeftY+handleHeight,0);
 	draw_set_color(c_white); draw_set_valign(fa_center); draw_set_halign(fa_center);
 	var s = !instance_exists(selectedItem) ? "Loot Items" : selectedItem.name;

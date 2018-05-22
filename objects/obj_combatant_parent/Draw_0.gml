@@ -9,7 +9,10 @@ if !isBeingHit {
 }
 // draw stagger sprite if staggering
 if state == CombatantStates.Staggering {
-	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,1,1,facingDirection,c_white,1);
+	if isDying {
+		alpha = (-dyingFrame/dyingTotalFrames)+1;
+	}
+	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,1,1,facingDirection,c_white,alpha);
 	// slowed
 	if isSlowed || isFrozen {
 		var percentFrozen = ds_map_find_value(conditionPercentages,ICE);

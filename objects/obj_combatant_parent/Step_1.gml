@@ -3,6 +3,7 @@ if type == CombatantTypes.Player exit;
 if hp < 1 && isAlive && !isDying {
 	isDying = true;
 	lockOnTarget = noone;
+	
 	hp = 0;
 	fallFrame = fallTotalFrames;
 	fallScaleFactor = 1;
@@ -21,7 +22,7 @@ if hp < 1 && isAlive && !isDying {
 		global.condition = "Death";
 	}
 	instance_create_depth(x,y,1,obj_condition_particles);
-	state = CombatantStates.Idle;
+	
 	// cure any and all conditions
 	var currentCondition = ds_map_find_first(conditionPercentages);
 	for (var i = 0; i < ds_map_size(conditionPercentages);i++) {
@@ -36,8 +37,36 @@ if isDying && isAlive {
 	if dyingFrame < dyingTotalFrames {
 		speed = 0;
 		dyingFrame++;
+		
+		if global.player.lockOnTarget == id {
+			// find nearest enemy to player that player can lock on to
+			var enemiesNearby = scr_collision_circle_list_layer(x,y,500,obj_enemy_parent,0,1);
+			for (var i = 0; i < ds_list_size(enemiesNearby); i++) { 
+				var enemy = noone;
+				do {
+					enemy = scr_find_nth_closest(x,y,obj_enemy_parent,i);
+				} until enemy.layer == global.player.layer;
+				global.player.lockOnTarget = enemy;
+				with global.player {
+					if canSeeLockOnTarget() break;
+				}
+				/*var enemy = ds_list_find_value(enemiesNearby,i);
+				var solidsBetweenTarget = scr_collision_line_list_layer(global.player.x,global.player.y,enemy.x,enemy.y,obj_solid_environment,0,1);
+				if solidsBetweenTarget == noone {
+					global.player.lockOnTarget = enemy;
+				}
+				if ds_exists(solidsBetweenTarget,ds_type_list) {
+					ds_list_destroy(solidsBetweenTarget);
+				}*/
+			}
+			if ds_exists(enemiesNearby,ds_type_list) {
+				ds_list_destroy(enemiesNearby);
+			}
+		}
+		
 	} else {
 		dyingFrame = 0;
+		state = CombatantStates.Idle;
 		if type == CombatantTypes.Enemy {
 			if ds_list_size(droppedItems) > 0 {
 				var drop = makeItemDrop(droppedItems);

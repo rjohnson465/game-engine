@@ -5,6 +5,7 @@ with obj_npc_parent {
 }
 
 if global.isWishing exit;
+if global.isInteractingWithNpc || isInteractingWithNpc exit;
 
 if state != CombatantStates.Staggering && !isMouseInMenu && !global.ui.isShowingMenus && !isInteractingWithNpc {
 	// player faces mouse if not locked on

@@ -10,12 +10,11 @@ if isFading {
 	path_end();
 	exit;
 }
-if !isAlive && type != CombatantTypes.Player {
+if ((!isAlive && type != CombatantTypes.Player) || isDying) && state != CombatantStates.Staggering {
 	path_end();
 	speed = 0;
 	exit;
 }
-if isDying exit;
 
 if fallFrame < fallTotalFrames {
 	fall();

@@ -61,7 +61,12 @@ if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowing
 	}
 }	
 		
-if gamepad_is_connected(gamePadIndex) {
+var isInteractingWithNpc = false;
+with obj_npc_parent {
+	if isInteractingWithPlayer isInteractingWithNpc = true;
+}		
+
+if gamepad_is_connected(gamePadIndex) && !isInteractingWithNpc {
 	var h_point = gamepad_axis_value(gamePadIndex, gp_axisrh);
 	var v_point = gamepad_axis_value(gamePadIndex, gp_axisrv);
 	if h_point == 0 && v_point == 0 && lockOnTarget == noone {
