@@ -1,4 +1,5 @@
 event_inherited();
+name = "Unarmed";
 subType = HandItemTypes.Melee;
 weaponType = UNARMED;
 act = 0;

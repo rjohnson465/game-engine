@@ -1,11 +1,16 @@
-/// drawItem(item,x,y)
+/// drawItem(item,x,y,*isInventoryItem)
 /// @param item
 /// @param x
 /// @param y
+/// @param isInventoryItem*
 
 var item = argument[0];
 var x1 = argument[1];
 var y1 = argument[2];
+var isInventoryItem = true;
+if argument_count > 3 {
+	isInventoryItem = argument[3];
+}
 var inv = global.inventory;
 var slotWidth = inv.slotWidth;
 var slotHeight = inv.slotHeight;
@@ -16,19 +21,19 @@ if item.object_index == obj_item_coins && ds_list_find_index(global.player.inven
 
 draw_sprite(item.itemSprite,1,x1,y1);
 // if this item is currently equipped, signify that (only for inventory items)
-if item.equipmentSlot != noone && item.copyOf == noone {
+if item.equipmentSlot != noone && isInventoryItem && item.copyOf == noone {
 	draw_set_color(c_maroon);
 	draw_circle(x1+5,y1+5,5,false);
 }
 // if this item is broken, signify that
-if item.type == ItemTypes.HandItem {
+if item.type == ItemTypes.HandItem && isInventoryItem {
 	if item.durability <= 0 {
 		draw_line_width_color(x1,y1,x1+10,y1+10,3,c_red,c_red);
 		draw_line_width_color(x1+10,y1,x1,y1+10,3,c_red,c_red);
 	}
 }
 // if item is stackable and has more than 1 in stack, show item count
-if item.isStackable {
+if item.isStackable && isInventoryItem {
 	if item.count != 1 || item.object_index == obj_item_coins {
 		draw_set_valign(fa_top); draw_set_halign(fa_left);
 		if item.object_index == obj_item_coins {

@@ -33,6 +33,56 @@
             "enumb": 7,
             "eventtype": 6,
             "m_owner": "ef2ea282-685c-4a60-9948-22c0e48c8c37"
+        },
+        {
+            "id": "ef260109-e27c-47e8-8f3d-31220ef06ede",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 75,
+            "eventtype": 8,
+            "m_owner": "ef2ea282-685c-4a60-9948-22c0e48c8c37"
+        },
+        {
+            "id": "2a4660be-8c9b-45eb-8d2e-ed2f6b0708c7",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 8,
+            "m_owner": "ef2ea282-685c-4a60-9948-22c0e48c8c37"
+        },
+        {
+            "id": "3a1a50b7-fe8c-4e76-b5f8-e8b93d379fbc",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 4,
+            "eventtype": 6,
+            "m_owner": "ef2ea282-685c-4a60-9948-22c0e48c8c37"
+        },
+        {
+            "id": "8414bc86-a734-4fa6-b25f-68da873d920e",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 1,
+            "eventtype": 3,
+            "m_owner": "ef2ea282-685c-4a60-9948-22c0e48c8c37"
+        },
+        {
+            "id": "9565d086-73a7-44b5-b15e-2259f74eb9b0",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 56,
+            "eventtype": 6,
+            "m_owner": "ef2ea282-685c-4a60-9948-22c0e48c8c37"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -54,5 +104,5 @@
     "properties": null,
     "solid": false,
     "spriteId": "0cd92f56-7a8c-4f62-a974-e5df429b6a87",
-    "visible": false
+    "visible": true
 }

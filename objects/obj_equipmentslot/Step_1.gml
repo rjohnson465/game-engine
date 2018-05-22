@@ -1,0 +1,1 @@
+item = getItemInEquipmentSlot(slot);

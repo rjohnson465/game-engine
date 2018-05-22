@@ -249,6 +249,12 @@ var w = 0;
 if gamepad_is_connected(global.player.gamePadIndex) {
 	
 	var itemAtMoveSelector = getItemAtSelectorPosition(global.ui.moveSelector);
+	if itemAtMoveSelector == noone {
+		var slotObj = getSlotAtSelector(global.ui.moveSelector);
+		if slotObj != noone {
+			itemAtMoveSelector = getItemInEquipmentSlot(slotObj.slot);
+		}
+	}
 	var a = ds_list_find_index(global.player.equippedItems,getItemAtSelectorPosition(global.ui.moveSelector));
 	
 	if itemAtMoveSelector != noone && itemAtMoveSelector.isUsable {
@@ -270,7 +276,8 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	} 
 	// if item at move selector position is equipped
 	else if 
-		getItemAtSelectorPosition(global.ui.moveSelector) != noone 
+		//getItemAtSelectorPosition(global.ui.moveSelector) != noone 
+		itemAtMoveSelector != noone
 		&& ds_list_find_index(eq,itemAtMoveSelector) != -1
 		&& !object_is_ancestor(itemAtMoveSelector.object_index,obj_unarmed_parent) { 
 			

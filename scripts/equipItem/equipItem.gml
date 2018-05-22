@@ -4,11 +4,12 @@
 
 // Pre-Condition -- this item is able to to in this slot
 
-var itemOriginal = argument[0];
+var item = argument[0];
 var slot = argument[1];
 
-var item  = noone;
+//var item  = noone;
 
+/*
 // itemOriginal might actually be the copy; CHECK
 if itemOriginal.copyOf != noone {
 	var temp = itemOriginal;
@@ -29,21 +30,21 @@ else {
 			item.copyOf = itemOriginal;
 		}
 	}
-}
+}*/
 
 if item.type == ItemTypes.HandItem && item.weaponType == UNARMED exit;
 
 // set equipmentSlot property for item and add it to equippedItems list
 var equippedItems = global.player.equippedItems;
+//ds_list_add(equippedItems,item);
 ds_list_add(equippedItems,item);
-ds_list_add(equippedItems,itemOriginal);
 item.equipmentSlot = slot;
-itemOriginal.equipmentSlot = slot;
+//itemOriginal.equipmentSlot = slot;
 
 // set x1 and y1 values for newly equipped item
 var equipmentSlotObj = getEquipmentSlotObject(slot);
-item.x1 = equipmentSlotObj.x1;
-item.y1 = equipmentSlotObj.y1;
+//item.x1 = equipmentSlotObj.x1;
+//item.y1 = equipmentSlotObj.y1;
 
 // set equippedLimbItem if slot was LeftHand1 or RightHand1
 if slot == EquipmentSlots.LeftHand1 {

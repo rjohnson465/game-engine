@@ -15,5 +15,10 @@ if isActive && !isSelectorInEquippedItems() {
 }
 
 if isActive && isSelectorInEquippedItems() {
-	eq.selectedItem = getItemAtSelectorPosition(id);
+	var slot = getSlotAtSelector(id);
+	if slot == noone || slot == undefined exit;
+	var item = getItemInEquipmentSlot(slot.slot);
+	if item == noone || item == undefined exit;
+	eq.selectedItem = item;
+	//eq.selectedItem = getItemAtSelectorPosition(id);
 }

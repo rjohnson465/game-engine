@@ -13,8 +13,14 @@ if type == SelectorTypes.Equip || type == SelectorTypes.Imbue {
 
 // unequip selected item 
 if type == SelectorTypes.Select && isSelectorInEquippedItems && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
-	var item = getItemAtSelectorPosition(id);
+	var item = noone;
+	if isSelectorInInventory() {
+		item = getItemAtSelectorPosition(id);
+	} else if isSelectorInEquippedItems(id) {
+		var slotObj = getSlotAtSelector(id);
+		item = getItemInEquipmentSlot(slotObj.slot);
+	}
 	if item && isActive {
-		unequipItem(getItemAtSelectorPosition(id));
+		unequipItem(item);
 	}
 }

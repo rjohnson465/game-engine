@@ -2,7 +2,7 @@
 /// @param item
 
 var item = argument[0];
-
+/*
 // make sure item is the "copy" item
 if item.copyOf == noone {
 	for (var i = 0; i < ds_list_size(global.player.equippedItems);i++) {
@@ -11,7 +11,7 @@ if item.copyOf == noone {
 			item = el;
 		}
 	}
-}
+}*/
 
 // need to do this for player limb (hand) / weapon refresh
 if item.equipmentSlot == EquipmentSlots.LeftHand1 {
@@ -28,10 +28,10 @@ if item.type == ItemTypes.HandItem && item.weaponType == UNARMED {
 	item.equipmentSlot = noone;
 	
 	// unequip original item (still in inventory)
-	if item.copyOf != noone {
+	/*if item.copyOf != noone {
 		ds_list_delete(global.player.equippedItems,ds_list_find_index(global.player.equippedItems,item.copyOf));
 		item.copyOf.equipmentSlot = noone;
-	}
+	}*/
 	
 }
 

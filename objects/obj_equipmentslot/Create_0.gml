@@ -1,6 +1,7 @@
 event_inherited();
 slot = global.equipmentSlot;
 name = "";
+item = noone;
 switch slot {
 	case EquipmentSlots.LeftHand1: {
 		name = "Main Hand 1";
