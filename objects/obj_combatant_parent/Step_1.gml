@@ -68,10 +68,31 @@ if isDying && isAlive {
 		dyingFrame = 0;
 		state = CombatantStates.Idle;
 		if type == CombatantTypes.Enemy {
+			
 			if ds_list_size(droppedItems) > 0 {
-				var drop = makeItemDrop(droppedItems);
-				drop.x = x;
-				drop.y = y;
+				
+				// delete any 0 gold objects
+				var size = ds_list_size(droppedItems);
+				var j = 0;
+				for (var i = 0; i < size; i++) {
+					var it = ds_list_find_value(droppedItems,j);
+					if it == noone || it == undefined {
+						ds_list_delete(droppedItems,j);
+						j--;
+					}
+					else if it.object_index == obj_item_coins && it.count == 0 {
+						ds_list_delete(droppedItems,j);
+						instance_destroy(it,1);
+						j--;
+					}
+					j++;
+				}
+				
+				if ds_list_size(droppedItems) > 0 {
+					var drop = makeItemDrop(droppedItems);
+					drop.x = x;
+					drop.y = y;
+				}
 				//ds_list_clear(droppedItems);
 			}
 		}

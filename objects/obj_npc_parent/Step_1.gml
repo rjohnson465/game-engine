@@ -4,25 +4,27 @@ if joystickInputFrame < joystickInputTotalFrames {
 }
 
 if gamepad_is_connected(pad) {
-	if isInteractingWithPlayer && !isInConversation {
+	
+	var h_point = gamepad_axis_value(pad, gp_axislh);
+	var v_point = gamepad_axis_value(pad, gp_axislv);
+	var pdir = noone;
+	if (h_point != 0 || v_point != 0) {
+		pdir = point_direction(0, 0, h_point, v_point);
+	} else {
+		joystickInputFrame = joystickInputTotalFrames;
+	}
+	
+	var acceptingJoystickInput = joystickInputFrame >= joystickInputTotalFrames;
+	
+	if isInteractingWithPlayer && !isInConversation && !showBuySell {
 		
 		if selectedConversation == noone && ds_list_size(conversations) > 0 {
 			selectedConversation = ds_list_find_value(conversations,0);
 		}
 		var pos = ds_list_find_index(conversations,selectedConversation);
 			
-		var h_point = gamepad_axis_value(pad, gp_axislh);
-		var v_point = gamepad_axis_value(pad, gp_axislv);
-		var pdir = noone;
-		if (h_point != 0 || v_point != 0) {
-			pdir = point_direction(0, 0, h_point, v_point);
-		} else {
-			joystickInputFrame = joystickInputTotalFrames;
-		}
-	
-		var acceptingJoystickInput = joystickInputFrame >= joystickInputTotalFrames;
 		
-		if gamepad_button_check_pressed(pad,gp_padd) || (angleBetween(225,315,pdir) && pdir != noone  && acceptingJoystickInput) {
+		if gamepad_button_check_pressed(pad,gp_padu) || (angleBetween(45,135,pdir) && pdir != noone  && acceptingJoystickInput) {
 			if pos > 0 {
 				selectedConversation = ds_list_find_value(conversations,pos-1);
 			} else {
@@ -31,7 +33,7 @@ if gamepad_is_connected(pad) {
 			joystickInputFrame = 0;
 		}
 		
-		if gamepad_button_check_pressed(pad,gp_padu) || (angleBetween(45,135,pdir) && pdir != noone  && acceptingJoystickInput) {
+		if gamepad_button_check_pressed(pad,gp_padd) || (angleBetween(225,315,pdir) && pdir != noone  && acceptingJoystickInput) {
 			if pos == ds_list_size(conversations)-1 {
 				selectedConversation = ds_list_find_value(conversations,0);
 			} else {
@@ -44,9 +46,11 @@ if gamepad_is_connected(pad) {
 			beginSelectedConversation();
 		}
 		
-		if gamepad_button_check_pressed(pad,gp_face2) && isInteractingWithPlayer {
+	}
+	
+	if gamepad_button_check_pressed(pad,gp_face2) && isInteractingWithPlayer {
 			isInteractingWithPlayer = false;
+			showBuySell = false;
 			global.isInteractingWithNpc = false;
 		}
-	}
 }

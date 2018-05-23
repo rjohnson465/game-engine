@@ -9,6 +9,8 @@ spriteString = "francis";
 
 greeting = snd_greeting_francis;
 
+items = ds_list_create();
+
 global.owner = id;
 var c1 = instance_create_depth(x,y,1,obj_conversation_parent);
 c1.name = "Welcome";
@@ -36,4 +38,14 @@ ds_list_add(honesty.steps,honesty1);
 
 ds_list_add(conversations,honesty);
 
+// buy / sell
+var bs = instance_create_depth(x,y,1,obj_conversation_parent);
+bs.isRepeatable = true;
 
+bs.name = "Buy / Sell Items";
+var bs1 = instance_create_depth(x,y,1,obj_conversation_step_parent);
+bs1.text = "You are a very ugly man. I'm sorry to say it so bluntly, but I believe you will never know love, or the touch of a woman.";
+bs1.sound = noone;
+bs1.func = buySell;
+ds_list_add(bs.steps,bs1);
+ds_list_add(conversations,bs);

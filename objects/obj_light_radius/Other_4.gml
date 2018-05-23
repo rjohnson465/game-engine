@@ -7,4 +7,6 @@ if owner.object_index == obj_item_drop {
 	var d = 3;
 }
 
-light_create(spr, scale, color, colorAlpha, 0, true);
+if global._lights {
+	light_create(spr, scale, color, colorAlpha, 0, true);
+}

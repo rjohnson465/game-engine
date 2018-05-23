@@ -18,9 +18,9 @@ floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
 
 isAlive = true;
 
-lightRadius = 256;
+//lightRadius = 256;
 lightRadiusAlpha = .5;
-lightRadiusScale = 1;
+lightRadiusScale = .5;
 lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;

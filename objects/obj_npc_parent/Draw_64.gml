@@ -4,7 +4,7 @@ with obj_item_drop {
 		canLoot = true;
 	}
 }
-if distance_to_object(obj_player) < 20 && global.player.isAlive && !global.canLoot && !canLoot && !global.isLooting && !global.isWishing && !global.ui.isShowingMenus &&!isInteractingWithPlayer && !isInConversation {
+if distance_to_object(obj_player) < 20 && global.player.isAlive && !global.canLoot && !canLoot && !global.isLooting && !global.isWishing && !global.ui.isShowingMenus &&!isInteractingWithPlayer && !isInConversation && layer == global.player.layer {
 	drawPrompt("Talk with " + name, Input.F);
 }
 
@@ -49,21 +49,27 @@ if isInteractingWithPlayer && !isInConversation {
 	}	
 	
 	// draw all conversations
-	if !gamepad_is_connected(global.player.gamePadIndex) {
-		selectedConversation = noone;
-	}
-	for (var i = 0; i < ds_list_size(conversations); i++) {
-		var c = ds_list_find_value(conversations,i);
-		draw_set_font(font_main); draw_set_halign(fa_center); 
-		
-		var sh = string_height(c.name); var sw = string_width(c.name);
-		var xx = conversationsStartX; var yy = conversationsStartY+(i*sh)+5;
-		if point_in_rectangle(mouse_x,mouse_y,vx+(xx-(.5*sw)),vy+(yy-(.5*sh)),vx+(xx+(.5*sw)),vy+(yy+(.5*sh))) || selectedConversation == c {
-			draw_set_color(c_white);
-			selectedConversation = c;
-		} else {
-			draw_set_color(c_ltgray);
+	if !showBuySell {
+		if !gamepad_is_connected(global.player.gamePadIndex) {
+			selectedConversation = noone;
 		}
-		draw_text(xx,yy,c.name);
+		for (var i = 0; i < ds_list_size(conversations); i++) {
+			var c = ds_list_find_value(conversations,i);
+			draw_set_font(font_main); draw_set_halign(fa_center); 
+		
+			var sh = string_height(c.name); var sw = string_width(c.name);
+			var xx = conversationsStartX; var yy = conversationsStartY+(i*sh)+5;
+			if !gamepad_is_connected(global.player.gamePadIndex) && point_in_rectangle(mouse_x,mouse_y,vx+(xx-(.5*sw)),vy+(yy-(.5*sh)),vx+(xx+(.5*sw)),vy+(yy+(.5*sh))) || selectedConversation == c {
+				draw_set_color(c_white);
+				selectedConversation = c;
+			} else {
+				draw_set_color(c_ltgray);
+			}
+			draw_text(xx,yy,c.name);
+		}
+	}
+	// buy / sell
+	else if ds_exists(items,ds_type_list) {
+		draw_rectangle(0,0,100,100,0);
 	}
 }

@@ -4,6 +4,9 @@ conversations = ds_list_create();
 isInteractingWithPlayer = false;
 isInConversation = false;
 
+items = noone;
+showBuySell = false;
+
 postX = x;
 postY = y;
 
@@ -25,9 +28,9 @@ alpha = 1;
 scale = 1;
 
 // light radius
-lightRadius = 256;
+//lightRadius = 256;
 lightRadiusAlpha = .5;
-lightRadiusScale = 1;
+lightRadiusScale = .5;
 lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;

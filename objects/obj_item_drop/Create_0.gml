@@ -82,8 +82,11 @@ particle = magic;
 //show_debug_message(string(global.droppedItems));
 
 if !items {
-	var a = ds_exists(items,ds_type_list);
-	var b = 3;
+	
+}
+
+if ds_list_size(items) == 0 {
+	instance_destroy(id,1);
 }
 
 /*if !items && global.droppedItems {

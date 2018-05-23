@@ -53,7 +53,7 @@ if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowing
 	}
 	// walking backwards is slow
 	dirDiff = abs(direction - facingDirection);
-	if dirDiff > 135 && dirDiff < 225  {
+	if (dirDiff > 135 && dirDiff < 225) || isShielding  {
 		moveToNearestFreePoint(direction,.5*useSpeed);
 	}	
 	else {

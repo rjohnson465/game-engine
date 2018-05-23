@@ -6,6 +6,7 @@ if global.fountainGui.currentSubMenu != CHOOSEITEM {
 	draw_set_alpha(.5);
 }
 
+draw_set_color(c_white);
 if global.fountainGui.currentSubMenu == CHOOSEITEM {
 	draw_text(mean(MENUS_TOPLEFT_X,MENUS_TOPLEFT_X+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),"Choose Item");
 } else {
