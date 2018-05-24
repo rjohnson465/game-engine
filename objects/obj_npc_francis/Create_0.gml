@@ -10,6 +10,37 @@ spriteString = "francis";
 greeting = snd_greeting_francis;
 
 items = ds_list_create();
+ds_list_add(items,makeGem(obj_gem_aquamarine,CRACKED));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
+/*
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_dagger));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_longsword));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hat_leathercap));
+ds_list_add(items,instance_create_depth(x,y,1,obj_item_revive_orb));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_dagger));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_longsword));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hat_leathercap));
+ds_list_add(items,instance_create_depth(x,y,1,obj_item_revive_orb));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_dagger));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_longsword));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hat_leathercap));
+ds_list_add(items,instance_create_depth(x,y,1,obj_item_revive_orb));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_dagger));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_longsword));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_shortbow));
+ds_list_add(items,instance_create_depth(x,y,1,obj_hat_leathercap));
+ds_list_add(items,instance_create_depth(x,y,1,obj_item_revive_orb));
+*/
 
 global.owner = id;
 var c1 = instance_create_depth(x,y,1,obj_conversation_parent);

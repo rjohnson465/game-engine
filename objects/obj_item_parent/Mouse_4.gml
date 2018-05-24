@@ -10,6 +10,7 @@ with obj_item_drop {
 
 if (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) && !itemIsBeingLooted 
 	&& (global.fountainGui == noone)
+	&& !global.isTrading
 	{
 	exit;
 }
@@ -46,6 +47,18 @@ if (global.isWishing) {
 		}
 	}
 	exit;
+}
+
+// item selection in trading interface
+if global.isTrading {
+	var playerItemsObj = obj_player_items;
+	var vendorItemsObj = obj_vendor_items;
+	// if item in inventory, it's the selectedItem of obj_player_items
+	if ds_list_find_index(global.player.inventory,id) != -1 {
+		playerItemsObj.selectedItem = id;
+	} else {
+		vendorItemsObj.selectedItem = id;
+	}
 }
 
 // select this item if in inv or equipped items

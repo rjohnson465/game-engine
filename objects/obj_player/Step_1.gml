@@ -62,7 +62,7 @@ if gamepad_is_connected(gamePadIndex) {
 	if gamepad_button_check_pressed(gamePadIndex,gp_padd) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
 		performCycleThroughSpells("down");
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_padr) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
+	if gamepad_button_check_pressed(gamePadIndex,gp_padr) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
 		switch currentSpellAttunement {
 			case MAGIC: {
 				currentSpellAttunement = FIRE;
@@ -86,7 +86,7 @@ if gamepad_is_connected(gamePadIndex) {
 			}
 		}
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_padl) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
+	if gamepad_button_check_pressed(gamePadIndex,gp_padl) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
 		switch currentSpellAttunement {
 			case MAGIC: {
 				currentSpellAttunement = LIGHTNING;

@@ -26,6 +26,7 @@ global.isWishing = false;
 global.fountainGui = noone;
 global.canInteractWithNpc = false;
 global.isInteractingWithNpc = false;
+global.isTrading = false;
 functionalSpeed = 6;
 normalSpeed = 6;
 facingDirection = 0;

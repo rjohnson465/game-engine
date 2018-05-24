@@ -807,6 +807,14 @@
             }
         },
         {
+            "Key": "1b5b3b7e-ea8c-4a4e-818e-1f40cf836f67",
+            "Value": {
+                "id": "25a35767-3f43-405e-baa1-d15a363aaa44",
+                "resourcePath": "objects\\obj_player_items\\obj_player_items.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "1b84b857-bd53-40dc-a1cb-84a1f3e93a1f",
             "Value": {
                 "id": "43380dd5-50ff-4822-84f2-b14ec9379242",
@@ -1759,6 +1767,14 @@
             }
         },
         {
+            "Key": "446542d5-c748-4c3c-a500-8ea8aeb3ccff",
+            "Value": {
+                "id": "edbb236f-7b0c-4c71-9acc-e710ff202a28",
+                "resourcePath": "scripts\\drawVendorItems\\drawVendorItems.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "457e6b2c-1bc9-4a35-9bb9-0edd5e942246",
             "Value": {
                 "id": "f36d24a8-721d-49ee-8f6c-02c26a6447ee",
@@ -1844,6 +1860,14 @@
                 "id": "affe42d4-4f69-48a9-8f9c-3feb339d6d24",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_longsword_attack_2_1\\spr_enemy_unfairy_limb_longsword_attack_2_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4904c7d4-2306-40cf-80ae-e4e5d6166ce8",
+            "Value": {
+                "id": "cce8fc10-aeaf-414c-9f20-749de7eb97e9",
+                "resourcePath": "views\\4904c7d4-2306-40cf-80ae-e4e5d6166ce8.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -2431,6 +2455,14 @@
             }
         },
         {
+            "Key": "63f9d3a7-cf17-4574-80ba-ccb077d8bccc",
+            "Value": {
+                "id": "0d0556a9-2937-411e-a2d4-158d834612db",
+                "resourcePath": "scripts\\moveTradeSelector\\moveTradeSelector.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "6431349f-53b0-44fb-b5d6-aa6c4fdbae7f",
             "Value": {
                 "id": "e4eb3469-546c-4b61-b151-d415d1b100aa",
@@ -2459,6 +2491,14 @@
             "Value": {
                 "id": "0b8a297a-76b3-475f-9dbb-d18e5c2d00df",
                 "resourcePath": "objects\\obj_attack_data_parent\\obj_attack_data_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "65647e57-174d-4d18-91d3-c24d13e58775",
+            "Value": {
+                "id": "27ec50c0-150f-4be5-8bcd-f2085a38df7c",
+                "resourcePath": "objects\\obj_buy_sell\\obj_buy_sell.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -4351,6 +4391,14 @@
             }
         },
         {
+            "Key": "b10f2a35-3602-4046-a45b-63884c0bf7de",
+            "Value": {
+                "id": "fbdd2229-b6ca-4d05-bda0-5839704ba4b0",
+                "resourcePath": "objects\\obj_vendor_items\\obj_vendor_items.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "b116b4cb-7bef-4841-9c64-d51459c224fc",
             "Value": {
                 "id": "53c6fc10-6289-4e38-b40a-a930ff3dba33",
@@ -4900,6 +4948,14 @@
                 "id": "d32dc910-0c84-4799-b08c-3db203dd203d",
                 "resourcePath": "views\\c69a0afd-f979-4208-a7b1-a86c50db1115.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c6a9c933-0669-4c95-8c9c-c7d342132cb6",
+            "Value": {
+                "id": "dd4a3b61-c578-48ad-a237-54a1b9271a17",
+                "resourcePath": "scripts\\drawPlayerItems\\drawPlayerItems.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -6472,7 +6528,10 @@
         "8305d611-d802-438b-a7f2-7d475431cb73",
         "8da4eee5-515f-4749-8509-780e480c1519",
         "d7bc54d2-9209-4ff2-ba0e-cf931dea81cc",
-        "a771f06b-7394-41ce-8632-93b7d502f9a6"
+        "a771f06b-7394-41ce-8632-93b7d502f9a6",
+        "446542d5-c748-4c3c-a500-8ea8aeb3ccff",
+        "c6a9c933-0669-4c95-8c9c-c7d342132cb6",
+        "63f9d3a7-cf17-4574-80ba-ccb077d8bccc"
     ],
     "tutorial": ""
 }

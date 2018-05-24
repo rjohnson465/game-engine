@@ -1,7 +1,7 @@
 /// must be called from obj_npc_parent
 
 
-if isInConversation || !isInteractingWithPlayer exit;
+if isInConversation || !isInteractingWithPlayer || global.isTrading exit;
 if selectedConversation {
 	if	!selectedConversation.isFinished ||
 		(selectedConversation.isFinished && selectedConversation.isRepeatable)

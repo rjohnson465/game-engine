@@ -5,6 +5,7 @@ isInteractingWithPlayer = false;
 isInConversation = false;
 
 items = noone;
+inv = noone;
 showBuySell = false;
 
 postX = x;

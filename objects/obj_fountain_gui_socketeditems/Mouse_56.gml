@@ -27,7 +27,6 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 				break;
 			}
 			case "InventoryScrollDown":{
-				//var inv = global.player.inventory;
 				if !is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) {
 					scrollLevel++;
 				}

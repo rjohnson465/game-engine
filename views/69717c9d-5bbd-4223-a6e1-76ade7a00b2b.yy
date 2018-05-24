@@ -6,7 +6,7 @@
     "children": [
         "29b6207f-f9dc-463a-897e-10f4c91e9aad",
         "d7bc54d2-9209-4ff2-ba0e-cf931dea81cc",
-        "a771f06b-7394-41ce-8632-93b7d502f9a6"
+        "4904c7d4-2306-40cf-80ae-e4e5d6166ce8"
     ],
     "filterType": "GMScript",
     "folderName": "NPCs",

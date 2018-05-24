@@ -8,7 +8,7 @@ if distance_to_object(obj_player) < 20 && global.player.isAlive && !global.canLo
 	drawPrompt("Talk with " + name, Input.F);
 }
 
-if isInteractingWithPlayer && !isInConversation {
+if isInteractingWithPlayer && !isInConversation && !showBuySell {
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
 
@@ -45,11 +45,12 @@ if isInteractingWithPlayer && !isInConversation {
 		if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && mouse_check_button_released(mb_left) {
 			isInteractingWithPlayer = false;
 			global.isInteractingWithNpc = false;
+			showBuySell = false;
 		}
 	}	
 	
 	// draw all conversations
-	if !showBuySell {
+	if true {
 		if !gamepad_is_connected(global.player.gamePadIndex) {
 			selectedConversation = noone;
 		}
@@ -69,7 +70,7 @@ if isInteractingWithPlayer && !isInConversation {
 		}
 	}
 	// buy / sell
-	else if ds_exists(items,ds_type_list) {
-		draw_rectangle(0,0,100,100,0);
-	}
+	//else if ds_exists(items,ds_type_list) {
+	//	drawBuySell();
+	//}
 }
