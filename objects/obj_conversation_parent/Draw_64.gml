@@ -1,5 +1,5 @@
 
-if isActive {
+if isActive && currentStep != noone {
 	var step = ds_list_find_value(steps,currentStep);
 	 draw_set_halign(fa_center); draw_set_font(font_main);
 	var xx = view_get_wport(view_camera[0]) / 2;

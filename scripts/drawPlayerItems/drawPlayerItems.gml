@@ -32,7 +32,12 @@ if !gamepad_is_connected(global.player.gamePadIndex) {
 	}
 }	
 	
-if !isActive && gamepad_is_connected(global.player.gamePadIndex) draw_set_alpha(.5);
+var vendorItemsObj = obj_vendor_items;
+if	!isActive && gamepad_is_connected(global.player.gamePadIndex) ||
+	(vendorItemsObj.isConfirming || isConfirming)
+{
+	draw_set_alpha(.5);
+}
 else draw_set_alpha(1);
 	
 // filters background
@@ -152,6 +157,7 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 	ds_list_add(inv,el);
 	el.x1 = -500;
 	el.y1 = -500;
+	
 	// filter?
 	switch filter {
 		case InventoryFilters.Melee: {
@@ -204,6 +210,11 @@ for (var i = 0; i < ds_list_size(inv); i++) {
 	el.x1 = -50;
 	el.y1 = -50;
 	
+	if !el.isSellable {
+		var pos = ds_list_find_index(inv,el);
+		ds_list_delete(inv,pos);
+	}
+	
 }
 	
 var row = 1; var col = 1;
@@ -242,6 +253,7 @@ if selectedItem {
 	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,selectedItem);
 } else {
 	draw_set_halign(fa_center);
+	draw_set_valign(fa_center);
 	draw_set_color(c_white);
 	draw_text(
 		mean(itemDescriptionTopLeftX, itemDescriptionBottomRightX),
@@ -253,6 +265,7 @@ if selectedItem {
 if ds_list_size(inv) == 0 {
 	draw_set_font(font_main);
 	draw_set_halign(fa_center);
+	draw_set_valign(fa_center);
 	draw_set_color(c_white);
 	draw_text(mean(itemDescriptionTopLeftX,itemDescriptionBottomRightX),mean(invTopLeftY,invBottomRightY),"No items to display with current filters");
 }

@@ -1,6 +1,22 @@
 name = "NPC";
 // remember this with room_data objects
 conversations = ds_list_create();
+
+// all npcs have a "Leave" convo
+global.owner = id;
+var leave = instance_create_depth(x,y,1,obj_conversation_parent);
+leave.name = "Leave";
+leave.isRepeatable = true;
+
+var leave1 = instance_create_depth(x,y,1,obj_conversation_step_parent);
+leave1.text = "Goodbye";
+leave1.sound = noone;
+leave1.func = scr_conversation_leave;
+ds_list_add(leave.steps,leave1);
+
+ds_list_add(conversations,leave);
+
+
 isInteractingWithPlayer = false;
 isInConversation = false;
 

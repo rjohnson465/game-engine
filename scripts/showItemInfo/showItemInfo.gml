@@ -66,36 +66,36 @@ if item.type == ItemTypes.HandItem {
 		autoDescription += "/" + item.weaponSpeed;
 	}
 	
-	draw_sprite(spr_item_info,1,itemDescriptionCol1XPictures,itemDescriptionColY+25);
+	draw_sprite(spr_item_info,1,itemDescriptionCol1XPictures,itemDescriptionColY+5);
 	if !global.ui.isShowingExplanations {
-		draw_text(itemDescriptionCol1XText, itemDescriptionColY+25, autoDescription);
+		draw_text(itemDescriptionCol1XText, itemDescriptionColY+5, autoDescription);
 	} else {
 		if item.subType != HandItemTypes.Shield {
-			draw_text(itemDescriptionCol1XText, itemDescriptionColY+25, "Type/1H or 2H/Speed");
+			draw_text(itemDescriptionCol1XText, itemDescriptionColY+5, "Type/1H or 2H/Speed");
 		} else {
-			draw_text(itemDescriptionCol1XText, itemDescriptionColY+25, "Type");
+			draw_text(itemDescriptionCol1XText, itemDescriptionColY+5, "Type");
 		}
 	}
 					
 	// draw durability
 	if !item.isRanged {
 		var durabilityString = string(item.durability) + "/" + string(item.durabilityMax);
-		draw_sprite(spr_item_info_durability,1,itemDescriptionCol1XPictures,itemDescriptionColY+100);
+		draw_sprite(spr_item_info_durability,1,itemDescriptionCol1XPictures,itemDescriptionColY+80);
 		if !global.ui.isShowingExplanations {
-			draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,durabilityString);
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,durabilityString);
 		} else {
-			draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,"Durability / Max durability");
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,"Durability / Max durability");
 		}
 	}
 	
 	// draw ammo
 	if item.isRanged {
 		var ammoString = string(item.ammo) + "/" + string(item.ammoMax);
-		draw_sprite(spr_item_info_ammo,1,itemDescriptionCol1XPictures,itemDescriptionColY+100);
+		draw_sprite(spr_item_info_ammo,1,itemDescriptionCol1XPictures,itemDescriptionColY+80);
 		if !global.ui.isShowingExplanations {
-			draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,ammoString);
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,ammoString);
 		} else {
-			draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,"Ammo / Max ammo");
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,"Ammo / Max ammo");
 		}
 	}
 	
@@ -107,34 +107,34 @@ if item.type == ItemTypes.HandItem {
 		var physicalDamagesString = damagesStrings[1];
 		
 		// draw physical damages types / values
-		draw_sprite(spr_item_info_damage_types,1,itemDescriptionCol1XPictures,itemDescriptionColY+50);
+		draw_sprite(spr_item_info_damage_types,1,itemDescriptionCol1XPictures,itemDescriptionColY+30);
 		if !global.ui.isShowingExplanations {
-			draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,physicalDamageTypesString);
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+30,physicalDamageTypesString);
 		} else {
-			draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,"Phys. attacks type(s)");
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+30,"Phys. attacks type(s)");
 		}
 	
 		// draw physical damages values
-		draw_sprite(spr_item_info_damage_physical,1,itemDescriptionCol1XPictures,itemDescriptionColY+75);
+		draw_sprite(spr_item_info_damage_physical,1,itemDescriptionCol1XPictures,itemDescriptionColY+55);
 		var stringWidth = string_width(physicalDamagesString);
 		var scale = 1;
 		if stringWidth > (itemDescriptionCol1Width-21) {
 			scale = (itemDescriptionCol1Width-21) / stringWidth;
 		}
 		if !global.ui.isShowingExplanations {
-			draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+75,physicalDamagesString,scale,scale,0);
+			draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+55,physicalDamagesString,scale,scale,0);
 		} else {
-			draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+75,"Phys. attacks damage",scale,scale,0);
+			draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+55,"Phys. attacks damage",scale,scale,0);
 		}
 		
 		// draw magic charges (if applicable)
 		if item.totalCharges > 0 {
 			var magicChargesString = string(item.charges) + "/" + string(item.totalCharges);
-			draw_sprite(spr_item_info_magic_charges,1,itemDescriptionCol1XPictures,itemDescriptionColY+125);
+			draw_sprite(spr_item_info_magic_charges,1,itemDescriptionCol1XPictures,itemDescriptionColY+105);
 			if !global.ui.isShowingExplanations {
-				draw_text(itemDescriptionCol1XText,itemDescriptionColY+125,magicChargesString);
+				draw_text(itemDescriptionCol1XText,itemDescriptionColY+105,magicChargesString);
 			} else {
-				draw_text(itemDescriptionCol1XText,itemDescriptionColY+125,"Charges / Max charges");
+				draw_text(itemDescriptionCol1XText,itemDescriptionColY+105,"Charges / Max charges");
 			}
 		}
 		
@@ -370,5 +370,16 @@ else if item.type == ItemTypes.Head {
 		if !global.ui.isShowingExplanations {
 			draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),string(val)+"%");
 		} else draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),el);
+	}
+}
+
+if item.isSellable {
+	var w = sprite_get_width(spr_item_info_defense_crush);
+	var xs = w/sprite_get_width(spr_item_coins);
+	draw_sprite_ext(spr_item_coins,1,itemDescriptionCol1XPictures,itemDescriptionColY+130,xs,xs,0,c_white,1);
+	if !global.ui.isShowingExplanations {
+		draw_text(itemDescriptionCol1XText,itemDescriptionColY+130,string(item.value));
+	} else {
+		draw_text(itemDescriptionCol1XText,itemDescriptionColY+130,"Value");
 	}
 }

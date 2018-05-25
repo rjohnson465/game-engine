@@ -69,8 +69,15 @@ if isInteractingWithPlayer && !isInConversation && !showBuySell {
 			draw_text(xx,yy,c.name);
 		}
 	}
-	// buy / sell
-	//else if ds_exists(items,ds_type_list) {
-	//	drawBuySell();
-	//}
+	
+	
+	// prompts
+	var promptsStartX = MENUS_TOPLEFT_X+18;
+	var promptsY = MENUS_BOTTOMRIGHT_Y+25;
+	var xOffset = 20;
+	var w = 0;
+	if gamepad_is_connected(global.player.gamePadIndex) {
+		w += drawPrompt("Select", Input.F,promptsStartX+w,promptsY)+xOffset;
+		w += drawPrompt("Back",Input.Escape,promptsStartX+w,promptsY)+xOffset;
+	}
 }

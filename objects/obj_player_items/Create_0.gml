@@ -2,6 +2,10 @@
 owner = global.owner;
 items = global.player.inventory;
 
+isConfirming = false;
+isAcceptingConfirmInput = false;
+isYes = false;
+
 selectedItem = noone;
 inv = ds_list_create();
 isActive = true;

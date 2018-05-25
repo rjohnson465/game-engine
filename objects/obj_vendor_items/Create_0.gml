@@ -1,4 +1,7 @@
 owner = global.owner;
+isConfirming = false;
+isAcceptingConfirmInput = false;
+isYes = false;
 
 selectedItem = noone;
 inv = ds_list_create();

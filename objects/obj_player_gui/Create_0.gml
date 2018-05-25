@@ -140,7 +140,9 @@ enum Input {
 	MMB,
 	Space,
 	Shift, // Y
-	Mouse
+	Mouse,
+	LT,
+	RT
 }
 
 isShowingExplanations = false;

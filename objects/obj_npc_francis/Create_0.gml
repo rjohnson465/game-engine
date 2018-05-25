@@ -10,7 +10,11 @@ spriteString = "francis";
 greeting = snd_greeting_francis;
 
 items = ds_list_create();
-ds_list_add(items,makeGem(obj_gem_aquamarine,CRACKED));
+var aqs = makeGem(obj_gem_aquamarine,CRACKED);
+aqs.count = 3;
+aqs.value = 10000000;
+ds_list_add(items,aqs);
+
 ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
 /*
 ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_woodshield));

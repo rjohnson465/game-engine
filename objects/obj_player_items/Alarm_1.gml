@@ -1,0 +1,2 @@
+isAcceptingConfirmInput = false;
+isConfirming = false;

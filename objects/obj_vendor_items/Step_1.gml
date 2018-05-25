@@ -5,18 +5,19 @@ if joystickInputFrame < joystickInputTotalFrames {
 	joystickInputFrame++;
 }
 
-if gamepad_is_connected(pad) && isActive {
+var h_point = gamepad_axis_value(pad, gp_axislh);
+var v_point = gamepad_axis_value(pad, gp_axislv);
+var pdir = noone;
+if (h_point != 0 || v_point != 0) {
+	pdir = point_direction(0, 0, h_point, v_point);
+} else {
+	joystickInputFrame = joystickInputTotalFrames;
+}
 	
-	var h_point = gamepad_axis_value(pad, gp_axislh);
-	var v_point = gamepad_axis_value(pad, gp_axislv);
-	var pdir = noone;
-	if (h_point != 0 || v_point != 0) {
-		pdir = point_direction(0, 0, h_point, v_point);
-	} else {
-		joystickInputFrame = joystickInputTotalFrames;
-	}
+var acceptingJoystickInput = joystickInputFrame >= joystickInputTotalFrames;
+
+if gamepad_is_connected(pad) && isActive && !isConfirming {
 	
-	var acceptingJoystickInput = joystickInputFrame >= joystickInputTotalFrames;
 	// move selector left
 	if gamepad_button_check_pressed(pad,gp_padl) || (angleBetween(135,225,pdir) && pdir != noone && acceptingJoystickInput) {
 		moveTradeSelector("left");
@@ -69,6 +70,39 @@ if gamepad_is_connected(pad) && isActive {
 		}
 		scrollLevel = 0;
 		selectedItem = noone;
+	}
+	
+	if gamepad_button_check_pressed(pad,gp_face1) {
+		isConfirming = true;
+		alarm[0] = 1;
+	}
+	
+}
+
+if gamepad_is_connected(pad) && isConfirming && selectedItem != noone && selectedItem != undefined && instance_exists(selectedItem) && isAcceptingConfirmInput {
+	
+	if gamepad_button_check_pressed(pad,gp_face2) {
+		isConfirming = false;
+		isAcceptingConfirmInput = false;
+	}
+	
+	if	gamepad_button_check_pressed(pad,gp_padl) ||
+		gamepad_button_check_pressed(pad,gp_padr) ||
+		(angleBetween(135,225,pdir) && pdir != noone && acceptingJoystickInput) ||
+		(angleBetween(315,45,pdir) && pdir != noone && acceptingJoystickInput) 
+		{
+			isYes = !isYes;
+			joystickInputFrame = 0;
+		}
+	
+	if gamepad_button_check_pressed(pad,gp_face1) {
+		if isYes {
+			buyItem(selectedItem);
+			isConfirming = false;
+		} else {
+			isConfirming = false;
+		}
+		isAcceptingConfirmInput = false;
 	}
 }
 

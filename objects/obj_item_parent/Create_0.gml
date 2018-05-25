@@ -31,6 +31,7 @@ subType = noone;
 spriteName = "";
 itemSprite = "";
 value = 0;
+isSellable = true;
 description = "Sample description";
 
 isStackable = true;

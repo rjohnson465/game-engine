@@ -49,8 +49,14 @@ if gamepad_is_connected(pad) {
 	}
 	
 	if gamepad_button_check_pressed(pad,gp_face2) && isInteractingWithPlayer {
+			if global.isTrading {
+				var playerItemsObj = obj_player_items;
+				var vendorItemsObj = obj_vendor_items;
+				if playerItemsObj.isConfirming || vendorItemsObj.isConfirming exit;
+			}
 			isInteractingWithPlayer = false;
 			showBuySell = false;
 			global.isInteractingWithNpc = false;
+			global.isTrading = false;
 		}
 }

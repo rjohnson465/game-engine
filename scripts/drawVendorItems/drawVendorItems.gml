@@ -32,7 +32,12 @@ if !gamepad_is_connected(global.player.gamePadIndex) {
 	}
 }	
 
-if !isActive && gamepad_is_connected(global.player.gamePadIndex) draw_set_alpha(.5);
+var playerItemsObj = obj_player_items;
+if	!isActive && gamepad_is_connected(global.player.gamePadIndex) ||
+	(playerItemsObj.isConfirming || isConfirming)
+{
+	draw_set_alpha(.5);
+}
 else draw_set_alpha(1);
 	
 // filters background
@@ -134,7 +139,7 @@ if scrollLevel == 0 || isScrollUpPressed {
 	}
 } else draw_sprite_ext(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale),scrollButtonScale,-scrollButtonScale,0,c_white,1);
 // scroll button down			
-if is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) || isScrollDownPressed {
+if ds_exists(inv,ds_type_list) && is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) || isScrollDownPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_gray,.75);
 	if !is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) {
 		scrollLevel++;
@@ -242,6 +247,7 @@ if selectedItem {
 	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,selectedItem);
 } else {
 	draw_set_halign(fa_center);
+	draw_set_valign(fa_center);
 	draw_set_color(c_white);
 	draw_text(
 		mean(itemDescriptionTopLeftX, itemDescriptionBottomRightX),
@@ -252,6 +258,7 @@ if selectedItem {
 if ds_list_size(inv) == 0 {
 	draw_set_font(font_main);
 	draw_set_halign(fa_center);
+	draw_set_valign(fa_center);
 	draw_set_color(c_white);
 	draw_text(mean(invTopLeftX,invBottomRightX),mean(invTopLeftY,invBottomRightY),"No items to display with current filters");
 }

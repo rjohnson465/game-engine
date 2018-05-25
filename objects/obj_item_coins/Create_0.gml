@@ -10,3 +10,4 @@ description = "Don't spend it all in once place. Or do. Who am I tell you what t
 type = ItemTypes.Other;
 
 isStackable = true;
+isSellable = false;

@@ -228,7 +228,7 @@ var ring = instance_create_depth(x,y,1,obj_item_ring);
 ds_map_add(ring.itemProperties,ModifiableProperties.StaminaMax,50);
 ds_map_add(ring.itemProperties,ModifiableProperties.StaminaRegen,10);
 addItemToInventory(ring);
-/*
+
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
@@ -238,8 +238,7 @@ addItemToInventory(makeGem(obj_gem_topaz,CRACKED));
 addItemToInventory(makeGem(obj_gem_emerald,CRACKED));
 addItemToInventory(makeGem(obj_gem_ruby,CRACKED));
 addItemToInventory(makeGem(obj_gem_hematite,CRACKED));
-*/
-
+addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 // bs
 /*
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));

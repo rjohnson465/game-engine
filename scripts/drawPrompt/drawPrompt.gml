@@ -72,6 +72,14 @@ for (var i = 0; i < array_length_1d(keys); i++) {
 			sprite = spr_prompt_mk_mouse;
 			break;
 		}
+		case Input.LT: {
+			sprite = spr_prompt_xbox_lt;
+			break;
+		}
+		case Input.RT: {
+			sprite = spr_prompt_xbox_rt;
+			break;
+		}
 	}
 	
 	ds_map_replace(spritesMap,i,sprite);
