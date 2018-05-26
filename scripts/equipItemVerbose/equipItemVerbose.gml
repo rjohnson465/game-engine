@@ -18,11 +18,6 @@ if droppedItem.type == ItemTypes.HandItem {
 	}
 }
 
-if droppedItem.copyOf != noone {
-	droppedItem = droppedItem.copyOf;
-	//instance_destroy(copy,false);
-}
-
 with slotObj {
 	// first, make sure the dropped item can go in this slot 
 	var handItemPredicate = droppedItem.type == ItemTypes.HandItem 
@@ -85,21 +80,11 @@ with slotObj {
 				var alreadyEquippedItem = getItemInEquipmentSlot(slot);
 				if alreadyEquippedItem && alreadyEquippedItem.spriteName != "unarmed" {
 					unequipItem(alreadyEquippedItem);
-					/*if alreadyEquippedItem != droppedItem && alreadyEquippedItem.copyOf != droppedItem  {
-						with alreadyEquippedItem {
-							instance_destroy();
-						}
-					}*/
 				}
 				
 				var itemInOtherSlot = getItemInEquipmentSlot(otherSlot);
 				if itemInOtherSlot && itemInOtherSlot.spriteName != "unarmed" {
 					unequipItem(itemInOtherSlot);
-					/*if itemInOtherSlot != droppedItem && itemInOtherSlot.copyOf != droppedItem  {
-						with itemInOtherSlot {
-							instance_destroy();
-						}
-					}*/
 				}
 			}
 			// 2) 
@@ -113,11 +98,6 @@ with slotObj {
 				var alreadyEquippedItem = getItemInEquipmentSlot(actualSlot);
 				if alreadyEquippedItem && alreadyEquippedItem.spriteName != "unarmed" {
 					unequipItem(alreadyEquippedItem);
-					/*if alreadyEquippedItem != droppedItem && alreadyEquippedItem.copyOf != droppedItem  {
-						with alreadyEquippedItem {
-							instance_destroy();
-						}
-					}*/
 				}
 			}
 			// 3)
@@ -125,21 +105,11 @@ with slotObj {
 				var alreadyEquippedItem = getItemInEquipmentSlot(slot);
 				if alreadyEquippedItem && alreadyEquippedItem.spriteName != "unarmed" {
 					unequipItem(alreadyEquippedItem);
-					/*if alreadyEquippedItem != droppedItem/* && alreadyEquippedItem.copyOf != droppedItem {
-						with alreadyEquippedItem {
-							instance_destroy();
-						}
-					}*/
 				}
 				// check if companion slot OR this slot has a 2h item
 				var itemInOtherSlot = getItemInEquipmentSlot(otherSlot);
 				if itemInOtherSlot.isTwoHanded {
 					unequipItem(itemInOtherSlot);
-					/*if itemInOtherSlot != droppedItem && itemInOtherSlot.copyOf != droppedItem  {
-						with itemInOtherSlot {
-							instance_destroy();
-						}
-					}*/
 				}
 			}
 		}

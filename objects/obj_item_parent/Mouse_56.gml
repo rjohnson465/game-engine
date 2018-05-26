@@ -9,24 +9,8 @@ if id == global.ui.grabbedItem {
 	// if dropped somewhere in inventory and was equipped, unequip item
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
-	
-	if	isItemEquipped(id)
-		&& (mouse_x > vx + global.inventory.invTopLeftX && mouse_x < vx + global.inventory.invBottomRightX) 
-		&& (mouse_y > vy + global.inventory.invTopLeftY && mouse_y < vy + global.inventory.invBottomRightY) 
-		{
-			
-			
-			if copyOf != noone {
-				unequipItem(id);
-				// if this was the selected item in the equipped items manager, its not anymore
-				if global.equippedItemsManager.selectedItem == id {
-					global.equippedItemsManager.selectedItem = noone;
-				}
-				instance_destroy(id);
-			}
-		}
 		
-	else {
+	if !isItemEquipped(id) {
 	
 		var nearestOtherItem = instance_nearest(x,y,obj_item_parent);
 		var i = 1;

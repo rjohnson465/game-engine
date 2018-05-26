@@ -206,15 +206,5 @@ switch ds_list_size(gemTypesSeen) {
 }
 
 item.name = newName;
-with obj_hand_item_parent {
-	if copyOf != noone && copyOf == item {
-		name = newName;
-	}
-}
-with obj_hat_parent {
-	if copyOf != noone && copyOf == item {
-		name = newName;
-	}
-}
 
 ds_list_destroy(gemTypesSeen);

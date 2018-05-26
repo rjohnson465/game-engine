@@ -63,66 +63,17 @@ else if isDoneFilling {
 		for (var i = 0 ; i < ds_list_size(inventory); i++) {
 			var item = ds_list_find_value(inventory,i);
 			if item.type == ItemTypes.HandItem {
-				/*var copy = noone;
-				with item.object_index {
-					if copyOf == item {
-						copy = id;
-					}
-				}*/
 				if item.totalCharges > 0 {
 					item.charges = item.totalCharges;
-					//if copy != noone copy.charges = item.totalCharges;
 				}
 				if item.durability > 0 {
 					item.durability = item.durabilityMax;
 				}
 				item.hasIssuedDurabilityWarning = false;
 				item.hasIssuedDurabilityObituary = false;
-				/*if copy != noone {
-					if copy.durability > 0 {
-						copy.durability = item.durabilityMax;
-					}
-					copy.hasIssuedDurabilityWarning = false;
-					copy.hasIssuedDurabilityObituary = false;
-				}*/
 				item.ammo = item.ammoMax;
-				/*if copy != noone {
-					copy.ammo = copy.ammoMax;
-				}*/
+
 			}
 		}
-		/*
-		// refill all weapon charges / durability for equipped weapons
-		for (var i = 0 ; i < ds_list_size(equippedItems); i++) {
-			var item = ds_list_find_value(equippedItems,i);
-			if item.type == ItemTypes.HandItem {
-				var copy = noone;
-				with item.object_index {
-					if copyOf == item {
-						copy = id;
-					}
-				}
-				if item.totalCharges > 0 {
-					item.charges = item.totalCharges;
-					if copy != noone copy.charges = item.totalCharges;
-				}
-				if item.durability > 0 {
-					item.durability = item.durabilityMax;
-				}
-				item.hasIssuedDurabilityWarning = false;
-				item.hasIssuedDurabilityObituary = false;
-				if copy != noone {
-					if copy.durability > 0 {
-						copy.durability = item.durabilityMax;
-					}
-					copy.hasIssuedDurabilityWarning = false;
-					copy.hasIssuedDurabilityObituary = false;
-				}
-				item.ammo = item.ammoMax;
-				if copy != noone {
-					copy.ammo = copy.ammoMax;
-				}
-			}
-		}*/
 	}
 }

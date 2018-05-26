@@ -647,6 +647,14 @@
             }
         },
         {
+            "Key": "14d33247-5838-4755-b6bc-6b76df489744",
+            "Value": {
+                "id": "2b705e2e-e08c-4897-818b-4f637db1c79b",
+                "resourcePath": "objects\\obj_queststep_unfairyslayer_2\\obj_queststep_unfairyslayer_2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "155670c4-f495-4610-96c5-7c3e3f57adfd",
             "Value": {
                 "id": "3a0867dd-a3cf-4dee-8365-e1af9eb8cc4a",
@@ -1335,11 +1343,27 @@
             }
         },
         {
+            "Key": "303f321e-2f3e-4b50-8bc5-391542a9c166",
+            "Value": {
+                "id": "1a4bd7b0-4c71-4d0d-850e-427893fc9084",
+                "resourcePath": "scripts\\questFinishUnfairySlayer\\questFinishUnfairySlayer.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "303fbeca-840f-4b4b-a6b2-5cdebcb3553c",
             "Value": {
                 "id": "d5899095-48d7-40a8-b1b7-dec42ba06322",
                 "resourcePath": "objects\\obj_item_coins\\obj_item_coins.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "3054e89a-bdc9-4b8e-9b7a-837726e63034",
+            "Value": {
+                "id": "cf7808a4-6f5e-4f10-956d-7578316938ea",
+                "resourcePath": "views\\3054e89a-bdc9-4b8e-9b7a-837726e63034.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1615,6 +1639,14 @@
             }
         },
         {
+            "Key": "3bcc372c-8712-4179-af58-d14de9b10e9f",
+            "Value": {
+                "id": "e04e6e43-7e3f-4f3b-9df2-4a40ebe76b11",
+                "resourcePath": "objects\\obj_queststep_parent\\obj_queststep_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "3bd5b0ac-3041-4413-b1ea-c4ffa7c92999",
             "Value": {
                 "id": "d9b8cfb3-a24a-41cb-b505-0f688c1452f4",
@@ -1871,6 +1903,14 @@
             }
         },
         {
+            "Key": "4922a3d3-9ebb-49cf-bcca-f3c6e1508d4c",
+            "Value": {
+                "id": "fc5f9010-fef3-4971-ad94-d738022beb04",
+                "resourcePath": "scripts\\completeQuest\\completeQuest.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "492f0088-4fff-40b5-b7b6-8eb2b21d33c7",
             "Value": {
                 "id": "4c9ec66b-b082-41ee-9dc5-c66cf73e97c7",
@@ -1900,6 +1940,14 @@
                 "id": "d7888e98-47a0-4033-979a-f446d8150926",
                 "resourcePath": "views\\4a1b84d2-ec69-4409-8688-39b1095d95ec.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4b2bf60e-04ad-4a2c-9aa4-9debc1fb3b01",
+            "Value": {
+                "id": "35e3a53d-9118-4ff9-84d0-926c34e903d0",
+                "resourcePath": "sounds\\snd_conversation_francis_unfairyslayer_1\\snd_conversation_francis_unfairyslayer_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -1947,6 +1995,14 @@
             "Value": {
                 "id": "71163d52-8bbe-4659-ae45-5537d03f2e9c",
                 "resourcePath": "views\\4cd24ea6-2a87-4e41-80ca-933b635a3b50.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4d423f2a-6499-4064-87ec-99192250ba03",
+            "Value": {
+                "id": "9eb3b7a3-249d-4dd0-bcc5-3878d2609038",
+                "resourcePath": "views\\4d423f2a-6499-4064-87ec-99192250ba03.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -2159,6 +2215,14 @@
             }
         },
         {
+            "Key": "57c7003a-6db8-424c-8b0e-c8470600b2ef",
+            "Value": {
+                "id": "86c11b49-c5da-4588-9895-6f15c780fd3e",
+                "resourcePath": "objects\\obj_quest_unfairyslayer\\obj_quest_unfairyslayer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "57c92198-b43c-4c3f-b01f-8660099ae6a9",
             "Value": {
                 "id": "8b1a26d4-7671-4e80-9c11-225f1e663dab",
@@ -2172,6 +2236,14 @@
                 "id": "415861e5-38e9-4c0f-a9e0-69f30e6b8e51",
                 "resourcePath": "shaders\\sh_sepia\\sh_sepia.yy",
                 "resourceType": "GMShader"
+            }
+        },
+        {
+            "Key": "589c76ad-e201-427e-9b43-f55640705b28",
+            "Value": {
+                "id": "4eca7c43-c93e-4ed4-b51a-14a3c05f7a5b",
+                "resourcePath": "objects\\obj_queststep_unfairyslayer_1\\obj_queststep_unfairyslayer_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2700,6 +2772,14 @@
                 "id": "7cff3b33-6052-47a9-98ab-c7cd88442ece",
                 "resourcePath": "views\\6d4bad48-577a-44bd-9580-f4cdd1b9af42.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6d6e62ea-115e-4dac-9108-cc1dfe78fbe5",
+            "Value": {
+                "id": "9f2bc2ed-22c8-4373-88d0-9aa722ed12b6",
+                "resourcePath": "objects\\obj_quest_parent\\obj_quest_parent.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3439,6 +3519,14 @@
             }
         },
         {
+            "Key": "89cc5b1a-36db-4ee4-a9ce-51e55d19c997",
+            "Value": {
+                "id": "be975fd7-1e29-43b6-b331-1cb9e079ec00",
+                "resourcePath": "objects\\obj_quest_log\\obj_quest_log.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "89e792c3-5306-41a1-8e55-479f0f2db5de",
             "Value": {
                 "id": "37eab2b9-6128-4d26-9818-7ed5bdbb3467",
@@ -3927,6 +4015,14 @@
             }
         },
         {
+            "Key": "a0cbd295-ba60-494c-b2d2-b8216b3668f0",
+            "Value": {
+                "id": "6b9d24f5-f716-4349-a29c-ce2a8ba9c55f",
+                "resourcePath": "scripts\\questStartUnfairySlayer\\questStartUnfairySlayer.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a17f1504-d55e-4e37-93dc-c92f3d82b0fc",
             "Value": {
                 "id": "39992e10-0ef3-4d9b-8fb2-4ceb0f38488e",
@@ -4140,6 +4236,14 @@
                 "id": "be1b3c0f-7701-4f97-a6fb-c67f4e5db3d0",
                 "resourcePath": "options\\linux\\options_linux.yy",
                 "resourceType": "GMLinuxOptions"
+            }
+        },
+        {
+            "Key": "a96ec3b5-a54a-454f-ab4b-024bba86a50b",
+            "Value": {
+                "id": "c0b0fc48-99c1-4b55-a4fc-f16ac0550c23",
+                "resourcePath": "sounds\\snd_conversation_francis_unfairyslayer_2\\snd_conversation_francis_unfairyslayer_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -4452,6 +4556,14 @@
                 "id": "aef21ca0-f190-4c47-936c-7b124d98ef88",
                 "resourcePath": "views\\b2eb5445-15dc-471a-8ff4-79a21caa16f9.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b36a36f8-a706-4c2c-8e0d-0c255ec4f65d",
+            "Value": {
+                "id": "7ec87dd0-76e6-4d60-a706-6e32d6d1f8af",
+                "resourcePath": "scripts\\gainXp\\gainXp.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -4772,6 +4884,14 @@
                 "id": "5a4a876e-f726-48d0-b0b2-bf2e0b86c72c",
                 "resourcePath": "shaders\\sh_greyscale\\sh_greyscale.yy",
                 "resourceType": "GMShader"
+            }
+        },
+        {
+            "Key": "bffabf1c-9bb0-497e-a7fe-1d7fa9d66a86",
+            "Value": {
+                "id": "1f4e03e4-3216-4a84-9d06-d6bbce5810fb",
+                "resourcePath": "scripts\\alertQuestComplete\\alertQuestComplete.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5131,6 +5251,14 @@
             "Value": {
                 "id": "3c8d5484-bcd2-4c28-933a-b14694faa7e7",
                 "resourcePath": "views\\cbd06762-1b40-44c6-b479-0a5e51b0255c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "cc240ea6-c9be-41d8-8553-c370a268782c",
+            "Value": {
+                "id": "f008f5f7-6973-46fc-af60-2fe951dd13fa",
+                "resourcePath": "views\\cc240ea6-c9be-41d8-8553-c370a268782c.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -5855,6 +5983,14 @@
             }
         },
         {
+            "Key": "e89ebab9-8da2-4f40-b2df-8999ac5923f0",
+            "Value": {
+                "id": "7b7772d6-e8bf-42e4-823c-79525151fb51",
+                "resourcePath": "sounds\\snd_conversation_francis_unfairyslayer_3\\snd_conversation_francis_unfairyslayer_3.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "e8d13581-b420-4342-aa90-22f1f67f5c86",
             "Value": {
                 "id": "79bc80a7-b4dc-4d4f-ad0f-aaa15b9da2e2",
@@ -6119,6 +6255,14 @@
             }
         },
         {
+            "Key": "f5318c21-772a-49fc-a0d6-c74039dfe954",
+            "Value": {
+                "id": "a9db8954-3ae4-4801-b2ad-934e545ab991",
+                "resourcePath": "scripts\\alertQuestUpdate\\alertQuestUpdate.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f613e98d-06e2-46de-8b79-4b27867cabf1",
             "Value": {
                 "id": "65397e18-2bac-4610-8d8f-f7fbc5ba98fa",
@@ -6147,6 +6291,14 @@
             "Value": {
                 "id": "c5eb150e-38db-41f9-8c3c-675352f76017",
                 "resourcePath": "views\\f6ec8a70-3b5c-42a7-a70b-515fcb25f1c3.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f7104235-a11e-47bd-a69c-bd44b413cd5f",
+            "Value": {
+                "id": "fbd72387-ea36-4307-9051-716f9183c6df",
+                "resourcePath": "views\\f7104235-a11e-47bd-a69c-bd44b413cd5f.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -6465,6 +6617,7 @@
         "5ab9eecd-e179-4fa9-b500-a50690b2fce9",
         "c2bdd15f-855e-4d69-be38-6691914aab55",
         "cda49b31-bcf2-4350-bbe9-2e239a24e6ba",
+        "b36a36f8-a706-4c2c-8e0d-0c255ec4f65d",
         "9bd32a79-2503-44b5-a00f-a63b87284907",
         "16568123-5957-4757-92be-a766ccac59ff",
         "b876bddf-c38a-44ab-bca5-d50240d22cea",
@@ -6558,7 +6711,12 @@
         "c6a9c933-0669-4c95-8c9c-c7d342132cb6",
         "63f9d3a7-cf17-4574-80ba-ccb077d8bccc",
         "be9be706-dcc7-4339-8349-3d638030a45a",
-        "f803603b-59c6-4e27-a177-8e01575c3278"
+        "f803603b-59c6-4e27-a177-8e01575c3278",
+        "f5318c21-772a-49fc-a0d6-c74039dfe954",
+        "bffabf1c-9bb0-497e-a7fe-1d7fa9d66a86",
+        "a0cbd295-ba60-494c-b2d2-b8216b3668f0",
+        "303f321e-2f3e-4b50-8bc5-391542a9c166",
+        "4922a3d3-9ebb-49cf-bcca-f3c6e1508d4c"
     ],
     "tutorial": ""
 }

@@ -3,6 +3,9 @@ display_set_gui_size(1024, 768);
 global.conditionBarCount = 0;
 depth = -1000;
 
+// controls lockOn rotation
+alarm[0] = 60;
+
 display_set_gui_size(view_get_wport(view_camera[0]),view_get_hport(view_camera[0]));
 
 // UI menus
@@ -102,6 +105,9 @@ instance_create_depth(x,y,-1001,obj_stats);
 
 // skills
 instance_create_depth(x,y,-1001,obj_skill_manager);
+
+// quests
+instance_create_depth(x,y,-1001,obj_quest_log);
 
 // selected equipment slot
 selectedEquipmentSlot = noone;

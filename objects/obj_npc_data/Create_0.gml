@@ -1,5 +1,12 @@
 npc = global.npc;
+npcName = npc.name;
 conversations = ds_map_create(); // name / isFinished
+
+// TODO --- use this list to add convos to npc that are not made on the create event
+// these conversation objects / steps should be persistent -- they must be carried in memory
+// until the npc says them. Then they may be destroyed
+conversationsToAdd = ds_list_create();
+
 hasInitializedItems = false;
 for (var i = 0; i < ds_list_size(npc.conversations); i++) {
 	var c = ds_list_find_value(npc.conversations,i);

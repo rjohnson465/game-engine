@@ -9,11 +9,6 @@ if rand <= odds {
 	alert(string(item.name) + " sucessfully repaired ",c_lime);
 
 	item.durability = item.durabilityMax;
-	with obj_item_parent {
-		if copyOf == item {
-			durability = durabilityMax;
-		}
-	}
 	
 	spendGold(namedPrice);
 				

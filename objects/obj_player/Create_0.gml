@@ -333,3 +333,25 @@ if moveSprite != -1 {
 }
 
 hasIssuedAmmoOut = false;
+
+quests = ds_list_create();
+/*var quest = instance_create_depth(x,y,1,obj_quest_unfairyslayer);
+
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);
+ds_list_add(quests,quest);

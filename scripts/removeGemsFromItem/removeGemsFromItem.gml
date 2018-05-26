@@ -23,11 +23,6 @@ var isEquipped = item.equipmentSlot != noone;
 var slot = noone;
 if isEquipped {
 	slot = item.equipmentSlot;
-	/*with obj_item_parent {
-		if copyOf == item {
-			instance_destroy(id,1);
-		}
-	}*/
 	unequipItem(item);
 }
 

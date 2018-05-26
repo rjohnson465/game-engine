@@ -10,7 +10,7 @@ color = owner.lightRadiusColor;
 colorAlpha = owner.lightRadiusAlpha;
 spr = owner.lightRadiusSprite;
 scale = owner.lightRadiusScale;
-if makeLightOnCreate && global._lights {
+if makeLightOnCreate && ds_exists(global._lights,ds_type_list) {
 	light_create(spr, scale, color, colorAlpha, 0, true);
 }
 rot_inc = 20;

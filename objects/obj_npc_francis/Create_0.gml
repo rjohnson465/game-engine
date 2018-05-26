@@ -16,37 +16,10 @@ aqs.value = 10000000;
 ds_list_add(items,aqs);
 
 ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
-/*
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_dagger));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hat_leathercap));
-ds_list_add(items,instance_create_depth(x,y,1,obj_item_revive_orb));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_dagger));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hat_leathercap));
-ds_list_add(items,instance_create_depth(x,y,1,obj_item_revive_orb));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_dagger));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hat_leathercap));
-ds_list_add(items,instance_create_depth(x,y,1,obj_item_revive_orb));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_woodshield));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_dagger));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_longsword));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_shortbow));
-ds_list_add(items,instance_create_depth(x,y,1,obj_hat_leathercap));
-ds_list_add(items,instance_create_depth(x,y,1,obj_item_revive_orb));
-*/
+
 
 global.owner = id;
+// welcome convo
 var c1 = instance_create_depth(x,y,1,obj_conversation_parent);
 c1.name = "Welcome";
 
@@ -62,6 +35,7 @@ ds_list_add(c1.steps,c1s2);
 
 ds_list_add(conversations,c1);
 
+// honesty convo
 var honesty = instance_create_depth(x,y,1,obj_conversation_parent);
 honesty.name = "Honesty";
 honesty.isRepeatable = true;
@@ -72,6 +46,22 @@ honesty1.sound = snd_conversation_francis_honesty_1;
 ds_list_add(honesty.steps,honesty1);
 
 ds_list_add(conversations,honesty);
+
+// unfairy slayer quest
+var unfairySlayer = instance_create_depth(x,y,1,obj_conversation_parent);
+unfairySlayer.name = "Unfairy Slayer";
+
+var uss1 = instance_create_depth(x,y,1,obj_conversation_step_parent);
+uss1.text = "The goddamned unfairies keep sniffing my earlobes.";
+uss1.sound = snd_conversation_francis_unfairyslayer_1;
+var uss2 = instance_create_depth(x,y,1,obj_conversation_step_parent);
+uss2.text = "Show them the meaning of holocaust.";
+uss2.sound = snd_conversation_francis_unfairyslayer_2;
+uss2.func = questStartUnfairySlayer;
+ds_list_add(unfairySlayer.steps,uss1);
+ds_list_add(unfairySlayer.steps,uss2);
+
+ds_list_add(conversations,unfairySlayer);
 
 // buy / sell
 var bs = instance_create_depth(x,y,1,obj_conversation_parent);

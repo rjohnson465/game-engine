@@ -22,7 +22,6 @@ if isReadyToFire && RIGHTRELEASED && stamina > 0 {
 
 	instance_create_depth(x,y,1,obj_attack);
 	leftHandItem.ammo -= 1;
-	//leftHandItem.copyOf.ammo -= 1;
 	if leftHandItem.ammo < 1 {
 		alert(leftHandItem.name + " out of ammo", c_red);
 	}

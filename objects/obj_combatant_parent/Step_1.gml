@@ -29,8 +29,11 @@ if hp < 1 && isAlive && !isDying {
 		ds_map_replace(conditionPercentages,currentCondition,0);
 		currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
 	}
-	global.xpAmount = round(xpReward*(global.player.xpMultiplier/100));
-	instance_create_depth(x,y,1,obj_xp);
+	
+	var xpAmount = round(xpReward*(global.player.xpMultiplier/100));
+	gainXp(xpAmount);
+	//global.xpAmount = round(xpReward*(global.player.xpMultiplier/100));
+	//instance_create_depth(x,y,1,obj_xp);
 }
 
 if isDying && isAlive {
@@ -98,7 +101,7 @@ if isDying && isAlive {
 		}
 		isAlive = false;
 		isDying = false;
-		global.player.xpTemp += round((xpReward*(global.player.xpMultiplier/100)));
+		//global.player.xpTemp += round((xpReward*(global.player.xpMultiplier/100)));
 	}
 }
 

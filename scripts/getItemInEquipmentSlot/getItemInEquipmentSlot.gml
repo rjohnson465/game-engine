@@ -2,13 +2,6 @@
 /// @param slotEnumVal
 
 var s = argument[0];
-/*
-with obj_item_parent {
-	if equipmentSlot == s && copyOf != noone {
-		return id;
-	}
-}
-*/
 var ei = global.player.equippedItems;
 for (var i = 0; i < ds_list_size(ei); i++) {
 	var item = ds_list_find_value(ei,i);

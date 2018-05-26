@@ -6,8 +6,3 @@ if durability <= 0 {
 		unequipItem(id);
 	}
 }
-
-if copyOf != noone {
-	copyOf.durability = durability;
-	copyOf.charges = charges;
-}

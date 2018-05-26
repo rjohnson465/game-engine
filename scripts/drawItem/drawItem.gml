@@ -21,7 +21,7 @@ if item.object_index == obj_item_coins && ds_list_find_index(global.player.inven
 
 draw_sprite(item.itemSprite,1,x1,y1);
 // if this item is currently equipped, signify that (only for inventory items)
-if item.equipmentSlot != noone && isInventoryItem && item.copyOf == noone {
+if item.equipmentSlot != noone && isInventoryItem {
 	draw_set_color(c_maroon);
 	draw_circle(x1+5,y1+5,5,false);
 }
