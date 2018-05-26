@@ -1,5 +1,6 @@
 npc = global.npc;
 conversations = ds_map_create(); // name / isFinished
+hasInitializedItems = false;
 for (var i = 0; i < ds_list_size(npc.conversations); i++) {
 	var c = ds_list_find_value(npc.conversations,i);
 	ds_map_replace(conversations,c.name,c.isFinished);

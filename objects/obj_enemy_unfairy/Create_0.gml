@@ -14,9 +14,13 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 
 // all weapons / shields enemy can use
 var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
+unarmed.persistent = false;
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
+woodshield.persistent = false;
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
+longsword.persistent = false;
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
+shortbow.persistent = false;
 ds_map_add(handItems,"lm1",longsword);
 //ds_map_add(handItems,"lm1",unarmed);
 ds_map_add(handItems,"rm1",woodshield);

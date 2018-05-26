@@ -1,5 +1,8 @@
 if !ui.isShowingMenus || ui.currentMenu != INVENTORY exit;
 
+draw_set_color(c_black);
+draw_rectangle(topLeftX,topLeftY,bottomRightX,bottomRightY,1);
+
 var p = global.player;
 var leftHandItem = ds_map_find_value(p.equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(p.equippedLimbItems,"r");

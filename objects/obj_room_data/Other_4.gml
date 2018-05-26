@@ -66,13 +66,6 @@ if room == roomIndex {
 			
 			currentC = ds_map_find_next(npcdata.conversations,currentC);
 		}
-		/*
-		if ds_exists(npc.conversations,ds_type_list) {
-			ds_list_destroy(npc.conversations);
-		}
-		npc.conversations = ds_list_create();
-		ds_list_copy(npc.conversations,npcdata.conversations);*/
-		//npc.conversations = npcdata.conversations;
 	}
 	
 } else {

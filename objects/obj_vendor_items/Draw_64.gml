@@ -34,7 +34,7 @@ if isConfirming {
 	draw_text(x1+50,y1+100,s);
 	
 	// actually buy item if clicked
-	if	(point_in_rectangle(mouse_x,mouse_y,vx+x1+5,vy+y1+100,vx+x1+5+sw,vy+y1+100+sh) && !gamepad_is_connected(global.player.gamePadIndex)) && 
+	if	(point_in_rectangle(mouse_x,mouse_y,vx+x1+50,vy+y1+100,vx+x1+50+sw,vy+y1+100+sh) && !gamepad_is_connected(global.player.gamePadIndex)) && 
 		mouse_check_button_pressed(mb_left) 
 	{
 		buyItem(selectedItem);

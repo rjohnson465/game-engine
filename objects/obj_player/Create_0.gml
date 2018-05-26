@@ -220,7 +220,8 @@ insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 //addItemToInventory(longsword);
 
 //addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_battleaxe));
+var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
+addItemToInventory(baxe);
 
 //addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 //addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
@@ -229,7 +230,8 @@ ds_map_add(ring.itemProperties,ModifiableProperties.StaminaMax,50);
 ds_map_add(ring.itemProperties,ModifiableProperties.StaminaRegen,10);
 addItemToInventory(ring);
 
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+var lcap = instance_create_depth(x,y,1,obj_hat_leathercap);
+addItemToInventory(lcap);
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
 

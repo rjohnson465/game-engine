@@ -1,4 +1,8 @@
 if !ui.isShowingMenus || ui.currentMenu != SKILLS exit;
+
+draw_set_color(c_black);
+draw_rectangle(topLeftX,topLeftY,bottomRightX,skillDescriptionBottomRightY,1);
+
 var p = global.player;
 
 // General skills

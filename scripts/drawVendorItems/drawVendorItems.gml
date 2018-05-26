@@ -6,6 +6,9 @@ if !ds_exists(items,ds_type_list) || items == noone || items == undefined exit;
 draw_set_color(c_gray); draw_set_alpha(.5);
 draw_rectangle(MENUS_TOPLEFT_X,MENUS_TOPLEFT_Y,MENUS_TOPLEFT_X+width,MENUS_BOTTOMRIGHT_Y,0);
 
+draw_set_color(c_black); draw_set_alpha(1);
+draw_rectangle(invTopLeftX,invTopLeftY,MENUS_TOPLEFT_X+width,MENUS_BOTTOMRIGHT_Y,1);
+
 draw_set_color(C_HANDLES); draw_set_alpha(1);
 draw_rectangle(MENUS_TOPLEFT_X,MENUS_TOPLEFT_Y,MENUS_TOPLEFT_X+width,MENUS_TOPLEFT_Y+menusHandleHeight,0);
 draw_set_halign(fa_center); draw_set_valign(fa_center); draw_set_color(c_white); draw_set_font(font_main);

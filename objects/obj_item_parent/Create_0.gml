@@ -1,3 +1,4 @@
+owner = noone;
 x1 = -50;
 y1 = -50;
 sprite_index = spr_item_slot;

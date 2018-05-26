@@ -22,6 +22,7 @@ enum Skills {
 topLeftX = MENUS_TOPLEFT_X;
 topLeftY = MENUS_TOPLEFT_Y+ui.menusHandleHeight+ui.menuTabsHeight;
 width = (MENUS_BOTTOMRIGHT_X - MENUS_TOPLEFT_X)/2;
+bottomRightX = topLeftX+width;
 
 skillHeight = sprite_get_height(spr_item_slot);
 skillWidth = sprite_get_width(spr_item_slot);

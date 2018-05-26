@@ -1,7 +1,16 @@
 if global.player.hp <= 0 exit;
 if global.isWishing exit;
-//isShowingMenus = !isShowingMenus;
-//currentMenu = INVENTORY;
+if global.isInteractingWithNpc && !global.isTrading exit;
+
+if global.isTrading {
+	var vi = obj_vendor_items; //var pli = obj_player_items; var bs = obj_buy_sell;
+	with vi {
+		owner.isInteractingWithPlayer = false;
+		global.isInteractingWithNpc = false;
+		owner.showBuySell = false;
+		global.isTrading = false;
+	}
+}
 
 if isShowingMenus && currentMenu == INVENTORY {
 	isShowingMenus = false;

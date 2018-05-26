@@ -6,6 +6,8 @@ var p = global.player;
 
 if item == noone || item == undefined || !instance_exists(item) exit;
 
+item.owner = p;
+
 if item.isStackable {
 	// check if there's another item of this object_index in inventory
 	var stack = noone;
