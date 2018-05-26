@@ -9,34 +9,39 @@ draw_rectangle(topLeftX,topLeftY,bottomRightX,bottomRightY,1);
 draw_set_font(font_main);
 
 var p = global.player;
+var pad = p.gamePadIndex;
 
 // active quests header
 draw_set_color(c_black);
 draw_rectangle(aqTopLeftX,aqTopLeftY,aqBottomRightX,aqTopLeftY+handlesHeight,1);
 draw_set_color(c_white); draw_set_halign(fa_center); draw_set_valign(fa_center);
-draw_text(mean(aqTopLeftX,aqBottomRightX),mean(aqTopLeftY,aqTopLeftY+handlesHeight),"Active quests");
+draw_text(mean(aqTopLeftX,aqBottomRightX),mean(aqTopLeftY,aqTopLeftY+handlesHeight),"Quests");
 
 // draw active quest names
 var s = "test"; var sh = string_height(s);
-var maxY = MENUS_BOTTOMRIGHT_Y-sh-10; var cumY = aqTopLeftY+sh;
-for (var i = 0; i < ds_list_size(p.quests); i++) {
+var maxY = MENUS_BOTTOMRIGHT_Y-sh-10; var cumY = aqTopLeftY+sh+5;
+
+// draw all active quests in left pane
+var lastQuestIndexShown = scrollLevel-1; var drawnQuestsCount = 0;
+for (var i = scrollLevel; i < ds_list_size(p.quests); i++) {
 	
-	draw_set_halign(fa_center); draw_set_valign(fa_center);
-	var maxW = aqBottomRightX-aqTopLeftX-2;
+	draw_set_halign(fa_center); draw_set_valign(fa_bottom);
+	var maxW = aqBottomRightX-aqTopLeftX-2-scrollBarWidth;
 	var quest = ds_list_find_value(p.quests,i); // TODO account for scroll / offset
 	var s = quest.name; var sh = string_height_ext(s,-1,maxW); var sw = string_width_ext(s,-1,maxW);
 	
-	cumY += sh;
+	cumY += sh+5;
 	if cumY > maxY break;
 	
+	lastQuestIndexShown++; drawnQuestsCount++;
 	// get quest text coordinates
-	var xx = mean(aqTopLeftX,aqBottomRightX); var yy = cumY;
-	var x1 = xx-(.5*sw); var y1 = yy-(.5*sh);
-	var x2 = xx+(.5*sw); var y2 = yy+(.5*sh);
+	var xx = mean(aqTopLeftX,aqBottomRightX-scrollBarWidth); var yy = cumY;
+	var x1 = xx-(.5*sw); var y1 = yy-(sh);
+	var x2 = xx+(.5*sw); var y2 = yy;//+(.5*sh);
 	
 	// update text color based on mouse hover
-	if (point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && !gamepad_is_connected(global.player.gamePadIndex)) ||
-		selectedQuest == quest
+	if //(point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && !gamepad_is_connected(global.player.gamePadIndex)) ||
+		mouseOverGuiRect(x1,y1,x2,y2) || selectedQuest == quest
 	{
 		draw_set_color(c_white);
 	} else {
@@ -50,6 +55,75 @@ for (var i = 0; i < ds_list_size(p.quests); i++) {
 	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && !gamepad_is_connected(global.player.gamePadIndex) && mouse_check_button_pressed(mb_left) {
 		selectedQuest = quest;
 	}
+}
+
+/// SCROLL BAR
+
+// active quests scroll up event listener
+var x1 = aqTopLeftX; var y1 = aqTopLeftY+string_height("s");
+var x2 = aqBottomRightX; var y2 = aqBottomRightY;
+if mouseOverGuiRect(x1,y1,x2,y2) && mouse_wheel_up() {
+	//show_debug_message("mouse up");
+	if scrollLevel != 0 scrollLevel--;
+}
+
+// active quests scroll down event listener
+if mouseOverGuiRect(x1,y1,x2,y2) && mouse_wheel_down() {
+	//show_debug_message("mouse down");
+	if lastQuestIndexShown != ds_list_size(p.quests)-1 scrollLevel++;
+}
+
+// draw active quests scrollbar
+draw_set_color(c_black);
+draw_rectangle(scrollBarTopLeftX,scrollBarTopLeftY,scrollBarBottomRightX,scrollBarBottomRightY,0);
+var xs = scrollBarWidth/sprite_get_width(spr_scrollarrow);
+
+// draw box showing how far down the quests we are
+// need to know what the "maximal" scroll level is (at what scrollLevel is the last quest drawn?)
+var msl = questLogGetMaxScrollLevel();
+var percentScrolled = scrollLevel / msl;
+
+var scrollBarBoxStartY = scrollBarTopLeftY+scrollBarWidth;
+var scrollBarBoxEndY = scrollBarBottomRightY-(2*scrollBarWidth);
+var scrollBarHeight = scrollBarBoxEndY-scrollBarBoxStartY;
+
+var yOff = scrollBarHeight*percentScrolled;
+var x1 = scrollBarTopLeftX; var y1 = scrollBarBoxStartY+yOff;
+draw_set_color(c_gray);
+draw_rectangle(x1,y1,x1+scrollBarWidth,y1+scrollBarWidth,0);
+
+
+
+// draw scroll up arrow
+// click on scroll up arrow?
+if mouseOverGuiRect(scrollBarTopLeftX,scrollBarTopLeftY,scrollBarTopLeftX+scrollBarWidth,scrollBarTopLeftY+scrollBarWidth) && mouse_check_button_pressed(mb_left) {
+	if scrollLevel != 0 scrollLevel--;
+	draw_sprite_ext(spr_scrollarrow,1,scrollBarTopLeftX,scrollBarTopLeftY+scrollBarWidth,xs,-xs,0,c_dkgray,1);
+}
+// mouse hover
+else if	mouseOverGuiRect(scrollBarTopLeftX,scrollBarTopLeftY,scrollBarTopLeftX+scrollBarWidth,scrollBarTopLeftY+scrollBarWidth) ||
+	scrollLevel == 0
+	{
+		draw_sprite_ext(spr_scrollarrow,1,scrollBarTopLeftX,scrollBarTopLeftY+scrollBarWidth,xs,-xs,0,c_gray,1);
+	}
+// draw scroll up btn normally
+else {
+	draw_sprite_ext(spr_scrollarrow,1,scrollBarTopLeftX,scrollBarTopLeftY+scrollBarWidth,xs,-xs,0,c_white,1);
+}
+
+// down arrow
+// clicked
+if mouseOverGuiRect(scrollBarTopLeftX,scrollBarBottomRightY-scrollBarWidth,scrollBarTopLeftX+scrollBarWidth,scrollBarBottomRightY) && mouse_check_button_pressed(mb_left) {
+	if lastQuestIndexShown != ds_list_size(p.quests)-1 scrollLevel++;
+	draw_sprite_ext(spr_scrollarrow,1,scrollBarTopLeftX,scrollBarBottomRightY-scrollBarWidth,xs,xs,0,c_dkgray,1);
+}
+// down arrow, hover
+else if	mouseOverGuiRect(scrollBarTopLeftX,scrollBarBottomRightY-scrollBarWidth,scrollBarTopLeftX+scrollBarWidth,scrollBarBottomRightY) || lastQuestIndexShown == ds_list_size(p.quests)-1
+	{
+		draw_sprite_ext(spr_scrollarrow,1,scrollBarTopLeftX,scrollBarBottomRightY-scrollBarWidth,xs,xs,0,c_gray,1);
+	} 
+else {
+	draw_sprite_ext(spr_scrollarrow,1,scrollBarTopLeftX,scrollBarBottomRightY-scrollBarWidth,xs,xs,0,c_white,1);
 }
 
 // divider line

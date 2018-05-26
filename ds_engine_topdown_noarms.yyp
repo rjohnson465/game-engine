@@ -231,6 +231,14 @@
             }
         },
         {
+            "Key": "07143ae7-419e-4918-8886-a8ad376405a3",
+            "Value": {
+                "id": "f237a6d1-fa5f-4c5c-afd0-297f86cb0f1f",
+                "resourcePath": "scripts\\questLogGetMaxScrollLevel\\questLogGetMaxScrollLevel.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "07154b60-7ec1-455c-b247-9a73ff190f7e",
             "Value": {
                 "id": "c57c1a87-fbfb-43f1-a401-28fdd96f9e04",
@@ -1751,6 +1759,14 @@
             }
         },
         {
+            "Key": "40731f53-0213-4f77-8cac-ff55fee54375",
+            "Value": {
+                "id": "d18b5421-d374-4134-94fc-d2ddeda9e3c9",
+                "resourcePath": "scripts\\mouseOverGuiRect\\mouseOverGuiRect.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "40878b55-7be4-4b55-9bd7-6027f8cae96b",
             "Value": {
                 "id": "455630da-7e2a-4b6c-8391-eca1e1a868ac",
@@ -1887,11 +1903,27 @@
             }
         },
         {
+            "Key": "483555cc-f6c2-47db-acd9-ce941fa691d0",
+            "Value": {
+                "id": "eb60b869-166e-47b3-91f9-5d15b22f88c0",
+                "resourcePath": "objects\\obj_quest_unfairyslayer1\\obj_quest_unfairyslayer1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "48bbe7c2-c6a8-4260-9d28-579889a3a925",
             "Value": {
                 "id": "affe42d4-4f69-48a9-8f9c-3feb339d6d24",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_longsword_attack_2_1\\spr_enemy_unfairy_limb_longsword_attack_2_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "48c82035-87c8-4519-af0b-672fa27e8e9f",
+            "Value": {
+                "id": "c665627e-09fb-426c-9f5c-d84bc11acfd5",
+                "resourcePath": "scripts\\inventoryGetMaxScrollLevel\\inventoryGetMaxScrollLevel.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -6667,6 +6699,9 @@
         "1d3e5606-89ed-4877-9048-9b101ea33246",
         "e84c0b91-2327-4b86-b7c1-7bb969380ac4",
         "28d6df77-b94b-4336-8bc3-bf0062e7a198",
+        "40731f53-0213-4f77-8cac-ff55fee54375",
+        "07143ae7-419e-4918-8886-a8ad376405a3",
+        "48c82035-87c8-4519-af0b-672fa27e8e9f",
         "1949d661-bf35-49e3-906d-36ee6139f2e2",
         "49c3814e-d8c4-4d0e-b35d-1ddee2964762",
         "2c63982b-75f5-4392-b9b2-2399e82fb6d4",
