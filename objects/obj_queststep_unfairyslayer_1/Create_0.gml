@@ -11,9 +11,7 @@ quest.currentQuestStep = id;
 
 unfairiesSlain = 0;
 
-d1 = "Kill 3 unfairies.\n";
-d2 = "0/3 unfairies slain";
-description = d1+d2;
+description = "Slain 0/3 unfairies";
 
 
 

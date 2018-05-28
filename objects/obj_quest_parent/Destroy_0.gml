@@ -1,9 +1,9 @@
-if steps != noone && steps != undefined && ds_exists(steps,ds_type_list) {
-	for (var i = 0; i < ds_list_size(steps); i++) {
-		var step = ds_list_find_value(steps,i);
+if questSteps != noone && questSteps != undefined && ds_exists(questSteps,ds_type_list) {
+	for (var i = 0; i < ds_list_size(questSteps); i++) {
+		var step = ds_list_find_value(questSteps,i);
 		instance_destroy(step,1);
 	}
-	ds_list_destroy(steps);
+	ds_list_destroy(questSteps);
 }
 
 if rewardItems != noone && rewardItems != undefined && ds_exists(rewardItems,ds_type_list) {

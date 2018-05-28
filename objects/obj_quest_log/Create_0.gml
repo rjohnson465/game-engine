@@ -33,6 +33,7 @@ sqBottomRightX = bottomRightX; sqBottomRightY = bottomRightY;
 //rTopLeftX = sqTopLeftX; rTopLeftY = 
 
 selectedQuest = noone;
+watchedQuest = noone;
 lastQuestIndexDisplayed = 0;
 questsDisplayedCount = 0;
 

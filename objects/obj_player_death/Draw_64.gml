@@ -9,12 +9,13 @@ if instance_exists(fade) {
 
 draw_set_alpha(alpha);
 draw_set_font(font_big);
-draw_set_halign(fa_center);
+draw_set_halign(fa_center); draw_set_valign(fa_bottom);
 var vw = camera_get_view_width(view_camera[0]);
 var vh = camera_get_view_height(view_camera[0]);
 scr_draw_text_outline(vw/2,vh/2,"You have died",c_red,c_red);
 
 // Revive at fountain
+draw_set_halign(fa_center); draw_set_valign(fa_center);
 draw_set_font(font_main);
 var s1 = "Revive at last fountain";
 var s1w = string_width(s1);
@@ -28,7 +29,6 @@ if selectedOption == ReviveOptions.Fountain {
 reviveAtFountainButtonCoordinates = [x1,y1,x2,y2];
 draw_rectangle(x1,y1,x2,y2,false);
 
-draw_set_halign(fa_center);
 var c = mouseOverFountainRevive ? c_white : c_ltgray;
 scr_draw_text_outline(s1x,s1y,s1,c,c);
 

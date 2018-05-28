@@ -1,7 +1,7 @@
 
 if isActive && currentStep != noone {
 	var step = ds_list_find_value(steps,currentStep);
-	 draw_set_halign(fa_center); draw_set_font(font_main);
+	draw_set_halign(fa_center); draw_set_font(font_main); draw_set_valign(fa_center);
 	var xx = view_get_wport(view_camera[0]) / 2;
 	var yy = view_get_hport(view_camera[0]) - 100;
 	

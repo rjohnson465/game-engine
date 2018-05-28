@@ -31,7 +31,9 @@ with obj_skill_parent {
 				if object_is_ancestor(other.selectedSkill.object_index,obj_spell_parent) {
 					global.skillManager.isActive = false;
 					global.questLog.isActive = true;
-					global.questLog.selectedQuest = ds_list_find_value(global.player.quests,0);
+					if ds_list_find_value(global.player.quests,0) != undefined {
+						global.questLog.selectedQuest = ds_list_find_value(global.player.quests,0);
+					}
 				}
 				
 				break;

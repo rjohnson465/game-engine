@@ -3,7 +3,7 @@ name = "Quest";
 description = "Quest description";
 isFinished = false;
 isRewardClaimed = false;
-steps = ds_list_create();
+questSteps = ds_list_create();
 currentQuestStep = noone;
 
 isRepeatable = false;

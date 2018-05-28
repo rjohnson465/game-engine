@@ -1,3 +1,27 @@
+var p = global.player;
+var pad = p.gamePadIndex;
+
+draw_set_font(font_main);
+if watchedQuest != noone && ds_exists(watchedQuest.questSteps,ds_type_list) {
+	// is the HUD showing (clickable shit for menus for m/k?)
+	var yy = 15;
+	if !gamepad_is_connected(pad) {
+		yy += sprite_get_height(spr_hud_inventory)+30;
+	}
+	var xl = view_get_wport(view_camera[0])-(4.5*sprite_get_width(spr_hud_inventory)); var xr = view_get_wport(view_camera[0])-15;
+	var xx = mean(xl,xr);
+	var xw = xr-xl;
+	draw_set_halign(fa_center); draw_set_valign(fa_top);
+	scr_draw_text_outline(xx,yy,watchedQuest.name,c_ltgray,c_white,1,1,0,c_black);
+	
+	if !watchedQuest.isFinished {
+		scr_draw_text_outline_ext(xx,yy+string_height(watchedQuest.name)+15,watchedQuest.currentQuestStep.description,c_ltgray,c_white,1,1,0,c_black,-1,xw);
+	} else {
+		scr_draw_text_outline_ext(xx,yy+string_height(watchedQuest.name)+15,"Quest complete!",c_ltgray,c_white,1,1,0,c_black,-1,xw);
+	}
+	
+}
+
 if !ui.isShowingMenus || ui.currentMenu != SKILLS exit;
 
 var vx = camera_get_view_x(view_camera[0]);
@@ -5,11 +29,6 @@ var vy = camera_get_view_y(view_camera[0]);
 
 draw_set_color(c_black);
 draw_rectangle(topLeftX,topLeftY,bottomRightX,bottomRightY,1);
-
-draw_set_font(font_main);
-
-var p = global.player;
-var pad = p.gamePadIndex;
 
 if !isActive && gamepad_is_connected(p.gamePadIndex) draw_set_alpha(.5);
 else draw_set_alpha(1);
@@ -154,23 +173,49 @@ draw_set_color(c_black);
 draw_line(aqBottomRightX,aqTopLeftY,aqBottomRightX,aqBottomRightY);
 
 // draw selected quest info
-if selectedQuest != noone && ds_exists(selectedQuest.steps,ds_type_list) {
+if selectedQuest != noone && ds_exists(selectedQuest.questSteps,ds_type_list) {
 	// selected quest header (quest selected);
 	draw_set_color(c_black);
 	draw_rectangle(sqTopLeftX,sqTopLeftY,sqBottomRightX,sqTopLeftY+handlesHeight,1);
 	draw_set_color(c_white); draw_set_halign(fa_center); draw_set_valign(fa_center);
 	draw_text(mean(sqTopLeftX,sqBottomRightX),mean(sqTopLeftY,sqTopLeftY+handlesHeight),selectedQuest.name);
 	
+	// quest watch button
+	var watchSprite = spr_quest_watch; 
+	var wsh = sprite_get_height(watchSprite); var wsw = sprite_get_width(watchSprite);
+	var xx = sqBottomRightX-wsw-5; var yy = sqTopLeftY+3
+	var x1 = xx; var y1 = yy; var x2 = xx+wsw; var y2 = yy+wsh;
+	
+	if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_released(mb_left) {
+		draw_sprite_ext(watchSprite,1,xx,yy,1,1,0,c_black,1);
+		if watchedQuest == selectedQuest {
+			watchedQuest = noone;
+		} else {
+			watchedQuest = selectedQuest;
+		}
+	}
+	else if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button(mb_left) {
+		draw_sprite_ext(watchSprite,1,xx,yy,1,1,0,c_dkgray,1);
+	}
+	else if mouseOverGuiRect(x1,y1,x2,y2) {
+		draw_sprite_ext(watchSprite,1,xx,yy,1,1,0,c_dkgray,.75);
+	}
+	else if watchedQuest == noone || watchedQuest != selectedQuest {
+		draw_sprite(watchSprite,1,xx,yy);
+	} else if watchedQuest == selectedQuest {
+		draw_sprite_ext(watchSprite,1,xx,yy,1,1,0,c_gray,1);
+	}
+	
 	// draw quest description
 	var maxW = sqBottomRightX-sqTopLeftX-5;
 	var sh = string_height_ext(selectedQuest.description,-1,maxW); var sw = string_width_ext(selectedQuest.description,-1,maxW);
-	draw_set_halign(fa_left); draw_set_valign(fa_top); var yy = sqTopLeftY+handlesHeight+20;
+	draw_set_halign(fa_left); draw_set_valign(fa_top); var yy = sqTopLeftY+handlesHeight;
 	draw_text_ext(sqTopLeftX+5,yy,selectedQuest.description,-1,maxW)
 	
 	// draw each quest step
 	var cumY = yy+sh;
-	for (var i = 0; i < ds_list_size(selectedQuest.steps); i++) {
-		var step = ds_list_find_value(selectedQuest.steps,i);
+	for (var i = 0; i < ds_list_size(selectedQuest.questSteps); i++) {
+		var step = ds_list_find_value(selectedQuest.questSteps,i);
 		//var sh = string_height("test");
 		var s = step.description; var sh = string_height_ext(s,-1,maxW);
 		if step.status != QuestStepStatus.Unstarted {
@@ -196,20 +241,22 @@ if selectedQuest != noone && ds_exists(selectedQuest.steps,ds_type_list) {
 				
 				// draw reward step as a button
 				var xx = mean(sqTopLeftX,sqBottomRightX); var yy = cumY;
-				var x1 = xx-(.5*sw)-2; var y1 = yy-(.5*sh)-2;
-				var x2 = xx+(.5*sw)+2; var y2 = yy+(.5*sh)+2;
+				var x1 = xx-(.5*sw)-5; var y1 = yy-(.5*sh)-5;
+				var x2 = xx+(.5*sw)+5; var y2 = yy+(.5*sh)+5;
 				
 				var buttonColor = c_dkgray;
 				var textColor = c_ltgray;
 				
 				// update text/button color based on mouse hover
-				if (point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && !gamepad_is_connected(global.player.gamePadIndex)) 
+				if //(point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && !gamepad_is_connected(global.player.gamePadIndex)) 
+					mouseOverGuiRect(x1,y1,x2,y2) || (gamepad_is_connected(pad) && !gamepad_button_check(pad,gp_face1))
 				{
 					buttonColor = C_HANDLES; textColor = c_white;
 				} 
 				
 				// update text/button color based on mouse click
-				else if (point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && !gamepad_is_connected(global.player.gamePadIndex)) && mouse_check_button(mb_left)
+				else if //(point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && !gamepad_is_connected(global.player.gamePadIndex)) && mouse_check_button(mb_left)
+					(mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button(mb_left)) || (gamepad_is_connected(pad) && gamepad_button_check(pad,gp_face1))
 				{
 					buttonColor = c_black; textColor = c_white;
 				} 
@@ -243,6 +290,37 @@ if selectedQuest != noone && ds_exists(selectedQuest.steps,ds_type_list) {
 		}
 	}
 	
+	// if quest is repeated, say so at the bottom
+	if selectedQuest.isRepeatable {
+		draw_set_halign(fa_center); draw_set_valign(fa_center);
+		if !selectedQuest.isFinished || gamepad_is_connected(pad) {
+			draw_set_color(c_white);
+			draw_text(mean(sqTopLeftX,sqBottomRightX),sqBottomRightY-25,"This quest can be repeated once done");
+		}
+		else if selectedQuest.isFinished && !gamepad_is_connected(pad) {
+			var sh = string_height("Repeat Quest"); var sw = string_width("Repeat Quest");
+			var xx = mean(sqTopLeftX,sqBottomRightX); var yy = sqBottomRightY-25;
+			var x1 = xx-(sw/2)-5; var y1 = yy-(sh/2)-5;
+			var x2 = xx+(sw/2)+5; var y2 = yy+(sh/2)+5;
+			
+			if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button(mb_left) {
+				draw_set_color(c_black);
+			} else if mouseOverGuiRect(x1,y1,x2,y2) {
+				draw_set_color(C_HANDLES);
+			} else {
+				draw_set_color(c_dkgray);
+			}
+			
+			draw_rectangle(x1,y1,x2,y2,0);
+			draw_set_color(c_white);
+			draw_text(xx,yy,"Repeat Quest");
+			
+			if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_released(mb_left) {
+				repeatQuest(selectedQuest);
+			}
+		}
+	}
+	
 } else {
 	// selected quest header (no quest selected);
 	draw_set_color(c_black);
@@ -254,3 +332,25 @@ if selectedQuest != noone && ds_exists(selectedQuest.steps,ds_type_list) {
 	draw_text(mean(sqTopLeftX,sqBottomRightX),mean(sqTopLeftY,sqBottomRightY),"No quest selected");
 }
 
+// draw prompts
+var promptsStartX = MENUS_TOPLEFT_X+18;
+var promptsY = MENUS_BOTTOMRIGHT_Y+25;
+var xOffset = 20;
+var w = 0;
+if ui.currentMenu == SKILLS && isActive {
+	// controller prompts
+	if gamepad_is_connected(pad) {
+		if selectedQuest != noone && selectedQuest.currentQuestStep.isRewardStep && !selectedQuest.isFinished {
+			w += drawPrompt("Complete " + string(selectedQuest.name), Input.F,promptsStartX+w,promptsY)+xOffset;
+		}
+		if selectedQuest != noone && selectedQuest.isRepeatable && selectedQuest.isFinished {
+			w += drawPrompt("Repeat " + string(selectedQuest.name), Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+		}
+		if selectedQuest != noone && watchedQuest != selectedQuest {
+			w += drawPrompt("Watch " + string(selectedQuest.name), Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		}
+		if selectedQuest != noone && watchedQuest == selectedQuest {
+			w += drawPrompt("Unwatch " + string(selectedQuest.name), Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		}
+	}
+}

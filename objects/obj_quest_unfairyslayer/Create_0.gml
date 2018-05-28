@@ -10,8 +10,8 @@ name = "Unfairy Slayer";
 description = "Those gosh darn unfairies are getting bothersome. They keep sniffing Francis' earlobes. A light bit of genocide should do the trick.";
 
 global.quest = id;
-ds_list_add(steps,instance_create_depth(x,y,1,obj_queststep_unfairyslayer_1));
-ds_list_add(steps,instance_create_depth(x,y,1,obj_queststep_unfairyslayer_2));
+ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_unfairyslayer_1));
+ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_unfairyslayer_2));
 
 //currentQuestStep = s1;
 xpReward = 1000;

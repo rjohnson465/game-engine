@@ -33,7 +33,7 @@ if isActive && gamepad_is_connected(pad) {
 	}
 	
 	// complete quest
-	if gamepad_button_check_pressed(pad,gp_face1) && selectedQuest != noone {
+	if gamepad_button_check_released(pad,gp_face1) && selectedQuest != noone {
 		if selectedQuest.currentQuestStep.isRewardStep && selectedQuest.currentQuestStep.status != QuestStepStatus.Completed {
 			completeQuest(selectedQuest);
 		} else {
@@ -44,6 +44,15 @@ if isActive && gamepad_is_connected(pad) {
 	// repeat quest (if possible)
 	if gamepad_button_check_pressed(pad,gp_face3) && selectedQuest != noone && selectedQuest.isFinished && selectedQuest.isRepeatable {
 		repeatQuest(selectedQuest);
+	}
+	
+	// watch quest 
+	if gamepad_button_check_released(pad,gp_face4) && selectedQuest != noone {
+		if watchedQuest != selectedQuest {
+			watchedQuest = selectedQuest;
+		} else {
+			watchedQuest = noone;
+		}
 	}
 
 }
