@@ -1,2 +1,4 @@
 ds_map_destroy(menuButtonCoordinates);
-ds_list_destroy(inv);
+if inv != noone && inv != undefined && ds_exists(inv,ds_type_list) {
+	ds_list_destroy(inv);
+}

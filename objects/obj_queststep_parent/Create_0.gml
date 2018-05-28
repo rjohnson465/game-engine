@@ -1,4 +1,4 @@
-quest = noone; // the quest this step belongs to
+quest = global.quest; // the quest this step belongs to
 name = "Quest step";
 description = "Quest step description";
 

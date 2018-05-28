@@ -45,7 +45,31 @@ if scrollLevel == 0 || isScrollUpPressed {
 if is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) || isScrollDownPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_gray,.75);
 } else draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_white,1);
-		
+	
+// draw scroll box
+var msl = inventoryGetMaxScrollLevel();
+var percentScrolled = 0;
+if msl > 0 percentScrolled = scrollLevel / msl;
+
+var scrollBarBoxStartY = scrollBarTopLeftY+scrollBarWidth;
+var scrollBarBoxEndY = scrollBarBottomRightY-(2*scrollBarWidth);
+var scrollBarHeight = scrollBarBoxEndY-scrollBarBoxStartY;
+
+// how tall should the box be?
+var scrollBarBoxHeight = scrollBarHeight;
+if msl > 0 {
+	scrollBarBoxHeight = scrollBarHeight/msl;
+}
+
+// recalc how much sbheight is
+var scrollBarBoxEndY = scrollBarBottomRightY-scrollBarWidth-scrollBarBoxHeight;
+var scrollBarHeight = scrollBarBoxEndY-scrollBarBoxStartY;
+
+var yOff = scrollBarHeight*percentScrolled;
+var x1 = scrollBarTopLeftX; var y1 = scrollBarBoxStartY+yOff;
+draw_set_color(c_gray);
+
+draw_rectangle(x1,y1,x1+scrollBarWidth,y1+scrollBarBoxHeight,0);
 		
 // inventory itself
 var inventory = global.player.inventory;
@@ -143,3 +167,6 @@ if global.fountainGui.currentSubMenu == CHOOSEGEM {
 		w += drawPrompt("Select gem to insert", Input.LMB,promptsStartX+w,promptsY)+xOffset;
 	}
 }
+
+draw_set_color(c_black); draw_set_alpha(1);
+draw_rectangle(invTopLeftX,invTopLeftY,MENUS_TOPLEFT_X+width,MENUS_BOTTOMRIGHT_Y,1);

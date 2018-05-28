@@ -130,25 +130,54 @@ var scrollButtonScale = scrollBarWidth / scrollSpriteWidth;
 // scroll button up
 var sux1 = scrollBarTopLeftX; var suy1 = scrollBarTopLeftY;
 var sux2 = sux1+scrollBarWidth; var suy2 = suy1 + scrollBarWidth;
-var isScrollUpPressed = point_in_rectangle(mouse_x,mouse_y,vx+sux1,vy+suy1,vx+sux2,vy+suy2) && mouse_check_button_pressed(mb_left);
+//var isScrollUpPressed = point_in_rectangle(mouse_x,mouse_y,vx+sux1,vy+suy1,vx+sux2,vy+suy2) && mouse_check_button_pressed(mb_left);
+var isScrollUpPressed = mouseOverGuiRect(sux1,suy1,sux2,suy2) && mouse_check_button_pressed(mb_left);
 
-var sdx1 = scrollBarBottomRightX-scrollBarWidth; var sdy1 = scrollBarBottomRightY-scrollBarWidth;
-var sdx2 = scrollBarBottomRightX; var sdy2 = scrollBarBottomRightY;
-var isScrollDownPressed = point_in_rectangle(mouse_x,mouse_y,vx+sdx1,vy+sdy1,vx+sdx2,vy+sdy2) && mouse_check_button_pressed(mb_left);
 if scrollLevel == 0 || isScrollUpPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale),scrollButtonScale,-scrollButtonScale,0,c_gray,.75);
+	//draw_sprite(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY);
 	if scrollLevel != 0 {
 		scrollLevel--;
 	}
-} else draw_sprite_ext(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale),scrollButtonScale,-scrollButtonScale,0,c_white,1);
-// scroll button down			
-if is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) || isScrollDownPressed {
+} else {
+	draw_sprite_ext(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale),scrollButtonScale,-scrollButtonScale,0,c_white,1);
+}
+
+// scroll button down		
+var sdx1 = scrollBarBottomRightX-scrollBarWidth; var sdy1 = scrollBarBottomRightY-scrollBarWidth;
+var sdx2 = scrollBarBottomRightX; var sdy2 = scrollBarBottomRightY;
+var isScrollDownPressed = point_in_rectangle(mouse_x,mouse_y,vx+sdx1,vy+sdy1,vx+sdx2,vy+sdy2) && mouse_check_button_pressed(mb_left);
+if is_undefined(ds_list_find_value(inv, 20 + (5*scrollLevel))) || isScrollDownPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_gray,.75);
-	if !is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) {
+	if !is_undefined(ds_list_find_value(inv, 20 + (5*scrollLevel))) {
 		scrollLevel++;
 	}
 } else draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_white,1);
-		
+
+// draw scroll box
+var msl = inventoryGetMaxScrollLevel();
+var percentScrolled = 0;
+if msl > 0 percentScrolled = scrollLevel / msl;
+
+var scrollBarBoxStartY = scrollBarTopLeftY+scrollBarWidth;
+var scrollBarBoxEndY = scrollBarBottomRightY-(2*scrollBarWidth);
+var scrollBarHeight = scrollBarBoxEndY-scrollBarBoxStartY;
+
+// how tall should the box be?
+var scrollBarBoxHeight = scrollBarHeight;
+if msl > 0 {
+	scrollBarBoxHeight = scrollBarHeight/msl;
+}
+
+// recalc how much sbheight is
+var scrollBarBoxEndY = scrollBarBottomRightY-scrollBarWidth-scrollBarBoxHeight;
+var scrollBarHeight = scrollBarBoxEndY-scrollBarBoxStartY;
+
+var yOff = scrollBarHeight*percentScrolled;
+var x1 = scrollBarTopLeftX; var y1 = scrollBarBoxStartY+yOff;
+draw_set_color(c_gray);
+
+draw_rectangle(x1,y1,x1+scrollBarWidth,y1+scrollBarBoxHeight,0);
 		
 // inventory itself
 var inventory = items;
@@ -246,6 +275,14 @@ for (var i = 0; i < 20; i++) {
 		drawItem(item,x1,y1);
 	} 
 }
+		
+/*
+if mouseOverGuiRect(invTopLeftX,invTopLeftY,invTopLeftX+invWidth,invTopLeftY+invHeight) && mouse_wheel_down() {
+	
+	if ds_list_find_index(inv,lastItem) == -1 {
+		scrollLevel++;
+	}
+}*/
 		
 // selected item details box
 draw_set_color(c_dkgray);

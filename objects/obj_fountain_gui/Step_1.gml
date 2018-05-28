@@ -1,4 +1,4 @@
-if currentMenu != FOUNTAIN exit;
+/*if currentMenu != FOUNTAIN exit;
 
 if gamepad_is_connected(global.player.gamePadIndex) exit;
 

@@ -1,5 +1,3 @@
-
-
 // if there exists an npc_data object for this npc, redo items list based on items in memory
 // with "owner" set to this npc
 var npcDataObj = noone;
@@ -24,3 +22,8 @@ if items != noone && items != undefined && ds_exists(items,ds_type_list) {
 		item.owner = id;
 	}
 }
+
+// push "leave" to the last conversations index
+var leave = ds_list_find_value(conversations,0);
+ds_list_delete(conversations,0);
+ds_list_add(conversations,leave);

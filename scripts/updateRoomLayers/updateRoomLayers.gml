@@ -53,9 +53,14 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 }
 
 with obj_enemy_obstacle_parent {
+	// why does this have any bearing on ds_lists (i.e. quest.steps)????
 	if layer == playerLayer {
 		solid = true;
-	} else solid = false;
+		//persistent = true;
+	} else {
+		solid = false;
+		//persistent = false;
+	}
 	
 	if object_index == obj_fountain && origLayer == playerLayer {
 		solid = true;

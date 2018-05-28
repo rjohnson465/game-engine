@@ -23,7 +23,18 @@ with obj_skill_parent {
 				if x1 < other.x1 doSwitch = true; break;
 			}
 			case "right" : {
-				if x1 > other.x1 doSwitch = true; break;
+				if x1 > other.x1 {
+					doSwitch = true;
+				} 
+				
+				// switch to quests
+				if object_is_ancestor(other.selectedSkill.object_index,obj_spell_parent) {
+					global.skillManager.isActive = false;
+					global.questLog.isActive = true;
+					global.questLog.selectedQuest = ds_list_find_value(global.player.quests,0);
+				}
+				
+				break;
 			}
 		}
 		if doSwitch {

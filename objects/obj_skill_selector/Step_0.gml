@@ -1,4 +1,4 @@
-if global.ui.currentMenu != SKILLS || !global.ui.isShowingMenus {
+if global.ui.currentMenu != SKILLS || !global.ui.isShowingMenus || !global.skillManager.isActive {
 	isActive = false; exit;
 } else isActive = true;
 

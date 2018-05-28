@@ -142,13 +142,37 @@ if scrollLevel == 0 || isScrollUpPressed {
 	}
 } else draw_sprite_ext(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale),scrollButtonScale,-scrollButtonScale,0,c_white,1);
 // scroll button down			
-if ds_exists(inv,ds_type_list) && is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) || isScrollDownPressed {
+if ds_exists(inv,ds_type_list) && is_undefined(ds_list_find_value(inv, 20 + (5*scrollLevel))) || isScrollDownPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_gray,.75);
-	if !is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) {
+	if !is_undefined(ds_list_find_value(inv, 20 + (5*scrollLevel))) {
 		scrollLevel++;
 	}
 } else draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_white,1);
-		
+
+// draw scroll box
+var msl = inventoryGetMaxScrollLevel();
+var percentScrolled = 0;
+if msl > 0 percentScrolled = scrollLevel / msl;
+
+var scrollBarBoxStartY = scrollBarTopLeftY+scrollBarWidth;
+var scrollBarBoxEndY = scrollBarBottomRightY-(2*scrollBarWidth);
+var scrollBarHeight = scrollBarBoxEndY-scrollBarBoxStartY;
+
+// how tall should the box be?
+var scrollBarBoxHeight = scrollBarHeight;
+if msl > 0 {
+	scrollBarBoxHeight = scrollBarHeight/msl;
+}
+
+// recalc how much sbheight is
+var scrollBarBoxEndY = scrollBarBottomRightY-scrollBarWidth-scrollBarBoxHeight;
+var scrollBarHeight = scrollBarBoxEndY-scrollBarBoxStartY;
+
+var yOff = scrollBarHeight*percentScrolled;
+var x1 = scrollBarTopLeftX; var y1 = scrollBarBoxStartY+yOff;
+draw_set_color(c_gray);
+
+draw_rectangle(x1,y1,x1+scrollBarWidth,y1+scrollBarBoxHeight,0);
 		
 // inventory itself
 var inventory = items;

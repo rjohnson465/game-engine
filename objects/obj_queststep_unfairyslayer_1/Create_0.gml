@@ -4,10 +4,12 @@
 // Inherit the parent event
 event_inherited();
 
-quest = obj_quest_unfairyslayer;
+//quest = obj_quest_unfairyslayer;
 status = QuestStepStatus.InProgress;
 
-unfairiesSlain = 2;
+quest.currentQuestStep = id;
+
+unfairiesSlain = 0;
 
 d1 = "Kill 3 unfairies.\n";
 d2 = "0/3 unfairies slain";

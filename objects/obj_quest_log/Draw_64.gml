@@ -11,6 +11,9 @@ draw_set_font(font_main);
 var p = global.player;
 var pad = p.gamePadIndex;
 
+if !isActive && gamepad_is_connected(p.gamePadIndex) draw_set_alpha(.5);
+else draw_set_alpha(1);
+
 // active quests header
 draw_set_color(c_black);
 draw_rectangle(aqTopLeftX,aqTopLeftY,aqBottomRightX,aqTopLeftY+handlesHeight,1);
@@ -23,6 +26,12 @@ var maxY = MENUS_BOTTOMRIGHT_Y-sh-10; var cumY = aqTopLeftY+sh+5;
 
 // draw all active quests in left pane
 var lastQuestIndexShown = scrollLevel-1; var drawnQuestsCount = 0;
+
+if ds_list_size(p.quests) == 0 {
+	draw_set_color(c_white); draw_set_halign(fa_center); draw_set_valign(fa_center);
+	draw_text(mean(aqTopLeftX,aqBottomRightX),mean(aqTopLeftY,aqBottomRightY),"No quests to show");
+}
+
 for (var i = scrollLevel; i < ds_list_size(p.quests); i++) {
 	
 	draw_set_halign(fa_center); draw_set_valign(fa_bottom);
@@ -37,7 +46,7 @@ for (var i = scrollLevel; i < ds_list_size(p.quests); i++) {
 	// get quest text coordinates
 	var xx = mean(aqTopLeftX,aqBottomRightX-scrollBarWidth); var yy = cumY;
 	var x1 = xx-(.5*sw); var y1 = yy-(sh);
-	var x2 = xx+(.5*sw); var y2 = yy;//+(.5*sh);
+	var x2 = xx+(.5*sw); var y2 = yy;
 	
 	// update text color based on mouse hover
 	if //(point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && !gamepad_is_connected(global.player.gamePadIndex)) ||
@@ -57,19 +66,20 @@ for (var i = scrollLevel; i < ds_list_size(p.quests); i++) {
 	}
 }
 
+lastQuestIndexDisplayed = lastQuestIndexShown;
+questsDisplayedCount = drawnQuestsCount;
+
 /// SCROLL BAR
 
 // active quests scroll up event listener
 var x1 = aqTopLeftX; var y1 = aqTopLeftY+string_height("s");
 var x2 = aqBottomRightX; var y2 = aqBottomRightY;
 if mouseOverGuiRect(x1,y1,x2,y2) && mouse_wheel_up() {
-	//show_debug_message("mouse up");
 	if scrollLevel != 0 scrollLevel--;
 }
 
 // active quests scroll down event listener
 if mouseOverGuiRect(x1,y1,x2,y2) && mouse_wheel_down() {
-	//show_debug_message("mouse down");
 	if lastQuestIndexShown != ds_list_size(p.quests)-1 scrollLevel++;
 }
 
@@ -81,16 +91,29 @@ var xs = scrollBarWidth/sprite_get_width(spr_scrollarrow);
 // draw box showing how far down the quests we are
 // need to know what the "maximal" scroll level is (at what scrollLevel is the last quest drawn?)
 var msl = questLogGetMaxScrollLevel();
-var percentScrolled = scrollLevel / msl;
+var percentScrolled = 0;
+if msl > 0 {
+	percentScrolled = scrollLevel / msl;
+}
 
 var scrollBarBoxStartY = scrollBarTopLeftY+scrollBarWidth;
 var scrollBarBoxEndY = scrollBarBottomRightY-(2*scrollBarWidth);
 var scrollBarHeight = scrollBarBoxEndY-scrollBarBoxStartY;
 
+// how tall should the box be?
+var scrollBarBoxHeight = scrollBarHeight;
+if msl > 0 {
+	scrollBarBoxHeight = scrollBarHeight/msl;
+}
+
+// recalc how much sbheight is
+var scrollBarBoxEndY = scrollBarBottomRightY-scrollBarWidth-scrollBarBoxHeight;
+var scrollBarHeight = scrollBarBoxEndY-scrollBarBoxStartY;
+
 var yOff = scrollBarHeight*percentScrolled;
 var x1 = scrollBarTopLeftX; var y1 = scrollBarBoxStartY+yOff;
 draw_set_color(c_gray);
-draw_rectangle(x1,y1,x1+scrollBarWidth,y1+scrollBarWidth,0);
+draw_rectangle(x1,y1,x1+scrollBarWidth,y1+scrollBarBoxHeight,0);
 
 
 
@@ -131,12 +154,12 @@ draw_set_color(c_black);
 draw_line(aqBottomRightX,aqTopLeftY,aqBottomRightX,aqBottomRightY);
 
 // draw selected quest info
-if selectedQuest != noone {
+if selectedQuest != noone && ds_exists(selectedQuest.steps,ds_type_list) {
 	// selected quest header (quest selected);
 	draw_set_color(c_black);
 	draw_rectangle(sqTopLeftX,sqTopLeftY,sqBottomRightX,sqTopLeftY+handlesHeight,1);
 	draw_set_color(c_white); draw_set_halign(fa_center); draw_set_valign(fa_center);
-	draw_text(mean(sqTopLeftX,sqBottomRightX),mean(sqTopLeftY,sqTopLeftY+handlesHeight),selectedQuest.name + " Progress");
+	draw_text(mean(sqTopLeftX,sqBottomRightX),mean(sqTopLeftY,sqTopLeftY+handlesHeight),selectedQuest.name);
 	
 	// draw quest description
 	var maxW = sqBottomRightX-sqTopLeftX-5;

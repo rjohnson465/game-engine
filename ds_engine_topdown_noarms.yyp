@@ -1903,14 +1903,6 @@
             }
         },
         {
-            "Key": "483555cc-f6c2-47db-acd9-ce941fa691d0",
-            "Value": {
-                "id": "eb60b869-166e-47b3-91f9-5d15b22f88c0",
-                "resourcePath": "objects\\obj_quest_unfairyslayer1\\obj_quest_unfairyslayer1.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "48bbe7c2-c6a8-4260-9d28-579889a3a925",
             "Value": {
                 "id": "affe42d4-4f69-48a9-8f9c-3feb339d6d24",
@@ -6455,6 +6447,14 @@
             }
         },
         {
+            "Key": "fb3e3452-c371-4c31-92ce-4a79702a5f22",
+            "Value": {
+                "id": "6f19ed57-3c88-4e97-bd15-d82bbc4e05d1",
+                "resourcePath": "scripts\\repeatQuest\\repeatQuest.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fc6bdce3-7461-40ed-a9f5-aff54d7f23e4",
             "Value": {
                 "id": "de0b2709-4d4f-4636-b00e-bf59dc4b12e1",
@@ -6751,7 +6751,8 @@
         "bffabf1c-9bb0-497e-a7fe-1d7fa9d66a86",
         "a0cbd295-ba60-494c-b2d2-b8216b3668f0",
         "303f321e-2f3e-4b50-8bc5-391542a9c166",
-        "4922a3d3-9ebb-49cf-bcca-f3c6e1508d4c"
+        "4922a3d3-9ebb-49cf-bcca-f3c6e1508d4c",
+        "fb3e3452-c371-4c31-92ce-4a79702a5f22"
     ],
     "tutorial": ""
 }

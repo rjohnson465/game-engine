@@ -13,6 +13,6 @@ with obj_enemy_unfairy {
 	}
 }
 
-if unfairiesSlain == 3 {
+if unfairiesSlain == 1 {
 	status = QuestStepStatus.Completed;
 }

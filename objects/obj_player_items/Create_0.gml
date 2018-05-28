@@ -38,7 +38,7 @@ scrollBarBottomRightY = scrollBarTopLeftY+invHeight;
 scrollBarWidth = scrollBarBottomRightX - scrollBarTopLeftX;
 // scroll button up
 var scrollButtonScale = scrollBarWidth / scrollSpriteWidth;
-scrollButtonUpTopLeftX = scrollBarTopLeftX+xOff;
+scrollButtonUpTopLeftX = scrollBarTopLeftX;//+xOff;
 scrollButtonUpTopLeftY = scrollBarTopLeftY;
 scrollButtonUpBottomRightX = scrollButtonUpTopLeftX+(scrollSpriteWidth*scrollButtonScale)+xOff;
 scrollButtonUpBottomRightY = scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale);

@@ -242,33 +242,31 @@ addItemToInventory(makeGem(obj_gem_ruby,CRACKED));
 addItemToInventory(makeGem(obj_gem_hematite,CRACKED));
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 // bs
-/*
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-*/
 
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 
 
 lastFountain = noone;
@@ -335,11 +333,17 @@ if moveSprite != -1 {
 hasIssuedAmmoOut = false;
 
 quests = ds_list_create();
-/*
-var quest = instance_create_depth(x,y,1,obj_quest_unfairyslayer);
-var quest2 = instance_create_depth(x,y,1,obj_quest_unfairyslayer1);
-ds_list_add(quests,quest);
-ds_list_add(quests,quest2);
+
+//var quest = instance_create_depth(x,y,1,obj_quest_unfairyslayer);
+//var quest2 = instance_create_depth(x,y,1,obj_quest_unfairyslayer1);
+//ds_list_add(quests,instance_create_depth(x,y,1,obj_quest_unfairyslayer));
+/*ds_list_add(quests,instance_create_depth(x,y,1,obj_quest_unfairyslayer1));
+ds_list_add(quests,instance_create_depth(x,y,1,obj_quest_unfairyslayer));
+ds_list_add(quests,instance_create_depth(x,y,1,obj_quest_unfairyslayer1));
+ds_list_add(quests,instance_create_depth(x,y,1,obj_quest_unfairyslayer));
+ds_list_add(quests,instance_create_depth(x,y,1,obj_quest_unfairyslayer1));
+ds_list_add(quests,instance_create_depth(x,y,1,obj_quest_unfairyslayer));
+ds_list_add(quests,instance_create_depth(x,y,1,obj_quest_unfairyslayer1));
 ds_list_add(quests,quest);
 ds_list_add(quests,quest2);
 ds_list_add(quests,quest);

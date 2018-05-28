@@ -23,21 +23,69 @@ if !gamepad_is_connected(global.player.gamePadIndex) {
 	var closeButtonWidth = sprite_get_width(spr_close_button);
 	var x1 = MENUS_BOTTOMRIGHT_X-closeButtonWidth; var y1 = MENUS_TOPLEFT_Y;
 	var x2 = x1 + closeButtonWidth; var y2 = y1 + closeButtonWidth;
-	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && mouse_check_button(mb_left) {
-		draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_black,1);
-	} else if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
+	if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button(mb_left) {
+		draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_black,1);	
+	} else if mouseOverGuiRect(x1,y1,x2,y2) {
 		draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_gray,1);
 	} else {
 		draw_sprite(spr_close_button,1,x1,y1);
 	}
-	//draw_sprite(spr_close_button,1,MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y);
-}	
+		
+	if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_released(mb_left) {
+		if !hasSetAlarm {
+			alarm[0] = 1;
+			hasSetAlarm = true;
+		}
+	}
+}
 
 switch currentMenu {
 	case FOUNTAIN: {
 		
 		var midW = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X); var midH = mean(MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_Y);
 		
+		// draw all options
+		for (var i = 0; i < ds_list_size(menuOptions); i++) {
+			// if selected or hovered over, draw it white
+			var option = ds_list_find_value(menuOptions,i);
+			
+			draw_set_halign(fa_center); draw_set_valign(fa_center); draw_set_font(font_main);
+			var sh = string_height(option); var sw = string_width(option);
+			
+			var xx = midW; var yy = midH+(i*sh);
+			var x1 = xx-(sw/2); var y1 = yy-(sh/2);
+			var x2 = xx+(sw/2); var y2 = yy+(sh/2);
+			
+			// click on option?
+			if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_released(mb_left) && currentMenu == FOUNTAIN {
+				switch option {
+					case INSERTGEM: {
+						startInsertGemMenu(); break;
+					}
+					case BREAKDOWNITEM: {
+						startBreakDownItemMenu(); break;
+					}
+					case REPAIRITEM: {
+						startRepairItemMenu(); break;
+					}
+					case LEAVEFOUNTAIN: {
+						leaveFountain(); break;
+					}
+				}
+			}
+			// mouse hover / select this option?
+			else if mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == option {
+				selectedOption = option;
+				draw_set_color(c_white);
+			} else {
+				draw_set_color(c_ltgray);
+			}
+			
+			// draw option
+			draw_text(xx,yy,option);
+		}
+		
+		/*
 		draw_set_color(c_white);
 		// draw options
 		if selectedOption == INSERTGEM {
@@ -61,7 +109,7 @@ switch currentMenu {
 			draw_set_alpha(1);
 		} else draw_set_alpha(.5);
 		draw_text(midW,midH+75,LEAVEFOUNTAIN);
-		draw_set_alpha(1);
+		draw_set_alpha(1);*/
 		
 		// prompts
 		var promptsStartX = MENUS_TOPLEFT_X+18;

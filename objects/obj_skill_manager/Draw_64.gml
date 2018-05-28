@@ -5,6 +5,9 @@ draw_rectangle(topLeftX,topLeftY,bottomRightX,skillDescriptionBottomRightY,1);
 
 var p = global.player;
 
+if !isActive && gamepad_is_connected(p.gamePadIndex) draw_set_alpha(.5);
+else draw_set_alpha(1);
+
 // General skills
 drawSkillSlot(healthMaxX,healthMaxY,Skills.HealthMax,skillHpMax);
 drawSkillSlot(staminaMaxX,staminaMaxY,Skills.StaminaMax,skillStaminaMax);
@@ -45,7 +48,7 @@ var promptsStartX = MENUS_TOPLEFT_X+18;
 var promptsY = MENUS_BOTTOMRIGHT_Y+25;
 var xOffset = 20;
 var w = 0;
-if ui.currentMenu == SKILLS && skillSelector.selectedSkill && skillSelector.selectedSkill != noone {
+if ui.currentMenu == SKILLS && skillSelector.selectedSkill && skillSelector.selectedSkill != noone && isActive {
 	// controller prompts
 	if gamepad_is_connected(global.player.gamePadIndex) {
 		w += drawPrompt("Level up " + string(skillSelector.selectedSkill.name), Input.F,promptsStartX+w,promptsY)+xOffset;

@@ -44,7 +44,7 @@ for (var i = 0; i < ds_list_size(inv); i++) {
 				}
 				
 				// selected item is at the bottom of shown elements -- scroll down
-				else if !is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) {
+				else if !is_undefined(ds_list_find_value(inv, 20 + (5*scrollLevel))) {
 					scrollLevel++; 
 					var currentPos = ds_list_find_index(inv,selectedItem);
 					for (var i = 5; i >= 0; i--) {
@@ -102,8 +102,9 @@ for (var i = 0; i < ds_list_size(inv); i++) {
 						var closestVitem = ds_list_find_value(vinv,0); var closestDist = 10000;
 						for (var j = 0; j < ds_list_size(vinv); j++) {
 							var vitem = ds_list_find_value(vinv,j);
+							
 							var dist = point_distance(selectedItem.x1, selectedItem.y1, vitem.x1, vitem.y1);
-							if dist < closestDist {
+							if dist < closestDist && vitem.x1 > 0 {
 								closestDist = dist;
 								closestVitem = vitem;
 							}
@@ -114,7 +115,8 @@ for (var i = 0; i < ds_list_size(inv); i++) {
 					}
 					isActive = false;
 					playerItemsObj.isActive = true;
-					playerItemsObj.joystickInputFrame = 0;
+					var pio = instance_nearest(x,y,obj_player_items);
+					pio.joystickInputFrame = 0;
 					exit;
 				}
 				break;

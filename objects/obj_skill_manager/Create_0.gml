@@ -2,6 +2,7 @@ ui = global.ui;
 inventory = global.inventory;
 global.skillManager = id;
 skillSelector = noone;
+isActive = true;
 
 enum Skills {
 	HealthMax,

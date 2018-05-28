@@ -29,7 +29,7 @@ else if isSelectorInInventory {
 	
 	// are there more items than shown?
 	else {
-		if !is_undefined(ds_list_find_value(global.player.inventory, 19 + (5*inv.scrollLevel))) {
+		if !is_undefined(ds_list_find_value(global.player.inventory, 20 + (5*inv.scrollLevel))) {
 			inv.scrollLevel++;
 		}
 	}

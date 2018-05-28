@@ -1,5 +1,5 @@
 if (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) && !global.isTrading exit;
-if isUsable && !global.global.isTrading {
+if isUsable && !global.isTrading {
 	alert("Used " + name,c_yellow);
 	isInUse = true;
 }

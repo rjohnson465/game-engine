@@ -11,6 +11,9 @@ var skill = argument[0];
 var topLeftX = skillDescriptionTopLeftX;
 var topLeftY = skillDescriptionTopLeftY;
 
+if !isActive && gamepad_is_connected(global.player.gamePadIndex) draw_set_alpha(.5);
+else draw_set_alpha(1);
+
 draw_set_color(C_HANDLES);
 var descriptionHandleX2 = topLeftX+width
 var descriptionHandleY2 = topLeftY+skillDescriptionHandleHeight;

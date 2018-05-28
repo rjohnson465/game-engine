@@ -6,7 +6,8 @@ if gamepad_is_connected(pad) {
 		showHideInventory();
 	} else if gamepad_button_check_pressed(pad,gp_start) && isShowingMenus
 		|| (isShowingMenus && gamepad_button_check_pressed(pad,gp_face2) /*&& moveSelector.isActive*/) {
-		showHideInventory();
+		//showHideInventory();
+		isShowingMenus = false;
 	}
 	
 	if gamepad_button_check_pressed(pad,gp_shoulderl) && isShowingMenus {

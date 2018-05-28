@@ -49,6 +49,7 @@ ds_list_add(allPriceIncrements,INCREASE1M);
 
 selectedPriceIncrease = INCREASE100;
 
+/*
 var midW = mean(topLeftX,topLeftX+width); var midH = 200;
 for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
 	var opt = ds_list_find_value(allPriceIncrements,i);
