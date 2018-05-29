@@ -18,6 +18,8 @@ global.ALL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH,MAGIC,FIRE,ICE,POISON,LIG
 global.ALL_PHYSICAL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH];
 playerLightRadius = noone;
 
+layer = layer_get_id("instances_floor_1");
+
 event_inherited();
 global.player = id;
 global.isLooting = false;

@@ -24,4 +24,5 @@ if !isSelectorAtLastInventoryColumn() && isSelectorInInventory() {
 else if isSelectorInEquippedItems() {
 	moveSelectorInEquippedItems("right");
 	eq.selectedItem = getItemAtSelectorPosition(id);
+	var a = 3;
 }

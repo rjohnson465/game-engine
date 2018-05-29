@@ -1,4 +1,4 @@
-var canLoot = false;
+/*var canLoot = false;
 with obj_item_drop {
 	if distance_to_object(obj_player) < 20 && layer == global.player.layer {
 		canLoot = true;

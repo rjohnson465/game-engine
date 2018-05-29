@@ -18,10 +18,10 @@ ds_list_clear(quest.rewardItems);
 
 alert("Quest Complete: " + quest.name,c_lime);
 if quest.xpReward > 0 {
-	alert("+" + string(quest.xpReward) + " XP",c_lime);
+	alert("+" + string(quest.xpReward) + " XP",c_lime,150);
 }
 if itemsString != "" {
-	alert(itemsString + " added to inventory",c_lime);
+	alert(itemsString + " added to inventory",c_lime,150);
 }
 
 quest.isFinished = true;

@@ -42,6 +42,34 @@ switch rarity {
 		
 		break;
 	}
+	
+	case ItemRarities.Fine: {
+		// chances of getting 0-3 sockets
+		ds_map_replace(socketsNumChanceMap,0,10);
+		ds_map_replace(socketsNumChanceMap,1,80);
+		ds_map_replace(socketsNumChanceMap,2,10);
+		ds_map_replace(socketsNumChanceMap,3,0);
+		socketsNumChanceMap = getNormalizedWeightMap(socketsNumChanceMap);
+		socketsNumChanceMap = getCumulativeProbabilitiesMap(socketsNumChanceMap);
+		
+		// chances of getting 0-3 gems
+		ds_map_replace(gemNumChanceMap,0,60);
+		ds_map_replace(gemNumChanceMap,1,30);
+		ds_map_replace(gemNumChanceMap,2,10);
+		ds_map_replace(gemNumChanceMap,3,0);
+		gemNumChanceMap = getNormalizedWeightMap(gemNumChanceMap);
+		gemNumChanceMap = getCumulativeProbabilitiesMap(gemNumChanceMap);
+		
+		// chances of socketed gems' conditions -- TODO -- this should probably depend on act, not rarity
+		ds_map_replace(gemConditionChanceMap,CRACKED,100);
+		ds_map_replace(gemConditionChanceMap,NORMAL,0);
+		ds_map_replace(gemConditionChanceMap,EXQUISITE,0);
+		ds_map_replace(gemConditionChanceMap,FLAWLESS,0);
+		gemConditionChanceMap = getNormalizedWeightMap(gemConditionChanceMap);
+		gemConditionChanceMap = getCumulativeProbabilitiesMap(gemConditionChanceMap);
+		
+		break;
+	}
 
 } // end switch
 
@@ -114,7 +142,10 @@ if numSockets != 0 {
 	} // end gem insertion
 			
 }
-
+// no sockets? this is a normal item
+else {
+	item.rarity = ItemRarities.Normal;
+}
 ds_map_destroy(socketsNumChanceMap);
 ds_map_destroy(gemNumChanceMap);
 ds_map_destroy(gemConditionChanceMap);

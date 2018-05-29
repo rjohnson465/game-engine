@@ -12,7 +12,7 @@ if room == roomIndex {
 	}
 	
 	// set all enemies 
-	for (var i = 0; i < ds_list_size(enemiesData); i++) {
+	/*for (var i = 0; i < ds_list_size(enemiesData); i++) {
 		var enemyData = ds_list_find_value(enemiesData,i);
 		var enemy = findPersistentRoomElement(obj_enemy_parent,enemyData.postX,enemyData.postY);
 		
@@ -24,7 +24,7 @@ if room == roomIndex {
 		enemy.tempPostX = enemyData.tempPostX;
 		enemy.tempPostY = enemyData.tempPostY;
 		enemy.enemyData = enemyData;
-	}
+	}*/
 	
 	// set all itemDrops
 	for (var i = 0; i < ds_list_size(itemDropsData); i++) {

@@ -34,10 +34,8 @@ if isActive && gamepad_is_connected(pad) {
 	
 	// complete quest
 	if gamepad_button_check_released(pad,gp_face1) && selectedQuest != noone {
-		if selectedQuest.currentQuestStep.isRewardStep && selectedQuest.currentQuestStep.status != QuestStepStatus.Completed {
+		if selectedQuest.currentQuestStep.isRewardStep && !selectedQuest.isFinished {
 			completeQuest(selectedQuest);
-		} else {
-			alert(selectedQuest.name + " not yet completed",c_red);
 		}
 	}
 	
@@ -54,5 +52,10 @@ if isActive && gamepad_is_connected(pad) {
 			watchedQuest = noone;
 		}
 	}
-
+	
+	// switch to skills
+	if gamepad_button_check_pressed(pad,gp_shoulderlb) {
+		isActive = false;
+		global.skillManager.isActive = true;
+	}
 }

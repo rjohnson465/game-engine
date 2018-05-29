@@ -57,6 +57,16 @@ if gamepad_is_connected(pad) {
 	if gamepad_button_check_pressed(pad,gp_face1) {
 		levelUpSkill();
 	} 
+	
+	// switch to quests
+	if gamepad_button_check_pressed(pad,gp_shoulderrb) {
+		global.skillManager.isActive = false;
+		global.questLog.isActive = true;
+		if ds_list_find_value(global.player.quests,0) != undefined {
+			global.questLog.selectedQuest = ds_list_find_value(global.player.quests,0);
+		}
+	}
+	
 	/*
 	// handle canceling selector event (square / x button) or unequipping hovered item
 	if gamepad_button_check_pressed(pad,gp_face3) {

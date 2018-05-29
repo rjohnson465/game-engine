@@ -11,11 +11,11 @@ with obj_fountain {
 
 // initialize enemies
 enemiesData = ds_list_create();
-with obj_enemy_parent {
+/*with obj_enemy_parent {
 	global.enemy = id;
 	var enemyData = instance_create_depth(x,y,1,obj_enemy_data);
 	ds_list_add(other.enemiesData,enemyData);
-}
+}*/
 npcData = ds_list_create();
 with obj_npc_parent {
 	global.npc = id;

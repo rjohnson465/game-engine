@@ -50,6 +50,6 @@ var closeButtonCoordinates =
 	[MENUS_BOTTOMRIGHT_X-closeButtonWidth,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_TOPLEFT_Y+closeButtonHeight];
 ds_map_replace(menuButtonCoordinates,"closeButton",closeButtonCoordinates);
 
-depth = -1000;
+depth = -1001;
 hasSetAlarm = false;
 isAcceptingInput = true;

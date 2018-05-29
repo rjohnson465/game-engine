@@ -3,7 +3,7 @@ if id == global.ui.grabbedItem {
 	var gh = window_get_height();
 	var vw = view_get_wport(view_camera[0]);
 	var vh = view_get_hport(view_camera[0]);
-	var xs = gw/1280; var ys = gh/720;
+	var xs = gw/vw; var ys = gh/vh;
 	
 	var xs = 1; var ys = 1;
 	

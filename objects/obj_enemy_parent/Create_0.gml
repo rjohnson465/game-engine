@@ -83,3 +83,10 @@ instance_create_depth(x,y,1,obj_enemy_gui);
 droppedItems = ds_list_create();
 
 xpReward = 100;
+
+enemyData = noone;
+with obj_enemy_data {
+	if key == other.key {
+		other.enemyData = id;
+	}
+}

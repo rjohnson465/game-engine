@@ -352,5 +352,6 @@ if ui.currentMenu == SKILLS && isActive {
 		if selectedQuest != noone && watchedQuest == selectedQuest {
 			w += drawPrompt("Unwatch " + string(selectedQuest.name), Input.Shift,promptsStartX+w,promptsY)+xOffset;
 		}
+		w += drawPrompt("Browse skills", Input.LB,promptsStartX+w,promptsY)+xOffset;
 	}
 }

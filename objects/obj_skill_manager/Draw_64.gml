@@ -52,6 +52,7 @@ if ui.currentMenu == SKILLS && skillSelector.selectedSkill && skillSelector.sele
 	// controller prompts
 	if gamepad_is_connected(global.player.gamePadIndex) {
 		w += drawPrompt("Level up " + string(skillSelector.selectedSkill.name), Input.F,promptsStartX+w,promptsY)+xOffset;
+		w += drawPrompt("Browse quests", Input.RB,promptsStartX+w,promptsY)+xOffset;
 	}
 	// m/k prompts
 	else {

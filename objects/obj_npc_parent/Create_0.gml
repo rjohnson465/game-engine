@@ -65,3 +65,6 @@ selectedConversation = noone;
 
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;
+
+global.npc = id;
+instance_create_depth(x,y,-1001,obj_npc_gui_parent);

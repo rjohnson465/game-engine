@@ -1,0 +1,1 @@
+npc = global.npc;

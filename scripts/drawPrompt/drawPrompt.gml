@@ -80,6 +80,14 @@ for (var i = 0; i < array_length_1d(keys); i++) {
 			sprite = spr_prompt_xbox_rt;
 			break;
 		}
+		case Input.LB: {
+			sprite = spr_prompt_xbox_lb;
+			break;
+		}
+		case Input.RB: {
+			sprite = spr_prompt_xbox_rb;
+			break;
+		}
 	}
 	
 	ds_map_replace(spritesMap,i,sprite);

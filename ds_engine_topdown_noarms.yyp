@@ -2871,6 +2871,14 @@
             }
         },
         {
+            "Key": "7020d311-6cad-4402-8cb3-f9c87f901ab9",
+            "Value": {
+                "id": "ecbf0796-718f-4fd0-bc6f-bc8cd453c4c7",
+                "resourcePath": "scripts\\loadGame\\loadGame.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "70381db8-b3b2-4bf1-8561-afece973e267",
             "Value": {
                 "id": "f589cc19-1f12-4016-8b45-7a4233b1f394",
@@ -2980,6 +2988,14 @@
                 "id": "a81b42a8-0cbd-40b4-ad57-7c7c38e69c0e",
                 "resourcePath": "views\\74a25ba6-ce5c-4300-8b81-9f5d1eefbd7a.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "752a78b6-918b-457c-a1c6-ae9bde8b8664",
+            "Value": {
+                "id": "22ba4732-f9c5-4873-909e-ba1c3974b586",
+                "resourcePath": "scripts\\saveGame\\saveGame.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -3783,6 +3799,14 @@
             }
         },
         {
+            "Key": "94cc6a88-5e63-4e9b-882c-ffd7cf4fab83",
+            "Value": {
+                "id": "ec335a61-d05a-4113-8848-abe597d8a397",
+                "resourcePath": "objects\\obj_npc_gui_parent\\obj_npc_gui_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "94d7b250-c2d0-41e7-ae8a-2373e567af18",
             "Value": {
                 "id": "1deacf19-5f4c-4192-a306-cd343ef96108",
@@ -4099,6 +4123,14 @@
             "Value": {
                 "id": "5a7802b0-fc8e-4c78-b4a7-fae66c511726",
                 "resourcePath": "scripts\\scr_collision_line_list_layer\\scr_collision_line_list_layer.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a3657cb7-e5e9-46c3-9a90-92ab687b10ee",
+            "Value": {
+                "id": "365ea99c-0651-4353-baca-29cf37be114d",
+                "resourcePath": "scripts\\fs_generate_key\\fs_generate_key.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -4547,6 +4579,14 @@
             "Value": {
                 "id": "53c6fc10-6289-4e38-b40a-a930ff3dba33",
                 "resourcePath": "views\\b116b4cb-7bef-4841-9c64-d51459c224fc.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b1336c73-728e-43bb-bdb9-a915de8c0a7e",
+            "Value": {
+                "id": "be446999-3ae1-46f9-99e0-bf2125baa4b2",
+                "resourcePath": "views\\b1336c73-728e-43bb-bdb9-a915de8c0a7e.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -6769,7 +6809,10 @@
         "a0cbd295-ba60-494c-b2d2-b8216b3668f0",
         "303f321e-2f3e-4b50-8bc5-391542a9c166",
         "4922a3d3-9ebb-49cf-bcca-f3c6e1508d4c",
-        "fb3e3452-c371-4c31-92ce-4a79702a5f22"
+        "fb3e3452-c371-4c31-92ce-4a79702a5f22",
+        "752a78b6-918b-457c-a1c6-ae9bde8b8664",
+        "7020d311-6cad-4402-8cb3-f9c87f901ab9",
+        "a3657cb7-e5e9-46c3-9a90-92ab687b10ee"
     ],
     "tutorial": ""
 }

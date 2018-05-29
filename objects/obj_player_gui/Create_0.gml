@@ -148,7 +148,9 @@ enum Input {
 	Shift, // Y
 	Mouse,
 	LT,
-	RT
+	RT,
+	LB,
+	RB
 }
 
 isShowingExplanations = false;

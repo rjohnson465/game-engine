@@ -8,6 +8,10 @@ var vcells = room_height div cell_height;
 personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
 gridPath = path_add();
 
+postX = x; postY = y;
+
+key = fs_generate_key();
+
 //mp_grid_add_instances(personalGrid, obj_wall_parent, false);
 
 isFairy = false;
@@ -272,7 +276,6 @@ instance_create_depth(x,y,1,obj_light_radius);
 
 __x = 0;
 __y = 0;
-enemyData = noone;
 
 isDying = false;
 dyingFrame = 0;
