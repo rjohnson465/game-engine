@@ -12,6 +12,9 @@ if enemyData == noone {
 with obj_enemy_data {
 	if key == other.key {
 		other.isAlive = isAlive;
+		if isAlive {
+			other.isShowingLightRadius = true;
+		}
 		other.hp = hp;
 		other.x = currentX;
 		other.y = currentY;

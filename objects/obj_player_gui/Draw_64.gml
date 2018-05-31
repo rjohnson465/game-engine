@@ -16,8 +16,8 @@ x2 = x1 + (200 * percentHpLeft);
 if x2 < x1 {
 	x2 = x1;
 }
-draw_set_color(c_red);
-draw_rectangle(x1,y1,x2,y2,false);
+//draw_set_color(c_red);
+draw_rectangle_color(x1,y1,x2,y2,c_red,c_red,c_maroon,c_maroon,false);
 
 // show currently lost / losing hp in yellow?
 var sustainingDamageObj = noone;
@@ -62,7 +62,8 @@ if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 	var s = string(round(global.player.hp)) + "/" + string(round(global.player.maxHp));
 	var sh = string_height(s); 	var ys = 1;
 	//if sh > (y2-y1) ys = (y2-y1)/sh;
-	draw_text_transformed(mean(x1,x2),mean(y1,y2),s,ys,ys,0);
+	//draw_text_transformed(mean(x1,x2),mean(y1,y2),s,ys,ys,0);
+	scr_draw_text_outline(mean(x1,x2),mean(y1,y2),s,c_white,c_white,ys,ys,0,c_black);
 }
 
 // stamina
@@ -77,8 +78,8 @@ x2 = x1 + (200 * percentHpLeft);
 if x2 < x1 {
 	x2 = x1;
 }
-draw_set_color(c_green);
-draw_rectangle(x1,y1,x2,y2,false);
+//draw_set_color(c_green);
+draw_rectangle_color(x1,y1,x2,y2,c_lime,c_lime,c_green,c_green,false);
 
 var x1 = 10;
 var y1 = 20;
@@ -89,7 +90,8 @@ if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 	var s = string(round(global.player.stamina)) + "/" + string(round(global.player.maxStamina));
 	var sh = string_height(s); 	var ys = 1;
 	//if sh > (y2-y1) ys = (y2-y1)/sh;
-	draw_text_transformed(mean(x1,x2),mean(y1,y2),s,ys,ys,0);
+	//draw_text_transformed(mean(x1,x2),mean(y1,y2),s,ys,ys,0);
+	scr_draw_text_outline(mean(x1,x2),mean(y1,y2),s,c_white,c_white,ys,ys,0,c_black);
 }
 
 // xp bar
@@ -133,17 +135,17 @@ if leftHandItem.spriteName != "unarmed" {
 	draw_sprite(leftHandItemSprite,1,10,vh-70);
 	if leftHandItem.totalCharges != 0 {
 		var chargesPercent = (leftHandItem.charges / leftHandItem.totalCharges)*100;
-		draw_healthbar(10,vh-12,71,vh-9,chargesPercent,c_black,c_aqua,c_aqua,0,1,0);
+		draw_healthbar(10,vh-12,71,vh-9,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);
 	}
 	// ammo bar
 	if leftHandItem.isRanged {
 		var ammoPercent = (leftHandItem.ammo / leftHandItem.ammoMax)*100;
-		draw_healthbar(10,vh-9,71,vh-6,ammoPercent,c_black,c_green,c_green,0,1,0);
+		draw_healthbar(10,vh-9,71,vh-6,ammoPercent,c_black,c_green,c_lime,0,1,0);
 	}
 	// durability bar
 	else {
 		var durabilityPercent = (leftHandItem.durability / leftHandItem.durabilityMax)*100;
-		draw_healthbar(10,vh-9,71,vh-6,durabilityPercent,c_black,c_red,c_red,0,1,0);
+		draw_healthbar(10,vh-9,71,vh-6,durabilityPercent,c_black,c_maroon,c_red,0,1,0);
 	}
 }
 
@@ -164,11 +166,17 @@ if rightHandItem.spriteName != "unarmed" {
 
 	if rightHandItem.totalCharges != 0 {
 		var chargesPercent = (rightHandItem.charges / rightHandItem.totalCharges)*100;
-		draw_healthbar(150,vh-12,211,vh-9,chargesPercent,c_black,c_aqua,c_aqua,0,1,0);
+		draw_healthbar(150,vh-12,211,vh-9,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);
 	}
-	// durability bar
-	var durabilityPercent = (rightHandItem.durability / rightHandItem.durabilityMax)*100;
-	draw_healthbar(150,vh-9,211,vh-6,durabilityPercent,c_black,c_red,c_red,0,1,0);
+	// ammo bar
+	if rightHandItem.isRanged {
+		var ammoPercent = (leftHandItem.ammo / leftHandItem.ammoMax)*100;
+		draw_healthbar(150,vh-9,211,vh-6,durabilityPercent,c_black,c_green,c_lime,0,1,0);
+	} else {
+		// durability bar
+		var durabilityPercent = (rightHandItem.durability / rightHandItem.durabilityMax)*100;
+		draw_healthbar(150,vh-9,211,vh-6,durabilityPercent,c_black,c_maroon,c_red,0,1,0);
+	}
 }
 
 // two handed, show right hand with grayed out left hand equip

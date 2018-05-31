@@ -1,4 +1,17 @@
 // re-spawn all enemies in all maps
+
+with obj_enemy_data {
+	currentX = postX;
+	currentY = postY;
+	hp = maxHp;
+	isAlive = true;
+}
+
+with obj_enemy_parent {
+	event_perform(ev_other,ev_room_start);
+}
+
+/*
 with obj_room_data {
 	for (var i = 0; i < ds_list_size(enemiesData); i++) {
 		var enemyData = ds_list_find_value(enemiesData,i);
