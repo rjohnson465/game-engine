@@ -1,8 +1,8 @@
 {
-    "id": "7020d311-6cad-4402-8cb3-f9c87f901ab9",
+    "id": "a03e373f-9dc2-4f4d-b9b3-51643855ead7",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "loadGame",
+    "name": "fs_load_enemies",
     "IsCompatibility": false,
     "IsDnD": false
 }

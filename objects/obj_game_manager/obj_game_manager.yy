@@ -1,38 +1,28 @@
 {
-    "id": "3bcc372c-8712-4179-af58-d14de9b10e9f",
+    "id": "6e4a6389-2016-4401-9738-59ff0f68246e",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_queststep_parent",
+    "name": "obj_game_manager",
     "eventList": [
         {
-            "id": "0bb39346-f057-43b9-9c05-c489c428524e",
+            "id": "23010c97-867c-4929-b5d2-fd445d7c527b",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "3bcc372c-8712-4179-af58-d14de9b10e9f"
+            "m_owner": "6e4a6389-2016-4401-9738-59ff0f68246e"
         },
         {
-            "id": "13feefc0-30e9-455e-b466-c90f2ac8836e",
+            "id": "340eb827-11cb-4390-ab46-429d35585d7a",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 2,
-            "eventtype": 3,
-            "m_owner": "3bcc372c-8712-4179-af58-d14de9b10e9f"
-        },
-        {
-            "id": "b3888a58-fe6a-4fa6-bee3-13cc59a1ac85",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 1,
-            "m_owner": "3bcc372c-8712-4179-af58-d14de9b10e9f"
+            "enumb": 64,
+            "eventtype": 8,
+            "m_owner": "6e4a6389-2016-4401-9738-59ff0f68246e"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",

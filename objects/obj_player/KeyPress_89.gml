@@ -1,2 +1,2 @@
 //room_restart();
-loadGame();
+fs_load_game();

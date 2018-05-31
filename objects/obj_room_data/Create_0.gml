@@ -2,12 +2,13 @@ roomIndex = room;
 
 // initialize fountains
 fountainsData = ds_list_create();
+/*
 with obj_fountain {
 	global.fountain = id;
 	var fd = instance_create_depth(x,y,1,obj_fountain_data);
 	fountainData = fd;
 	ds_list_add(other.fountainsData,fd);
-}
+}*/
 
 // initialize enemies
 enemiesData = ds_list_create();
@@ -43,6 +44,7 @@ for (var i = 0; i < ds_list_size(fountainsData); i++) {
 	fountain.fountainData = fountainData;
 }
 	
+	/*
 // set all enemies 
 for (var i = 0; i < ds_list_size(enemiesData); i++) {
 	var enemyData = ds_list_find_value(enemiesData,i);

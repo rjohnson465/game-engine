@@ -13,7 +13,6 @@ global.quest = id;
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_unfairyslayer_1));
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_unfairyslayer_2));
 
-//currentQuestStep = s1;
 xpReward = 1000;
 ds_list_add(rewardItems,instance_create_depth(x,y,1,obj_item_revive_orb));
 

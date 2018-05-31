@@ -1,8 +1,8 @@
 {
-    "id": "752a78b6-918b-457c-a1c6-ae9bde8b8664",
+    "id": "f0672103-b46a-4479-bf0a-ce476c5c5e08",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "saveGame",
+    "name": "fs_save_fountains",
     "IsCompatibility": false,
     "IsDnD": false
 }

@@ -2831,6 +2831,14 @@
             }
         },
         {
+            "Key": "6e4a6389-2016-4401-9738-59ff0f68246e",
+            "Value": {
+                "id": "f151c18f-8b0b-4904-ae31-2c6258559907",
+                "resourcePath": "objects\\obj_game_manager\\obj_game_manager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6e666b46-d7aa-448f-a4b0-1a3188e7add2",
             "Value": {
                 "id": "6864eafe-0e48-4d13-bb15-5be02354011e",
@@ -2874,7 +2882,7 @@
             "Key": "7020d311-6cad-4402-8cb3-f9c87f901ab9",
             "Value": {
                 "id": "ecbf0796-718f-4fd0-bc6f-bc8cd453c4c7",
-                "resourcePath": "scripts\\loadGame\\loadGame.yy",
+                "resourcePath": "scripts\\fs_load_game\\fs_load_game.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -2994,7 +3002,7 @@
             "Key": "752a78b6-918b-457c-a1c6-ae9bde8b8664",
             "Value": {
                 "id": "22ba4732-f9c5-4873-909e-ba1c3974b586",
-                "resourcePath": "scripts\\saveGame\\saveGame.yy",
+                "resourcePath": "scripts\\fs_save_game\\fs_save_game.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -4055,6 +4063,14 @@
             }
         },
         {
+            "Key": "a03e373f-9dc2-4f4d-b9b3-51643855ead7",
+            "Value": {
+                "id": "cc242d8d-d6fc-4455-81c2-50648ce86502",
+                "resourcePath": "scripts\\fs_load_enemies\\fs_load_enemies.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a052da6c-4e41-4f3b-a209-fd4db954ee07",
             "Value": {
                 "id": "07ffbeb5-5d3d-449d-8fac-a245087c3f1a",
@@ -4844,6 +4860,14 @@
                 "id": "1b6bd7de-1523-4d82-a154-7fff7bbc5417",
                 "resourcePath": "sprites\\spr_player_hand_bow\\spr_player_hand_bow.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b9c57985-e8ab-4f36-89d2-9f205a25717f",
+            "Value": {
+                "id": "8535cb86-cf84-4b01-b3bc-38c545eeb765",
+                "resourcePath": "scripts\\fs_save_enemies\\fs_save_enemies.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -6239,6 +6263,14 @@
             }
         },
         {
+            "Key": "f0672103-b46a-4479-bf0a-ce476c5c5e08",
+            "Value": {
+                "id": "809c0054-6dce-48e0-b203-f0cc2feef5d3",
+                "resourcePath": "scripts\\fs_save_fountains\\fs_save_fountains.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f0eff6a6-dd20-4359-a231-97e9f908deb3",
             "Value": {
                 "id": "84561c9c-e281-4ab1-89a8-31386cb4efab",
@@ -6591,6 +6623,14 @@
             }
         },
         {
+            "Key": "ffaf4d28-95e3-4be8-add3-db03089bcdcc",
+            "Value": {
+                "id": "6af08f0b-7917-4f0f-a7ee-e6942a5fac37",
+                "resourcePath": "scripts\\fs_load_fountains\\fs_load_fountains.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fffa8583-74c5-49e5-b449-5468c5880ef7",
             "Value": {
                 "id": "3fa5112a-97e1-4b1e-a2cc-6c0350ae0640",
@@ -6812,7 +6852,11 @@
         "fb3e3452-c371-4c31-92ce-4a79702a5f22",
         "752a78b6-918b-457c-a1c6-ae9bde8b8664",
         "7020d311-6cad-4402-8cb3-f9c87f901ab9",
-        "a3657cb7-e5e9-46c3-9a90-92ab687b10ee"
+        "a3657cb7-e5e9-46c3-9a90-92ab687b10ee",
+        "b9c57985-e8ab-4f36-89d2-9f205a25717f",
+        "f0672103-b46a-4479-bf0a-ce476c5c5e08",
+        "a03e373f-9dc2-4f4d-b9b3-51643855ead7",
+        "ffaf4d28-95e3-4be8-add3-db03089bcdcc"
     ],
     "tutorial": ""
 }

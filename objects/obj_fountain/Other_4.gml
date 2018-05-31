@@ -1,17 +1,24 @@
-/*// on room start, create an instance of obj_room_data if there is not one fot this room yet
-var roomDataObj = noone;
-with obj_room_data {
-	if roomIndex == room {
-		roomDataObj = id;
+
+// re-renter room and fountain has been actived before
+//fountainData = findPersistentRoomElementData(obj_fountain_data,id);
+
+if fountainData == noone {
+	global.fountain = id;
+	instance_create_depth(x,y,1,obj_fountain_data);
+}
+
+with obj_fountain_data {
+	if key == other.key {
+		other.postX = postX;
+		other.postY = postY;
+		other.isDoneFilling = isDoneFilling;
+		if isDoneFilling {
+			other.isRunning = true;
+		}
+		other.fountainData = id;
 	}
 }
 
-if roomDataObj == noone {
-	instance_create_depth(x,y,1,obj_room_data);
-}*/
-
-// re-renter room and fountain has been actived before
-fountainData = findPersistentRoomElementData(obj_fountain_data,id);
 if isRunning || (global.player.justRevivedAtFountain && distance_to_object(obj_player) < 100) {
 	sprite_index = asset_get_index("spr_fountain_full");
 	isDoneFilling = true;

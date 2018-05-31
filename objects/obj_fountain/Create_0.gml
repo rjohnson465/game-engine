@@ -1,8 +1,6 @@
 isRunning = false;
 isDoneFilling = false;
 
-fountainData = noone;
-
 lightRadius = 256;
 lightRadiusAlpha = .35;
 lightRadiusScale = .75;
@@ -38,6 +36,14 @@ origLayer = layer;
 layerName = layer_get_name(layer);
 
 inUse = false;
+
+key = fs_generate_key();
+fountainData = noone;
+with obj_fountain_data {
+	if key == other.key {
+		other.fountainData = id;
+	}
+}
 
 
 

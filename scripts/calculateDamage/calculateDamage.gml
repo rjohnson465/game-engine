@@ -207,7 +207,7 @@ if	state != CombatantStates.Dodging &&
 	}
 		
 	// update enemy data for room persistence, if this combatant is an enemy
-	if enemyData != noone && type == CombatantTypes.Enemy {
+	if type == CombatantTypes.Enemy && enemyData != noone  {
 		enemyData.hp = hp;
 	}
 	

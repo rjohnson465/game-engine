@@ -11,11 +11,11 @@ if enemyData == noone {
 
 with obj_enemy_data {
 	if key == other.key {
+		other.isAlive = isAlive;
 		other.hp = hp;
 		other.x = currentX;
 		other.y = currentY;
 		other.layer = currentZ;
-		other.isAlive = isAlive;
 		other.tempPostX = tempPostX;
 		other.tempPostY = tempPostY;
 		other.enemyData = id;

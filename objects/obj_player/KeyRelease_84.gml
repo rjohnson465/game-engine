@@ -1,6 +1,6 @@
 // test warp to last fountain
 
-saveGame();
+fs_save_game();
 
 //updateRoomLayers();
 

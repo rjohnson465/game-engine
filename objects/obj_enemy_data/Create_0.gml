@@ -15,6 +15,7 @@ if global.enemy != noone {
 	maxHp = enemy.maxHp;
 	isAlive = enemy.isAlive;
 } 
+/*
 else {
 	postX = 0;
 	postY = 0;

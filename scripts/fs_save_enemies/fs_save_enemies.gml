@@ -1,11 +1,5 @@
-/// saveGame
-
-var save_data = ds_map_create();
-var filename = "Game.sav";
-
-// save player info
-
-// save enemy info
+/// fs_save_enemies
+/// returns a map of all the enemy data in the game
 var sd_enemies = ds_map_create();
 with obj_enemy_data {
 	var sd_enemy = ds_map_create();
@@ -22,13 +16,8 @@ with obj_enemy_data {
 	ds_map_replace(sd_enemy,"currentZ",currentZ);
 	
 	var key = fs_generate_key(enemy);
-	ds_map_secure_save(sd_enemy,key+".sav");
-	
-	ds_map_replace(sd_enemies,key,sd_enemy);	
+
+	ds_map_add_map(sd_enemies,key,sd_enemy);
 }
 
-ds_map_secure_save(sd_enemies,"Enemies.Sav");
-
-ds_map_replace(save_data,"EnemiesKey",sd_enemies);
-
-ds_map_secure_save(save_data,filename);
+return sd_enemies;
