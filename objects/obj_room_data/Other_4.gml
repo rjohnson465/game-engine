@@ -27,6 +27,7 @@ if room == roomIndex {
 	}*/
 	
 	// set all itemDrops
+	/*
 	for (var i = 0; i < ds_list_size(itemDropsData); i++) {
 		var itemDropDataObj = ds_list_find_value(itemDropsData,i);
 		if itemDropDataObj == undefined || itemDropDataObj == noone || !itemDropDataObj break;
@@ -46,7 +47,7 @@ if room == roomIndex {
 			lightRadius.y = y;
 		}
 
-	}
+	}*/
 	
 	// set all npc data 
 	for (var i = 0; i < ds_list_size(npcData); i++) {

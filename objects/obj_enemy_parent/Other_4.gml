@@ -4,7 +4,9 @@
 // Inherit the parent event
 event_inherited();
 
-if enemyData == noone {
+if enemyData == noone || !instance_exists(enemyData) {
+	state = CombatantStates.Idle;
+	lockOnTarget = noone;
 	global.enemy = id;
 	instance_create_depth(x,y,1,obj_enemy_data);
 }

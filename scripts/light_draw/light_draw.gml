@@ -20,6 +20,11 @@ if !ds_exists(global._lights, ds_type_list) {
 	//exit;
 }
 
+// TODO -- reconstruct casters list
+if !ds_exists(global._light_casters,ds_type_list) {
+	exit;
+}
+
 global._light_time += delta_time
 if global._light_time >= global._light_max_time
 {

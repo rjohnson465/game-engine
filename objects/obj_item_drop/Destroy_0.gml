@@ -14,6 +14,7 @@ if ds_exists(items,ds_type_list) {
 }
 global.canLoot = false;
 
+/*
 with obj_room_data {
 	if roomIndex == room {
 		ds_list_delete(itemDropsData,other.itemDropData);

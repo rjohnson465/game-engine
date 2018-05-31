@@ -24,3 +24,6 @@ if	 stamina < maxStamina && (state == CombatantStates.Idle || state == Combatant
 if hp < maxHp {
 	hp += hpRegen/30;
 }
+
+if stamina > maxStamina stamina = maxStamina;
+if hp > maxHp hp = maxHp;

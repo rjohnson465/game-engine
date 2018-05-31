@@ -6,14 +6,17 @@
 //droppedItems = global.droppedItems;
 //ds_list_copy(items,global.droppedItems);
 
-items = global.droppedItems;
+//items = global.droppedItems;
+
+items = ds_list_create();
+ds_list_copy(items,global.droppedItems);
 
 
 owner = global.owner;
 layer = owner.layer;
 isBeingLooted = false;
 
-postX = x; postY = y;
+postX = x; postY = y; postZ = layer; roomIndex = room;
 
 var sw = view_get_wport(view_camera[0]);
 var sh = view_get_hport(view_camera[0]);
@@ -37,14 +40,17 @@ selectedItem = ds_list_find_value(items,0);
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;
 
+/*
 global.itemDrop = id;
 itemDropData = instance_create_depth(x,y,1,obj_itemdrop_data);
+
 // add this itemDropData object to the current room data obj
 with obj_room_data {
 	if roomIndex == room {
 		ds_list_add(itemDropsData,other.itemDropData);
 	}
 }
+*/
 
 global.isLooting = false;
 
@@ -63,6 +69,7 @@ isShowingLightRadius = true;
 global.owner = id;
 global.makeLightOnCreate = true;
 lightRadius = instance_create_depth(x,y,1,obj_light_radius);
+lightRadius.persistent = true;
 
 system = part_system_create();
 part_system_depth(system,depth);
@@ -87,12 +94,4 @@ if !items {
 
 if ds_list_size(items) == 0 {
 	instance_destroy(id,1);
-}
-
-/*if !items && global.droppedItems {
-	while items == 0 {
-		ds_list_destroy(items);
-		items = ds_list_create();
-		ds_list_copy(items,global.droppedItems);
-	}
 }

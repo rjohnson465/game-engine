@@ -9,6 +9,10 @@ var isInConvo = false;
 with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
+
+//show_debug_message(ds_list_size(global.droppedItems));
+show_debug_message(ds_list_size(items));
+
 if distance_to_object(obj_player) < 20 && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting && !isInConvo {
 	// only loot the closest item, if multiple items exist that are within 20px of player
 	if instance_nearest(global.player.x,global.player.y,obj_item_drop) == id {
