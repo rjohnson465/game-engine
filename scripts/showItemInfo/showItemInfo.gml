@@ -128,8 +128,8 @@ if item.type == ItemTypes.HandItem {
 		}
 		
 		// draw magic charges (if applicable)
-		if item.totalCharges > 0 {
-			var magicChargesString = string(item.charges) + "/" + string(item.totalCharges);
+		if item.chargesMax > 0 {
+			var magicChargesString = string(item.charges) + "/" + string(item.chargesMax);
 			draw_sprite(spr_item_info_magic_charges,1,itemDescriptionCol1XPictures,itemDescriptionColY+105);
 			if !global.ui.isShowingExplanations {
 				draw_text(itemDescriptionCol1XText,itemDescriptionColY+105,magicChargesString);

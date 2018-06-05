@@ -14,6 +14,12 @@ if !isRunning {
 		lastFountainY = fountain.spawnY;
 		lastFountainZ = fountain.layerName;
 	}
+	
+	// trigger a save 
+	with obj_game_manager {
+		alert("Saving " + currentSaveFile, c_yellow);
+		fs_save_game();
+	}
 }
 	
 // wish at fountain
@@ -63,8 +69,8 @@ else if isDoneFilling {
 		for (var i = 0 ; i < ds_list_size(inventory); i++) {
 			var item = ds_list_find_value(inventory,i);
 			if item.type == ItemTypes.HandItem {
-				if item.totalCharges > 0 {
-					item.charges = item.totalCharges;
+				if item.chargesMax > 0 {
+					item.charges = item.chargesMax;
 				}
 				if item.durability > 0 {
 					item.durability = item.durabilityMax;

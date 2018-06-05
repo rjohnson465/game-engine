@@ -11,7 +11,7 @@ weaponSpeed = "Slow";
 isTwoHanded = true;
 // cast stuff
 charges = 200;
-totalCharges = 200;
+chargesMax = 200;
 
 weight = 6;
 staggerDuration = 20; // frames

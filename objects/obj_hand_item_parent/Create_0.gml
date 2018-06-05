@@ -16,7 +16,7 @@ range = 1000; // in pixels
 numberOfTargets = [1];
 staggersAgainstBlocks = true;
 charges = 0;
-totalCharges = 0;
+chargesMax = 0;
 
 level = 1;
 act = 0;

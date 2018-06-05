@@ -14,4 +14,4 @@ act = 1;
 durabilityMax = 20;
 durability = 20;
 
-numberOfSockets = 1;
+//numberOfSockets = 1;

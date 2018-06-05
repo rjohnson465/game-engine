@@ -12,7 +12,7 @@ with player {
 	
 	// y1 is where to start drawing things based on whether or not attunements are visible
 	var vh = view_get_hport(view_camera[0]);
-	var y1 = (rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0) ?
+	var y1 = (rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0) ?
 			vh-143 : vh-118;
 	if comboEffectiveNumber > 0 || comboModeLevel > 0 {
 		// draw a circle for each combo

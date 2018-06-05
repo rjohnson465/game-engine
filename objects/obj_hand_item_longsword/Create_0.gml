@@ -10,7 +10,7 @@ itemSprite = spr_item_longsword;
 numberOfTargets = [3,3,1];
 
 charges = 10;
-totalCharges = 10;
+chargesMax = 10;
 
 range = 50;
 
@@ -24,4 +24,4 @@ staminaCostArray=[10,10,25];
 
 act = 1;
 
-numberOfSockets = 3;
+//numberOfSockets = 3;

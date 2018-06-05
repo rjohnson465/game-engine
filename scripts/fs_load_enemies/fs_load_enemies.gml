@@ -28,5 +28,12 @@ for (var i = 0; i < ds_map_size(sd_enemies); i++) {
 	enemyDataObj.currentY = ds_map_find_value(sd_enemy,"currentY");
 	enemyDataObj.currentZ = ds_map_find_value(sd_enemy,"currentZ");
 	
+	with obj_enemy_parent {
+	if key == cv {
+		enemyData = enemyDataObj;
+	}
+	event_perform(ev_other,ev_room_start);
+}
+	
 	cv = ds_map_find_next(sd_enemies,cv);
 }

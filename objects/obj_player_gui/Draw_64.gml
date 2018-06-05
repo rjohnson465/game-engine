@@ -133,8 +133,8 @@ draw_sprite_ext(spr_item_slot,1,10,vh-70,1,1,0,c_white,.5);
 if leftHandItem.spriteName != "unarmed" {
 	var leftHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
 	draw_sprite(leftHandItemSprite,1,10,vh-70);
-	if leftHandItem.totalCharges != 0 {
-		var chargesPercent = (leftHandItem.charges / leftHandItem.totalCharges)*100;
+	if leftHandItem.chargesMax != 0 {
+		var chargesPercent = (leftHandItem.charges / leftHandItem.chargesMax)*100;
 		draw_healthbar(10,vh-12,71,vh-9,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);
 	}
 	// ammo bar
@@ -164,8 +164,8 @@ if rightHandItem.spriteName != "unarmed" {
 	var rightHandItemSprite = asset_get_index("spr_item_"+rightHandItem.spriteName);
 	draw_sprite(rightHandItemSprite,1,150,vh-70);
 
-	if rightHandItem.totalCharges != 0 {
-		var chargesPercent = (rightHandItem.charges / rightHandItem.totalCharges)*100;
+	if rightHandItem.chargesMax != 0 {
+		var chargesPercent = (rightHandItem.charges / rightHandItem.chargesMax)*100;
 		draw_healthbar(150,vh-12,211,vh-9,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);
 	}
 	// ammo bar
@@ -186,7 +186,7 @@ if leftHandItem.isTwoHanded {
 }
 
 // draw attunements
-if rightHandItem.totalCharges > 0 || leftHandItem.totalCharges > 0 {
+if rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0 {
 	
 	//instance_activate_object(obj_attunement);
 	

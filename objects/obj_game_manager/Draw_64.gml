@@ -1,4 +1,4 @@
-if room == room0 {
+/*if room == room0 {
 
 	
 	// get all save files

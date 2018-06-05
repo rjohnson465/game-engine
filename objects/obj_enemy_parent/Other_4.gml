@@ -16,10 +16,14 @@ with obj_enemy_data {
 		other.isAlive = isAlive;
 		if isAlive {
 			other.isShowingLightRadius = true;
+			other.x = currentX;
+			other.y = currentY;
+		} else {
+			other.x = -1000;
+			other.y = -1000;
 		}
 		other.hp = hp;
-		other.x = currentX;
-		other.y = currentY;
+		
 		other.layer = currentZ;
 		other.tempPostX = tempPostX;
 		other.tempPostY = tempPostY;

@@ -3,10 +3,10 @@ x1 = -50;
 y1 = -50;
 sprite_index = spr_item_slot;
 visible = false;
-//depth = -2;
 depth = -1001;
 persistent = true;
-name = "";
+name = "default item name";
+baseName = "default item base name";
 
 enum ItemTypes {	
 	HandItem,
@@ -72,10 +72,17 @@ enum ModifiableProperties {
 }
 
 itemProperties = ds_map_create();
-numberOfSockets = 0;
 
 hasIssuedDurabilityWarning = false;
 hasIssuedDurabilityObituary = false;
 
 durability = 50;
 durabilityMax = 50;
+
+charges = 0;
+chargesMax = 0;
+
+ammo = 0;
+ammoMax = 0;
+
+invIndex = noone;

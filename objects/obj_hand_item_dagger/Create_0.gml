@@ -7,7 +7,7 @@ spriteName = "dagger";
 itemSprite = spr_item_dagger;
 
 charges = 10;
-totalCharges = 10;
+chargesMax = 10;
 
 range = 20;
 
@@ -20,4 +20,4 @@ staminaCostArray=[10,10,10,10];
 
 act = 1;
 
-numberOfSockets = 1;
+//numberOfSockets = 1;

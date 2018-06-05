@@ -23,6 +23,7 @@ with obj_item_drop {
 
 if distance_to_object(obj_player) < 20 && layer == global.player.layer && !global.isWishing && !global.canLoot && !canLoot && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && interactInputReceived && !isInConversation && !isInteractingWithPlayer {
 	isInteractingWithPlayer = true;
+	global.player.state = CombatantStates.Idle;
 	state = CombatantStates.Idle; speed = 0;
 	audio_play_sound_at(greeting,x,y,0,100,300,1,0,1);
 } else if distance_to_object(obj_player) > 20 {

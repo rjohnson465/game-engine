@@ -165,6 +165,13 @@ switch item.type {
 	}
 }
 
+// gems in sockets are not "owner" by player (for consistency with saving inventory)
+if isRemoving {
+	gem.owner = global.player;
+} else {
+	gem.owner = "socket";
+}
+
 var gemIndex = ds_list_find_index(global.player.inventory,gem);
 if gemIndex != -1 {
 	var gemObj = ds_list_find_value(global.player.inventory,gemIndex);

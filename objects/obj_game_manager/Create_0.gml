@@ -6,3 +6,7 @@ enum TitleScreenState {
 }
 
 state = TitleScreenState.Options;
+isLoading = false;
+currentSaveFile = "Game.sav";
+roomToGoTo = noone;
+isReadyToMoveRooms = false;
