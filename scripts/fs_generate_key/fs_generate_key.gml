@@ -7,7 +7,7 @@ if argument_count == 1 {
 }
 with inst {
 	if object_index == obj_fountain || object_is_ancestor(object_index,obj_enemy_parent) {
-		return room_get_name(room)+object_get_name(object_index)+string(postX)+string(postY);
+		return room_get_name(nativeRoom)+object_get_name(object_index)+string(postX)+string(postY);
 	} else {
 		return room_get_name(room)+object_get_name(object_index)+string(x)+string(y);
 	}

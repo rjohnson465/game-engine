@@ -18,6 +18,7 @@ if !isRunning {
 	// trigger a save 
 	with obj_game_manager {
 		alert("Saving " + currentSaveFile, c_yellow);
+		other.fountainData.isDoneFilling = true;
 		fs_save_game();
 	}
 }

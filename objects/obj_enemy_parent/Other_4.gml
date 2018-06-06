@@ -14,7 +14,7 @@ if enemyData == noone || !instance_exists(enemyData) {
 with obj_enemy_data {
 	if key == other.key {
 		other.isAlive = isAlive;
-		if isAlive {
+		if isAlive || hp < 0 {
 			other.isShowingLightRadius = true;
 			other.x = currentX;
 			other.y = currentY;

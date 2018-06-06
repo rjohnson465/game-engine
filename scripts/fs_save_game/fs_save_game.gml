@@ -8,7 +8,7 @@ var filename = "Game.sav";
 //ds_map_replace(save_data,"Room",room_get_name(room));
 
 // save player info
-ds_map_replace(save_data,"Player",fs_save_player());
+ds_map_add_map(save_data,"Player",fs_save_player());
 
 // save fountain info
 ds_map_add_map(save_data,"Fountains",fs_save_fountains());

@@ -17,6 +17,9 @@ for (var i = 0; i < ds_map_size(sd_enemies); i++) {
 	
 	var enemyDataObj = instance_create_depth(x,y,1,obj_enemy_data);
 	enemyDataObj.hp = ds_map_find_value(sd_enemy,"hp");
+	if enemyDataObj.hp <= 0 {
+		enemyDataObj.isAlive = false;
+	}
 	enemyDataObj.key = cv;
 	enemyDataObj.maxHp = ds_map_find_value(sd_enemy,"maxHp");
 	enemyDataObj.postX = ds_map_find_value(sd_enemy,"postX");

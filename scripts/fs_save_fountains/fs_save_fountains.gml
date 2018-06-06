@@ -8,7 +8,8 @@ with obj_fountain_data {
 	ds_map_replace(sd_fountain,"postY",postY);
 	ds_map_replace(sd_fountain,"isDoneFilling",isDoneFilling);
 	
-	var key = fs_generate_key(fountain);
+	//var key = fs_generate_key(fountain);
+	//var ky = key;
 
 	ds_map_add_map(sd_fountains,key,sd_fountain);
 }
