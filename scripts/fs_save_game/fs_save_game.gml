@@ -19,6 +19,12 @@ ds_map_add_map(save_data,"Enemies",fs_save_enemies());
 // save inventory items
 ds_map_add_map(save_data,"Inventory",fs_save_inventory());
 
+// save skills data
+ds_map_add_map(save_data,"Skills",fs_save_skills());
+
+// save quests data 
+ds_map_add_map(save_data,"Quests",fs_save_quests());
+
 // save to file name
 ds_map_secure_save(save_data,filename);
 

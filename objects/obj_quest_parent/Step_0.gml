@@ -1,5 +1,6 @@
 if !instance_exists(currentQuestStep) {
 	currentQuestStep = ds_list_find_value(questSteps,0);
+	currentQuestStepIndex = 0;
 }
 
 //show_debug_message(steps);

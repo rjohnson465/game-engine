@@ -57,7 +57,7 @@ uss1.sound = snd_conversation_francis_unfairyslayer_1;
 var uss2 = instance_create_depth(x,y,1,obj_conversation_step_parent);
 uss2.text = "Show them the meaning of holocaust.";
 uss2.sound = snd_conversation_francis_unfairyslayer_2;
-uss2.func = questStartUnfairySlayer;
+uss2.func = script_execute(questStart,obj_quest_unfairyslayer);
 ds_list_add(unfairySlayer.steps,uss1);
 ds_list_add(unfairySlayer.steps,uss2);
 

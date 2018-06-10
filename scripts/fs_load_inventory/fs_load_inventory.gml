@@ -65,6 +65,11 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 			//var val = propArr[1];
 			var prop = ds_list_find_value(propsList,i);
 			var val = ds_list_find_value(propsList,i+1);
+			if ds_exists(val,ds_type_list) && ds_list_size(val) == 2 {
+				var macro = ds_list_find_value(val,0);
+				var amnt = ds_list_find_value(val,1);
+				val = [macro,amnt];
+			}
 			ds_map_replace(item.itemProperties,prop,val);
 		}
 	}

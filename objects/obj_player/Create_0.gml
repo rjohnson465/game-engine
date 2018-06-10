@@ -1,21 +1,4 @@
 
-// use macros for elements rather than enums (helps with sprite getting)
-#macro PHYSICAL "physical"
-#macro SLASH "slash"
-#macro PIERCE "pierce"
-#macro CRUSH "crush"
-#macro MAGIC "magic"
-#macro FIRE "fire"
-#macro ICE "ice"
-#macro POISON "poison"
-#macro LIGHTNING "lightning"
-
-#macro C_HANDLES make_color_rgb(47,79,79)
-#macro C_DKRGRAY make_color_rgb(42,42,42)
-
-global.ALL_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
-global.ALL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH,MAGIC,FIRE,ICE,POISON,LIGHTNING];
-global.ALL_PHYSICAL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH];
 playerLightRadius = noone;
 
 layer = layer_get_id("instances_floor_1");
@@ -40,7 +23,9 @@ type = CombatantTypes.Player;
 
 // gui
 isMouseInMenu = false;
-instance_create_depth(x,y,1,obj_player_gui);
+if !instance_exists(obj_player_gui) {
+	instance_create_depth(x,y,1,obj_player_gui);
+}
 
 defineItemsByAct();
 
@@ -59,6 +44,9 @@ enum EquipmentSlots {
 // grow hands 
 hasHands = true; 
 
+with obj_hand_item_unarmed {
+	if persistent instance_destroy(id,1);
+}
 unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 unarmed.persistent = true;
 unarmed.owner = id;
@@ -108,28 +96,6 @@ lockOnListSeen = ds_list_create();
 lockOnTarget = noone;
 lockOnTargetType = obj_enemy_parent;
 LOCK_ON_DISTANCE = 800;
-
-#macro SWORD1H "Sword/1H"
-#macro SWORD2H "Sword/2H"
-#macro DAGGER "Dagger/1H"
-#macro UNARMED "Unarmed"
-#macro AXE1H "Axe/1H"
-#macro AXE2H "Axe/2H"
-#macro BLUNT1H "Club/1H"
-#macro BLUNT2H "Club/2H"
-#macro RAPIER "Rapier/1H"
-#macro SPEAR "Spear/2H"
-#macro BOW "Bow/2H"
-#macro CROSSBOW "Crossbow/1H"
-#macro SHURIKEN "Shuriken/2H"
-#macro MUSKET "Musket/2H"
-#macro THROWN "Thrown/1H"
-#macro PISTOL "Pistol/1H"
-
-global.ALL_WEAPON_TYPES = [
-	SWORD1H, SWORD2H, DAGGER, UNARMED, AXE1H, AXE2H, BLUNT1H, BLUNT2H, RAPIER, SPEAR,
-	BOW, CROSSBOW, SHURIKEN, MUSKET, THROWN, PISTOL
-];
 
 propertiesBaseValues = defineBasePlayerProperties();
 itemPropertyBonuses = ds_map_create();
@@ -185,17 +151,19 @@ currentSpell = ds_map_find_first(knownSpells);
 currentUsingSpell = noone;
 hasAlertedNoMagicCharges = false;
 
+/*
 attunementLevels = ds_map_create();
 ds_map_add(attunementLevels,MAGIC,1);
 ds_map_add(attunementLevels,FIRE,1);
 ds_map_add(attunementLevels,ICE,1);
 ds_map_add(attunementLevels,POISON,1);
-ds_map_add(attunementLevels,LIGHTNING,1);
+ds_map_add(attunementLevels,LIGHTNING,1);*/
 currentSpellAttunement = MAGIC;
+
 
 // inventory -- holds all items
 inventory = ds_list_create();
-//addItemToInventory(makeGold(100000,200000));
+addItemToInventory(makeGold(100000,200000));
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 
 //var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
@@ -214,24 +182,26 @@ inventory = ds_list_create();
 //ds_map_replace(longsword2.damages,ICE,[2,4]);
 //addItemToInventory(longsword2);
 
-//var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
-//longsword.persistent = true;
-//longsword.numberOfSockets = 3;
-//insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
-//insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
-//insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
-//addItemToInventory(longsword);
+
+var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
+longsword.persistent = true;
+longsword.numberOfSockets = 3;
+insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
+insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
+insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
+addItemToInventory(longsword);
 
 //addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
-var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
-addItemToInventory(baxe);
+//var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
+//addItemToInventory(baxe);
 
 //addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 //addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
-//var ring = instance_create_depth(x,y,1,obj_item_ring);
-//ds_map_add(ring.itemProperties,ModifiableProperties.StaminaMax,50);
-//ds_map_add(ring.itemProperties,ModifiableProperties.StaminaRegen,10);
-//addItemToInventory(ring);
+
+var ring = instance_create_depth(x,y,1,obj_item_ring);
+ds_map_add(ring.itemProperties,ModifiableProperties.StaminaMax,50);
+ds_map_add(ring.itemProperties,ModifiableProperties.StaminaRegen,10);
+addItemToInventory(ring);
 
 //var lcap = instance_create_depth(x,y,1,obj_hat_leathercap);
 //addItemToInventory(lcap);

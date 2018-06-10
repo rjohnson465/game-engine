@@ -5,6 +5,7 @@ isFinished = false;
 isRewardClaimed = false;
 questSteps = ds_list_create();
 currentQuestStep = noone;
+currentQuestStepIndex = noone;
 
 isRepeatable = false;
 

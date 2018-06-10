@@ -31,6 +31,7 @@ for (var i = 0; i < ds_map_size(sd_fountains); i++) {
 			if fountainDataObj.isDoneFilling {
 				sprite_index = asset_get_index("spr_fountain_full");
 				isDoneFilling = true;
+				isRunning = true;
 				with obj_light_radius {
 					if owner == other.id {
 						instance_destroy(id,1);

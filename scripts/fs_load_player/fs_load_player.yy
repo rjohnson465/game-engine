@@ -1,8 +1,8 @@
 {
-    "id": "a0cbd295-ba60-494c-b2d2-b8216b3668f0",
+    "id": "5530cd60-4eb5-4f9a-a61a-bf5de343b891",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "questStartUnfairySlayer",
+    "name": "fs_load_player",
     "IsCompatibility": false,
     "IsDnD": false
 }

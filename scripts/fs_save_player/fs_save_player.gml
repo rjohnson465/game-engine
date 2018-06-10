@@ -17,6 +17,13 @@ with global.player {
 	ds_map_replace(sd_player,"LastFountainY",lastFountainY);
 	ds_map_replace(sd_player,"LastFountainZ",lastFountainZ); // layer name
 	ds_map_replace(sd_player,"LastFountainRoom",lastFountainRoom);
+	
+	ds_map_replace(sd_player,"Hp",hp);
+	ds_map_replace(sd_player,"Level",level);
+	ds_map_replace(sd_player,"Xp",xp);
+	ds_map_replace(sd_player,"XpTemp",xpTemp);
+	ds_map_replace(sd_player,"XpToNextLevel",xpToNextLevel);
+	ds_map_replace(sd_player,"SkillPoints",skillPoints);
 
 }
 

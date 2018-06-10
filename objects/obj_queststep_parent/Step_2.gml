@@ -6,5 +6,6 @@ if status == QuestStepStatus.Completed && nextStep != undefined && nextStep != n
 	if nextStep.status == QuestStepStatus.Unstarted {
 		nextStep.status = QuestStepStatus.InProgress;
 		quest.currentQuestStep = nextStep;
+		quest.currentQuestStepIndex = pos+1;
 	}
 }

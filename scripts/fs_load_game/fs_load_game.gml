@@ -23,5 +23,17 @@ with obj_weapon {
 	refreshParticles = true;
 }*/
 
+fs_load_player(ds_map_find_value(save_data,"Player"));
+
 // load inventory 
 fs_load_inventory(ds_map_find_value(save_data,"Inventory"));
+
+// load skills 
+fs_load_skills(ds_map_find_value(save_data,"Skills"));
+
+// load quests
+fs_load_quests(ds_map_find_value(save_data,"Quests"));
+
+// eh, let player have max hp and stamina
+global.player.hp = global.player.maxHp;
+global.player.stamina = global.player.maxStamina;

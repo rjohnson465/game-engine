@@ -7,7 +7,8 @@ event_inherited();
 //quest = obj_quest_unfairyslayer;
 status = QuestStepStatus.InProgress;
 
-quest.currentQuestStep = id;
+//quest.currentQuestStep = id;
+//quest.currentQuestStepIndex = 0;
 
 //unfairiesSlain = 0;
 ds_map_replace(parameters,"unfairies_slain",0);
