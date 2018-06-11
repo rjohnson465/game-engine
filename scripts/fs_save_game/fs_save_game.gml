@@ -25,6 +25,9 @@ ds_map_add_map(save_data,"Skills",fs_save_skills());
 // save quests data 
 ds_map_add_map(save_data,"Quests",fs_save_quests());
 
+// save npc data
+ds_map_add_map(save_data,"Npcs",fs_save_npcs());
+
 // save to file name
 ds_map_secure_save(save_data,filename);
 

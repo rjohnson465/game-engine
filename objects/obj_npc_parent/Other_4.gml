@@ -1,13 +1,18 @@
 // if there exists an npc_data object for this npc, redo items list based on items in memory
 // with "owner" set to this npc
-var npcDataObj = noone;
+
 with obj_npc_data {
-	if npc.name == other.name {
-		npcDataObj = id;
+	if npcName == other.name {
+		other.npcData = id;
 	}
 }
 
-if npcDataObj != noone && npcDataObj.hasInitializedItems {
+if !instance_exists(npcData) || npcData == noone {
+	global.npc = id;
+	npcData = instance_create_depth(x,y,1,obj_npc_data);
+}
+
+if npcData != noone && npcData.hasInitializedItems {
 	ds_list_clear(items);
 	with obj_item_parent {
 		if owner == other {
@@ -24,6 +29,11 @@ if items != noone && items != undefined && ds_exists(items,ds_type_list) {
 }
 
 // push "leave" to the last conversations index
-var leave = ds_list_find_value(conversations,0);
-ds_list_delete(conversations,0);
+var leaveIndex = noone;
+for (var i = 0; i < ds_list_size(conversations); i++) {
+	var conv = ds_list_find_value(conversations,i);
+	if conv.name == "Leave" leaveIndex = i;
+}
+var leave = ds_list_find_value(conversations,leaveIndex);
+ds_list_delete(conversations,leaveIndex);
 ds_list_add(conversations,leave);

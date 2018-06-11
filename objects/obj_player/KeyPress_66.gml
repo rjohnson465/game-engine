@@ -1,8 +1,8 @@
 //alert("Shields can only be equipped in the left hand",c_yellow,60);
 
-//xpTemp += 1000;
+xpTemp += 1000;
 
-questStart(obj_quest_unfairyslayer);
+//questStart(obj_quest_unfairyslayer);
 
 //var propChance = [[ModifiableProperties.OffHandDamage,10000]];
 //addItemToInventory(maybeMakeItem(100,noone,noone,noone,noone,propChance));

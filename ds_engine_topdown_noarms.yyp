@@ -183,6 +183,14 @@
             }
         },
         {
+            "Key": "05a4488b-0417-4568-8a27-d538610eacb9",
+            "Value": {
+                "id": "705656a4-eb79-4de6-8dd4-da0467dc324e",
+                "resourcePath": "scripts\\questStarUnfairySlayer\\questStarUnfairySlayer.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "05b82901-3e21-4c38-b9cc-78079337807e",
             "Value": {
                 "id": "eea1d07b-9525-43dd-aa92-8d2169a68550",
@@ -3751,6 +3759,14 @@
             }
         },
         {
+            "Key": "906a02ea-7aa3-4546-af64-51ef91f0fac4",
+            "Value": {
+                "id": "977fd68d-a9e3-4ef2-8f0d-82340069148b",
+                "resourcePath": "scripts\\fs_save_npcs\\fs_save_npcs.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "906b560c-4775-42e2-bf8a-42ad88bfe481",
             "Value": {
                 "id": "ab4ad7de-3135-4d78-b41e-16fd7f96598c",
@@ -6279,6 +6295,14 @@
             }
         },
         {
+            "Key": "eeace85b-8b98-4b78-bb4d-b0e93b22f976",
+            "Value": {
+                "id": "7138505a-41e9-4493-9904-9eedf2608b1d",
+                "resourcePath": "scripts\\fs_load_npcs\\fs_load_npcs.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "eecfd3aa-c744-427c-bed1-dc5fb91a948a",
             "Value": {
                 "id": "91a6b05c-548e-42bb-a983-462a712d054e",
@@ -6927,6 +6951,7 @@
         "f5318c21-772a-49fc-a0d6-c74039dfe954",
         "bffabf1c-9bb0-497e-a7fe-1d7fa9d66a86",
         "303f321e-2f3e-4b50-8bc5-391542a9c166",
+        "05a4488b-0417-4568-8a27-d538610eacb9",
         "4922a3d3-9ebb-49cf-bcca-f3c6e1508d4c",
         "fb3e3452-c371-4c31-92ce-4a79702a5f22",
         "a0cbd295-ba60-494c-b2d2-b8216b3668f0",
@@ -6934,12 +6959,14 @@
         "7020d311-6cad-4402-8cb3-f9c87f901ab9",
         "a3657cb7-e5e9-46c3-9a90-92ab687b10ee",
         "b9c57985-e8ab-4f36-89d2-9f205a25717f",
+        "906a02ea-7aa3-4546-af64-51ef91f0fac4",
         "20d506c2-0815-4cf3-abbf-698b13e3d524",
         "51e9c2f7-4a81-4e42-938d-0c552580224d",
         "0b9cb312-93fc-4840-a131-d38e4594dda2",
         "f0672103-b46a-4479-bf0a-ce476c5c5e08",
         "68cc89e9-0394-46f4-a6e1-11ab1618db12",
         "a03e373f-9dc2-4f4d-b9b3-51643855ead7",
+        "eeace85b-8b98-4b78-bb4d-b0e93b22f976",
         "ffaf4d28-95e3-4be8-add3-db03089bcdcc",
         "5530cd60-4eb5-4f9a-a61a-bf5de343b891",
         "43653574-d5fc-4544-8862-1e3c741a6d71",

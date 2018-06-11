@@ -50,7 +50,7 @@ if room == roomIndex {
 	}*/
 	
 	// set all npc data 
-	for (var i = 0; i < ds_list_size(npcData); i++) {
+	/*for (var i = 0; i < ds_list_size(npcData); i++) {
 		var npcdata = ds_list_find_value(npcData,i);
 		var npc = npcdata.npc;
 		var currentC = ds_map_find_first(npcdata.conversations);
@@ -67,7 +67,7 @@ if room == roomIndex {
 			
 			currentC = ds_map_find_next(npcdata.conversations,currentC);
 		}
-	}
+	}*/
 	
 } else {
 	// make itemDrops (persistent) not appear on screen at all 
