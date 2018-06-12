@@ -1,1 +1,0 @@
-//show_debug_message("Room data exists");

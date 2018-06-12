@@ -12,7 +12,7 @@ var save_data = ds_map_secure_load(filename);
 fs_load_enemies(ds_map_find_value(save_data,"Enemies"));
 
 // load all fountains
-fs_load_fountains(ds_map_find_value(save_data,"Fountains"));
+fs_load_roomdata(ds_map_find_value(save_data,"RoomData"));
 
 // load in player -- TODO
 /*var nextRoomLayer = "instances_floor_1";

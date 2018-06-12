@@ -1,7 +1,10 @@
-fountain = global.fountain;
+event_inherited();
 
-key = fs_generate_key(fountain);
-postX = fountain.postX;
-postY = fountain.postY;
-isDoneFilling = fountain.isDoneFilling;
-nativeRoom = fountain.nativeRoom;
+el = global.fountain;
+
+key = fs_generate_key(el);
+postX = el.postX;
+postY = el.postY;
+
+ds_map_replace(properties, "isDoneFilling", el.isDoneFilling);
+ds_map_replace(properties, "nativeRoom", el.nativeRoom);

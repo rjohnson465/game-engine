@@ -7,7 +7,7 @@ lightRadiusScale = .75;
 lightRadiusColor = c_aqua;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
-nativeRoom = room;
+nativeRoom = room_get_name(room);
 
 postX = x;
 postY = y;
@@ -38,10 +38,10 @@ layerName = layer_get_name(layer);
 inUse = false;
 
 key = fs_generate_key();
-fountainData = noone;
-with obj_fountain_data {
+data = noone;
+with obj_persistent_environment_data_parent {
 	if key == other.key {
-		other.fountainData = id;
+		other.data = id;
 	}
 }
 

@@ -11,7 +11,7 @@ var filename = "Game.sav";
 ds_map_add_map(save_data,"Player",fs_save_player());
 
 // save fountain info
-ds_map_add_map(save_data,"Fountains",fs_save_fountains());
+ds_map_add_map(save_data,"RoomData",fs_save_roomdata());
 
 // save enemy info
 ds_map_add_map(save_data,"Enemies",fs_save_enemies());

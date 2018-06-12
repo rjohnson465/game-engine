@@ -90,3 +90,7 @@ with obj_fallzone {
 }
 ds_list_destroy(instanceLayersAbove);
 ds_list_destroy(tileLayersAbove);
+
+with obj_weapon {
+	refreshParticles = true;
+}

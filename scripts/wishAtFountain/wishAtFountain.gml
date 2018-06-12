@@ -18,7 +18,7 @@ if !isRunning {
 	// trigger a save 
 	with obj_game_manager {
 		alert("Saving " + currentSaveFile, c_yellow);
-		other.fountainData.isDoneFilling = true;
+		ds_map_replace(other.data.properties, "isDoneFilling", true);
 		fs_save_game();
 	}
 }
@@ -39,9 +39,9 @@ else if isDoneFilling {
 		instance_destroy(id,1);
 	}
 	// clear all itemDrop references in room persistence objects
-	with obj_room_data {
+	/*with obj_room_data {
 		ds_list_clear(itemDropsData);
-	}
+	}*/
 	// destroy any remaining itemdrop data objects
 	with obj_itemdrop_data {
 		instance_destroy(id,1);

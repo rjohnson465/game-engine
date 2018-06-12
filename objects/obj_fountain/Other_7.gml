@@ -1,7 +1,7 @@
 if isRunning && !isDoneFilling {
 	isDoneFilling = true;
 	
-	fountainData.isDoneFilling = true;
+	ds_map_replace(data.properties, "isDoneFilling", true);
 	
 	sprite_index = spr_fountain_full;
 	

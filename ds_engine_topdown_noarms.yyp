@@ -1559,6 +1559,14 @@
             }
         },
         {
+            "Key": "38145957-b996-48a4-be8a-871fb9013903",
+            "Value": {
+                "id": "6c808377-1dba-4331-a982-c9d1fec913c3",
+                "resourcePath": "objects\\obj_door\\obj_door.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "38836bf1-9111-40fc-a12f-5bead0241950",
             "Value": {
                 "id": "aa24c69f-eac1-486f-a203-c1cf99a56e74",
@@ -3743,6 +3751,14 @@
             }
         },
         {
+            "Key": "8f6ffb78-cc50-414b-af5d-8ea1176411f1",
+            "Value": {
+                "id": "cc608c03-b922-4161-acc5-254ded1f7231",
+                "resourcePath": "objects\\obj_persistent_environment_data_parent\\obj_persistent_environment_data_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "8fb16676-422f-481d-8c63-c1f47959c0d9",
             "Value": {
                 "id": "aea2b584-ee5a-43c8-9fc7-e4413c59a531",
@@ -4068,6 +4084,14 @@
                 "id": "41346176-36d5-4069-9fc3-77407cbe5f3f",
                 "resourcePath": "objects\\obj_damage\\obj_damage.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9e7989bf-a028-40cb-9a73-1f2149c21bec",
+            "Value": {
+                "id": "ef0061e0-1461-4997-8acd-4f5c64161617",
+                "resourcePath": "sprites\\spr_door\\spr_door.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5679,6 +5703,14 @@
             }
         },
         {
+            "Key": "d3fe9ecb-d0ff-4984-b7fd-88a201c3128a",
+            "Value": {
+                "id": "b4b7309b-f89a-4df4-b23e-8b72b281f810",
+                "resourcePath": "objects\\obj_persistent_environment\\obj_persistent_environment.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d403c64d-e8bf-4a15-8708-29e163e8007d",
             "Value": {
                 "id": "6a722f42-d92a-49da-b291-ca3d0bfba30f",
@@ -6370,7 +6402,7 @@
             "Key": "f0672103-b46a-4479-bf0a-ce476c5c5e08",
             "Value": {
                 "id": "809c0054-6dce-48e0-b203-f0cc2feef5d3",
-                "resourcePath": "scripts\\fs_save_fountains\\fs_save_fountains.yy",
+                "resourcePath": "scripts\\fs_save_roomdata\\fs_save_roomdata.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -6730,7 +6762,7 @@
             "Key": "ffaf4d28-95e3-4be8-add3-db03089bcdcc",
             "Value": {
                 "id": "6af08f0b-7917-4f0f-a7ee-e6942a5fac37",
-                "resourcePath": "scripts\\fs_load_fountains\\fs_load_fountains.yy",
+                "resourcePath": "scripts\\fs_load_roomdata\\fs_load_roomdata.yy",
                 "resourceType": "GMScript"
             }
         },

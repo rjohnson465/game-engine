@@ -74,7 +74,7 @@ if instance_exists(fade) {
 				if lastFountainRoom == noone {
 				
 					//lastFountain = nearestFountain;
-					lastFountainRoom = nearestFountain.nativeRoom;
+					lastFountainRoom = asset_get_index(nearestFountain.nativeRoom);
 					lastFountainX = nearestFountain.spawnX;
 					lastFountainY = nearestFountain.spawnY;
 					lastFountainZ = nearestFountain.layerName;

@@ -1,6 +1,7 @@
-enemy = global.enemy;
-
 if global.enemy != noone {
+	enemy = global.enemy;
+
+
 	key = fs_generate_key(enemy);
 
 	postX = enemy.postX;

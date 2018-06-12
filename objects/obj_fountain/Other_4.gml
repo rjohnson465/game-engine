@@ -2,20 +2,26 @@
 // re-renter room and fountain has been actived before
 //fountainData = findPersistentRoomElementData(obj_fountain_data,id);
 
-if fountainData == noone {
-	global.fountain = id;
-	instance_create_depth(x,y,1,obj_fountain_data);
+if data == noone || !instance_exists(data) {
+	global.el = id;
+	var fd = instance_create_depth(x,y,1,obj_persistent_environment_data_parent);
+	with obj_room_data {
+		if roomIndex == room {
+			ds_map_replace(persistentElements, fs_generate_key(global.el), fd);
+		}
+	}
 }
 
-with obj_fountain_data {
+with obj_persistent_environment_data_parent {
 	if key == other.key {
 		other.postX = postX;
 		other.postY = postY;
-		other.isDoneFilling = isDoneFilling;
-		if isDoneFilling {
+		var isDF = ds_map_find_value(properties, "isDoneFilling");
+		other.isDoneFilling = isDF;
+		if isDF {
 			other.isRunning = true;
 		}
-		other.fountainData = id;
+		other.data = id;
 	}
 }
 

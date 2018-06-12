@@ -1,5 +1,5 @@
 /// findPersistentRoomElementData(type, elementId)
-/// @param type A persistenet element data type -- i.e. obj_fountain_data
+/// @param type A persistenet element data type -- i.e. obj_persistent_environment_data_parent
 /// @param elementId
 
 var type = argument0;
