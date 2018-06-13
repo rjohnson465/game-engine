@@ -3,24 +3,25 @@
 	
 var fountain = id;
 
+with obj_player {
+	lastFountain = other.id;
+	lastFountainRoom = room;
+	lastFountainX = fountain.spawnX;
+	lastFountainY = fountain.spawnY;
+	lastFountainZ = fountain.layerName;
+}
+	
+// trigger a save 
+with obj_game_manager {
+	alert("Saving " + currentSaveFile, c_yellow);
+	ds_map_replace(other.data.properties, "isDoneFilling", true);
+	fs_save_game();
+}
+
 // activate fountain
 if !isRunning {
 	isRunning = true;
 	sprite_index = asset_get_index("spr_fountain_filling");		
-	with obj_player {
-		lastFountain = other.id;
-		lastFountainRoom = room;
-		lastFountainX = fountain.spawnX;
-		lastFountainY = fountain.spawnY;
-		lastFountainZ = fountain.layerName;
-	}
-	
-	// trigger a save 
-	with obj_game_manager {
-		alert("Saving " + currentSaveFile, c_yellow);
-		ds_map_replace(other.data.properties, "isDoneFilling", true);
-		fs_save_game();
-	}
 }
 	
 // wish at fountain

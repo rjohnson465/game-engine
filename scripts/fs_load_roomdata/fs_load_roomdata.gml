@@ -2,14 +2,15 @@
 /// @param fountainsDataMap
 /// creates fountains data objects from save game file
 
+/*
 with obj_room_data {
 	instance_destroy(id,1);
-}
+}*/
 
-
+/*
 with obj_persistent_environment_data_parent {
 	instance_destroy(id,1);
-}
+}*/
 
 var sd_roomdatas = argument[0];
 var ck = ds_map_find_first(sd_roomdatas); 
@@ -27,6 +28,7 @@ for (var i = 0; i < ds_map_size(sd_roomdatas); i++) {
 	}
 	if roomDataObj == noone {
 		roomDataObj = instance_create_depth(x,y,1,obj_room_data);
+		ds_map_clear(roomDataObj.persistentElements);
 	}
 	
 	roomDataObj.roomIndex = ck;
@@ -44,7 +46,11 @@ for (var i = 0; i < ds_map_size(sd_roomdatas); i++) {
 			if key == ckk elObj = id;
 		}
 		if elObj == noone {
+			global.el = noone; // el does not exist yet!
 			elObj = instance_create_depth(x,y,1,asset_get_index(objIndexName));
+			elObj.key = ckk;
+			elObj.roomIndex = ck;
+			// elObj.el WILL BE NOONE
 		}
 		
 		elObj.postX = ds_map_find_value(sd_el_map, "PostX");
@@ -61,32 +67,44 @@ for (var i = 0; i < ds_map_size(sd_roomdatas); i++) {
 		}
 		
 		prevckk = ckk;
+		
+		// set the data object -- NEED TO DO THIS ON EACH DATA OBJECT
+		if prevckk != undefined && prevckk != noone {
+			var elObjIndexName = prevckk;
+			var firstCutIndex = noone; var secondCutIndex = noone;
+				for (var l = 0; l < string_length(elObjIndexName); l++) {
+					if string_char_at(elObjIndexName,l) == ";" {
+						if firstCutIndex == noone {
+							firstCutIndex = l;
+						} else if secondCutIndex == noone {
+							secondCutIndex = l;
+						}
+					}
+				}
+			elObjIndexName = string_copy(elObjIndexName,firstCutIndex+1,secondCutIndex-firstCutIndex-1);
+			var obj = findPersistentRoomElement(asset_get_index(elObjIndexName),px,py);
+			if obj != noone {
+				with obj {
+					data = elObj;
+					elObj.el = obj;
+				
+					with obj_light_radius {
+						if owner == obj {
+							instance_destroy(id,1);
+						}
+					}
+				
+					event_perform(ev_other, ev_room_start); // since we've now enforced the binding between element / element data, update
+				}
+			}
+		}
+		
+		
+		
 		ckk = ds_map_find_next(sd_roomdata, ckk);
 	}
 	
-	// set the data object
-	if prevckk != undefined && prevckk != noone {
-		var elObjIndexName = prevckk;
-		var firstCutIndex = noone; var secondCutIndex = noone;
-			for (var j = 0; j < string_length(elObjIndexName); j++) {
-				if string_char_at(elObjIndexName,j) == ";" {
-					if firstCutIndex == noone {
-						firstCutIndex = j;
-					} else if secondCutIndex == noone {
-						secondCutIndex = j;
-					}
-				}
-			}
-		elObjIndexName = string_copy(elObjIndexName,firstCutIndex+1,secondCutIndex-firstCutIndex-1);
-		var obj = findPersistentRoomElement(asset_get_index(elObjIndexName),px,py);
-		if obj != noone {
-			with obj {
-				data = elObj;
-				elObj.el = obj;
-				event_perform(ev_other, ev_room_start); // since we've now enforced the binding between element / element data, update
-			}
-		}
-	}
+	
 	
 	ck = ds_map_find_next(sd_roomdatas,ck);
 }

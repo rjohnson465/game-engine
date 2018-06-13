@@ -34,6 +34,7 @@ if instance_exists(global.player) {
 	}
 }
 var p = global.player;
+p.gamePadIndex = global.gamePadIndex;
 var save_data = ds_map_secure_load(currentSaveFile);
 var pData = ds_map_find_value(save_data,"Player"); // a map of some relevant player data
 p.x = ds_map_find_value(pData,"LastFountainX");

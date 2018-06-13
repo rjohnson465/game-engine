@@ -9,7 +9,9 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if distance_to_object(obj_player) < 20 && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting && !isInConvo {
-	// check if the door can open
-	
+if !isOpen && distance_to_object(obj_player) < 20 && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting && !isInConvo {
+	isOpen = true;
+	ds_map_replace(data.properties, "isOpen", true);
+	sprite_index = noone;
+	alarm[0] = 30;
 } 

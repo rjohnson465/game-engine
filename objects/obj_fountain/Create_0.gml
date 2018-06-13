@@ -1,3 +1,4 @@
+
 isRunning = false;
 isDoneFilling = false;
 
@@ -8,9 +9,8 @@ lightRadiusColor = c_aqua;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
 nativeRoom = room_get_name(room);
+event_inherited();
 
-postX = x;
-postY = y;
 // override on instance creation
 spawnX = postX + 100;
 spawnY = postY + 100;
@@ -37,6 +37,7 @@ layerName = layer_get_name(layer);
 
 inUse = false;
 
+/*
 key = fs_generate_key();
 data = noone;
 with obj_persistent_environment_data_parent {

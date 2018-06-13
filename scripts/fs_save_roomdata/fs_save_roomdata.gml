@@ -24,13 +24,6 @@ with obj_room_data {
 		
 		// save all properties of el
 		ds_map_add_map(sd_el_map, "Properties", el.properties);
-		/*var ckk = ds_map_find_first(properties);
-		for (var j = 0; j < ds_map_size(properties); j++) {
-			
-			var val = ds_map_find_value(properties, ckk);
-			
-			ckk = ds_map_find_next(properties, ckk);
-		}*/
 		
 		ck = ds_map_find_next(persistentElements, ck);
 		ds_map_add_map(sd_roomdata,el.key,sd_el_map);

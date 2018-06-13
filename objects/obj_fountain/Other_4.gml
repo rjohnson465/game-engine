@@ -6,10 +6,11 @@ if data == noone || !instance_exists(data) {
 	global.el = id;
 	var fd = instance_create_depth(x,y,1,obj_persistent_environment_data_parent);
 	with obj_room_data {
-		if roomIndex == room {
+		if string(roomIndex) == string(room) {
 			ds_map_replace(persistentElements, fs_generate_key(global.el), fd);
 		}
 	}
+	ds_map_replace(fd.properties, "isDoneFilling", isDoneFilling);
 }
 
 with obj_persistent_environment_data_parent {
@@ -28,8 +29,16 @@ with obj_persistent_environment_data_parent {
 if isRunning || (global.player.justRevivedAtFountain && distance_to_object(obj_player) < 100) {
 	sprite_index = asset_get_index("spr_fountain_full");
 	isDoneFilling = true;
-	global.owner = id;
-	global.makeLightOnCreate = true;
-	instance_create_depth(x,y,1,obj_light_radius);
+	var lr = noone;
+	with obj_light_radius {
+		if owner == other.id {
+			lr = id;
+		}
+	}
+	if lr == noone {
+		global.owner = id;
+		global.makeLightOnCreate = true;
+		instance_create_depth(x,y,1,obj_light_radius);
+	}
 }
 
