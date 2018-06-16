@@ -1,10 +1,12 @@
-
+global.player = id;
+if room == game_menu && global.playerDoNothing {
+	exit;
+}
 playerLightRadius = noone;
 
 layer = layer_get_id("instances_floor_1");
 
 event_inherited();
-global.player = id;
 global.isLooting = false;
 global.canLoot = false;
 global.isWishing = false;
@@ -190,6 +192,8 @@ insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
 insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
 insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 addItemToInventory(longsword);
+
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
 
 //addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
 //var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);

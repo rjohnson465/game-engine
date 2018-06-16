@@ -1,15 +1,27 @@
 var isLeftHandInUse = 
 				ds_map_find_value(recoveringLimbs,"l") != undefined 
-				|| ds_map_find_value(attackingLimbs,"l") != undefined;
+				|| ds_map_find_value(attackingLimbs,"l") != undefined
+				|| ds_map_find_value(preparingLimbs,"l") != undefined;
 var isRightHandInUse = 
 				ds_map_find_value(recoveringLimbs,"r") != undefined 
-				|| ds_map_find_value(attackingLimbs,"r") != undefined;
-if	!isFlinching 
-	&& currentUsingSpell != noone || 
-	(leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded) 
-	|| (leftHandItem.weaponType == DAGGER && rightHandItem.weaponType == DAGGER)
-	|| (leftHandItem.weaponType == DAGGER && !isRightHandInUse) 
-	|| (rightHandItem.weaponType == DAGGER && !isLeftHandInUse) {
+				|| ds_map_find_value(attackingLimbs,"r") != undefined
+				|| ds_map_find_value(preparingLimbs,"r") != undefined;
+
+var mobileWeaponTypes = [DAGGER, THROWN];
+
+if	!isFlinching && (
+		currentUsingSpell != noone
+		|| (leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded) 
+		|| (
+				(arrayIncludes(mobileWeaponTypes, leftHandItem.weaponType) && !isRightHandInUse) &&
+				!(!arrayIncludes(mobileWeaponTypes, rightHandItem.weaponType) && isRightHandInUse)
+			)
+	)
+	{
+	
+	//|| ((leftHandItem.weaponType == DAGGER || leftHandItem.weaponType == THROWN) && (rightHandItem.weaponType == DAGGER || rightHandItem.weaponType == THROWN))
+	//|| ((leftHandItem.weaponType == DAGGER || leftHandItem.weaponType == THROWN) && isRightHandInUse) 
+	//|| ((rightHandItem.weaponType == DAGGER || rightHandItem.weaponType == THROWN) && isLeftHandInUse) {
 	speed = 0;
 	var UP = keyboard_check(ord("W"));
 	var DOWN = keyboard_check(ord("S"));

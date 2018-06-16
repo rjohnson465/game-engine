@@ -1,7 +1,7 @@
 /// saveGame
 
 var save_data = ds_map_create();
-var filename = "Game.sav";
+var filename = global.gameManager.currentSaveFile;
 
 // save the current room
 // this must be loaded and the game manager must take us to this room before anything else can be loaded

@@ -1,3 +1,4 @@
+if global.playerDoNothing exit;
 // on room start, create an instance of obj_room_data if there is not one for this room yet
 var roomDataObj = noone;
 with obj_room_data {

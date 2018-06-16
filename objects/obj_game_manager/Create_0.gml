@@ -1,3 +1,4 @@
+global.gameManager = id;
 // use macros for elements rather than enums (helps with sprite getting)
 #macro PHYSICAL "physical"
 #macro SLASH "slash"
@@ -35,6 +36,8 @@ global.ALL_PHYSICAL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH];
 
 global.gamePadIndex = noone;
 
+global.playerDoNothing = true;
+
 global.ALL_WEAPON_TYPES = [
 	SWORD1H, SWORD2H, DAGGER, UNARMED, AXE1H, AXE2H, BLUNT1H, BLUNT2H, RAPIER, SPEAR,
 	BOW, CROSSBOW, SHURIKEN, MUSKET, THROWN, PISTOL
@@ -44,11 +47,39 @@ depth = -10000;
 
 enum TitleScreenState {
 	Options,
-	Load
+	Load,
+	New
 }
+
+options = ["New Game", "Load Game"];
+
+selectedOption = "";
 
 state = TitleScreenState.Options;
 isLoading = false;
 currentSaveFile = "Game.sav";
 roomToGoTo = noone;
 isReadyToMoveRooms = false;
+newGameName = "";
+cursorPos = 1;
+
+var vw = view_get_wport(view_camera[0]);
+var vh = view_get_hport(view_camera[0]);
+
+// load screen
+selectedFile = noone;
+
+loadBoxTopLeftX = vw/4;
+loadBoxTopLeftY = 200;
+loadBoxBottomRightX = (3*vw)/4;
+loadBoxBottomRightY = vh -100;
+loadBoxWidth = loadBoxBottomRightX - loadBoxTopLeftX;
+
+scrollSpriteWidth = sprite_get_width(spr_scrollarrow);
+scrollSpriteHeight = sprite_get_height(spr_scrollarrow);
+
+lbScrollBarTopLeftX = loadBoxBottomRightX-scrollSpriteWidth;
+lbScrollBarTopLeftY = loadBoxTopLeftY;
+lbScrollBarBottomRightX = loadBoxBottomRightX;
+lbScrollBarBottomRightY = loadBoxBottomRightY;
+scrollLevel = 0; // for load files

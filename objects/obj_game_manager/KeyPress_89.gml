@@ -32,6 +32,8 @@ if instance_exists(global.player) {
 		
 		event_perform(ev_create,0);
 	}
+} else {
+	instance_create_depth(x,y,1,obj_player);
 }
 var p = global.player;
 p.gamePadIndex = global.gamePadIndex;

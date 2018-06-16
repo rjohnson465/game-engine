@@ -21,7 +21,8 @@
         "43653574-d5fc-4544-8862-1e3c741a6d71",
         "84e57ae1-0dc2-4130-8cb6-37b14bf270c3",
         "bd7dfde2-b268-47bf-bc09-2183fd6627e4",
-        "c0e09787-a19e-40ce-9535-6aa20f82c058"
+        "c0e09787-a19e-40ce-9535-6aa20f82c058",
+        "558ef868-3e37-4ed7-8294-6a5de4aab97a"
     ],
     "filterType": "GMScript",
     "folderName": "Filesystem",

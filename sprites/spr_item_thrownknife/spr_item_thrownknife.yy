@@ -2,7 +2,7 @@
     "id": "400a4e30-22c1-4c05-8dc9-463e8a4f254a",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "spr_item_shortbow1",
+    "name": "spr_item_thrownknife",
     "For3D": false,
     "HTile": false,
     "VTile": false,

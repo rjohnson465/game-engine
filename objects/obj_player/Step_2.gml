@@ -1,3 +1,6 @@
+if room == game_menu {
+	exit;
+}
 event_inherited();
 
 // death

@@ -1,4 +1,6 @@
-event_inherited();
+if room == game_menu {
+	exit;
+}event_inherited();
 if !isAlive exit;
 var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");

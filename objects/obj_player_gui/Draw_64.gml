@@ -170,8 +170,8 @@ if rightHandItem.spriteName != "unarmed" {
 	}
 	// ammo bar
 	if rightHandItem.isRanged {
-		var ammoPercent = (leftHandItem.ammo / leftHandItem.ammoMax)*100;
-		draw_healthbar(150,vh-9,211,vh-6,durabilityPercent,c_black,c_green,c_lime,0,1,0);
+		var ammoPercent = (rightHandItem.ammo / rightHandItem.ammoMax)*100;
+		draw_healthbar(150,vh-9,211,vh-6,ammoPercent,c_black,c_green,c_lime,0,1,0);
 	} else {
 		// durability bar
 		var durabilityPercent = (rightHandItem.durability / rightHandItem.durabilityMax)*100;

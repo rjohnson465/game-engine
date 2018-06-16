@@ -1,4 +1,6 @@
-// ensure not clicking on some gui element
+if room == game_menu {
+	exit;
+}// ensure not clicking on some gui element
 var isMouseInGUI = false;
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);

@@ -423,6 +423,14 @@
             }
         },
         {
+            "Key": "0d2d8641-7281-4092-bb22-96aa20691a68",
+            "Value": {
+                "id": "a604f23d-0feb-4864-beb0-2be8698156f4",
+                "resourcePath": "sprites\\spr_player_thrownknife_recover_1\\spr_player_thrownknife_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0d34b411-b6ff-4baa-b88c-8de007a8637e",
             "Value": {
                 "id": "b30687ef-d3f5-4b13-9dfc-280e61f9e8c2",
@@ -1079,6 +1087,14 @@
             }
         },
         {
+            "Key": "231c8ec1-5a3a-4d06-b53a-5f02cea992aa",
+            "Value": {
+                "id": "6d599cb4-1264-458e-ac7b-e41c2602be74",
+                "resourcePath": "objects\\obj_hand_item_thrownknife\\obj_hand_item_thrownknife.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "23bfb945-f45a-4dfd-95f9-6312af1fc4e7",
             "Value": {
                 "id": "9ff80a31-634f-419e-8313-b504356eebcd",
@@ -1359,11 +1375,27 @@
             }
         },
         {
+            "Key": "2ed4f955-8eff-4ede-8a77-672454fdbc89",
+            "Value": {
+                "id": "96b91845-063d-4e46-b6c5-ad505bbce7d6",
+                "resourcePath": "sprites\\spr_player_hand_thrown_attack_1\\spr_player_hand_thrown_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2f0e53fa-cbe1-4adc-96ca-045316416b56",
             "Value": {
                 "id": "698224ed-ab07-4964-b9af-9050904ba420",
                 "resourcePath": "sprites\\spr_prompt_mk_backspace\\spr_prompt_mk_backspace.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3028e6b1-5393-4a2c-b89f-ab1475ed7540",
+            "Value": {
+                "id": "374861b2-cc6f-4c17-923d-02b9e0040e41",
+                "resourcePath": "objects\\obj_thrown_parent\\obj_thrown_parent.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1711,6 +1743,14 @@
             }
         },
         {
+            "Key": "3ce09a72-4b50-455b-b275-a0b670fef1b6",
+            "Value": {
+                "id": "8fbab1ed-f4d1-45a8-9b49-c2bc718e54b9",
+                "resourcePath": "sprites\\spr_player_hand_thrown_prep_1\\spr_player_hand_thrown_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3d0e3c96-edb9-4134-89aa-4145b9a3c9f4",
             "Value": {
                 "id": "f6a4af86-661c-4344-8866-4a9b243a85ee",
@@ -1732,6 +1772,14 @@
                 "id": "dd3e15ef-c646-48fd-9798-b33665b70f21",
                 "resourcePath": "objects\\obj_hud_skills\\obj_hud_skills.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "3d43fb9e-8bc5-4a5d-8567-573434cdc444",
+            "Value": {
+                "id": "ba9df914-9619-442c-8553-a7aeef12e762",
+                "resourcePath": "sprites\\spr_player_thrownknife_attack_1\\spr_player_thrownknife_attack_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1786,7 +1834,7 @@
             "Key": "400a4e30-22c1-4c05-8dc9-463e8a4f254a",
             "Value": {
                 "id": "0f9a4f57-cbf3-45e1-826c-78a6e90197cc",
-                "resourcePath": "sprites\\spr_item_shortbow1\\spr_item_shortbow1.yy",
+                "resourcePath": "sprites\\spr_item_thrownknife\\spr_item_thrownknife.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1820,6 +1868,14 @@
                 "id": "d683cf90-2d33-457e-900a-7ce0e964b680",
                 "resourcePath": "objects\\obj_player_death\\obj_player_death.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "40e6e863-60f4-4c0f-9134-2eacb4d29e10",
+            "Value": {
+                "id": "04b9a024-b9fe-4594-8942-a205c61efab8",
+                "resourcePath": "rooms\\game_menu\\game_menu.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -2251,6 +2307,14 @@
             "Value": {
                 "id": "3166bf1f-9436-40af-ad94-bd7da18210d5",
                 "resourcePath": "scripts\\fs_load_player\\fs_load_player.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "558ef868-3e37-4ed7-8294-6a5de4aab97a",
+            "Value": {
+                "id": "101b87c2-3a88-4a0f-8d20-64a678c841cc",
+                "resourcePath": "scripts\\loadGame\\loadGame.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -3271,6 +3335,14 @@
             }
         },
         {
+            "Key": "7c2e3b62-d33d-4fc8-a5a4-c089bdf112c7",
+            "Value": {
+                "id": "9ca484e8-8472-4517-929a-75ef96fc5739",
+                "resourcePath": "sprites\\spr_player_thrownknife\\spr_player_thrownknife.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7c352d0f-f264-4bad-b2b4-e3596fb7864c",
             "Value": {
                 "id": "d8b819f7-7bbf-4ac0-8cfd-7770f7cf348f",
@@ -3308,6 +3380,14 @@
                 "id": "06a6a022-39fa-4029-aae5-5c774c766173",
                 "resourcePath": "objects\\obj_gem_lapis\\obj_gem_lapis.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "7f2e7c90-c7eb-4045-bf26-10f55dbe41a8",
+            "Value": {
+                "id": "8b747d65-2945-41e5-b8ae-d2e37bbe13a5",
+                "resourcePath": "views\\7f2e7c90-c7eb-4045-bf26-10f55dbe41a8.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -3444,6 +3524,14 @@
                 "id": "7bb451fe-ecaf-4710-93b1-eaff6c80de84",
                 "resourcePath": "scripts\\goBackFromChooseGem\\goBackFromChooseGem.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8329034b-d141-4179-89f8-e036af54cfa3",
+            "Value": {
+                "id": "dd3c1c40-56dc-4c91-a573-1ab3039b2697",
+                "resourcePath": "views\\8329034b-d141-4179-89f8-e036af54cfa3.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -3844,6 +3932,14 @@
                 "id": "c463a8e8-7a2b-4cc3-a085-58ecfa0a154b",
                 "resourcePath": "objects\\obj_enemy_parent\\obj_enemy_parent.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "92d7be36-c53e-4ec0-a7b8-275f7ed89d95",
+            "Value": {
+                "id": "bc653fce-ea62-48b4-b9af-b7655946ed24",
+                "resourcePath": "sprites\\spr_player_hand_thrown\\spr_player_hand_thrown.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5247,6 +5343,14 @@
             }
         },
         {
+            "Key": "c498350a-dc37-47e8-a58f-8698ddab6202",
+            "Value": {
+                "id": "68ed91a1-e62a-4271-8dc5-0fe97443220a",
+                "resourcePath": "sprites\\spr_player_thrownknife_prep_1\\spr_player_thrownknife_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c534f205-b14f-4770-bd06-155327b50be2",
             "Value": {
                 "id": "87d89185-6d34-4e76-96e3-b0c0144cf192",
@@ -6535,6 +6639,14 @@
             }
         },
         {
+            "Key": "f6bf467a-89c1-4314-8bcc-405cb3035600",
+            "Value": {
+                "id": "7dcb8326-df2d-4546-9936-f4ba7f8d46dc",
+                "resourcePath": "sprites\\spr_player_hand_thrown_recover_1\\spr_player_hand_thrown_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f6ec8a70-3b5c-42a7-a70b-515fcb25f1c3",
             "Value": {
                 "id": "c5eb150e-38db-41f9-8c3c-675352f76017",
@@ -6764,6 +6876,14 @@
                 "id": "6af08f0b-7917-4f0f-a7ee-e6942a5fac37",
                 "resourcePath": "scripts\\fs_load_roomdata\\fs_load_roomdata.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ffb07d11-cc48-4751-ba96-7d513dd19000",
+            "Value": {
+                "id": "b891995b-fd8f-42c8-8b38-c4852e6da629",
+                "resourcePath": "views\\ffb07d11-cc48-4751-ba96-7d513dd19000.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -7004,7 +7124,8 @@
         "43653574-d5fc-4544-8862-1e3c741a6d71",
         "84e57ae1-0dc2-4130-8cb6-37b14bf270c3",
         "bd7dfde2-b268-47bf-bc09-2183fd6627e4",
-        "c0e09787-a19e-40ce-9535-6aa20f82c058"
+        "c0e09787-a19e-40ce-9535-6aa20f82c058",
+        "558ef868-3e37-4ed7-8294-6a5de4aab97a"
     ],
     "tutorial": ""
 }
