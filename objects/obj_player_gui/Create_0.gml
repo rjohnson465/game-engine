@@ -109,6 +109,9 @@ instance_create_depth(x,y,-1001,obj_skill_manager);
 // quests
 instance_create_depth(x,y,-1001,obj_quest_log);
 
+// options manager
+instance_create_depth(x,y,-1001,obj_options_manager);
+
 // selected equipment slot
 selectedEquipmentSlot = noone;
 

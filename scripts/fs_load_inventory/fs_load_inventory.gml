@@ -53,7 +53,7 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 	if gemsList != undefined && ds_exists(gemsList,ds_type_list) {
 		for (var i = 0; i < ds_list_size(gemsList); i += 2) {
 			//var gemArr = ds_list_find_value(gemsList,i);
-			var gemObjIndex = ds_list_find_value(gemsList,i);
+			var gemObjIndex = asset_get_index(ds_list_find_value(gemsList,i));
 			var gemCondition = ds_list_find_value(gemsList,i+1);
 			insertGemIntoItem(makeGem(gemObjIndex,gemCondition),item);
 		}

@@ -8,3 +8,25 @@ if isLoading {
 		fs_load_game(currentSaveFile);
 	}
 }
+
+if instance_exists(fade) {
+	if state == TitleScreenState.Load {
+		if fade.frame == .5*fade.fadeDuration {
+			with global.player {
+				global.playerDoNothing = false;
+				event_perform(ev_create, 0);
+			}
+			loadGame();
+		}
+	}
+	
+	if state == TitleScreenState.New {
+		if fade.frame == .5*fade.fadeDuration {
+			with global.player {
+				global.playerDoNothing = false;
+				event_perform(ev_create, 0);
+			}
+			newGame();
+		}
+	}
+}

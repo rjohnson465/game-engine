@@ -1,3 +1,4 @@
+display_set_gui_size(view_get_wport(view_camera[0]),view_get_hport(view_camera[0]));
 global.gameManager = id;
 // use macros for elements rather than enums (helps with sprite getting)
 #macro PHYSICAL "physical"
@@ -43,6 +44,8 @@ global.ALL_WEAPON_TYPES = [
 	BOW, CROSSBOW, SHURIKEN, MUSKET, THROWN, PISTOL
 ];
 
+window_set_fullscreen(true);
+
 depth = -10000;
 
 enum TitleScreenState {
@@ -53,7 +56,7 @@ enum TitleScreenState {
 
 options = ["New Game", "Load Game"];
 
-selectedOption = "New Game";
+selectedOption = noone;
 
 state = TitleScreenState.Options;
 isLoading = false;
@@ -72,7 +75,7 @@ selectedFile = noone;
 loadBoxTopLeftX = vw/4;
 loadBoxTopLeftY = 200;
 loadBoxBottomRightX = (3*vw)/4;
-loadBoxBottomRightY = 300;
+loadBoxBottomRightY = 450;
 loadBoxWidth = loadBoxBottomRightX - loadBoxTopLeftX;
 
 scrollSpriteWidth = sprite_get_width(spr_scrollarrow);
@@ -98,3 +101,5 @@ scrollLevel = 0; // for load files
 
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;
+
+fade = noone;

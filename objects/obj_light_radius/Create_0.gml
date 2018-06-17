@@ -1,9 +1,14 @@
 owner = global.owner;
 
 if owner.object_index == obj_player {
-	persistent = true;
-	owner.playerLightRadius = id;
+	if !instance_exists(owner.playerLightRadius) {
+		persistent = true;
+		owner.playerLightRadius = id;
+	} else {
+		instance_destroy(id,1);
+	}
 }
+
 
 makeLightOnCreate = global.makeLightOnCreate;
 color = owner.lightRadiusColor;

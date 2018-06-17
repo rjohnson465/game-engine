@@ -307,7 +307,8 @@ for (var i = 0; i < ds_map_size(knownSpells); i++) {
 	cs = ds_map_find_next(knownSpells,cs);
 }
 
-var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
+rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
+leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
 comboHitsToNextLevel = ds_map_find_value(comboHitsToNextLevelMap,leftHandItem.weaponType);
 
 offHandDamagePercent = ds_map_find_value(propertiesBaseValues,ModifiableProperties.OffHandDamage); // by default, offhand weapon deals 50% damage

@@ -33,7 +33,7 @@ with obj_item_parent {
 				//var gemData = [gem.object_index,gem.condition];
 				
 				
-				ds_list_add(gemsList,gem.object_index);
+				ds_list_add(gemsList,object_get_name(gem.object_index));
 				ds_list_add(gemsList,gem.condition);
 			}
 			//ds_map_replace(sd_item,"SocketedGems",gemsList);

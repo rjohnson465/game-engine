@@ -1,3 +1,4 @@
+
 if room == game_menu {
 
 	// game title
@@ -15,6 +16,8 @@ if room == game_menu {
 					joystickInputFrame++;
 				}
 				
+				if selectedOption == "" || selectedOption == noone selectedOption = "New Game";
+				
 				var h_point = gamepad_axis_value(pad, gp_axislh);
 				var v_point = gamepad_axis_value(pad, gp_axislv);
 				var pdir = noone;
@@ -31,7 +34,7 @@ if room == game_menu {
 					joystickInputFrame = 0;
 				}
 				
-				if gamepad_button_check_pressed(pad, gp_face1) {
+				if gamepad_button_check_pressed(pad, gp_face1) && !instance_exists(fade) {
 					switch selectedOption {
 						case "New Game": {
 							state = TitleScreenState.New;
@@ -44,6 +47,8 @@ if room == game_menu {
 					}
 				}
 				
+			} else {
+				selectedOption = noone;
 			}
 			
 			for (var i = 0; i < array_length_1d(options); i++) {
@@ -60,7 +65,7 @@ if room == game_menu {
 				if mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == str {
 					draw_set_color(c_white);	
 					// option was clicked
-					if mouse_check_button_pressed(mb_left) {
+					if mouse_check_button_pressed(mb_left) && !instance_exists(fade) {
 						switch str {
 							case "New Game": {
 								state = TitleScreenState.New; break;
@@ -190,7 +195,11 @@ if room == game_menu {
 				var xx = vw/2; var yy = startY+(i*sh);
 				if yy > loadBoxBottomRightY-sh break;
 				
-				if selectedFile = noone || selectedFile == "" selectedFile = fileName;
+				if (selectedFile = noone || selectedFile == "") && gamepad_is_connected(global.gamePadIndex) {
+					selectedFile = fileName;
+				} else {
+					selectedFile = noone;
+				}
 				
 				ds_list_add(shownFiles,fileName);
 				var x1 = xx-(.5*sw); var y1 = yy-(.5*sh);
@@ -201,12 +210,11 @@ if room == game_menu {
 					if mouse_check_button_pressed(mb_left) {
 						// load this game
 						currentSaveFile = fileName;
-						with global.player {
-							global.playerDoNothing = false;
-							event_perform(ev_create, 0);
-						}
 						file_find_close();
-						loadGame();
+						global.fadeDuration = 60;
+						global.owner = id;
+						fade = instance_create_depth(x,y,-100000,obj_fade);
+						//loadGame();
 					}
 				} else draw_set_color(c_ltgray);
 			    draw_text(vw/2,yy,fileName);
@@ -216,6 +224,17 @@ if room == game_menu {
 			
 			// controllers scrolling through files
 			if gamepad_is_connected(global.gamePadIndex) {
+				
+				// draw prompts
+				var promptsStartX = 350;
+				var promptsY = 500;
+				var xOffset = 20;
+				var w = 0;
+
+				w += drawPrompt("Select file",Input.PadUD,promptsStartX+w)+xOffset;
+				w += drawPrompt("Load",Input.F,promptsStartX+w)+xOffset;
+				w += drawPrompt("Back",Input.Escape,promptsStartX+w)+xOffset;
+				
 				var pad = global.gamePadIndex;
 				
 				if gamepad_button_check_pressed(pad, gp_padu) {
@@ -255,6 +274,42 @@ if room == game_menu {
 					}
 				}
 				
+				// load selected game
+				if gamepad_button_check_pressed(pad, gp_face1) {
+					// load this game
+					currentSaveFile = fileName;
+					file_find_close();
+					global.fadeDuration = 60;
+					global.owner = id;
+					fade = instance_create_depth(x,y,-100000,obj_fade);
+				}
+				
+				// go back
+				if gamepad_button_check_pressed(pad, gp_face2) && !instance_exists(fade) {
+					state = TitleScreenState.Options;
+				}
+				
+			} 
+			// if no controller, draw a back button
+			else {
+				// back button
+				var str = "Back";
+			
+				var sw = string_width(str); var sh = string_height(str);
+				var xx = vw/2; var yy = 500;
+				var x1 = xx-(.5*sw); var y1 = yy-(.5*sh);
+				var x2 = xx+(.5*sw); var y2 = yy+(.5*sh);
+			
+				if (mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == str) && !instance_exists(fade) {
+					draw_set_color(c_white);
+					if mouse_check_button_pressed(mb_left) {
+						newGameName = "";
+						cursorPos = 1;
+						state = TitleScreenState.Options;
+					}
+				} else draw_set_color(c_ltgray);
+			
+				draw_text(xx,yy,str);
 			}
 
 			file_find_close();
@@ -350,7 +405,10 @@ if room == game_menu {
 				
 				// start game with this save name
 				if gamepad_button_check_pressed(pad, gp_face1) {
-					newGame();
+					global.fadeDuration = 60;
+					global.owner = id;
+					fade = instance_create_depth(x,y,-100000,obj_fade);
+					//newGame();
 				}
 				
 				// return to main menu
@@ -364,6 +422,8 @@ if room == game_menu {
 			// keyboard input
 			else {
 				// current position indicator
+				var sh = string_height("s");
+				var xx = vw/2;
 				var currentChar = string_char_at(newGameName,cursorPos-1);
 				if (currentChar == noone || currentChar == undefined || currentChar == -1 || currentChar == "") {
 					draw_line(xx,450+(.5*sh),xx+20,450+(.5*sh));
@@ -396,7 +456,10 @@ if room == game_menu {
 				// allow for confirmation
 				if string_length(newGameName) > 0 {
 					if (keyboard_check_pressed(vk_enter)) {
-						newGame();
+						global.fadeDuration = 60;
+						global.owner = id;
+						fade = instance_create_depth(x,y,-100000,obj_fade);
+						//newGame();
 					}
 				}
 				

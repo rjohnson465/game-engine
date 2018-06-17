@@ -269,10 +269,18 @@ poisonFrames = 60;
 poisonFrame = 0;
 poisonDamage = 0;
 
-// light radius
-global.owner = id;
-global.makeLightOnCreate = false;
-instance_create_depth(x,y,1,obj_light_radius);
+// light radius -- only 1/combatant
+var lr = noone;
+with obj_light_radius {
+	if owner == other.id {
+		lr = id;
+	}
+}
+if lr == noone {
+	global.owner = id;
+	global.makeLightOnCreate = false;
+	instance_create_depth(x,y,1,obj_light_radius);
+}
 
 __x = 0;
 __y = 0;

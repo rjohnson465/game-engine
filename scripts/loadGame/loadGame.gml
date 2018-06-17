@@ -1,4 +1,10 @@
 // must be called by game manager obj
+
+// fade to load
+//global.fadeDuration = 30;
+//global.owner = id;
+//fade = instance_create_depth(x,y,-100000,obj_fade);
+
 isLoading = true;
 alarm[0] = 1;
 
@@ -50,4 +56,12 @@ with obj_item_drop {
 	instance_destroy(id,1);
 }
 
-room_goto(roomToGoTo);
+//if instance_exists(fade) {
+	//if fade.frame == .5*fade.fadeDuration {
+		
+		
+		room_goto(roomToGoTo);
+	//}
+//}
+
+
