@@ -29,3 +29,5 @@ if macro != noone {
 } else {
 	ds_map_replace(item.itemProperties,propKey,propVal);
 }
+
+updateItemName(item);

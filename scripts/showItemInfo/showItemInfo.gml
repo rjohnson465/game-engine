@@ -42,8 +42,11 @@ switch item.rarity {
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 var s = item.name;
-
-draw_text(mean(topLeftX,topLeftX+width),mean(descriptionHandleY2+topLeftY)/2,s);
+var ns = 1; // name scale
+if string_width(s) > width-2 {
+	ns = (width-2)/string_width(s);
+}
+draw_text_transformed(mean(topLeftX,topLeftX+width),mean(descriptionHandleY2+topLeftY)/2,s,ns,1,0);
 
 draw_set_valign(fa_left);
 draw_set_halign(fa_left);
@@ -291,7 +294,7 @@ else if item.type == ItemTypes.Other {
 else if item.type == ItemTypes.Ring {
 	var ringProps = item.itemProperties;
 	var currentProperty = ds_map_find_first(ringProps);
-	var line = 1;
+	var line = 0;
 	for(var i = 0; i < ds_map_size(ringProps); i++) {
 		
 		var val = ds_map_find_value(ringProps,currentProperty);
@@ -310,7 +313,7 @@ else if item.type == ItemTypes.Ring {
 		if string_width(finalString) > operatingWidth {
 			scale = operatingWidth / string_width(finalString);
 		}
-		draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+(line*25),finalString,scale,scale,0);
+		draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+(line*25)+5,finalString,scale,scale,0);
 		line++;
 		
 		currentProperty = ds_map_find_next(ringProps,currentProperty);

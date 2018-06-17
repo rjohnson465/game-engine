@@ -22,3 +22,4 @@ switch item.type {
 	
 }*/
 updateItemNameGems(item);
+updateItemNameProperties(item);

@@ -9,7 +9,11 @@
         "0c219689-8aff-48df-af31-5466c39f7240",
         "21e32d81-d55d-44bf-bd06-58f623c3a573",
         "37c6da58-a207-4b69-b302-d28fa96bb578",
-        "ee53fb8b-1fb1-42ed-a6c9-5d3c7549dec8"
+        "ee53fb8b-1fb1-42ed-a6c9-5d3c7549dec8",
+        "b599259a-1c82-4fe8-be7a-aecb0b15f377",
+        "af5176cd-35b0-4c7d-882e-1bfa116938d3",
+        "f3d58244-df02-4a48-8288-c882746a9e00",
+        "925807fe-204f-4dd8-b2a6-c7fc726ac82c"
     ],
     "filterType": "GMScript",
     "folderName": "Modification",

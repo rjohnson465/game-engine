@@ -31,6 +31,7 @@ if !instance_exists(obj_player_gui) {
 }
 
 defineItemsByAct();
+definePropertiesByRarity();
 
 enum EquipmentSlots {
 	Head,
@@ -185,14 +186,14 @@ addItemToInventory(makeGold(100000,200000));
 //ds_map_replace(longsword2.damages,ICE,[2,4]);
 //addItemToInventory(longsword2);
 
-
+/*
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword.persistent = true;
 longsword.numberOfSockets = 3;
 insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
 insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
 insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
-addItemToInventory(longsword);
+addItemToInventory(longsword);*/
 
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
 
@@ -206,6 +207,10 @@ addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
 var ring = instance_create_depth(x,y,1,obj_item_ring);
 ds_map_add(ring.itemProperties,ModifiableProperties.StaminaMax,50);
 ds_map_add(ring.itemProperties,ModifiableProperties.StaminaRegen,10);
+ds_map_add(ring.itemProperties,ModifiableProperties.CriticalsChance,[SWORD1H,10]);
+ds_map_add(ring.itemProperties,ModifiableProperties.CriticalsDamage,[SWORD1H,15]);
+ds_map_add(ring.itemProperties,ModifiableProperties.WeaponTypesDamage,[SWORD1H,5]);
+updateItemName(ring);
 addItemToInventory(ring);
 
 //var lcap = instance_create_depth(x,y,1,obj_hat_leathercap);
