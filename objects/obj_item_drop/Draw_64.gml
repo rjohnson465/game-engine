@@ -21,6 +21,23 @@ if isBeingLooted && ds_exists(items,ds_type_list) && ds_list_size(items) != 0 {
 	draw_rectangle(topLeftX,topLeftY,bottomRightX,topLeftY+handleHeight,0);
 	draw_set_color(c_white); draw_set_valign(fa_center); draw_set_halign(fa_center);
 	var s = !instance_exists(selectedItem) ? "Loot Items" : selectedItem.name;
+	if instance_exists(selectedItem) {
+		// draw item name in color according to item rarity
+		switch selectedItem.rarity {
+			case ItemRarities.Normal: {
+				draw_set_color(c_white); break;
+			}
+			case ItemRarities.Fine: {
+				draw_set_color(c_aqua); break;
+			}
+			case ItemRarities.Masterwork: {
+				draw_set_color(c_fuchsia); break;
+			}
+			case ItemRarities.Legendary: {
+				draw_set_color(c_lime); break;
+			}
+		}
+	}
 	draw_text(mean(topLeftX,bottomRightX),mean(topLeftY,topLeftY+handleHeight),s);
 	
 	var row = 1; var col = 1;

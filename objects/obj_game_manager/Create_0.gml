@@ -37,7 +37,10 @@ global.ALL_PHYSICAL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH];
 
 global.gamePadIndex = noone;
 
-global.playerDoNothing = true;
+global.playerDoNothing = false;
+if room == game_menu {
+	global.playerDoNothing = true;
+}
 
 global.ALL_WEAPON_TYPES = [
 	SWORD1H, SWORD2H, DAGGER, UNARMED, AXE1H, AXE2H, BLUNT1H, BLUNT2H, RAPIER, SPEAR,

@@ -59,8 +59,11 @@ if array_length_1d(vrareProps) > 0 {
 // build the item name
 var prefixString = "";
 for (var i = 0; i < ds_list_size(prefixes); i++) {
-	prefixString += ds_list_find_value(prefixes,i);
-	prefixString += " ";
+	var prefix = ds_list_find_value(prefixes,i);
+	if prefix != undefined {
+		prefixString += prefix;
+		prefixString += " ";
+	}
 }
 var newName = prefixString + item.baseName;
 if suffix1 != noone || suffix2 != noone {

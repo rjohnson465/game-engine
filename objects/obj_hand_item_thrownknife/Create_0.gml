@@ -9,8 +9,8 @@ projectileSpeed = 20;
 staggerDuration = 5; // frames
 ds_map_set(damages,PIERCE,[5,11]);
 staminaCostArray=[15];
-ammo = 2;
-ammoMax = 2;
+ammo = 52;
+ammoMax = 52;
 
 act = 1;
 

@@ -32,7 +32,7 @@ switch item.rarity {
 		draw_set_color(c_aqua); break;
 	}
 	case ItemRarities.Masterwork: {
-		draw_set_color(c_purple); break;
+		draw_set_color(c_fuchsia); break;
 	}
 	case ItemRarities.Legendary: {
 		draw_set_color(c_lime); break;
