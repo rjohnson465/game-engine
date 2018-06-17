@@ -1,6 +1,6 @@
 /// maybeMakeItem(dropChance,raritiesMap,*typeMap,*act,*gemTypeMap,*itemPropertiesChanceAddendums)
 /// @param dropChance number 0-100
-/// @param raritiesMap map (<RarityType>, [minRange,maxRange])
+/// @param raritiesMap map (<RarityType>, number)
 /// @param *typeMap map (<ItemType>, [minRange,maxRange])
 /// @param *act number
 /// @param *gemTypeMap map stating drop chances for each Gem 
@@ -22,18 +22,32 @@ if argument_count >=3 && argument[2] != noone {
 	typeMap = argument[2];
 }
 
-var lowestSeen = 100; var itemType = noone;
-var currentItemType = ds_map_find_first(typeMap);
+var cumSum = 0;
+var currentTypeKey = ds_map_find_first(typeMap);
 for (var i = 0; i < ds_map_size(typeMap); i++) {
-	var chanceRange = ds_map_find_value(typeMap,i);
-	var chanceMin = chanceRange[0]; var chanceMax = chanceRange[1];
-	if chanceMin <= lowestSeen && (rand1 <= chanceMax && rand1 > chanceMin) {
-		lowestSeen = chanceMin;
-		itemType = i;
+	var weight = ds_map_find_value(typeMap,currentTypeKey);
+	cumSum += weight;
+	currentTypeKey = ds_map_find_next(typeMap,currentTypeKey);
+}
+
+randomize(); 
+var rand = random_range(0,cumSum);
+	
+var currentTypeKey = ds_map_find_first(typeMap);
+var itemType = noone; // the chosen item type based on this roll
+var lowerBound = 0; var upperBound = 0;
+for (var i = 0; i < ds_map_size(typeMap); i++) {
+	var weight = ds_map_find_value(typeMap,currentTypeKey);
+	upperBound += weight;
+	if rand >= lowerBound && rand <= upperBound {
+		itemType = currentTypeKey; break;
 	}
-	currentItemType = ds_map_find_next(typeMap,currentItemType);
+		
+	lowerBound += weight;
+	currentTypeKey = ds_map_find_next(typeMap,currentTypeKey);
 }
 if itemType == noone itemType = ItemTypes.HandItem;
+
 ds_map_destroy(typeMap); // prevent mem leak
 
 // PART 2: Select object based on "act"

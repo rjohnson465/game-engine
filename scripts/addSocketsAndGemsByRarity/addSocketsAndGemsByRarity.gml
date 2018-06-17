@@ -17,17 +17,17 @@ switch rarity {
 
 	case ItemRarities.Normal: {
 		// chances of getting 0-3 sockets
-		ds_map_replace(socketsNumChanceMap,0,80);
-		ds_map_replace(socketsNumChanceMap,1,15);
-		ds_map_replace(socketsNumChanceMap,2,5);
+		ds_map_replace(socketsNumChanceMap,0,100);
+		ds_map_replace(socketsNumChanceMap,1,0);
+		ds_map_replace(socketsNumChanceMap,2,0);
 		ds_map_replace(socketsNumChanceMap,3,0);
 		socketsNumChanceMap = getNormalizedWeightMap(socketsNumChanceMap);
 		socketsNumChanceMap = getCumulativeProbabilitiesMap(socketsNumChanceMap);
 		
 		// chances of getting 0-3 gems
-		ds_map_replace(gemNumChanceMap,0,90);
-		ds_map_replace(gemNumChanceMap,1,9);
-		ds_map_replace(gemNumChanceMap,2,1);
+		ds_map_replace(gemNumChanceMap,0,100);
+		ds_map_replace(gemNumChanceMap,1,0);
+		ds_map_replace(gemNumChanceMap,2,0);
 		ds_map_replace(gemNumChanceMap,3,0);
 		gemNumChanceMap = getNormalizedWeightMap(gemNumChanceMap);
 		gemNumChanceMap = getCumulativeProbabilitiesMap(gemNumChanceMap);
@@ -45,7 +45,7 @@ switch rarity {
 	
 	case ItemRarities.Fine: {
 		// chances of getting 0-3 sockets
-		ds_map_replace(socketsNumChanceMap,0,10);
+		ds_map_replace(socketsNumChanceMap,0,0);
 		ds_map_replace(socketsNumChanceMap,1,80);
 		ds_map_replace(socketsNumChanceMap,2,10);
 		ds_map_replace(socketsNumChanceMap,3,0);

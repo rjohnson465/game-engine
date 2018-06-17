@@ -12,10 +12,16 @@ ds_map_replace(map,ItemTypes.Other,[-1,0]);
 
 // normal case
 
+/*
 ds_map_replace(map,ItemTypes.HandItem,[0,60]);
 ds_map_replace(map,ItemTypes.Head,[60,80]);
 ds_map_replace(map,ItemTypes.Ring,[80,95]);
 ds_map_replace(map,ItemTypes.Other,[95,100]);
+*/
 
+ds_map_replace(map,ItemTypes.HandItem,60);
+ds_map_replace(map,ItemTypes.Head,20);
+ds_map_replace(map,ItemTypes.Ring,15);
+ds_map_replace(map,ItemTypes.Other,5);
 
 return map;
