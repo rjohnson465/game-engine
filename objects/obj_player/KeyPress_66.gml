@@ -1,4 +1,6 @@
-//alert("Shields can only be equipped in the left hand",c_yellow,60);
+if room == game_menu {
+	exit;
+}//alert("Shields can only be equipped in the left hand",c_yellow,60);
 
 xpTemp += 1000;
 

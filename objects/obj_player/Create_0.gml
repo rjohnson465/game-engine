@@ -1,7 +1,8 @@
 global.player = id;
 if room == game_menu && global.playerDoNothing {
+	//instance_deactivate_object(id);
 	exit;
-}
+} 
 playerLightRadius = noone;
 
 layer = layer_get_id("instances_floor_1");

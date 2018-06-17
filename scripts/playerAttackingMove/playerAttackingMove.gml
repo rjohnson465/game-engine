@@ -16,6 +16,10 @@ if	!isFlinching && (
 				(arrayIncludes(mobileWeaponTypes, leftHandItem.weaponType) && !isRightHandInUse) &&
 				!(!arrayIncludes(mobileWeaponTypes, rightHandItem.weaponType) && isRightHandInUse)
 			)
+		|| (
+				(arrayIncludes(mobileWeaponTypes, rightHandItem.weaponType) && !isLeftHandInUse) &&
+				!(!arrayIncludes(mobileWeaponTypes, leftHandItem.weaponType) && isLeftHandInUse)
+			)
 	)
 	{
 	

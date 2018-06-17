@@ -1,3 +1,5 @@
-with global.ui {
+if room == game_menu {
+	exit;
+}with global.ui {
 	showHideOptions();
 }

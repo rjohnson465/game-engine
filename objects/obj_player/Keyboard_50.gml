@@ -1,1 +1,3 @@
-currentSpellAttunement = FIRE;
+if room == game_menu {
+	exit;
+}currentSpellAttunement = FIRE;

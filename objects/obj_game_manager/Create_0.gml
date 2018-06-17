@@ -53,7 +53,7 @@ enum TitleScreenState {
 
 options = ["New Game", "Load Game"];
 
-selectedOption = "";
+selectedOption = "New Game";
 
 state = TitleScreenState.Options;
 isLoading = false;
@@ -72,14 +72,29 @@ selectedFile = noone;
 loadBoxTopLeftX = vw/4;
 loadBoxTopLeftY = 200;
 loadBoxBottomRightX = (3*vw)/4;
-loadBoxBottomRightY = vh -100;
+loadBoxBottomRightY = 300;
 loadBoxWidth = loadBoxBottomRightX - loadBoxTopLeftX;
 
 scrollSpriteWidth = sprite_get_width(spr_scrollarrow);
 scrollSpriteHeight = sprite_get_height(spr_scrollarrow);
+scrollBarWidth = 20;
 
-lbScrollBarTopLeftX = loadBoxBottomRightX-scrollSpriteWidth;
-lbScrollBarTopLeftY = loadBoxTopLeftY;
-lbScrollBarBottomRightX = loadBoxBottomRightX;
-lbScrollBarBottomRightY = loadBoxBottomRightY;
+scrollBarTopLeftX = loadBoxBottomRightX-scrollBarWidth;
+scrollBarTopLeftY = loadBoxTopLeftY;
+scrollBarBottomRightX = loadBoxBottomRightX;
+scrollBarBottomRightY = loadBoxBottomRightY;
+
+scrollButtonUpTopLeftX = scrollBarBottomRightX-scrollBarWidth;
+scrollButtonUpTopLeftY = scrollBarTopLeftY;
+scrollButtonUpBottomRightX = scrollBarBottomRightX;
+scrollButtonUpBottomRightY = scrollBarTopLeftY+scrollBarWidth;
+
+scrollButtonDownTopLeftX = scrollButtonUpTopLeftX;
+scrollButtonDownTopLeftY = scrollBarBottomRightY-scrollBarWidth;
+scrollButtonDownBottomRightX = scrollBarBottomRightX;
+scrollButtonDownBottomRightY = scrollBarBottomRightY;
+
 scrollLevel = 0; // for load files
+
+joystickInputFrame = 0;
+joystickInputTotalFrames = 30;

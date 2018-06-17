@@ -999,6 +999,14 @@
             }
         },
         {
+            "Key": "1f7e9b21-5d5e-44ad-9298-e074e64b33d9",
+            "Value": {
+                "id": "190cca63-2527-4d79-bccb-e65e8394c05d",
+                "resourcePath": "sprites\\spr_prompt_xbox_pad_lr\\spr_prompt_xbox_pad_lr.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "20d506c2-0815-4cf3-abbf-698b13e3d524",
             "Value": {
                 "id": "d336ff0e-b4b4-407a-90d4-64421edc6224",
@@ -1227,6 +1235,14 @@
             "Value": {
                 "id": "3138d5b2-adb1-41f8-bfc2-cac1e201c4f7",
                 "resourcePath": "scripts\\maybeChangeAttack\\maybeChangeAttack.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "29637b3d-cad2-43be-8798-f52be753b041",
+            "Value": {
+                "id": "d77d42f7-69cf-4eec-856b-29483bad143d",
+                "resourcePath": "scripts\\newGame\\newGame.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -5239,6 +5255,14 @@
             }
         },
         {
+            "Key": "c24a0c2e-ab71-41dd-93a8-e9c403e3bd28",
+            "Value": {
+                "id": "b28fd1a3-64aa-4d04-b6f3-9ac5f51d5604",
+                "resourcePath": "scripts\\loadFilesGetMaxScrollLevel\\loadFilesGetMaxScrollLevel.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c26c330e-c3dc-4c1f-ae76-aa497316ad94",
             "Value": {
                 "id": "2141f7c9-efeb-4c75-8b0b-0b376d919d24",
@@ -5939,6 +5963,14 @@
             "Value": {
                 "id": "34875448-4347-4e90-bdf1-cb657cc9a4ec",
                 "resourcePath": "sprites\\spr_item_leathercap\\spr_item_leathercap.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d9aaf030-3b18-4d6f-a474-348e9ac790f1",
+            "Value": {
+                "id": "e15642f5-9f38-42a8-b16c-916c84f54822",
+                "resourcePath": "sprites\\spr_prompt_xbox_pad_ud\\spr_prompt_xbox_pad_ud.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -7054,6 +7086,7 @@
         "28d6df77-b94b-4336-8bc3-bf0062e7a198",
         "40731f53-0213-4f77-8cac-ff55fee54375",
         "07143ae7-419e-4918-8886-a8ad376405a3",
+        "c24a0c2e-ab71-41dd-93a8-e9c403e3bd28",
         "48c82035-87c8-4519-af0b-672fa27e8e9f",
         "1949d661-bf35-49e3-906d-36ee6139f2e2",
         "49c3814e-d8c4-4d0e-b35d-1ddee2964762",
@@ -7125,7 +7158,8 @@
         "84e57ae1-0dc2-4130-8cb6-37b14bf270c3",
         "bd7dfde2-b268-47bf-bc09-2183fd6627e4",
         "c0e09787-a19e-40ce-9535-6aa20f82c058",
-        "558ef868-3e37-4ed7-8294-6a5de4aab97a"
+        "558ef868-3e37-4ed7-8294-6a5de4aab97a",
+        "29637b3d-cad2-43be-8798-f52be753b041"
     ],
     "tutorial": ""
 }

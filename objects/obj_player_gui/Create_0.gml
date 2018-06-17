@@ -150,7 +150,9 @@ enum Input {
 	LT,
 	RT,
 	LB,
-	RB
+	RB,
+	PadUD,
+	PadLR
 }
 
 isShowingExplanations = false;

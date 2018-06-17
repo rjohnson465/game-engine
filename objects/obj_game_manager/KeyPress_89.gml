@@ -1,4 +1,4 @@
-isLoading = true;
+/*isLoading = true;
 alarm[0] = 1;
 
 // TODO -- load in player (persistent) before moving rooms?

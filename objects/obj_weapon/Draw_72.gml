@@ -1,4 +1,15 @@
 if owner.currentUsingSpell != noone exit;
+var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
+var rightHandItem = ds_map_find_value(owner.equippedLimbItems,"r");
+if limbKey == "r" && rightHandItem.weaponType == THROWN && rightHandItem.ammo == 0 {
+	visible = false;
+	exit;
+}
+if limbKey == "l" && leftHandItem.weaponType == THROWN && leftHandItem.ammo == 0 {
+	visible = false;
+	exit;
+}
+
 prepareLayerShader();
 
 if sprite_index == -1 exit;

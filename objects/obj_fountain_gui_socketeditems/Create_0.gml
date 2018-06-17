@@ -1,4 +1,4 @@
-depth = -1001;
+depth = -1002;
 
 menusHandleHeight = 20;
 inv = ds_list_create();
