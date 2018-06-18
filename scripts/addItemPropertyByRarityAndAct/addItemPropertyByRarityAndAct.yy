@@ -1,8 +1,8 @@
 {
-    "id": "d9b31185-221c-49a8-9135-68d699fa8859",
+    "id": "1aae0560-6d48-43c0-827d-164f45f5c15e",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "addItemProperty",
+    "name": "addItemPropertyByRarityAndAct",
     "IsCompatibility": false,
     "IsDnD": false
 }

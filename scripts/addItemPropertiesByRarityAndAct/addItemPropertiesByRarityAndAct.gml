@@ -77,7 +77,7 @@ if addendums != noone {
 
 // choose numBasicProps distinct properties from basicProperties map
 for (var i = 0; i < numBasicProps; i++) {
-	addItemProperty(item,basicPropertiesMap,act,rarity);
+	addItemPropertyByRarityAndAct(item,basicPropertiesMap,act,rarity);
 }
 
 // rare properties
@@ -148,7 +148,7 @@ if addendums != noone {
 
 // choose numRareProps distinct properties from rarePropertiesMap
 for (var i = 0; i < numRareProps; i++) {
-	addItemProperty(item,rarePropertiesMap,act,rarity);
+	addItemPropertyByRarityAndAct(item,rarePropertiesMap,act,rarity);
 }
 
 // vrare properties
@@ -220,7 +220,7 @@ if addendums != noone {
 
 // choose numVrareProps distinct properties from vrarePropertiesMap
 for (var i = 0; i < numVrareProps; i++) {
-	addItemProperty(item,vrarePropertiesMap,act,rarity);
+	addItemPropertyByRarityAndAct(item,vrarePropertiesMap,act,rarity);
 }
 
 ds_map_destroy(basicPropertiesMap);

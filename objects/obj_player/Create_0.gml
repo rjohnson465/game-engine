@@ -164,7 +164,7 @@ ds_map_add(attunementLevels,POISON,1);
 ds_map_add(attunementLevels,LIGHTNING,1);*/
 currentSpellAttunement = MAGIC;
 
-
+goldDropMultiplier = 100; // %
 // inventory -- holds all items
 inventory = ds_list_create();
 addItemToInventory(makeGold(100000,200000));
@@ -195,11 +195,11 @@ insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
 insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 addItemToInventory(longsword);*/
 
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
+//addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
 
 //addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
-//var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
-//addItemToInventory(baxe);
+var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
+addItemToInventory(baxe);
 
 //addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 //addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
@@ -207,9 +207,10 @@ addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
 var ring = instance_create_depth(x,y,1,obj_item_ring);
 ds_map_add(ring.itemProperties,ModifiableProperties.StaminaMax,50);
 ds_map_add(ring.itemProperties,ModifiableProperties.StaminaRegen,10);
-ds_map_add(ring.itemProperties,ModifiableProperties.CriticalsChance,[SWORD1H,10]);
-ds_map_add(ring.itemProperties,ModifiableProperties.CriticalsDamage,[SWORD1H,15]);
-ds_map_add(ring.itemProperties,ModifiableProperties.WeaponTypesDamage,[SWORD1H,5]);
+addItemProperty(ring,ModifiableProperties.GoldDrop,100);
+//ds_map_add(ring.itemProperties,ModifiableProperties.CriticalsChance,[SWORD1H,10]);
+//ds_map_add(ring.itemProperties,ModifiableProperties.CriticalsDamage,[SWORD1H,15]);
+//ds_map_add(ring.itemProperties,ModifiableProperties.WeaponTypesDamage,[SWORD1H,5]);
 updateItemName(ring);
 addItemToInventory(ring);
 

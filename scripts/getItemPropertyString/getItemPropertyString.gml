@@ -11,6 +11,9 @@ if argument_count == 2 {
 var s = "";
 
 switch prop {
+	case ModifiableProperties.GoldDrop: {
+		s = "% gold dropped from kills"; break;
+	}
 	case ModifiableProperties.HpMax: {
 		s = " max HP"; break;
 	}

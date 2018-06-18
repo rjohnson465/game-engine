@@ -35,6 +35,14 @@ if argument_count == 5 {
 
 draw_set_font(font_main);
 var promptWidth = string_width(msg);
+
+// do not allow prompts to be too long
+var maxW = 250; var stringScale = 1;
+if promptWidth > maxW {
+	stringScale = maxW / promptWidth;
+}
+promptWidth *= stringScale;
+
 var spritesMap = ds_map_create();
 var isGamepadConnected = gamepad_is_connected(global.player.gamePadIndex);
 
@@ -126,7 +134,7 @@ for (var i = 0 ; i < array_length_1d(keys); i++) {
 
 
 draw_set_valign(fa_center);
-scr_draw_text_outline(xx+spritesWidth,yy+(sh*.5)+2,msg,msgColor,msgColor);
+scr_draw_text_outline(xx+spritesWidth,yy+(sh*.5)+2,msg,msgColor,msgColor,stringScale,1,0,c_black);
 
 ds_map_destroy(spritesMap); // memory leaks
 return promptWidth+10; // 10px padding

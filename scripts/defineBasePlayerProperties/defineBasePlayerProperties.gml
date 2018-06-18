@@ -8,6 +8,9 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 	ds_map_replace(basePlayerProperties,i,0); // never have empty base property
 	
 	switch i {
+		case ModifiableProperties.GoldDrop: {
+			ds_map_replace(basePlayerProperties,i,100); break;
+		}
 		case ModifiableProperties.HpMax: {
 			ds_map_replace(basePlayerProperties,i,100); break;
 		}

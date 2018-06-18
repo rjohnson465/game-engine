@@ -137,6 +137,9 @@ switch prop {
 	case ModifiableProperties.ElementalDamageTypesMultiplier: {
 		ds_map_replace(p.elementalDamageTypesMultipliers,macro,newVal); break;
 	}
+	case ModifiableProperties.GoldDrop: {
+		p.goldDropMultiplier = newVal; break;
+	}
 }
 
 if p.hp > p.maxHp p.hp = p.maxHp;

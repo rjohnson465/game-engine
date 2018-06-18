@@ -35,6 +35,7 @@ if id == global.ui.grabbedItem {
 	grabFrame = 0;
 	mightGrab = false;
 	global.ui.grabbedItem = noone;
+	didClickStartInInventory = false;
 	cursor_sprite = -1;
 	visible = false;
 }

@@ -87,3 +87,5 @@ ammo = 0;
 ammoMax = 0;
 
 invIndex = noone;
+
+didClickStartInInventory = false;

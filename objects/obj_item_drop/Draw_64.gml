@@ -38,7 +38,11 @@ if isBeingLooted && ds_exists(items,ds_type_list) && ds_list_size(items) != 0 {
 			}
 		}
 	}
-	draw_text(mean(topLeftX,bottomRightX),mean(topLeftY,topLeftY+handleHeight),s);
+	var ns = 1; // name scale
+	if string_width(s) > width-2 {
+		ns = (width-2)/string_width(s);
+	}
+	draw_text_transformed(mean(topLeftX,bottomRightX),mean(topLeftY,topLeftY+handleHeight),s,ns,1,0);
 	
 	var row = 1; var col = 1;
 	var init_x = lootTopLeftX; var init_y = lootTopLeftY;

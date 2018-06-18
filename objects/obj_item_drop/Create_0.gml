@@ -29,6 +29,7 @@ topLeftX = sw-333.33-10;
 topLeftY = sh-148-10-50; // 10px padding, allow room for prompts
 bottomRightX = sw-10;
 bottomRightY = sh-10-50;
+width = bottomRightX - topLeftX;
 
 handleHeight = 20;
 

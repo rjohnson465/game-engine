@@ -1,3 +1,5 @@
+var vx = camera_get_view_x(view_camera[0]);
+var vy = camera_get_view_y(view_camera[0]);
 var itemIsBeingLooted = false;
 var dropItem = noone; var itemPos = -1;
 with obj_item_drop {
@@ -91,6 +93,12 @@ else {
 	
 }
 
+var inv = global.inventory;
+if global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY && point_in_rectangle(mouse_x,mouse_y,vx+inv.topLeftX,vy+inv.topLeftY,vx+inv.bottomRightX,vy+inv.bottomRightY)
+{
+	didClickStartInInventory = true;
+}
+
 //if type != ItemTypes.Other {
-	mightGrab = true;
+mightGrab = true;
 //}
