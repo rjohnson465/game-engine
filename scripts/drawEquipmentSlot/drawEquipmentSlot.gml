@@ -8,6 +8,8 @@ var yy = argument1;
 var slot = argument2;
 var ui = global.ui; 
 
+var moveSelectorItem = getItemAtSelectorPosition(ui.moveSelector);
+
 var drawDark = false;
 with obj_item_selector {
 	if x1 == xx && y1 == yy && (isActive || type == SelectorTypes.Select) {

@@ -195,9 +195,9 @@ if room == game_menu {
 				var xx = vw/2; var yy = startY+(i*sh);
 				if yy > loadBoxBottomRightY-sh break;
 				
-				if (selectedFile = noone || selectedFile == "") && gamepad_is_connected(global.gamePadIndex) {
+				if (selectedFile == noone || selectedFile == "") && gamepad_is_connected(global.gamePadIndex) {
 					selectedFile = fileName;
-				} else {
+				} else if !gamepad_is_connected(global.gamePadIndex) {
 					selectedFile = noone;
 				}
 				
@@ -277,7 +277,7 @@ if room == game_menu {
 				// load selected game
 				if gamepad_button_check_pressed(pad, gp_face1) {
 					// load this game
-					currentSaveFile = fileName;
+					currentSaveFile = selectedFile;
 					file_find_close();
 					global.fadeDuration = 60;
 					global.owner = id;

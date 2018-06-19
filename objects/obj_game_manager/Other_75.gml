@@ -6,7 +6,7 @@ switch(async_load[? "event_type"])             // Parse the async_load map to se
 {
 case "gamepad discovered":                     // A game pad has been discovered
     global.gamePadIndex = async_load[? "pad_index"];       // Get the pad index value from the async_load map
-    gamepad_set_axis_deadzone(global.gamePadIndex, 0.1);       // Set the "deadzone" for the axis
+    gamepad_set_axis_deadzone(global.gamePadIndex, 0.2);       // Set the "deadzone" for the axis
     gamepad_set_button_threshold(global.gamePadIndex, 0.1);    // Set the "threshold" for the triggers
 	window_set_cursor(cr_none);
     break;

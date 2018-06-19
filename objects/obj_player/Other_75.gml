@@ -5,30 +5,13 @@ switch(async_load[? "event_type"])             // Parse the async_load map to se
 {
 case "gamepad discovered":                     // A game pad has been discovered
     gamePadIndex = async_load[? "pad_index"];       // Get the pad index value from the async_load map
-    gamepad_set_axis_deadzone(gamePadIndex, 0.1);       // Set the "deadzone" for the axis
+    gamepad_set_axis_deadzone(gamePadIndex, 0.2);       // Set the "deadzone" for the axis
     gamepad_set_button_threshold(gamePadIndex, 0.1);    // Set the "threshold" for the triggers
-    /*if !(instance_exists(player[pad]))         // Check to see if an instance is associated with this pad index
-        {
-        // Create a player object and assign it a pad number
-        player[pad] = instance_create(64 + random(room_width - 128), 64 + random(room_height - 128), obj_Player);
-        with (player[pad])
-            {
-            image_index = pad;
-            pad_num = pad;
-            }
-        }*/
+
 	window_set_cursor(cr_none);
     break;
 case "gamepad lost":                           // Gamepad has been removed or otherwise disabled
     var pad = async_load[? "pad_index"];       // Get the pad index
-    /*if (instance_exists(player[pad]))          // Check for a player instance associated with the pad and remove it
-        {
-        with (player[pad])
-            {
-            instance_destroy();
-            }
-        player[pad] = noone;                   // Set the controller array to "noone" so it detects a new pad being connected
-        }*/
 	window_set_cursor(cr_default);
     break;
 }

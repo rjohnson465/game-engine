@@ -89,3 +89,5 @@ ammoMax = 0;
 invIndex = noone;
 
 didClickStartInInventory = false;
+
+isTwoHanded = false;

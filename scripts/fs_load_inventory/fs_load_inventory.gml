@@ -73,7 +73,8 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 				var amnt = ds_list_find_value(val,1);
 				val = [macro,amnt];
 			}
-			ds_map_replace(item.itemProperties,prop,val);
+			//ds_map_replace(item.itemProperties,prop,val);
+			addItemProperty(item,prop,val);
 		}
 	}
 
