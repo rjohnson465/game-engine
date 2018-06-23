@@ -58,13 +58,41 @@ if array_length_1d(vrareProps) > 0 {
 
 // build the item name
 var prefixString = "";
-for (var i = 0; i < ds_list_size(prefixes); i++) {
+var prefixArr = []; var prefixArrIndex = 0;
+/*for (var i = 0; i < ds_list_size(prefixes); i++) {
+	
 	var prefix = ds_list_find_value(prefixes,i);
+	if (prefix == undefined) continue;
+	
 	if prefix != undefined {
 		prefixString += prefix;
 		prefixString += " ";
 	}
+}*/
+// build the prefix string according to the following order:
+// 1) weapon damage bonus
+// 2) crit chance bonus
+// 3) physical dmg bonus
+// 4) elemental dmg bonus
+// 5) crit dmg bonus
+// 6) defense / resist bonus
+var orderedPrefixes = ds_list_create();
+ds_list_add(orderedPrefixes,getPrefixInMap(prefixes,global.weaponTypesDamagePrefixes));
+ds_list_add(orderedPrefixes,getPrefixInMap(prefixes,global.criticalsChancePrefixes));
+ds_list_add(orderedPrefixes,getPrefixInMap(prefixes,global.physicalMultiplierPrefixes));
+ds_list_add(orderedPrefixes,getPrefixInMap(prefixes,global.elementalMultipliersPrefixes));
+ds_list_add(orderedPrefixes,getPrefixInMap(prefixes,global.criticalsDamagePrefixes));
+ds_list_add(orderedPrefixes,getPrefixInMap(prefixes,global.defensePrefixes));
+
+for (var i = 0; i < ds_list_size(orderedPrefixes); i++) {
+	
+	var prefix = ds_list_find_value(orderedPrefixes,i);
+	if (prefix == undefined || prefix == noone) continue;
+	prefixString += prefix;
+	prefixString += " ";
+	
 }
+
 var newName = prefixString + item.baseName;
 if suffix1 != noone || suffix2 != noone {
 	newName += " of the ";
@@ -79,5 +107,6 @@ if suffix2 != noone {
 item.name = newName;
 
 ds_list_destroy(prefixes);
+ds_list_destroy(orderedPrefixes);
 //ds_list_destroy(basicProps);
 ds_list_destroy(props);

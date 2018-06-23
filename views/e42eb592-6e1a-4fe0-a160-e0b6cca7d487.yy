@@ -13,7 +13,8 @@
         "b599259a-1c82-4fe8-be7a-aecb0b15f377",
         "af5176cd-35b0-4c7d-882e-1bfa116938d3",
         "f3d58244-df02-4a48-8288-c882746a9e00",
-        "925807fe-204f-4dd8-b2a6-c7fc726ac82c"
+        "925807fe-204f-4dd8-b2a6-c7fc726ac82c",
+        "a84fe00d-af99-494c-ba44-e2a248d4c952"
     ],
     "filterType": "GMScript",
     "folderName": "Modification",

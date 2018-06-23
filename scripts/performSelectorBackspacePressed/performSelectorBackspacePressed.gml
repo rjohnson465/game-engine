@@ -20,7 +20,7 @@ if type == SelectorTypes.Select && isSelectorInEquippedItems && global.ui.isShow
 		var slotObj = getSlotAtSelector(id);
 		item = getItemInEquipmentSlot(slotObj.slot);
 	}
-	if item && isActive {
+	if item && isActive && item.equipmentSlot != noone {
 		unequipItem(item);
 	}
 }

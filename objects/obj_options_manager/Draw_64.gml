@@ -19,7 +19,7 @@ switch subMenu {
 			
 			if selectedOption == noone && gamepad_is_connected(global.gamePadIndex) {
 				selectedOption = str;
-			} else {
+			} else if !gamepad_is_connected(global.gamePadIndex) {
 				selectedOption = noone;
 			}
 			
@@ -37,6 +37,20 @@ switch subMenu {
 			if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_pressed(mb_left) {
 				switch str {
 					case SAVEEXIT: {
+						global.ui.isShowingMenus = false;
+						global.fadeDuration = 60;
+						global.owner = id;
+						fade = instance_create_depth(x,y,-1000000,obj_fade);
+						break;
+					}
+				}
+			}
+		}
+		if gamepad_is_connected(global.gamePadIndex) {
+			if gamepad_button_check_pressed(global.gamePadIndex, gp_face1) && selectedOption != noone {
+				switch selectedOption {
+					case SAVEEXIT: {
+						global.ui.isShowingMenus = false;
 						global.fadeDuration = 60;
 						global.owner = id;
 						fade = instance_create_depth(x,y,-1000000,obj_fade);

@@ -1,0 +1,73 @@
+/// defineItemPropertyPrefixes
+global.weaponTypesDamagePrefixes = ds_map_create();
+ds_map_replace(global.weaponTypesDamagePrefixes,SWORD1H,"Soldier's");
+ds_map_replace(global.weaponTypesDamagePrefixes,SWORD2H,"Swordsman's");
+ds_map_replace(global.weaponTypesDamagePrefixes,DAGGER,"Bandit's");
+ds_map_replace(global.weaponTypesDamagePrefixes,AXE1H,"Executioner's");
+ds_map_replace(global.weaponTypesDamagePrefixes,AXE2H,"Barbarian's");
+ds_map_replace(global.weaponTypesDamagePrefixes,BLUNT1H,"Smith's");
+ds_map_replace(global.weaponTypesDamagePrefixes,BLUNT2H,"Giant's");
+ds_map_replace(global.weaponTypesDamagePrefixes,RAPIER,"Fencer's");
+ds_map_replace(global.weaponTypesDamagePrefixes,SPEAR,"Pikeman's");
+ds_map_replace(global.weaponTypesDamagePrefixes,SHURIKEN,"Assassin's");
+ds_map_replace(global.weaponTypesDamagePrefixes,BOW,"Ranger's");
+ds_map_replace(global.weaponTypesDamagePrefixes,MUSKET,"Marksman's");
+ds_map_replace(global.weaponTypesDamagePrefixes,THROWN,"Rogue's");
+ds_map_replace(global.weaponTypesDamagePrefixes,CROSSBOW,"Bowman's");
+ds_map_replace(global.weaponTypesDamagePrefixes,PISTOL,"Pirate's");
+
+global.criticalsChancePrefixes = ds_map_create();
+ds_map_replace(global.criticalsChancePrefixes,SWORD1H,"Slashing");
+ds_map_replace(global.criticalsChancePrefixes,SWORD2H,"Sweeping");
+ds_map_replace(global.criticalsChancePrefixes,DAGGER,"Cutting");
+ds_map_replace(global.criticalsChancePrefixes,AXE1H,"Chopping");
+ds_map_replace(global.criticalsChancePrefixes,AXE2H,"Mangling");
+ds_map_replace(global.criticalsChancePrefixes,BLUNT1H,"Crushing");
+ds_map_replace(global.criticalsChancePrefixes,BLUNT2H,"Smashing");
+ds_map_replace(global.criticalsChancePrefixes,RAPIER,"Stabbing");
+ds_map_replace(global.criticalsChancePrefixes,SPEAR,"Goring");
+ds_map_replace(global.criticalsChancePrefixes,SHURIKEN,"Twirling");
+ds_map_replace(global.criticalsChancePrefixes,BOW,"Whistling");
+ds_map_replace(global.criticalsChancePrefixes,MUSKET,"Blasting");
+ds_map_replace(global.criticalsChancePrefixes,THROWN,"Arcing");
+ds_map_replace(global.criticalsChancePrefixes,CROSSBOW,"Hissing");
+ds_map_replace(global.criticalsChancePrefixes,PISTOL,"Firing");
+
+global.criticalsDamagePrefixes = ds_map_create();
+ds_map_replace(global.criticalsDamagePrefixes,SWORD1H,"Sharpened");
+ds_map_replace(global.criticalsDamagePrefixes,SWORD2H,"Weighted");
+ds_map_replace(global.criticalsDamagePrefixes,DAGGER,"Bloodstained");
+ds_map_replace(global.criticalsDamagePrefixes,AXE1H,"Entrusted");
+ds_map_replace(global.criticalsDamagePrefixes,AXE2H,"Emboldened");
+ds_map_replace(global.criticalsDamagePrefixes,BLUNT1H,"Hammered");
+ds_map_replace(global.criticalsDamagePrefixes,BLUNT2H,"Strengthened");
+ds_map_replace(global.criticalsDamagePrefixes,RAPIER,"Attuned");
+ds_map_replace(global.criticalsDamagePrefixes,SPEAR,"Distanced");
+ds_map_replace(global.criticalsDamagePrefixes,SHURIKEN,"Silenced");
+ds_map_replace(global.criticalsDamagePrefixes,BOW,"Composed");
+ds_map_replace(global.criticalsDamagePrefixes,MUSKET,"Hawkeyed");
+ds_map_replace(global.criticalsDamagePrefixes,THROWN,"Pointed");
+ds_map_replace(global.criticalsDamagePrefixes,CROSSBOW,"Loaded");
+ds_map_replace(global.criticalsDamagePrefixes,PISTOL,"Quickdrawn");
+
+global.physicalMultiplierPrefixes = ds_map_create();
+ds_map_replace(global.physicalMultiplierPrefixes,SLASH,"Edged");
+ds_map_replace(global.physicalMultiplierPrefixes,CRUSH,"Blunt");
+ds_map_replace(global.physicalMultiplierPrefixes,PIERCE,"Razored");
+
+global.elementalMultipliersPrefixes = ds_map_create();
+ds_map_replace(global.elementalMultipliersPrefixes,MAGIC,"Mystical");
+ds_map_replace(global.elementalMultipliersPrefixes,FIRE,"Fiery");
+ds_map_replace(global.elementalMultipliersPrefixes,ICE,"Arctic");
+ds_map_replace(global.elementalMultipliersPrefixes,POISON,"Toxic");
+ds_map_replace(global.elementalMultipliersPrefixes,LIGHTNING,"Galvanic");
+
+global.defensePrefixes = ds_map_create();
+ds_map_replace(global.defensePrefixes,SLASH,"Chain");
+ds_map_replace(global.defensePrefixes,CRUSH,"Plate");
+ds_map_replace(global.defensePrefixes,PIERCE,"Scale");
+ds_map_replace(global.defensePrefixes,MAGIC,"Rune");
+ds_map_replace(global.defensePrefixes,FIRE,"Obsidian");
+ds_map_replace(global.defensePrefixes,ICE,"Glacial");
+ds_map_replace(global.defensePrefixes,POISON,"Filtered");
+ds_map_replace(global.defensePrefixes,LIGHTNING,"Clouded");

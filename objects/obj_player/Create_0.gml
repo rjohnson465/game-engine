@@ -31,6 +31,7 @@ if !instance_exists(obj_player_gui) {
 }
 
 defineItemsByAct();
+defineItemPropertyPrefixes();
 definePropertiesByRarity();
 
 enum EquipmentSlots {
@@ -207,7 +208,9 @@ addItemToInventory(baxe);
 var ring = instance_create_depth(x,y,1,obj_item_ring);
 ds_map_add(ring.itemProperties,ModifiableProperties.StaminaMax,50);
 ds_map_add(ring.itemProperties,ModifiableProperties.StaminaRegen,10);
-addItemProperty(ring,ModifiableProperties.GoldDrop,100);
+addItemProperty(ring,ModifiableProperties.ElementalDamageTypesMultiplier,[FIRE,10]);
+addItemProperty(ring,ModifiableProperties.Defenses,[SLASH,25]);
+addItemProperty(ring,ModifiableProperties.WeaponTypesDamage,[AXE2H,7]);
 //ds_map_add(ring.itemProperties,ModifiableProperties.CriticalsChance,[SWORD1H,10]);
 //ds_map_add(ring.itemProperties,ModifiableProperties.CriticalsDamage,[SWORD1H,15]);
 //ds_map_add(ring.itemProperties,ModifiableProperties.WeaponTypesDamage,[SWORD1H,5]);
