@@ -10,3 +10,6 @@ type = AttackTypes.Charge;
 minRange = 50;
 //nextChoices = [];
 staggerDuration = 35;
+
+attackSound = snd_thrust_attack_1;
+hitSound = snd_hit1;

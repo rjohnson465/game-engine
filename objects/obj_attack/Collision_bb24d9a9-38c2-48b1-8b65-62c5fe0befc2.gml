@@ -1,4 +1,4 @@
-if object_is_ancestor(other.object_index,obj_combatant_parent) {
+if object_is_ancestor(other.object_index,obj_combatant_parent) || object_is_ancestor(other.object_index, obj_npc_parent) {
 	exit;
 }
 
@@ -37,12 +37,17 @@ if isMelee && hitsWallFirst && !object_is_ancestor(other.object_index,obj_npc_pa
 	path_end();
 	// run to get __x and __y (collision point where attack meet this combatant)
 	if script_execute(scr_collision_point,id,other.id) {
-		// create stagger condi particles
-		global.damageType = "Block";
+		global.damageType = other.material == METAL ? "Block" : "Dust";
+		if owner.type == CombatantTypes.Player && weapon.weaponType == UNARMED {
+			global.damageType = "Dust";
+		}
 		global.x1 = __x;
 		global.y1 = __y;
 		global.particleDirection = facingDirection;
 		instance_create_depth(0,0,1,obj_hit_particles);
+		// play wall hit sound, dependent on type of material wall is
+		var snd = global.damageType == "Dust" ? snd_shield_hit_wood : snd_wallhit;
+		audio_play_sound_at(snd,__x,__y,depth,100,300,1,0,1);
 	}
 	
 	if owner.hasHands {

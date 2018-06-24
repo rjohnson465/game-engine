@@ -4,6 +4,7 @@ baseName = "Wood Shield";
 spriteName = "woodshield";
 itemSprite = spr_item_woodshield;
 
+material = WOOD;
 weight = 5;
 ds_map_replace(defenses,SLASH,100);
 ds_map_replace(defenses,PIERCE,100);

@@ -23,7 +23,9 @@ percentCharged = 1;
 system = part_system_create();
 part_system_depth(system,-4);
 emitter = part_emitter_create(system);
-
+soundEmitter = audio_emitter_create();
+sound = noone;
+isSoundLooping = false;
 
 // spell logic
 if owner.currentUsingSpell != noone {
@@ -168,7 +170,7 @@ if owner.currentUsingSpell != noone {
 
 // spells have light radii
 if isSpell {
-
+	isSoundLooping = true;
 	lightRadius = 256;
 	lightRadiusAlpha = calculateLightRadiusAlpha();
 	if lightRadiusAlpha <=.01 {
@@ -186,18 +188,22 @@ if isSpell {
 		}
 		case "fire": {
 			lightRadiusColor = c_orange;
+			sound = snd_magic_fire;
 			break;
 		}
 		case "ice": {
 			lightRadiusColor = c_white;
+			sound = snd_magic_ice;
 			break;
 		}
 		case "poison": {
 			lightRadiusColor = c_lime;
+			sound = snd_magic_poison;
 			break;
 		}
 		case "lightning": {
 			lightRadiusColor = c_blue;
+			sound = snd_magic_lightning;
 			break;
 		}
 	}
@@ -299,4 +305,17 @@ else {
 	} else {
 		image_alpha = .5;
 	}
+	if (weapon != noone) {
+		sound = weapon.attackSounds[attackNumberInChain-1];
+	}
+	else if attackData != noone {
+		sound = attackData.attackSound;
+	}
+}
+
+//audio_play_sound_at(sound,x,y,0,10,30,2,isSoundLooping,1);
+if isSoundLooping {
+	audio_play_sound_on(soundEmitter,sound,isSoundLooping,1);
+} else {
+	audio_play_sound_at(sound,x,y,0,100,300,2,0,1);
 }

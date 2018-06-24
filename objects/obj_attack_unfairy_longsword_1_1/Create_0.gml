@@ -8,3 +8,6 @@ isRanged = false;
 staminaCost = 10;
 //nextChoices = [];
 staggerDuration = 25;
+
+attackSound = snd_sword1h_attack_1;
+hitSound = snd_hit1;

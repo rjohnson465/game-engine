@@ -11,7 +11,6 @@ with obj_item_parent {
 	//if owner == global.player && !object_is_ancestor(object_index,obj_unarmed_parent) && object_index != obj_unarmed_parent {
 	if _owner && _is_not_ancestor && _is_unarmed_parent {
 		instance_destroy(id,1);
-		//show_debug_message("Destroyed " + _name);
 	}
 }
 

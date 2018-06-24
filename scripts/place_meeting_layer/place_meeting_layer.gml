@@ -26,7 +26,6 @@ var touchingAdditionalObjects = false;
 var offendingInstance = noone;
 for (var i = 0; i < ds_list_size(touchingInstances); i++) {
 	var inst = ds_list_find_value(touchingInstances,i);
-	//show_debug_message("Touching: " + object_get_name(inst.object_index) + " layer: " + string(inst.layer));
 	if (inst.layer == layer || abs(abs(inst.depth)-abs(depth)) <= 5) && inst != id && place_meeting(xx,yy,inst) {
 		touchingInstanceIsOnSameLayer = true;
 		//offendingInstance = inst;

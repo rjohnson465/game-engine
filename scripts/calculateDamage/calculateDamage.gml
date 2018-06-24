@@ -152,7 +152,14 @@ if	state != CombatantStates.Dodging &&
 		handleBlockedAttack(attackObj,assailant,damagesTaken,actualDamage,isCriticalHit,itemHitWith,attackData);
 	}
 	// hit
-	if !isShielding || !scr_is_facing(assailant,id) {			
+	if !isShielding || !scr_is_facing(assailant,id) {		
+		if itemHitWith != noone && itemHitWith.hitSounds != undefined && itemHitWith.hitSounds != noone {
+			var snd = itemHitWith.hitSounds[attackNumberInChain-1];
+			audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
+		}
+		else if attackData != noone && attackData.hitSound != noone {
+			audio_play_sound_at(attackData.hitSound,x,y,depth,100,300,1,0,1);
+		}
 		handleUnblockedAttack(attackObj,assailant,damage,actualDamage,isCriticalHit,itemHitWith);
 		isBeingHit = true;
 		alarm[5] = 5;

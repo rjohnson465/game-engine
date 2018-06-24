@@ -26,6 +26,9 @@ projectileSpeed = 0;
 numberOfTargets = 1;
 staggersAgainstBlocks = true;
 type = AttackTypes.Standard;
+prepSound = noone;
+attackSound = noone;
+hitSound = noone;
 
 // must be within this number of pixels of target to begin attack
 minRange = 0;

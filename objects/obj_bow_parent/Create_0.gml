@@ -11,3 +11,6 @@ staggerDuration = 2; // frames
 physicalDamageTypeArray = ["piercing"];
 handSpriteString = "spr_player_hand_bow";
 staminaCostArray=[10];
+prepSounds = [snd_bow_prep];
+attackSounds = [snd_bow_attack];
+hitSounds = [snd_hit1];

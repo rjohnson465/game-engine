@@ -1,5 +1,17 @@
 path_end();
 
+var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
+var isRanged = currentRangedAttack != noone;
+			
+// find attack data object
+var attackData = noone;
+var attackChain = isRanged ? rangedAttacks[attackNumber-1] : meleeAttacks[attackNumber-1];
+if attackNumberInChain == noone {
+	attackData = attackChain[0];
+} else {
+	attackData = attackChain[attackNumberInChain-1];
+}
+
 // TODO do not commit to a charge attack if there are obstacles between target
 					
 if attackFrequencyFrame == -1 {
@@ -18,6 +30,9 @@ if attackFrequencyFrame == -1 {
 		if !isFrozen {
 			hasCalculatedWillDodge = false;
 			isStrafing = false;
+			if attackData.prepSound != noone {
+				audio_play_sound_at(attackData.prepSound,x,y,depth,20,150,1,0,1);
+			}
 			state = CombatantStates.Attacking;
 		}
 	}

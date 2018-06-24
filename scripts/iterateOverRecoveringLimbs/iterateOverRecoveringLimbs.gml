@@ -38,7 +38,6 @@ if ds_map_size(recoveringLimbs) != 0 {
 				ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+1);
 			}
 		}
-		//show_debug_message("recover: " + string(ds_map_find_value(recoverFrames,currentRecoveringLimbKey)));
 		currentRecoveringLimbKey = ds_map_find_next(recoveringLimbs,currentRecoveringLimbKey);
 	}
 }

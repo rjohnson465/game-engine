@@ -42,3 +42,7 @@ if isRunning || (global.player.justRevivedAtFountain && distance_to_object(obj_p
 	}
 }
 
+if isRunning {
+	audio_play_sound_at(snd_fountain_running,x,y,depth,20,200,1,1,1);
+}
+

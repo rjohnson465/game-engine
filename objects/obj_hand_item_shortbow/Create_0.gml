@@ -20,5 +20,4 @@ ammo = 20;
 ammoMax = 20;
 
 act = 1;
-
 //numberOfSockets = 1;

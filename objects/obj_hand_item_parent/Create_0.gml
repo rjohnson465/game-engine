@@ -21,6 +21,9 @@ chargesMax = 0;
 level = 1;
 act = 0;
 
+attackSounds = [];
+hitSounds = [];
+prepSounds = [];
 // two handed weapons always held with "right hand" (on right side)
 isTwoHanded = false;
 staminaCostArray=[];

@@ -15,11 +15,16 @@ var isCriticalHit = argument[4];
 var itemHitWith = argument[5];
 var attackData = argument[6];
 
-global.damageType = "Block";
+var shield = ds_map_find_value(equippedLimbItems, "l");
+if !object_is_ancestor(shield.object_index,obj_shield_parent) shield = ds_map_find_value(equippedLimbItems, "r");
+var dt = shield.material == WOOD ? "Dust" : "Block";
+global.damageType = dt;
 global.x1 = __x;
 global.y1 = __y;
 global.particleDirection = facingDirection;
 instance_create_depth(0,0,1,obj_hit_particles);
+var snd = shield.material == WOOD ? snd_shield_hit_wood : snd_shield_hit_metal;
+audio_play_sound_at(snd,__x,__y,depth,100,100,1,0,1);
 var shield = ds_map_find_value(equippedLimbItems,"r");
 					
 // remove the same percentage of stamina as it would have removed health

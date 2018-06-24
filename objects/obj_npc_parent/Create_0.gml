@@ -1,3 +1,4 @@
+event_inherited();
 name = "NPC";
 // remember this with room_data objects
 conversations = ds_list_create();

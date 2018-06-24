@@ -174,8 +174,3 @@ if owner.currentUsingSpell != noone {
 	part_emitter_region(system,emitter,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system,emitter,particle, num);
 }
-
-/*
-if owner.type == CombatantTypes.Player && sprite_index != asset_get_index(spriteString) {
-	show_debug_message(string(sprite_get_name(sprite_index)) + ": " + string(image_index));
-}

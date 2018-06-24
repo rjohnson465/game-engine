@@ -21,7 +21,8 @@ with obj_game_manager {
 // activate fountain
 if !isRunning {
 	isRunning = true;
-	sprite_index = asset_get_index("spr_fountain_filling");		
+	sprite_index = asset_get_index("spr_fountain_filling");	
+	audio_play_sound_at(snd_fountain_running,x,y,depth,20,200,1,1,1);
 }
 	
 // wish at fountain

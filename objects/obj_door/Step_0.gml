@@ -14,4 +14,5 @@ if !isOpen && distance_to_object(obj_player) < 20 && layer == global.player.laye
 	ds_map_replace(data.properties, "isOpen", true);
 	sprite_index = noone;
 	alarm[0] = 30;
+	audio_play_sound_at(openingSound,x,y,depth,100,300,1,0,1);
 } 

@@ -74,5 +74,4 @@ if isSpell && hasSetAlarm {
 	}
 }
 
-//show_debug_message(ds_list_size(combatantsHit));
-
+audio_emitter_position(soundEmitter,x,y,depth);

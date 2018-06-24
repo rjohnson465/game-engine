@@ -7,9 +7,6 @@ var pLayerName = layer_get_name(playerLayer);
 var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
 var pLayerDepth = layer_get_depth(playerLayer);
 
-//show_debug_message("player layer: " + pLayerName + 
-//				" | player layer depth: " + string(pLayerDepth));
-
 // make invisible instance and tile layers above the player's layer
 var instanceLayersAbove = ds_list_create();
 var tileLayersAbove = ds_list_create();

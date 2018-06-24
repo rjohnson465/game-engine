@@ -7,5 +7,7 @@ openSprite = spr_door;
 spriteTurnsWhenOpen = true;
 keyNeeded = noone; // or string name
 isOpen = false;
+material = WOOD;
+openingSound = snd_door_open;
 
 //openingFrames = 30;

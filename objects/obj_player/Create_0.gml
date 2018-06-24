@@ -171,15 +171,12 @@ inventory = ds_list_create();
 addItemToInventory(makeGold(100000,200000));
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 
-//var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
-//woodshield.persistent = true;
-//addItemToInventory(woodshield);
+var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
+addItemToInventory(woodshield);
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-//var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
-//shortbow.numberOfSockets = 2;
-//shortbow.persistent = true;
-//ds_list_add(inventory,shortbow);
-//addItemToInventory(shortbow);
+var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
+shortbow.numberOfSockets = 2;
+addItemToInventory(shortbow);
 
 //var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 //longsword2.persistent = true;
@@ -187,18 +184,18 @@ addItemToInventory(makeGold(100000,200000));
 //ds_map_replace(longsword2.damages,ICE,[2,4]);
 //addItemToInventory(longsword2);
 
-/*
+
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 longsword.persistent = true;
 longsword.numberOfSockets = 3;
 insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
 insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
 insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
-addItemToInventory(longsword);*/
+addItemToInventory(longsword);
 
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
 
-//addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
 var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
 addItemToInventory(baxe);
 
