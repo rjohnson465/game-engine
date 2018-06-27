@@ -16,3 +16,4 @@ durabilityMax = 20;
 durability = 20;
 
 //numberOfSockets = 1;
+soundDrop = snd_item_wood;

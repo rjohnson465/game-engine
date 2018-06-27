@@ -9,6 +9,7 @@ with obj_item_drop {
 }
 
 if itemIsBeingLooted {
+	audio_play_sound(soundGrab,1,0);
 	addItemToInventory(id);
 	ds_list_delete(dropItem.items,itemPos);
 	if ds_list_size(dropItem.items) > 0 {

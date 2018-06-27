@@ -38,6 +38,7 @@ if id == global.ui.grabbedItem {
 	didClickStartInInventory = false;
 	cursor_sprite = -1;
 	visible = false;
+	audio_play_sound(soundDrop,1,0);
 }
 grabFrame = 0;
 

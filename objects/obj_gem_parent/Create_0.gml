@@ -22,11 +22,6 @@ global.ALL_GEM_CONDITIONS = [CRACKED,NORMAL,EXQUISITE,FLAWLESS];
 subType = GemTypes.Hematite;
 type = ItemTypes.Other;
 condition = global.gemCondition;
-
-
-
 isStackable = true;
-//isUsable = true;
 
-//description = "Use to revive upon death with no penalty except being Jewish. Can use at any time to restore all health and stamina. Eat my dick I am a lobster.";
-
+soundDrop = snd_item_gem;

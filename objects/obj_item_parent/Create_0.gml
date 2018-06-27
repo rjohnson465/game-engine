@@ -47,7 +47,7 @@ equipmentSlot = noone;
 
 mightGrab = false;
 grabFrame = 0;
-grabFrames = 1;
+grabFrames = 3;
 
 numberOfSockets = 0;
 socketedGems = ds_list_create();
@@ -89,5 +89,10 @@ ammoMax = 0;
 invIndex = noone;
 
 didClickStartInInventory = false;
+didClickStartInEquipment = false;
+equipmentSlotBeforeDrag = noone;
 
 isTwoHanded = false;
+soundGrab = snd_item_pickup;
+soundDrop = snd_item_pickup;
+soundUse = snd_item_gem; 

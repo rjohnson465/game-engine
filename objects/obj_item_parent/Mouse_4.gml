@@ -22,6 +22,7 @@ if type == ItemTypes.HandItem {
 }
 
 if (global.isWishing) {
+	audio_play_sound(soundGrab,1,0);
 	if global.fountainGui.currentMenu == INSERTGEM {
 		if global.fountainGui.currentSubMenu == CHOOSEITEM {
 			var si = instance_nearest(x,y,obj_fountain_gui_socketeditems);
@@ -53,6 +54,7 @@ if (global.isWishing) {
 
 // item selection in trading interface
 if global.isTrading {
+	audio_play_sound(soundGrab,1,0);
 	var playerItemsObj = obj_player_items;
 	var vendorItemsObj = obj_vendor_items;
 	// if item in inventory, it's the selectedItem of obj_player_items
@@ -97,6 +99,9 @@ var inv = global.inventory;
 if global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY && point_in_rectangle(mouse_x,mouse_y,vx+inv.topLeftX,vy+inv.topLeftY,vx+inv.bottomRightX,vy+inv.bottomRightY)
 {
 	didClickStartInInventory = true;
+} else if global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
+	didClickStartInEquipment = true;
+	equipmentSlotBeforeDrag = equipmentSlot;
 }
 
 //if type != ItemTypes.Other {

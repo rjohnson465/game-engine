@@ -24,6 +24,9 @@ if grabFrame == grabFrames {
 	visible = true;
 	x = mouse_x;
 	y = mouse_y;
+	if global.ui.grabbedItem != id {
+		audio_play_sound(soundGrab,1,0);
+	}
 	global.ui.grabbedItem = id;
 } else {
 	window_set_cursor(cr_default);

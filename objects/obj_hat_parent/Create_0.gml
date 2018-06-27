@@ -12,3 +12,5 @@ durability = 50;
 durabilityMax = 50;
 
 socketedGems = ds_list_create();
+
+soundDrop = snd_item_cloth;

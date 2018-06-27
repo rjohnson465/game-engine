@@ -13,3 +13,5 @@ handSpriteString = "spr_player_hand_thrown";
 staminaCostArray=[7];
 attackSounds = [snd_thrown_attack];
 hitSounds = [snd_hit1];
+
+soundDrop = snd_item_metal;

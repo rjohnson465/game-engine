@@ -23,6 +23,9 @@ if !isRunning {
 	isRunning = true;
 	sprite_index = asset_get_index("spr_fountain_filling");	
 	audio_play_sound_at(snd_fountain_running,x,y,depth,20,200,1,1,1);
+	audio_play_sound(snd_fountain_turnon,1,0);
+	//audio_emitter_falloff(soundEmitter,20,200,1);
+	//audio_play_sound_on(soundEmitter,snd_fountain_running,1,1);
 }
 	
 // wish at fountain

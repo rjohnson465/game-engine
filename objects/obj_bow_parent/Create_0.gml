@@ -14,3 +14,5 @@ staminaCostArray=[10];
 prepSounds = [snd_bow_prep];
 attackSounds = [snd_bow_attack];
 hitSounds = [snd_hit1];
+
+soundDrop = snd_item_bow;

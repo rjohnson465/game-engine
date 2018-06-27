@@ -2,6 +2,7 @@ event_inherited();
 slot = global.equipmentSlot;
 name = "";
 item = noone;
+hasSetAlarm = false;
 switch slot {
 	case EquipmentSlots.LeftHand1: {
 		name = "Main Hand 1";

@@ -2,7 +2,14 @@ attackNumberInChain = noone;
 isShielding = false;
 speed = 0;	
 image_angle = dodgeDirection;
-		
+
+if dodgeFrame == 0 && array_length_1d(soundsWhenDodge) != 0 {
+	randomize();
+	var rand = round(random_range(0,array_length_1d(soundsWhenDodge)-1));
+	var snd = soundsWhenDodge[rand];
+	audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
+}
+
 var dodgeSpeed = functionalSpeed*2;
 // Do not dodge into fallzones on purpose (if enemy)
 if type != CombatantTypes.Player {

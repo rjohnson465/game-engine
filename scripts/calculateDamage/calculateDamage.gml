@@ -153,12 +153,20 @@ if	state != CombatantStates.Dodging &&
 	}
 	// hit
 	if !isShielding || !scr_is_facing(assailant,id) {		
-		if itemHitWith != noone && itemHitWith.hitSounds != undefined && itemHitWith.hitSounds != noone {
+		/*if itemHitWith != noone && itemHitWith.hitSounds != undefined && itemHitWith.hitSounds != noone {
 			var snd = itemHitWith.hitSounds[attackNumberInChain-1];
 			audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
 		}
 		else if attackData != noone && attackData.hitSound != noone {
 			audio_play_sound_at(attackData.hitSound,x,y,depth,100,300,1,0,1);
+		}*/
+		if array_length_1d(soundsWhenHit) != 0 {
+			randomize();
+			var rand = round(random_range(0,array_length_1d(soundsWhenHit)-1));
+			var snd = soundsWhenHit[rand];
+			if snd && snd != noone {
+				audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
+			}
 		}
 		handleUnblockedAttack(attackObj,assailant,damage,actualDamage,isCriticalHit,itemHitWith);
 		isBeingHit = true;

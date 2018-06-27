@@ -1,3 +1,5 @@
-if item && item.name != "Unarmed" && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
-	global.ui.grabbedItem = item;
+if item && item.name != "Unarmed" && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY && !hasSetAlarm {
+	//global.ui.grabbedItem = item;
+	alarm[0] = 3;
+	hasSetAlarm = true;
 }

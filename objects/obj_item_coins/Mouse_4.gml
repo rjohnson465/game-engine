@@ -13,7 +13,7 @@ if ds_list_find_index(global.player.inventory,id) != -1 {
 		global.ui.moveSelector.y1 = y1;
 	}
 } 
-else {
+/*else {
 	var itemIsBeingLooted = false;
 	var dropItem = noone; var itemPos = -1;
 	with obj_item_drop {

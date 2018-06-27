@@ -314,3 +314,5 @@ damagesAttacksFactor = 1; // 1x normal damage to weapons that strike this combat
 
 isBeingHit = false;
 
+soundsWhenDodge = [snd_dodge1];
+soundsWhenHit = [snd_hit1]; // array of potential "hit" sounds (not "ahhs" or dialogue, just like metal in flesh, metal on metal...)

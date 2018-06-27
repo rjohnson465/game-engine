@@ -37,6 +37,8 @@ layerName = layer_get_name(layer);
 
 inUse = false;
 
+soundEmitter = audio_emitter_create();
+
 /*
 key = fs_generate_key();
 data = noone;
