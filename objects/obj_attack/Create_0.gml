@@ -317,5 +317,9 @@ else {
 if isSoundLooping {
 	audio_play_sound_on(soundEmitter,sound,isSoundLooping,1);
 } else {
-	audio_play_sound_at(sound,x,y,0,100,300,2,0,1);
+	if owner.type == CombatantTypes.Player {
+		audio_play_sound(sound,1,0);
+	} else {
+		audio_play_sound_at(sound,owner.x,owner.y,0,100,300,1,0,1);
+	}
 }

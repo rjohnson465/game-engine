@@ -34,6 +34,7 @@ if !isMouseInMenu && !isFrozen && !global.ui.isShowingMenus {
 			if array_length_1d(leftHandItem.prepSounds) > 0 {
 				var snd = leftHandItem.prepSounds[0];
 				audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
+				//audio_play_sound(snd,1,0);
 			}
 			state = CombatantStates.Attacking;
 		}

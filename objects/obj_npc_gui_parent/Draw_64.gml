@@ -54,7 +54,7 @@ with npc {
 		// draw all conversations
 		if true {
 			if !gamepad_is_connected(global.player.gamePadIndex) {
-				selectedConversation = noone;
+				//selectedConversation = noone;
 			}
 			for (var i = 0; i < ds_list_size(conversations); i++) {
 				var c = ds_list_find_value(conversations,i);
@@ -62,9 +62,15 @@ with npc {
 		
 				var sh = string_height(c.name); var sw = string_width(c.name);
 				var xx = conversationsStartX; var yy = conversationsStartY+(i*sh)+5;
-				if !gamepad_is_connected(global.player.gamePadIndex) && point_in_rectangle(mouse_x,mouse_y,vx+(xx-(.5*sw)),vy+(yy-(.5*sh)),vx+(xx+(.5*sw)),vy+(yy+(.5*sh))) || selectedConversation == c {
+				if mouseOverGuiRect(vx+(xx-(.5*sw)),vy+(yy-(.5*sh)),vx+(xx+(.5*sw)),vy+(yy+(.5*sh))) || (selectedConversation == c && gamepad_is_connected(global.gamePadIndex)) {
 					draw_set_color(c_white);
+					if selectedConversation != c {
+						audio_play_sound(snd_ui_option_change,1,0);
+					}
 					selectedConversation = c;
+					if mouse_check_button_released(mb_left) {
+						startConversation(c);
+					}
 				} else {
 					draw_set_color(c_ltgray);
 				}

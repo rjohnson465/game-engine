@@ -1,8 +1,6 @@
 if (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) && !global.isTrading exit;
 if isUsable && !global.isTrading {
-	alert("Used " + name,c_yellow);
-	isInUse = true;
-	audio_play_sound(soundUse,1,0);
+	useItem(id);
 }
 
 if global.isTrading && isSellable {

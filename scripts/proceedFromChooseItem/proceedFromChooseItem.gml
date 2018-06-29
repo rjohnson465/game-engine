@@ -1,6 +1,6 @@
 /// proceedFromChooseItem()
 /// must be called by instance of obj_fountain_gui_socketeditems
-
+audio_play_sound(snd_ui_click1,1,0);
 if selectedItem == noone {
 	alert("No item selected",c_red);
 	exit;

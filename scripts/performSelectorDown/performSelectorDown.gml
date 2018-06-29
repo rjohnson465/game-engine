@@ -1,5 +1,5 @@
- if !isActive || !ui.isShowingMenus || ui.currentMenu != INVENTORY exit;
-
+if !isActive || !ui.isShowingMenus || ui.currentMenu != INVENTORY exit;
+audio_play_sound(snd_ui_option_change,1,0);
 if isSelectorInEquippedItems() {
 	moveSelectorInEquippedItems("down");
 	eq.selectedItem = getItemAtSelectorPosition(id);
@@ -19,7 +19,11 @@ else if isSelectorInInventory {
 			do {
 				x1 -= inv.slotWidth;
 				//y1 -= inv.slotHeight;
-			} until getItemAtSelectorPosition(id) || x1 <= (MENUS_TOPLEFT_X+inv.slotWidth)+camera_get_view_x(view_camera[0]);
+				var _xx = x1;
+				var _yy = y1;
+				var _itemMaybe = getItemAtSelectorPosition(id);
+				var _xBound = MENUS_TOPLEFT_X;
+			} until getItemAtSelectorPosition(id) || x1 <= (MENUS_TOPLEFT_X);//+camera_get_view_x(view_camera[0]);
 			//y1 -= inv.slotHeight;
 			if getItemAtSelectorPosition(id) == noone {
 				x1 = origX; y1 = origY;

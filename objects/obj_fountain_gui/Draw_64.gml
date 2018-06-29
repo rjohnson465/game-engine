@@ -75,6 +75,9 @@ switch currentMenu {
 			}
 			// mouse hover / select this option?
 			else if mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == option {
+				if selectedOption != option {
+					audio_play_sound(snd_ui_option_change,1,0);
+				}
 				selectedOption = option;
 				draw_set_color(c_white);
 			} else {

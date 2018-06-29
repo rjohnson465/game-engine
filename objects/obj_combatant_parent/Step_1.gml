@@ -15,9 +15,10 @@ if hp < 1 && isAlive && !isDying {
 	global.owner = id;
 	randomize();
 	var rand = random_range(0,100);
-	if ds_map_find_value(conditionPercentages,ICE) > 50 && (rand > 60) {
+	if ds_map_find_value(conditionPercentages,ICE) > 33 && (rand > 0) {
 		global.condition = "IceDeath";
 		dyingFrame = dyingTotalFrames;
+		audio_play_sound_at(snd_iceshatter,x,y,depth,20,200,1,0,1);
 	} else {
 		global.condition = "Death";
 	}

@@ -17,6 +17,9 @@ if distance_to_object(obj_player) < 20 && layer == global.player.layer && intera
 		with obj_item_drop {
 			if hasSetAlarm isDestroying = true;
 		} if !isDestroying {
+			if !isBeingLooted {
+				audio_play_sound(snd_ui_click1,1,0);
+			}
 			isBeingLooted = true;
 		}
 	}

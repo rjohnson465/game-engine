@@ -71,6 +71,7 @@ for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
 	// handle click event for price options
 	if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_released(mb_left) {
 		var newProposal = namedPrice;
+		
 		switch (str) {
 			case WISH: {
 				if global.fountainGui.currentMenu == INSERTGEM {
@@ -105,6 +106,7 @@ for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
 		if str != WISH {
 			if newProposal < getGoldCount() {
 				namedPrice = newProposal;
+				audio_play_sound(snd_item_coins,1,0);
 			} else {
 				alert("You do not have enough gold", c_red);
 			}

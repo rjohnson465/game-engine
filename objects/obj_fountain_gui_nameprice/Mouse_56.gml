@@ -14,11 +14,15 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 	
 	var newProposal = namedPrice;
 	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
+		if currentButton != "Back" && currentButton != WISH {
+			audio_play_sound(snd_item_coins,1,0);
+		}
 		switch (currentButton) {
 			case "Back": {
 				goBackFromNamePrice(); exit;
 			}
 			case WISH: {
+				audio_play_sound(snd_fountain_repair,1,0);
 				if global.fountainGui.currentMenu == INSERTGEM {
 					attemptGemInsertion();
 				} else if global.fountainGui.currentMenu == BREAKDOWNITEM {

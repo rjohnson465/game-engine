@@ -22,10 +22,10 @@ with obj_game_manager {
 if !isRunning {
 	isRunning = true;
 	sprite_index = asset_get_index("spr_fountain_filling");	
-	audio_play_sound_at(snd_fountain_running,x,y,depth,20,200,1,1,1);
+	audio_play_sound_at(snd_fountain_running,x,y,depth,50,250,1,1,.5);
 	audio_play_sound(snd_fountain_turnon,1,0);
-	//audio_emitter_falloff(soundEmitter,20,200,1);
-	//audio_play_sound_on(soundEmitter,snd_fountain_running,1,1);
+	alarm[0] = 30;
+	application_surface_draw_enable(false);
 }
 	
 // wish at fountain
@@ -38,6 +38,7 @@ else if isDoneFilling {
 
 	part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
 	part_emitter_burst(system,emitter,particle,num);*/
+	audio_play_sound(snd_fountain_wish,1,0);
 	
 	// despawn all itemDrops
 	with obj_item_drop {

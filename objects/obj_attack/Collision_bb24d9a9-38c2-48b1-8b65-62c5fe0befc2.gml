@@ -1,5 +1,9 @@
-if object_is_ancestor(other.object_index,obj_combatant_parent) || object_is_ancestor(other.object_index, obj_npc_parent) {
+if object_is_ancestor(other.object_index,obj_combatant_parent) {
 	exit;
+}
+
+if object_is_ancestor(other.object_index, obj_npc_parent) && isRanged {
+	instance_destroy(id); exit;
 }
 
 if (other.layer != layer && abs(abs(other.depth)-abs(depth)) > 5) {
@@ -59,13 +63,13 @@ if isMelee && hitsWallFirst && !object_is_ancestor(other.object_index,obj_npc_pa
 	owner.state = CombatantStates.Staggering;
 }
 
-// make dust particles
+// make dust / spark particles, play sound, for range
 if isRanged && !hasSetAlarm {
-	// run to get __x and __y (collision point where attack met wall)
-	//script_execute(scr_collision_point,id,other.id);
-	global.damageType = "Dust";
+	global.damageType = other.material == METAL ? "Block" : "Dust";
 	global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
 	global.y1 = bbox_bottom;
+	var snd = other.material == METAL ? snd_wallhit : snd_shield_hit_wood;
+	audio_play_sound_at(snd,global.x1,global.y1,depth,20,200,1,0,1);
 	global.particleDirection = facingDirection;
 	instance_create_depth(0,0,1,obj_hit_particles);
 	if !isSpell {
@@ -97,7 +101,6 @@ if isSpell && !hasSetAlarm {
 }
 
 if /*isSpell ||*/ isRanged && !hasSetAlarm {
-	
 	var idd = id;
 	with obj_light_radius {
 		if owner == idd {

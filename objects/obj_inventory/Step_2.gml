@@ -1,5 +1,6 @@
 // controller stuff
 if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderrb) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
+	audio_play_sound(snd_ui_tab2,1,0);
 	var currentFilter = ds_map_find_value(filterSprites, filter);
 	var nextFilter = ds_map_find_next(filterSprites,filter);
 	if nextFilter != undefined {
@@ -11,6 +12,7 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderrb) && glo
 
 }
 if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
+	audio_play_sound(snd_ui_tab2,1,0);
 	var currentFilter = ds_map_find_value(filterSprites, filter);
 	var prevFilter = ds_map_find_previous(filterSprites,filter);
 	if prevFilter != undefined {
@@ -23,4 +25,5 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && glo
 
 if gamepad_button_check_pressed(global.player.gamePadIndex,gp_face4) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
 	global.ui.isShowingExplanations = !global.ui.isShowingExplanations;
+	audio_play_sound(snd_ui_option_change,1,0);
 }

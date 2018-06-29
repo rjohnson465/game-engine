@@ -5,5 +5,3 @@ part_type_destroy(particle);
 if isRunning {
 	audio_stop_sound(snd_fountain_running);
 }
-
-audio_emitter_free(soundEmitter);

@@ -21,6 +21,7 @@ if type == SelectorTypes.Select && isSelectorInEquippedItems && global.ui.isShow
 		item = getItemInEquipmentSlot(slotObj.slot);
 	}
 	if item && isActive && item.equipmentSlot != noone {
+		audio_play_sound(item.soundDrop,1,0);
 		unequipItem(item);
 	}
 }

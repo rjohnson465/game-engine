@@ -187,6 +187,7 @@ if selectedQuest != noone && ds_exists(selectedQuest.questSteps,ds_type_list) {
 	var x1 = xx; var y1 = yy; var x2 = xx+wsw; var y2 = yy+wsh;
 	
 	if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_released(mb_left) {
+		audio_play_sound(snd_ui_option_change,1,0);
 		draw_sprite_ext(watchSprite,1,xx,yy,1,1,0,c_black,1);
 		if watchedQuest == selectedQuest {
 			watchedQuest = noone;

@@ -54,6 +54,7 @@ if gamepad_is_connected(pad) && isAcceptingInput {
 			}
 			selectedOption = ds_list_find_value(menuOptions,(abs(currentPos-1))%listSize);
 			joystickInputFrame = 0;
+			audio_play_sound(snd_ui_option_change,1,0);
 		}
 	
 		// move selector down 
@@ -62,25 +63,9 @@ if gamepad_is_connected(pad) && isAcceptingInput {
 			var listSize = ds_list_size(menuOptions);
 			selectedOption = ds_list_find_value(menuOptions,(currentPos+1)%listSize);
 			joystickInputFrame = 0;
+			audio_play_sound(snd_ui_option_change,1,0);
 		}
 		
-		/*
-		if gamepad_button_check_pressed(pad,gp_padd) {
-			if ds_list_find_value(menuOptions,ds_list_find_index(menuOptions,selectedOption)+1) != undefined {
-				selectedOption = ds_list_find_value(menuOptions,ds_list_find_index(menuOptions,selectedOption)+1);
-			} else {
-				selectedOption = ds_list_find_value(menuOptions,0);
-			}
-		}
-	
-		if gamepad_button_check_pressed(pad,gp_padu) {
-			if ds_list_find_value(menuOptions,ds_list_find_index(menuOptions,selectedOption)-1) != undefined {
-				selectedOption = ds_list_find_value(menuOptions,ds_list_find_index(menuOptions,selectedOption)-1);
-			} else {
-				selectedOption = ds_list_find_value(menuOptions,ds_list_size(menuOptions)-1);
-			}
-		}
-		*/
 	}
 	
 }

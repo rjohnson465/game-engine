@@ -1,5 +1,6 @@
 /// attemptGemInsertion()
 /// must be called by instance of obj_fountain_gui_nameprice
+audio_play_sound(snd_fountain_repair,1,0);
 randomize();
 var rand = random_range(0,100);
 if rand <= odds {

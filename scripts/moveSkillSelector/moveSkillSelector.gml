@@ -4,7 +4,7 @@
 var dir = argument[0];
 
 if !isActive exit;
-
+audio_play_sound(snd_ui_option_change,1,0);
 var closestSkill = selectedSkill; var closestDist = 10000;
 with obj_skill_parent {
 	

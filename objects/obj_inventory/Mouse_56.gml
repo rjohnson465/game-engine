@@ -17,6 +17,7 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 			case "InventoryScrollUp":{
 				if scrollLevel != 0 {
 					scrollLevel--;
+					audio_play_sound(snd_ui_click1,1,0);
 				}
 				break;
 			}
@@ -24,35 +25,43 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 				//var inv = global.player.inventory;
 				if !is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) {
 					scrollLevel++;
+					audio_play_sound(snd_ui_click1,1,0);
 				}
 				break;
 			}
 			case InventoryFilters.None: {
 				filter = InventoryFilters.None;
+				audio_play_sound(snd_ui_tab2,1,0);
 				break;
 			}
 			case InventoryFilters.Melee: {
 				filter = InventoryFilters.Melee;
+				audio_play_sound(snd_ui_tab2,1,0);
 				break;
 			}
 			case InventoryFilters.Ranged: {
 				filter = InventoryFilters.Ranged;
+				audio_play_sound(snd_ui_tab2,1,0);
 				break;
 			}
 			case InventoryFilters.Other: {
 				filter = InventoryFilters.Other;
+				audio_play_sound(snd_ui_tab2,1,0);
 				break;
 			}
 			case InventoryFilters.Shields: {
 				filter = InventoryFilters.Shields;
+				audio_play_sound(snd_ui_tab2,1,0);
 				break;
 			}
 			case InventoryFilters.Rings: {
 				filter = InventoryFilters.Rings;
+				audio_play_sound(snd_ui_tab2,1,0);
 				break;
 			}
 			case InventoryFilters.Head: {
 				filter = InventoryFilters.Head;
+				audio_play_sound(snd_ui_tab2,1,0);
 				break;
 			}
 			

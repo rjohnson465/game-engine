@@ -99,6 +99,7 @@ var inv = global.inventory;
 if global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY && point_in_rectangle(mouse_x,mouse_y,vx+inv.topLeftX,vy+inv.topLeftY,vx+inv.bottomRightX,vy+inv.bottomRightY)
 {
 	didClickStartInInventory = true;
+	equipmentSlotBeforeDrag = noone;
 } else if global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
 	didClickStartInEquipment = true;
 	equipmentSlotBeforeDrag = equipmentSlot;

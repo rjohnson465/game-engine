@@ -41,6 +41,7 @@ if gamepad_is_connected(pad) {
 		}
 		selectedPriceIncrease = ds_list_find_value(allPriceIncrements,(abs(currentPos-1))%listSize);
 		joystickInputFrame = 0;
+		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	
 	// move selector down 
@@ -49,9 +50,10 @@ if gamepad_is_connected(pad) {
 		var listSize = ds_list_size(allPriceIncrements);
 		selectedPriceIncrease = ds_list_find_value(allPriceIncrements,(currentPos+1)%listSize);
 		joystickInputFrame = 0;
+		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	
-	// attempt to insert gem with this price
+	// attempt to perform action (i.e. insert gem) with this price
 	if gamepad_button_check_pressed(pad,gp_face1) {
 		if selectedPriceIncrease == WISH {
 			if global.fountainGui.currentMenu == INSERTGEM {
@@ -85,6 +87,7 @@ if gamepad_is_connected(pad) {
 			}
 			if newProposal < getGoldCount() {
 				namedPrice = newProposal;
+				audio_play_sound(snd_item_coins,1,0);
 			} else {
 				alert("You do not have enough gold", c_red);
 			}

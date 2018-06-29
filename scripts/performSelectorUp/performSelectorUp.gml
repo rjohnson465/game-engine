@@ -1,5 +1,5 @@
 if !isActive || !ui.isShowingMenus || ui.currentMenu != INVENTORY exit;
-
+audio_play_sound(snd_ui_option_change,1,0);
 if isSelectorInEquippedItems() {
 	moveSelectorInEquippedItems("up");
 	eq.selectedItem = getItemAtSelectorPosition(id);

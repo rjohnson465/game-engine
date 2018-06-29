@@ -31,6 +31,7 @@ if gamepad_is_connected(pad) {
 				selectedConversation = ds_list_find_value(conversations,ds_list_size(conversations)-1);
 			}
 			joystickInputFrame = 0;
+			audio_play_sound(snd_ui_option_change,1,0);
 		}
 		
 		if gamepad_button_check_pressed(pad,gp_padd) || (angleBetween(225,315,pdir) && pdir != noone  && acceptingJoystickInput) {
@@ -40,10 +41,11 @@ if gamepad_is_connected(pad) {
 				selectedConversation = ds_list_find_value(conversations,pos+1);
 			}
 			joystickInputFrame = 0;
+			audio_play_sound(snd_ui_option_change,1,0);
 		}
 		
 		if gamepad_button_check_pressed(pad,gp_face1) && selectedConversation {
-			beginSelectedConversation();
+			startConversation(selectedConversation);
 		}
 		
 	}

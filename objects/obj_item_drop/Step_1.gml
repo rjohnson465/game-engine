@@ -45,11 +45,12 @@ if gamepad_is_connected(pad) {
 	// handle select / equip with selector
 	if gamepad_button_check_pressed(pad,gp_face1) && isBeingLooted && ds_exists(items,ds_type_list) {
 		// loot item
-		addItemToInventory(selectedItem);
+		lootItem(selectedItem,id);
+		/*addItemToInventory(selectedItem);
 		ds_list_delete(items,ds_list_find_index(items,selectedItem));
 		if ds_list_size(items) > 0 {
 			selectedItem = ds_list_find_value(items,0);
-		}
+		}*/
 	} 
 	
 	if gamepad_button_check_pressed(pad,gp_face2) && isBeingLooted {

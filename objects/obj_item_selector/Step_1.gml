@@ -1,4 +1,6 @@
-if !global.ui.isShowingMenus exit;
+if !global.ui.isShowingMenus {
+	exit;
+}
 
 if isActive && isSelectorInInventory() && getItemAtSelectorPosition(id) == noone {
 	var invv = global.inventory.inv;

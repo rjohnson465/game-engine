@@ -16,21 +16,31 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 	
 	//if mouse_x > vx + x1 && mouse_y > vy + y1 && mouse_x < vx + x2 && mouse_y < vy + y2 {
 	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && global.ui.grabbedItem == noone {
+		// stop any equipping that might be going on
+		with obj_item_selector {
+			if global.ui.isShowingMenus && type == SelectorTypes.Equip {
+				performSelectorBackspacePressed();
+			}
+		}
 		switch (currentButton) {
 			case "closeButton": {
 				isShowingMenus = false;
+				audio_play_sound(snd_ui_click1,1,0);
 				break;
 			}
 			case INVENTORY: {
 				currentMenu = INVENTORY;
+				audio_play_sound(snd_ui_tab1,1,0);
 				break;
 			}
 			case SKILLS: {
 				currentMenu = SKILLS;
+				audio_play_sound(snd_ui_tab1,1,0);
 				break;
 			}
 			case OPTIONS: {
 				currentMenu = OPTIONS;
+				audio_play_sound(snd_ui_tab1,1,0);
 				break;
 			}
 		}

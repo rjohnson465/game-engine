@@ -12,11 +12,14 @@ switch type {
 	case SelectorTypes.Select: {
 		if isSelectorInEquippedItems() || isSelectorInInventory() && item.type != ItemTypes.Other {
 			isActive = false;
+			var item = getItemAtSelectorPosition(id);
+			if item != noone {
+				audio_play_sound(item.soundGrab,1,0);
+			}
 			//global.inventory.scrollLevel = 0;
 			// find Equip selector and activate it (in End Step event)
 		} else if item.type == ItemTypes.Other && item.isUsable {
-			item.isInUse = true;
-			alert("Used " + item.name,c_yellow);
+			useItem(item);
 		}
 		break;
 	}
@@ -24,6 +27,7 @@ switch type {
 		var moveSelector = ui.moveSelector;
 		var equipSelector = id;
 		var selectedEquipmentSlot = noone;
+		var item = getItemAtSelectorPosition(equipSelector);
 		
 		// equipselector is in inventory
 		if array_length_1d(ui.equipSelector.acceptableEquipmentSlots) == 0 {		
@@ -32,6 +36,7 @@ switch type {
 					selectedEquipmentSlot = id;
 				}
 			}
+			audio_play_sound(item.soundDrop,1,0);
 			equipItemVerbose(getItemAtSelectorPosition(id),selectedEquipmentSlot);
 		
 		}
@@ -42,6 +47,8 @@ switch type {
 					selectedEquipmentSlot = id;
 				}
 			}
+			item = getItemAtSelectorPosition(moveSelector);
+			audio_play_sound(item.soundDrop,1,0);
 			equipItemVerbose(getItemAtSelectorPosition(moveSelector),selectedEquipmentSlot);
 			acceptableEquipmentSlots = [];
 		}

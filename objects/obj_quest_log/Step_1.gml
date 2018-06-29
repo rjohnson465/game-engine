@@ -11,6 +11,7 @@ if isActive && gamepad_is_connected(pad) {
 	
 	// scroll down quest log
 	if gamepad_button_check_pressed(pad,gp_padd) && selectedQuest != noone {
+		audio_play_sound(snd_ui_option_change,1,0);
 		var qIndex = ds_list_find_index(p.quests,selectedQuest);
 		if qIndex != ds_list_size(p.quests) - 1 {
 			selectedQuest = ds_list_find_value(p.quests,qIndex+1);
@@ -23,6 +24,7 @@ if isActive && gamepad_is_connected(pad) {
 	
 	// scroll up quest log
 	if gamepad_button_check_pressed(pad,gp_padu) && selectedQuest != noone {
+		audio_play_sound(snd_ui_option_change,1,0);
 		var qIndex = ds_list_find_index(p.quests,selectedQuest);
 		if qIndex > 0 {
 			selectedQuest = ds_list_find_value(p.quests,qIndex-1);
@@ -46,6 +48,7 @@ if isActive && gamepad_is_connected(pad) {
 	
 	// watch quest 
 	if gamepad_button_check_released(pad,gp_face4) && selectedQuest != noone {
+		audio_play_sound(snd_ui_option_change,1,0);
 		if watchedQuest != selectedQuest {
 			watchedQuest = selectedQuest;
 		} else {

@@ -47,7 +47,7 @@ equipmentSlot = noone;
 
 mightGrab = false;
 grabFrame = 0;
-grabFrames = 3;
+grabFrames = 1;
 
 numberOfSockets = 0;
 socketedGems = ds_list_create();

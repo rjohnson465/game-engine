@@ -37,7 +37,30 @@ layerName = layer_get_name(layer);
 
 inUse = false;
 
-soundEmitter = audio_emitter_create();
+
+
+
+
+// shader for ripple
+uni_time = shader_get_uniform(shd_radial_blur,"time");
+var_time_var = 0;
+
+uni_mouse_pos = shader_get_uniform(shd_radial_blur,"mouse_pos");
+var_mouse_pos_x = x;
+var_mouse_pos_y = y;
+
+uni_resolution = shader_get_uniform(shd_radial_blur,"resolution");
+var_resolution_x = view_get_wport(0);
+var_resolution_y = view_get_hport(0);
+
+uni_radial_blur_offset = shader_get_uniform(shd_radial_blur,"radial_blur_offset");
+var_radial_blur_offset = 0.05;
+
+uni_radial_brightness = shader_get_uniform(shd_radial_blur,"radial_brightness");
+var_radial_brightness = 1;
+
+
+
 
 /*
 key = fs_generate_key();

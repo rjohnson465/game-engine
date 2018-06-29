@@ -12,6 +12,12 @@ if global.isTrading {
 	}
 }
 
+with obj_item_selector {
+	if global.ui.isShowingMenus && type == SelectorTypes.Equip {
+		performSelectorBackspacePressed();
+	}
+}
+
 if isShowingMenus && currentMenu == INVENTORY {
 	isShowingMenus = false;
 } else {
