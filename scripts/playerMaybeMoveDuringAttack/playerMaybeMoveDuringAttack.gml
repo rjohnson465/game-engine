@@ -7,11 +7,11 @@ if ds_map_size(attackingLimbs) != 0 {
 	if ds_map_size(preparingLimbs) == 0 {
 		var x1 = x + lengthdir_x(2,facingDirection);
 		var y1 = y + lengthdir_y(2,facingDirection);
+		var weaponL = ds_map_find_value(equippedLimbItems,"l");
+		var weaponR = ds_map_find_value(equippedLimbItems,"r");
 
 		if attackingMelee && !place_meeting_layer(x1,y1,obj_solid_parent) {
 			// get in range of shortest range weapon, iff both are melee and we have a lock on target
-			var weaponL = ds_map_find_value(equippedLimbItems,"l");
-			var weaponR = ds_map_find_value(equippedLimbItems,"r");
 			var r = weaponL.range > weaponR.range ? weaponR.range : weaponL.range;
 			var distanceToTarget = distance_to_object(lockOnTarget);
 			if lockOnTarget != noone && distance_to_object(lockOnTarget) > r/2 {
@@ -20,7 +20,15 @@ if ds_map_size(attackingLimbs) != 0 {
 			} else {
 				moveToNearestFreePoint(facingDirection,functionalSpeed);
 			}
-		} else {
+		}
+		// knockback from pistols and muskets
+		else if weaponL.weaponType == MUSKET || weaponR.weaponType == MUSKET {
+			moveToNearestFreePoint(facingDirection+180,6);
+		}
+		else if weaponL.weaponType == PISTOL || weaponR.weaponType == PISTOL {
+			moveToNearestFreePoint(facingDirection+180,4);
+		}
+		else {
 			speed = 0;
 		}
 	} else {

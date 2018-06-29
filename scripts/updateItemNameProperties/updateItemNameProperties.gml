@@ -93,7 +93,7 @@ for (var i = 0; i < ds_list_size(orderedPrefixes); i++) {
 	
 }
 
-var newName = prefixString + item.baseName;
+var newName = prefixString + item.gemmedName;
 if suffix1 != noone || suffix2 != noone {
 	newName += " of the ";
 }

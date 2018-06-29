@@ -206,5 +206,6 @@ switch ds_list_size(gemTypesSeen) {
 }
 
 item.name = newName;
+item.gemmedName = newName;
 
 ds_list_destroy(gemTypesSeen);

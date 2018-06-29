@@ -1,3 +1,5 @@
+//if limbItem.weaponType == PISTOL exit; // must draw pistols on top of hands
+
 if !owner.isBeingHit {
 	prepareLayerShader();
 } else {

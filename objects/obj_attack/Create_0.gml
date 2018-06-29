@@ -323,3 +323,59 @@ if isSoundLooping {
 		audio_play_sound_at(sound,owner.x,owner.y,0,100,300,1,0,1);
 	}
 }
+
+// special case -- guns create fire / smoke particles when attack starts
+if weapon == noone exit;
+if (weapon != noone && weapon.weaponType == PISTOL || weapon.weaponType == MUSKET) {
+
+	// knockback
+	var kb = weapon.weaponType == PISTOL ? 4 : 6;
+	with owner {
+		var isEnemy = type == CombatantTypes.Enemy;
+		moveToNearestFreePoint((facingDirection+180)%360,kb,isEnemy);
+	}
+
+	var fire = part_type_create();
+	part_type_sprite(fire,spr_particle_fire,0,0,1);
+	part_type_size(fire,.05,.12,0,0);
+	part_type_color2(fire,c_orange,make_color_rgb(128,9,9));
+	part_type_alpha3(fire,1,1,0);
+	part_type_speed(fire,3,5,0,0);
+	part_type_direction(fire,owner.facingDirection-90,owner.facingDirection+90,0,5);
+	part_type_orientation(fire,0,359,0,0,0);
+	part_type_blend(fire,1);
+	part_type_life(fire,6,10);
+	particle = fire;
+	
+	var smoke = part_type_create();
+	part_type_shape(smoke,pt_shape_cloud);
+	part_type_size(smoke,.05,.2,.01,.03);
+	part_type_color2(smoke,c_gray,c_white);
+	part_type_alpha3(smoke,1,.5,.1);
+	part_type_speed(smoke,1,2,.1,.1);
+	part_type_direction(smoke,owner.facingDirection,owner.facingDirection,0,0);
+	part_type_life(smoke,10,20);
+	particle2 = smoke;
+	
+	var xo = weapon.sparksXOffset; var yo = weapon.sparksYOffset;
+	if limbKey == "r" {
+		yo += 20;
+	}
+	var ofd = owner.facingDirection;
+	var sx = owner.x + xo; var sy = owner.y + yo;
+	var cx = owner.x; var cy = owner.y;
+	var radians = (pi/180) * ofd;
+	var cs = cos(radians);
+	var sn = sin(radians);
+	var nx = (cs * (sx - cx)) + (sn * (sy - cy)) + cx;
+	var ny = (cs * (sy - cy)) - (sn * (sx - cx)) + cy;
+	
+	xx = nx;
+	yy = ny;
+
+	part_emitter_region(system,emitter,
+		xx,xx,
+		yy,yy,0,0);
+	part_emitter_burst(system,emitter,particle,5);
+	part_emitter_burst(system,emitter,particle2,2);
+}

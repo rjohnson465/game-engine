@@ -72,9 +72,13 @@ if isRanged && !hasSetAlarm {
 	audio_play_sound_at(snd,global.x1,global.y1,depth,20,200,1,0,1);
 	global.particleDirection = facingDirection;
 	instance_create_depth(0,0,1,obj_hit_particles);
-	if !isSpell {
+	/*if !isSpell {
 		instance_destroy(id,true);
-	}
+	}*/
+	alarm[0] = 15;
+	visible = 0;
+	speed = 0;
+	hasSetAlarm = true;
 }
 
 if isSpell && !hasSetAlarm {

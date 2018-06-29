@@ -20,6 +20,7 @@ if owner.currentUsingSpell != noone {
 // switch weapon sprite
 if limbItem != limb.limbItem || refreshParticles {
 	limbItem = limb.limbItem;
+
 	refreshParticles = false;
 	if owner.type == CombatantTypes.Player {
 		//if limbItem.subType != HandItemTypes.Shield {

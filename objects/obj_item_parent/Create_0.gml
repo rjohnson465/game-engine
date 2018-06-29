@@ -7,6 +7,7 @@ depth = -1001;
 persistent = true;
 name = "default item name";
 baseName = "default item base name";
+gemmedName = "default item gemmed name";
 
 enum ItemTypes {	
 	HandItem,

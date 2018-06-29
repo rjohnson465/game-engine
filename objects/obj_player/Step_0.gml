@@ -75,6 +75,9 @@ switch(state) {
 		// if they are finishing preparing, need to create attack objects
 		playerIterateOverPreparingHands();
 		
+		// move forward while attacking with a melee attack (if not simultaenously preparing another attack)
+		playerMaybeMoveDuringAttack();
+		
 		// update attackFrames values
 		playerUpdateAttackFrames();
 		
@@ -82,9 +85,6 @@ switch(state) {
 		// if they just started recovering, need to assign recover frames / total frames
 		// if they just finished recovering, need to check if we need to leave attack state or if we need to attack with that hand again
 		playerIterateOverRecoveringHands();
-		
-		// move forward while attacking with a melee attack (if not simultaenously preparing another attack)
-		playerMaybeMoveDuringAttack();
 		
 		// handle 2h ranged weapon attacks
 		// this is a 2h ranged weapon, so limb must be "l"

@@ -214,10 +214,12 @@ addItemProperty(ring,ModifiableProperties.WeaponTypesDamage,[AXE2H,7]);
 updateItemName(ring);
 addItemToInventory(ring);
 
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
+
 //var lcap = instance_create_depth(x,y,1,obj_hat_leathercap);
 //addItemToInventory(lcap);
 
-/*
+
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
 
@@ -227,7 +229,7 @@ addItemToInventory(makeGem(obj_gem_emerald,CRACKED));
 addItemToInventory(makeGem(obj_gem_ruby,CRACKED));
 addItemToInventory(makeGem(obj_gem_hematite,CRACKED));
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-*/
+
 // bs
 /*
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
