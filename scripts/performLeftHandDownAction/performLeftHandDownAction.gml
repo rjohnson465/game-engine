@@ -15,7 +15,7 @@ if isFading exit;
 if !isMouseInMenu && !isFrozen && !global.ui.isShowingMenus {
 
 	// if using a 2h ranged weapon, holding left allows for aiming
-	if	leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded &&
+	/*if	leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded &&
 		(state == CombatantStates.Idle || state == CombatantStates.Moving) {
 		
 		if leftHandItem.ammo < 1 {
@@ -38,5 +38,5 @@ if !isMouseInMenu && !isFrozen && !global.ui.isShowingMenus {
 			}
 			state = CombatantStates.Attacking;
 		}
-	}
+	}*/
 }

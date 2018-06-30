@@ -1,7 +1,7 @@
 // handle 2h ranged weapon attacks
 // this is a 2h ranged weapon, so limb must be "l"
-var RIGHTRELEASED = mouse_check_button_released(mb_right);
-var RIGHTHELD = mouse_check_button(mb_right);
+var RIGHTRELEASED = mouse_check_button_released(mb_left);
+var RIGHTHELD = mouse_check_button(mb_left);
 if gamepad_is_connected(gamePadIndex) {
 	RIGHTRELEASED = mouse_check_button_released(mb_left) 
 	|| gamepad_button_check_released(gamePadIndex,gp_shoulderrb);

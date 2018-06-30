@@ -59,8 +59,11 @@ for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
 	var x1 = xx-(sw/2); var y1 = yy-(sh/2); 
 	var x2 = xx+(sw/2); var y2 = yy+(sh/2);
 	
-	if mouseOverGuiRect(x1,y1,x2,y2) || selectedPriceIncrease == str {
+	if global.fountainGui.currentSubMenu == NAMEPRICE && (mouseOverGuiRect(x1,y1,x2,y2) || selectedPriceIncrease == str) {
 		draw_set_color(c_white);
+		if selectedPriceIncrease != str {
+			audio_play_sound(snd_ui_option_change,1,0);
+		}
 		selectedPriceIncrease = str;
 	} else {
 		draw_set_color(c_ltgray);
@@ -69,7 +72,7 @@ for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
 	draw_text(xx,yy,str);
 	
 	// handle click event for price options
-	if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_released(mb_left) {
+	if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_released(mb_left) && global.fountainGui.currentSubMenu == NAMEPRICE {
 		var newProposal = namedPrice;
 		
 		switch (str) {

@@ -18,7 +18,28 @@ if rightHandItem.isRanged && rightHandItem.ammo < 1 && !rightHandItem.isTwoHande
 }
 
 if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMouseInMenu {
-	if  !leftHandItem.isTwoHanded
+	
+	if leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded {
+		
+		if array_length_1d(leftHandItem.prepSounds) > 0 {
+			var snd = leftHandItem.prepSounds[0];
+			if audio_is_playing(snd) {
+				audio_stop_sound(snd);
+			}
+		}
+		
+		ds_map_delete(preparingLimbs,"l");
+		ds_map_replace(prepFrames,"l",-1);
+		ds_map_replace(prepFrameTotals,"l",0);
+		ds_map_delete(attackingLimbs,"l");
+		
+		isReadyToFire = false;
+		chargeFrame = -10;
+		ds_map_delete(recoveringLimbs,"l");
+		state = CombatantStates.Idle;
+	}
+	
+	else if  !leftHandItem.isTwoHanded
 		&& rightHandItem.subType != HandItemTypes.Shield
 		&& stamina > 0 
 		&& (state != CombatantStates.Dodging && state != CombatantStates.Staggering)

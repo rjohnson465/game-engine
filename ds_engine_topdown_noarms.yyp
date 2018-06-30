@@ -287,6 +287,14 @@
             }
         },
         {
+            "Key": "08482008-cadf-44bb-be1a-dd0ac53aee70",
+            "Value": {
+                "id": "87bb53e0-45b2-40d7-9dfd-b1e03c726bb0",
+                "resourcePath": "sprites\\spr_item_pistol\\spr_item_pistol.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "08680fc7-bd09-4fa2-925e-4d8c0c1b91d3",
             "Value": {
                 "id": "71113852-5ad2-4ce7-9eed-136e768a24c8",
@@ -1834,7 +1842,7 @@
             "Key": "3c26aa55-f36d-49a4-8a6e-f60f858a81b2",
             "Value": {
                 "id": "9282618b-9ef6-4325-9140-016f4bb75878",
-                "resourcePath": "sprites\\spr_item_thrownknife\\spr_item_thrownknife.yy",
+                "resourcePath": "sprites\\spr_item_thrownknife1\\spr_item_thrownknife1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2428,6 +2436,14 @@
                 "id": "e241dadb-b295-4523-9376-34a75468efcb",
                 "resourcePath": "tilesets\\tileset0\\tileset0.yy",
                 "resourceType": "GMTileSet"
+            }
+        },
+        {
+            "Key": "51d4287b-5e25-41f0-af86-25adf881aef4",
+            "Value": {
+                "id": "7c293977-68eb-4bf9-a670-5e3767e463d4",
+                "resourcePath": "sprites\\spr_item_thrownknife\\spr_item_thrownknife.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5386,7 +5402,7 @@
             "Key": "b5e87a7d-c75c-4f04-b4ac-c73890468361",
             "Value": {
                 "id": "7f84ac2c-6809-4b50-882c-986f13e12639",
-                "resourcePath": "sprites\\spr_item_pistol\\spr_item_pistol.yy",
+                "resourcePath": "sprites\\spr_item_pistol1\\spr_item_pistol1.yy",
                 "resourceType": "GMSprite"
             }
         },

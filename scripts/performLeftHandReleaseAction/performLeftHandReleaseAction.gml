@@ -39,7 +39,7 @@ if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMo
 
 	if leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded {
 		
-		if array_length_1d(leftHandItem.prepSounds) > 0 {
+		/*if array_length_1d(leftHandItem.prepSounds) > 0 {
 			var snd = leftHandItem.prepSounds[0];
 			if audio_is_playing(snd) {
 				audio_stop_sound(snd);
@@ -54,7 +54,7 @@ if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMo
 		isReadyToFire = false;
 		chargeFrame = -10;
 		ds_map_delete(recoveringLimbs,"l");
-		state = CombatantStates.Idle;
+		state = CombatantStates.Idle;*/
 	}
 	else if
 		stamina > 0 &&
