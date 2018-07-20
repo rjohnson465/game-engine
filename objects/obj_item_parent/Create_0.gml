@@ -7,6 +7,7 @@ depth = -1001;
 persistent = true;
 name = "default item name";
 baseName = "default item base name";
+baseNameModified = baseName;
 gemmedName = "default item gemmed name";
 
 enum ItemTypes {	
@@ -73,7 +74,35 @@ enum ModifiableProperties {
 	length
 }
 
-itemProperties = ds_map_create();
+enum WeaponProperties {
+	PhysicalDamageBonus,
+	ElementalDamageBonus,
+	DurabilityAmmoBonus, // one or the other
+	ChargesBonus,
+	length
+}
+
+enum ShieldProperties {
+	PhysicalBlockBonus,
+	ElementalBlockBonus,
+	DurabilityBonus,
+	length
+}
+
+enum HatProperties {
+	PhysicalDefenseBonus,
+	ElementalDefenseBonus,
+	length
+}
+
+// if an item has inherent base props modified, these properties hold a "property score"
+// this score represents how much the property was modified from its base value
+// the value will put the modified property in a tier of 1-3
+global.basePropModTiers = [10, 30, 30, 45, 45, 60];
+
+
+itemProperties = ds_map_create(); // rings -- hold additional properties
+itemPropertyModifiers = ds_map_create(); // non-rings -- holds item-specific prop mods that affect base prop vals
 
 hasIssuedDurabilityWarning = false;
 hasIssuedDurabilityObituary = false;

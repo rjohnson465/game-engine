@@ -19,14 +19,20 @@ draw_set_halign(fa_center);
 draw_set_color(c_ltgray);
 var hand = isOffHand ? "Off" : "Main";
 draw_set_font(font_main);
-draw_text(mean(topLeftX,topLeftX+width),startingY+(line*20),hand + " Hand: " + weapon.name);
+var s = hand + " Hand: " + weapon.name;
+var sw = string_width(s);
+var xs = 1;
+if sw > width {
+	xs = width/sw;
+}
+draw_text_transformed(mean(topLeftX,topLeftX+width),startingY+(line*20),s, xs, 1, 0);
 draw_set_halign(fa_left);
 draw_set_color(c_white);
 draw_set_font(font_small);
 line++;
 
 
-// TODO account for item / skill bonuses for damages
+// account for item / skill bonuses for damages
 var damagesStrings = getPhysicalDamageTypesString(weapon,isOffHand,1);
 var physicalDamagesTypesString = damagesStrings[0];
 

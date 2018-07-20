@@ -18,34 +18,34 @@ for (var i = 0; i < ds_list_size(item.socketedGems); i++) {
 var newName = "";
 switch ds_list_size(gemTypesSeen) {
 	case 0: {
-		newName = item.baseName;
+		newName = item.baseNameModified;
 		break;
 	}
 	case 1: {
 		var gemType = ds_list_find_value(gemTypesSeen,0);
 		switch gemType {
 			case GemTypes.Lapis: {
-				newName = "Enchanted " + item.baseName;
+				newName = "Enchanted " + item.baseNameModified;
 				break;
 			}
 			case GemTypes.Aquamarine: {
-				newName = "Frozen " + item.baseName;
+				newName = "Frozen " + item.baseNameModified;
 				break;
 			}
 			case GemTypes.Topaz: {
-				newName = "Electrified " + item.baseName;
+				newName = "Electrified " + item.baseNameModified;
 				break;
 			}
 			case GemTypes.Ruby: {
-				newName = "Burning " + item.baseName;
+				newName = "Burning " + item.baseNameModified;
 				break;
 			}
 			case GemTypes.Emerald: {
-				newName = "Poisoned " + item.baseName;
+				newName = "Poisoned " + item.baseNameModified;
 				break;
 			}
 			case GemTypes.Hematite: {
-				newName = "Sharp " + item.baseName;
+				newName = "Sharp " + item.baseNameModified;
 				break;
 			}
 		}
@@ -56,64 +56,64 @@ switch ds_list_size(gemTypesSeen) {
 		var gemTypes = [gemType1,gemType2];
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Emerald]) {
-			newName = "Venemous " + item.baseName; break;
+			newName = "Venemous " + item.baseNameModified; break;
 		} 
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Aquamarine]) {
-			newName = "Hellish " + item.baseName; break;
+			newName = "Hellish " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Lapis]) {
-			newName = "Pyromancing " + item.baseName; break;
+			newName = "Pyromancing " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Topaz]) {
-			newName = "Sparking " + item.baseName; break;
+			newName = "Sparking " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Hematite]) {
-			newName = "Tempered " + item.baseName; break;
+			newName = "Tempered " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Aquamarine]) {
-			newName = "Frostbitten " + item.baseName; break;
+			newName = "Frostbitten " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Lapis]) {
-			newName = "Intoxicating " + item.baseName; break;
+			newName = "Intoxicating " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Topaz]) {
-			newName = "Caffeinated " + item.baseName; break;
+			newName = "Caffeinated " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Hematite]) {
-			newName = "Assassin's " + item.baseName; break;
+			newName = "Assassin's " + item.baseNameModified; break;
 		}
 		
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Lapis]) {
-			newName = "Santa's " + item.baseName; break;
+			newName = "Santa's " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Topaz]) {
-			newName = "Hailstorm " + item.baseName; break;
+			newName = "Hailstorm " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Hematite]) {
-			newName = "Icicle " + item.baseName; break;
+			newName = "Icicle " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Lapis,GemTypes.Topaz]) {
-			newName = "Charged " + item.baseName; break;
+			newName = "Charged " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Lapis,GemTypes.Hematite]) {
-			newName = "Alchemical " + item.baseName; break;
+			newName = "Alchemical " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Topaz,GemTypes.Hematite]) {
-			newName = "Lightning " + item.baseName; break;
+			newName = "Lightning " + item.baseNameModified; break;
 		}
 
 	}
@@ -124,83 +124,83 @@ switch ds_list_size(gemTypesSeen) {
 		var gemTypes = [gemType1,gemType2,gemType3];
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Emerald,GemTypes.Aquamarine]) {
-			newName = "Apocalyptic " + item.baseName; break;
+			newName = "Apocalyptic " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Emerald,GemTypes.Lapis]) {
-			newName = "Alcoholic " + item.baseName; break;
+			newName = "Alcoholic " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Emerald,GemTypes.Topaz]) {
-			newName = "Nuclear " + item.baseName; break;
+			newName = "Nuclear " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Emerald,GemTypes.Hematite]) {
-			newName = "Serpentine " + item.baseName; break;
+			newName = "Serpentine " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Aquamarine,GemTypes.Lapis]) {
-			newName = "Satanic " + item.baseName; break;
+			newName = "Satanic " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Aquamarine,GemTypes.Topaz]) {
-			newName = "Torturous " + item.baseName; break;
+			newName = "Torturous " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Aquamarine,GemTypes.Hematite]) {
-			newName = "Culinary " + item.baseName; break;
+			newName = "Culinary " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Lapis,GemTypes.Topaz]) {
-			newName = "Cauterizing " + item.baseName; break;
+			newName = "Cauterizing " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Lapis,GemTypes.Hematite]) {
-			newName = "Draconic " + item.baseName; break;
+			newName = "Draconic " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Ruby,GemTypes.Topaz,GemTypes.Hematite]) {
-			newName = "Jupiter's " + item.baseName; break;
+			newName = "Jupiter's " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Aquamarine,GemTypes.Lapis]) {
-			newName = "Petrifying " + item.baseName; break;
+			newName = "Petrifying " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Aquamarine,GemTypes.Topaz]) {
-			newName = "Paralyzing " + item.baseName; break;
+			newName = "Paralyzing " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Aquamarine,GemTypes.Hematite]) {
-			newName = "Murderous " + item.baseName; break;
+			newName = "Murderous " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Lapis,GemTypes.Topaz]) {
-			newName = "Fuming " + item.baseName; break;
+			newName = "Fuming " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Lapis,GemTypes.Hematite]) {
-			newName = "Infectious " + item.baseName; break;
+			newName = "Infectious " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Emerald,GemTypes.Topaz,GemTypes.Hematite]) {
-			newName = "Ionizing " + item.baseName; break;
+			newName = "Ionizing " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Lapis,GemTypes.Topaz]) {
-			newName = "Refrigerating " + item.baseName; break;
+			newName = "Refrigerating " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Lapis,GemTypes.Hematite]) {
-			newName = "Unrequited " + item.baseName; break;
+			newName = "Unrequited " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Aquamarine,GemTypes.Topaz,GemTypes.Hematite]) {
-			newName = "Exacerbating " + item.baseName; break;
+			newName = "Exacerbating " + item.baseNameModified; break;
 		}
 		
 		if arrayIncludesMultiple(gemTypes,[GemTypes.Lapis,GemTypes.Topaz,GemTypes.Hematite]) {
-			newName = "Electrocuting " + item.baseName; break;
+			newName = "Electrocuting " + item.baseNameModified; break;
 		}
 	}
 }

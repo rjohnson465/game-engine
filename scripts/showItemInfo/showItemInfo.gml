@@ -24,20 +24,7 @@ var descriptionHandleY2 = topLeftY+itemDescriptionHandleHeight;
 draw_rectangle(topLeftX,topLeftY,descriptionHandleX2,descriptionHandleY2,false);
 
 // draw item name in color according to item rarity
-switch item.rarity {
-	case ItemRarities.Normal: {
-		draw_set_color(c_white); break;
-	}
-	case ItemRarities.Fine: {
-		draw_set_color(c_aqua); break;
-	}
-	case ItemRarities.Masterwork: {
-		draw_set_color(c_fuchsia); break;
-	}
-	case ItemRarities.Legendary: {
-		draw_set_color(c_lime); break;
-	}
-}
+draw_set_color(ds_map_find_value(global.itemRarityColors, item.rarity));
 
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
@@ -69,24 +56,52 @@ if item.type == ItemTypes.HandItem {
 		autoDescription += "/" + item.weaponSpeed;
 	}
 	
+	var adsw = string_width(autoDescription);
+	draw_set_color(c_white);
 	draw_sprite(spr_item_info,1,itemDescriptionCol1XPictures,itemDescriptionColY+5);
 	if !global.ui.isShowingExplanations {
 		draw_text(itemDescriptionCol1XText, itemDescriptionColY+5, autoDescription);
 	} else {
 		if item.subType != HandItemTypes.Shield {
 			draw_text(itemDescriptionCol1XText, itemDescriptionColY+5, "Type/1H or 2H/Speed");
+			adsw = string_width("Type/1H or 2H/Speed");
 		} else {
 			draw_text(itemDescriptionCol1XText, itemDescriptionColY+5, "Type");
 		}
 	}
-					
+	
+	// draw mastery requirement
+	if !object_is_ancestor(item.object_index, obj_shield_parent) && item.object_index != obj_unarmed_parent && item.requiredMastery != 0 {
+		draw_sprite(spr_item_info_required_mastery,1,itemDescriptionCol1XText+adsw+5, itemDescriptionColY+5);
+		var sprw = sprite_get_width(spr_item_info_required_mastery);
+		
+		if !global.ui.isShowingExplanations {
+			var skill = noone;
+			skill = getSkillForItem(item);
+		
+			if skill.level < item.requiredMastery {
+				draw_set_color(c_red);
+			} else {
+				draw_set_color(c_white);
+			}
+			var s = skill.name + " " + string(item.requiredMastery);
+			draw_text(itemDescriptionCol1XText+adsw+sprw+10, itemDescriptionColY+5,s);
+		} else {
+			draw_set_color(c_white);
+			draw_text(itemDescriptionCol1XText+adsw+sprw+10, itemDescriptionColY+5,"Skill prereq.");
+		}
+	}
+	
 	// draw durability
 	if !item.isRanged {
 		var durabilityString = string(item.durability) + "/" + string(item.durabilityMax);
 		draw_sprite(spr_item_info_durability,1,itemDescriptionCol1XPictures,itemDescriptionColY+80);
 		if !global.ui.isShowingExplanations {
+			var durabilityBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.DurabilityAmmoBonus);
+			draw_set_color(getPropertyColorForBuffAmount(durabilityBuff));
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,durabilityString);
 		} else {
+			draw_set_color(c_white);
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,"Durability / Max durability");
 		}
 	}
@@ -96,8 +111,11 @@ if item.type == ItemTypes.HandItem {
 		var ammoString = string(item.ammo) + "/" + string(item.ammoMax);
 		draw_sprite(spr_item_info_ammo,1,itemDescriptionCol1XPictures,itemDescriptionColY+80);
 		if !global.ui.isShowingExplanations {
+			var ammoBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.DurabilityAmmoBonus);
+			draw_set_color(getPropertyColorForBuffAmount(ammoBuff));
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,ammoString);
 		} else {
+			draw_set_color(c_white);
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,"Ammo / Max ammo");
 		}
 	}
@@ -112,8 +130,10 @@ if item.type == ItemTypes.HandItem {
 		// draw physical damages types / values
 		draw_sprite(spr_item_info_damage_types,1,itemDescriptionCol1XPictures,itemDescriptionColY+30);
 		if !global.ui.isShowingExplanations {
+			draw_set_color(c_white);
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+30,physicalDamageTypesString);
 		} else {
+			draw_set_color(c_white);
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+30,"Phys. attacks type(s)");
 		}
 	
@@ -125,8 +145,11 @@ if item.type == ItemTypes.HandItem {
 			scale = (itemDescriptionCol1Width-21) / stringWidth;
 		}
 		if !global.ui.isShowingExplanations {
+			var physDamageBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.PhysicalDamageBonus);
+			draw_set_color(getPropertyColorForBuffAmount(physDamageBuff));
 			draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+55,physicalDamagesString,scale,scale,0);
 		} else {
+			draw_set_color(c_white);
 			draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+55,"Phys. attacks damage",scale,scale,0);
 		}
 		
@@ -135,14 +158,16 @@ if item.type == ItemTypes.HandItem {
 			var magicChargesString = string(item.charges) + "/" + string(item.chargesMax);
 			draw_sprite(spr_item_info_magic_charges,1,itemDescriptionCol1XPictures,itemDescriptionColY+105);
 			if !global.ui.isShowingExplanations {
+				var chargesBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.ChargesBonus);
+				draw_set_color(getPropertyColorForBuffAmount(chargesBuff));
 				draw_text(itemDescriptionCol1XText,itemDescriptionColY+105,magicChargesString);
 			} else {
+				draw_set_color(c_white);
 				draw_text(itemDescriptionCol1XText,itemDescriptionColY+105,"Charges / Max charges");
 			}
 		}
 		
 		// elemental damages (right column)
-		
 		for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 			var damageType = global.ALL_ELEMENTS[i];
 			var damageArray = ds_map_find_value(item.damages,damageType);
@@ -176,11 +201,24 @@ if item.type == ItemTypes.HandItem {
 			draw_sprite(sprite,1,itemDescriptionCol2XPictures,itemDescriptionColY+((i+1)*25));
 			if !global.ui.isShowingExplanations {
 				if minDamage == 0 && maxDamage == 0 {
+					draw_set_color(c_white);
 					draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),"0");
 				} else {
+					var elDamageBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.ElementalDamageBonus);
+					if elDamageBuff != undefined {
+						var el = elDamageBuff[0];
+						if el == damageType {
+							draw_set_color(getPropertyColorForBuffAmount(elDamageBuff[1]));
+						} else {
+							draw_set_color(c_white);
+						}
+					} else {
+						draw_set_color(c_white);
+					}
 					draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),string(minDamage) + "-" + string(maxDamage));
 				}
 			} else {
+				draw_set_color(c_white);
 				draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),damageType);
 			}
 			
@@ -271,7 +309,7 @@ else if item.type == ItemTypes.Other {
 			}
 		}
 		
-		draw_text(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,"Insert into socketed item");
+		draw_text(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,"Insert into socketed item at fountain");
 		
 		draw_sprite(damageSprite,1,itemDescriptionCol1XPictures,topLeftY+itemDescriptionHandleHeight+30);
 		draw_text(itemDescriptionCol1XText,topLeftY+itemDescriptionHandleHeight+30,"Weapons: +" + string(minValue) + "-" + string(maxValue) + " " + el + " damage");
@@ -377,6 +415,7 @@ else if item.type == ItemTypes.Head {
 }
 
 if item.isSellable {
+	draw_set_color(c_white);
 	var w = sprite_get_width(spr_item_info_defense_crush);
 	var xs = w/sprite_get_width(spr_item_coins);
 	draw_sprite_ext(spr_item_coins,1,itemDescriptionCol1XPictures,itemDescriptionColY+130,xs,xs,0,c_white,1);

@@ -8,7 +8,6 @@ shader_set(shd_radial_blur);
     shader_set_uniform_f(uni_radial_blur_offset, var_radial_blur_offset);
     shader_set_uniform_f(uni_radial_brightness, var_radial_brightness);
 
-	
 	var sw = window_get_width();
 	var sh = window_get_height();
 	

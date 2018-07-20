@@ -10,7 +10,7 @@ if id == global.ui.grabbedItem {
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
 		
-	if !isItemEquipped(id) {
+	//if !isItemEquipped(id) {
 	
 		var nearestOtherItem = instance_nearest(x,y,obj_item_parent);
 		var i = 1;
@@ -30,7 +30,7 @@ if id == global.ui.grabbedItem {
 	
 			}
 		} 
-	}
+	//}
 	isGrabbed = false;
 	grabFrame = 0;
 	mightGrab = false;

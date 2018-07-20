@@ -14,6 +14,16 @@ global.gameManager = id;
 #macro C_HANDLES make_color_rgb(47,79,79)
 #macro C_DKRGRAY make_color_rgb(42,42,42)
 
+#macro C_RARITY_NORMAL c_white
+#macro C_RARITY_FINE c_aqua
+#macro C_RARITY_MASTERWORK c_fuchsia
+#macro C_RARITY_LEGENDARY c_lime
+global.itemRarityColors = ds_map_create();
+ds_map_replace(global.itemRarityColors, ItemRarities.Normal, C_RARITY_NORMAL);
+ds_map_replace(global.itemRarityColors, ItemRarities.Fine, C_RARITY_FINE);
+ds_map_replace(global.itemRarityColors, ItemRarities.Masterwork, C_RARITY_MASTERWORK);
+ds_map_replace(global.itemRarityColors, ItemRarities.Legendary, C_RARITY_LEGENDARY);
+
 global.ALL_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
 global.ALL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH,MAGIC,FIRE,ICE,POISON,LIGHTNING];
 global.ALL_PHYSICAL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH];

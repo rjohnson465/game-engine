@@ -40,6 +40,20 @@ with obj_item_parent {
 			ds_map_add_list(sd_item,"SocketedGems",gemsList);
 		}
 		
+		// saving item property modifiers
+		if ds_exists(itemPropertyModifiers,ds_type_map) && ds_map_size(itemPropertyModifiers) > 0 {
+			var propsList = ds_list_create(); // list of kvp [prop,val]
+			var currentProp = ds_map_find_first(itemPropertyModifiers);
+			for (var i = 0; i < ds_map_size(itemPropertyModifiers); i++) {
+				var val = ds_map_find_value(itemPropertyModifiers,currentProp);
+				
+				ds_list_add(propsList,currentProp);
+				ds_list_add(propsList,val);
+				currentProp = ds_map_find_next(itemPropertyModifiers,currentProp);
+			}
+			ds_map_add_list(sd_item,"ItemPropertyModifiers",propsList);
+		}
+		
 		// saving item properties
 		if ds_exists(itemProperties,ds_type_map) && ds_map_size(itemProperties) > 0 {
 			var propsList = ds_list_create(); // list of kvp [prop,val]
@@ -47,16 +61,10 @@ with obj_item_parent {
 			for (var i = 0; i < ds_map_size(itemProperties); i++) {
 				var val = ds_map_find_value(itemProperties,currentProp);
 				
-				//var list = ds_list_create();
-				//ds_list_add(list,currentProp);
-				//ds_list_add(list,val);
-				
-				//ds_list_add(propsList,[currentProp,val]);
 				ds_list_add(propsList,currentProp);
 				ds_list_add(propsList,val);
 				currentProp = ds_map_find_next(itemProperties,currentProp);
 			}
-			//ds_map_replace(sd_item,"ItemProperties",propsList);
 			ds_map_add_list(sd_item,"ItemProperties",propsList);
 		}
 		

@@ -45,6 +45,7 @@ with npc {
 			}
 		
 			if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && mouse_check_button_released(mb_left) {
+				audio_play_sound(snd_ui_click1,1,0);
 				isInteractingWithPlayer = false;
 				global.isInteractingWithNpc = false;
 				showBuySell = false;
@@ -62,7 +63,7 @@ with npc {
 		
 				var sh = string_height(c.name); var sw = string_width(c.name);
 				var xx = conversationsStartX; var yy = conversationsStartY+(i*sh)+5;
-				if mouseOverGuiRect(vx+(xx-(.5*sw)),vy+(yy-(.5*sh)),vx+(xx+(.5*sw)),vy+(yy+(.5*sh))) || (selectedConversation == c && gamepad_is_connected(global.gamePadIndex)) {
+				if mouseOverGuiRect(0+(xx-(.5*sw)),0+(yy-(.5*sh)),0+(xx+(.5*sw)),0+(yy+(.5*sh))) || (selectedConversation == c && gamepad_is_connected(global.gamePadIndex)) {
 					draw_set_color(c_white);
 					if selectedConversation != c {
 						audio_play_sound(snd_ui_option_change,1,0);

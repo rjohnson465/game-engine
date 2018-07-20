@@ -1,3 +1,4 @@
+loadGame();
 /*isLoading = true;
 alarm[0] = 1;
 

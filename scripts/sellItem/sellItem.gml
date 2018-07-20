@@ -20,6 +20,7 @@ if item.count == 1 {
 
 // get gold, alert
 addItemToInventory(makeGold(item.value,item.value));
+audio_play_sound(snd_item_coins,1,0);
 alert("Sold " + item.name + " for " + string(item.value) + " gold",c_yellow);
 
 // add item to vendor's items

@@ -72,10 +72,28 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 				var amnt = ds_list_find_value(val,1);
 				val = [macro,amnt];
 			}
-			//ds_map_replace(item.itemProperties,prop,val);
+			
 			addItemProperty(item,prop,val);
 		}
 	}
+	
+	// populate item property modifiers
+	var propsList = ds_map_find_value(sd_item,"ItemPropertyModifiers");
+	if propsList != undefined && ds_exists(propsList,ds_type_list) && ds_list_size(propsList) > 0 {
+		for (var i = 0; i < ds_list_size(propsList); i += 2) {
+			var propArr = ds_list_find_value(propsList,i);
+			var prop = ds_list_find_value(propsList,i);
+			var val = ds_list_find_value(propsList,i+1);
+			if ds_exists(val,ds_type_list) && ds_list_size(val) == 2 {
+				var macro = ds_list_find_value(val,0);
+				var amnt = ds_list_find_value(val,1);
+				val = [macro,amnt];
+			}
+			
+			ds_map_replace(item.itemPropertyModifiers,prop,val);
+		}
+	}
+	applyBasePropertyModifiers(item);
 
 	// if item is equipped, equip item
 	item.equipmentSlot = ds_map_find_value(sd_item,"EquipmentSlot");

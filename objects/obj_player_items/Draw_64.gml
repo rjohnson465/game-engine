@@ -58,7 +58,25 @@ if isConfirming {
 	if	(point_in_rectangle(mouse_x,mouse_y,vx+xx2,vy+yy1,vx+xx1,vy+yy2) && !gamepad_is_connected(global.player.gamePadIndex)) && 
 		mouse_check_button_pressed(mb_left)
 	{
+		audio_play_sound(snd_ui_click1,1,0);
 		isConfirming = false;
 		isAcceptingConfirmInput = false;
 	}
 }
+
+// draw player funds
+draw_set_color(c_black);
+draw_set_font(font_main);
+var x1 = itemDescriptionTopLeftX; var y1 = itemDescriptionBottomRightY;
+var sh = string_height("s");
+var x2 = itemDescriptionBottomRightX; var y2 = y1+sh+5;
+
+draw_rectangle(x1,y1,x2,y2,0);
+
+var w = sprite_get_width(spr_item_info_defense_crush);
+var xs = w/sprite_get_width(spr_item_coins);
+draw_sprite_ext(spr_item_coins,1,x1+5,y1,xs,xs,0,c_white,1);
+
+draw_set_color(c_white);
+draw_set_halign(fa_center); draw_set_valign(fa_center);
+draw_text(mean(x1,x2), mean(y1,y2),"Your funds: " + string(getGoldCount()));

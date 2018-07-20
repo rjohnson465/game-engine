@@ -143,9 +143,9 @@ if numSockets != 0 {
 			
 }
 // no sockets? this is a normal item
-else {
+/*else {
 	item.rarity = ItemRarities.Normal;
-}
+}*/
 ds_map_destroy(socketsNumChanceMap);
 ds_map_destroy(gemNumChanceMap);
 ds_map_destroy(gemConditionChanceMap);

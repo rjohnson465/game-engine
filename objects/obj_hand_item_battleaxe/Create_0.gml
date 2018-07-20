@@ -18,4 +18,6 @@ ds_map_set(damages,SLASH,[20,25,22,30]);
 
 act = 1;
 
+requiredMastery = 1;
+
 //numberOfSockets = 3;

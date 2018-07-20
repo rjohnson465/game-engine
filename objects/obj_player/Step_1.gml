@@ -38,12 +38,21 @@ isMouseInMenu =
 	;
 	
 if gamepad_is_connected(gamePadIndex) {
-	if gamepad_button_check_released(gamePadIndex,gp_shoulderlb) && !global.ui.isShowingMenus {
+	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderlb) && !global.ui.isShowingMenus {
 		performLeftHandReleaseAction();
 	}
-	if gamepad_button_check_released(gamePadIndex,gp_shoulderrb) && !global.ui.isShowingMenus {
+	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderrb) && !global.ui.isShowingMenus {
 		performRightHandReleaseAction();
 	}
+	
+	if gamepad_button_check_released(gamePadIndex,gp_shoulderrb) {
+		if object_is_ancestor(rightHandItem.object_index, obj_shield_parent)
+		|| (leftHandItem.isRanged && leftHandItem.isTwoHanded)
+		{
+			performRightHandReleaseAction();
+		}
+	}
+	
 	if gamepad_button_check(gamePadIndex,gp_shoulderlb) {
 		performLeftHandDownAction();
 	}

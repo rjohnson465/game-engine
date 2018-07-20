@@ -1,8 +1,8 @@
 /// maybeMakeItem(dropChance,raritiesMap,*typeMap,*act,*gemTypeMap,*itemPropertiesChanceAddendums)
 /// @param dropChance number 0-100
 /// @param raritiesMap map (<RarityType>, number)
-/// @param *typeMap map (<ItemType>, [minRange,maxRange])
-/// @param *act number
+/// @param *typeMap map (<ItemType>, [minRange,maxRange]) -- odds of a specific type (i.e. Ring, Hat...)
+/// @param *act number (what "act" should this item correspond to?)
 /// @param *gemTypeMap map stating drop chances for each Gem 
 /// @param *itemPropertiesChanceAddendums 
 /// ^ this property lets one modify the odds of ModifiableProperties attached to the generated item
@@ -59,7 +59,11 @@ if argument_count >= 4 && argument[3] != noone {
 var itemIndex = getBaseItemFromAct(itemType,act);
 var item = instance_create_depth(x,y,1,itemIndex);
 
-// refine gems to actual gem objects
+// TODO -- the item might just be one of a set of possible object indexes provided.
+// Add support for an itemIndexMap -- a map of object indexes that might be dropped
+// this renders the notion of getting an item from an act unneeded when this param is provided
+
+// if we're making a gem, refine gems to actual gem objects
 if item.object_index == obj_gem_parent {
 	// decide quality based on act
 	randomize();
@@ -138,6 +142,11 @@ for (var i = 0; i < ds_map_size(rarityMap); i++) {
 }
 
 item.rarity = rarityType;
+
+// modify base item properties based on rarity
+if item.rarity != ItemRarities.Normal {
+	modifyBasePropertiesByRarity(item,item.rarity);
+}
 
 // gems -- hand items and head items
 if itemType == ItemTypes.HandItem || itemType == ItemTypes.Head {

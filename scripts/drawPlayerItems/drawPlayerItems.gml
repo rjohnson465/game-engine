@@ -28,6 +28,7 @@ if !gamepad_is_connected(global.player.gamePadIndex) {
 	}
 		
 	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && mouse_check_button_released(mb_left) {
+		audio_play_sound(snd_ui_click1,1,0);
 		owner.isInteractingWithPlayer = false;
 		global.isInteractingWithNpc = false;
 		owner.showBuySell = false;
@@ -63,6 +64,7 @@ for (var i = 0; i < ds_map_size(filterSprites); i++) {
 	var x1 = topLeftX+((i+filterOffset)*filtersWidth); var y1 = topLeftY;
 	var x2 = x1+filtersWidth; var y2 = y1+filtersHeight;
 	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && mouse_check_button_released(mb_left) {
+		audio_play_sound(snd_ui_tab2,1,0);
 		filter = currentFilter;
 		selectedItem = noone;
 	}
@@ -137,6 +139,7 @@ if scrollLevel == 0 || isScrollUpPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY+(scrollSpriteHeight*scrollButtonScale),scrollButtonScale,-scrollButtonScale,0,c_gray,.75);
 	//draw_sprite(spr_scrollarrow,1,scrollButtonUpTopLeftX,scrollButtonUpTopLeftY);
 	if scrollLevel != 0 {
+		audio_play_sound(snd_ui_click1,1,0);
 		scrollLevel--;
 	}
 } else {
@@ -150,6 +153,7 @@ var isScrollDownPressed = point_in_rectangle(mouse_x,mouse_y,vx+sdx1,vy+sdy1,vx+
 if is_undefined(ds_list_find_value(inv, 20 + (5*scrollLevel))) || isScrollDownPressed {
 	draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_gray,.75);
 	if !is_undefined(ds_list_find_value(inv, 20 + (5*scrollLevel))) {
+		audio_play_sound(snd_ui_click1,1,0);
 		scrollLevel++;
 	}
 } else draw_sprite_ext(spr_scrollarrow,1,scrollButtonDownTopLeftX,scrollButtonDownTopLeftY,scrollButtonScale,scrollButtonScale,0,c_white,1);
@@ -186,6 +190,7 @@ var inventory = items;
 ds_list_clear(inv);
 for (var i = 0; i < ds_list_size(inventory); i++) {
 	var el = ds_list_find_value(inventory,i);
+	if !instance_exists(el) continue;
 	ds_list_add(inv,el);
 	el.x1 = -500;
 	el.y1 = -500;

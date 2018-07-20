@@ -1,6 +1,6 @@
 // ACT 1
 global.meleeWeaponsAct1 = [obj_hand_item_longsword, obj_hand_item_dagger, obj_hand_item_battleaxe];
-global.rangedWeaponsAct1 = [obj_hand_item_shortbow];
+global.rangedWeaponsAct1 = [obj_hand_item_shortbow, obj_hand_item_thrownknife, obj_hand_item_pistol];
 global.shieldsAct1 = [obj_hand_item_woodshield];
 
 global.hatsAct1 = [obj_hat_leathercap];

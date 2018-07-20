@@ -33,6 +33,7 @@ if !gamepad_is_connected(global.player.gamePadIndex) {
 		
 	if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_released(mb_left) {
 		if !hasSetAlarm {
+			audio_play_sound(snd_ui_click1,1,0);
 			alarm[0] = 1;
 			hasSetAlarm = true;
 		}

@@ -22,6 +22,7 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 			}
 			case "InventoryScrollUp":{
 				if scrollLevel != 0 {
+					audio_play_sound(snd_ui_click1,1,0);
 					scrollLevel--;
 				}
 				break;
@@ -29,6 +30,7 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 			case "InventoryScrollDown":{
 				//var inv = global.player.inventory;
 				if !is_undefined(ds_list_find_value(inv, 19 + (5*scrollLevel))) {
+					audio_play_sound(snd_ui_click1,1,0);
 					scrollLevel++;
 				}
 				break;

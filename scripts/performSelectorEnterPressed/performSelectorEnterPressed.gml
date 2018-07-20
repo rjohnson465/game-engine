@@ -60,3 +60,8 @@ switch type {
 	case SelectorTypes.Imbue: {
 	}
 }
+
+
+if global.ui.equipSelector.isActive {
+	global.inventory.scrollLevel = 0;
+}

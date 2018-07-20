@@ -16,7 +16,7 @@ var defenseProps = [
 
 var damageTypeProps = [
 	ModifiableProperties.PhysicalDamageTypesMultiplier,
-	ModifiableProperties.ElementalDamageTypesMultiplier
+	ModifiableProperties.ElementalDamageTypesMultiplier,
 ];
 
 randomize();

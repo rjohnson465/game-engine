@@ -16,7 +16,17 @@ if droppedItem.type == ItemTypes.HandItem {
 		alert("Cannot equip broken items",c_red);
 		exit;
 	}
+	
+	if !object_is_ancestor(droppedItem.object_index, obj_shield_parent) {
+		// check for weapon mastery req
+		var skill = getSkillForItem(droppedItem);
+		if skill.level < droppedItem.requiredMastery {
+			alert(droppedItem.name + " requires " + skill.name + " level " + string(droppedItem.requiredMastery), c_red);
+			exit;
+		}
+	}
 }
+
 
 with slotObj {
 	// first, make sure the dropped item can go in this slot 

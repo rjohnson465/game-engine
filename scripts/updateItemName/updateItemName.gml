@@ -21,5 +21,6 @@ switch item.type {
 	}
 	
 }*/
+updateItemNameBaseMods(item); // mods based on rarity
 updateItemNameGems(item);
 updateItemNameProperties(item);

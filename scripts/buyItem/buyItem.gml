@@ -7,6 +7,7 @@ var item = argument[0];
 var gp = getGoldCount();
 
 if gp >= item.value {
+	audio_play_sound(snd_item_coins,1,0);
 	alert("Purchased " + item.name + " for " + string(item.value) + " gold",c_yellow);
 	var oldCount = item.count;
 	//item.count = 1;
@@ -20,6 +21,7 @@ if gp >= item.value {
 	if !item.isStackable || (item.isStackable && item.count == 1) {
 		var pos = ds_list_find_index(items,item);
 		ds_list_delete(items,pos);
+		instance_destroy(item);
 	} else {
 		item.count = oldCount;
 		item.count--;

@@ -6,11 +6,16 @@ var vy = camera_get_view_y(view_camera[0]);
 // fountain revive
 mouseOverFountainRevive = acceptingInput && mouse_x > vx + reviveAtFountainButtonCoordinates[0] && mouse_y > vy + reviveAtFountainButtonCoordinates[1]
 	&& mouse_x < vx +reviveAtFountainButtonCoordinates[2] && mouse_y < vy + reviveAtFountainButtonCoordinates[3];
-if mouseOverFountainRevive selectedOption = ReviveOptions.Fountain;
+if mouseOverFountainRevive && selectedOption != ReviveOptions.Fountain {
+	audio_play_sound(snd_ui_option_change,1,0);
+	selectedOption = ReviveOptions.Fountain;
+}
 
 mouseOverOrbRevive = acceptingInput && reviveOrbs != noone && mouse_x > vx + reviveWithOrbButtonCoordinates[0] && mouse_y > vy + reviveWithOrbButtonCoordinates[1]
 	&& mouse_x < vx + reviveWithOrbButtonCoordinates[2] && mouse_y < vy + reviveWithOrbButtonCoordinates[3];
-if mouseOverOrbRevive selectedOption = ReviveOptions.Orb;
+if mouseOverOrbRevive && selectedOption != ReviveOptions.Orb {
+	selectedOption = ReviveOptions.Orb;
+}
 
 
 if var_greyscale_fade < 1 var_greyscale_fade+= .1;

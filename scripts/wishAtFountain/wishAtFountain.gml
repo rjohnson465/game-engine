@@ -24,30 +24,27 @@ if !isRunning {
 	sprite_index = asset_get_index("spr_fountain_filling");	
 	audio_play_sound_at(snd_fountain_running,x,y,depth,50,250,1,1,.5);
 	audio_play_sound(snd_fountain_turnon,1,0);
-	alarm[0] = 30;
+	alarm[0] = 30; // trigger radial blur
 	application_surface_draw_enable(false);
 }
 	
 // wish at fountain
 else if isDoneFilling {
 		
-	// show water particles from "wish"
-	/*randomize();
-	var x1 = x + random_range(-15,15);
-	var y1 = y + random_range(-15,15);
-
-	part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
-	part_emitter_burst(system,emitter,particle,num);*/
 	audio_play_sound(snd_fountain_wish,1,0);
+	alarm[0] = 30; // trigger radial blur
+	var vx = camera_get_view_x(view_camera[0]);
+	var vy = camera_get_view_y(view_camera[0]);
+	var sw = view_get_wport(view_camera[0]);
+	var sh = view_get_hport(view_camera[0]);
+	var_mouse_pos_x = vx+sw/2;
+	var_mouse_pos_y = vy+sh/2;
+	application_surface_draw_enable(false);
 	
 	// despawn all itemDrops
 	with obj_item_drop {
 		instance_destroy(id,1);
 	}
-	// clear all itemDrop references in room persistence objects
-	/*with obj_room_data {
-		ds_list_clear(itemDropsData);
-	}*/
 	// destroy any remaining itemdrop data objects
 	with obj_itemdrop_data {
 		instance_destroy(id,1);
