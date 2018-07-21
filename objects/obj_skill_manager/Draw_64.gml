@@ -56,7 +56,6 @@ if ui.currentMenu == SKILLS && skillSelector.selectedSkill && skillSelector.sele
 	}
 	// m/k prompts
 	else {
-		w += drawPrompt("Select skill/quest", Input.LMB,promptsStartX+w,promptsY)+xOffset;
 		
 		var hoveredSkill = noone;
 		with obj_skill_parent {
@@ -71,5 +70,7 @@ if ui.currentMenu == SKILLS && skillSelector.selectedSkill && skillSelector.sele
 		else {
 			w += drawPrompt("Level up skill", Input.RMB,promptsStartX+w,promptsY)+xOffset;
 		}
+		
+		w += drawPrompt("Select quest", Input.LMB,promptsStartX+w,promptsY)+xOffset;
 	}
 }

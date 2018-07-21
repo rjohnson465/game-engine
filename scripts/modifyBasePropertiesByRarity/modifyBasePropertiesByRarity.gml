@@ -46,7 +46,7 @@ switch item.type {
 	}
 	case ItemTypes.Head: {
 		// handle hat prop buffing
-		
+		modifyBasePropertiesHat(item, rarity, pts);
 		break;
 	}
 }

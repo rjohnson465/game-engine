@@ -65,6 +65,28 @@ for (var i = 0; i < ds_map_size(props); i++) {
 			}
 		}
 		case ItemTypes.Head: {
+			
+			switch currentProp {
+				case HatProperties.SlashDefenseBonus: {
+					modifyHatDefense(item, buff, SLASH);
+					break;
+				}
+				case HatProperties.CrushDefenseBonus: {
+					modifyHatDefense(item, buff, CRUSH);
+					break;
+				}
+				case HatProperties.PierceDefenseBonus: {
+					modifyHatDefense(item, buff, PIERCE);
+					break;
+				}
+				case HatProperties.ElementalDefenseBonus: {
+					var element = buff[0];
+					buff = buff[1];
+					modifyHatResistance(item, buff, element);
+					break;
+				}
+			}
+			
 			break;
 		}
 	}

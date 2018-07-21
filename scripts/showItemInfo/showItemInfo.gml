@@ -381,23 +381,38 @@ else if item.type == ItemTypes.Head {
 	// slash
 	draw_sprite(spr_item_info_defense_slash,1,itemDescriptionCol1XPictures,itemDescriptionColY+25);
 	if !global.ui.isShowingExplanations {
+		var slashBonus = ds_map_find_value(item.itemPropertyModifiers, HatProperties.SlashDefenseBonus);
+		draw_set_color(getPropertyColorForBuffAmount(slashBonus));
 		draw_text(itemDescriptionCol1XText,itemDescriptionColY+25,"vs. Slash: "+string(ds_map_find_value(item.defenses,SLASH)));
-	} else draw_text(itemDescriptionCol1XText,itemDescriptionColY+25,"Item Slash Defense");
+	} else {
+		draw_set_color(c_white);
+		draw_text(itemDescriptionCol1XText,itemDescriptionColY+25,"Item Slash Defense");
+	}
 	// crush 
 	draw_sprite(spr_item_info_defense_crush,1,itemDescriptionCol1XPictures,itemDescriptionColY+50);
 	if !global.ui.isShowingExplanations {
+		var crushBonus = ds_map_find_value(item.itemPropertyModifiers, HatProperties.CrushDefenseBonus);
+		draw_set_color(getPropertyColorForBuffAmount(crushBonus));
 		draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,"vs. Crush: " + string(ds_map_find_value(item.defenses,CRUSH)));
-	} else draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,"Item Crush Defense");
+	} else {
+		draw_set_color(c_white);
+		draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,"Item Crush Defense");
+	}
 	// pierce
 	draw_sprite(spr_item_info_defense_pierce,1,itemDescriptionCol1XPictures,itemDescriptionColY+75);
 	if !global.ui.isShowingExplanations {
+		var pierceBonus = ds_map_find_value(item.itemPropertyModifiers, HatProperties.PierceDefenseBonus);
+		draw_set_color(getPropertyColorForBuffAmount(pierceBonus));
 		draw_text(itemDescriptionCol1XText,itemDescriptionColY+75,"vs. Pierce: "+ string(ds_map_find_value(item.defenses,PIERCE)));
-	} else draw_text(itemDescriptionCol1XText,itemDescriptionColY+75,"Item Pierce Defense");
-	// durability?
+	} else {
+		draw_set_color(c_white);
+		draw_text(itemDescriptionCol1XText,itemDescriptionColY+75,"Item Pierce Defense");
+	}
+	/*// durability?
 	draw_sprite(spr_item_info_durability,1,itemDescriptionCol1XPictures,itemDescriptionColY+100);
 	if !global.ui.isShowingExplanations {
 		draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,string(item.durability)+"/"+string(item.durabilityMax));
-	} else draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,"Durability / max durability");
+	} else draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,"Durability / max durability");*/
 	
 	for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 		var el = global.ALL_ELEMENTS[i];
@@ -427,8 +442,22 @@ else if item.type == ItemTypes.Head {
 		}
 		draw_sprite(sprite,1,itemDescriptionCol2XPictures,itemDescriptionColY+((i+1)*25));
 		if !global.ui.isShowingExplanations {
+			var elBuff = ds_map_find_value(item.itemPropertyModifiers, HatProperties.ElementalDefenseBonus);
+			if elBuff != undefined {
+				var ele = elBuff[0];
+				if ele == el {
+					draw_set_color(getPropertyColorForBuffAmount(elBuff[1]));
+				} else {
+					draw_set_color(c_white);
+				}
+			} else {
+				draw_set_color(c_white);
+			}
 			draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),string(val)+"%");
-		} else draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),el);
+		} else {
+			draw_set_color(c_white);
+			draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),el);
+		}
 	}
 }
 

@@ -91,7 +91,9 @@ enum ShieldProperties {
 }
 
 enum HatProperties {
-	PhysicalDefenseBonus,
+	SlashDefenseBonus,
+	CrushDefenseBonus,
+	PierceDefenseBonus,
 	ElementalDefenseBonus,
 	length
 }
