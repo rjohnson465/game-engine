@@ -8,6 +8,7 @@ if	!owner.isShielding
 	|| owner.state == CombatantStates.Dodging
 	|| owner.state == CombatantStates.Attacking
 	//|| owner.state == CombatantStates.Staggering
+	|| shield.durability <= 0
 {
 	owner.isShielding = false;
 	instance_destroy(id,false);

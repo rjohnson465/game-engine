@@ -57,7 +57,7 @@ global.ALL_WEAPON_TYPES = [
 	BOW, CROSSBOW, SHURIKEN, MUSKET, THROWN, PISTOL
 ];
 
-window_set_fullscreen(true);
+//window_set_fullscreen(true);
 
 depth = -10000;
 

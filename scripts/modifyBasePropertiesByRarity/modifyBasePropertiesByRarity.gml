@@ -36,6 +36,7 @@ switch item.type {
 	case ItemTypes.HandItem: {
 		// handle shield prop buffing differently than weapons
 		if object_is_ancestor(item.object_index, obj_shield_parent) {
+			modifyBasePropertiesShield(item,rarity,pts);
 		}
 		// handle weapon prop buffing differently than shields
 		else {

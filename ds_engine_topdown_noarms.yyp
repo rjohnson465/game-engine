@@ -1879,6 +1879,14 @@
             }
         },
         {
+            "Key": "3c49a60b-8eaf-4080-b4d2-833b7190ee55",
+            "Value": {
+                "id": "6404a881-e4ef-4818-bf7a-eda572febe9b",
+                "resourcePath": "scripts\\modifyShieldPhysicalBlock\\modifyShieldPhysicalBlock.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "3cc785b6-036f-4d58-ad7b-89c6f85f8372",
             "Value": {
                 "id": "0c20c4b5-383c-4fd4-811b-97fe487e9374",
@@ -2099,6 +2107,14 @@
             "Value": {
                 "id": "edbb236f-7b0c-4c71-9acc-e710ff202a28",
                 "resourcePath": "scripts\\drawVendorItems\\drawVendorItems.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "4516a8d4-a357-43d8-b5b1-626b4c4714a1",
+            "Value": {
+                "id": "6ac188e9-07f5-4ebb-acbf-05769d3af308",
+                "resourcePath": "scripts\\modifyBasePropertiesShield\\modifyBasePropertiesShield.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -2996,6 +3012,14 @@
                 "id": "ac11fcf1-7b08-4121-be79-255e2059895c",
                 "resourcePath": "scripts\\playerIterateOverPreparingHands\\playerIterateOverPreparingHands.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "63ea2d17-96af-44b3-b866-ec654b2ec984",
+            "Value": {
+                "id": "d66a449b-948f-4fc8-833f-153227f60ab1",
+                "resourcePath": "views\\63ea2d17-96af-44b3-b866-ec654b2ec984.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -4323,6 +4347,14 @@
             "Value": {
                 "id": "36f740fb-2691-4e8c-9e3e-0e4367853140",
                 "resourcePath": "scripts\\applyBasePropertyModifiers\\applyBasePropertyModifiers.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8e60d0a8-b77f-427e-aaeb-36e56cc4fd12",
+            "Value": {
+                "id": "163d6684-44e1-4f1f-b443-1fb174506d75",
+                "resourcePath": "scripts\\modifyShieldElementalBlock\\modifyShieldElementalBlock.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -7239,6 +7271,14 @@
             }
         },
         {
+            "Key": "f07bd2a2-9dcc-4816-961d-350962e31998",
+            "Value": {
+                "id": "898c26c5-642a-43b0-a293-349be3f472d9",
+                "resourcePath": "scripts\\modifyShieldDurability\\modifyShieldDurability.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f0eff6a6-dd20-4359-a231-97e9f908deb3",
             "Value": {
                 "id": "84561c9c-e281-4ab1-89a8-31386cb4efab",
@@ -7890,6 +7930,10 @@
         "5078bec6-0071-4761-86dc-ff68e464fe0e",
         "8b591209-2db3-46f4-be13-133c3e156e19",
         "ffee2955-d569-4a0f-a814-0e5b3b636ebc",
+        "4516a8d4-a357-43d8-b5b1-626b4c4714a1",
+        "3c49a60b-8eaf-4080-b4d2-833b7190ee55",
+        "8e60d0a8-b77f-427e-aaeb-36e56cc4fd12",
+        "f07bd2a2-9dcc-4816-961d-350962e31998",
         "8e3100b2-b780-47d6-b286-83efbe2b299a",
         "4f87500c-f31d-4a5c-bec8-6c9cdefe849a",
         "3b0962d3-6c78-45da-9736-65a842e5320e",

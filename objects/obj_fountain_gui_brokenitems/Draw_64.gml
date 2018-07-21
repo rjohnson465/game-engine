@@ -111,6 +111,7 @@ for (var i = 0; i < 20; i++) {
 					
 		// draw slot darker if mouse over and its the nearest one to mouse
 		if position_meeting(mouse_x,mouse_y,item) {
+			hoveredItem = item;
 			draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,c_gray,.25);
 		} else if selectedItem == item {
 			draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,c_gray,.75);
@@ -130,8 +131,8 @@ draw_set_color(c_dkgray);
 draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBottomRightX,itemDescriptionBottomRightY,false);
 			
 // show selected inventory item info
-if selectedItem {
-	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,selectedItem);
+if hoveredItem {
+	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,hoveredItem);
 } 
 
 // draw selector over selected item

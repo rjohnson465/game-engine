@@ -40,3 +40,4 @@ fs_load_npcs(ds_map_find_value(save_data,"Npcs"));
 // eh, let player have max hp and stamina
 global.player.hp = global.player.maxHp;
 global.player.stamina = global.player.maxStamina;
+

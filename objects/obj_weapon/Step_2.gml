@@ -1,14 +1,14 @@
 if owner.state == CombatantStates.Dodging || (owner.isShielding && limbItem.subType == HandItemTypes.Shield) {
 	visible = false;
 } else visible = true;
-
+var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
 x = limb.x;
 y = limb.y;
 image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
 image_xscale = 1*owner.scale;
 image_yscale = 1*owner.scale;
-if limbKey == "l" {
+if !(limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded)) {
 	image_yscale = -1*owner.scale;
 }
 layer = owner.layer;

@@ -7,6 +7,7 @@ if !owner.isBeingHit {
 	var uPOSITION = shader_get_uniform(sh_red, "Position");
 	shader_set_uniform_f(uPOSITION,owner.alarm[5]/5);
 }
+var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
 // draw based on state
 if limbKey == "r" {
 	var leftHand = noone;
@@ -17,12 +18,12 @@ if limbKey == "r" {
 		}
 	}
 	if leftHand {
-		var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
+		
 		if leftHandItem.isTwoHanded && owner.currentUsingSpell == noone exit;
 	}
 }
 
-var ys = limbKey == "l" ? -1 : 1;
+var ys = (limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded)) ? 1 : -1;
 var rot = owner.facingDirection;
 //if limbItem.subType == HandItemTypes.Shield && owner.isShielding rot+=90;
 var frame = 0; var sprite = asset_get_index(spriteString);

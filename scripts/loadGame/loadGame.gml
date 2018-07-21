@@ -59,8 +59,9 @@ with obj_item_drop {
 //if instance_exists(fade) {
 	//if fade.frame == .5*fade.fadeDuration {
 		
-		
+
 		room_goto(roomToGoTo);
+		audio_stop_all();
 	//}
 //}
 

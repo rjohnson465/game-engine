@@ -1,5 +1,3 @@
-//draw_rectangle(0,0,100,100,0);
-
 var ei = global.player.equippedItems;
 for (var i = 0; i < ds_list_size(ei); i++) {
 	var it = ds_list_find_value(ei,i);
@@ -22,8 +20,5 @@ if item != noone && !item != undefined && item == global.ui.grabbedItem {
 	
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
-	//draw_sprite_ext(spr_item_slot,1,mouse_x-vx-32,mouse_y-vy-32,xs,ys,0,c_white,1);
 	draw_sprite_ext(item.itemSprite,1,mouse_x-vx-32,mouse_y-vy-32,xs,ys,0,c_white,1);
-	
-	//	show_debug_message(string(gw) + "," + string(gh));
 }

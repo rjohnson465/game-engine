@@ -44,6 +44,17 @@ if (!isBeingLooted && ds_exists(items,ds_type_list)) || (distance_to_object(obj_
 	global.isLooting = true;
 }
 
+// possible rebuild the items list -- this can get corrupted, somewhat unpredictably
+if !ds_exists(items, ds_type_list) {
+	items = noone;
+	items = ds_list_create();
+	with obj_item_parent {
+		if itemDropObj == other.id {
+			ds_list_add(other.items, id);
+		}
+	}
+}
+
 if (!ds_exists(items,ds_type_list) || ds_list_size(items) == 0) && !hasSetAlarm {
 	alarm[0]=3;
 	hasSetAlarm = true;

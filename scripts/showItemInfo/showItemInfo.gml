@@ -99,6 +99,7 @@ if item.type == ItemTypes.HandItem {
 		if !global.ui.isShowingExplanations {
 			var durabilityBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.DurabilityAmmoBonus);
 			draw_set_color(getPropertyColorForBuffAmount(durabilityBuff));
+			if item.durability == 0 draw_set_color(c_red);
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,durabilityString);
 		} else {
 			draw_set_color(c_white);
@@ -228,12 +229,17 @@ if item.type == ItemTypes.HandItem {
 	// draw shield item info
 	else if item.subType == HandItemTypes.Shield {
 		
+		draw_set_color(c_white);
+		
 		var physBlockPercentage = ds_map_find_value(item.defenses,PHYSICAL);
 		if physBlockPercentage > 100 physBlockPercentage = 100;
 		draw_sprite(spr_item_info_defense_physical,1,itemDescriptionCol1XPictures,itemDescriptionColY+50);
 		if !global.ui.isShowingExplanations {
+			var physBuff = ds_map_find_value(item.itemPropertyModifiers, ShieldProperties.PhysicalBlockBonus);
+			draw_set_color(getPropertyColorForBuffAmount(physBuff));
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,string(physBlockPercentage) + "%");
 		} else {
+			draw_set_color(c_white);
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,"Phys. absorption");
 		}
 		
@@ -269,8 +275,20 @@ if item.type == ItemTypes.HandItem {
 			// draw damage texts in second column
 			draw_sprite(sprite,1,itemDescriptionCol2XPictures,itemDescriptionColY+((i+1)*25));
 			if !global.ui.isShowingExplanations {
+				var elBuff = ds_map_find_value(item.itemPropertyModifiers, ShieldProperties.ElementalBlockBonus);
+				if elBuff != undefined {
+					var el = elBuff[0];
+					if el == defenseType {
+						draw_set_color(getPropertyColorForBuffAmount(elBuff[1]));
+					} else {
+						draw_set_color(c_white);
+					}
+				} else {
+					draw_set_color(c_white);
+				}
 				draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),string(blockPercentage)+"%");
 			} else {
+				draw_set_color(c_white);
 				draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),defenseType);
 			}
 		}

@@ -21,6 +21,121 @@ for (var i = 0; i < ds_map_size(props); i++) {
 		case ItemTypes.HandItem: {
 			// shield
 			if object_is_ancestor(item.object_index, obj_shield_parent) {
+				switch currentProp {
+					case ShieldProperties.PhysicalBlockBonus: {
+						if buff < t1 {
+							p1 = "Thick";
+						}
+						else if buff > t1 && buff < t2 {
+							p1 = "Sturdy";
+						}
+						else if buff > t2 && buff < t3 {
+							p1 = "Impervious";
+						}
+						else if buff > t3 {
+							p1 = "Impenetrable";
+						}
+						break;
+					}
+					case ShieldProperties.ElementalBlockBonus: {
+						var element = buff[0];
+						buff = buff[1];
+						switch element {
+							case MAGIC: {
+								if buff < t1 {
+									p2 = "Charmed";
+								}
+								else if buff > t1 && buff < t2 {
+									p2 = "Magical";
+								}
+								else if buff > t2 && buff < t3 {
+									p2 = "Spellbound";
+								}
+								else if buff > t3 {
+									p2 = "Mythical";
+								}
+								break;
+							}
+							case FIRE: {
+								if buff < t1 {
+									p2 = "Igneous";
+								}
+								else if buff > t1 && buff < t2 {
+									p2 = "Forged";
+								}
+								else if buff > t2 && buff < t3 {
+									p2 = "Smelted";
+								}
+								else if buff > t3 {
+									p2 = "Molten";
+								}
+								break;
+							}
+							case ICE: {
+								if buff < t1 {
+									p2 = "Cold";
+								}
+								else if buff > t1 && buff < t2 {
+									p2 = "Snowy";
+								}
+								else if buff > t2 && buff < t3 {
+									p2 = "Icy";
+								}
+								else if buff > t3 {
+									p2 = "Freezing";
+								}
+								break;
+							}
+							case POISON: {
+								if buff < t1 {
+									p2 = "Noxious";
+								}
+								else if buff > t1 && buff < t2 {
+									p2 = "Rotting";
+								}
+								else if buff > t2 && buff < t3 {
+									p2 = "Vile";
+								}
+								else if buff > t3 {
+									p2 = "Putrid";
+								}
+								break;
+							}
+							case LIGHTNING: {
+								if buff < t1 {
+									p2 = "Crackling";
+								}
+								else if buff > t1 && buff < t2 {
+									p2 = "Shocking";
+								}
+								else if buff > t2 && buff < t3 {
+									p2 = "Jolting";
+								}
+								else if buff > t3 {
+									p2 = "Frying";
+								}
+								break;
+							}
+						}
+						break;
+					}
+					case ShieldProperties.DurabilityBonus: {
+						if buff < t1 {
+							s1 = "Durable";
+						}
+						else if buff > t1 && buff < t2 {
+							s1 = "Braced";
+						}
+						else if buff > t2 && buff < t3 {
+							s1 = "Enforced";
+						}
+						else if buff > t3 {
+							s1 = "Indestructible";
+						}
+						break;
+					}
+				}
+				
 				break;	
 			} 
 			// weapon 

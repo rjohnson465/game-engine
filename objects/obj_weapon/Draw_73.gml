@@ -29,7 +29,7 @@ if limbKey == "r" {
 }
 
 // draw based on state
-var ys = limbKey == "l" ? -1 : 1;
+var ys = (limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded)) ? 1 : -1;
 var rot = owner.facingDirection;
 var frame = 0; var sprite = asset_get_index(spriteString);
 // preparing limb

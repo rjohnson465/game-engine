@@ -34,7 +34,7 @@ image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
 image_xscale = 1*owner.scale;
 image_yscale = 1*owner.scale;
-if limbKey == "l" {
+if !(limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded)) {
 	image_yscale = -1*owner.scale;
 }
 layer = owner.layer;

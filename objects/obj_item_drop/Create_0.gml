@@ -1,16 +1,12 @@
-//items = ds_list_create();
-//items = global.droppedItems; // ds_list
-//items = ds_list_create();
-//show_debug_message(string(items));
-
-//droppedItems = global.droppedItems;
-//ds_list_copy(items,global.droppedItems);
-
-//items = global.droppedItems;
-
+itemsBS = ds_list_create();
 items = ds_list_create();
 ds_list_copy(items,global.droppedItems);
+for (var i = 0; i < ds_list_size(global.droppedItems); i++) {
+	var item = ds_list_find_value(items, i);
+	item.itemDropObj = id;
+}
 
+ds_list_destroy(itemsBS);
 
 owner = global.owner;
 layer = owner.layer;
@@ -40,18 +36,6 @@ selectedItem = ds_list_find_value(items,0);
 
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;
-
-/*
-global.itemDrop = id;
-itemDropData = instance_create_depth(x,y,1,obj_itemdrop_data);
-
-// add this itemDropData object to the current room data obj
-with obj_room_data {
-	if roomIndex == room {
-		ds_list_add(itemDropsData,other.itemDropData);
-	}
-}
-*/
 
 global.isLooting = false;
 

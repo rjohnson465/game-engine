@@ -9,5 +9,6 @@ if global.ui.grabbedItem {
 
 
 //if item {
+item = getItemInEquipmentSlot(slot);
 global.equippedItemsManager.selectedItem = item;
 //}

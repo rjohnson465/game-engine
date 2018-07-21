@@ -82,6 +82,7 @@ enum WeaponProperties {
 	length
 }
 
+// THE ORDER THESE ARE DECLARED IN MATTERS!!!q         
 enum ShieldProperties {
 	PhysicalBlockBonus,
 	ElementalBlockBonus,
@@ -126,3 +127,5 @@ isTwoHanded = false;
 soundGrab = snd_item_pickup;
 soundDrop = snd_item_pickup;
 soundUse = snd_item_gem; 
+
+itemDropObj = noone;

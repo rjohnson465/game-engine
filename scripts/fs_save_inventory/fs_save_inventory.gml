@@ -68,6 +68,9 @@ with obj_item_parent {
 			ds_map_add_list(sd_item,"ItemProperties",propsList);
 		}
 		
+		// durability, ammo, charges, should all be inherent to the object_index
+		// these things may be modified later by itemPropertyModifiers
+		/*
 		ds_map_replace(sd_item,"Durability",durability);
 		ds_map_replace(sd_item,"DurabilityMax",durabilityMax);
 		
@@ -75,7 +78,7 @@ with obj_item_parent {
 		ds_map_replace(sd_item,"ChargesMax",chargesMax);
 		
 		ds_map_replace(sd_item,"Ammo",ammo);
-		ds_map_replace(sd_item,"AmmoMax",ammoMax);
+		ds_map_replace(sd_item,"AmmoMax",ammoMax);*/
 	
 		//var key = fs_generate_key(id); // TODO this is not guaranteed unique at all for items -- reference their location in inventory?
 		var key = ds_list_find_index(global.player.inventory,id);

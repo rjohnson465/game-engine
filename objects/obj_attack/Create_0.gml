@@ -217,6 +217,7 @@ if isSpell {
 
 // ranged or melee: NOT A SPELL
 else {
+	weapon = ds_map_find_value(owner.equippedLimbItems,limbKey);
 	// get attack number
 	if owner.type != CombatantTypes.Player {
 		isRanged = owner.currentMeleeAttack == noone ? true: false;
@@ -233,8 +234,6 @@ else {
 	} else {
 		attackNumber = ds_map_find_value(owner.attackingLimbs,limbKey);
 		attackNumberInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
-		
-		weapon = ds_map_find_value(owner.equippedLimbItems,limbKey);
 		
 		isRanged = weapon.subType == HandItemTypes.Ranged;
 		isMelee = weapon.subType == HandItemTypes.Melee;
@@ -261,8 +260,8 @@ else {
 		sprStr = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain);
 	}
 
-	// if this is a left hand attack, flip yscale
-	if limbKey == "l" {
+	// if this is a left hand attack, flip yscale TODO
+	if !(limbKey == "r" || (weapon.isRanged && weapon.isTwoHanded)) {
 		image_yscale = -1;
 	}
 	
@@ -305,8 +304,12 @@ else {
 	} else {
 		image_alpha = .5;
 	}
-	if (weapon != noone) {
-		sound = weapon.attackSounds[attackNumberInChain-1];
+	if (weapon != noone && owner.type == CombatantTypes.Player) {
+		if array_length_1d(weapon.attackSounds) >= attackNumberInChain {
+			sound = weapon.attackSounds[attackNumberInChain-1];
+		} else {
+			sound = weapon.attackSounds[attackNumberInChain-1];
+		}
 	}
 	else if attackData != noone {
 		sound = attackData.attackSound;

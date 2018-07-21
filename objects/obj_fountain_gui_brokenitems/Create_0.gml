@@ -19,7 +19,7 @@ invBottomRightY = invTopLeftY+invHeight;
 topLeftX = MENUS_TOPLEFT_X;
 topLeftY = MENUS_TOPLEFT_Y+menusHandleHeight;
 
-
+hoveredItem = noone;
 selectedItem = noone;
 
 // scroll stuff

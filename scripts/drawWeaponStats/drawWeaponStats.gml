@@ -91,7 +91,7 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 		}
 	}
 	draw_sprite(sprite,1,wdCol2XPictures,startingY+(line*20)+(i*20));
-	if minDamage == 0 && !ui.isShowingExplanations {
+	if maxDamage == 0 && !ui.isShowingExplanations {
 		draw_text(wdCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el)+ ": 0");
 	} else if minDamage != 0 && !ui.isShowingExplanations {
 		draw_text(wdCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) + ": " + string(minDamage) + "-" + string(maxDamage));

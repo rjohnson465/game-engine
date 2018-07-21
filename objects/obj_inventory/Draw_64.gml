@@ -321,7 +321,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 } else {
 	w += drawPrompt("Drag items to equip / unequip",Input.Mouse,promptsStartX+w,promptsY)+xOffset;
-	w += drawPrompt("View item info",Input.LMB,promptsStartX+w,promptsY)+xOffset;
+	//w += drawPrompt("View item info",Input.LMB,promptsStartX+w,promptsY)+xOffset;
 	w += drawPrompt("Use item",Input.RMB,promptsStartX+w,promptsY)+xOffset;
 	if global.ui.isShowingExplanations {
 		w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;

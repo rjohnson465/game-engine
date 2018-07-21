@@ -43,6 +43,24 @@ for (var i = 0; i < ds_map_size(props); i++) {
 			
 			// shield
 			else {
+				
+				switch currentProp {
+					case ShieldProperties.PhysicalBlockBonus: {
+						modifyShieldPhysicalBlock(item, buff);
+						break;
+					}
+					case ShieldProperties.ElementalBlockBonus: {
+						var element = buff[0];
+						buff = buff[1];
+						modifyShieldElementalBlock(item, element, buff);
+						break;
+					}
+					case ShieldProperties.DurabilityBonus: {
+						modifyShieldDurability(item, buff);
+						break;
+					}
+				}
+				
 				break;
 			}
 		}
