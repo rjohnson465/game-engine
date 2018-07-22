@@ -21,8 +21,13 @@ var damageTypeProps = [
 
 randomize();
 if arrayIncludes(weaponTypeProps,prop) {
-	var rand = round(random_range(0,array_length_1d(global.ALL_WEAPON_TYPES)-1));
-	return global.ALL_WEAPON_TYPES[rand];
+	var macro = UNARMED; var rand = 0;
+	while macro == UNARMED {
+		randomize();
+		rand = round(random_range(0,array_length_1d(global.ALL_WEAPON_TYPES)-1));
+		macro = global.ALL_WEAPON_TYPES[rand];
+	}
+	return macro;
 }
 
 if arrayIncludes(defenseProps,prop) {

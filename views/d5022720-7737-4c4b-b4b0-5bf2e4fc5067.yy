@@ -18,7 +18,8 @@
         "e42eb592-6e1a-4fe0-a160-e0b6cca7d487",
         "7a2f5803-c273-4247-b175-b08e3f17e769",
         "7151180d-9056-4470-be0f-6ee805485679",
-        "43786b47-6090-4ba2-941f-43d45db1dbd3"
+        "43786b47-6090-4ba2-941f-43d45db1dbd3",
+        "8a99ae28-26c8-416d-9419-1bd943a0b999"
     ],
     "filterType": "GMScript",
     "folderName": "Items",

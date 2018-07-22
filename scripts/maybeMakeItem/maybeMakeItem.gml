@@ -159,5 +159,7 @@ if itemType == ItemTypes.Ring {
 	addItemPropertiesByRarityAndAct(item,rarityType,act,addendums);
 }
 
+appraiseItem(item);
+
 return item;
 

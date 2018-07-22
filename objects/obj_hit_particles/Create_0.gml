@@ -66,7 +66,7 @@ switch type {
 		part_type_color2(spark,c_yellow,c_white);
 		part_type_orientation(spark,0,0,0,15,1);
 		part_type_size(spark,0,0.15,0,0);
-		part_type_speed(spark,8,9,0,0);
+		part_type_speed(spark,4,6,0,0);
 		particleDirection = (particleDirection+180)%360;
 		var minDir = particleDirection - 45;
 		if minDir < 0 {

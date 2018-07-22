@@ -129,6 +129,11 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 		ds_list_add(inv,el);
 		el.x1 = -50;
 		el.y1 = -50;
+		
+		if el.name == "Unarmed" {
+			var pos = ds_list_find_index(inv,el);
+			ds_list_delete(inv,pos);
+		}
 	
 		// if we're equipping something using the Equip Selector, 
 		// automatically only show what is possible to equip

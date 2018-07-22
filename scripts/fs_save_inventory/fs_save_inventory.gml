@@ -20,6 +20,7 @@ with obj_item_parent {
 		
 		ds_map_replace(sd_item,"Rarity",rarity);
 		ds_map_replace(sd_item,"Count",count);
+		ds_map_replace(sd_item,"Pts",_pts);
 		ds_map_replace(sd_item,"AcceptableEquipmentSlots",acceptableEquipmentSlots);
 		ds_map_replace(sd_item,"EquipmentSlot",equipmentSlot);
 		ds_map_replace(sd_item,"NumberOfSockets",numberOfSockets);

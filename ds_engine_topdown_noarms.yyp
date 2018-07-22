@@ -127,6 +127,14 @@
             }
         },
         {
+            "Key": "03aee9d0-1aa2-4784-8652-aaff890e3241",
+            "Value": {
+                "id": "543b46cd-d32c-4639-8061-a9fe68d434b2",
+                "resourcePath": "scripts\\appraiseRing\\appraiseRing.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "03ce428c-29b4-4a1c-a209-355075462620",
             "Value": {
                 "id": "10ab2c61-ed39-4d7f-b19c-91900d8257f8",
@@ -914,7 +922,7 @@
             "Key": "1aae0560-6d48-43c0-827d-164f45f5c15e",
             "Value": {
                 "id": "2443bb39-e8c5-42d6-bc6b-d1c6f9495479",
-                "resourcePath": "scripts\\addItemPropertyByRarityAndAct\\addItemPropertyByRarityAndAct.yy",
+                "resourcePath": "scripts\\addItemPropertyByPtsAndAct\\addItemPropertyByPtsAndAct.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1236,6 +1244,14 @@
                 "id": "0dc8d24c-c857-47cd-94da-95f4e4d7e512",
                 "resourcePath": "views\\24c1fd49-02b3-40f6-ab6e-8cee7ffca309.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "25817c26-1675-4980-a829-64a8022007db",
+            "Value": {
+                "id": "35cc30c3-6b90-4f25-937e-b0186df0b7d4",
+                "resourcePath": "scripts\\getItemPropertyValueByPts\\getItemPropertyValueByPts.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -4279,6 +4295,14 @@
             }
         },
         {
+            "Key": "8a99ae28-26c8-416d-9419-1bd943a0b999",
+            "Value": {
+                "id": "ffb2ba16-519d-4073-9b90-29718ac3870a",
+                "resourcePath": "views\\8a99ae28-26c8-416d-9419-1bd943a0b999.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "8aaa99c4-3435-4219-8416-08f5d44b1daa",
             "Value": {
                 "id": "9419078a-defa-40df-a867-c4929df0f9de",
@@ -7055,6 +7079,14 @@
             }
         },
         {
+            "Key": "e7796687-2f6c-4473-b6d2-2756ef6352a2",
+            "Value": {
+                "id": "36421cce-4fe9-49ea-95aa-dc53e31ab69d",
+                "resourcePath": "scripts\\appraiseItem\\appraiseItem.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e77bf0cc-b04a-4be5-ab0d-40c0f9f21bba",
             "Value": {
                 "id": "7bc0fa25-7ff4-42a0-9989-bccee118ca8a",
@@ -7323,6 +7355,14 @@
             "Value": {
                 "id": "c0cf8a9d-cf35-473d-b684-22b62b1f83df",
                 "resourcePath": "scripts\\isItemEquipped\\isItemEquipped.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f232e704-d4e2-4901-9de8-edb1ba44f603",
+            "Value": {
+                "id": "b2e3599d-97d4-4d43-89ca-3de862b1424f",
+                "resourcePath": "scripts\\defineItemPropertyRangesForPts\\defineItemPropertyRangesForPts.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -7950,10 +7990,12 @@
         "78acb90e-69d5-4bc9-80ee-f377bd21749a",
         "70ffadee-face-44a4-9fb9-5e7ca87d93c0",
         "b703250b-f19e-42f5-bff5-23449c2dd5a4",
+        "25817c26-1675-4980-a829-64a8022007db",
         "fecfb900-0dd0-4169-ac95-7ac6b9e7d550",
         "28bd2792-4d6d-42ce-b407-ed6d81e03136",
         "1aae0560-6d48-43c0-827d-164f45f5c15e",
         "d9b31185-221c-49a8-9135-68d699fa8859",
+        "f232e704-d4e2-4901-9de8-edb1ba44f603",
         "7e3cfe36-d081-4062-a5a3-46dab329189e",
         "90067765-0545-4888-92ad-eab2edd8243e",
         "0741e593-40c9-41dc-aa13-0cfa1a1acd2f",
@@ -7992,6 +8034,8 @@
         "7a2f5803-c273-4247-b175-b08e3f17e769",
         "7151180d-9056-4470-be0f-6ee805485679",
         "43786b47-6090-4ba2-941f-43d45db1dbd3",
+        "e7796687-2f6c-4473-b6d2-2756ef6352a2",
+        "03aee9d0-1aa2-4784-8652-aaff890e3241",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
         "8305d611-d802-438b-a7f2-7d475431cb73",
         "8da4eee5-515f-4749-8509-780e480c1519",

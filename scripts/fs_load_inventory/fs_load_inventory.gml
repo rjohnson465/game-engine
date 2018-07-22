@@ -41,11 +41,9 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 	item.owner = global.player; // ensure player is created before inventory is loaded
 	item.rarity = ds_map_find_value(sd_item,"Rarity");
 	item.count = ds_map_find_value(sd_item,"Count");
+	item._pts = ds_map_find_value(sd_item,"Pts");
 	item.acceptableEquipmentSlots = ds_map_find_value(sd_item,"AcceptableEquipmentSlots");
 	item.numberOfSockets = ds_map_find_value(sd_item,"NumberOfSockets");
-	//item.durability = ds_map_find_value(sd_item,"Durability");
-	//item.charges = ds_map_find_value(sd_item,"Charges");
-	//item.ammo = ds_map_find_value(sd_item,"Ammo");
 	
 	// insert gems
 	var gemsList = ds_map_find_value(sd_item,"SocketedGems");

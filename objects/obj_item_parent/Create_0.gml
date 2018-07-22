@@ -131,3 +131,7 @@ soundDrop = snd_item_pickup;
 soundUse = snd_item_gem; 
 
 itemDropObj = noone;
+
+// "points" -- a standardized unit -- added to modify the item (used by Rings to assess value)
+_pts = 0;
+_ptsSpent = 0;
