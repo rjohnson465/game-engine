@@ -1,3 +1,4 @@
+
 // controller stuff
 if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderrb) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
 	audio_play_sound(snd_ui_tab2,1,0);

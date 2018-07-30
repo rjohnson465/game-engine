@@ -231,7 +231,7 @@ addItemToInventory(makeGem(obj_gem_hematite,CRACKED));
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 
 
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_foil));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));

@@ -1,5 +1,10 @@
 var pad = global.player.gamePadIndex;
 
+// debug purposes
+if type == SelectorTypes.Select {
+	var a = 3;
+}
+
 if joystickInputFrame < joystickInputTotalFrames {
 	joystickInputFrame++;
 }
