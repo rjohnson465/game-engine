@@ -21,7 +21,9 @@ if gp >= item.value {
 	if !item.isStackable || (item.isStackable && item.count == 1) {
 		var pos = ds_list_find_index(items,item);
 		ds_list_delete(items,pos);
-		instance_destroy(item);
+		if (item.isStackable && item.count == 1) {
+			instance_destroy(item);
+		}
 	} else {
 		item.count = oldCount;
 		item.count--;

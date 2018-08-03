@@ -39,8 +39,11 @@ if !item.isStackable {
 		vitemStack.count++;
 		//item.count--;
 	} else {
-		item.owner = obj_vendor_items.owner;
-		ds_list_add(obj_vendor_items.items,item);
+		var item2 = instance_create_depth(x,y,1,item.object_index);
+		item2.owner = obj_vendor_items.owner;
+		item2.count = 1;
+		//item.owner = obj_vendor_items.owner;
+		ds_list_add(obj_vendor_items.items,item2);
 	}
 }
 

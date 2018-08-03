@@ -4,7 +4,7 @@ subType = HandItemTypes.Melee;
 name = "Foil";
 baseName = "Foil";
 spriteName = "foil";
-itemSprite = spr_item_longsword;
+itemSprite = spr_item_foil;
 
 // for each attack in chain
 numberOfTargets = [1,1,1,5];

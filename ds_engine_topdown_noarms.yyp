@@ -759,6 +759,14 @@
             }
         },
         {
+            "Key": "152317bb-e4c4-42d5-bf89-274e22c33c73",
+            "Value": {
+                "id": "dc4afda6-06be-49f1-8bf3-3faf7393b81d",
+                "resourcePath": "sprites\\spr_player_hand_rapier_prep_3\\spr_player_hand_rapier_prep_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "155670c4-f495-4610-96c5-7c3e3f57adfd",
             "Value": {
                 "id": "3a0867dd-a3cf-4dee-8365-e1af9eb8cc4a",
@@ -1651,14 +1659,6 @@
             "Value": {
                 "id": "c610a6c4-bd34-456f-879d-0d8cc1ee3d1a",
                 "resourcePath": "sprites\\spr_player_hand_rapier_prep_4\\spr_player_hand_rapier_prep_4.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "330db6b3-6f88-4041-a454-e5a3f52f239a",
-            "Value": {
-                "id": "610777a3-49af-4422-b4fa-16691401eabb",
-                "resourcePath": "sprites\\spr_player_foil_attack_1_mask\\spr_player_foil_attack_1_mask.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6530,7 +6530,7 @@
             "Key": "cb78f47c-a1c8-41eb-96ab-879e668062f6",
             "Value": {
                 "id": "a0093724-1e7a-466d-8f0a-ed9faccc2c7c",
-                "resourcePath": "sprites\\spr_player_hand_rapier_prep_3\\spr_player_hand_rapier_prep_3.yy",
+                "resourcePath": "sprites\\spr_player_hand_rapier_prep_33\\spr_player_hand_rapier_prep_33.yy",
                 "resourceType": "GMSprite"
             }
         },

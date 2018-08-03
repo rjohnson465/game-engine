@@ -6,7 +6,7 @@ if isUsable && !global.isTrading {
 if global.isTrading && isSellable {
 	var playerItemsObj = obj_player_items;
 	var vendorItemsObj = obj_vendor_items;
-	if !playerItemsObj.isConfirming || !vendorItemsObj.isConfirming {
+	if !playerItemsObj.isConfirming && !vendorItemsObj.isConfirming {
 		// if item in inventory, it's the selectedItem of obj_player_items
 		if ds_list_find_index(global.player.inventory,id) != -1 {
 			playerItemsObj.selectedItem = id;
