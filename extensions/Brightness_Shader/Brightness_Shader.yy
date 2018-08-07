@@ -56,5 +56,16 @@
     "packageID": "com.keeveegames.brightness",
     "productID": "F63EE815C05B1EFD8CFA1337B78A2B85",
     "sourcedir": "",
+    "tvosProps": false,
+    "tvosSystemFrameworkEntries": [
+        
+    ],
+    "tvosThirdPartyFrameworkEntries": [
+        
+    ],
+    "tvosclassname": null,
+    "tvosmaccompilerflags": null,
+    "tvosmaclinkerflags": null,
+    "tvosplistinject": null,
     "version": "1.0.1"
 }

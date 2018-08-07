@@ -5,6 +5,7 @@ name = "Longsword";
 baseName = "Longsword";
 spriteName = "longsword";
 itemSprite = spr_item_longsword;
+baseValue = 200;
 
 // for each attack in chain
 numberOfTargets = [3,3,1];

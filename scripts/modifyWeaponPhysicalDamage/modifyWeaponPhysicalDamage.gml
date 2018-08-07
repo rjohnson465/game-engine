@@ -8,6 +8,7 @@ var buff = argument[1];
 // increase by buff%
 // if buff% increase does no effective change, just add 1 to all max / min phys damages
 
+var adjustedBuff = 0; // this is the min # of buff "pts" that would have had to be added to get the resultant effect
 var slashDamageArray = ds_map_find_value(weapon.damages,SLASH);
 var crushDamageArray = ds_map_find_value(weapon.damages,CRUSH);
 var pierceDamageArray = ds_map_find_value(weapon.damages,PIERCE);
@@ -24,6 +25,11 @@ for (var i = 0; i < physicalDamagesLength; i += 2) {
 		if slashDamageArray[i+1] == d2 {
 			slashDamageArray[i+1] += 1;
 		}
+		// calculate adjustedBuff 
+		if adjustedBuff == 0 {
+			var fraction = slashDamageArray[i+1] / d2;
+			adjustedBuff = (fraction - 1)*100;
+		}
 
 	} else if array_length_1d(crushDamageArray) >= i && crushDamageArray[i] != 0 {
 		var d1 = crushDamageArray[i];
@@ -36,6 +42,11 @@ for (var i = 0; i < physicalDamagesLength; i += 2) {
 		if crushDamageArray[i+1] == d2 {
 			crushDamageArray[i+1] += 1;
 		}
+		// calculate adjustedBuff 
+		if adjustedBuff == 0 {
+			var fraction = crushDamageArray[i+1] / d2;
+			adjustedBuff = (fraction - 1)*100;
+		}
 	} else if array_length_1d(pierceDamageArray) >= i && pierceDamageArray[i] != 0 {
 		var d1 = pierceDamageArray[i];
 		pierceDamageArray[i] = round(pierceDamageArray[i] * (1+(buff/100)));
@@ -47,8 +58,14 @@ for (var i = 0; i < physicalDamagesLength; i += 2) {
 		if pierceDamageArray[i+1] == d2 {
 			pierceDamageArray[i+1] += 1;
 		}
+		// calculate adjustedBuff 
+		if adjustedBuff == 0 {
+			var fraction = pierceDamageArray[i+1] / d2;
+			adjustedBuff = (fraction - 1)*100;
+		}
 	}
 }
 ds_map_replace(weapon.damages,SLASH,slashDamageArray);
 ds_map_replace(weapon.damages,CRUSH,crushDamageArray);
 ds_map_replace(weapon.damages,PIERCE,pierceDamageArray);
+ds_map_replace(weapon.itemPropertyModifiers, WeaponProperties.PhysicalDamageBonus, adjustedBuff);

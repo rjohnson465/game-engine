@@ -4,6 +4,7 @@ name = "Pistol";
 baseName = "Pistol";
 spriteName = "pistol";
 itemSprite = spr_item_pistol;
+baseValue = 200;
 
 projectileSpeed = 40;
 staggerDuration = 5; // frames

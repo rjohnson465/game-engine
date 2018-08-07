@@ -14,6 +14,7 @@ for (var i = 0; i < ds_map_size(ring.itemProperties); i++) {
 		var arr = ds_map_find_value(global.itemPropertyRangesForPts, currentProp);
 		var minVal = arr[0]; var maxVal = arr[1];
 		var val = ds_map_find_value(ring.itemProperties, currentProp);
+		if val == minVal val = minVal+1;
 		if is_array(val) val = val[1];
 		var pts = (val-minVal)/((maxVal-minVal)/global.a1MaxPtsVal);
 		vRarePts += pts;
@@ -23,6 +24,7 @@ for (var i = 0; i < ds_map_size(ring.itemProperties); i++) {
 		var arr = ds_map_find_value(global.itemPropertyRangesForPts, currentProp);
 		var minVal = arr[0]; var maxVal = arr[1];
 		var val = ds_map_find_value(ring.itemProperties, currentProp);
+		if val == minVal val = minVal+1;
 		if is_array(val) val = val[1];
 		var pts = (val-minVal)/((maxVal-minVal)/global.a1MaxPtsVal);
 		rarePts += pts;
@@ -32,6 +34,7 @@ for (var i = 0; i < ds_map_size(ring.itemProperties); i++) {
 		var arr = ds_map_find_value(global.itemPropertyRangesForPts, currentProp);
 		var minVal = arr[0]; var maxVal = arr[1];
 		var val = ds_map_find_value(ring.itemProperties, currentProp);
+		if val == minVal val = minVal+1;
 		if is_array(val) val = val[1];
 		var pts = (val-minVal)/((maxVal-minVal)/global.a1MaxPtsVal);
 		basicPts += pts;

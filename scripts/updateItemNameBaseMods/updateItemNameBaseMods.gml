@@ -315,7 +315,7 @@ for (var i = 0; i < ds_map_size(props); i++) {
 							p1 = "Lord's";
 						}
 						else if buff > t3 {
-							p1 = "Warlock's";
+							p1 = "General's";
 						}
 						break;
 					}

@@ -9,7 +9,6 @@ var buff = argument[1];
 
 var currentElementalRes = ds_map_find_value(hat.defenses, element);
 var newDef = round(currentElementalRes + buff);
-if newDef > 100 {
-	newDef = 100;
-}
+if newDef > 100 newDef = 100;
 ds_map_replace(hat.defenses, element, newDef);
+ds_map_replace(hat.itemPropertyModifiers, HatProperties.ElementalDefenseBonus, [element, round(buff)]);

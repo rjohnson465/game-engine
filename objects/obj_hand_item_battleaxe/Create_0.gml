@@ -5,6 +5,7 @@ name = "Battleaxe";
 baseName = "Battleaxe";
 spriteName = "battleaxe";
 itemSprite = spr_item_battleaxe;
+baseValue = 200;
 
 charges = 10;
 chargesMax = 10;

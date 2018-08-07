@@ -5,6 +5,7 @@ name = "Dagger";
 baseName = "Dagger";
 spriteName = "dagger";
 itemSprite = spr_item_dagger;
+baseValue = 200;
 
 charges = 10;
 chargesMax = 10;

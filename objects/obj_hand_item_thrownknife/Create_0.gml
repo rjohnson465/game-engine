@@ -4,6 +4,7 @@ name = "Thrown Knife";
 baseName = "Thrown Knife";
 spriteName = "thrownknife";
 itemSprite = spr_item_thrownknife;
+baseValue = 200;
 
 projectileSpeed = 20;
 staggerDuration = 5; // frames

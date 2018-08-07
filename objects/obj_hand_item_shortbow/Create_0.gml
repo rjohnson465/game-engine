@@ -8,6 +8,7 @@ itemSprite = spr_item_shortbow;
 weaponType = BOW;
 
 weaponSpeed = "Medium";
+baseValue = 200;
 
 projectileSpeed = 25;
 isTwoHanded = true;

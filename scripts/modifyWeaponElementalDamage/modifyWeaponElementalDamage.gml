@@ -7,32 +7,38 @@ var weapon = argument[0];
 var element = argument[1];
 var buff = argument[2];
 
+var adjustedBuff = 0;
 // two cases -- 1 where the base elemental damage is nonzero, and one where it is zero
 var currentElementalDamage = ds_map_find_value(weapon.damages, element);
 
 // the case where the elemental damage is zero
 if currentElementalDamage[0] == 0 {
 	// TODO -- maybe multiply these numbers by the weapon's associated act?
+	// adjusted buff numbers are probably bad
 	
 	// a buff between 0 and 15 adds 0-2
 	if buff < 15 {
 		currentElementalDamage[0] = 0;
 		currentElementalDamage[1] = 2;
+		adjustedBuff = 7.5;
 	}
 	// a buff between 15 and 30 adds 2-6
 	else if buff > 15 && buff < 30 {
 		currentElementalDamage[0] = 2;
 		currentElementalDamage[1] = 6;
+		adjustedBuff = 22.5;
 	}
 	// a buff between 30 and 45 adds 4-8
 	else if buff > 30 && buff < 45 {
 		currentElementalDamage[0] = 4;
 		currentElementalDamage[1] = 8;
+		adjustedBuff = 37.5;
 	}
 	// a buff between 45 and up adds 5-10
 	else if buff > 45 {
 		currentElementalDamage[0] = 5;
 		currentElementalDamage[1] = 10;
+		adjustedBuff = 52.5;
 	}
 }
 
@@ -49,6 +55,12 @@ else {
 	if currentElementalDamage[1] == d2 {
 		currentElementalDamage[1] += 1;
 	}
+	// calculate adjustedBuff 
+	if adjustedBuff == 0 {
+		var fraction = currentElementalDamage[1] / d2;
+		adjustedBuff = (fraction - 1)*100;
+	}
 }
 
 ds_map_replace(weapon.damages, element, currentElementalDamage);
+ds_map_replace(weapon.itemPropertyModifiers, WeaponProperties.ElementalDamageBonus, [element, adjustedBuff]);

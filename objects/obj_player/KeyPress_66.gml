@@ -2,10 +2,10 @@ if room == game_menu {
 	exit;
 }
 var typeMap = ds_map_create();
-ds_map_add(typeMap,ItemTypes.HandItem,0);
-ds_map_add(typeMap,ItemTypes.Other,0);
-ds_map_add(typeMap,ItemTypes.Head,0);
-ds_map_add(typeMap,ItemTypes.Ring,2);
+ds_map_add(typeMap,ItemTypes.HandItem,1);
+ds_map_add(typeMap,ItemTypes.Other,1);
+ds_map_add(typeMap,ItemTypes.Head,1);
+ds_map_add(typeMap,ItemTypes.Ring,1);
 var rarityMap = ds_map_create();
 ds_map_add(rarityMap,ItemRarities.Normal,1);
 ds_map_add(rarityMap,ItemRarities.Fine,1);

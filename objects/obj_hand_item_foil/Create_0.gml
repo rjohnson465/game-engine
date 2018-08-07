@@ -5,6 +5,7 @@ name = "Foil";
 baseName = "Foil";
 spriteName = "foil";
 itemSprite = spr_item_foil;
+baseValue = 200;
 
 // for each attack in chain
 numberOfTargets = [1,1,1,5];
