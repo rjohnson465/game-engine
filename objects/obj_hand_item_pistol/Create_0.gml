@@ -8,7 +8,7 @@ baseValue = 200;
 
 projectileSpeed = 40;
 staggerDuration = 5; // frames
-ds_map_set(damages,PIERCE,[10,12]);
+ds_map_set(damages,CRUSH,[10,12]);
 staminaCostArray=[10];
 ammo = 52;
 ammoMax = 52;

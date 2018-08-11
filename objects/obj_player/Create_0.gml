@@ -232,6 +232,7 @@ addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 
 
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_foil));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_club));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
@@ -266,18 +267,11 @@ addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 */
 
-//lastFountain = instance_nearest(x,y,obj_fountain);
 lastFountain = noone;
-//if lastFountain == noone {
-	lastFountainRoom = noone;
-	lastFountainX = noone;
-	lastFountainY = noone;
-	lastFountainZ = noone;
-//} else {
-	//lastFountainX = lastFountain.spawnX;
-	//lastFountainY = lastFountain.spawnY;
-	//lastFountainZ = lastFountain.layerName;
-//}
+lastFountainRoom = noone;
+lastFountainX = noone;
+lastFountainY = noone;
+lastFountainZ = noone;
 
 gamePadIndex = noone;
 
