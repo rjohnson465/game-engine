@@ -1,4 +1,5 @@
 if (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) && !global.isTrading exit;
+if owner != global.player exit;
 if isUsable && !global.isTrading {
 	useItem(id);
 }

@@ -1,3 +1,4 @@
+if owner != global.player exit;
 var itemIsBeingLooted = false;
 var dropItem = noone; var itemPos = -1;
 with obj_item_drop {

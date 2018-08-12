@@ -156,27 +156,20 @@ currentSpell = ds_map_find_first(knownSpells);
 currentUsingSpell = noone;
 hasAlertedNoMagicCharges = false;
 
-/*
-attunementLevels = ds_map_create();
-ds_map_add(attunementLevels,MAGIC,1);
-ds_map_add(attunementLevels,FIRE,1);
-ds_map_add(attunementLevels,ICE,1);
-ds_map_add(attunementLevels,POISON,1);
-ds_map_add(attunementLevels,LIGHTNING,1);*/
+
 currentSpellAttunement = MAGIC;
 
 goldDropMultiplier = 100; // %
 // inventory -- holds all items
 inventory = ds_list_create();
 addItemToInventory(makeGold(100000,200000));
-//ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_crossbow));
 
-var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
-addItemToInventory(woodshield);
+//var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
+//addItemToInventory(woodshield);
 //ds_list_add(inventory,instance_create_depth(x,y,1,obj_hand_item_staff));
-var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
-shortbow.numberOfSockets = 2;
-addItemToInventory(shortbow);
+//var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
+//shortbow.numberOfSockets = 2;
+//addItemToInventory(shortbow);
 
 //var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 //longsword2.persistent = true;
@@ -193,11 +186,11 @@ insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
 insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 addItemToInventory(longsword);
 
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
+//addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
 
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
+//addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
 var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
-addItemToInventory(baxe);
+//addItemToInventory(baxe);
 
 //addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 //addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
@@ -213,7 +206,7 @@ addItemProperty(ring,ModifiableProperties.WeaponTypesDamage,[AXE2H,7]);
 //ds_map_add(ring.itemProperties,ModifiableProperties.WeaponTypesDamage,[SWORD1H,5]);
 updateItemName(ring);
 addItemToInventory(ring);
-
+/*
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
 
 //var lcap = instance_create_depth(x,y,1,obj_hat_leathercap);
@@ -240,7 +233,7 @@ addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
 // bs
-/*
+
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));

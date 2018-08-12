@@ -1,4 +1,4 @@
-if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
+if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY || owner != global.player exit;
 
 // do not attempt a swap with an equipped item
 //if id == global.ui.grabbedItem && equipmentSlot != noone exit;
@@ -19,7 +19,7 @@ if id == global.ui.grabbedItem {
 			i++;
 		}
 	
-		if nearestOtherItem.object_index != obj_item_coins {
+		if nearestOtherItem.object_index != obj_item_coins && nearestOtherItem.object_index != obj_hand_item_unarmed {
 
 			if position_meeting(x,y,nearestOtherItem) && !position_meeting(x,y,obj_equipmentslot) {
 				var inv = global.player.inventory;

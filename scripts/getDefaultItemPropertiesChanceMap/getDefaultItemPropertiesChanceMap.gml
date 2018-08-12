@@ -43,6 +43,9 @@ for (var i = 0; i < ModifiableProperties.length; i++) {
 		case ModifiableProperties.OffHandDamage: {
 			ds_map_replace(map,i,5); break;
 		}
+		case ModifiableProperties.GoldDrop: {
+			ds_map_replace(map,i,5); break;
+		}
 	}
 }
 

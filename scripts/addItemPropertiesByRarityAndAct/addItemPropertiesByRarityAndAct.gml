@@ -39,6 +39,7 @@ ds_map_replace(rarePropertiesMap,ModifiableProperties.XpMultiplier,5);
 ds_map_replace(rarePropertiesMap,ModifiableProperties.HpMax,5);
 ds_map_replace(rarePropertiesMap,ModifiableProperties.StaminaMax,5);
 ds_map_replace(rarePropertiesMap,ModifiableProperties.OffHandDamage,5);
+ds_map_replace(rarePropertiesMap,ModifiableProperties.GoldDrop,5);
 
 // apply relevant addendums to rarePropertiesMap
 if addendums != noone {

@@ -14,4 +14,4 @@ if newDef > 100 newDef = 100;
 ds_map_replace(shield.defenses, element, newDef);
 
 adjustedBuff = newDef - currentElementalBlock;
-ds_map_replace(shield.itemPropertyModifiers, ShieldProperties.ElementalBlockBonus, adjustedBuff);
+ds_map_replace(shield.itemPropertyModifiers, ShieldProperties.ElementalBlockBonus, [element, adjustedBuff]);
