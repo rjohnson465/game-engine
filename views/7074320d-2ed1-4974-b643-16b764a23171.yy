@@ -10,7 +10,8 @@
         "6024efad-3167-409b-b1f8-30a327206c85",
         "4d75fee2-7351-4c8f-b87c-db8ab35e9db0",
         "18b3e3df-4279-4f9a-bffa-01d2513f3261",
-        "6d35aee2-23b8-4673-a850-a2e0ae1dadb2"
+        "6d35aee2-23b8-4673-a850-a2e0ae1dadb2",
+        "4d58f35a-8304-48c2-a187-27c25cb6a3f2"
     ],
     "filterType": "GMObject",
     "folderName": "melee",
