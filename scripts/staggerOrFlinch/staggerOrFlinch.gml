@@ -26,7 +26,8 @@ if rand < chanceToStagger {
 		} else if attackObj.isSpell {
 			staggerDuration = attackObj.spell.staggerDuration;
 		} else {
-			staggerDuration = attackObj.weapon.staggerDuration;
+			var attackStaggerDuration = attackObj.weapon.staggerDuration[attackObj.attackNumber-1];
+			staggerDuration = attackStaggerDuration*modifier;
 		}
 
 		staggerDirection = (assailant.facingDirection+360)%360;

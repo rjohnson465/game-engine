@@ -287,6 +287,14 @@
             }
         },
         {
+            "Key": "07365c2f-4201-4f69-bac5-1f5ab4c7897d",
+            "Value": {
+                "id": "c37edd70-632a-4443-9c05-35f1864b84ba",
+                "resourcePath": "sprites\\spr_player_hatchet_recover_3\\spr_player_hatchet_recover_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0741e593-40c9-41dc-aa13-0cfa1a1acd2f",
             "Value": {
                 "id": "d5ee3e74-1bfb-4a42-8bbf-fb4a8079a0eb",
@@ -540,6 +548,14 @@
                 "id": "c2b8cc7f-a76e-4b15-a917-5562bbdc6149",
                 "resourcePath": "sounds\\snd_thrown_attack\\snd_thrown_attack.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "0dac496f-5eda-4929-bffa-7ed73c708458",
+            "Value": {
+                "id": "30a3dd84-9742-446e-939a-60fca2fa960b",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h_prep_1\\spr_player_hand_axe_1h_prep_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -847,6 +863,14 @@
             }
         },
         {
+            "Key": "17014358-78d7-4b92-ad19-cd674f7892ac",
+            "Value": {
+                "id": "5e362d3b-2e8f-4cf9-a75e-8edba6eeff09",
+                "resourcePath": "views\\17014358-78d7-4b92-ad19-cd674f7892ac.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "17136b20-c831-48d1-8f14-9b898f65a83a",
             "Value": {
                 "id": "67a40592-8b9e-485a-94a0-c52545f27333",
@@ -1108,6 +1132,22 @@
                 "id": "a1f2b442-4ea7-4c23-8600-069b2ad44b36",
                 "resourcePath": "shaders\\shd_greyscale\\shd_greyscale.yy",
                 "resourceType": "GMShader"
+            }
+        },
+        {
+            "Key": "1d5e2dda-bace-4127-a7d8-fd79ff93e4d1",
+            "Value": {
+                "id": "38e1ab56-2812-45b8-b965-e3fd7a966b27",
+                "resourcePath": "sprites\\spr_item_hatchet\\spr_item_hatchet.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1d9c8a6a-92f0-46f6-b5b1-53e340ed7bd0",
+            "Value": {
+                "id": "9e1630cd-6b78-4f4d-9a76-cc8a92a3a34a",
+                "resourcePath": "objects\\obj_axe1h_parent\\obj_axe1h_parent.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1484,6 +1524,14 @@
                 "id": "b473fa2d-fe64-42f9-8805-f004feb3c351",
                 "resourcePath": "views\\29b6207f-f9dc-463a-897e-10f4c91e9aad.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "29beafb9-1f52-4902-97f1-e0a22b36a39d",
+            "Value": {
+                "id": "a9c483ca-273f-4f7b-b831-54dd1e48e5db",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h_attack_2\\spr_player_hand_axe_1h_attack_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2111,6 +2159,14 @@
             }
         },
         {
+            "Key": "3cf8365a-9af4-4097-bd85-155dbbe39798",
+            "Value": {
+                "id": "350125b2-7809-48dc-875c-2ba572554b8e",
+                "resourcePath": "sprites\\spr_player_hatchet_prep_3\\spr_player_hatchet_prep_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3d0e3c96-edb9-4134-89aa-4145b9a3c9f4",
             "Value": {
                 "id": "f6a4af86-661c-4344-8866-4a9b243a85ee",
@@ -2311,6 +2367,14 @@
             }
         },
         {
+            "Key": "424faba7-9cdf-48c3-8aab-50179db2ddb4",
+            "Value": {
+                "id": "a65d7bf3-308f-49ec-a4a4-1da9a2598e83",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h_recover_2\\spr_player_hand_axe_1h_recover_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "42c886b2-6d22-4e3c-9e82-91b53d45981a",
             "Value": {
                 "id": "354dd546-ca9c-4489-837b-0b6fcf4e4132",
@@ -2403,6 +2467,14 @@
             "Value": {
                 "id": "95910b89-47a0-4ef3-b8d4-6351b51a772b",
                 "resourcePath": "sprites\\spr_player_hand_thrown_attack_1\\spr_player_hand_thrown_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "46ecdf8b-d72d-41a2-a8a8-dc83ff8b22b4",
+            "Value": {
+                "id": "e45ff5b6-6587-4bb7-a337-4336aa6bb73c",
+                "resourcePath": "sprites\\spr_player_hatchet_attack_1\\spr_player_hatchet_attack_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2567,6 +2639,14 @@
             }
         },
         {
+            "Key": "4acd8c6c-9e6b-40a9-947f-90822597d0d5",
+            "Value": {
+                "id": "d2027a85-a180-4b00-bab9-aeb1cbd70378",
+                "resourcePath": "sprites\\spr_player_hatchet_attack_3\\spr_player_hatchet_attack_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4b2bf60e-04ad-4a2c-9aa4-9debc1fb3b01",
             "Value": {
                 "id": "35e3a53d-9118-4ff9-84d0-926c34e903d0",
@@ -2587,6 +2667,14 @@
             "Value": {
                 "id": "26882dd2-d96e-43e8-8a1f-55be7a061701",
                 "resourcePath": "sprites\\spr_player_hand_axe_2h\\spr_player_hand_axe_2h.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4b9f4827-054c-4c2d-a063-107cccb86750",
+            "Value": {
+                "id": "71eb8e88-0d66-4665-a3e1-9adbcb5e7459",
+                "resourcePath": "sprites\\spr_player_hatchet\\spr_player_hatchet.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2895,6 +2983,14 @@
             }
         },
         {
+            "Key": "5303f626-6ae3-410f-9acd-749b226bf5da",
+            "Value": {
+                "id": "941d594b-968e-4f20-833b-7772fd641337",
+                "resourcePath": "objects\\obj_hand_item_hatchet\\obj_hand_item_hatchet.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "5306154f-8553-4cd8-b141-a1932e4b337e",
             "Value": {
                 "id": "c8cea858-808f-4170-b1b6-bd29b5722fd5",
@@ -2939,6 +3035,14 @@
             "Value": {
                 "id": "5eb00022-d85c-4253-b9c8-1b4637a96d73",
                 "resourcePath": "sprites\\spr_player_hand_sword_1h_prep_3\\spr_player_hand_sword_1h_prep_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5516e234-38c7-4656-87b1-fa4142fec887",
+            "Value": {
+                "id": "3065b234-c934-4df7-8459-ab01401a7dc1",
+                "resourcePath": "sprites\\spr_player_hatchet_prep_2\\spr_player_hatchet_prep_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3383,6 +3487,14 @@
             }
         },
         {
+            "Key": "633240d3-d011-4c1f-814b-cdf70f33d593",
+            "Value": {
+                "id": "06ea26b2-9273-4712-8440-3019b5240eda",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h_attack_3\\spr_player_hand_axe_1h_attack_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "639384bf-ee11-4f82-8b39-f99450697529",
             "Value": {
                 "id": "d9e64c86-1ebf-4dee-93a6-84c199285dad",
@@ -3428,6 +3540,14 @@
                 "id": "0d0556a9-2937-411e-a2d4-158d834612db",
                 "resourcePath": "scripts\\moveTradeSelector\\moveTradeSelector.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "63feb12e-2b2a-44d7-89e1-a19de8dde27d",
+            "Value": {
+                "id": "20996665-5d8d-411b-b0dd-8f5409967e48",
+                "resourcePath": "views\\63feb12e-2b2a-44d7-89e1-a19de8dde27d.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -4479,6 +4599,14 @@
             }
         },
         {
+            "Key": "82b5dac1-5a99-486d-a420-f30532ecd556",
+            "Value": {
+                "id": "7703d9d4-b285-4068-886d-8be1b8e73f12",
+                "resourcePath": "sprites\\spr_player_hatchet1\\spr_player_hatchet1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "82e5f605-95e1-4067-9718-7820352a0ece",
             "Value": {
                 "id": "25e55e49-c9a4-4c1d-aff7-b6dfcba866bb",
@@ -4539,6 +4667,22 @@
             "Value": {
                 "id": "61b8c2b6-887e-41f8-93b3-9d6d0608f8d5",
                 "resourcePath": "sprites\\spr_item_woodshield\\spr_item_woodshield.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "83cae823-e0ca-4b60-b3ac-e29307f35a9d",
+            "Value": {
+                "id": "2406ef8c-98fa-4503-85d3-24f36bdf4114",
+                "resourcePath": "sprites\\spr_player_hatchet_attack_2\\spr_player_hatchet_attack_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "83d7dff1-6ca5-4b9e-8633-a0e2c7c98d6a",
+            "Value": {
+                "id": "c88bd550-e4da-4c48-ad26-5abe86f3714a",
+                "resourcePath": "sprites\\spr_player_hatchet_recover_2\\spr_player_hatchet_recover_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4668,6 +4812,14 @@
                 "id": "9b670961-8a7e-4a52-bc07-97277dbd8061",
                 "resourcePath": "sprites\\spr_player_longsword_prep_2\\spr_player_longsword_prep_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8740980a-cc48-49b3-ab6c-a76bfde71c15",
+            "Value": {
+                "id": "b46f5b02-1d4b-4dcd-9184-8d89186f190a",
+                "resourcePath": "views\\8740980a-cc48-49b3-ab6c-a76bfde71c15.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -4871,6 +5023,14 @@
             }
         },
         {
+            "Key": "8d38331c-1563-4d56-8ce7-b11e7b49598e",
+            "Value": {
+                "id": "9bb505b2-43ea-48ed-8340-c49383681574",
+                "resourcePath": "sprites\\spr_player_hand_hatchet_base\\spr_player_hand_hatchet_base.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8d490bba-1457-45c2-8a86-8b6cb44c6b88",
             "Value": {
                 "id": "2caee82b-a863-4da1-b00f-c3454e5e8c06",
@@ -5011,6 +5171,14 @@
             "Value": {
                 "id": "3f0295a1-c62e-40f8-956c-4bea1a17a519",
                 "resourcePath": "sprites\\spr_player_hand_club_1h_attack_3\\spr_player_hand_club_1h_attack_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9287b0d8-1ee9-42db-892f-8497985242a4",
+            "Value": {
+                "id": "9fcd37c3-9b9d-4e21-8145-a3b95c8b6617",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h_prep_3\\spr_player_hand_axe_1h_prep_3.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6239,6 +6407,14 @@
             }
         },
         {
+            "Key": "b7707be7-3664-4244-ad4b-aa03f27bcb3a",
+            "Value": {
+                "id": "415d53b3-5046-4e76-afed-9ae7f80326ff",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h_prep_2\\spr_player_hand_axe_1h_prep_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b79353b3-8730-4b28-89fd-d8cd4333dcc5",
             "Value": {
                 "id": "62398c2c-7fab-4918-b85f-b19dafb00849",
@@ -6371,6 +6547,14 @@
             "Value": {
                 "id": "3f783aea-8824-453a-b28a-749efdbf693f",
                 "resourcePath": "sprites\\spr_item_info_defense_fire\\spr_item_info_defense_fire.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bb99419f-72b7-42e2-9c19-089da5fbdd61",
+            "Value": {
+                "id": "43ec4b1b-749f-4f51-b76f-5b99d47e6de4",
+                "resourcePath": "sprites\\spr_player_hand_hatchet_base1\\spr_player_hand_hatchet_base1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6564,6 +6748,14 @@
                 "id": "ed0516ea-f48c-460b-af88-baf75685c255",
                 "resourcePath": "scripts\\updatePlayerPropertiesItem\\updatePlayerPropertiesItem.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c2d38aab-c942-4830-82e8-d4dac5d0481a",
+            "Value": {
+                "id": "7deb675b-b422-4671-a664-0ae03aa535be",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h1\\spr_player_hand_axe_1h1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -6887,6 +7079,14 @@
             }
         },
         {
+            "Key": "ca9c1bfb-61ba-492b-9089-4d3cb26e966c",
+            "Value": {
+                "id": "a74cef15-f048-4f49-91f1-cb53b3722bd3",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h_attack_1\\spr_player_hand_axe_1h_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "caa38f54-feee-4e77-941b-5c02b8697c78",
             "Value": {
                 "id": "2887e9c1-1930-4f7c-aaa5-dcabcc721e4a",
@@ -7087,6 +7287,14 @@
             }
         },
         {
+            "Key": "d0e7088d-76d7-4767-a457-0a28c14643ff",
+            "Value": {
+                "id": "5eb95311-5bf1-4740-8c1e-5f78b2d4638f",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h_recover_3\\spr_player_hand_axe_1h_recover_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d0f24ea1-554b-473a-851a-36814ef4973b",
             "Value": {
                 "id": "507641ca-0712-4d09-a0c4-961cb58cfe79",
@@ -7180,6 +7388,14 @@
                 "id": "c49c8ece-7488-4771-8ca7-e944530728b7",
                 "resourcePath": "sprites\\spr_player_hand_club_base\\spr_player_hand_club_base.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d35327a6-e812-401c-b451-8ad52480c73c",
+            "Value": {
+                "id": "832a4a25-bd0c-462d-a63b-723d0caf8e26",
+                "resourcePath": "views\\d35327a6-e812-401c-b451-8ad52480c73c.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -7631,6 +7847,14 @@
             }
         },
         {
+            "Key": "e3ad353b-9f02-4db0-9c79-2f9872795211",
+            "Value": {
+                "id": "faae99f4-7cc6-4eab-b784-8164d9e6c402",
+                "resourcePath": "sprites\\spr_player_hatchet_recover_1\\spr_player_hatchet_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e42eb592-6e1a-4fe0-a160-e0b6cca7d487",
             "Value": {
                 "id": "d88eb5c6-5fb4-405c-997a-2ed842c676a8",
@@ -7831,11 +8055,27 @@
             }
         },
         {
+            "Key": "e970dc90-75bf-4e70-acbf-ecff8e534ddb",
+            "Value": {
+                "id": "454a40ea-3028-4361-9bb9-4c64042c5c03",
+                "resourcePath": "sprites\\spr_player_hatchet_prep_1\\spr_player_hatchet_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ea5bd953-d797-41d4-85a5-66272127240f",
             "Value": {
                 "id": "26cb2c37-2a76-4408-b40b-0d6dbda912ce",
                 "resourcePath": "scripts\\addSocketsAndGemsByRarity\\addSocketsAndGemsByRarity.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "eb8d9ffa-1537-43c8-9076-7935c1712123",
+            "Value": {
+                "id": "83f58730-3977-4f49-af80-2b539bbf1192",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h_recover_1\\spr_player_hand_axe_1h_recover_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8380,6 +8620,14 @@
                 "id": "7486f474-90a7-4af1-872d-331c9ec119eb",
                 "resourcePath": "views\\fd17f6e1-6334-4844-a546-8d68994d4a2e.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "fd60a4a6-e592-4b84-be9e-5a2e50335d7b",
+            "Value": {
+                "id": "48751f9f-9119-4404-92af-c7be74626149",
+                "resourcePath": "sprites\\spr_player_hand_axe_1h\\spr_player_hand_axe_1h.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

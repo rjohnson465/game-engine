@@ -186,10 +186,14 @@ insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
 insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 addItemToInventory(longsword);
 
-//addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
 
-//addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
-var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_hatchet));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_battleaxe));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_club));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_foil));
+//var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
 //addItemToInventory(baxe);
 
 //addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));

@@ -5,7 +5,7 @@ weaponType = RAPIER;
 handSpriteString = "spr_player_hand_rapier";
 
 weaponSpeed = "Fast";
-staggerDuration = 12; // frames
+staggerDuration = [6,7,10,10];
 staminaCostArray=[7,8,10,10];
 
 attackSounds = [snd_thrust_attack_1, snd_thrust_attack_1, snd_thrust_attack_1, snd_sword1h_attack_1];

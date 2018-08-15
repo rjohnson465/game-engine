@@ -1,10 +1,11 @@
-/// drawInputPrompt(promptMessage,inputKeyEnums,*x,*y,*messageColor)
+/// drawInputPrompt(promptMessage,inputKeyEnums,*x,*y,*messageColor, *maxW)
 
 /// @param promptMessage
 /// @param inputKeyEnums
 /// @param *x
 /// @param *y
 /// @param *messageColor
+/// @param *maxW
 
 // returns the width of the prompt
 
@@ -32,12 +33,19 @@ if argument_count == 5 {
 	yy = argument[3];
 	msgColor = argument[4];
 }
+var maxW = 300;
+if argument_count == 6 {
+	xx = argument[2];
+	yy = argument[3];
+	msgColor = argument[4];
+	maxW = argument[5];
+}
 
 draw_set_font(font_main);
 var promptWidth = string_width(msg);
 
 // do not allow prompts to be too long
-var maxW = 300; var stringScale = 1;
+var stringScale = 1;
 if promptWidth > maxW {
 	stringScale = maxW / promptWidth;
 }

@@ -6,7 +6,7 @@ isTwoHanded = true;
 handSpriteString = "spr_player_hand_sword_2h";
 
 weaponSpeed = "Slow";
-staggerDuration = 30; // frames
+staggerDuration = [33,35,40];
 staminaCostArray=[17,20,30];
 
 attackSounds = [snd_sword1h_attack_1, snd_axe2h_attack_1, snd_thrust_attack_1];

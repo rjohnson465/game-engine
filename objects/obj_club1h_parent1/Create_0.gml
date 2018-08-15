@@ -5,7 +5,7 @@ weaponType = BLUNT1H;
 handSpriteString = "spr_player_hand_club_1h";
 
 weaponSpeed = "Slow";
-staggerDuration = 30; // frames
+staggerDuration = [28,30,35];
 staminaCostArray=[15,15,17];
 physicalDamageTypeArray = ["slashing","slashing","piercing"];
 

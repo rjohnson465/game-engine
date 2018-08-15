@@ -22,7 +22,6 @@ longsword.persistent = false;
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
 shortbow.persistent = false;
 ds_map_add(handItems,"lm1",longsword);
-//ds_map_add(handItems,"lm1",unarmed);
 ds_map_add(handItems,"rm1",woodshield);
 ds_map_add(handItems, "lr1",shortbow);
 ds_map_add(handItems, "rr1", unarmed);
@@ -60,11 +59,14 @@ meleeRangeArray=[15, 65, 65];
 
 // ATTACKS
 global.owner = id;
-var longswordSwing = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_1_1);
-longswordSwing.limbKey = "l";
 
-var longswordStab = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
-longswordStab.limbKey = "l";
+var longswordSwing = instance_nearest(x,y,obj_attack_unfairy_longsword_1_1);
+if longswordSwing == noone longswordSwing = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_1_1);
+//longswordSwing.limbKey = "l";
+
+var longswordStab = instance_nearest(x,y,obj_attack_unfairy_longsword_2_1);
+if longswordStab == noone longswordStab = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
+//longswordStab.limbKey = "l";
 var longswordStab2 = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
 longswordStab2.limbKey = "l";
 longswordStab2.coolDownFrames = [90,100];
@@ -82,7 +84,8 @@ meleeAttacks = [meleeChain0, meleeChain1, meleeChain2];
 currentRangedAttack = noone;
 rangedRangeArray=[300,500];
 
-var shortbowShot = instance_create_depth(x,y,1,obj_attack_unfairy_shortbow_1_1);
+var shortbowShot = instance_nearest(x,y,obj_attack_unfairy_shortbow_1_1);
+if shortbowShot == noone shortbowShot = instance_create_depth(x,y,1,obj_attack_unfairy_shortbow_1_1);
 var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];

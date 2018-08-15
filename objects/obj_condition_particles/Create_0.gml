@@ -124,24 +124,24 @@ switch condition {
 		// ice chunk particle
 		var ice = part_type_create();
 		part_type_sprite(ice,spr_particle_icechunk,0,0,1);
-		part_type_size(ice,.02,.06,0,0);
-		part_type_color2(ice,c_white,c_black);
-		part_type_alpha3(ice,1,1,0);
+		part_type_size(ice,.01,.04,0,0);
+		part_type_color3(ice,c_white,c_black,c_aqua);
+		part_type_alpha3(ice,1,1,.2);
 		part_type_speed(ice,4,8,0,0);
 		part_type_direction(ice,0,359,0,5);
 		part_type_orientation(ice,0,359,0,0,0);
 		part_type_blend(ice,true);
-		part_type_life(ice,15,30);
+		part_type_life(ice,10,17);
 		particle = ice;
 		
 		// snowflake particle2
 		var snowflake = part_type_create();
 		part_type_shape(snowflake, pt_shape_snow);
 		part_type_orientation(snowflake,0,0,0,15,1);
-		part_type_size(snowflake,0,0.1,0,0);
-		part_type_speed(snowflake,1,1.5,0,0);
-		part_type_direction(snowflake,0,360,0,4);
-		part_type_life(snowflake,15,25);
+		part_type_size(snowflake,0,0.02,0,0);
+		part_type_speed(snowflake,1,3,0,0);
+		part_type_direction(snowflake,0,359,0,4);
+		part_type_life(snowflake,30,50);
 		part_type_alpha3(snowflake,1,.75,.5);
 		particle2 = snowflake;
 		
@@ -156,6 +156,6 @@ switch condition {
 		part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,0);
 		part_emitter_burst(system,emitter,particle, num);
 		part_emitter_burst(system,emitter,particle2, num2);
-		instance_destroy(id);
+		//instance_destroy(id);
 	}
 }

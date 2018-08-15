@@ -90,9 +90,8 @@ if isBeingLooted && ds_exists(items,ds_type_list) && ds_list_size(items) != 0 {
 	var promptsY = bottomRightY + 10; var promptsX = topLeftX+10; var w = 0;
 	var selectedItemString = instance_exists(selectedItem) ? selectedItem.name : "Item";
 	if gamepad_is_connected(global.player.gamePadIndex) {
-		w += drawPrompt("Loot "+selectedItemString,Input.F,promptsX+w,promptsY);
-		//w += drawPrompt("Close",Input.Escape,promptsX+w,promptsY);
+		w += drawPrompt("Loot "+selectedItemString,Input.F,promptsX+w,promptsY, c_white, 250);
 	} else {
-		w += drawPrompt("Loot "+selectedItemString,[Input.LMB,Input.F],promptsX+w,promptsY);
+		w += drawPrompt("Loot "+selectedItemString,[Input.LMB,Input.F],promptsX+w,promptsY, c_white, 250);
 	}
 }

@@ -7,12 +7,12 @@ weaponSpeed = "Medium";
 projectileSpeed = 32;
 isTwoHanded = false;
 isRanged = true;
-staggerDuration = 5; // frames
-physicalDamageTypeArray = ["piercing"];
+staggerDuration = [10];
 handSpriteString = "spr_player_hand_pistol";
 staminaCostArray=[10];
 attackSounds = [snd_gunshot1];
 hitSounds = [snd_hit1];
+projectileSpeed = 40;
 
 soundDrop = snd_item_wood;
 

@@ -1,4 +1,4 @@
-if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY || owner != global.player exit;
+if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
 
 // do not attempt a swap with an equipped item
 //if id == global.ui.grabbedItem && equipmentSlot != noone exit;
@@ -14,7 +14,7 @@ if id == global.ui.grabbedItem {
 	
 		var nearestOtherItem = instance_nearest(x,y,obj_item_parent);
 		var i = 1;
-		while nearestOtherItem == id {
+		while nearestOtherItem == id || ds_list_find_index(global.player.inventory, nearestOtherItem) == -1 {
 			nearestOtherItem = script_execute(scr_find_nth_closest,x,y,obj_item_parent,i);
 			i++;
 		}

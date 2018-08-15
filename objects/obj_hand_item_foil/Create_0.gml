@@ -14,11 +14,10 @@ charges = 10;
 chargesMax = 10;
 
 range = 80;
-weight = 10;
 
-ds_map_set(damages,PIERCE,[7,10,7,10,9,10]);
+ds_map_set(damages,PIERCE,[5,8,6,8,8,10,0,0]);
 ds_map_set(damages,SLASH,[0,0,0,0,0,0,5,8]);
-//staminaCostArray=[10,10,25];
+ds_map_set(damages,CRUSH,[0,0,0,0,0,0,0,0]);
 
 act = 1;
 

@@ -143,6 +143,8 @@ for (var i = 0; i < ds_map_size(rarityMap); i++) {
 
 item.rarity = rarityType;
 
+if item.type == ItemTypes.Other item.rarity = ItemRarities.Normal;
+
 // modify base item properties based on rarity
 if item.rarity != ItemRarities.Normal {
 	modifyBasePropertiesByRarity(item,item.rarity);

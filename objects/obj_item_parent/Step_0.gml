@@ -1,5 +1,9 @@
 event_inherited();
 
+if value == 0 && baseValue != 0 {
+	appraiseItem(id);
+}
+
 // destroy empty stacks
 if count < 1 && object_index != obj_item_coins {
 	if ds_list_find_index(global.player.inventory,id) != -1 {

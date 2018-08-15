@@ -12,13 +12,11 @@ chargesMax = 10;
 
 range = 60;
 
-weight = 10;
-staggerDuration = 45; // frames
 ds_map_set(damages,SLASH,[20,25,22,30]);
-
-
+ds_map_set(damages,PIERCE,[0,0,0,0]);
+ds_map_set(damages,CRUSH,[0,0,0,0]);
 act = 1;
 
-requiredMastery = 1;
+//requiredMastery = 1;
 
 //numberOfSockets = 3;

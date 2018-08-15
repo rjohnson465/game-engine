@@ -10,6 +10,22 @@ iterations: How many times a second to draw the lightmap. The default is the roo
             but you might want to reduce this for increased performance. If it is too
             small, however, you will notice considerable stuttering.
 */
+/*
+if ds_exists(global._lights, ds_type_list) {
+	ds_list_destroy(global._lights);
+}
+if ds_exists(global._light_casters, ds_type_list) {
+	ds_list_destroy(global._light_casters);
+}
+
+if surface_exists(global._light_surface) {
+	surface_free(global._light_surface);
+}
+
+if surface_exists(global._light_map) {
+	surface_free(global._light_map);
+}*/
+
 
 global._light_width = argument0
 global._light_height = argument1

@@ -6,12 +6,11 @@ spriteName = "pistol";
 itemSprite = spr_item_pistol;
 baseValue = 200;
 
-projectileSpeed = 40;
-staggerDuration = 5; // frames
+
 ds_map_set(damages,CRUSH,[10,12]);
 staminaCostArray=[10];
-ammo = 52;
-ammoMax = 52;
+ammo = 15;
+ammoMax = 15;
 numberOfSockets = 2;
 
 act = 1;

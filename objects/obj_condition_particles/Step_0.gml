@@ -1,5 +1,5 @@
 if owner.layer != global.player.layer exit;
-if (condition == "Death") && (!owner.isAlive || owner.hp > 0) && !hasSetAlarm {
+if (condition == "Death" || condition == "IceDeath") && (!owner.isAlive || owner.hp > 0) && !hasSetAlarm {
 	//instance_destroy(id);
 	alarm[0] = 60;
 	hasSetAlarm = true;
