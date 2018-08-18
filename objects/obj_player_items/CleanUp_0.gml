@@ -1,2 +1,1 @@
-ds_list_destroy(inv);
-//ds_list_destroy(items);
+ds_list_destroy(inv); inv = -1;

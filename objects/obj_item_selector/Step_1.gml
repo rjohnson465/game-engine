@@ -2,6 +2,8 @@ if !global.ui.isShowingMenus {
 	exit;
 }
 
+
+
 if isActive && isSelectorInInventory() && getItemAtSelectorPosition(id) == noone {
 	var invv = global.inventory.inv;
 	if ds_list_size(invv) == 0 {

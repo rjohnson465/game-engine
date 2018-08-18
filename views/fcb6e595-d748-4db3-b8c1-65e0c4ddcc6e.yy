@@ -16,7 +16,8 @@
         "b61f446a-0ad1-44bf-8abc-eefd9cca061b",
         "7e5a8e29-21b1-4fb7-88be-22da439ae5c4",
         "a4543e65-995c-4755-a189-37b19cb368af",
-        "63feb12e-2b2a-44d7-89e1-a19de8dde27d"
+        "63feb12e-2b2a-44d7-89e1-a19de8dde27d",
+        "176b4ed2-ca70-4529-84d3-9c8216f05ef0"
     ],
     "filterType": "GMSprite",
     "folderName": "hands",

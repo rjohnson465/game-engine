@@ -135,7 +135,7 @@ if item.type == ItemTypes.HandItem {
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+30,physicalDamageTypesString);
 		} else {
 			draw_set_color(c_white);
-			draw_text(itemDescriptionCol1XText,itemDescriptionColY+30,"Phys. attacks type(s)");
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+30,"Attack type(# targets)");
 		}
 	
 		// draw physical damages values

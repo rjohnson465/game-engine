@@ -106,7 +106,7 @@ if suffix2 != noone {
 // TODO -- suffixes
 item.name = newName;
 
-ds_list_destroy(prefixes);
-ds_list_destroy(orderedPrefixes);
+ds_list_destroy(prefixes); prefixes = -1;
+ds_list_destroy(orderedPrefixes); orderedPrefixes = -1;
 //ds_list_destroy(basicProps);
-ds_list_destroy(props);
+ds_list_destroy(props); props = -1;

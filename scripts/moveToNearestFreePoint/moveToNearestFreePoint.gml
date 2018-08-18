@@ -73,7 +73,7 @@ else {
 		direction = point_direction(oldX,oldY,x,y);
 		//return true;
 	}
-	ds_list_destroy(possibleAngles);
+	ds_list_destroy(possibleAngles); possibleAngles = -1;
 }
-ds_list_destroy(additionalObjects);
+ds_list_destroy(additionalObjects); additionalObjects = -1;
 

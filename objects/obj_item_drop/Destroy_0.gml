@@ -10,7 +10,7 @@ if ds_exists(items,ds_type_list) {
 		instance_destroy(item,1);
 	}
 
-	ds_list_destroy(items);
+	ds_list_destroy(items); items = -1;
 }
 global.canLoot = false;
 

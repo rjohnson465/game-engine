@@ -13,12 +13,16 @@ Important note: The object calling this function should have a lower depth than 
 if !ds_exists(global._lights, ds_type_list) {
 	var a = 3;
 	// TODO in catastrophic failure, recreate all lights based on light_parent objects
-	global._light = ds_list_create();
+	//var bslights = ds_list_create();
+	global._lights = ds_list_create();
+	//ds_list_destroy(bslights);
 	with obj_light_radius {
 		ds_list_add(global._lights,id);
 	}
 	//exit;
 }
+
+var lightss = global._lights;
 
 // TODO -- reconstruct casters list
 if !ds_exists(global._light_casters,ds_type_list) {

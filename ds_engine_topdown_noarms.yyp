@@ -663,6 +663,14 @@
             }
         },
         {
+            "Key": "110a3865-bce5-4ae0-8439-9e98a7c52372",
+            "Value": {
+                "id": "2c8c5b36-bcd6-4be1-8cda-7b5d974931f4",
+                "resourcePath": "views\\110a3865-bce5-4ae0-8439-9e98a7c52372.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "11107068-f083-4d88-bb36-7ede67c95044",
             "Value": {
                 "id": "263e0947-0758-4e38-8c2d-9e8bc595b68d",
@@ -724,6 +732,14 @@
                 "id": "a2ed97c2-d1bf-40a0-bc4c-5c4b621cefaf",
                 "resourcePath": "views\\12c05179-c972-48b7-ad94-243f8d869952.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "12cf0f2e-efc6-4f75-b95d-0281f9ccc0ef",
+            "Value": {
+                "id": "e19b58d3-3f7a-4129-9a53-cec0bf91c356",
+                "resourcePath": "sprites\\spr_player_hand_club_2h_prep_3\\spr_player_hand_club_2h_prep_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -892,6 +908,14 @@
                 "id": "ca06a733-7185-40b0-a9d2-1d13f6e0fca9",
                 "resourcePath": "sprites\\spr_skill_gunmastery\\spr_skill_gunmastery.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "176b4ed2-ca70-4529-84d3-9c8216f05ef0",
+            "Value": {
+                "id": "b85a9ca7-f86d-401b-8c3d-ae73d21e9f63",
+                "resourcePath": "views\\176b4ed2-ca70-4529-84d3-9c8216f05ef0.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1279,6 +1303,14 @@
             }
         },
         {
+            "Key": "21b8526c-10ef-4e51-b062-8733bb404b2f",
+            "Value": {
+                "id": "18115002-a5cf-468d-b36f-7effa0adab0d",
+                "resourcePath": "sprites\\spr_player_warhammer_recover_3\\spr_player_warhammer_recover_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "21c53d30-346c-4021-b8e0-c4e7b78137f9",
             "Value": {
                 "id": "aa3e5214-766c-4d89-9b17-81a492059334",
@@ -1324,6 +1356,14 @@
                 "id": "6d599cb4-1264-458e-ac7b-e41c2602be74",
                 "resourcePath": "objects\\obj_hand_item_thrownknife\\obj_hand_item_thrownknife.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "236f665d-b652-4105-8040-6929ae19ee4a",
+            "Value": {
+                "id": "5dd8e1cd-dbaa-4510-872d-c8c406f970fe",
+                "resourcePath": "sprites\\spr_player_hand_club_2h_prep_2\\spr_player_hand_club_2h_prep_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1951,6 +1991,14 @@
             }
         },
         {
+            "Key": "3884c645-d18c-46de-94dc-7a699fdc7c79",
+            "Value": {
+                "id": "f6aee6e7-33a3-4212-84f7-906d228f4033",
+                "resourcePath": "sprites\\spr_player_hand_club_2h\\spr_player_hand_club_2h.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "388ced0a-468a-47b7-a638-f38c7af9cb15",
             "Value": {
                 "id": "86839257-6b89-49af-9e77-edb18f173780",
@@ -2507,6 +2555,14 @@
             "Value": {
                 "id": "72e2516d-903c-4008-abab-cc42d4416f65",
                 "resourcePath": "sprites\\spr_player_hand_sword_1h_attack_3\\spr_player_hand_sword_1h_attack_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "47896332-8a8a-4b90-aa25-27c9949f94fa",
+            "Value": {
+                "id": "18ed6c18-6bc1-4c0f-b7bc-b74fc0a1fe4c",
+                "resourcePath": "sprites\\spr_player_hand_club_2h_recover_3\\spr_player_hand_club_2h_recover_3.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3799,6 +3855,14 @@
             }
         },
         {
+            "Key": "6ad87713-e2a1-4ec7-bb35-c340a18a6e29",
+            "Value": {
+                "id": "375385c2-9f3b-4b70-a9ed-6df9a7dfba56",
+                "resourcePath": "sprites\\spr_player_warhammer\\spr_player_warhammer.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6b4212a9-0072-44d0-91ce-195a94eaf709",
             "Value": {
                 "id": "0b8f3623-cd3f-47ed-9c90-2dc4073230aa",
@@ -3855,6 +3919,14 @@
             }
         },
         {
+            "Key": "6d1de664-3531-4a14-b3d6-aa7a0a0398fd",
+            "Value": {
+                "id": "f5f55abe-0736-489d-94fa-5639c2a3bc79",
+                "resourcePath": "sprites\\spr_player_hand_club_2h_attack_1\\spr_player_hand_club_2h_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6d333721-f5f7-46c1-be18-36bd289dba92",
             "Value": {
                 "id": "5e1f875a-b67a-49cf-8e2d-ded9a7a54f3b",
@@ -3900,6 +3972,14 @@
                 "id": "55c315eb-0adf-4a5c-b261-17ec50df08fa",
                 "resourcePath": "scripts\\performSelectorLeft\\performSelectorLeft.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "6de03977-0871-4cca-bb69-65b116b0e479",
+            "Value": {
+                "id": "4fb1190e-b3c5-4a1d-9fd1-f36671037e03",
+                "resourcePath": "sprites\\spr_warhammer_3_base\\spr_warhammer_3_base.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4311,6 +4391,14 @@
             }
         },
         {
+            "Key": "796cee46-baaa-45e1-98cb-7ca789428259",
+            "Value": {
+                "id": "8967027d-f582-4de1-80ec-44ba480edfd0",
+                "resourcePath": "sprites\\spr_player_warhammer_prep_2\\spr_player_warhammer_prep_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "79a48a38-7540-44ea-952b-6c4e04c7f0dc",
             "Value": {
                 "id": "c944ff5c-0fd6-4d26-b021-cf92f6f4d4aa",
@@ -4452,6 +4540,14 @@
                 "id": "eafd633c-309d-4f6d-9ecc-e22ffdd08165",
                 "resourcePath": "sounds\\snd_sword1h_attack_1\\snd_sword1h_attack_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "7d877b53-0ee3-4a33-85b9-8446d35c0acd",
+            "Value": {
+                "id": "a874f471-051e-4068-b549-9ce064cd81f6",
+                "resourcePath": "views\\7d877b53-0ee3-4a33-85b9-8446d35c0acd.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -4612,6 +4708,14 @@
                 "id": "25e55e49-c9a4-4c1d-aff7-b6dfcba866bb",
                 "resourcePath": "fonts\\font_main\\font_main.yy",
                 "resourceType": "GMFont"
+            }
+        },
+        {
+            "Key": "8301c332-6465-47ba-b63a-73a02cbc3853",
+            "Value": {
+                "id": "2049a549-7be9-4536-af87-5a75b5bff048",
+                "resourcePath": "sprites\\spr_player_warhammer_prep_3\\spr_player_warhammer_prep_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4983,6 +5087,14 @@
             }
         },
         {
+            "Key": "8c32e0d8-6bdb-45dc-a28b-e8865ab31f51",
+            "Value": {
+                "id": "1977311a-3158-4c15-a6a2-8127a19772f7",
+                "resourcePath": "sprites\\spr_player_hand_club_2h_recover_2\\spr_player_hand_club_2h_recover_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8c43b0fe-300d-4319-b80d-a1d270609ad1",
             "Value": {
                 "id": "5c52cc01-fec2-45db-bd7d-a9e573d313a0",
@@ -5327,6 +5439,14 @@
             }
         },
         {
+            "Key": "96595a07-376e-4c67-a28f-f575b374909f",
+            "Value": {
+                "id": "f3d46cad-eca9-4359-850f-b0b762a50fdb",
+                "resourcePath": "sprites\\spr_player_hand_club_2h_attack_3\\spr_player_hand_club_2h_attack_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "969d2793-918b-4abd-972b-56c64b42277d",
             "Value": {
                 "id": "45a4f4b6-c594-4a57-ae0c-82e4564c8980",
@@ -5460,6 +5580,14 @@
                 "id": "2226b161-ef58-4143-a677-3c8fe410a328",
                 "resourcePath": "objects\\obj_condition_particles\\obj_condition_particles.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9d13abbd-a6d2-4312-b856-692a2cfd38f8",
+            "Value": {
+                "id": "fbe2548f-e1db-473a-9fe9-7f34d8201235",
+                "resourcePath": "scripts\\ds_list_destroy_and_free\\ds_list_destroy_and_free.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5603,6 +5731,14 @@
             "Value": {
                 "id": "4728e915-ac79-4264-b47e-964ad7ce2cb5",
                 "resourcePath": "sprites\\spr_spell_projectile_poison\\spr_spell_projectile_poison.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a0add6ce-7380-42dc-9231-47a967635591",
+            "Value": {
+                "id": "499e2394-924f-488e-944a-1149a00dbad7",
+                "resourcePath": "sprites\\spr_player_warhammer_attack_1\\spr_player_warhammer_attack_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6023,6 +6159,14 @@
             }
         },
         {
+            "Key": "acb54fbd-9766-49da-b3d7-f8827a023873",
+            "Value": {
+                "id": "b8ab24c2-86bb-4e1c-96b6-296215269098",
+                "resourcePath": "sprites\\spr_player_warhammer_recover_2\\spr_player_warhammer_recover_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "acfb1e85-a1e2-46c8-b92a-134ac946e651",
             "Value": {
                 "id": "12d30bf3-ac48-4fbf-9cd4-31e547ba3fef",
@@ -6148,6 +6292,14 @@
                 "id": "593c6895-0f1c-4d01-b53f-2705c6df64a9",
                 "resourcePath": "views\\aff0f7d4-55e8-45e8-af7c-cefedaa763f9.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b01069d1-f347-41a3-9219-752a6e2d76e9",
+            "Value": {
+                "id": "995337a5-a231-4a1b-9d43-e1651e906d89",
+                "resourcePath": "sprites\\spr_player_hand_club_2h_recover_1\\spr_player_hand_club_2h_recover_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -6503,6 +6655,22 @@
             }
         },
         {
+            "Key": "b9da4516-242e-446a-a214-dc8d364ba236",
+            "Value": {
+                "id": "bdca40ac-34d5-4912-83c2-66533dfbd4c4",
+                "resourcePath": "sprites\\spr_player_warhammer_prep_311\\spr_player_warhammer_prep_311.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b9f028ed-058a-453e-9a25-7dfc0dfc1033",
+            "Value": {
+                "id": "9b4a7eaf-a22a-4b2b-a3d8-279316356fb6",
+                "resourcePath": "objects\\obj_club_2h_parent\\obj_club_2h_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "b9f872bf-8de7-49ef-b39e-9cbef34b8ec8",
             "Value": {
                 "id": "8cd9ab2b-dff6-418d-887f-3f91d5f04e22",
@@ -6767,14 +6935,6 @@
             }
         },
         {
-            "Key": "c3200771-98b7-4a61-a1f2-ade4761852d9",
-            "Value": {
-                "id": "83406cfe-a49d-4b76-b365-e20e1bf3063b",
-                "resourcePath": "objects\\obj_enemy_unfairy_woodshield\\obj_enemy_unfairy_woodshield.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "c3284653-0f49-4dc5-8fdc-19b67b846c96",
             "Value": {
                 "id": "fa54324e-c6f3-40fd-b42a-41a56b596c3c",
@@ -6855,6 +7015,14 @@
             }
         },
         {
+            "Key": "c4e1634f-f2be-428d-bdb4-89d78fd66fb9",
+            "Value": {
+                "id": "f640325e-3e16-4818-baad-f6dffc24a94c",
+                "resourcePath": "views\\c4e1634f-f2be-428d-bdb4-89d78fd66fb9.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "c534f205-b14f-4770-bd06-155327b50be2",
             "Value": {
                 "id": "87d89185-6d34-4e76-96e3-b0c0144cf192",
@@ -6884,6 +7052,14 @@
                 "id": "32784f34-4a25-4900-973f-556f5ac4fecb",
                 "resourcePath": "sprites\\spr_prompt_mk_rb\\spr_prompt_mk_rb.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c65637c3-1f80-44c3-ac7d-21ffd9a73b96",
+            "Value": {
+                "id": "3db9a8b5-1d8c-4e5a-8da1-7a3d9a31b9e9",
+                "resourcePath": "views\\c65637c3-1f80-44c3-ac7d-21ffd9a73b96.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -6940,6 +7116,14 @@
                 "id": "d66e5c80-71f0-4b26-86ce-6703ea17c7aa",
                 "resourcePath": "views\\c73f800d-811a-4fd2-8749-757d0e160648.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c76b309a-e0e2-41ae-8c4f-143f49357ca7",
+            "Value": {
+                "id": "96a0b4b3-d07c-4edb-bb53-effa18f7bd8d",
+                "resourcePath": "sprites\\spr_player_warhammer_prep_1\\spr_player_warhammer_prep_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7027,6 +7211,14 @@
             "Value": {
                 "id": "ca93907c-f123-4d9e-9af5-4da93376cc14",
                 "resourcePath": "sprites\\spr_block_green_light\\spr_block_green_light.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c960361c-d45e-42dc-9fb2-37e9b312995e",
+            "Value": {
+                "id": "103fb0fb-5420-452e-80fe-5923748c810b",
+                "resourcePath": "sprites\\spr_player_warhammer_recover_1\\spr_player_warhammer_recover_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -7231,6 +7423,14 @@
             }
         },
         {
+            "Key": "ce37cce6-86cb-4b77-a094-207295a28de7",
+            "Value": {
+                "id": "7159f827-5bd0-4cc7-ad04-184d7b505a49",
+                "resourcePath": "sprites\\warhammer3\\warhammer3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "cf10f946-5302-4761-a66f-62c83f0a91e7",
             "Value": {
                 "id": "d5915814-3cb4-44b0-8aea-222f8d80e0b9",
@@ -7260,6 +7460,14 @@
                 "id": "bb278b1f-1a5a-4e93-a5ea-c30f58efd356",
                 "resourcePath": "objects\\obj_skill_assassin_mastery\\obj_skill_assassin_mastery.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d0364db3-6b8d-4a56-a76d-4dbb3e424417",
+            "Value": {
+                "id": "1599ebf1-5ef6-4ba6-9155-5a56f297beec",
+                "resourcePath": "sprites\\spr_player_warhammer_attack_3\\spr_player_warhammer_attack_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7359,6 +7567,14 @@
             }
         },
         {
+            "Key": "d26ca809-60da-41ff-8e07-f3d4fad1cef1",
+            "Value": {
+                "id": "9813347d-5c2f-4dc6-8f9b-dbe39be4f700",
+                "resourcePath": "objects\\obj_hand_item_warhammer\\obj_hand_item_warhammer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d2ae12fc-02e7-4580-b79a-76a5835a582c",
             "Value": {
                 "id": "63fa3adb-553d-434a-854a-efb5b3f1803e",
@@ -7428,6 +7644,14 @@
                 "id": "dbc30e0f-617e-49ca-96e3-35481fe22ed4",
                 "resourcePath": "views\\d43182d5-5709-4fce-ad70-2ce865e2f01d.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d442a706-0352-4118-b027-4bef10bb315b",
+            "Value": {
+                "id": "19cbd882-376a-4e9d-8325-9c58d1fa99e6",
+                "resourcePath": "sprites\\spr_player_warhammer_base\\spr_player_warhammer_base.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7655,6 +7879,14 @@
             }
         },
         {
+            "Key": "dce5907d-d320-4f47-901f-5e814efd588a",
+            "Value": {
+                "id": "32fcbf50-0349-4802-970c-78febf2df06d",
+                "resourcePath": "sprites\\spr_player_warhammer_attack_2\\spr_player_warhammer_attack_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "dcef21f7-1995-4aae-b0c7-f312c9eef74a",
             "Value": {
                 "id": "580fa332-b065-4179-9fdf-a3d532cbbd73",
@@ -7683,6 +7915,14 @@
             "Value": {
                 "id": "0aff65d1-dc72-40f3-83ff-a5422e019d9a",
                 "resourcePath": "sprites\\spr_item_ring1\\spr_item_ring1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ddcdfcbf-3d74-4cc5-a681-45488af7da90",
+            "Value": {
+                "id": "ee72e7b4-8569-4210-803b-6121b9f3288e",
+                "resourcePath": "sprites\\spr_item_warhammer\\spr_item_warhammer.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -7716,6 +7956,14 @@
                 "id": "f1235282-97a4-46c5-906b-43bb947d91cd",
                 "resourcePath": "sprites\\spr_combo_meter_empty\\spr_combo_meter_empty.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "de4dca4d-be79-4db3-a049-091e38c5515b",
+            "Value": {
+                "id": "48f5cc32-cab2-459c-8fce-43b72e74b611",
+                "resourcePath": "views\\de4dca4d-be79-4db3-a049-091e38c5515b.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -7908,6 +8156,14 @@
                 "id": "06511524-ce7c-428b-952b-d3df6d2ac299",
                 "resourcePath": "views\\e4fb53da-d910-4222-84b0-94eedcfa94c8.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e4fe88bf-390a-4a14-a38c-5e869a5c9faf",
+            "Value": {
+                "id": "7d0edc5f-299f-4935-ae29-43c64426c6f4",
+                "resourcePath": "sprites\\spr_player_hand_club_2h_attack_2\\spr_player_hand_club_2h_attack_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8207,6 +8463,14 @@
             }
         },
         {
+            "Key": "ef740d47-347c-4eb0-a74f-1fb8414bd77e",
+            "Value": {
+                "id": "e4a94319-a1da-4721-aabc-84a0d060b595",
+                "resourcePath": "sprites\\spr_player_hand_club_2h_prep_1\\spr_player_hand_club_2h_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ef883bc4-725b-4357-9581-6807bb5ea4f8",
             "Value": {
                 "id": "f87f7791-3054-4803-a9cc-1a13de8fac30",
@@ -8292,6 +8556,14 @@
                 "id": "b2e3599d-97d4-4d43-89ca-3de862b1424f",
                 "resourcePath": "scripts\\defineItemPropertyRangesForPts\\defineItemPropertyRangesForPts.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f28eaf3a-44bc-4067-9da2-5565fefe97bd",
+            "Value": {
+                "id": "3abbfd61-08da-4551-abd4-ba2057a4d5fe",
+                "resourcePath": "sprites\\warhammer3_handsrev\\warhammer3_handsrev.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8679,6 +8951,14 @@
             }
         },
         {
+            "Key": "fe56685f-b355-4a9e-9100-f08f22f0d4b5",
+            "Value": {
+                "id": "9960f104-5226-45e1-9b0b-00a9000b7161",
+                "resourcePath": "sprites\\warhammer3_hands\\warhammer3_hands.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "fecfb900-0dd0-4169-ac95-7ac6b9e7d550",
             "Value": {
                 "id": "3cf98b10-a49e-4e70-bbcb-884567c2ef03",
@@ -8805,6 +9085,7 @@
         "986a653c-ff14-4fed-beb3-0b0ca2213956",
         "592c2ea4-a6b1-4441-956f-aaa1e450be1a",
         "552aac08-d469-48ae-a042-4989839708bf",
+        "9d13abbd-a6d2-4312-b856-692a2cfd38f8",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "89e792c3-5306-41a1-8e55-479f0f2db5de",
         "295e5a03-8983-4afd-bdb3-14c23bed2058",

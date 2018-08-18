@@ -38,7 +38,6 @@ isBackButtonPressed = false;
 #macro INCREASE100K "Add 100,000 Gold"
 #macro INCREASE1M "Add 1,000,000 Gold"
 
-apiBS = ds_list_create();
 allPriceIncrements = noone;
 allPriceIncrements = ds_list_create();
 ds_list_add(allPriceIncrements,WISH);

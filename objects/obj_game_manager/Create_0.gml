@@ -15,9 +15,9 @@ global.gameManager = id;
 #macro C_DKRGRAY make_color_rgb(42,42,42)
 
 #macro C_RARITY_NORMAL c_white
-#macro C_RARITY_FINE c_aqua
-#macro C_RARITY_MASTERWORK c_fuchsia
-#macro C_RARITY_LEGENDARY c_lime
+#macro C_RARITY_FINE c_lime
+#macro C_RARITY_MASTERWORK c_aqua
+#macro C_RARITY_LEGENDARY c_fuchsia
 global.itemRarityColors = ds_map_create();
 ds_map_replace(global.itemRarityColors, ItemRarities.Normal, C_RARITY_NORMAL);
 ds_map_replace(global.itemRarityColors, ItemRarities.Fine, C_RARITY_FINE);

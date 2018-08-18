@@ -28,5 +28,5 @@ if !ds_exists(questSteps,ds_type_list) {
 		ds_list_add(questSteps,inst);
 	}
 	
-	ds_map_destroy(foundSteps);
+	ds_map_destroy(foundSteps); foundSteps = -1;
 }

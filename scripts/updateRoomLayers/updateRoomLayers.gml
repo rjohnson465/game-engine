@@ -85,8 +85,8 @@ with obj_fallzone {
 		solid = true;
 	} else solid = false;
 }
-ds_list_destroy(instanceLayersAbove);
-ds_list_destroy(tileLayersAbove);
+ds_list_destroy(instanceLayersAbove); instanceLayersAbove = -1;
+ds_list_destroy(tileLayersAbove); tileLayersAbove = -1;
 
 with obj_weapon {
 	refreshParticles = true;

@@ -28,5 +28,5 @@ for (var i = 0; i < ds_list_size(combatants); i++) {
 		mp_grid_add_instances(personalGrid,ds_list_find_value(combatants,i),true);
 	} 
 }
-ds_list_destroy(combatants);
-ds_list_destroy(solids);
+ds_list_destroy(combatants); combatants = -1;
+ds_list_destroy(solids); solids = -1;

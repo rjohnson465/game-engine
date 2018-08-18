@@ -305,6 +305,6 @@ for (var i = 0; i < numVrareProps; i++) {
 	buffIndex++;
 }
 
-ds_map_destroy(basicPropertiesMap);
-ds_map_destroy(rarePropertiesMap);
-ds_map_destroy(vrarePropertiesMap);
+ds_map_destroy(basicPropertiesMap); basicPropertiesMap = -1;
+ds_map_destroy(rarePropertiesMap); rarePropertiesMap = -1;
+ds_map_destroy(vrarePropertiesMap); vrarePropertiesMap = -1;

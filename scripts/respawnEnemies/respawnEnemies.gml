@@ -13,6 +13,7 @@ with obj_enemy_data {
 }
 
 with obj_enemy_parent {
+	show_debug_message(string(state) + " " + string(lockOnTarget));
 	x = postX;
 	y = postY;
 	layer = postZ;

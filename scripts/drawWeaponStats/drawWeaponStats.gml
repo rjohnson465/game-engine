@@ -48,7 +48,7 @@ if stringWidth > (wdCol1Width-21) {
 	additionalLine++;
 }
 if ui.isShowingExplanations {
-	drawTextWidth(wdCol1XText,startingY+(line*20),"Phys. attacks type(s)",wdCol1Width-21);
+	drawTextWidth(wdCol1XText,startingY+(line*20),"Attack type(# targets)",wdCol1Width-21);
 	additionalLine = 0;
 } else draw_text_ext(wdCol1XText,startingY+(line*20),physicalDamagesTypesString,20,wdCol1Width-21);
 

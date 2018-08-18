@@ -146,6 +146,6 @@ if numSockets != 0 {
 /*else {
 	item.rarity = ItemRarities.Normal;
 }*/
-ds_map_destroy(socketsNumChanceMap);
-ds_map_destroy(gemNumChanceMap);
-ds_map_destroy(gemConditionChanceMap);
+ds_map_destroy(socketsNumChanceMap); socketsNumChanceMap = -1;
+ds_map_destroy(gemNumChanceMap); gemNumChanceMap = -1;
+ds_map_destroy(gemConditionChanceMap); gemConditionChanceMap = -1;

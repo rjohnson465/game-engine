@@ -19,6 +19,6 @@ for (var i = 0; i < n; i++) {
 	arr[i] = ds_list_find_value(list,i);
 }
 
-ds_list_destroy(list);
+ds_list_destroy(list); list = -1;
 
 return arr;

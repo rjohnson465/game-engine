@@ -32,7 +32,7 @@ if instance_exists(obj_enemy_parent) {
 		}
 	}
 	if nearbyEnemies != noone {
-		ds_list_destroy(nearbyEnemies);
+		ds_list_destroy(nearbyEnemies); nearbyEnemies = -1;
 	}
 }
 

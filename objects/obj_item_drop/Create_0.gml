@@ -1,4 +1,4 @@
-itemsBS = ds_list_create();
+//itemsBS = ds_list_create();
 items = ds_list_create();
 ds_list_copy(items,global.droppedItems);
 for (var i = 0; i < ds_list_size(global.droppedItems); i++) {
@@ -6,7 +6,7 @@ for (var i = 0; i < ds_list_size(global.droppedItems); i++) {
 	item.itemDropObj = id;
 }
 
-ds_list_destroy(itemsBS);
+//ds_list_destroy(itemsBS);
 
 owner = global.owner;
 layer = owner.layer;

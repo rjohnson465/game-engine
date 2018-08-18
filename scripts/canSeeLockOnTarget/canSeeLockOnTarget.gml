@@ -18,7 +18,7 @@ if lockOnTarget == noone {
 					lockOnTarget = target;
 				}
 				if wallsBetweenTarget != noone {
-					ds_list_destroy(wallsBetweenTarget);
+					ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 				}
 				break;
 			}
@@ -37,7 +37,7 @@ if wallsBetweenTarget == noone && layer == lockOnTarget.layer {
 	return true;
 } else {
 	if wallsBetweenTarget != noone {
-		ds_list_destroy(wallsBetweenTarget);
+		ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 	}
 	return false;
 }

@@ -27,7 +27,7 @@
         }
     }
     if (ds_list_empty(dsid)) {
-        ds_list_destroy(dsid);
+        ds_list_destroy(dsid); dsid = -1;
         dsid = noone;
     }
     return dsid;

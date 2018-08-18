@@ -3,7 +3,7 @@ if questSteps != noone && questSteps != undefined && ds_exists(questSteps,ds_typ
 		var step = ds_list_find_value(questSteps,i);
 		instance_destroy(step,1);
 	}
-	ds_list_destroy(questSteps);
+	ds_list_destroy(questSteps); questSteps = -1;
 }
 
 if rewardItems != noone && rewardItems != undefined && ds_exists(rewardItems,ds_type_list) {

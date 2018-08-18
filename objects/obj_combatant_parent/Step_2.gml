@@ -1,4 +1,4 @@
-if layer == global.player.layer {
+if layer == global.player.layer && fallFrame >= fallTotalFrames {
 	with obj_attack {
 		if place_meeting_layer(x,y,other.id) {
 			with other {
@@ -9,7 +9,7 @@ if layer == global.player.layer {
 }
 
 // functional speed is a function of the direction we're moving to 
-if lockOnTarget != noone {
+if instance_exists(lockOnTarget) && lockOnTarget != noone {
 	var dirToTarget = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 	var diff = abs(dirToTarget-facingDirection);
 	// worst case is 180, as diff approaches 180, speed turns to 0

@@ -30,5 +30,5 @@ while obstaclesInside != noone || scr_collision_line_list_layer(xx,yy,lockOnTarg
 	}
 	obstaclesInside = place_meeting_list(xx,yy,obstacles);
 }
-ds_list_destroy(obstacles);
+ds_list_destroy(obstacles); obstacles = -1;
 return [xx,yy];

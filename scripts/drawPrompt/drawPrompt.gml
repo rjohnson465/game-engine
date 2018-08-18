@@ -144,6 +144,6 @@ for (var i = 0 ; i < array_length_1d(keys); i++) {
 draw_set_valign(fa_center);
 scr_draw_text_outline(xx+spritesWidth,yy+(sh*.5)+2,msg,msgColor,msgColor,stringScale,1,0,c_black);
 
-ds_map_destroy(spritesMap); // memory leaks
+ds_map_destroy(spritesMap); spritesMap = -1; // memory leaks 
 return promptWidth+10; // 10px padding
 

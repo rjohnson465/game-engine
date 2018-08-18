@@ -25,7 +25,7 @@ var dir = 10;
 // until the proposed x/y coordinates would not make a collision with an obstacle
 var xx = x;
 var yy = y;
-var obstaclesInside = place_meeting_list(xx,yy,obstacles);
+var obstaclesInside = place_meeting_list(xx,yy,obstacles); // this is a boolean, NOT a list!
 while obstaclesInside {
 	dir = (dir + 10)%360;
 	xx = x+lengthdir_x(distanceToTry,dir);
@@ -37,5 +37,5 @@ while obstaclesInside {
 }
 x = xx;
 y = yy;
-ds_list_destroy(obstacles);
-ds_list_destroy(obstaclesInside);
+ds_list_destroy(obstacles); obstacles = -1;
+//ds_list_destroy(obstaclesInside); obstaclesInside = -1;

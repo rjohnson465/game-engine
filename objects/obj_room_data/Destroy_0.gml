@@ -1,1 +1,1 @@
-ds_map_destroy(persistentElements);
+ds_map_destroy(persistentElements); persistentElements = -1;

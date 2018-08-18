@@ -119,7 +119,7 @@ for (var i = 0; i < ds_list_size(holdingList); i++) {
 }
 
 // avoid memory leak
-ds_list_destroy(holdingList);
+ds_list_destroy(holdingList); holdingList = -1;
 
 if global.player.leftHandItem == noone {
 	global.player.leftHandItem = global.player.unarmed;

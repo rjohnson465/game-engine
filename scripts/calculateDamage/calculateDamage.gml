@@ -226,7 +226,7 @@ if	state != CombatantStates.Dodging &&
 		enemyData.hp = hp;
 	}
 	
-	ds_map_destroy(damagesTaken);
+	ds_map_destroy(damagesTaken); damagesTaken = -1;
 }
 
 

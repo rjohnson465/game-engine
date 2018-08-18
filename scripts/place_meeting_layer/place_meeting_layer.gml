@@ -46,9 +46,9 @@ var pred = false;
 
 if ((place_meeting(xx,yy,obj) && touchingInstanceIsOnSameLayer) || touchingAdditionalObjects) {
 	pred = true;
-	ds_list_destroy(touchingInstances);
+	ds_list_destroy(touchingInstances); touchingInstances = -1;
 } else {
-	ds_list_destroy(touchingInstances);
+	ds_list_destroy(touchingInstances); touchingInstances = -1;
 	pred = false;
 }
 return pred;

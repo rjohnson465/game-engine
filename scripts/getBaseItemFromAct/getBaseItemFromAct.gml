@@ -76,4 +76,4 @@ var item = possibleItems[index];
 
 return item;
 
-ds_map_destroy(subTypeMap); // prevent mem leak
+ds_map_destroy(subTypeMap); subTypeMap = -1; // prevent mem leak

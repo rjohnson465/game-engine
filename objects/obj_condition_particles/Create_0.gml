@@ -125,13 +125,13 @@ switch condition {
 		var ice = part_type_create();
 		part_type_sprite(ice,spr_particle_icechunk,0,0,1);
 		part_type_size(ice,.01,.04,0,0);
-		part_type_color3(ice,c_white,c_black,c_aqua);
+		part_type_color2(ice,c_white,c_black);
 		part_type_alpha3(ice,1,1,.2);
 		part_type_speed(ice,4,8,0,0);
 		part_type_direction(ice,0,359,0,5);
 		part_type_orientation(ice,0,359,0,0,0);
 		part_type_blend(ice,true);
-		part_type_life(ice,10,17);
+		part_type_life(ice,15,25);
 		particle = ice;
 		
 		// snowflake particle2

@@ -168,7 +168,7 @@ if limbItem != limb.limbItem || refreshParticles {
 				}
 			}
 		}
-		ds_list_destroy(damageTypes);
+		ds_list_destroy(damageTypes); damageTypes = -1;
 	//}
 }
 

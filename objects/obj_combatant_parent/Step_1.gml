@@ -45,26 +45,21 @@ if isDying && isAlive {
 		if global.player.lockOnTarget == id {
 			// find nearest enemy to player that player can lock on to
 			var enemiesNearby = scr_collision_circle_list_layer(x,y,500,obj_enemy_parent,0,1);
+			var nearbyEnemiesCount = ds_list_size(enemiesNearby);
 			for (var i = 0; i < ds_list_size(enemiesNearby); i++) { 
 				var enemy = noone;
+				var j = 0;
 				do {
+					j++;
 					enemy = scr_find_nth_closest(x,y,obj_enemy_parent,i);
-				} until enemy.layer == global.player.layer;
+				} until enemy.layer == global.player.layer || j > nearbyEnemiesCount;
 				global.player.lockOnTarget = enemy;
 				with global.player {
 					if canSeeLockOnTarget() break;
 				}
-				/*var enemy = ds_list_find_value(enemiesNearby,i);
-				var solidsBetweenTarget = scr_collision_line_list_layer(global.player.x,global.player.y,enemy.x,enemy.y,obj_solid_environment,0,1);
-				if solidsBetweenTarget == noone {
-					global.player.lockOnTarget = enemy;
-				}
-				if ds_exists(solidsBetweenTarget,ds_type_list) {
-					ds_list_destroy(solidsBetweenTarget);
-				}*/
 			}
 			if ds_exists(enemiesNearby,ds_type_list) {
-				ds_list_destroy(enemiesNearby);
+				ds_list_destroy(enemiesNearby); enemiesNearby = -1;
 			}
 		}
 		

@@ -62,8 +62,8 @@ switch(state) {
 				if layer == other.layer && lockOnTarget != noone && wallsBetweenAlly == noone {
 					isNoticingEngagement = true;
 				}
-				if wallsBetweenAlly != noone {
-					ds_list_destroy(wallsBetweenAlly);
+				if wallsBetweenAlly != noone && ds_exists(wallsBetweenAlly, ds_type_list) {
+					ds_list_destroy(wallsBetweenAlly); wallsBetweenAlly = -1;
 				}
 			}
 			if	((canSeeLockOnTarget() || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
@@ -332,7 +332,7 @@ switch(state) {
 		var wallsBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 		if wallsBetweenTarget != noone {
 			waryFrame = 0;
-			ds_list_destroy(wallsBetweenTarget);
+			ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 		}
 		
 		// if waryFrame is 0, return to Move state

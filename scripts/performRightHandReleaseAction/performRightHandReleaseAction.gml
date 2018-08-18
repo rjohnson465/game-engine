@@ -63,6 +63,9 @@ if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMo
 	else if rightHandItem && rightHandItem.subType == HandItemTypes.Shield {
 		isShielding = false;
 	}
+	else if leftHandItem.isTwoHanded && !leftHandItem.isRanged {
+		performLeftHandReleaseAction();
+	}
 }
 
 hasIssuedAmmoOut = false;

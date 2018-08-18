@@ -119,4 +119,4 @@ for (var i = 0; i < ds_map_size(buffsMap); i++) {
 	currentProp = ds_map_find_next(buffsMap, currentProp);
 }
 
-ds_map_destroy(buffsMap);
+ds_map_destroy(buffsMap); buffsMap = -1;

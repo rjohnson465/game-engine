@@ -92,7 +92,7 @@ for (var i = 0; i < size; i++) {
 			
 	// create particles for the hit
 	// blood for physical, elemental particles attackObjwise
-	if	damageBase > 1 {
+	if	damageBase > 0 {
 		global.damageType = currentDamageType;
 		global.x1 = __x;
 		global.y1 = __y;
@@ -110,7 +110,7 @@ for (var i = 0; i < size; i++) {
 		randomize();
 		var top = 1000;
 		var percentChance = .15;
-		var percentChance = 1;
+		//var percentChance = 1;
 		//percentChance = 0;
 		if spell != noone && spell.name == "magicmissile" {
 			// every misile has a 20/numProjectiles% chance

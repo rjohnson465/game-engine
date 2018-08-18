@@ -56,6 +56,6 @@ for(var i = 0; i < ds_map_size(map); i++) {
 	currentKey = ds_map_find_next(map,currentKey);
 }
 
-ds_map_destroy(map2);
-ds_list_destroy(list);
+ds_map_destroy(map2); map2 = -1;
+ds_list_destroy(list); list = -1;
 return key;

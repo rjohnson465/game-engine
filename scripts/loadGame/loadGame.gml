@@ -20,22 +20,22 @@ if instance_exists(obj_player) {
 		instance_destroy(playerLightRadius,1);
 		
 		// prevent mem leak
-		ds_map_destroy(attackAgain);
-		ds_map_destroy(itemPropertyBonuses);
-		ds_map_destroy(skillPropertyBonuses);
-		ds_map_destroy(physicalDamageTypesMultipliers);
-		ds_map_destroy(elementalDamageTypesMultipliers);
-		ds_map_destroy(criticalsChance);
-		ds_map_destroy(criticalsDamage);
-		ds_map_destroy(weaponTypesDamage);
-		ds_map_destroy(comboHitsToNextLevelMap);
+		ds_map_destroy(attackAgain); attackAgain = -1;
+		ds_map_destroy(itemPropertyBonuses); itemPropertyBonuses = -1;
+		ds_map_destroy(skillPropertyBonuses); skillPropertyBonuses = -1;
+		ds_map_destroy(physicalDamageTypesMultipliers); physicalDamageTypesMultipliers = -1;
+		ds_map_destroy(elementalDamageTypesMultipliers); elementalDamageTypesMultipliers = -1;
+		ds_map_destroy(criticalsChance); criticalsChance = -1;
+		ds_map_destroy(criticalsDamage); criticalsDamage = -1;
+		ds_map_destroy(weaponTypesDamage); weaponTypesDamage = -1;
+		ds_map_destroy(comboHitsToNextLevelMap); comboHitsToNextLevelMap = -1;
 		
-		ds_list_destroy(inventory);
-		ds_list_destroy(quests);
-		ds_list_destroy(equippedItems);
-		ds_list_destroy(lockOnList);
-		ds_list_destroy(lockOnListSeen);
-		ds_list_destroy(beenHitWith);
+		ds_list_destroy(inventory); inventory = -1;
+		ds_list_destroy(quests); quests = -1;
+		ds_list_destroy(equippedItems); equippedItems = -1;
+		ds_list_destroy(lockOnList); lockOnList = -1;
+		ds_list_destroy(lockOnListSeen); lockOnListSeen = -1;
+		ds_list_destroy(beenHitWith); beenHitWith = -1;
 		
 		event_perform(ev_create,0);
 	}

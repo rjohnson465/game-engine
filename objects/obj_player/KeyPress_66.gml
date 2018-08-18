@@ -13,7 +13,7 @@ ds_map_add(rarityMap,ItemRarities.Masterwork,1);
 ds_map_add(rarityMap,ItemRarities.Legendary,1);
 addItemToInventory(maybeMakeItem(100,rarityMap,typeMap,noone,noone,noone));
 
-ds_map_destroy(typeMap);
+ds_map_destroy(typeMap); typeMap = -1;
 //addItemToInventory(makeGold(1000000,2000000));
 
 /*

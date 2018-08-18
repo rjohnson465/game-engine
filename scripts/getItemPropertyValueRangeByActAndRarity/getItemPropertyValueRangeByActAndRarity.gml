@@ -72,7 +72,7 @@ switch act {
 var vals = ds_map_find_value(map,prop);
 var val = vals[rarity];
 
-ds_map_destroy(a1Vals);
+ds_map_destroy(a1Vals); a1Vals = -1;
 
 return val;
 				

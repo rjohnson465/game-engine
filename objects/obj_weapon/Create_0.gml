@@ -137,5 +137,5 @@ num3 = -3;
 			}
 		}
 	}
-	ds_list_destroy(damageTypes);
+	ds_list_destroy(damageTypes); damageTypes = -1;
 //}

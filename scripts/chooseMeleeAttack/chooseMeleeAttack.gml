@@ -45,6 +45,6 @@ ds_map_replace(equippedLimbItems,"l",leftHandItem);
 ds_map_replace(equippedLimbItems,"r",rightHandItem);
 
 // prevent memory leaks
-ds_list_destroy(properRangeAttacks);
+ds_list_destroy(properRangeAttacks); properRangeAttacks = -1;
 
 state = CombatantStates.Moving;

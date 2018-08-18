@@ -76,14 +76,15 @@ for (var i = 0; i < array_length_1d(physicalDamageTypesArray); i++) {
 	var minDamage = round(damageArray[1]); var maxDamage = round(damageArray[2]);
 	var damageString = string(minDamage) + "-" + string(maxDamage);
 	if i == 0 {
-		physicalDamageTypesString = stringCapitalize(damageType);
+		physicalDamageTypesString = string_copy(stringCapitalize(damageType),0,1);
 		physicalDamagesString = damageString;
 	}
 	else {
-		physicalDamageTypesString += "/" + stringCapitalize(damageType);
+		physicalDamageTypesString += "/" + string_copy(stringCapitalize(damageType),0,1);
 		physicalDamagesString += "/" + damageString;
 	}
+	physicalDamageTypesString += "("+string(item.numberOfTargets[i])+")";
 			
 }
-ds_map_destroy(physicalDamagesMap);
+ds_map_destroy(physicalDamagesMap); physicalDamagesMap = -1;
 return [physicalDamageTypesString,physicalDamagesString];

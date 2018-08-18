@@ -48,7 +48,7 @@ for (var i = 0; i < ds_map_size(typeMap); i++) {
 }
 if itemType == noone itemType = ItemTypes.HandItem;
 
-ds_map_destroy(typeMap); // prevent mem leak
+ds_map_destroy(typeMap); typeMap = -1; // prevent mem leak
 
 // PART 2: Select object based on "act"
 var act = getRoomAct();
@@ -82,7 +82,7 @@ if item.object_index == obj_gem_parent {
 		}
 		currentItemType = ds_map_find_next(gemQualityMap,currentItemType);
 	}
-	ds_map_destroy(gemQualityMap);
+	ds_map_destroy(gemQualityMap); gemQualityMap = -1;
 	
 	// decide gemType (ruby, hematite, etc)
 	randomize();
@@ -104,7 +104,7 @@ if item.object_index == obj_gem_parent {
 		}
 		currentItemType = ds_map_find_next(gemTypeChanceMap,currentItemType);
 	}
-	ds_map_destroy(gemTypeChanceMap);
+	ds_map_destroy(gemTypeChanceMap); gemTypeChanceMap = -1;
 	
 	item = makeGem(gemType,qualityType);
 }

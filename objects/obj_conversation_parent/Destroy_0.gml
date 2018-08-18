@@ -3,4 +3,4 @@ for (var i = 0; i < ds_list_size(steps); i++) {
 	instance_destroy(step,1);
 }
 
-ds_list_destroy(steps);
+ds_list_destroy(steps); steps = -1;

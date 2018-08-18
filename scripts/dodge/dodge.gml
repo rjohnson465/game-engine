@@ -39,7 +39,7 @@ if type != CombatantTypes.Player {
 			}				
 		}
 		dodgeDirection = dir;
-		ds_list_destroy(possibleAngles);
+		ds_list_destroy(possibleAngles); possibleAngles = -1;
 	}
 	moveToNearestFreePoint(dodgeDirection,dodgeSpeed,true);
 } else {

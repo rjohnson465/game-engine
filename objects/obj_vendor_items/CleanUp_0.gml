@@ -1,4 +1,4 @@
-ds_list_destroy(inv);
+ds_list_destroy(inv); inv = -1;
 for (var i = 0; i < ds_list_size(items); i++) {
 	var item = ds_list_find_value(items,i);
 	if instance_exists(item) {
@@ -6,4 +6,3 @@ for (var i = 0; i < ds_list_size(items); i++) {
 		item.y1 = -50;
 	}
 }
-//ds_list_destroy(items);

@@ -313,7 +313,7 @@ if room == game_menu {
 			}
 
 			file_find_close();
-			ds_list_destroy(shownFiles);
+			ds_list_destroy(shownFiles); shownFiles = -1;
 			break;
 		}
 		case TitleScreenState.New: {

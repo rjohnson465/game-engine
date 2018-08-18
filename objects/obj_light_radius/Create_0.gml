@@ -1,12 +1,12 @@
 owner = global.owner;
 
-if owner.object_index == obj_player {
-	if !instance_exists(owner.playerLightRadius) {
+if owner.object_index == obj_player || owner == global.player {
+	//if !instance_exists(owner.playerLightRadius) {
 		persistent = true;
 		owner.playerLightRadius = id;
-	} else {
-		instance_destroy(id,1);
-	}
+	//} else {
+	//	instance_destroy(id,1);
+	//}
 }
 
 

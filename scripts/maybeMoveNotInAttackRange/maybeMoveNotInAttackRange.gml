@@ -1,3 +1,4 @@
+if lockOnTarget == noone exit;
 // move to lockOnTarget until in range for chosen attack
 var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 var allyType = object_is_ancestor(object_index,obj_enemy_parent) ? obj_enemy_parent : obj_goodguy_parent;
@@ -26,14 +27,14 @@ var pred = currentMeleeAttack == noone ?
 		|| wallsBetweenTarget != noone || alliesBetweenTarget != noone || enemyObstaclesBetweenTarget != noone || (layer != lockOnTarget.layer) : 
 	(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]) || (layer != lockOnTarget.layer);
 
-if wallsBetweenTarget != noone {
-	ds_list_destroy(wallsBetweenTarget);
+if wallsBetweenTarget != noone && ds_exists(wallsBetweenTarget, ds_type_list) {
+	ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 }
-if alliesBetweenTarget != noone {
-	ds_list_destroy(alliesBetweenTarget);
+if alliesBetweenTarget != noone && ds_exists(alliesBetweenTarget, ds_type_list) {
+	ds_list_destroy(alliesBetweenTarget); alliesBetweenTarget = -1;
 }
-if enemyObstaclesBetweenTarget != noone {
-	ds_list_destroy(enemyObstaclesBetweenTarget);
+if enemyObstaclesBetweenTarget != noone && ds_exists(enemyObstaclesBetweenTarget, ds_type_list) {
+	ds_list_destroy(enemyObstaclesBetweenTarget); enemyObstaclesBetweenTarget = -1;
 }
 
 if pred && !isFlinching {

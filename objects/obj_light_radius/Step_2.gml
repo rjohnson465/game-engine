@@ -12,7 +12,7 @@ if instance_exists(owner) {
 		x = -10000; y = -10000;
 	}
 	if ds_exists(wallsBetweenTarget,ds_type_list) {
-		ds_list_destroy(wallsBetweenTarget);
+		ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 	}
 }
 

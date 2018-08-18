@@ -1,7 +1,11 @@
 /// enemyUnfairyDualSwordsInit()	
 
-/// initialize this unfairy to have 2 longswords
+var lh = ds_map_find_value(handItems, "lm1");
+var rh = ds_map_find_value(handItems, "lm1");
+if instance_exists(lh) instance_destroy(lh);
+if instance_exists(rh) instance_destroy(rh);
 
+/// initialize this unfairy to have 2 longswords
 var longsword1 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 ds_map_replace(handItems,"lm1",longsword1);
@@ -27,6 +31,7 @@ longswordSwing1.limbKey = "l";
 ds_map_replace(longswordSwing1.damages,el2,[1,2]);
 var longswordSwing2 = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_1_1);
 longswordSwing2.limbKey = "o";
+longswordSwing2.turnSpeed = 5;
 ds_map_replace(longswordSwing2.damages,el1,[1,2]);
 
 var longswordStabFire = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);

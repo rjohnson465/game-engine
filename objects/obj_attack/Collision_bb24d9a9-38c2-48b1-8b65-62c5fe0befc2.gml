@@ -24,8 +24,8 @@ if possibleSolids != noone {
 		}
 	}
 }
-if possibleSolids != noone {
-	ds_list_destroy(possibleSolids);
+if possibleSolids != noone && ds_exists(possibleSolids, ds_type_list) {
+	ds_list_destroy(possibleSolids); possibleSolids = -1;
 }
 
 var hitsWallFirst = firstObj == other.id;

@@ -1,4 +1,8 @@
 
+if isActive && !isSelectorInInventory() && !isSelectorInEquippedItems() {
+	x1 = global.inventory.invTopLeftX; y1 = global.inventory.invTopLeftY;
+}
+
 if type == SelectorTypes.Select && !isActive && isSelectorInEquippedItems() && !ui.equipSelector.isActive {
 	global.inventory.scrollLevel = 0;
 	ui.equipSelector.isActive = true;

@@ -69,7 +69,7 @@ if	isLockedOn && ((cancelLockOnInputReceived && !global.ui.isShowingMenus)
 	isLockedOn = false;
 }
 if wallsBetweenLockOnTarget != noone {
-	ds_list_destroy(wallsBetweenLockOnTarget);
+	ds_list_destroy(wallsBetweenLockOnTarget); wallsBetweenLockOnTarget = -1;
 }
 
 // lockOnTarget switching with a controller
@@ -95,11 +95,11 @@ if isLockedOn && gamepad_is_connected(gamePadIndex) {
 				lockOnTarget = el;
 			}
 			if wallsBetweenLockOnTarget != noone {
-				ds_list_destroy(wallsBetweenLockOnTarget);
+				ds_list_destroy(wallsBetweenLockOnTarget); wallsBetweenLockOnTarget = -1;
 			}
 		}
 		if possibleTargets != noone {
-			ds_list_destroy(possibleTargets);
+			ds_list_destroy(possibleTargets); possibleTargets = -1;
 		}
 	}
 }

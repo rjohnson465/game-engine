@@ -193,6 +193,11 @@ addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_battleaxe));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_club));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_foil));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 //var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
 //addItemToInventory(baxe);
 

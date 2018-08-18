@@ -27,10 +27,3 @@ switch prop {
 	}
 }
 
-/*
-ds_map_destroy(weaponTypesDamagePrefixes);
-ds_map_destroy(global.criticalsChancePrefixes);
-ds_map_destroy(criticalsDamagePrefixes);
-ds_map_destroy(physicalMultiplierPrefixes);
-ds_map_destroy(elementalMultipliersPrefixes);
-ds_map_destroy(defensePrefixes);
