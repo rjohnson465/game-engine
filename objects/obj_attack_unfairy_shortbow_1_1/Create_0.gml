@@ -7,7 +7,7 @@ ds_map_add(damages,PIERCE,[10,20]);
 isRanged = true;
 staminaCost = 5;
 projectileSpeed = 25;
-staggerDuration = 5;
+staggerDuration = 8;
 
 prepSound = snd_bow_prep;
 attackSound = snd_bow_attack;

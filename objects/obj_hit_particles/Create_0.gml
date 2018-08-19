@@ -40,7 +40,7 @@ switch type {
 		part_type_speed(spark,8,12,0,0);
 		part_type_direction(spark,0,360,0,4);
 		part_type_life(spark,4,7);
-		part_type_color2(spark,c_blue,c_white);
+		part_type_color2(spark,c_purple,c_white);
 		part_type_alpha3(spark,1,.85,.75);
 		num = 3;
 		particle = spark;
@@ -89,6 +89,30 @@ switch type {
 		part_type_direction(dust,0,360,0,4);
 		part_type_life(dust,10,15);
 		particle = dust;
+		break;
+	}
+	case "Ground": {
+		// dust particle
+		var dust = part_type_create();
+		part_type_shape(dust, pt_shape_smoke);
+		part_type_color2(dust,c_olive,c_dkgray);
+		part_type_orientation(dust,0,0,0,15,1);
+		part_type_size(dust,0,0.35,0,0);
+		part_type_speed(dust,2,8,0,0);
+		part_type_direction(dust,0,360,0,4);
+		part_type_life(dust,10,15);
+		particle = dust;
+		
+		// set the particle system depth to less than the current warhammer attack
+		var atkObj = noone;
+		with obj_attack {
+			if weapon != noone && weapon.weaponType == BLUNT2H && attackNumber == 3 {
+				atkObj = id;
+			}
+		}
+		if atkObj != noone {
+			part_system_depth(system,atkObj.depth+1);
+		}
 		break;
 	}
 	case POISON: {

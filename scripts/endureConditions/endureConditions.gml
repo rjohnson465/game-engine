@@ -1,10 +1,25 @@
 // account for any currently active conditions (slowed/frozen, burning, poisoned, electrified)
 var currentCondition = ds_map_find_first(conditionLevels);
 var size = ds_map_size(conditionLevels);
-for (var i = 0; i < size; i++){
+for (var i = 0; i < size; i++) {
+	if !arrayIncludes(global.ALL_ELEMENTS,currentCondition) exit;
 	var conditionLevel = ds_map_find_value(conditionLevels,currentCondition);
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
 	var defense = ds_map_find_value(defenses,currentCondition);
+	
+	// play condition sound, if not already
+	var snd = asset_get_index("snd_magic_"+currentCondition+"_condition");
+	var emitter = ds_map_find_value(conditionsEmittersMap, currentCondition);
+	audio_emitter_position(emitter,x,y,depth);
+	audio_emitter_gain(emitter,conditionPercent);
+	
+	if id != global.player && conditionLevel > 0 {
+		show_debug_message("emitter pos: " + string(audio_emitter_get_x(emitter)) + ", " + string(audio_emitter_get_y(emitter)));
+		var ld = audio_listener_get_data(0); var lx = ds_map_find_value(ld,"x"); var ly = ds_map_find_value(ld,"y");
+		show_debug_message("listener pos: " + string(lx) + "," + string(ly));
+		var distanceToListener = point_distance(x,y,lx,ly);
+		show_debug_message("distance to listener: " + string(distanceToListener));
+	}
 	
 	// particle effects for conditions
 	if conditionLevel > 0 && currentCondition != MAGIC && currentCondition != PHYSICAL {

@@ -48,10 +48,6 @@ var currentMeleeAttackIndex = round(random_range(0,ds_list_size(properRangeAttac
 
 
 currentMeleeAttack = ds_list_find_value(properRangeAttacks,currentMeleeAttackIndex);
-if currentMeleeAttack == undefined  {
-	var a = 3;
-}
-show_debug_message(currentMeleeAttack);
 onAlert = true;
 isShielding = false;
 				

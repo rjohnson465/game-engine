@@ -5,9 +5,6 @@
 var item = argument[0];
 var rarity = argument[1];
 
-if rarity == ItemRarities.Normal show_debug_message("REFEF");
-if item.rarity = ItemRarities.Normal show_debug_message("REE");
-
 if item.rarity == ItemRarities.Normal exit;
 if item.type == ItemTypes.Ring exit;
 

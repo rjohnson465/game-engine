@@ -88,7 +88,7 @@ switch condition {
 		part_type_speed(spark,8,12,0,0);
 		part_type_direction(spark,0,360,0,4);
 		part_type_life(spark,3,6);
-		part_type_color2(spark,c_blue,c_white);
+		part_type_color2(spark,c_purple,c_white);
 		part_type_alpha3(spark,1,.85,.75);
 		particle = spark;
 		break;

@@ -82,6 +82,10 @@ if isRanged && !hasSetAlarm {
 	if !isSpell {
 		var snd = other.material == METAL ? snd_wallhit : snd_shield_hit_wood;
 		audio_play_sound_at(snd,global.x1,global.y1,depth,20,200,1,0,1);
+	} else {
+		audio_stop_sound(sound);
+		var snd = asset_get_index("snd_magic_"+owner.currentSpellAttunement+"_hit");
+		audio_play_sound_at(snd,global.x1,global.y1,depth,20,200,1,0,1);
 	}
 }
 

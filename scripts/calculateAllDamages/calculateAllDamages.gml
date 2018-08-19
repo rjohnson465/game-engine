@@ -93,7 +93,7 @@ for (var i = 0; i < size; i++) {
 			
 	// create particles for the hit
 	// blood for physical, elemental particles attackObjwise
-	if	damageBase > 0 {
+	if damageBase > 0 {
 		global.damageType = currentDamageType;
 		global.x1 = __x;
 		global.y1 = __y;
@@ -101,6 +101,13 @@ for (var i = 0; i < size; i++) {
 		//if (!(currentDamageType == PHYSICAL && isShielding)) {
 		if (!(isShielding && scr_is_facing(assailant,id))) {
 			instance_create_depth(0,0,1,obj_hit_particles);
+		}
+		if arrayIncludes(global.ALL_ELEMENTS, currentDamageType) {
+			randomize(); var rand = random_range(0,1);
+			if rand < .33 || attackObj.isSpell {
+				var hitSnd = asset_get_index("snd_magic_"+currentDamageType+"_hit");
+				audio_play_sound_at(hitSnd,x,y,depth,100,300,1,0,1);
+			}
 		}
 	}
 				
@@ -111,7 +118,7 @@ for (var i = 0; i < size; i++) {
 		randomize();
 		var top = 1000;
 		var percentChance = .15;
-		//var percentChance = 1;
+		var percentChance = 1;
 		//percentChance = 0;
 		if spell != noone && spell.name == "magicmissile" {
 			// every misile has a 20/numProjectiles% chance

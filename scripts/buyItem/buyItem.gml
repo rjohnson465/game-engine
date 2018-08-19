@@ -9,6 +9,7 @@ var gp = getGoldCount();
 if gp >= item.value {
 	audio_play_sound(snd_item_coins,1,0);
 	alert("Purchased " + item.name + " for " + string(item.value) + " gold",c_yellow);
+	spendGold(item.value);
 	var oldCount = item.count;
 	//item.count = 1;
 	if item.isStackable {

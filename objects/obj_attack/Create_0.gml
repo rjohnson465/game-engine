@@ -192,22 +192,22 @@ if isSpell {
 		}
 		case "fire": {
 			lightRadiusColor = c_orange;
-			sound = snd_magic_fire;
+			sound = snd_magic_fire_loop;
 			break;
 		}
 		case "ice": {
 			lightRadiusColor = c_white;
-			sound = snd_magic_ice;
+			sound = snd_magic_ice_loop;
 			break;
 		}
 		case "poison": {
 			lightRadiusColor = c_lime;
-			sound = snd_magic_poison;
+			sound = snd_magic_poison_loop;
 			break;
 		}
 		case "lightning": {
 			lightRadiusColor = c_purple;
-			sound = snd_magic_lightning;
+			sound = snd_magic_lightning_loop;
 			break;
 		}
 	}
@@ -323,7 +323,9 @@ else {
 
 //audio_play_sound_at(sound,x,y,0,10,30,2,isSoundLooping,1);
 if isSoundLooping {
-	audio_play_sound_on(soundEmitter,sound,isSoundLooping,1);
+	if !audio_is_playing(sound) {
+		audio_play_sound_on(soundEmitter,sound,isSoundLooping,1);
+	}
 } else {
 	if owner.type == CombatantTypes.Player {
 		audio_play_sound(sound,1,0);

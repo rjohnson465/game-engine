@@ -14,6 +14,8 @@ if ds_map_size(attackingLimbs) == 0 && ds_map_size(preparingLimbs) == 0 && ds_ma
 			
 // attack sequence 
 if ds_map_find_value(prepFrames,"l") >= ds_map_find_value(prepFrameTotals,"l") || MIDDLE_BUTTON_RELEASED {
+	var chargeSnd = asset_get_index("snd_magic_"+currentSpellAttunement+"_charge");
+	audio_stop_sound(chargeSnd);
 	cursor_sprite = -1;
 	var prepFrame = ds_map_find_value(prepFrames,"l");
 	var prepFrameTotal = ds_map_find_value(prepFrameTotals,"l");
@@ -28,6 +30,8 @@ if ds_map_find_value(prepFrames,"l") >= ds_map_find_value(prepFrameTotals,"l") |
 	} else {
 				
 		var chargeCost = round(percentCharged*currentSpell.maxChargeCost);
+		var shootSound = asset_get_index("snd_magic_"+currentSpellAttunement+"_shoot");
+		audio_play_sound(shootSound,1,0);
 		// subtract charges from right hand item first
 		if rightHandItem.charges > 0 {
 			rightHandItem.charges -= chargeCost;

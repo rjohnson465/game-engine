@@ -243,14 +243,24 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 // posioned for poison
 // electrified for lightning
 conditionPercentages = ds_map_create();
-for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
-	ds_map_add(conditionPercentages,global.ALL_DAMAGE_TYPES[i],0);
+for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
+	ds_map_add(conditionPercentages,global.ALL_ELEMENTS[i],0);
 }
 
 // only 0 or 1 for most conditions, but Ice slows during level 1 and freeze during level 2
 conditionLevels = ds_map_create();
-for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
-	ds_map_add(conditionLevels,global.ALL_DAMAGE_TYPES[i],0);
+for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
+	ds_map_add(conditionLevels,global.ALL_ELEMENTS[i],0);
+}
+conditionsEmittersMap = ds_map_create();
+for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
+	var el = global.ALL_ELEMENTS[i];
+	var emitter = audio_emitter_create();
+	var snd = asset_get_index("snd_magic_"+el+"_condition");
+	audio_emitter_gain(emitter,0);
+	audio_emitter_falloff(emitter,50,300,1);
+	audio_play_sound_on(emitter,snd,1,1);
+	ds_map_replace(conditionsEmittersMap, el, emitter);
 }
 
 isSlowed = false;

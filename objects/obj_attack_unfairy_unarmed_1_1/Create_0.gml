@@ -6,7 +6,7 @@ spriteAttackNumberInChain = 1;
 ds_map_add(damages,CRUSH,[3,5]);
 isRanged = false;
 staminaCost = 5;
-staggerDuration = 15;
+staggerDuration = 8;
 //nextChoices = [];
 attackSound = snd_sword1h_attack_1;
 hitSound = snd_hit1;

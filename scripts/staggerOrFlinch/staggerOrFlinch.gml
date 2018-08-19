@@ -10,31 +10,45 @@ var actualDamage = argument[2];
 var percentOfHp = actualDamage / maxHp;
 // maybe stagger
 var chanceToStagger = (100-poise)/100;
+
+// modify chance to stagger, depending on how heavy a hit was endured (based on staggerDuration)
+var sd = 0;
+if attackObj.attackData != noone sd = attackObj.attackData.staggerDuration;
+else if attackObj.isSpell sd = attackObj.spell.staggerDuration;
+else sd = attackObj.weapon.staggerDuration[attackObj.attackNumber-1];
+var sdMod = sd/100;
+chanceToStagger *= (1+sdMod);
+
 randomize();
 var rand = random_range(0,1);
 if rand < chanceToStagger {
 	if ds_map_size(preparingLimbs) != 0 {
 		drawCombatText("Interrupt!",id);
 	}
+	var modifier = ((100-poise)/100)*1.5;
+	if modifier > 1 modifier = 1;
 	if state != CombatantStates.Staggering {
 		staggerFrame = 0;
 
 		// stagger duration is (100-poise)% of weapon / attack staggerDuration
-		var modifier = (100-poise)/100;
-		if attackObj.attackData != noone {
+		
+		/*if attackObj.attackData != noone {
 			staggerDuration = attackObj.attackData.staggerDuration*modifier;
 		} else if attackObj.isSpell {
 			staggerDuration = attackObj.spell.staggerDuration;
 		} else {
 			var attackStaggerDuration = attackObj.weapon.staggerDuration[attackObj.attackNumber-1];
 			staggerDuration = attackStaggerDuration*modifier;
-		}
+		}*/
+		staggerDuration = sd*modifier;
 
 		staggerDirection = (assailant.facingDirection+360)%360;
 		path_end();
 		state = CombatantStates.Staggering;
 	} else {
-		staggerDuration += (percentOfHp*100);
+		modifier = ((100-poise)/100)*1.35;
+		if modifier > 1 modifier = 1;
+		staggerDuration += sd*modifier;
 		staggerDirection = (assailant.facingDirection+360)%360;
 	}
 }

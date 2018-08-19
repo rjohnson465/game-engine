@@ -1,3 +1,4 @@
+audio_listener_position(x, y, depth);
 if room == game_menu {
 	exit;
 }
@@ -19,8 +20,6 @@ if fallFrame < fallTotalFrames {
 	exit;
 }
 event_inherited();
-
-audio_listener_position(x, y, depth);
 
 leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 rightHandItem = ds_map_find_value(equippedLimbItems,"r");

@@ -28,6 +28,9 @@ if hp < 1 && isAlive && !isDying {
 	var currentCondition = ds_map_find_first(conditionPercentages);
 	for (var i = 0; i < ds_map_size(conditionPercentages);i++) {
 		ds_map_replace(conditionPercentages,currentCondition,0);
+		ds_map_replace(conditionLevels,currentCondition,0);
+		var emitter = ds_map_find_value(conditionsEmittersMap, currentCondition);
+		audio_emitter_gain(emitter,0);
 		currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
 	}
 	

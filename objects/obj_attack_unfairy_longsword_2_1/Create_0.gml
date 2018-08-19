@@ -8,7 +8,7 @@ isRanged = false;
 staminaCost = 10;
 type = AttackTypes.Charge;
 minRange = 50;
-staggerDuration = 35;
+staggerDuration = 25;
 
 attackSound = snd_thrust_attack_1;
 hitSound = snd_hit1;

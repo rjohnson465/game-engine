@@ -35,5 +35,9 @@ if isMelee {
 		
 		owner.prevAttackHand = limbKey;
 	}
-	instance_destroy(id, true);
+	/*if weapon != noone && weapon.weaponType == BLUNT2H && attackNumber == 3 {
+		alarm[0] = 25;
+		hasSetAlarm = true;
+	}
+	else*/ instance_destroy(id, true);
 }

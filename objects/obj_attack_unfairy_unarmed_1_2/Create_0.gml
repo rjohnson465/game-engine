@@ -6,7 +6,7 @@ limbKey = "s";
 ds_map_add(damages,CRUSH,[5,8]);
 isRanged = false;
 staminaCost = 5;
-staggerDuration = 15;
+staggerDuration = 10;
 
 attackSound = snd_sword1h_attack_1;
 hitSound = snd_hit1;
