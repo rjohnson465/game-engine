@@ -33,7 +33,7 @@ switch condition {
 		break;
 	}
 	case LIGHTNING: {
-		draw_set_color(c_yellow);
+		draw_set_color(c_purple);
 		sprite = spr_attunement_lightning;
 		break;
 	}

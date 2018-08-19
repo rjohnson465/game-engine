@@ -348,10 +348,10 @@ if ui.currentMenu == SKILLS && isActive {
 			w += drawPrompt("Repeat " + string(selectedQuest.name), Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		}
 		if selectedQuest != noone && watchedQuest != selectedQuest {
-			w += drawPrompt("Watch " + string(selectedQuest.name), Input.Shift,promptsStartX+w,promptsY)+xOffset;
+			w += drawPrompt("Watch " + string(selectedQuest.name), Input.Face4,promptsStartX+w,promptsY)+xOffset;
 		}
 		if selectedQuest != noone && watchedQuest == selectedQuest {
-			w += drawPrompt("Unwatch " + string(selectedQuest.name), Input.Shift,promptsStartX+w,promptsY)+xOffset;
+			w += drawPrompt("Unwatch " + string(selectedQuest.name), Input.Face4,promptsStartX+w,promptsY)+xOffset;
 		}
 		w += drawPrompt("Browse skills", Input.LB,promptsStartX+w,promptsY)+xOffset;
 	}

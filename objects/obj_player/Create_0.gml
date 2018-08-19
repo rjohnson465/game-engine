@@ -215,13 +215,6 @@ addItemProperty(ring,ModifiableProperties.WeaponTypesDamage,[AXE2H,7]);
 //ds_map_add(ring.itemProperties,ModifiableProperties.WeaponTypesDamage,[SWORD1H,5]);
 updateItemName(ring);
 addItemToInventory(ring);
-/*
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
-
-//var lcap = instance_create_depth(x,y,1,obj_hat_leathercap);
-//addItemToInventory(lcap);
-
-
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
 
@@ -230,6 +223,14 @@ addItemToInventory(makeGem(obj_gem_topaz,CRACKED));
 addItemToInventory(makeGem(obj_gem_emerald,CRACKED));
 addItemToInventory(makeGem(obj_gem_ruby,CRACKED));
 addItemToInventory(makeGem(obj_gem_hematite,CRACKED));
+/*
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
+
+//var lcap = instance_create_depth(x,y,1,obj_hat_leathercap);
+//addItemToInventory(lcap);
+
+
+
 addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 
 

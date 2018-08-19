@@ -3,6 +3,7 @@ var vy = camera_get_view_y(view_camera[0]);
 
 
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY {
+	isConfirmingDestroyItem = false;
 	exit;
 }
 

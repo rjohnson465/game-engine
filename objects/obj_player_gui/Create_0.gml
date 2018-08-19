@@ -148,14 +148,15 @@ enum Input {
 	RMB,
 	MMB,
 	Space,
-	Shift, // Y
+	Shift, // Sel
 	Mouse,
 	LT,
 	RT,
 	LB,
 	RB,
 	PadUD,
-	PadLR
+	PadLR,
+	Face4 // Y
 }
 
 isShowingExplanations = false;

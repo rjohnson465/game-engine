@@ -1,9 +1,5 @@
 var pad = global.player.gamePadIndex;
-
-// debug purposes
-if type == SelectorTypes.Select {
-	var a = 3;
-}
+if global.inventory.isConfirmingDestroyItem exit;
 
 if joystickInputFrame < joystickInputTotalFrames {
 	joystickInputFrame++;

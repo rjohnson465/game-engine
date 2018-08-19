@@ -12,7 +12,8 @@
         "187d3c49-dd60-4c42-8f9c-51dbf74ddea2",
         "dc20bdfa-f2bb-4664-bd11-181fd24ce23b",
         "7f697406-76f7-4073-8fea-2189307747de",
-        "285e296d-e9a0-485a-9fb9-89b3f34686af"
+        "285e296d-e9a0-485a-9fb9-89b3f34686af",
+        "b96d72b5-310e-4b72-b2cb-a5f86d3330c4"
     ],
     "filterType": "GMScript",
     "folderName": "equipment\/inventory",

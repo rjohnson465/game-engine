@@ -41,6 +41,8 @@ count = 1;
 isUsable = false;
 isInUse = false;
 
+isDestroyable = true;
+
 // only for hand items, head items, and ring items
 acceptableEquipmentSlots = [];
 

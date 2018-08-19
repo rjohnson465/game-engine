@@ -1,4 +1,5 @@
-
+if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
+if isConfirmingDestroyItem exit;
 // controller stuff
 if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderrb) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
 	audio_play_sound(snd_ui_tab2,1,0);
@@ -24,7 +25,14 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && glo
 	scrollLevel = 0;
 }
 
-if gamepad_button_check_pressed(global.player.gamePadIndex,gp_face4) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
+// destroy item
+if gamepad_button_check_pressed(global.player.gamePadIndex,gp_face4) {
+	if selectedItem != noone && selectedItem.isDestroyable {
+		isConfirmingDestroyItem = true;
+	}
+}
+
+if gamepad_button_check_pressed(global.player.gamePadIndex,gp_select) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
 	global.ui.isShowingExplanations = !global.ui.isShowingExplanations;
 	audio_play_sound(snd_ui_option_change,1,0);
 }

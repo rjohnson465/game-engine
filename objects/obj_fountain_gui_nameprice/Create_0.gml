@@ -38,7 +38,6 @@ isBackButtonPressed = false;
 #macro INCREASE100K "Add 100,000 Gold"
 #macro INCREASE1M "Add 1,000,000 Gold"
 
-allPriceIncrements = noone;
 allPriceIncrements = ds_list_create();
 ds_list_add(allPriceIncrements,WISH);
 ds_list_add(allPriceIncrements,RESETPRICE);
@@ -49,16 +48,5 @@ ds_list_add(allPriceIncrements,INCREASE100K);
 ds_list_add(allPriceIncrements,INCREASE1M);
 
 selectedPriceIncrease = INCREASE100;
-//ds_list_destroy(apiBS);
 
-/*
-var midW = mean(topLeftX,topLeftX+width); var midH = 200;
-for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
-	var opt = ds_list_find_value(allPriceIncrements,i);
-	var w = string_width(opt); var h = string_height(opt);
-	var yy = midH+((i)*25);
-	var x1 = midW-(.5*w); var y1 = yy-(.5*h);
-	var x2 = midW+w; var y2 = yy+h;
-	ds_map_replace(menuButtonCoordinates,opt,[x1,y1,x2,y2]);
-}
 

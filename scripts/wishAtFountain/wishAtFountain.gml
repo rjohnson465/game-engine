@@ -13,13 +13,6 @@ with obj_player {
 	lastFountainY = fountain.spawnY;
 	lastFountainZ = fountain.layerName;
 }
-	
-// trigger a save 
-with obj_game_manager {
-	alert("Saving " + currentSaveFile, c_yellow);
-	ds_map_replace(other.data.properties, "isDoneFilling", true);
-	fs_save_game();
-}
 
 // activate fountain
 if !isRunning {
@@ -94,3 +87,10 @@ if !isRunning {
 		}
 	}
 //}
+
+// trigger a save 
+with obj_game_manager {
+	alert("Saving " + currentSaveFile, c_yellow);
+	ds_map_replace(other.data.properties, "isDoneFilling", true);
+	fs_save_game();
+}

@@ -1,4 +1,5 @@
-//if owner != global.player exit;
+if global.inventory.isConfirmingDestroyItem exit;
+audio_play_sound(snd_ui_option_change,1,0);
 var itemIsBeingLooted = false;
 var dropItem = noone; var itemPos = -1;
 with obj_item_drop {

@@ -105,4 +105,7 @@ ds_map_add(menuButtonCoordinates,"InventoryScrollDown", [scrollButtonDownTopLeft
 isScrollUpPressed = false;
 isScrollDownPressed = false;
 
+isConfirmingDestroyItem = false;
+confirmDestroyOption = "N"; // N || Y
 
+hoveredItem = noone;

@@ -73,7 +73,7 @@ for (var i = 0; i < array_length_1d(keys); i++) {
 			break;
 		}
 		case Input.Shift: {
-			sprite = isGamepadConnected ? spr_prompt_xbox_y : spr_prompt_mk_shift;
+			sprite = isGamepadConnected ? spr_prompt_xbox_back : spr_prompt_mk_shift;
 			break;
 		}
 		case Input.LMB: {
@@ -110,6 +110,14 @@ for (var i = 0; i < array_length_1d(keys); i++) {
 		}
 		case Input.PadLR: {
 			sprite = spr_prompt_xbox_pad_lr;
+			break;
+		}
+		case Input.MMB: {
+			sprite = spr_prompt_mk_mb;
+			break;
+		}
+		case Input.Face4: {
+			sprite = spr_prompt_xbox_y;
 			break;
 		}
 	}

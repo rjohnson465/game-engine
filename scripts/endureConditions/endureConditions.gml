@@ -11,7 +11,7 @@ for (var i = 0; i < size; i++) {
 	var snd = asset_get_index("snd_magic_"+currentCondition+"_condition");
 	var emitter = ds_map_find_value(conditionsEmittersMap, currentCondition);
 	audio_emitter_position(emitter,x,y,depth);
-	audio_emitter_gain(emitter,conditionPercent);
+	audio_emitter_gain(emitter,conditionPercent/100);
 	
 	if id != global.player && conditionLevel > 0 {
 		show_debug_message("emitter pos: " + string(audio_emitter_get_x(emitter)) + ", " + string(audio_emitter_get_y(emitter)));

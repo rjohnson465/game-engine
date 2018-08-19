@@ -1,4 +1,5 @@
 var pad = global.player.gamePadIndex;
+if global.inventory.isConfirmingDestroyItem exit;
 if gamepad_is_connected(pad) {
 
 	// show menus
@@ -13,6 +14,7 @@ if gamepad_is_connected(pad) {
 			}
 		}
 		isShowingMenus = false;
+		audio_play_sound(snd_ui_click1,1,0);
 	}
 	
 	if gamepad_button_check_pressed(pad,gp_shoulderl) && isShowingMenus {
