@@ -3,7 +3,7 @@ var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMe
 if attackNumber == noone exit;
 var isRanged = currentRangedAttack != noone;
 var attackData = noone;
-var attackChain = isRanged ? rangedAttacks[attackNumber-1] : meleeAttacks[attackNumber-1];
+var attackChain = isRanged ? rangedAttacks[attackNumber] : meleeAttacks[attackNumber];
 if attackNumberInChain == noone {
 	attackData = attackChain[0];
 } else {

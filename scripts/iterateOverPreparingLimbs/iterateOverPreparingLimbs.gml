@@ -7,7 +7,7 @@ var isRanged = currentRangedAttack != noone;
 
 // find attack data object
 var attackData = noone;
-var attackChain = isRanged ? rangedAttacks[attackNumber-1] : meleeAttacks[attackNumber-1];
+var attackChain = isRanged ? rangedAttacks[attackNumber] : meleeAttacks[attackNumber];
 if attackNumberInChain == noone {
 	attackData = attackChain[0];
 } else {
@@ -33,10 +33,10 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 		var attackInChain = ds_map_find_value(preparingLimbs,currentPreparingLimbKey);
 		var attackData = noone;
 		if !isRanged {
-			var attackChain = meleeAttacks[attackNumber-1];
+			var attackChain = meleeAttacks[attackNumber];
 			attackData = attackChain[attackInChain-1];
 		} else {
-			var attackChain = rangedAttacks[attackNumber-1];
+			var attackChain = rangedAttacks[attackNumber];
 			attackData = attackChain[attackInChain-1];
 		}
 		stamina -= attackData.staminaCost;
@@ -66,6 +66,7 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 			if distance_to_object(lockOnTarget) < minRange {
 				var startDir = (facingDirection+180)%360;
 				moveToNearestFreePoint(startDir,functionalSpeed,true);
+				facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 			}
 		} else {
 			// if preparing a STANDARD melee attack and no attacks are happening with other hand, move back a bit (if you can)

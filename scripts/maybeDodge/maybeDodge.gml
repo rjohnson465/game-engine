@@ -56,7 +56,7 @@ else if lockOnTarget.type != CombatantTypes.Player && isMeleeAttack {
 }
 // if the attack is coming from an Ally or Enemy, base it on their current attack range
 else if (lockOnTarget.type == CombatantTypes.Ally || lockOnTarget.type == CombatantTypes.Enemy) && isMeleeAttack {
-	range = lockOnTarget.meleeRangeArray[lockOnTarget.currentMeleeAttack-1] + 10; // 10px padding
+	range = lockOnTarget.meleeRangeArray[lockOnTarget.currentMeleeAttack] + 10; // 10px padding
 }
 
 if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.preparingLimbs) != 0 && willDodge && isMeleeAttack {

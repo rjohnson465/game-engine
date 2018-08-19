@@ -8,7 +8,8 @@
         "83db5e00-cc51-4712-8f6c-0d4c86109358",
         "fddc5fe7-b8f4-44f8-94ba-05de86223e1b",
         "21c53d30-346c-4021-b8e0-c4e7b78137f9",
-        "02152cf0-7fb5-4612-aba9-cadd3bbe5712"
+        "02152cf0-7fb5-4612-aba9-cadd3bbe5712",
+        "86f1c835-8354-4796-966e-64f053c0490b"
     ],
     "filterType": "GMSprite",
     "folderName": "aoe",

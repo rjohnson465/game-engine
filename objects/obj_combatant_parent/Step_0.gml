@@ -109,7 +109,7 @@ switch(state) {
 			maybeReturnToPost();
 			
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
-			if currentMeleeAttack || currentRangedAttack {
+			if currentMeleeAttack != noone || currentRangedAttack != noone {
 				
 				// face the proper direction
 				faceMovingDirection();
@@ -180,7 +180,7 @@ switch(state) {
 			
 			// find attack data object
 			var attackData = noone;
-			var attackChain = isRanged ? rangedAttacks[attackNumber-1] : meleeAttacks[attackNumber-1];
+			var attackChain = isRanged ? rangedAttacks[attackNumber] : meleeAttacks[attackNumber];
 			if attackNumberInChain == noone {
 				attackData = attackChain[0];
 			} else {
@@ -189,7 +189,7 @@ switch(state) {
 			
 			// get previous attacking limb
 			if attackNumberInChain == noone && !isRanged && hasHands {
-				var attackChain = meleeAttacks[attackNumber-1];
+				var attackChain = meleeAttacks[attackNumber];
 				var attackData = attackChain[0];
 				var lk = attackData.limbKey;
 				switch lk {
@@ -213,7 +213,7 @@ switch(state) {
 			
 			// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
 			if !isRanged && ds_map_size(preparingLimbs) !=0 && attackData.type != AttackTypes.Charge {
-				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1] && !place_meeting_layer(x,y,lockOnTarget) {
+				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack] && !place_meeting_layer(x,y,lockOnTarget) {
 					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,false);
 				}
 			}
@@ -224,7 +224,7 @@ switch(state) {
 
 				// decide if we should attack (maybe again, if there's another attack in the chain)
 				var willAttack = false;
-				var a = !isRanged ? meleeAttacks[attackNumber-1] : rangedAttacks[attackNumber-1];
+				var a = !isRanged ? meleeAttacks[attackNumber] : rangedAttacks[attackNumber];
 				var aLength = array_length_1d(a); // how many attacks in the chain there are
 				var nextAttackInChainExists =  aLength >= attackNumberInChain + 1;
 
@@ -250,8 +250,8 @@ switch(state) {
 				if willAttack && stamina > 0 {
 					var lk = "r";
 					if !isRanged{
-						var a = meleeAttacks[attackNumber-1];
-					} else var a = rangedAttacks[attackNumber-1];
+						var a = meleeAttacks[attackNumber];
+					} else var a = rangedAttacks[attackNumber];
 					var attackData = a[attackNumberInChain - 1];
 					if hasHands && !isRanged {
 						

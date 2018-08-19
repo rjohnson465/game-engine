@@ -27,6 +27,10 @@ soundEmitter = audio_emitter_create();
 sound = noone;
 isSoundLooping = false;
 
+if owner.type == CombatantTypes.Player && owner.leftHandItem.isTwoHanded && owner.leftHandItem.isRanged {
+	percentCharged = global.percentCharged;
+}
+
 // spell logic
 if owner.currentUsingSpell != noone {
 	
@@ -160,7 +164,7 @@ if owner.currentUsingSpell != noone {
 			part_type_speed(spark,8,12,0,0);
 			part_type_direction(spark,0,360,0,4);
 			part_type_life(spark,3,6);
-			part_type_color2(spark,c_blue,c_white);
+			part_type_color2(spark,c_purple,c_white);
 			part_type_alpha3(spark,1,.85,.75);
 			particle = spark;
 			break;
@@ -202,7 +206,7 @@ if isSpell {
 			break;
 		}
 		case "lightning": {
-			lightRadiusColor = c_blue;
+			lightRadiusColor = c_purple;
 			sound = snd_magic_lightning;
 			break;
 		}
@@ -225,10 +229,10 @@ else {
 		attackNumber = owner.currentMeleeAttack == noone ? owner.currentRangedAttack : owner.currentMeleeAttack;
 		attackNumberInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
 		if isMelee {
-			var attackChain = owner.meleeAttacks[attackNumber-1];
+			var attackChain = owner.meleeAttacks[attackNumber];
 			attackData = attackChain[attackNumberInChain-1];
 		} else {
-			var attackChain = owner.rangedAttacks[attackNumber-1];
+			var attackChain = owner.rangedAttacks[attackNumber];
 			attackData = attackChain[attackNumberInChain-1];
 		}
 	} else {

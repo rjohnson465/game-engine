@@ -15,7 +15,7 @@ if isFading exit;
 
 if !isMouseInMenu && !isFrozen && !global.ui.isShowingMenus {
 
-	// if using a 2h ranged weapon, holding left allows for aiming
+	// if using a 2h ranged weapon, holding right allows for aiming
 	if	leftHandItem.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded &&
 		(state == CombatantStates.Idle || state == CombatantStates.Moving) {
 		

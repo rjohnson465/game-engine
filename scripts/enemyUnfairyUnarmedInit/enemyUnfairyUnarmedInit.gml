@@ -1,7 +1,6 @@
 /// enemyUnfairyUnarmedInit()
 
 /// initialize this unfairy to have no weapons
-
 var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 ds_map_replace(handItems,"lm1",unarmed);
 ds_map_replace(handItems,"rm1",unarmed);

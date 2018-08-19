@@ -10,10 +10,10 @@ if item.equipmentSlot != noone {
 }
 
 // remove item from player inventory
-var inv = global.player.inventory;
-var pos = ds_list_find_index(inv,item);
+var invv = global.player.inventory;
+var pos = ds_list_find_index(invv,item);
 if item.count == 1 {
-	ds_list_delete(inv,pos);
+	ds_list_delete(invv,pos);
 } else {
 	item.count--;
 }
@@ -50,3 +50,11 @@ if !item.isStackable {
 // remove confirm dialog box
 isConfirming = false;
 isAcceptingConfirmInput = false;
+
+// reset selectedItem for pad input
+if gamepad_is_connected(global.gamePadIndex) {
+	for (var i = 0; i < ds_list_size(inv); i++) {
+		selectedItem = ds_list_find_value(inv,i);
+		if selectedItem.x1 > 0 break;
+	}
+}

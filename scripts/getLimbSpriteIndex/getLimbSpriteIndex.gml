@@ -33,7 +33,7 @@ if owner.type == CombatantTypes.Player {
 	return asset_get_index(s);
 } else {
 	var attackChainsArray = owner.currentMeleeAttack != noone? owner.meleeAttacks : owner.rangedAttacks;
-	var attackChainArray = attackChainsArray[attackNumber-1];
+	var attackChainArray = attackChainsArray[attackNumber];
 	var attackNumberInChain = ds_map_find_value(map,limbKey);
 	var attackData = attackChainArray[attackNumberInChain-1];
 		

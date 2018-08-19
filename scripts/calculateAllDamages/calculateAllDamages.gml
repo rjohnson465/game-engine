@@ -71,6 +71,7 @@ for (var i = 0; i < size; i++) {
 	
 	// case PHYSICAL | CRUSH | SLASH | PIERCE -- damage reduction by constant value
 	if currentDamageType == PHYSICAL || currentDamageType == CRUSH || currentDamageType == PIERCE || currentDamageType == SLASH {
+		damageBase = round(damageBase*attackObj.percentCharged);
 		randomize();
 		var damageReduction = random_range(0,defense);
 		damageBase -= damageReduction;

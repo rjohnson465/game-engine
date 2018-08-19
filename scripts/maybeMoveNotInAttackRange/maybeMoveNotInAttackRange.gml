@@ -23,9 +23,9 @@ if enemyObstaclesBetweenTarget != noone {
 // if predicate is true, you need to keep moving
 var pred = currentMeleeAttack == noone ? 
 	// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
-	(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack-1]) 
+	(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack]) 
 		|| wallsBetweenTarget != noone || alliesBetweenTarget != noone || enemyObstaclesBetweenTarget != noone || (layer != lockOnTarget.layer) : 
-	(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack-1]) || (layer != lockOnTarget.layer);
+	(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack]) || (layer != lockOnTarget.layer);
 
 if wallsBetweenTarget != noone && ds_exists(wallsBetweenTarget, ds_type_list) {
 	ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;

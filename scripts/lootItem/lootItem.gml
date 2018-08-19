@@ -5,6 +5,9 @@
 var item = argument[0];
 var dropItem = argument[1];
 
+if !instance_exists(item) exit;
+if !instance_exists(dropItem) exit;
+
 var itemPos = ds_list_find_index(dropItem.items,item.id);
 with item {
 	audio_play_sound(soundDrop,1,0);

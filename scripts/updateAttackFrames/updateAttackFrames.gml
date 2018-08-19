@@ -4,7 +4,7 @@ var isRanged = currentRangedAttack != noone;
 
 // find attack data object
 var attackData = noone;
-var attackChain = isRanged ? rangedAttacks[attackNumber-1] : meleeAttacks[attackNumber-1];
+var attackChain = isRanged ? rangedAttacks[attackNumber] : meleeAttacks[attackNumber];
 if attackNumberInChain == noone {
 	attackData = attackChain[0];
 } else {

@@ -1,46 +1,53 @@
 {
-    "id": "02152cf0-7fb5-4612-aba9-cadd3bbe5712",
+    "id": "86f1c835-8354-4796-966e-64f053c0490b",
     "modelName": "GMSprite",
     "mvc": "1.12",
     "name": "spr_item_aoe_lightning",
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 60,
-    "bbox_left": 3,
+    "bbox_bottom": 57,
+    "bbox_left": 6,
     "bbox_right": 59,
-    "bbox_top": 2,
+    "bbox_top": 3,
     "bboxmode": 0,
     "colkind": 1,
     "coltolerance": 0,
     "edgeFiltering": false,
     "frames": [
         {
-            "id": "f96e232f-2b2d-42ea-9189-bac7f894ad18",
+            "id": "0d74acfd-aa61-47be-b25d-7a25a446859d",
             "modelName": "GMSpriteFrame",
             "mvc": "1.0",
-            "SpriteId": "02152cf0-7fb5-4612-aba9-cadd3bbe5712",
+            "SpriteId": "86f1c835-8354-4796-966e-64f053c0490b",
             "compositeImage": {
-                "id": "fcc96033-cb71-4c2e-b05c-ac005ebd4a52",
+                "id": "63494cfc-46f0-4d84-824f-5fb7d007a5f6",
                 "modelName": "GMSpriteImage",
                 "mvc": "1.0",
-                "FrameId": "f96e232f-2b2d-42ea-9189-bac7f894ad18",
+                "FrameId": "0d74acfd-aa61-47be-b25d-7a25a446859d",
                 "LayerId": "00000000-0000-0000-0000-000000000000"
             },
             "images": [
                 {
-                    "id": "4bef98f0-05ae-42d9-b3dc-80b52665551e",
+                    "id": "b19f137e-74f4-47bb-9989-4378d97f7487",
                     "modelName": "GMSpriteImage",
                     "mvc": "1.0",
-                    "FrameId": "f96e232f-2b2d-42ea-9189-bac7f894ad18",
-                    "LayerId": "8c7b375b-6ee5-4a14-abbe-ca3813f0f4d7"
+                    "FrameId": "0d74acfd-aa61-47be-b25d-7a25a446859d",
+                    "LayerId": "65dde42c-31b4-4051-81f0-46c4d2ce8233"
                 },
                 {
-                    "id": "b8b79a82-3137-4dce-9581-b4ecca179cbe",
+                    "id": "db8d04f8-551c-4eb9-86f2-856ed9dc906d",
                     "modelName": "GMSpriteImage",
                     "mvc": "1.0",
-                    "FrameId": "f96e232f-2b2d-42ea-9189-bac7f894ad18",
-                    "LayerId": "b26cf601-c649-4cb8-aa0d-f179c08b2bcc"
+                    "FrameId": "0d74acfd-aa61-47be-b25d-7a25a446859d",
+                    "LayerId": "794afe5e-0352-4dfe-8b8b-113b42882d98"
+                },
+                {
+                    "id": "9907cd75-bb02-4941-a6dc-b84fdfd87e60",
+                    "modelName": "GMSpriteImage",
+                    "mvc": "1.0",
+                    "FrameId": "0d74acfd-aa61-47be-b25d-7a25a446859d",
+                    "LayerId": "bea8b93b-b4d7-4642-bfe2-4526c3fc7d16"
                 }
             ]
         }
@@ -50,10 +57,21 @@
     "height": 64,
     "layers": [
         {
-            "id": "b26cf601-c649-4cb8-aa0d-f179c08b2bcc",
+            "id": "bea8b93b-b4d7-4642-bfe2-4526c3fc7d16",
             "modelName": "GMImageLayer",
             "mvc": "1.0",
-            "SpriteId": "02152cf0-7fb5-4612-aba9-cadd3bbe5712",
+            "SpriteId": "86f1c835-8354-4796-966e-64f053c0490b",
+            "blendMode": 0,
+            "isLocked": false,
+            "name": "Layer 2",
+            "opacity": 100,
+            "visible": true
+        },
+        {
+            "id": "65dde42c-31b4-4051-81f0-46c4d2ce8233",
+            "modelName": "GMImageLayer",
+            "mvc": "1.0",
+            "SpriteId": "86f1c835-8354-4796-966e-64f053c0490b",
             "blendMode": 0,
             "isLocked": false,
             "name": "Layer 1",
@@ -61,10 +79,10 @@
             "visible": true
         },
         {
-            "id": "8c7b375b-6ee5-4a14-abbe-ca3813f0f4d7",
+            "id": "794afe5e-0352-4dfe-8b8b-113b42882d98",
             "modelName": "GMImageLayer",
             "mvc": "1.0",
-            "SpriteId": "02152cf0-7fb5-4612-aba9-cadd3bbe5712",
+            "SpriteId": "86f1c835-8354-4796-966e-64f053c0490b",
             "blendMode": 0,
             "isLocked": false,
             "name": "default",

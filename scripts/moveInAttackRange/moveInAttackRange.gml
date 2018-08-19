@@ -2,10 +2,10 @@ path_end();
 
 var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
 var isRanged = currentRangedAttack != noone;
-			
+
 // find attack data object
 var attackData = noone;
-var attackChain = isRanged ? rangedAttacks[attackNumber-1] : meleeAttacks[attackNumber-1];
+var attackChain = isRanged ? rangedAttacks[attackNumber] : meleeAttacks[attackNumber];
 if attackNumberInChain == noone {
 	attackData = attackChain[0];
 } else {
@@ -56,7 +56,7 @@ if attackFrequencyFrame == -1 {
 				var dist = distance_to_object(lockOnTarget);
 				var targetRadius = point_distance(x,y,lockOnTarget.x,lockOnTarget.y)-distance_to_object(lockOnTarget);
 				var orbit = targetRadius+distance_to_object(lockOnTarget);
-				if dist <= meleeRangeArray[currentMeleeAttack-1] {
+				if dist <= meleeRangeArray[currentMeleeAttack] {
 					strafeAroundPoint(lockOnTarget.x,lockOnTarget.y,functionalSpeed*.3,orbit);
 				} 
 			}

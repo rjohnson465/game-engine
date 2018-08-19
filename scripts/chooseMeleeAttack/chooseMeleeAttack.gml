@@ -4,37 +4,54 @@ lockOnTarget = instance_nearest(x,y,lockOnTargetType);
 currentRangedAttack = noone;
 attackNumberInChain = noone;
 
-// pick the longest-range melee attack we can 
-// look at all possible melee attack ranges
-// which ones are within our range?
-// which one(s) have the longest possible range?
 var range = distance_to_object(lockOnTarget);
 
-// find the attack(s) with range closest to our current range
-var closestRange = 0; var closestDiff = 1000;
+var differences = ds_list_create();
 for (var i = 0; i < array_length_1d(meleeRangeArray); i++) {
-	var r = meleeRangeArray[i];
-	var rangeDiff = abs(range-r);
-	if rangeDiff < closestDiff {
-		closestRange = r;
-		closestDiff = rangeDiff;
+	var diff = abs(meleeRangeArray[i]-range);
+	if ds_list_find_index(differences, diff) == -1 {
+		ds_list_add(differences, diff);
 	}
 }
-// now go through attacks and find one(s) with range "closestRange"
+
+ds_list_sort(differences,1);
+
+var n =ds_list_size(differences);
+randomize();
+var fac = factorial(n);
+var rand = round(random_range(0,fac));
+
+var cumSum = 0; var diffSelected = noone;
+for (var i = 0; i < ds_list_size(differences); i++) {
+	var lowerBound = cumSum;
+	var upperBound = cumSum + (n-i);
+	if rand >= lowerBound && rand < upperBound {
+		diffSelected = ds_list_find_value(differences, i);
+	}
+	cumSum += (n-i);
+}
+if diffSelected == noone {
+	diffSelected = ds_list_find_value(differences,0);
+}
+
+// find the attack(s) with range closest to our current range
 var properRangeAttacks = ds_list_create();
 for (var i = 0; i < array_length_1d(meleeRangeArray); i++) {
 	var r = meleeRangeArray[i];
-	if r == closestRange {
-		ds_list_add(properRangeAttacks,i+1);
+	var rangeDiff = abs(range-r);
+	if rangeDiff == diffSelected {
+		ds_list_add(properRangeAttacks,i);
 	}
 }
-
 randomize();
-//currentMeleeAttack = round(random_range(1,array_length_1d(meleeAttacks)));
 var currentMeleeAttackIndex = round(random_range(0,ds_list_size(properRangeAttacks)-1));
 
-currentMeleeAttack = ds_list_find_value(properRangeAttacks,currentMeleeAttackIndex);
 
+currentMeleeAttack = ds_list_find_value(properRangeAttacks,currentMeleeAttackIndex);
+if currentMeleeAttack == undefined  {
+	var a = 3;
+}
+show_debug_message(currentMeleeAttack);
 onAlert = true;
 isShielding = false;
 				
@@ -46,5 +63,6 @@ ds_map_replace(equippedLimbItems,"r",rightHandItem);
 
 // prevent memory leaks
 ds_list_destroy(properRangeAttacks); properRangeAttacks = -1;
+ds_list_destroy(differences); differences = -1;
 
 state = CombatantStates.Moving;

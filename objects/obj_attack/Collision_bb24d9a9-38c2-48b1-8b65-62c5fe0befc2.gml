@@ -49,9 +49,11 @@ if isMelee && hitsWallFirst && !object_is_ancestor(other.object_index,obj_npc_pa
 		global.y1 = __y;
 		global.particleDirection = facingDirection;
 		instance_create_depth(0,0,1,obj_hit_particles);
-		// play wall hit sound, dependent on type of material wall is
-		var snd = global.damageType == "Dust" ? snd_shield_hit_wood : snd_wallhit;
-		audio_play_sound_at(snd,__x,__y,depth,100,300,1,0,1);
+		if !isSpell {
+			// play wall hit sound, dependent on type of material wall is
+			var snd = global.damageType == "Dust" ? snd_shield_hit_wood : snd_wallhit;
+			audio_play_sound_at(snd,__x,__y,depth,100,300,1,0,1);
+		}
 	}
 	
 	if owner.hasHands {
@@ -66,19 +68,21 @@ if isMelee && hitsWallFirst && !object_is_ancestor(other.object_index,obj_npc_pa
 // make dust / spark particles, play sound, for range
 if isRanged && !hasSetAlarm {
 	global.damageType = other.material == METAL ? "Block" : "Dust";
+	if isSpell {
+		global.damageType = spellElement;
+	}
 	global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
 	global.y1 = bbox_bottom;
-	var snd = other.material == METAL ? snd_wallhit : snd_shield_hit_wood;
-	audio_play_sound_at(snd,global.x1,global.y1,depth,20,200,1,0,1);
 	global.particleDirection = facingDirection;
 	instance_create_depth(0,0,1,obj_hit_particles);
-	/*if !isSpell {
-		instance_destroy(id,true);
-	}*/
 	alarm[0] = 15;
 	visible = 0;
 	speed = 0;
 	hasSetAlarm = true;
+	if !isSpell {
+		var snd = other.material == METAL ? snd_wallhit : snd_shield_hit_wood;
+		audio_play_sound_at(snd,global.x1,global.y1,depth,20,200,1,0,1);
+	}
 }
 
 if isSpell && !hasSetAlarm {

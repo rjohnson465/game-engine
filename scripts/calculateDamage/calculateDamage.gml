@@ -82,7 +82,7 @@ if	state != CombatantStates.Dodging &&
 		attackNumber = attackObj.attackNumber;
 		attackNumberInChain = attackObj.attackNumberInChain;
 		var isRanged = attackObj.isRanged;
-		var attackChain = isRanged ? attackObj.owner.rangedAttacks[attackNumber-1] : attackObj.owner.meleeAttacks[attackNumber-1];
+		var attackChain = isRanged ? attackObj.owner.rangedAttacks[attackNumber] : attackObj.owner.meleeAttacks[attackNumber];
 		attackData = attackChain[attackNumberInChain-1];
 		damagesMap = attackData.damages;
 			
@@ -148,18 +148,22 @@ if	state != CombatantStates.Dodging &&
 	// hit a shield
 	var hitShield = false;
 	if isShielding && script_execute(scr_is_facing,assailant,id) {
+		if gamepad_is_connected(global.gamePadIndex) {
+			gamepad_set_vibration(global.gamePadIndex,.5,.5);
+			global.gameManager.alarm[1] = 10;
+		}
 		hitShield = true;
 		handleBlockedAttack(attackObj,assailant,damagesTaken,actualDamage,isCriticalHit,itemHitWith,attackData);
 	}
 	// hit
 	if !isShielding || !scr_is_facing(assailant,id) {		
-		/*if itemHitWith != noone && itemHitWith.hitSounds != undefined && itemHitWith.hitSounds != noone {
-			var snd = itemHitWith.hitSounds[attackNumberInChain-1];
-			audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
+		if gamepad_is_connected(global.gamePadIndex) && type == CombatantTypes.Player {
+			gamepad_set_vibration(global.gamePadIndex,1,1);
+			// duration of vibration is: 20% hp is 20 frames, 0% hp is 1 frame
+			var percentOfHp = actualDamage / maxHp;
+			var duration = (95*percentOfHp)+1;
+			global.gameManager.alarm[1] = duration;
 		}
-		else if attackData != noone && attackData.hitSound != noone {
-			audio_play_sound_at(attackData.hitSound,x,y,depth,100,300,1,0,1);
-		}*/
 		if array_length_1d(soundsWhenHit) != 0 {
 			randomize();
 			var rand = round(random_range(0,array_length_1d(soundsWhenHit)-1));

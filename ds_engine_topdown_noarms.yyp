@@ -34,7 +34,7 @@
             "Key": "008136fd-0e63-45aa-a66b-93351394a643",
             "Value": {
                 "id": "58da737e-b374-4165-9e22-308722cb1c91",
-                "resourcePath": "sprites\\spr_spell_magicmissile_lightning\\spr_spell_magicmissile_lightning.yy",
+                "resourcePath": "sprites\\spr_spell_magicmissile_lightning1\\spr_spell_magicmissile_lightning1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -74,7 +74,7 @@
             "Key": "02152cf0-7fb5-4612-aba9-cadd3bbe5712",
             "Value": {
                 "id": "c013b718-ebf4-4168-a7d5-44840be83859",
-                "resourcePath": "sprites\\spr_item_aoe_lightning\\spr_item_aoe_lightning.yy",
+                "resourcePath": "sprites\\spr_item_aoe_lightning11\\spr_item_aoe_lightning11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -660,6 +660,14 @@
                 "id": "dc45bce5-7233-4c8c-9d90-c5b87f5e106e",
                 "resourcePath": "scripts\\performSelectorBackspacePressed\\performSelectorBackspacePressed.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "10f17cd2-9970-465a-a724-97a57f1f3166",
+            "Value": {
+                "id": "53cc834b-9dcd-4f9a-9062-62363a50afae",
+                "resourcePath": "sprites\\spr_item_projectile_lightning\\spr_item_projectile_lightning.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1423,6 +1431,14 @@
             }
         },
         {
+            "Key": "25f9e73f-ad97-44df-9cbd-e1f8faec6050",
+            "Value": {
+                "id": "f37231fa-2a2a-4a45-8db4-cc9dd251473a",
+                "resourcePath": "sprites\\spr_item_magicmissile_lightning\\spr_item_magicmissile_lightning.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "26040ac5-183d-4bc3-a182-8919cf6af574",
             "Value": {
                 "id": "d0670485-c77f-4dde-b7af-a41b99cb03fe",
@@ -1554,7 +1570,7 @@
             "Key": "29b11835-fd05-4cf0-b145-8a11f853b500",
             "Value": {
                 "id": "8c37294b-bf40-4d61-a39a-4ffca3c651f9",
-                "resourcePath": "sprites\\spr_item_projectile_lightning\\spr_item_projectile_lightning.yy",
+                "resourcePath": "sprites\\spr_item_projectile_lightning11\\spr_item_projectile_lightning11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2783,6 +2799,14 @@
             }
         },
         {
+            "Key": "4c234ea0-9404-4239-8da9-4ff8e3c79d4f",
+            "Value": {
+                "id": "dde01006-9894-42da-b2c7-39e6aa659eba",
+                "resourcePath": "sprites\\spr_attunement_lightning1\\spr_attunement_lightning1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4c813d7f-0d61-4afc-ac71-f32a99fed74f",
             "Value": {
                 "id": "d315f3b0-fb4d-43e1-87de-57256e993c78",
@@ -3722,7 +3746,7 @@
             "Key": "66363153-071b-47b5-b159-4beef03da9f1",
             "Value": {
                 "id": "97e2e99a-cf25-4cc0-9aee-c532c011bee4",
-                "resourcePath": "sprites\\spr_spell_projectile_lightning\\spr_spell_projectile_lightning.yy",
+                "resourcePath": "sprites\\spr_spell_projectile_lightning1\\spr_spell_projectile_lightning1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4639,6 +4663,14 @@
             }
         },
         {
+            "Key": "807cf2fc-a5bf-42ec-be20-d90a0e6c1b2b",
+            "Value": {
+                "id": "16828a9b-065b-48d3-af92-624dd9bc6e67",
+                "resourcePath": "sprites\\spr_spell_magicmissile_lightning2\\spr_spell_magicmissile_lightning2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "80bfbbe2-8740-495a-8131-4c267d5cf476",
             "Value": {
                 "id": "dcf4595d-8616-4b8d-bf9d-3bb0453e0abb",
@@ -4802,7 +4834,7 @@
             "Key": "83de5326-d5fe-438c-962f-bc8b81fa81d5",
             "Value": {
                 "id": "2db301ba-a27e-4ad2-8089-9c798c054542",
-                "resourcePath": "sprites\\spr_item_magicmissile_lightning\\spr_item_magicmissile_lightning.yy",
+                "resourcePath": "sprites\\spr_item_magicmissile_lightning1\\spr_item_magicmissile_lightning1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4907,6 +4939,14 @@
             "Value": {
                 "id": "ab515672-547f-45c3-b9aa-70cce3703755",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_woodshield_block\\spr_enemy_unfairy_limb_woodshield_block.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "86f1c835-8354-4796-966e-64f053c0490b",
+            "Value": {
+                "id": "ea1289fc-7250-4529-b68c-1264452bf405",
+                "resourcePath": "sprites\\spr_item_aoe_lightning\\spr_item_aoe_lightning.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6036,6 +6076,14 @@
                 "id": "c0b0fc48-99c1-4b55-a4fc-f16ac0550c23",
                 "resourcePath": "sounds\\snd_conversation_francis_unfairyslayer_2\\snd_conversation_francis_unfairyslayer_2.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "a9cf5b3d-53d6-4996-87d2-aa2913bf8778",
+            "Value": {
+                "id": "752cbd48-a918-4ada-9341-b1646a4ae289",
+                "resourcePath": "scripts\\factorial\\factorial.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -8455,6 +8503,14 @@
             }
         },
         {
+            "Key": "ef509447-60eb-4b31-aa49-25351bf2b6f0",
+            "Value": {
+                "id": "552e2afa-1036-4c81-b591-8761834bee3a",
+                "resourcePath": "sprites\\spr_spell_magicmissile_lightning\\spr_spell_magicmissile_lightning.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ef6a2e16-5fed-49d0-a524-4d696a71c4a1",
             "Value": {
                 "id": "b08d1a93-dff3-449a-81cd-25f550e50df0",
@@ -8548,6 +8604,14 @@
                 "id": "c0cf8a9d-cf35-473d-b684-22b62b1f83df",
                 "resourcePath": "scripts\\isItemEquipped\\isItemEquipped.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f1bbc994-4aa6-42bb-bbb1-84accd6342dc",
+            "Value": {
+                "id": "c3d183b3-615e-4b40-b1bd-df41b0c57d2f",
+                "resourcePath": "sprites\\spr_spell_projectile_lightning\\spr_spell_projectile_lightning.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -9086,6 +9150,7 @@
         "592c2ea4-a6b1-4441-956f-aaa1e450be1a",
         "552aac08-d469-48ae-a042-4989839708bf",
         "9d13abbd-a6d2-4312-b856-692a2cfd38f8",
+        "a9cf5b3d-53d6-4996-87d2-aa2913bf8778",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "89e792c3-5306-41a1-8e55-479f0f2db5de",
         "295e5a03-8983-4afd-bdb3-14c23bed2058",

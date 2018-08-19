@@ -16,7 +16,7 @@ if ds_map_size(recoveringLimbs) != 0 {
 						
 			var currentAttack = currentMeleeAttack != noone ? currentMeleeAttack : currentRangedAttack;
 			var attacksChainArray = currentMeleeAttack != noone ? meleeAttacks : rangedAttacks;
-			var attackChainArray = attacksChainArray[currentAttack-1];
+			var attackChainArray = attacksChainArray[currentAttack];
 			var attackInChain = ds_map_find_value(recoveringLimbs,currentRecoveringLimbKey);
 			var attackData = attackChainArray[attackInChain-1];
 			var spriteAttackNumber = attackData.spriteAttackNumber;
