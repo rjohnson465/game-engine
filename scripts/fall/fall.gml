@@ -77,6 +77,7 @@ if fallFrame == .5*fallTotalFrames {
 		global.isCriticalHit = false;
 		instance_create_depth(x,y,1,obj_damage);
 		hp -= fallDamage;
+		audio_play_sound(snd_crunchy_thud,1,0);
 		floorsFallen = 0;
 		tempPostX = x;
 		tempPostY = y;

@@ -108,4 +108,5 @@ isScrollDownPressed = false;
 isConfirmingDestroyItem = false;
 confirmDestroyOption = "N"; // N || Y
 
-hoveredItem = noone;
+joystickInputFrame = 0;
+joystickInputTotalFrames = 30;

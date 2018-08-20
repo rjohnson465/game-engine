@@ -29,6 +29,7 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && glo
 if gamepad_button_check_pressed(global.player.gamePadIndex,gp_face4) {
 	if selectedItem != noone && selectedItem.isDestroyable {
 		isConfirmingDestroyItem = true;
+		audio_play_sound(snd_ui_tab1,1,0);
 	}
 }
 

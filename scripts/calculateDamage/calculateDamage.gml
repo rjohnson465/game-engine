@@ -148,7 +148,7 @@ if	state != CombatantStates.Dodging &&
 	// hit a shield
 	var hitShield = false;
 	if isShielding && script_execute(scr_is_facing,assailant,id) {
-		if gamepad_is_connected(global.gamePadIndex) {
+		if gamepad_is_connected(global.gamePadIndex) && attackObj != noone && !attackObj.isRanged {
 			gamepad_set_vibration(global.gamePadIndex,.5,.5);
 			global.gameManager.alarm[1] = 10;
 		}

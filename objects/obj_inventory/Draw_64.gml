@@ -278,67 +278,76 @@ var eq = global.player.equippedItems;
 var w = 0;
 if gamepad_is_connected(global.player.gamePadIndex) {
 	
-	var itemAtMoveSelector = getItemAtSelectorPosition(global.ui.moveSelector);
-	if itemAtMoveSelector == noone {
-		var slotObj = getSlotAtSelector(global.ui.moveSelector);
-		if slotObj != noone {
-			itemAtMoveSelector = getItemInEquipmentSlot(slotObj.slot);
-		}
-	}
-	var a = ds_list_find_index(global.player.equippedItems,getItemAtSelectorPosition(global.ui.moveSelector));
-	
-	if itemAtMoveSelector != noone && itemAtMoveSelector.isUsable {
-		w += drawPrompt("Use Item",Input.F,promptsStartX,promptsY)+xOffset;
-	} else {
-		if itemAtMoveSelector != noone && itemAtMoveSelector.type == ItemTypes.Other {
-		} else if itemAtMoveSelector != noone && !isSelectorInEquippedItems(global.ui.moveSelector) {
-			w += drawPrompt("Equip "+itemAtMoveSelector.name,Input.F,promptsStartX,promptsY)+xOffset;
-		} else if isSelectorInEquippedItems(global.ui.moveSelector) {
-			var s = getSlotAtSelector(global.ui.moveSelector);
-			if s {
-				var slotName = s.name;
-				w += drawPrompt("Equip for "+slotName,Input.F,promptsStartX,promptsY)+xOffset;
+	if !isConfirmingDestroyItem {
+		var itemAtMoveSelector = getItemAtSelectorPosition(global.ui.moveSelector);
+		if itemAtMoveSelector == noone {
+			var slotObj = getSlotAtSelector(global.ui.moveSelector);
+			if slotObj != noone {
+				itemAtMoveSelector = getItemInEquipmentSlot(slotObj.slot);
 			}
 		}
-	}
-	if global.ui.equipSelector.isActive {
-		w += drawPrompt("Cancel Equip",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
-	} 
-	// if item at move selector position is equipped
-	else if 
-		//getItemAtSelectorPosition(global.ui.moveSelector) != noone 
-		itemAtMoveSelector != noone
-		&& ds_list_find_index(eq,itemAtMoveSelector) != -1
-		&& !object_is_ancestor(itemAtMoveSelector.object_index,obj_unarmed_parent) { 
+		var a = ds_list_find_index(global.player.equippedItems,getItemAtSelectorPosition(global.ui.moveSelector));
+	
+		if itemAtMoveSelector != noone && itemAtMoveSelector.isUsable {
+			w += drawPrompt("Use Item",Input.F,promptsStartX,promptsY)+xOffset;
+		} else {
+			if itemAtMoveSelector != noone && itemAtMoveSelector.type == ItemTypes.Other {
+			} else if itemAtMoveSelector != noone && !isSelectorInEquippedItems(global.ui.moveSelector) {
+				//w += drawPrompt("Equip "+itemAtMoveSelector.name,Input.F,promptsStartX,promptsY)+xOffset;
+				w += drawPrompt("Equip Item",Input.F,promptsStartX,promptsY)+xOffset;
+			} else if isSelectorInEquippedItems(global.ui.moveSelector) {
+				var s = getSlotAtSelector(global.ui.moveSelector);
+				if s {
+					var slotName = s.name;
+					w += drawPrompt("Equip for "+slotName,Input.F,promptsStartX,promptsY)+xOffset;
+				}
+			}
+		}
+		if global.ui.equipSelector.isActive {
+			w += drawPrompt("Cancel Equip",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+		} 
+		// if item at move selector position is equipped
+		else if 
+			//getItemAtSelectorPosition(global.ui.moveSelector) != noone 
+			itemAtMoveSelector != noone
+			&& ds_list_find_index(eq,itemAtMoveSelector) != -1
+			&& !object_is_ancestor(itemAtMoveSelector.object_index,obj_unarmed_parent) { 
 			
-		w += drawPrompt("Unequip "+itemAtMoveSelector.name,Input.Backspace,promptsStartX+w,promptsY)+xOffset;
-	} 
+			//w += drawPrompt("Unequip "+itemAtMoveSelector.name,Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+			w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+		} 
 	
-	if selectedItem != noone && selectedItem.isDestroyable {
-		w += drawPrompt("Destroy " + selectedItem.name,Input.Face4,promptsStartX+w,promptsY)+xOffset;
-	}
+		if selectedItem != noone && selectedItem.isDestroyable {
+			//w += drawPrompt("Destroy " + selectedItem.name,Input.Face4,promptsStartX+w,promptsY)+xOffset;
+			w += drawPrompt("Destroy Item" ,Input.Face4,promptsStartX+w,promptsY)+xOffset;
+		}
 	
-	if global.ui.isShowingExplanations {
-		w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
+		if global.ui.isShowingExplanations {
+			w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		} else {
+			w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		}
 	} else {
-		w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		w += drawPrompt("Accept",Input.F,promptsStartX,promptsY)+xOffset;
+		w += drawPrompt("Back",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 	}
-	
-	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 } else {
-	w += drawPrompt("Drag items to equip / unequip",Input.LMB,promptsStartX+w,promptsY)+xOffset;
-	if selectedItem != noone && selectedItem.isUsable {
-		w += drawPrompt("Use " + selectedItem.name,Input.RMB,promptsStartX+w,promptsY)+xOffset;
+	if !isConfirmingDestroyItem {
+		w += drawPrompt("Drag items to equip / unequip",Input.LMB,promptsStartX+w,promptsY)+xOffset;
+		//if selectedItem != noone && selectedItem.isUsable {
+			w += drawPrompt("Use Item",Input.RMB,promptsStartX+w,promptsY)+xOffset;
+		//}
+		if selectedItem != noone && selectedItem.isDestroyable {
+			w += drawPrompt("Destroy Item",Input.MMB,promptsStartX+w,promptsY)+xOffset;
+		}
+		if global.ui.isShowingExplanations {
+			w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		} else {
+			w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		}
+		w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 	}
-	if selectedItem != noone && selectedItem.isDestroyable {
-		w += drawPrompt("Destroy " + selectedItem.name,Input.MMB,promptsStartX+w,promptsY)+xOffset;
-	}
-	if global.ui.isShowingExplanations {
-		w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
-	} else {
-		w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
-	}
-	w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 }
 
 if isConfirmingDestroyItem {
@@ -390,9 +399,20 @@ if isConfirmingDestroyItem {
 	
 	var pad = global.gamePadIndex;
 	if gamepad_is_connected(pad) {
-		if gamepad_button_check_pressed(pad, gp_padl) || gamepad_button_check_pressed(pad, gp_padr) {
+		var h_point = gamepad_axis_value(pad, gp_axislh);
+		var v_point = gamepad_axis_value(pad, gp_axislv);
+		var pdir = noone;
+		if (h_point != 0 || v_point != 0) {
+			pdir = point_direction(0, 0, h_point, v_point);
+		} else {
+			joystickInputFrame = joystickInputTotalFrames;
+		}
+		
+		var acceptingJoystickInput = joystickInputFrame >= joystickInputTotalFrames;
+		if gamepad_button_check_pressed(pad, gp_padl) || gamepad_button_check_pressed(pad, gp_padr) || (pdir != noone && acceptingJoystickInput) {
 			confirmDestroyOption = confirmDestroyOption == "Y" ? "N" : "Y";
 			audio_play_sound(snd_ui_option_change,1,0);
+			joystickInputFrame = 0;
 		}
 		
 		if gamepad_button_check_pressed(pad, gp_face1) {

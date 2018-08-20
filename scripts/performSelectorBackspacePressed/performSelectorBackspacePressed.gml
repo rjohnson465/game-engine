@@ -9,6 +9,7 @@ if type == SelectorTypes.Equip || type == SelectorTypes.Imbue {
 	isActive = false;
 	acceptableEquipmentSlots = [];
 	ui.moveSelector.isActive = true;
+	audio_play_sound(snd_ui_option_change,1,0);
 }
 
 // unequip selected item 

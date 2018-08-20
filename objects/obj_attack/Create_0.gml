@@ -188,6 +188,7 @@ if isSpell {
 	switch (attunementSpriteName) {
 		case "magic": {
 			lightRadiusColor = c_white;
+			sound = snd_magic_magic_loop;
 			break;
 		}
 		case "fire": {
