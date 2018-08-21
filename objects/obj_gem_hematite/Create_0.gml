@@ -5,5 +5,6 @@
 event_inherited();
 
 subType = GemTypes.Hematite;
-name = stringCapitalize(condition) + " Hematite";
+var condi = condition == NORMAL ? "" : condition+" ";
+name = stringCapitalize(condi) + "Hematite";
 itemSprite = asset_get_index("spr_gem_hematite_"+condition);

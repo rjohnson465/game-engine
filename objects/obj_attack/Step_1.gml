@@ -21,6 +21,7 @@ if (weapon != noone && weapon.weaponType == BLUNT2H && attackNumber == 3) {
 	global.x1 = xx;
 	global.y1 = yy;
 	global.particleDirection = 0;
+	global.hitParticlesLayer = layer;
 	instance_create_depth(x,y,1,obj_hit_particles);
 	audio_play_sound(snd_crunchy_thud,1,0);
 }

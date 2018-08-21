@@ -10,7 +10,7 @@ weaponType = BOW;
 weaponSpeed = "Medium";
 baseValue = 200;
 
-projectileSpeed = 25;
+projectileSpeed = 20;
 isTwoHanded = true;
 weight = 3;
 staggerDuration = [10];

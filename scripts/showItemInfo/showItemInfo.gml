@@ -320,12 +320,7 @@ else if item.type == ItemTypes.Other {
 			}
 		}
 		
-		var minValue = 0; var maxValue = 0; var shieldValue = 0; var headValue = 0;
-		switch item.condition {
-			case CRACKED: {
-				minValue = 2; maxValue = 4; shieldValue = 5; headValue = 3; break;
-			}
-		}
+		var minValue = item.gemWeaponBonusMin; var maxValue = item.gemWeaponBonusMax; var shieldValue = item.gemShieldBonus; var headValue = item.gemHatBonus;
 		
 		draw_text(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,"Insert into socketed item at fountain");
 		

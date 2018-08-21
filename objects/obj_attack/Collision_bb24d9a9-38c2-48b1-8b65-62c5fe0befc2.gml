@@ -1,3 +1,11 @@
+with obj_enemy_parent {
+	if layer == global.player.layer && fallFrame >= fallTotalFrames {
+		if place_meeting_layer(x,y,other.id) && state != CombatantStates.Dodging {
+			exit;
+		}
+	}
+}
+
 if object_is_ancestor(other.object_index,obj_combatant_parent) {
 	exit;
 }
@@ -6,9 +14,11 @@ if object_is_ancestor(other.object_index, obj_npc_parent) && isRanged {
 	instance_destroy(id); exit;
 }
 
-if (other.layer != layer && abs(abs(other.depth)-abs(depth)) > 5) {
+if global.player.layer == layer && (other.layer != layer && abs(abs(other.depth)-abs(depth)) > 5) {
 	exit;
 }
+
+
 
 var x1 = x + lengthdir_x(100,owner.facingDirection);
 var y1 = y + lengthdir_y(100,owner.facingDirection);
@@ -48,6 +58,7 @@ if isMelee && hitsWallFirst && !object_is_ancestor(other.object_index,obj_npc_pa
 		global.x1 = __x;
 		global.y1 = __y;
 		global.particleDirection = facingDirection;
+		global.hitParticlesLayer = layer;
 		instance_create_depth(0,0,1,obj_hit_particles);
 		if !isSpell {
 			// play wall hit sound, dependent on type of material wall is
@@ -74,6 +85,7 @@ if isRanged && !hasSetAlarm {
 	global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
 	global.y1 = bbox_bottom;
 	global.particleDirection = facingDirection;
+	global.hitParticlesLayer = layer;
 	instance_create_depth(0,0,1,obj_hit_particles);
 	alarm[0] = 15;
 	visible = 0;
@@ -102,6 +114,7 @@ if isSpell && !hasSetAlarm {
 	global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
 	global.y1 = bbox_bottom;
 	global.particleDirection = facingDirection;
+	global.hitParticlesLayer = layer;
 	instance_create_depth(0,0,1,obj_hit_particles);
 	//instance_destroy(id,true);
 	alarm[0] = 15;

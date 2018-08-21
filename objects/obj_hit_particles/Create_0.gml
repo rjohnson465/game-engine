@@ -1,3 +1,4 @@
+layer = global.hitParticlesLayer;
 type = global.damageType;
 if type == SLASH || type == PIERCE || type == CRUSH {
 	type = PHYSICAL;
@@ -16,6 +17,8 @@ particle = noone;
 particle2 = noone;
 particle3 = noone;
 particle4 = noone;
+
+if layer != global.player.layer instance_destroy(id,1);
 
 switch type {
 	case PHYSICAL: {

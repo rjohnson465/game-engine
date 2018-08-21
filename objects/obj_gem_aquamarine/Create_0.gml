@@ -5,6 +5,6 @@
 event_inherited();
 
 subType = GemTypes.Aquamarine;
-name = stringCapitalize(condition)+" Aquamarine";
-
+var condi = condition == NORMAL ? "" : condition + " ";
+name = stringCapitalize(condi)+"Aquamarine";
 itemSprite = asset_get_index("spr_gem_aquamarine_"+condition);

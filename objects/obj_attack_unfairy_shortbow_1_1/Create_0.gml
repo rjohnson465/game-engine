@@ -6,7 +6,7 @@ limbKey = "r";
 ds_map_add(damages,PIERCE,[10,20]);
 isRanged = true;
 staminaCost = 5;
-projectileSpeed = 25;
+projectileSpeed = 15;
 staggerDuration = 8;
 
 prepSound = snd_bow_prep;

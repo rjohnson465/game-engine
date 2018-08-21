@@ -1,4 +1,8 @@
 if global.inventory.isConfirmingDestroyItem exit;
+var _p1 = ds_list_find_index(global.player.inventory,id);
+var _p2 = !global.ui.isShowingMenus;
+var _p3 = global.ui.currentMenu != INVENTORY;
+if ds_list_find_index(global.player.inventory,id) != -1 && (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) exit;
 if x1 > 0 audio_play_sound(snd_ui_option_change,1,0);
 var itemIsBeingLooted = false;
 var dropItem = noone; var itemPos = -1;

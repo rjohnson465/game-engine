@@ -4,7 +4,7 @@ weaponType = PISTOL;
 
 weaponSpeed = "Medium";
 
-projectileSpeed = 32;
+projectileSpeed = 25;
 isTwoHanded = false;
 isRanged = true;
 staggerDuration = [10];

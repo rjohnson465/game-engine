@@ -198,6 +198,7 @@ if	state != CombatantStates.Dodging &&
 				x = global.x1;
 				y = global.y1;
 				hasSetAlarm = true;
+				audio_stop_sound(sound);
 			}
 		} else {
 			instance_destroy(attackObj,true);

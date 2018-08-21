@@ -1,6 +1,8 @@
 if (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) && !global.isTrading exit;
 if isUsable && !global.isTrading {
 	useItem(id);
+} else {
+	alert(name + " is not usable", c_yellow);
 }
 
 if global.isTrading && isSellable {

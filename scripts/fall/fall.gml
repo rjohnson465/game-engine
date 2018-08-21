@@ -66,6 +66,7 @@ if fallFrame == .5*fallTotalFrames {
 		global.x1 = x;
 		global.y1 = y;
 		global.particleDirection = direction;
+		global.hitParticlesLayer = layer;
 		instance_create_depth(0,0,1,obj_hit_particles);
 		var fallDamage = 10*floorsFallen;
 		if fallDamage > hp {

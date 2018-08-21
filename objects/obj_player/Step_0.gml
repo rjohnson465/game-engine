@@ -128,6 +128,7 @@ if (xp + xpTemp) >= xpToNextLevel {
 	//alert("You have " + string(skillPoints) + " skill " + s + " to spend",c_lime,90);
 	
 	global.damageType = "LevelUp"; global.x1 = x; global.y1 = y; global.particleDirection = noone;
+	global.hitParticlesLayer = layer;
 	instance_create_depth(x,y,1,obj_hit_particles);
 	room_speed = 15;
 	alarm[0] = 15;

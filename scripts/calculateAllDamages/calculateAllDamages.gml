@@ -98,6 +98,7 @@ for (var i = 0; i < size; i++) {
 		global.x1 = __x;
 		global.y1 = __y;
 		global.particleDirection = noone;
+		global.hitParticlesLayer = layer;
 		//if (!(currentDamageType == PHYSICAL && isShielding)) {
 		if (!(isShielding && scr_is_facing(assailant,id))) {
 			instance_create_depth(0,0,1,obj_hit_particles);

@@ -5,5 +5,6 @@
 event_inherited();
 
 subType = GemTypes.Ruby;
-name = stringCapitalize(condition) + " Ruby";
+var condi = condition == NORMAL ? "" : condition+" ";
+name = stringCapitalize(condi) + "Ruby";
 itemSprite = asset_get_index("spr_gem_ruby_"+condition);

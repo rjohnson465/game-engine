@@ -59,14 +59,7 @@ switch item.type {
 		// for weapons, gems increase damage
 		if item.subType != HandItemTypes.Shield {
 			
-			var damageMin = 0; var damageMax = 0;
-			switch gem.condition {
-				case CRACKED: {
-					damageMin = 2;
-					damageMax = 4;
-					break;
-				}
-			}
+			var damageMin = gem.gemWeaponBonusMin; var damageMax = gem.gemWeaponBonusMax;
 			if isRemoving {
 				damageMin = damageMin * -1;
 				damageMax = damageMax * -1;
@@ -105,13 +98,7 @@ switch item.type {
 		// Case: Shields
 		else {
 			
-			var absorptionBoost = 0;
-			switch gem.condition {
-				case CRACKED: {
-					absorptionBoost = 5;
-					break;
-				}
-			}
+			var absorptionBoost = gem.gemShieldBonus;
 			if isRemoving absorptionBoost = absorptionBoost * -1;
 			var oldAbs = ds_map_find_value(item.defenses,gemElement);
 			var newAbs = oldAbs + absorptionBoost;
@@ -135,12 +122,7 @@ switch item.type {
 	}
 	case ItemTypes.Head: {
 		
-		var defOrResBoost = 0;
-		switch gem.condition {
-			case CRACKED: {
-				defOrResBoost = 3;
-			}
-		}
+		var defOrResBoost = gem.gemHatBonus;
 		if isRemoving defOrResBoost = defOrResBoost * -1;
 		var oldDef = ds_map_find_value(item.defenses,gemElement);
 		var newDef = oldDef + defOrResBoost;

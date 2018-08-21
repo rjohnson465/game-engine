@@ -5,5 +5,6 @@
 event_inherited();
 
 subType = GemTypes.Lapis;
-name = stringCapitalize(condition) + " Lapis";
+var condi = condition == NORMAL ? "" : condition + " ";
+name = stringCapitalize(condi) + "Lapis";
 itemSprite = asset_get_index("spr_gem_lapis_"+condition);
