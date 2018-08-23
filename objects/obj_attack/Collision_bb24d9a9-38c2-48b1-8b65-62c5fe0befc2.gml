@@ -34,15 +34,19 @@ if possibleSolids != noone {
 		}
 	}
 }
-if firstObj == noone {
-	var a = 3;
-}
+
 if possibleSolids != noone && ds_exists(possibleSolids, ds_type_list) {
 	ds_list_destroy(possibleSolids); possibleSolids = -1;
 }
 
+var cpexists = false; 
+with obj_solid_environment {
+	cpexists = script_execute(scr_collision_point,id,other.id)
+}
+var _dist = distance_to_object(other);
+
 var hitsWallFirst = firstObj == other.id;
-if isMelee && hitsWallFirst && !object_is_ancestor(other.object_index,obj_npc_parent) {
+if isMelee && ((hitsWallFirst && !object_is_ancestor(other.object_index,obj_npc_parent)) /*|| cpexists || _dist == 0*/) {
 	if owner.type == CombatantTypes.Player {
 		if weapon.weaponType != UNARMED {
 			damageItem(weapon,1);

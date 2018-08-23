@@ -22,3 +22,11 @@ var pdir = point_direction(x,y,pointX,pointY);
 var dif = angle_difference(pdir, facingDirection);
 facingDirection += median(-turnSpeed, dif, turnSpeed);
 facingDirection = (facingDirection+360)%360;
+if id != global.player && !isFloating {
+	var turnDelta = abs(previousFacingDirection-facingDirection);
+	turningSpeedModifier = 1-(turnDelta/turnSpeed);
+	functionalSpeed = normalSpeed*slowedSpeedModifier*turningSpeedModifier;
+	
+	if (functionalSpeed > normalSpeed || functionalSpeed < 0) functionalSpeed = normalSpeed;
+	//show_debug_message(functionalSpeed);
+}

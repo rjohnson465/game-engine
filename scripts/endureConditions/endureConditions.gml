@@ -13,13 +13,13 @@ for (var i = 0; i < size; i++) {
 	audio_emitter_position(emitter,x,y,depth);
 	audio_emitter_gain(emitter,conditionPercent/100);
 	
-	if id != global.player && conditionLevel > 0 {
+	/*if id != global.player && conditionLevel > 0 {
 		show_debug_message("emitter pos: " + string(audio_emitter_get_x(emitter)) + ", " + string(audio_emitter_get_y(emitter)));
 		var ld = audio_listener_get_data(0); var lx = ds_map_find_value(ld,"x"); var ly = ds_map_find_value(ld,"y");
 		show_debug_message("listener pos: " + string(lx) + "," + string(ly));
 		var distanceToListener = point_distance(x,y,lx,ly);
 		show_debug_message("distance to listener: " + string(distanceToListener));
-	}
+	}*/
 	
 	// particle effects for conditions
 	if conditionLevel > 0 && currentCondition != PHYSICAL {
@@ -42,7 +42,8 @@ for (var i = 0; i < size; i++) {
 	if conditionLevel <= 0 {
 		switch currentCondition {
 			case ICE: {
-				functionalSpeed = normalSpeed;
+				//functionalSpeed = normalSpeed;
+				slowedSpeedModifier = 1;
 			}
 		}
 	}
@@ -51,7 +52,8 @@ for (var i = 0; i < size; i++) {
 			case ICE: {
 				// slowed
 				if conditionLevel == 1 {
-					functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
+					//functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
+					slowedSpeedModifier = (1-(conditionPercent/100));
 				}
 				// frozen
 				else if conditionLevel == 2{
@@ -71,6 +73,7 @@ for (var i = 0; i < size; i++) {
 				if burnFrame >= burnFrames {
 
 					var originalBurnDamage = burnDamage;
+					if burnDamage <= 1 burnDamage = 1;
 					if burnDamage > hp {
 						burnDamage = hp;
 					}
@@ -107,6 +110,7 @@ for (var i = 0; i < size; i++) {
 					if poisonDamage > hp {
 						poisonDamage = hp;
 					}
+					if poisonDamage <= 1 poisonDamage = 1;
 					hp -= poisonDamage;
 
 					global.damageAmount = poisonDamage;
@@ -118,8 +122,8 @@ for (var i = 0; i < size; i++) {
 					// TODO math major DEVIN
 					poisonDamage = originalPoisonDamage;
 					poisonDamage = defense >= 0 ? 
-						poisonDamage + ((.25*poisonDamage)-((.25*poisonDamage)*(defense/100))) : 
-						poisonDamage + ((.25*poisonDamage)+((.25*poisonDamage)*(defense/100)));
+						poisonDamage + ((.1*poisonDamage)-((.1*poisonDamage)*(defense/100))) : 
+						poisonDamage + ((.1*poisonDamage)+((.1*poisonDamage)*(defense/100)));
 					poisonFrame = 0;
 				}
 				poisonFrame++;

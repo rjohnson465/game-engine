@@ -22,6 +22,7 @@ facingDirection = 0;
 spriteType = "player";
 spriteString = "player";
 isFairy = true;
+isFloating = true;
 type = CombatantTypes.Player;
 
 // gui

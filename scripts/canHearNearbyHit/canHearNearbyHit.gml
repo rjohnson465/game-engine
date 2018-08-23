@@ -1,10 +1,7 @@
 /// canHearNearbyHit() 
 /// returns the first heard hit particles if the enemy can hear a nearby hit; else return noone
 /// must be called by obj_combatant child
-
-
 with obj_hit_particles {
-	show_debug_message(id);
 	/// does not pay attention to level up particles or IceDeath particles
 	if type == "LevelUp" continue;
 	var distToHit = point_distance(other.x,other.y,x1,y1);

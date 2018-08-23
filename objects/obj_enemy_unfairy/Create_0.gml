@@ -4,6 +4,7 @@ description = "Magic Resistant";
 spriteName = "unfairy";
 spriteString = "enemy_unfairy";
 isFairy = true;
+isFloating = true;
 
 functionalSpeed = 5;
 normalSpeed = 5;

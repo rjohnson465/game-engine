@@ -47,7 +47,9 @@ floorsFallen = 0;
 functionalSpeed = 5;
 normalSpeed = 5;
 facingDirection = 0;
+previousFacingDirection = 0;
 turnSpeed = 45; // how many degrees a combatant may turn per step to face their target
+turningSpeedModifier = 1; // less than 1 when turning a lot
 // player | enemy | ally
 spriteType = ""; 
 // i.e. "skeleton" | "dummy"
@@ -264,6 +266,7 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 }
 
 isSlowed = false;
+slowedSpeedModifier = 1; // less than 1 when slowed
 isFrozen = false;
 isPoisoned = false; 
 isBurning = false;
@@ -326,7 +329,7 @@ damagesAttacksFactor = 1; // 1x normal damage to weapons that strike this combat
 
 isBeingHit = false;
 
-sightAngleDelta = 80; // combatant can see +/- this much in his field of view
+sightAngleDelta = 100; // combatant can see +/- this much in his field of view
 hearingDistance = 200; // how far away some hit particles must be for enemy to investigate
 investigatingFramesTotal = 90;
 investigatingFrame = 0;

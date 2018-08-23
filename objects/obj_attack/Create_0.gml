@@ -266,7 +266,7 @@ else {
 		sprStr = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain);
 	}
 
-	// if this is a left hand attack, flip yscale TODO
+	// if this is a left hand attack, flip yscale 
 	if !(limbKey == "r" || (weapon.isRanged && weapon.isTwoHanded)) {
 		image_yscale = -1;
 	}
@@ -297,14 +297,16 @@ else {
 		owner.stupidityFrame = 0;
 
 		// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
-		var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
-		ds_map_replace(owner.recoveringLimbs,limbKey,attackInChain);
+		//var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
+		//ds_map_replace(owner.recoveringLimbs,limbKey,attackInChain);
 		
 		// set recoverFrames to -1
-		ds_map_replace(owner.recoverFrames,limbKey,-1);
+		//ds_map_replace(owner.recoverFrames,limbKey,-1);
 		
 		// remove limbKey from attackingLimbs map
-		ds_map_delete(owner.attackingLimbs,limbKey);
+		//ds_map_delete(owner.attackingLimbs,limbKey);
+		ds_map_replace(owner.attackFrames,limbKey,0);
+		alarm[1] = 1;
 		
 		owner.prevAttackHand = limbKey;
 	} else {

@@ -10,6 +10,7 @@ if !isBeingHit {
 // draw stagger sprite if staggering
 if state == CombatantStates.Staggering {
 	if isDying {
+		isSlowed = false; isFrozen = false;
 		alpha = (-dyingFrame/dyingTotalFrames)+1;
 	}
 	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,1,1,facingDirection,c_white,alpha);

@@ -1,3 +1,4 @@
+
 audio_listener_position(x, y, depth);
 if room == game_menu {
 	exit;
