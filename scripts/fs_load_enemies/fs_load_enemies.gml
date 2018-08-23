@@ -30,6 +30,7 @@ for (var i = 0; i < ds_map_size(sd_enemies); i++) {
 	enemyDataObj.currentX = ds_map_find_value(sd_enemy,"currentX");
 	enemyDataObj.currentY = ds_map_find_value(sd_enemy,"currentY");
 	enemyDataObj.currentZ = ds_map_find_value(sd_enemy,"currentZ");
+	enemyDataObj.facingDirection = ds_map_find_value(sd_enemy,"facingDirection");
 	
 	with obj_enemy_parent {
 	if key == cv {

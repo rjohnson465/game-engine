@@ -22,10 +22,9 @@ if justRevivedAtFountain {
 		if !isRunning {
 			isRunning = true;
 			isDoneFilling = true;
-			//fountainData.isDoneFilling = true;
 			sprite_index = asset_get_index("spr_fountain_full");
 		}
-		respawnEnemies();
+		wishAtFountain(false);
 	}
 }
 

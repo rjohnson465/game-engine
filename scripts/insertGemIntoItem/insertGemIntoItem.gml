@@ -36,7 +36,7 @@ switch gem.subType {
 	case GemTypes.Aquamarine: {
 		gemElement = ICE; break;
 	}
-	case GemTypes.Topaz: {
+	case GemTypes.Amethyst: {
 		gemElement = LIGHTNING; break;
 	}
 	case GemTypes.Emerald: {

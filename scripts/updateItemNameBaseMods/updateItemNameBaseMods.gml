@@ -23,13 +23,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 			if object_is_ancestor(item.object_index, obj_shield_parent) {
 				switch currentProp {
 					case ShieldProperties.PhysicalBlockBonus: {
-						if buff < t1 {
+						if buff <= t1 {
 							p1 = "Thick";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							p1 = "Sturdy";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							p1 = "Impervious";
 						}
 						else if buff > t3 {
@@ -42,13 +42,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 						buff = buff[1];
 						switch element {
 							case MAGIC: {
-								if buff < t1 {
+								if buff <= t1 {
 									p2 = "Charmed";
 								}
-								else if buff > t1 && buff < t2 {
+								else if buff > t1 && buff <= t2 {
 									p2 = "Magical";
 								}
-								else if buff > t2 && buff < t3 {
+								else if buff > t2 && buff <= t3 {
 									p2 = "Spellbound";
 								}
 								else if buff > t3 {
@@ -57,13 +57,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 								break;
 							}
 							case FIRE: {
-								if buff < t1 {
+								if buff <= t1 {
 									p2 = "Igneous";
 								}
-								else if buff > t1 && buff < t2 {
+								else if buff > t1 && buff <= t2 {
 									p2 = "Forged";
 								}
-								else if buff > t2 && buff < t3 {
+								else if buff > t2 && buff <= t3 {
 									p2 = "Smelted";
 								}
 								else if buff > t3 {
@@ -72,13 +72,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 								break;
 							}
 							case ICE: {
-								if buff < t1 {
+								if buff <= t1 {
 									p2 = "Cold";
 								}
-								else if buff > t1 && buff < t2 {
+								else if buff > t1 && buff <= t2 {
 									p2 = "Snowy";
 								}
-								else if buff > t2 && buff < t3 {
+								else if buff > t2 && buff <= t3 {
 									p2 = "Icy";
 								}
 								else if buff > t3 {
@@ -87,13 +87,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 								break;
 							}
 							case POISON: {
-								if buff < t1 {
+								if buff <= t1 {
 									p2 = "Noxious";
 								}
-								else if buff > t1 && buff < t2 {
+								else if buff > t1 && buff <= t2 {
 									p2 = "Rotting";
 								}
-								else if buff > t2 && buff < t3 {
+								else if buff > t2 && buff <= t3 {
 									p2 = "Vile";
 								}
 								else if buff > t3 {
@@ -102,13 +102,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 								break;
 							}
 							case LIGHTNING: {
-								if buff < t1 {
+								if buff <= t1 {
 									p2 = "Crackling";
 								}
-								else if buff > t1 && buff < t2 {
+								else if buff > t1 && buff <= t2 {
 									p2 = "Shocking";
 								}
-								else if buff > t2 && buff < t3 {
+								else if buff > t2 && buff <= t3 {
 									p2 = "Jolting";
 								}
 								else if buff > t3 {
@@ -120,13 +120,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 						break;
 					}
 					case ShieldProperties.DurabilityBonus: {
-						if buff < t1 {
+						if buff <= t1 {
 							s1 = "Durable";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							s1 = "Braced";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							s1 = "Enforced";
 						}
 						else if buff > t3 {
@@ -142,13 +142,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 			else {
 				switch currentProp {
 					case WeaponProperties.PhysicalDamageBonus: {
-						if buff < t1 {
+						if buff <= t1 {
 							p1 = "Fine";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							p1 = "Polished";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							p1 = "Gleaming";
 						}
 						else if buff > t3 {
@@ -161,13 +161,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 						buff = buff[1];
 						switch element {
 							case MAGIC: {
-								if buff < t1 {
+								if buff <= t1 {
 									p2 = "Charmed";
 								}
-								else if buff > t1 && buff < t2 {
+								else if buff > t1 && buff <= t2 {
 									p2 = "Magical";
 								}
-								else if buff > t2 && buff < t3 {
+								else if buff > t2 && buff <= t3 {
 									p2 = "Spellbound";
 								}
 								else if buff > t3 {
@@ -176,13 +176,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 								break;
 							}
 							case FIRE: {
-								if buff < t1 {
+								if buff <= t1 {
 									p2 = "Igneous";
 								}
-								else if buff > t1 && buff < t2 {
+								else if buff > t1 && buff <= t2 {
 									p2 = "Forged";
 								}
-								else if buff > t2 && buff < t3 {
+								else if buff > t2 && buff <= t3 {
 									p2 = "Smelted";
 								}
 								else if buff > t3 {
@@ -191,13 +191,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 								break;
 							}
 							case ICE: {
-								if buff < t1 {
+								if buff <= t1 {
 									p2 = "Cold";
 								}
-								else if buff > t1 && buff < t2 {
+								else if buff > t1 && buff <= t2 {
 									p2 = "Snowy";
 								}
-								else if buff > t2 && buff < t3 {
+								else if buff > t2 && buff <= t3 {
 									p2 = "Icy";
 								}
 								else if buff > t3 {
@@ -206,13 +206,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 								break;
 							}
 							case POISON: {
-								if buff < t1 {
+								if buff <= t1 {
 									p2 = "Noxious";
 								}
-								else if buff > t1 && buff < t2 {
+								else if buff > t1 && buff <= t2 {
 									p2 = "Rotting";
 								}
-								else if buff > t2 && buff < t3 {
+								else if buff > t2 && buff <= t3 {
 									p2 = "Vile";
 								}
 								else if buff > t3 {
@@ -221,13 +221,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 								break;
 							}
 							case LIGHTNING: {
-								if buff < t1 {
+								if buff <= t1 {
 									p2 = "Crackling";
 								}
-								else if buff > t1 && buff < t2 {
+								else if buff > t1 && buff <= t2 {
 									p2 = "Shocking";
 								}
-								else if buff > t2 && buff < t3 {
+								else if buff > t2 && buff <= t3 {
 									p2 = "Jolting";
 								}
 								else if buff > t3 {
@@ -240,26 +240,26 @@ for (var i = 0; i < ds_map_size(props); i++) {
 					}
 					case WeaponProperties.DurabilityAmmoBonus: {
 						if item.isRanged {
-							if buff < t1 {
+							if buff <= t1 {
 								s1 = "Able";
 							}
-							else if buff > t1 && buff < t2 {
+							else if buff > t1 && buff <= t2 {
 								s1 = "Prepared";
 							}
-							else if buff > t2 && buff < t3 {
+							else if buff > t2 && buff <= t3 {
 								s1 = "Primed";
 							}
 							else if buff > t3 {
 								s1 = "Unlimited";
 							}
 						} else {
-							if buff < t1 {
+							if buff <= t1 {
 								s1 = "Durable";
 							}
-							else if buff > t1 && buff < t2 {
+							else if buff > t1 && buff <= t2 {
 								s1 = "Braced";
 							}
-							else if buff > t2 && buff < t3 {
+							else if buff > t2 && buff <= t3 {
 								s1 = "Enforced";
 							}
 							else if buff > t3 {
@@ -269,13 +269,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 						break;
 					}
 					case WeaponProperties.ChargesBonus: {
-						if buff < t1 {
+						if buff <= t1 {
 							s2 = "Sorceror";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							s2 = "Wizard";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							s2 = "Warlock";
 						}
 						else if buff > t3 {
@@ -305,13 +305,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 			
 				switch greatestType {
 					case SLASH: {
-						if buff < t1 {
+						if buff <= t1 {
 							p1 = "Squire's";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							p1 = "Knight's";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							p1 = "Lord's";
 						}
 						else if buff > t3 {
@@ -320,13 +320,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 						break;
 					}
 					case CRUSH: {
-						if buff < t1 {
+						if buff <= t1 {
 							p1 = "Savage's";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							p1 = "Brute's";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							p1 = "Ogre's";
 						}
 						else if buff > t3 {
@@ -335,13 +335,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 						break;
 					}
 					case PIERCE: {
-						if buff < t1 {
+						if buff <= t1 {
 							p1 = "Scoundrel's";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							p1 = "Fencer's";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							p1 = "Duelist's";
 						}
 						else if buff > t3 {
@@ -357,13 +357,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 				buff = buff[1];
 				switch element {
 					case MAGIC: {
-						if buff < t1 {
+						if buff <= t1 {
 							p2 = "Charmed";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							p2 = "Magical";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							p2 = "Spellbound";
 						}
 						else if buff > t3 {
@@ -372,13 +372,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 						break;
 					}
 					case FIRE: {
-						if buff < t1 {
+						if buff <= t1 {
 							p2 = "Igneous";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							p2 = "Forged";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							p2 = "Smelted";
 						}
 						else if buff > t3 {
@@ -387,13 +387,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 						break;
 					}
 					case ICE: {
-						if buff < t1 {
+						if buff <= t1 {
 							p2 = "Cold";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							p2 = "Snowy";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							p2 = "Icy";
 						}
 						else if buff > t3 {
@@ -402,13 +402,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 						break;
 					}
 					case POISON: {
-						if buff < t1 {
+						if buff <= t1 {
 							p2 = "Noxious";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							p2 = "Rotting";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							p2 = "Vile";
 						}
 						else if buff > t3 {
@@ -417,13 +417,13 @@ for (var i = 0; i < ds_map_size(props); i++) {
 						break;
 					}
 					case LIGHTNING: {
-						if buff < t1 {
+						if buff <= t1 {
 							p2 = "Crackling";
 						}
-						else if buff > t1 && buff < t2 {
+						else if buff > t1 && buff <= t2 {
 							p2 = "Shocking";
 						}
-						else if buff > t2 && buff < t3 {
+						else if buff > t2 && buff <= t3 {
 							p2 = "Jolting";
 						}
 						else if buff > t3 {

@@ -324,5 +324,10 @@ damagesAttacksFactor = 1; // 1x normal damage to weapons that strike this combat
 
 isBeingHit = false;
 
+sightAngleDelta = 80; // combatant can see +/- this much in his field of view
+hearingDistance = 200; // how far away some hit particles must be for enemy to investigate
+investigatingFramesTotal = 90;
+investigatingFrame = 0;
+
 soundsWhenDodge = [snd_dodge1];
 soundsWhenHit = [snd_hit1]; // array of potential "hit" sounds (not "ahhs" or dialogue, just like metal in flesh, metal on metal...)

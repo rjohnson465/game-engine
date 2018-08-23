@@ -33,6 +33,7 @@ if hp < 1 && isAlive && !isDying {
 		audio_emitter_gain(emitter,0);
 		currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
 	}
+	endureConditions(); drainConditions();
 	
 	var xpAmount = round(xpReward*(global.player.xpMultiplier/100));
 	gainXp(xpAmount);

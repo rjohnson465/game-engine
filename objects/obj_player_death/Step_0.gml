@@ -97,9 +97,7 @@ if instance_exists(fade) {
 					lastFountain = nearestFountain;
 				}
 				
-				with lastFountain {
-					wishAtFountain(false);
-				}
+				
 
 				layerToMoveTo = lastFountainZ;
 				justRevivedAtFountain = true;
@@ -144,8 +142,24 @@ if instance_exists(fade) {
 				attackNumberInChain = noone;
 				isShielding = false;
 			}
+			//other.fade.frame++;
+		}
+		
+		
+	} 
+	if fade.frame == (.5*fade.fadeDuration + 1) {
+		if selectedOption == ReviveOptions.Fountain {
+			with p {
+				if !instance_exists(lastFountain) {
+					lasFountain = findPersistentRoomElement(obj_fountain, lastFountainX, lastFountainY);
+				}
+				
+				with lastFountain {
+					wishAtFountain(false);
+				}
+			}
 		}
 		
 		instance_destroy(id,true);
-	} 
+	}
 }

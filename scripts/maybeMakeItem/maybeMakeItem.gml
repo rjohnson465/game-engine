@@ -93,7 +93,7 @@ if item.object_index == obj_gem_parent {
 	}
 	var lowestSeen = 100; var gemType = noone;
 	var currentItemType = ds_map_find_first(gemTypeChanceMap);
-	var allGemTypes = [obj_gem_hematite, obj_gem_lapis, obj_gem_ruby, obj_gem_aquamarine, obj_gem_emerald, obj_gem_topaz];
+	var allGemTypes = [obj_gem_hematite, obj_gem_lapis, obj_gem_ruby, obj_gem_aquamarine, obj_gem_emerald, obj_gem_amethyst];
 	for (var i = 0; i < array_length_1d(allGemTypes); i++) {
 		var gt = allGemTypes[i];
 		var chanceRange = ds_map_find_value(gemTypeChanceMap,gt);

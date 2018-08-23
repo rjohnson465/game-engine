@@ -9,7 +9,7 @@ enum GemTypes {
 	Emerald,
 	Aquamarine,
 	Lapis,
-	Topaz,
+	Amethyst,
 	Hematite	
 }
 

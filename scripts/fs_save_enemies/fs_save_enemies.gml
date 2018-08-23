@@ -14,6 +14,7 @@ with obj_enemy_data {
 	ds_map_replace(sd_enemy,"currentX",currentX);
 	ds_map_replace(sd_enemy,"currentY",currentY);
 	ds_map_replace(sd_enemy,"currentZ",currentZ);
+	ds_map_replace(sd_enemy,"facingDirection",facingDirection);
 	
 	var key = fs_generate_key(enemy);
 

@@ -1,0 +1,1 @@
+owner = global.owner;

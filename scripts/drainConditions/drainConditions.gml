@@ -2,7 +2,7 @@
 // TODO Devin fix calculations for draining
 var currentCondition = ds_map_find_first(conditionPercentages);
 var size = ds_map_size(conditionPercentages);
-for (var i = 0; i < size; i++){
+for (var i = 0; i < size; i++) {
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
 	
 	// if condition is ice and it just dropped below 85 (coming from condition level 2, frozen), reset to condition level 1 (slow)
@@ -51,8 +51,10 @@ for (var i = 0; i < size; i++){
 					// lower all defenses by a static (ha) amount
 					var currentDefense = ds_map_find_first(defenses);
 					for (var i = 0; i < ds_map_size(defenses); i++) {
-						var defense = ds_map_find_value(defenses,currentDefense);
-						ds_map_replace(defenses,currentDefense,defense-25);
+						if arrayIncludes(global.ALL_ELEMENTS,currentDefense) {
+							var defense = ds_map_find_value(defenses,currentDefense);
+							ds_map_replace(defenses,currentDefense,defense-25);
+						}
 						currentDefense = ds_map_find_next(defenses,currentDefense);
 					}
 				}
@@ -70,6 +72,9 @@ for (var i = 0; i < size; i++){
 		decrementAmount = defense > 0 ? decrementAmount + 1-(defense/100) : decrementAmount - 1-(defense/100);
 		if decrementAmount < 0 {
 			decrementAmount = .2;
+		}
+		if currentCondition == ICE {
+			decrementAmount *= 1.5; // devin is a psuy and wants ice to last less long
 		}
 		conditionPercent -= decrementAmount;
 		ds_map_replace(conditionPercentages,currentCondition,conditionPercent);
@@ -106,8 +111,10 @@ for (var i = 0; i < size; i++){
 					// reset all defenses to normal values
 					var currentDefense = ds_map_find_first(defenses);
 					for (var i = 0; i < ds_map_size(defenses); i++) {
-						var defense = ds_map_find_value(defenses,currentDefense);
-						ds_map_replace(defenses,currentDefense,defense+25);
+						if arrayIncludes(global.ALL_ELEMENTS,currentDefense) {
+							var defense = ds_map_find_value(defenses,currentDefense);
+							ds_map_replace(defenses,currentDefense,defense+25);
+						}
 						currentDefense = ds_map_find_next(defenses,currentDefense);
 					}
 				}

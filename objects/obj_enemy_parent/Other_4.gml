@@ -28,5 +28,6 @@ with obj_enemy_data {
 		other.tempPostX = tempPostX;
 		other.tempPostY = tempPostY;
 		other.enemyData = id;
+		other.facingDirection = facingDirection;
 	}
 }

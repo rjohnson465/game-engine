@@ -36,8 +36,10 @@ switch type {
 					selectedEquipmentSlot = id;
 				}
 			}
-			audio_play_sound(item.soundDrop,1,0);
-			equipItemVerbose(getItemAtSelectorPosition(id),selectedEquipmentSlot);
+			if item != noone {
+				audio_play_sound(item.soundDrop,1,0);
+				equipItemVerbose(getItemAtSelectorPosition(id),selectedEquipmentSlot);
+			}
 		
 		}
 		// equipSelector is in equipped items
@@ -48,9 +50,11 @@ switch type {
 				}
 			}
 			item = getItemAtSelectorPosition(moveSelector);
-			audio_play_sound(item.soundDrop,1,0);
-			equipItemVerbose(getItemAtSelectorPosition(moveSelector),selectedEquipmentSlot);
-			acceptableEquipmentSlots = [];
+			if item != noone {
+				audio_play_sound(item.soundDrop,1,0);
+				equipItemVerbose(getItemAtSelectorPosition(moveSelector),selectedEquipmentSlot);
+				acceptableEquipmentSlots = [];
+			}
 		}
 		moveSelector.isActive = true;
 		equipSelector.isActive = false;

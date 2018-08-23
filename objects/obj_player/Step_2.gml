@@ -37,6 +37,7 @@ if hp < 1 && isAlive && !isDying {
 		ds_map_replace(conditionLevels,currentCondition,0);
 		currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
 	}
+	endureConditions(); drainConditions();
 	global.ui.isShowingMenus = false;
 	lockOnTarget = noone;
 }

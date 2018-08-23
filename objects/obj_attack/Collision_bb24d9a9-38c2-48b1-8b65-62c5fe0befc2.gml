@@ -34,6 +34,9 @@ if possibleSolids != noone {
 		}
 	}
 }
+if firstObj == noone {
+	var a = 3;
+}
 if possibleSolids != noone && ds_exists(possibleSolids, ds_type_list) {
 	ds_list_destroy(possibleSolids); possibleSolids = -1;
 }

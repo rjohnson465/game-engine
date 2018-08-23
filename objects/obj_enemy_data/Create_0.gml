@@ -15,6 +15,7 @@ if global.enemy != noone {
 	hp = enemy.hp;
 	maxHp = enemy.maxHp;
 	isAlive = enemy.isAlive;
+	facingDirection = enemy.facingDirection;
 } 
 /*
 else {

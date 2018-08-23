@@ -1,6 +1,7 @@
 if layer == global.player.layer && fallFrame >= fallTotalFrames {
 	with obj_attack {
-		if place_meeting_layer(x,y,other.id) || (isRanged && distance_to_object(other.id) < 5) {
+		var _dist = distance_to_object(other.id);
+		if place_meeting_layer(x,y,other.id) || /*_dist == 0 ||*/ (isRanged && distance_to_object(other.id) < 5) {
 			with other {
 				calculateDamage();
 			}
@@ -8,6 +9,7 @@ if layer == global.player.layer && fallFrame >= fallTotalFrames {
 	}
 }
 
+/*
 // functional speed is a function of the direction we're moving to 
 if instance_exists(lockOnTarget) && lockOnTarget != noone {
 	var dirToTarget = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);

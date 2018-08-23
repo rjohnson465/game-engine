@@ -11,7 +11,7 @@ var socketsNumChanceMap = ds_map_create();
 // The gems to insert into sockets
 var gemNumChanceMap = ds_map_create();
 var gemConditionChanceMap = ds_map_create();
-var GEMS = [obj_gem_aquamarine,obj_gem_hematite,obj_gem_topaz,obj_gem_emerald,obj_gem_lapis,obj_gem_ruby];
+var GEMS = [obj_gem_aquamarine,obj_gem_hematite,obj_gem_amethyst,obj_gem_emerald,obj_gem_lapis,obj_gem_ruby];
 
 switch rarity {
 

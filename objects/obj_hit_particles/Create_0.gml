@@ -181,5 +181,7 @@ if particle {
 }
 
 if type != LIGHTNING {
-	instance_destroy(id,false);
+	//instance_destroy(id,false);
+	alarm[1] = 14;
+	part_emitter_clear(system,emitter);
 } else alarm[0] = 15;

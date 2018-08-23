@@ -2,8 +2,8 @@ var udMin = upDirectionMin;
 var udMax = upDirectionMax;
 var fu = floorUp;
 var fd = floorDown;
-if place_meeting_layer(x,y,obj_player) {
-	with obj_player {
+if place_meeting_layer(x,y,global.player) {
+	with global.player {
 		var layerName = layer_get_name(layer);
 		var layerNum = real(string_char_at(layerName, string_length(layerName)));
 		

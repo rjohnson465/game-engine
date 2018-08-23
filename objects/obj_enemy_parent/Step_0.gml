@@ -4,5 +4,6 @@ if state == CombatantStates.Moving && instance_exists(enemyData) && enemyData !=
 	enemyData.currentX = x;
 	enemyData.currentY = y;
 	enemyData.currentZ = layer;
+	enemyData.facingDirection = facingDirection;
 }
 

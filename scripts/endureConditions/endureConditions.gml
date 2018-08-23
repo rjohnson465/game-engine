@@ -63,7 +63,7 @@ for (var i = 0; i < size; i++) {
 			case FIRE: {
 				// burn damage taken every 2 seconds by default
 				// if fire defense is positive, defense% of 60 is added to burn frames
-				burnFrames = (defense >= 0) ? burnFrames + burnFrames*(defense/100) : burnFrames - burnFrames*(defense/100);
+				burnFrames = (defense >= 0) ? 30 + 30*(defense/100) : 30 - 30*(defense/100);
 				if burnFrame >= burnFrames {
 
 					var originalBurnDamage = burnDamage;
@@ -96,7 +96,7 @@ for (var i = 0; i < size; i++) {
 			case POISON: {
 				// poison damage taken every 2 seconds by default 
 				// if poison defense is poistive, defense% of 60 is added to burn frames. if less, it is subtracted
-				poisonFrames = (defense >= 0) ? poisonFrames + poisonFrames*(defense/100) : poisonFrames - poisonFrames*(defense/100);
+				poisonFrames = (defense >= 0) ? 30 + 30*(defense/100) : 30 - 30*(defense/100);
 				if poisonFrame >= poisonFrames {
 					poisonDamage = defense >= 0 ? (poisonDamage - poisonDamage*(defense/100)) : (poisonDamage + poisonDamage*(defense/100));
 					var originalPoisonDamage = poisonDamage;

@@ -197,6 +197,8 @@ addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_spear));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shuriken));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 //var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
 //addItemToInventory(baxe);
@@ -219,7 +221,7 @@ addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
 addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
 
 addItemToInventory(makeGem(obj_gem_lapis,CRACKED));
-addItemToInventory(makeGem(obj_gem_topaz,CRACKED));
+addItemToInventory(makeGem(obj_gem_amethyst,CRACKED));
 addItemToInventory(makeGem(obj_gem_emerald,CRACKED));
 addItemToInventory(makeGem(obj_gem_ruby,CRACKED));
 addItemToInventory(makeGem(obj_gem_hematite,CRACKED));

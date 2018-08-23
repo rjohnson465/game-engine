@@ -72,20 +72,29 @@ for (var i = 0; i < size; i++) {
 	// case PHYSICAL | CRUSH | SLASH | PIERCE -- damage reduction by constant value
 	if currentDamageType == PHYSICAL || currentDamageType == CRUSH || currentDamageType == PIERCE || currentDamageType == SLASH {
 		damageBase = round(damageBase*attackObj.percentCharged);
-		randomize();
-		var damageReduction = random_range(0,defense);
-		damageBase -= damageReduction;
-		if damageBase < 0 damageBase = 0;
+		if damageBase > 0 {
+			if !isShocked {
+				randomize();
+				var damageReduction = random_range(0,defense);
+				damageBase -= damageReduction;
+			} else {
+				// enhance damage by 25% if shocked
+				damageBase *= 1.25;
+			}
+			if damageBase < 0 damageBase = 0;
+		}
 	} 
 	// case MAGIC | FIRE | ICE | POISON | LIGHTNING -- damage reduction by percent
 	else {
 		// positive defense will offset x% of damageBase, negative defense increase damageBase by abs(x)%
 		damageBase = defense >= 0 ? damageBase - (defense/100)*damageBase : damageBase + abs((defense/100))*damageBase;
-		// account for charge amount (spells, mostly)
-		damageBase = round(damageBase*attackObj.percentCharged);
-		// this could happen if defense is over 100
-		if damageBase < 0 {
-			damageBase = 0;
+		if damageBase > 0 {
+			// account for charge amount (spells, mostly)
+			damageBase = round(damageBase*attackObj.percentCharged);
+			// this could happen if defense is over 100
+			if damageBase < 0 {
+				damageBase = 0;
+			}
 		}
 	}
 	ds_map_replace(damagesTaken,currentDamageType,damageBase);
@@ -118,7 +127,7 @@ for (var i = 0; i < size; i++) {
 	if damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType) {
 		randomize();
 		var top = 1000;
-		var percentChance = .1;
+		var percentChance = .15;
 		//var percentChance = 1;
 		//percentChance = 0;
 		if spell != noone && spell.name == "magicmissile" {

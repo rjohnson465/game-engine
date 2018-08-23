@@ -309,7 +309,7 @@ else if item.type == ItemTypes.Other {
 			case GemTypes.Emerald: {
 				el = POISON; damageSprite = spr_item_info_damage_poison; defenseSprite = spr_item_info_defense_poison; break;
 			}
-			case GemTypes.Topaz: {
+			case GemTypes.Amethyst: {
 				el = LIGHTNING; damageSprite = spr_item_info_damage_lightning; defenseSprite = spr_item_info_defense_lightning; break;
 			}
 			case GemTypes.Hematite: {

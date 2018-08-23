@@ -13,6 +13,7 @@ var percentCharged = ds_map_find_value(prepFrames,"l") / (ds_map_find_value(prep
 if percentCharged > .25 && RIGHTRELEASED && stamina > 0 {
 	speed = 0;
 	var attackInChain = ds_map_find_value(preparingLimbs,"l"); // pretty sure this is always gonna be 1
+	if attackInChain == undefined attackInChain = 1;
 	if percentCharged < 1 percentCharged*=.5;
 	if percentCharged < 0 percentCharged = 0;
 	global.percentCharged = percentCharged;
