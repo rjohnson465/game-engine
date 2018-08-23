@@ -15,4 +15,6 @@ ds_map_replace(shield.defenses, PIERCE, newDef);
 ds_map_replace(shield.defenses, CRUSH, newDef);
 
 adjustedBuff = newDef - currentPhysicalBlock;
+// adjustedBuff is how many effective points were added
 ds_map_replace(shield.itemPropertyModifiers, ShieldProperties.PhysicalBlockBonus, adjustedBuff);
+ds_map_replace(shield.itemPropertyModifiersPts, ShieldProperties.PhysicalBlockBonus, buff);

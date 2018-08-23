@@ -1,5 +1,5 @@
 /// getPropertyColorForBuffAmount(buff) 
-/// @param buff
+/// @param buff -- in "pts", some number 0-60
 
 var buff = argument[0];
 

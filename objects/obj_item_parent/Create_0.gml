@@ -104,11 +104,12 @@ enum HatProperties {
 // if an item has inherent base props modified, these properties hold a "property score"
 // this score represents how much the property was modified from its base value
 // the value will put the modified property in a tier of 1-3
-global.basePropModTiers = [10, 30, 30, 45, 45, 60];
+global.basePropModTiers = [10, 25, 25, 45, 45, 60];
 
 
 itemProperties = ds_map_create(); // rings -- hold additional properties
 itemPropertyModifiers = ds_map_create(); // non-rings -- holds item-specific prop mods that affect base prop vals
+itemPropertyModifiersPts = ds_map_create();
 
 hasIssuedDurabilityWarning = false;
 hasIssuedDurabilityObituary = false;
@@ -138,3 +139,5 @@ itemDropObj = noone;
 // "points" -- a standardized unit -- added to modify the item (used by Rings to assess value)
 _pts = 0;
 _ptsSpent = 0;
+
+act = 1;

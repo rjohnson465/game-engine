@@ -97,7 +97,10 @@ if item.type == ItemTypes.HandItem {
 		var durabilityString = string(item.durability) + "/" + string(item.durabilityMax);
 		draw_sprite(spr_item_info_durability,1,itemDescriptionCol1XPictures,itemDescriptionColY+80);
 		if !global.ui.isShowingExplanations {
-			var durabilityBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.DurabilityAmmoBonus);
+			var durabilityBuff = ds_map_find_value(item.itemPropertyModifiersPts, WeaponProperties.DurabilityAmmoBonus);
+			if object_is_ancestor(item.object_index,obj_shield_parent) {
+				durabilityBuff = ds_map_find_value(item.itemPropertyModifiersPts, ShieldProperties.DurabilityBonus);
+			}
 			draw_set_color(getPropertyColorForBuffAmount(durabilityBuff));
 			if item.durability == 0 draw_set_color(c_red);
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,durabilityString);
@@ -112,7 +115,7 @@ if item.type == ItemTypes.HandItem {
 		var ammoString = string(item.ammo) + "/" + string(item.ammoMax);
 		draw_sprite(spr_item_info_ammo,1,itemDescriptionCol1XPictures,itemDescriptionColY+80);
 		if !global.ui.isShowingExplanations {
-			var ammoBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.DurabilityAmmoBonus);
+			var ammoBuff = ds_map_find_value(item.itemPropertyModifiersPts, WeaponProperties.DurabilityAmmoBonus);
 			draw_set_color(getPropertyColorForBuffAmount(ammoBuff));
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+80,ammoString);
 		} else {
@@ -146,7 +149,7 @@ if item.type == ItemTypes.HandItem {
 			scale = (itemDescriptionCol1Width-21) / stringWidth;
 		}
 		if !global.ui.isShowingExplanations {
-			var physDamageBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.PhysicalDamageBonus);
+			var physDamageBuff = ds_map_find_value(item.itemPropertyModifiersPts, WeaponProperties.PhysicalDamageBonus);
 			draw_set_color(getPropertyColorForBuffAmount(physDamageBuff));
 			draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+55,physicalDamagesString,scale,scale,0);
 		} else {
@@ -159,7 +162,7 @@ if item.type == ItemTypes.HandItem {
 			var magicChargesString = string(item.charges) + "/" + string(item.chargesMax);
 			draw_sprite(spr_item_info_magic_charges,1,itemDescriptionCol1XPictures,itemDescriptionColY+105);
 			if !global.ui.isShowingExplanations {
-				var chargesBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.ChargesBonus);
+				var chargesBuff = ds_map_find_value(item.itemPropertyModifiersPts, WeaponProperties.ChargesBonus);
 				draw_set_color(getPropertyColorForBuffAmount(chargesBuff));
 				draw_text(itemDescriptionCol1XText,itemDescriptionColY+105,magicChargesString);
 			} else {
@@ -205,7 +208,7 @@ if item.type == ItemTypes.HandItem {
 					draw_set_color(c_white);
 					draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),"0");
 				} else {
-					var elDamageBuff = ds_map_find_value(item.itemPropertyModifiers, WeaponProperties.ElementalDamageBonus);
+					var elDamageBuff = ds_map_find_value(item.itemPropertyModifiersPts, WeaponProperties.ElementalDamageBonus);
 					if elDamageBuff != undefined {
 						var el = elDamageBuff[0];
 						if el == damageType {
@@ -235,7 +238,7 @@ if item.type == ItemTypes.HandItem {
 		if physBlockPercentage > 100 physBlockPercentage = 100;
 		draw_sprite(spr_item_info_defense_physical,1,itemDescriptionCol1XPictures,itemDescriptionColY+50);
 		if !global.ui.isShowingExplanations {
-			var physBuff = ds_map_find_value(item.itemPropertyModifiers, ShieldProperties.PhysicalBlockBonus);
+			var physBuff = ds_map_find_value(item.itemPropertyModifiersPts, ShieldProperties.PhysicalBlockBonus);
 			draw_set_color(getPropertyColorForBuffAmount(physBuff));
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,string(physBlockPercentage) + "%");
 		} else {
@@ -275,7 +278,7 @@ if item.type == ItemTypes.HandItem {
 			// draw damage texts in second column
 			draw_sprite(sprite,1,itemDescriptionCol2XPictures,itemDescriptionColY+((i+1)*25));
 			if !global.ui.isShowingExplanations {
-				var elBuff = ds_map_find_value(item.itemPropertyModifiers, ShieldProperties.ElementalBlockBonus);
+				var elBuff = ds_map_find_value(item.itemPropertyModifiersPts, ShieldProperties.ElementalBlockBonus);
 				if elBuff != undefined {
 					var el = elBuff[0];
 					if el == defenseType {
@@ -376,7 +379,7 @@ else if item.type == ItemTypes.Head {
 	// slash
 	draw_sprite(spr_item_info_defense_slash,1,itemDescriptionCol1XPictures,itemDescriptionColY+25);
 	if !global.ui.isShowingExplanations {
-		var slashBonus = ds_map_find_value(item.itemPropertyModifiers, HatProperties.SlashDefenseBonus);
+		var slashBonus = ds_map_find_value(item.itemPropertyModifiersPts, HatProperties.SlashDefenseBonus);
 		draw_set_color(getPropertyColorForBuffAmount(slashBonus));
 		draw_text(itemDescriptionCol1XText,itemDescriptionColY+25,"vs. Slash: "+string(ds_map_find_value(item.defenses,SLASH)));
 	} else {
@@ -386,7 +389,7 @@ else if item.type == ItemTypes.Head {
 	// crush 
 	draw_sprite(spr_item_info_defense_crush,1,itemDescriptionCol1XPictures,itemDescriptionColY+50);
 	if !global.ui.isShowingExplanations {
-		var crushBonus = ds_map_find_value(item.itemPropertyModifiers, HatProperties.CrushDefenseBonus);
+		var crushBonus = ds_map_find_value(item.itemPropertyModifiersPts, HatProperties.CrushDefenseBonus);
 		draw_set_color(getPropertyColorForBuffAmount(crushBonus));
 		draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,"vs. Crush: " + string(ds_map_find_value(item.defenses,CRUSH)));
 	} else {
@@ -396,7 +399,7 @@ else if item.type == ItemTypes.Head {
 	// pierce
 	draw_sprite(spr_item_info_defense_pierce,1,itemDescriptionCol1XPictures,itemDescriptionColY+75);
 	if !global.ui.isShowingExplanations {
-		var pierceBonus = ds_map_find_value(item.itemPropertyModifiers, HatProperties.PierceDefenseBonus);
+		var pierceBonus = ds_map_find_value(item.itemPropertyModifiersPts, HatProperties.PierceDefenseBonus);
 		draw_set_color(getPropertyColorForBuffAmount(pierceBonus));
 		draw_text(itemDescriptionCol1XText,itemDescriptionColY+75,"vs. Pierce: "+ string(ds_map_find_value(item.defenses,PIERCE)));
 	} else {
@@ -437,7 +440,7 @@ else if item.type == ItemTypes.Head {
 		}
 		draw_sprite(sprite,1,itemDescriptionCol2XPictures,itemDescriptionColY+((i+1)*25));
 		if !global.ui.isShowingExplanations {
-			var elBuff = ds_map_find_value(item.itemPropertyModifiers, HatProperties.ElementalDefenseBonus);
+			var elBuff = ds_map_find_value(item.itemPropertyModifiersPts, HatProperties.ElementalDefenseBonus);
 			if elBuff != undefined {
 				var ele = elBuff[0];
 				if ele == el {

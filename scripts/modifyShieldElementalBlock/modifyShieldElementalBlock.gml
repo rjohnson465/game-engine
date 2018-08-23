@@ -14,4 +14,6 @@ if newDef > 100 newDef = 100;
 ds_map_replace(shield.defenses, element, newDef);
 
 adjustedBuff = newDef - currentElementalBlock;
+// adjusted buff is how many effective % points we added for this elemental absorption
 ds_map_replace(shield.itemPropertyModifiers, ShieldProperties.ElementalBlockBonus, [element, adjustedBuff]);
+ds_map_replace(shield.itemPropertyModifiersPts, ShieldProperties.ElementalBlockBonus, [element, buff]);

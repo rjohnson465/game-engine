@@ -5,6 +5,7 @@
 var weapon = argument[0];
 var buff = argument[1];
 
+ds_map_replace(weapon.itemPropertyModifiersPts, WeaponProperties.PhysicalDamageBonus, buff);
 // increase by buff%
 // if buff% increase does no effective change, just add 1 to all max / min phys damages
 
@@ -26,9 +27,11 @@ for (var i = 0; i < physicalDamagesLength; i += 2) {
 			slashDamageArray[i+1] += 1;
 		}
 		// calculate adjustedBuff 
+		var totalDamageIncrease = (slashDamageArray[i+1]-d2)+(slashDamageArray[i]-d1);
 		if adjustedBuff == 0 {
-			var fraction = slashDamageArray[i+1] / d2;
-			adjustedBuff = (fraction - 1)*100;
+			//var fraction = slashDamageArray[i+1] / d2;
+			//adjustedBuff = (fraction - 1)*100;
+			adjustedBuff = totalDamageIncrease;
 		}
 
 	} else if array_length_1d(crushDamageArray) >= i && crushDamageArray[i] != 0 {
@@ -43,9 +46,11 @@ for (var i = 0; i < physicalDamagesLength; i += 2) {
 			crushDamageArray[i+1] += 1;
 		}
 		// calculate adjustedBuff 
+		var totalDamageIncrease = (crushDamageArray[i+1]-d2)+(crushDamageArray[i]-d1);
 		if adjustedBuff == 0 {
-			var fraction = crushDamageArray[i+1] / d2;
-			adjustedBuff = (fraction - 1)*100;
+			//var fraction = crushDamageArray[i+1] / d2;
+			//adjustedBuff = (fraction - 1)*100;
+			adjustedBuff = totalDamageIncrease;
 		}
 	} else if array_length_1d(pierceDamageArray) >= i && pierceDamageArray[i] != 0 {
 		var d1 = pierceDamageArray[i];
@@ -59,13 +64,16 @@ for (var i = 0; i < physicalDamagesLength; i += 2) {
 			pierceDamageArray[i+1] += 1;
 		}
 		// calculate adjustedBuff 
+		var totalDamageIncrease = (pierceDamageArray[i+1]-d2)+(pierceDamageArray[i]-d1);
 		if adjustedBuff == 0 {
-			var fraction = pierceDamageArray[i+1] / d2;
-			adjustedBuff = (fraction - 1)*100;
+			//var fraction = crushDamageArray[i+1] / d2;
+			//adjustedBuff = (fraction - 1)*100;
+			adjustedBuff = totalDamageIncrease;
 		}
 	}
 }
 ds_map_replace(weapon.damages,SLASH,slashDamageArray);
 ds_map_replace(weapon.damages,CRUSH,crushDamageArray);
 ds_map_replace(weapon.damages,PIERCE,pierceDamageArray);
+// adjustedBuff now contains the total physical damage increase this weapon got
 ds_map_replace(weapon.itemPropertyModifiers, WeaponProperties.PhysicalDamageBonus, adjustedBuff);

@@ -1,2 +1,2 @@
 // lightning only
-part_emitter_burst(system,emitter,particle, 1);
+if type == LIGHTNING part_emitter_burst(system,emitter,particle, 1);

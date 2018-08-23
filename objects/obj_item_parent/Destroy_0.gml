@@ -4,3 +4,13 @@ if ds_exists(socketedGems,ds_type_list) && ds_list_size(socketedGems) > 0 {
 		instance_destroy(gem,1);
 	}
 }
+
+if ds_exists(itemProperties,ds_type_list) {
+	ds_list_destroy(itemProperties); itemProperties = -1;
+}
+if ds_exists(itemPropertyModifiers,ds_type_list) {
+	ds_list_destroy(itemPropertyModifiers); itemPropertyModifiers = -1;
+}
+if ds_exists(itemPropertyModifiersPts,ds_type_list) {
+	ds_list_destroy(itemPropertyModifiersPts); itemPropertyModifiersPts = -1;
+}
