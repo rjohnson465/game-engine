@@ -7,9 +7,9 @@
     "HTile": false,
     "VTile": false,
     "bbox_bottom": 92,
-    "bbox_left": 70,
+    "bbox_left": 79,
     "bbox_right": 108,
-    "bbox_top": 38,
+    "bbox_top": 44,
     "bboxmode": 0,
     "colkind": 1,
     "coltolerance": 0,
@@ -553,7 +553,7 @@
             "isLocked": false,
             "name": "ungloved hand",
             "opacity": 100,
-            "visible": true
+            "visible": false
         },
         {
             "id": "8be26670-a033-4db5-a333-b9e62d570fcc",
@@ -586,7 +586,7 @@
             "isLocked": false,
             "name": "gloved hand",
             "opacity": 100,
-            "visible": true
+            "visible": false
         },
         {
             "id": "f5a88b31-e564-467c-bafd-b90f92587b80",

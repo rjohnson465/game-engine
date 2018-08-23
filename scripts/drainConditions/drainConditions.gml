@@ -28,6 +28,11 @@ for (var i = 0; i < size; i++) {
 	} else if conditionPercent > 95 {
 		ds_map_replace(conditionLevels,currentCondition,1);
 		switch currentCondition {
+			case MAGIC: {
+				isHexed = true;
+				lightRadiusColor = c_aqua;
+				break;
+			}
 			case POISON: {
 				isPoisoned = true; 
 				lightRadiusColor = c_lime;
@@ -69,7 +74,8 @@ for (var i = 0; i < size; i++) {
 		var decrementAmount = 1/3;
 		var defense = ds_map_find_value(defenses,currentCondition);
 		//decrementAmount += 1-abs((defense/100));
-		decrementAmount = defense > 0 ? decrementAmount + 1-(defense/100) : decrementAmount - 1-(defense/100);
+		//decrementAmount = defense > 0 ? decrementAmount + 1-(defense/100) : decrementAmount - 1-(defense/100);
+		decrementAmount = (.0067*defense)+.33;
 		if decrementAmount < 0 {
 			decrementAmount = .2;
 		}
@@ -95,6 +101,14 @@ for (var i = 0; i < size; i++) {
 			}
 			case ICE: {
 				isSlowed = false; isFrozen = false; break;
+			}
+			case MAGIC: {
+				isHexed = false; 
+				hexedDamageModifier = 1;
+				if lightRadiusColor == c_aqua {
+					lightRadiusColor = c_white;
+				}
+				break;
 			}
 			case POISON: {
 				isPoisoned = false; 

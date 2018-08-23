@@ -1,5 +1,5 @@
 facingDirection = 270;
-enemyUnfairyDualSwordsInit();
+enemyUnfairyUnarmedInit();
 maxHp = 400;
 hp = 400;
 poise = 50;

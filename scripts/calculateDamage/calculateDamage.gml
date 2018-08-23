@@ -47,7 +47,9 @@ if	state != CombatantStates.Dodging &&
 	ds_list_add(beenHitWith,attackObj.id);
 		
 	// run to get __x and __y (collision point where attack meet this combatant)
-	script_execute(scr_collision_point,id,attackObj.id);
+	if !script_execute(scr_collision_point,id,attackObj.id) {
+		__x = x; __y = y;
+	}
 		
 	var assailant = attackObj.owner;
 	var damage = 0;

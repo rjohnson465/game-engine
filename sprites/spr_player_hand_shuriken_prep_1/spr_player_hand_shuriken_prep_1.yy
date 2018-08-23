@@ -564,7 +564,7 @@
             "isLocked": false,
             "name": "shuriken",
             "opacity": 100,
-            "visible": true
+            "visible": false
         },
         {
             "id": "acb15b3c-e274-4f75-afec-775ae12c62dc",
@@ -575,7 +575,7 @@
             "isLocked": true,
             "name": "glove",
             "opacity": 100,
-            "visible": true
+            "visible": false
         },
         {
             "id": "ccd690c0-ed07-4e41-ae9d-2d7fea461b00",

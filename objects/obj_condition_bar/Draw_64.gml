@@ -37,6 +37,11 @@ switch condition {
 		sprite = spr_attunement_lightning;
 		break;
 	}
+	case MAGIC: {
+		draw_set_color(c_aqua);
+		sprite = spr_attunement_magic;
+		break;
+	}
 }
 draw_sprite_ext(sprite,1,spriteX,spriteY,.5,.5,0,c_white,1);
 

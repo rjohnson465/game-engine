@@ -268,6 +268,8 @@ isFrozen = false;
 isPoisoned = false; 
 isBurning = false;
 isShocked = false;
+isHexed = false;
+hexedDamageModifier = 1; // less than 1 when hexed
 
 // by default, burn occurs every second, poison every 2 seconds
 // burn does the same small amount of damage each second, while poison damage builds every time it occurs

@@ -119,7 +119,7 @@
             "isLocked": true,
             "name": "glove",
             "opacity": 100,
-            "visible": true
+            "visible": false
         },
         {
             "id": "2d32232f-2e05-42eb-b8db-0ad155c9e038",

@@ -78,6 +78,17 @@ if conditionLevel == 0 {
 			} else num = -3;
 			break;
 		}
+		case MAGIC: {
+			// starts with many particles, then less
+			if conditionPercent > 90 {
+				num = 2;
+			} else if conditionPercent > 50 {
+				num = 1;
+			} else if conditionPercent > 25 {
+				num = -1;
+			} else num = -3;
+			break;
+		}
 		case LIGHTNING: {
 			// starts with many sparks but as freeze fades, less
 			if conditionPercent > 90 {

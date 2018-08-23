@@ -39,6 +39,20 @@ switch condition {
 		particle2 = smallflake;
 		break;
 	}
+	case MAGIC: {
+		num = random_range(10,15);
+		// magic particle
+		var magic = part_type_create();
+		part_type_shape(magic, pt_shape_sphere);
+		part_type_color2(magic,c_aqua,c_ltgray);
+		part_type_orientation(magic,0,0,0,15,1);
+		part_type_size(magic,0,0.15,0,0);
+		part_type_speed(magic,2,8,0,0);
+		part_type_direction(magic,0,360,0,4);
+		part_type_life(magic,10,15);
+		particle = magic;
+		break;
+	}
 	case FIRE: {
 		// fire particle
 		var fire = part_type_create();

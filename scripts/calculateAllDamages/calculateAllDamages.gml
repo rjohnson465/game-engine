@@ -72,6 +72,10 @@ for (var i = 0; i < size; i++) {
 	// case PHYSICAL | CRUSH | SLASH | PIERCE -- damage reduction by constant value
 	if currentDamageType == PHYSICAL || currentDamageType == CRUSH || currentDamageType == PIERCE || currentDamageType == SLASH {
 		damageBase = round(damageBase*attackObj.percentCharged);
+		// hexed assailants have their physical damage output reduced
+		if assailant.isHexed {
+			damage *= assailant.hexedDamageModifier;
+		}
 		if damageBase > 0 {
 			if !isShocked {
 				randomize();
@@ -123,12 +127,12 @@ for (var i = 0; i < size; i++) {
 				
 	// elemental conditions applied?			
 	// roll random and compare against defense
-	var nonConditioningDamageTypes = [PHYSICAL,MAGIC,CRUSH,PIERCE,SLASH];
+	var nonConditioningDamageTypes = [PHYSICAL,CRUSH,PIERCE,SLASH];
 	if damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType) {
 		randomize();
 		var top = 1000;
 		var percentChance = .15;
-		//var percentChance = 1;
+		var percentChance = 1;
 		//percentChance = 0;
 		if spell != noone && spell.name == "magicmissile" {
 			// every misile has a 20/numProjectiles% chance
@@ -157,6 +161,11 @@ for (var i = 0; i < size; i++) {
 					}
 					case LIGHTNING: {
 						alert("Shocked!",c_red);
+						break;
+					}
+					case MAGIC: {
+						alert("Hexed!",c_red);
+						break;
 					}
 				}
 				var conditionBar = noone;

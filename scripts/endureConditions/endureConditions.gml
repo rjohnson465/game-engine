@@ -22,7 +22,7 @@ for (var i = 0; i < size; i++) {
 	}
 	
 	// particle effects for conditions
-	if conditionLevel > 0 && currentCondition != MAGIC && currentCondition != PHYSICAL {
+	if conditionLevel > 0 && currentCondition != PHYSICAL {
 		var condParticlesExist = false;
 		var c = currentCondition;
 		var o = id;
@@ -57,6 +57,10 @@ for (var i = 0; i < size; i++) {
 				else if conditionLevel == 2{
 					//functionalSpeed = 0;
 				}
+				break;
+			}
+			case MAGIC: {
+				hexedDamageModifier = .75-(.005*conditionPercent);
 				break;
 			}
 			// burning

@@ -34,8 +34,7 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 			if num > 0 {
 				var num1 = num;
 				var num2 = damageArray[j+1];
-				// maybe account for bonus damage
-				
+				// maybe account for bonus damage / hexed reductions
 				if useModifiers {
 					// account for physical damage multipliers (%)
 					var physicalDamageMultiplier = ds_map_find_value(p.physicalDamageTypesMultipliers,damageType) / 100;
@@ -45,6 +44,11 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 					var weaponDamageModifier = ds_map_find_value(p.weaponTypesDamage,item.weaponType);
 					num1 += weaponDamageModifier;
 					num2 += weaponDamageModifier;
+					// account for hexed modifier (% reduction)
+					if p.isHexed {
+						num1 *= p.hexedDamageModifier;
+						num2 *= p.hexedDamageModifier;
+					}
 				}
 				
 				if !isOffHand {
