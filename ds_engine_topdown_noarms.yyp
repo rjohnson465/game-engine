@@ -1031,6 +1031,14 @@
             }
         },
         {
+            "Key": "18b0c942-8fab-46dc-9c5f-dd1bb8d8aa3b",
+            "Value": {
+                "id": "8727fd80-af36-43dc-ad36-b94be700baa0",
+                "resourcePath": "sprites\\spr_gem_hematite_flawless\\spr_gem_hematite_flawless.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "18b3e3df-4279-4f9a-bffa-01d2513f3261",
             "Value": {
                 "id": "f3e507b0-2e7e-46a0-b270-15f357c450b9",
@@ -3399,6 +3407,14 @@
             }
         },
         {
+            "Key": "5715bf8a-3f56-435e-b114-ce22b215aaeb",
+            "Value": {
+                "id": "fe06feb4-1b40-4d7f-966e-7f36646112d5",
+                "resourcePath": "views\\5715bf8a-3f56-435e-b114-ce22b215aaeb.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "57bb449f-a109-4d8a-9120-72178c7c8181",
             "Value": {
                 "id": "f8fe38c5-132e-43ab-96bf-2e336c36fdf6",
@@ -3863,6 +3879,14 @@
             }
         },
         {
+            "Key": "6459a6ea-0701-4c0a-87d4-d227daa1eaaf",
+            "Value": {
+                "id": "1fbcfee6-6475-405f-8e0c-0e02d7f274bf",
+                "resourcePath": "sprites\\spr_gem_emerald_flawless\\spr_gem_emerald_flawless.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "645bfffc-ff00-414b-aa4e-ec0bd9ebf91f",
             "Value": {
                 "id": "f04ce2c5-dcb8-441a-8119-f93e9f58edbd",
@@ -4011,6 +4035,14 @@
             "Value": {
                 "id": "39e2b501-159f-4f11-861c-8e9506ae99f2",
                 "resourcePath": "sprites\\spr_player_staff\\spr_player_staff.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "678c092c-13a5-4b17-88fb-2caac54a1ba4",
+            "Value": {
+                "id": "fa6de11a-c5f8-471c-bba8-47e479848ef6",
+                "resourcePath": "sprites\\spr_gem_ruby_flawless\\spr_gem_ruby_flawless.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6463,6 +6495,14 @@
             }
         },
         {
+            "Key": "a901214c-d359-4435-9371-c1a56df4e162",
+            "Value": {
+                "id": "6821098a-1bc5-4521-80c9-beeb373f21bd",
+                "resourcePath": "sprites\\spr_gem_lapis_flawless\\spr_gem_lapis_flawless.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
             "Value": {
                 "id": "be1b3c0f-7701-4f97-a6fb-c67f4e5db3d0",
@@ -7783,6 +7823,14 @@
             }
         },
         {
+            "Key": "ca8dbe9c-37d2-4c6a-b1ce-9193322c392e",
+            "Value": {
+                "id": "0270f73a-1b70-4d19-b9a0-8145d81b2a9c",
+                "resourcePath": "sprites\\spr_gem_amethyst_flawless\\spr_gem_amethyst_flawless.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ca9c1bfb-61ba-492b-9089-4d3cb26e966c",
             "Value": {
                 "id": "a74cef15-f048-4f49-91f1-cb53b3722bd3",
@@ -8011,6 +8059,14 @@
             "Value": {
                 "id": "5eb95311-5bf1-4740-8c1e-5f78b2d4638f",
                 "resourcePath": "sprites\\spr_player_hand_axe_1h_recover_3\\spr_player_hand_axe_1h_recover_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d0e8d539-ae02-4add-bde3-b0b547561a85",
+            "Value": {
+                "id": "2e19f5dc-c9c0-4680-923f-e22fca155ca0",
+                "resourcePath": "sprites\\spr_gem_aquamarine_flawless\\spr_gem_aquamarine_flawless.yy",
                 "resourceType": "GMSprite"
             }
         },

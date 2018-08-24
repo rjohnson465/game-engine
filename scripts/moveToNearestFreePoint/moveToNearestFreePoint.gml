@@ -12,6 +12,7 @@ if argument_count == 3 {
 	isEnemy = argument[2];
 }
 
+d = d mod 360;
 
 var objectsToAvoid = obj_solid_parent;
 var additionalObjects = ds_list_create();

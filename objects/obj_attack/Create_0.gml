@@ -296,17 +296,21 @@ else {
 	
 		owner.stupidityFrame = 0;
 
-		// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
-		//var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
-		//ds_map_replace(owner.recoveringLimbs,limbKey,attackInChain);
 		
-		// set recoverFrames to -1
-		//ds_map_replace(owner.recoverFrames,limbKey,-1);
+		if weapon && weapon.isTwoHanded {
+			ds_map_replace(owner.attackFrames,limbKey,0);
+			alarm[1] = 1;
+		} else {
+			// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
+			var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
+			ds_map_replace(owner.recoveringLimbs,limbKey,attackInChain);
 		
-		// remove limbKey from attackingLimbs map
-		//ds_map_delete(owner.attackingLimbs,limbKey);
-		ds_map_replace(owner.attackFrames,limbKey,0);
-		alarm[1] = 1;
+			// set recoverFrames to -1
+			ds_map_replace(owner.recoverFrames,limbKey,-1);
+		
+			// remove limbKey from attackingLimbs map
+			ds_map_delete(owner.attackingLimbs,limbKey);
+		}
 		
 		owner.prevAttackHand = limbKey;
 	} else {

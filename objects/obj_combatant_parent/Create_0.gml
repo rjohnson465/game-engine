@@ -330,7 +330,7 @@ damagesAttacksFactor = 1; // 1x normal damage to weapons that strike this combat
 isBeingHit = false;
 
 sightAngleDelta = 100; // combatant can see +/- this much in his field of view
-hearingDistance = 200; // how far away some hit particles must be for enemy to investigate
+hearingDistance = 500; // how far away some hit particles must be for enemy to investigate
 investigatingFramesTotal = 90;
 investigatingFrame = 0;
 

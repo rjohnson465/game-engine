@@ -5,7 +5,6 @@ spriteAttackNumberInChain = 1;
 limbKey = "l"; // default value
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
 ds_map_add(damages,SLASH,[15,30]);
-ds_map_add(damages,LIGHTNING,[1,2]);
 isRanged = false;
 staminaCost = 10;
 //nextChoices = [];

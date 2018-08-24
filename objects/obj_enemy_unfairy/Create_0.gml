@@ -8,7 +8,7 @@ isFloating = true;
 
 functionalSpeed = 5;
 normalSpeed = 5;
-turnSpeed = 7;
+turnSpeed = 10;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
