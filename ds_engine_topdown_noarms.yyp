@@ -599,6 +599,14 @@
             }
         },
         {
+            "Key": "0f5c03c6-8343-4382-839e-f38f21dd0857",
+            "Value": {
+                "id": "abb8c812-186a-463e-8fc9-9e85cfabee20",
+                "resourcePath": "objects\\obj_musket_parent\\obj_musket_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0f710ef1-5f32-402e-ba42-11637720ca55",
             "Value": {
                 "id": "58d74a76-0da3-48e7-bf81-bd1de642b26c",
@@ -2047,6 +2055,14 @@
             }
         },
         {
+            "Key": "342da18e-7d10-4819-9af5-fc133362a509",
+            "Value": {
+                "id": "e2692a47-1f2c-443e-8332-858a70a4c22b",
+                "resourcePath": "sprites\\spr_player_hand_musket_base\\spr_player_hand_musket_base.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "346038d2-d65e-445a-8876-13156b5ecd9c",
             "Value": {
                 "id": "766d9871-4b8e-44a7-bb37-df32d7eab345",
@@ -2346,7 +2362,7 @@
             "Key": "3c26aa55-f36d-49a4-8a6e-f60f858a81b2",
             "Value": {
                 "id": "9282618b-9ef6-4325-9140-016f4bb75878",
-                "resourcePath": "sprites\\spr_item_thrownknife1\\spr_item_thrownknife1.yy",
+                "resourcePath": "sprites\\spr_item_arquebus\\spr_item_arquebus.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2919,6 +2935,14 @@
             }
         },
         {
+            "Key": "4b2dc359-0076-4a04-a267-e613217abdaa",
+            "Value": {
+                "id": "7db475ef-675d-4580-84d8-0d57858fe0c5",
+                "resourcePath": "sprites\\spr_player_hand_musket_prep_1\\spr_player_hand_musket_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4b4a84b5-d377-4c83-a4f0-a98c08844bbd",
             "Value": {
                 "id": "46fcefd5-7eae-4eb3-987f-245ba44bbbd9",
@@ -2996,6 +3020,14 @@
                 "id": "dde01006-9894-42da-b2c7-39e6aa659eba",
                 "resourcePath": "sprites\\spr_attunement_lightning1\\spr_attunement_lightning1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4c51cf78-6032-4f08-8871-33257fa08d60",
+            "Value": {
+                "id": "cbea9cda-e1fd-4e7d-9a39-4343361128a4",
+                "resourcePath": "objects\\obj_hand_item_arquebus\\obj_hand_item_arquebus.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -4275,6 +4307,14 @@
             "Value": {
                 "id": "4fb1190e-b3c5-4a1d-9fd1-f36671037e03",
                 "resourcePath": "sprites\\spr_warhammer_3_base\\spr_warhammer_3_base.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6e3adb0c-3115-4b17-841f-4182641c4f23",
+            "Value": {
+                "id": "909edec7-9f8e-456b-be1d-3799a5b7e920",
+                "resourcePath": "sprites\\spr_player_hand_musket\\spr_player_hand_musket.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5903,6 +5943,14 @@
             }
         },
         {
+            "Key": "982cb034-b029-42ea-8c54-afb46100b6b3",
+            "Value": {
+                "id": "5fb6e80a-fc59-4601-a808-f31e9b1d5d19",
+                "resourcePath": "sprites\\spr_player_hand_musket_recover_1\\spr_player_hand_musket_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "982f526b-caed-4b5f-b1b3-04baa0dfd6fc",
             "Value": {
                 "id": "0318e01a-f22f-4200-a24c-34bd78fc80d9",
@@ -6111,6 +6159,14 @@
             }
         },
         {
+            "Key": "9f70aeae-89f6-4f89-adf6-b1b0669c6802",
+            "Value": {
+                "id": "ebd0b523-66a4-462d-959d-9cb3b775dfd8",
+                "resourcePath": "sprites\\spr_player_arquebus_attack_1\\spr_player_arquebus_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9f836245-305c-4265-9e05-c337e7460099",
             "Value": {
                 "id": "c602be6f-0ba4-4541-a80c-9311d673f8af",
@@ -6148,6 +6204,14 @@
                 "id": "b2fca6cb-2a89-421a-8519-b40633b88917",
                 "resourcePath": "scripts\\getDefaultItemRarityMap\\getDefaultItemRarityMap.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a0087c0c-4445-44da-837f-3f126ec9e335",
+            "Value": {
+                "id": "d4c82e08-dd32-4537-bcb5-223ac373b7c6",
+                "resourcePath": "views\\a0087c0c-4445-44da-837f-3f126ec9e335.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -6215,6 +6279,14 @@
             }
         },
         {
+            "Key": "a0ee8036-daa0-40ed-a93b-5846c2d99490",
+            "Value": {
+                "id": "32f5b846-4b51-42e2-a82a-5089e272cbe6",
+                "resourcePath": "sprites\\spr_player_hand_musket_attack_1\\spr_player_hand_musket_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a1395893-b1af-48b4-9045-dd671899bb0d",
             "Value": {
                 "id": "b93ba6a7-62c8-4023-bae4-79c8ab122563",
@@ -6252,6 +6324,14 @@
                 "id": "0866d1e2-c46c-4ff2-8632-a9f7c8bbe97e",
                 "resourcePath": "objects\\obj_itemdrop_data\\obj_itemdrop_data.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "a235e9cd-994e-4ee8-b192-968253c786e5",
+            "Value": {
+                "id": "ca71987a-3086-4ce5-a8d0-e8aca23744f1",
+                "resourcePath": "sprites\\spr_player_arquebus\\spr_player_arquebus.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7415,6 +7495,14 @@
             }
         },
         {
+            "Key": "c20ca4d9-c1eb-445b-b4cb-d4908b0379a1",
+            "Value": {
+                "id": "9bf52d77-d1f7-446d-89df-6efa11e2c471",
+                "resourcePath": "sprites\\spr_player_arquebus_recover_1\\spr_player_arquebus_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c24a0c2e-ab71-41dd-93a8-e9c403e3bd28",
             "Value": {
                 "id": "b28fd1a3-64aa-4d04-b6f3-9ac5f51d5604",
@@ -8263,6 +8351,14 @@
             }
         },
         {
+            "Key": "d532f3fa-b09b-4b49-96fd-2307ee179ebf",
+            "Value": {
+                "id": "56ef9b8a-4416-4fab-abe0-3ed142506a55",
+                "resourcePath": "views\\d532f3fa-b09b-4b49-96fd-2307ee179ebf.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "d53fb204-bc72-4724-abc9-569d41afa2c3",
             "Value": {
                 "id": "5cab0dd4-9fcd-4ba2-8db2-00d9213140aa",
@@ -8868,6 +8964,14 @@
                 "id": "6165de13-8a6e-4a46-8e67-7b083fd34455",
                 "resourcePath": "views\\e61ad1d4-aeb4-4e55-9803-0a1d02a30ee8.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e642cbe4-4f50-44df-8f3e-914d36e4575d",
+            "Value": {
+                "id": "56c884d8-a8be-4125-9afa-7cb8539a6a31",
+                "resourcePath": "sprites\\spr_player_arquebus_prep_1\\spr_player_arquebus_prep_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -9692,6 +9796,14 @@
                 "id": "1fc01f25-c1b9-4260-8d43-88ade14ab65d",
                 "resourcePath": "objects\\obj_dagger_parent1\\obj_dagger_parent1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "fe2bb880-5fc0-499c-86ea-42385b0324cf",
+            "Value": {
+                "id": "d11cba94-068a-4092-8f4a-cdfe46766e61",
+                "resourcePath": "sprites\\spr_player_hand_thrown_prep_1_45\\spr_player_hand_thrown_prep_1_45.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

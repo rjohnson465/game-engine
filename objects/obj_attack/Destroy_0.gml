@@ -8,3 +8,7 @@ audio_emitter_free(soundEmitter); soundEmitter = -1;
 if isSpell || isSoundLooping {
 	audio_stop_sound(sound);
 }
+
+if isRanged && weapon != noone && weapon.isTwoHanded && owner == global.player {
+	event_perform(ev_alarm,1);
+}

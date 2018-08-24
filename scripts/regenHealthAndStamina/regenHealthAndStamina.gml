@@ -14,7 +14,7 @@ if	 stamina < maxStamina && (state == CombatantStates.Idle || state == Combatant
 		}
 		else if (type == CombatantTypes.Player && state == CombatantStates.Attacking) {
 			var lhItem = ds_map_find_value(equippedLimbItems,"l");
-			if lhItem.isTwoHanded && lhItem.subType == HandItemTypes.Ranged && isReadyToFire {
+			if lhItem.isTwoHanded && lhItem.subType == HandItemTypes.Ranged /*&& isReadyToFire*/ {
 				stamina += (.5*staminaRegen)/30;
 			}
 		}

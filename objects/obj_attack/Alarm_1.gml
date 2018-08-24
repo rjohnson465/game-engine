@@ -8,3 +8,4 @@ ds_map_replace(owner.recoverFrames,limbKey,-1);
 		
 // remove limbKey from attackingLimbs map
 ds_map_delete(owner.attackingLimbs,limbKey);
+show_debug_message("alarm run");

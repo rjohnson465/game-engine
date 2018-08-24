@@ -74,7 +74,7 @@ for (var i = 0; i < size; i++) {
 		damageBase = round(damageBase*attackObj.percentCharged);
 		// hexed assailants have their physical damage output reduced
 		if assailant.isHexed {
-			damage *= assailant.hexedDamageModifier;
+			damageBase *= assailant.hexedDamageModifier;
 		}
 		if damageBase > 0 {
 			if !isShocked {

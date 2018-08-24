@@ -200,6 +200,7 @@ addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_spear));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shuriken));
+addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_arquebus));
 addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 //var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
 //addItemToInventory(baxe);

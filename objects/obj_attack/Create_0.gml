@@ -296,10 +296,11 @@ else {
 	
 		owner.stupidityFrame = 0;
 
-		
-		if weapon && weapon.isTwoHanded {
+		show_debug_message(string(weapon) + string(weapon.isTwoHanded));
+		if weapon != noone && weapon.isTwoHanded && weapon.isRanged {
 			ds_map_replace(owner.attackFrames,limbKey,0);
 			alarm[1] = 1;
+			show_debug_message("set alaram, alarm[1] = " + string(alarm[1]));
 		} else {
 			// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
 			var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
@@ -396,3 +397,5 @@ if (weapon != noone && weapon.weaponType == PISTOL || weapon.weaponType == MUSKE
 	part_emitter_burst(system,emitter,particle,5);
 	part_emitter_burst(system,emitter,particle2,2);
 }
+
+show_debug_message("end of create event, alarm[1] = " + string(alarm[1]));

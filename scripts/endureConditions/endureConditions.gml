@@ -56,7 +56,8 @@ for (var i = 0; i < size; i++) {
 					slowedSpeedModifier = (1-(conditionPercent/100));
 				}
 				// frozen
-				else if conditionLevel == 2{
+				else if conditionLevel == 2 {
+					slowedSpeedModifier = 0;
 					//functionalSpeed = 0;
 				}
 				break;
@@ -136,4 +137,8 @@ for (var i = 0; i < size; i++) {
 	}
 	
 	currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
+}
+
+if isSlowed || isFrozen {
+	show_debug_message(functionalSpeed);
 }

@@ -5,7 +5,7 @@ if dodgeFrequencyFrame > 0 {
 	exit;
 }
 
-if lockOnTarget == noone || !lockOnTarget exit;
+if lockOnTarget == noone || !lockOnTarget || !object_is_ancestor(lockOnTarget.object_index, obj_combatant_parent) exit;
 
 // If we're close to our lockOnTarget and they're preparing attack and we've decided to dodge during this Move state,
 // decide exactly what frame in the lockOnTarget's attack prep to dodge on

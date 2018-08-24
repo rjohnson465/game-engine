@@ -1,4 +1,6 @@
-if isFloating functionalSpeed = normalSpeed*slowedSpeedModifier;
+if isFloating {
+	functionalSpeed = normalSpeed*slowedSpeedModifier;
+}
 var isFading = false;
 with obj_fade {
 	if instance_count > 0 {

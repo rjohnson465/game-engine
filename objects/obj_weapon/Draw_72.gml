@@ -1,5 +1,5 @@
 if owner.currentUsingSpell != noone exit;
-if limbItem.weaponType == PISTOL || limbItem.weaponType == SHURIKEN exit;
+if limbItem.weaponType == PISTOL || limbItem.weaponType == SHURIKEN || limbItem.weaponType == MUSKET exit;
 var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(owner.equippedLimbItems,"r");
 if limbKey == "r" && rightHandItem.weaponType == THROWN && rightHandItem.ammo == 0 {
