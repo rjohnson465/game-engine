@@ -18,11 +18,11 @@ if state == CombatantStates.Staggering {
 	if isSlowed || isFrozen {
 		var percentFrozen = ds_map_find_value(conditionPercentages,ICE);
 		var colorAlpha = (3/320)*percentFrozen;
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_aqua, colorAlpha*alpha);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_aqua, .5*alpha);
 	} else if isPoisoned {
 		var percentPoisoned = ds_map_find_value(conditionPercentages,POISON);
 		var colorAlpha = (3/320)*percentPoisoned;
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_green, colorAlpha*alpha);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_green, .5*alpha);
 	}
 }
 
@@ -35,11 +35,11 @@ if state == CombatantStates.Dodging {
 	if isSlowed {
 		var percentFrozen = ds_map_find_value(conditionPercentages,ICE);
 		var colorAlpha = (3/320)*percentFrozen;
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, colorAlpha*a);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_aqua, .5*a);
 	} else if isPoisoned {
 		var percentPoisoned = ds_map_find_value(conditionPercentages,POISON);
 		var colorAlpha = (3/320)*percentPoisoned;
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_green, colorAlpha*a);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"), dodgeFrame, x, y, 1, 1, dodgeDirection, c_green, .5*a);
 	}
 	
 } 
@@ -80,7 +80,7 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 	if isSlowed {
 		var percentFrozen = ds_map_find_value(conditionPercentages,ICE);
 		var colorAlpha = (3/320)*percentFrozen;
-		draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_aqua, colorAlpha*alpha);
+		draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_aqua, .5*alpha);
 	} 
 	else if isFrozen {
 		draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_aqua, .75*alpha);
@@ -88,7 +88,7 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 	else if isPoisoned {
 		var percentPoisoned = ds_map_find_value(conditionPercentages,POISON);
 		var colorAlpha = (3/320)*percentPoisoned;
-		draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_aqua, colorAlpha*alpha);
+		draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_aqua, .5*alpha);
 	}
 	
 	/*if isBeingHit {

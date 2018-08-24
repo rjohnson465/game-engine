@@ -2023,6 +2023,14 @@
             }
         },
         {
+            "Key": "336bf7d3-7097-405e-a218-1a60a8da45b4",
+            "Value": {
+                "id": "641c4da4-60cb-4900-9ac3-0f1ebe2d0dc8",
+                "resourcePath": "sounds\\snd_magic_magic_condition\\snd_magic_magic_condition.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "3388d61e-899a-46d7-b4a4-d6ca771233bc",
             "Value": {
                 "id": "468d17eb-a82c-4e83-a927-ebca3b821dea",
@@ -2100,6 +2108,14 @@
                 "id": "f0e5b83c-096d-4531-805c-caad58bb048f",
                 "resourcePath": "objects\\obj_goodguy_parent\\obj_goodguy_parent.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "356af44f-c7cb-440d-8da1-b2dd766722be",
+            "Value": {
+                "id": "94e88a94-1d73-4c74-baa2-fb05a2a3ccf7",
+                "resourcePath": "scripts\\scr_is_fading\\scr_is_fading.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -7055,6 +7071,14 @@
             }
         },
         {
+            "Key": "b4fe8e3d-9643-496d-96a0-3c44b781c731",
+            "Value": {
+                "id": "86f2622b-4b1c-4ed3-a020-dcbb1e4145e3",
+                "resourcePath": "scripts\\applyElementalCondition\\applyElementalCondition.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "b506dc28-e6cd-409a-a37c-0bc58d455c0b",
             "Value": {
                 "id": "e13ec635-3a91-4a4d-bb86-622818ad3316",
@@ -9922,6 +9946,7 @@
         "e4cc2799-f1e7-42bb-9d2d-053f5c24587a",
         "1eb01434-0b0f-4ea5-bdf5-d56425d51319",
         "ae87fee5-f9f2-48e8-94af-b19479c267cf",
+        "b4fe8e3d-9643-496d-96a0-3c44b781c731",
         "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
         "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
         "366ba9cd-aa4e-49d1-9f44-28270833e64a",
@@ -9943,6 +9968,7 @@
         "552aac08-d469-48ae-a042-4989839708bf",
         "9d13abbd-a6d2-4312-b856-692a2cfd38f8",
         "a9cf5b3d-53d6-4996-87d2-aa2913bf8778",
+        "356af44f-c7cb-440d-8da1-b2dd766722be",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "89e792c3-5306-41a1-8e55-479f0f2db5de",
         "295e5a03-8983-4afd-bdb3-14c23bed2058",

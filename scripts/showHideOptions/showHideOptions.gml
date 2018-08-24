@@ -1,6 +1,7 @@
 if global.player.hp <= 0 exit;
 if global.isWishing exit;
 if global.isInteractingWithNpc && !global.isTrading exit;
+if scr_is_fading() exit;
 audio_play_sound(snd_ui_click1,1,0);
 if global.isTrading {
 	var vi = obj_vendor_items; //var pli = obj_player_items; var bs = obj_buy_sell;

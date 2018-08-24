@@ -9,7 +9,6 @@ for (var i = 0; i < size; i++) {
 	if conditionPercent < 85 && currentCondition == ICE && ds_map_find_value(conditionLevels,currentCondition) == 2 {
 			isFrozen = false;
 			isSlowed = true;
-			//functionalSpeed = round(.5*normalSpeed);
 			ds_map_replace(conditionLevels,currentCondition,1);
 	}
 	
@@ -25,9 +24,15 @@ for (var i = 0; i < size; i++) {
 		isSlowed = false;
 		isFrozen = true;
 		functionalSpeed = 0;
-	} else if conditionPercent > 95 {
+	} else if conditionPercent > 0 {
 		ds_map_replace(conditionLevels,currentCondition,1);
 		switch currentCondition {
+			case ICE: {
+				isFrozen = false;
+				isSlowed = true;
+				ds_map_replace(conditionLevels,currentCondition,1);
+				break;
+			}
 			case MAGIC: {
 				isHexed = true;
 				lightRadiusColor = c_aqua;
@@ -71,17 +76,17 @@ for (var i = 0; i < size; i++) {
 	
 	// drain condition levels
 	if conditionPercent > 0 {
-		var decrementAmount = 1/3;
+		var decrementAmount = .2;
 		var defense = ds_map_find_value(defenses,currentCondition);
 		//decrementAmount += 1-abs((defense/100));
 		//decrementAmount = defense > 0 ? decrementAmount + 1-(defense/100) : decrementAmount - 1-(defense/100);
-		decrementAmount = (.0067*defense)+.33;
+		decrementAmount = (.0067*defense)+.2;
 		if decrementAmount < 0 {
-			decrementAmount = .2;
+			decrementAmount = .1;
 		}
-		if currentCondition == ICE {
+		/*if currentCondition == ICE {
 			decrementAmount *= 1.5; // devin is a psuy and wants ice to last less long
-		}
+		}*/
 		conditionPercent -= decrementAmount;
 		ds_map_replace(conditionPercentages,currentCondition,conditionPercent);
 	} if conditionPercent <= 0 {

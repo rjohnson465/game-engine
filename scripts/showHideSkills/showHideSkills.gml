@@ -1,6 +1,7 @@
 if global.player.hp <= 0 exit;
 if global.isWishing exit;
 if global.isInteractingWithNpc && !global.isTrading exit;
+if scr_is_fading() exit;
 audio_play_sound(snd_ui_click1,1,0);
 with obj_item_selector {
 	if global.ui.isShowingMenus && type == SelectorTypes.Equip {

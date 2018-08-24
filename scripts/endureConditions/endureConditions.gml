@@ -53,7 +53,12 @@ for (var i = 0; i < size; i++) {
 				// slowed
 				if conditionLevel == 1 {
 					//functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
-					slowedSpeedModifier = (1-(conditionPercent/100));
+					//slowedSpeedModifier = (1-(conditionPercent/100));
+					if conditionPercent > 0 && conditionPercent < 25 {
+						slowedSpeedModifier = .7;
+					} else if conditionPercent > 25 && conditionPercent < 50 {
+						slowedSpeedModifier = .5;
+					} else slowedSpeedModifier = .25;
 				}
 				// frozen
 				else if conditionLevel == 2 {
@@ -137,8 +142,4 @@ for (var i = 0; i < size; i++) {
 	}
 	
 	currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
-}
-
-if isSlowed || isFrozen {
-	show_debug_message(functionalSpeed);
 }

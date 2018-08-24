@@ -46,7 +46,7 @@ if owner.currentUsingSpell == noone {
 		var sprite = getLimbSpriteIndex("recover");
 	}
 } else {
-	var frame = ds_map_find_value(owner.prepFrames,"l");
+	var frame = ds_map_find_value(owner.prepFrames,"l")/2;
 	var sprite = asset_get_index("spr_player_hand_spellprep");
 }
 
@@ -55,13 +55,13 @@ draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_wh
 if owner.isSlowed {
 	var percentFrozen = ds_map_find_value(owner.conditionPercentages,ICE);
 	var colorAlpha = (3/320)*percentFrozen;
-	draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_aqua,colorAlpha*owner.alpha);
+	draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_aqua,.5*owner.alpha);
 } else if owner.isFrozen {
 	draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_aqua,.75*owner.alpha);
 } else if owner.isPoisoned {
 	var percentPoisoned = ds_map_find_value(owner.conditionPercentages,POISON);
 	var colorAlpha = (3/320)*percentPoisoned;
-	draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_aqua,colorAlpha*owner.alpha);
+	draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_aqua,.5*owner.alpha);
 }
 
 shader_reset();

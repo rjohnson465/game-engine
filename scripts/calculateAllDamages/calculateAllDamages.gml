@@ -129,72 +129,7 @@ for (var i = 0; i < size; i++) {
 	// roll random and compare against defense
 	var nonConditioningDamageTypes = [PHYSICAL,CRUSH,PIERCE,SLASH];
 	if damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType) {
-		randomize();
-		var top = 1000;
-		var percentChance = .15;
-		var percentChance = 1;
-		//percentChance = 0;
-		if spell != noone && spell.name == "magicmissile" {
-			// every misile has a 20/numProjectiles% chance
-			var percentChance = (20/spell.numberOfProjectiles)/100;
-		}
-		var rand = random_range(1,top);
-		// TODO apply buffs?
-		rand -= defense;
-		var topNum = 1000-(percentChance*1000);
-		// only apply the condition if the condition is not currently ongoing
-		if rand > topNum && ds_map_find_value(conditionPercentages,currentDamageType) == 0 {
-			ds_map_replace(conditionPercentages,currentDamageType,100);
-			if type == CombatantTypes.Player {
-				switch currentDamageType {
-					case FIRE: {
-						alert("Burning!",c_red);
-						break;
-					}
-					case ICE: {
-						alert("Frozen!",c_red);
-						break;
-					}
-					case POISON: {
-						alert("Poisoned!",c_red);
-						break;
-					}
-					case LIGHTNING: {
-						alert("Shocked!",c_red);
-						break;
-					}
-					case MAGIC: {
-						alert("Hexed!",c_red);
-						break;
-					}
-				}
-				var conditionBar = noone;
-				with (obj_condition_bar) {
-					if condition == currentDamageType && owner == global.player.id {
-						conditionBar = id;
-					}
-				}
-				if !conditionBar {
-					global.owner = global.player.id;
-					global.condition = currentDamageType;
-					global.conditionBarCount += 1;
-					instance_create_depth(x,y,1,obj_condition_bar);
-				}
-			}
-		}
-		// if the condition is already ongoing, increase duration based on how hard the hit was
-		else if rand > topNum {
-			// what percent damage of health was this hit? 
-			var percentOfHp = (damageBase/maxHp)*100;
-			var currentConditionPercent = ds_map_find_value(conditionPercentages,currentDamageType);
-			if currentConditionPercent + percentOfHp > 100 {
-				ds_map_replace(conditionPercentages,currentDamageType,100);
-			} else if percentOfHp < 10 {
-				ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+10);
-			} else {
-				ds_map_replace(conditionPercentages,currentDamageType,currentConditionPercent+percentOfHp);
-			}
-		}
+		applyElementalCondition(currentDamageType,damageBase,spell);
 	}
 			
 	// if this was fire or poison damage, record an altered version of the base amount in case this is the attack that burns or poisons 

@@ -28,5 +28,4 @@ if id != global.player && !isFloating {
 	functionalSpeed = normalSpeed*slowedSpeedModifier*turningSpeedModifier;
 	
 	if (functionalSpeed > normalSpeed || functionalSpeed < 0) functionalSpeed = normalSpeed;
-	//show_debug_message(functionalSpeed);
 }

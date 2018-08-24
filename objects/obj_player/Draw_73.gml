@@ -15,7 +15,7 @@ if state == CombatantStates.Attacking {
 		//if isPreparingAttack && prepAnimationFrame < prepAnimationTotalFrames {
 		if ds_map_find_value(prepFrames,"r") < ds_map_find_value(prepFrameTotals,"r") {
 			var prepFrame = ds_map_find_value(prepFrames,"r");
-			var frame = prepFrame%spellPrepHandSpriteTotalFrames;
+			var frame = (prepFrame%spellPrepHandSpriteTotalFrames)/4;
 			// right hand ?
 			draw_sprite_ext(spellHandPrepSprite,frame,x,y,1,1,facingDirection+75,c_white,1);
 			// left hand
