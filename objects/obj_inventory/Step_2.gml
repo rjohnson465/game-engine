@@ -1,7 +1,13 @@
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
 if isConfirmingDestroyItem exit;
+
+// don't allow filter swapping if in equip mode
+var isEquipping = false;
+with obj_item_selector {
+	if type == SelectorTypes.Equip && isActive isEquipping = true;
+}
 // controller stuff
-if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderrb) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
+if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderrb) && !isEquipping  {
 	audio_play_sound(snd_ui_tab2,1,0);
 	var currentFilter = ds_map_find_value(filterSprites, filter);
 	var nextFilter = ds_map_find_next(filterSprites,filter);
@@ -13,7 +19,7 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderrb) && glo
 	scrollLevel = 0;
 
 }
-if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
+if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && !isEquipping {
 	audio_play_sound(snd_ui_tab2,1,0);
 	var currentFilter = ds_map_find_value(filterSprites, filter);
 	var prevFilter = ds_map_find_previous(filterSprites,filter);
@@ -33,7 +39,7 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_face4) {
 	}
 }
 
-if gamepad_button_check_pressed(global.player.gamePadIndex,gp_select) && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
+if gamepad_button_check_pressed(global.player.gamePadIndex,gp_select) {
 	global.ui.isShowingExplanations = !global.ui.isShowingExplanations;
 	audio_play_sound(snd_ui_option_change,1,0);
 }

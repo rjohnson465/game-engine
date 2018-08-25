@@ -9,8 +9,8 @@ var spell = argument[2];
 
 randomize();
 var top = 1000;
-var percentChance = .15;
-percentChance = 1;
+var percentChance = .2;
+//percentChance = 1;
 //percentChance = 0;
 if spell != noone && spell.name == "magicmissile" {
 	// every misile has a 20/numProjectiles% chance
@@ -71,16 +71,11 @@ if rand > topNum /*&& ds_map_find_value(conditionPercentages,damageType) == 0*/ 
 	if newVal > 100 newVal = 100;
 	ds_map_replace(conditionPercentages,damageType,newVal);
 }
-// if the condition is already ongoing, increase duration based on how hard the hit was
-/*else if rand > topNum {
-	// what percent damage of health was this hit? 
-	var percentOfHp = (damageAmount/maxHp)*100;
-	var currentConditionPercent = ds_map_find_value(conditionPercentages,damageType);
-	if currentConditionPercent + percentOfHp > 100 {
-		ds_map_replace(conditionPercentages,damageType,100);
-	} else if percentOfHp < 10 {
-		ds_map_replace(conditionPercentages,damageType,currentConditionPercent+10);
-	} else {
-		ds_map_replace(conditionPercentages,damageType,currentConditionPercent+percentOfHp);
+// maybe play the element hit sound
+if arrayIncludes(global.ALL_ELEMENTS, damageType) {
+	randomize(); var rand2 = random_range(0,1);
+	if rand2 < .33 || spell != noone || rand > topNum {
+		var hitSnd = asset_get_index("snd_magic_"+damageType+"_hit");
+		audio_play_sound_at(hitSnd,x,y,depth,100,300,1,0,1);
 	}
 }

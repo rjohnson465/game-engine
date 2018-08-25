@@ -116,13 +116,7 @@ for (var i = 0; i < size; i++) {
 		if (!(isShielding && scr_is_facing(assailant,id))) {
 			instance_create_depth(0,0,1,obj_hit_particles);
 		}
-		if arrayIncludes(global.ALL_ELEMENTS, currentDamageType) {
-			randomize(); var rand = random_range(0,1);
-			if rand < .33 || attackObj.isSpell {
-				var hitSnd = asset_get_index("snd_magic_"+currentDamageType+"_hit");
-				audio_play_sound_at(hitSnd,x,y,depth,100,300,1,0,1);
-			}
-		}
+		
 	}
 				
 	// elemental conditions applied?			
