@@ -8,7 +8,7 @@ itemSprite = spr_item_arquebus;
 baseValue = 200;
 
 staggerDuration = [14];
-ds_map_set(damages,CRUSH,[12,21]);
+ds_map_set(damages,CRUSH,[15,25]);
 staminaCostArray=[19];
 ammo = 20;
 ammoMax = 20;

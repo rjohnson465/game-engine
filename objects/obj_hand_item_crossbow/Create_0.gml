@@ -1,13 +1,18 @@
 event_inherited();
 subType = HandItemTypes.Ranged;
 name = "Crossbow";
+baseName = "Crossbow";
 spriteName = "crossbow";
 itemSprite = spr_item_crossbow;
+baseValue = 200;
 
-weaponSpeed = "Medium";
-projectileSpeed = 25;
-weight = 4;
-staggerDuration = 2; // frames
-ds_map_set(damages,PHYSICAL,[5,10]);
-staminaCostArray=[10];
-physicalDamageTypeArray = ["piercing"];
+
+ds_map_set(damages,PIERCE,[14,22]);
+staminaCostArray=[18];
+ammo = 15;
+ammoMax = 15;
+//numberOfSockets = 2;
+
+act = 1;
+
+//numberOfSockets = 1;

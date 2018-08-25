@@ -327,14 +327,6 @@
             }
         },
         {
-            "Key": "07ed0573-4245-493b-85b2-5c067785bac9",
-            "Value": {
-                "id": "9f2827f2-ff41-407b-a636-1112a90251fc",
-                "resourcePath": "objects\\obj_hand_item_crossbow\\obj_hand_item_crossbow.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "08194db1-d2a2-4872-a92d-b0467ea6c160",
             "Value": {
                 "id": "b54240ed-d1fe-4842-83db-6c100dc572f3",
@@ -2562,7 +2554,7 @@
             "Key": "400a4e30-22c1-4c05-8dc9-463e8a4f254a",
             "Value": {
                 "id": "0f9a4f57-cbf3-45e1-826c-78a6e90197cc",
-                "resourcePath": "sprites\\spr_item_thrownknifeqq\\spr_item_thrownknifeqq.yy",
+                "resourcePath": "sprites\\spr_item_crossbow\\spr_item_crossbow.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2780,6 +2772,14 @@
                 "id": "f8e852b0-65ac-4456-b61f-546c90accfec",
                 "resourcePath": "scripts\\makeGold\\makeGold.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "47433235-9b4f-44be-a4ad-2953e1575ef8",
+            "Value": {
+                "id": "283a5c6f-43c1-4fbe-8e2f-195fa861286a",
+                "resourcePath": "sprites\\spr_player_crossbow_prep_1\\spr_player_crossbow_prep_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4463,6 +4463,14 @@
             }
         },
         {
+            "Key": "70f147dd-a896-4a40-bd10-d6864e47472b",
+            "Value": {
+                "id": "95b4869b-3638-4201-b3cf-7560342c59dd",
+                "resourcePath": "objects\\obj_hand_item_crossbow\\obj_hand_item_crossbow.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "70ffadee-face-44a4-9fb9-5e7ca87d93c0",
             "Value": {
                 "id": "43e4ac10-9b7c-4fa5-91d4-8882252025b2",
@@ -4719,6 +4727,14 @@
             }
         },
         {
+            "Key": "77a7d0dd-ad62-4abc-8868-0e6b3d1ff209",
+            "Value": {
+                "id": "5f83d029-d925-4a70-ba6d-c47dc89f9c80",
+                "resourcePath": "sprites\\spr_player_hand_crossbow_attack_1\\spr_player_hand_crossbow_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "77f749e6-7956-4f5b-818b-e7e92a04b367",
             "Value": {
                 "id": "20620fb2-e2ba-4172-ab8f-05bc25034a94",
@@ -4771,6 +4787,14 @@
             "Value": {
                 "id": "dc1447ab-2226-4b1e-a025-5e51eeb954f6",
                 "resourcePath": "sprites\\spr_player_hand_club_1h_recover_1\\spr_player_hand_club_1h_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "78e799e2-62cf-4cee-b475-66090275a205",
+            "Value": {
+                "id": "64d8cfc4-1074-4fa8-a1bf-4ea53e86366d",
+                "resourcePath": "sprites\\spr_player_crossbow_base\\spr_player_crossbow_base.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6023,6 +6047,14 @@
             }
         },
         {
+            "Key": "9a6d6d61-e311-4fb1-8200-3db26dff386d",
+            "Value": {
+                "id": "b1441e03-f4eb-4a73-a314-b74b4c9dc7ef",
+                "resourcePath": "views\\9a6d6d61-e311-4fb1-8200-3db26dff386d.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "9a852e4d-43e0-47a1-a2bf-00a3022cdfc8",
             "Value": {
                 "id": "c153257b-ed8c-4bd3-ab35-d74ced5f4d51",
@@ -6059,6 +6091,14 @@
             "Value": {
                 "id": "265eee39-8c69-484c-bf87-c0b7434742e7",
                 "resourcePath": "sprites\\spr_player_hand_spear_recover_2\\spr_player_hand_spear_recover_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9bc862c6-9ad7-4057-940c-d958a998b979",
+            "Value": {
+                "id": "6c4fa68d-00d9-4c16-9a0e-d73a6e2c87ae",
+                "resourcePath": "sprites\\spr_player_hand_crossbow_prep_1\\spr_player_hand_crossbow_prep_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6647,6 +6687,14 @@
             }
         },
         {
+            "Key": "aa7cf24b-b4a4-4007-aab7-593a4a004b39",
+            "Value": {
+                "id": "e5a137c4-9dd2-4ae2-949e-255f407c88e1",
+                "resourcePath": "sprites\\spr_player_crossbow\\spr_player_crossbow.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "aaf4f76e-3e03-4e56-8549-a0304dcbdbe6",
             "Value": {
                 "id": "aab8b600-f28a-40ef-89c2-5cdd482fa6a1",
@@ -6675,6 +6723,14 @@
             "Value": {
                 "id": "09d93ffb-a1f6-46e6-bb93-c110bb0e0bce",
                 "resourcePath": "sprites\\spr_fountain\\spr_fountain.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ab9ac9f5-8f0b-474b-b86b-a525f3941457",
+            "Value": {
+                "id": "d73e7db5-07a8-4efd-8c7f-816d26c88ae2",
+                "resourcePath": "sprites\\spr_player_crossbow_attack_1\\spr_player_crossbow_attack_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -7044,6 +7100,14 @@
                 "id": "ad525231-f8e2-43de-a296-3f2d2115046d",
                 "resourcePath": "views\\b46f1693-ea6a-46a7-a457-11dcef6a2aaf.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b4748389-844d-4261-a712-5dbfe99a81ba",
+            "Value": {
+                "id": "3c53795b-7e65-4e0a-b5c2-c1adfbb7e072",
+                "resourcePath": "sprites\\spr_player_crossbow_recover_1\\spr_player_crossbow_recover_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8503,6 +8567,14 @@
             }
         },
         {
+            "Key": "d89b1a36-81d1-425d-afc4-cf4685860435",
+            "Value": {
+                "id": "131018d6-0939-4082-adbc-18c9649d0d92",
+                "resourcePath": "objects\\obj_crossbow_parent\\obj_crossbow_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d8e7a4bf-70a7-4104-818c-33f5a605c738",
             "Value": {
                 "id": "34875448-4347-4e90-bdf1-cb657cc9a4ec",
@@ -8540,6 +8612,14 @@
                 "id": "4d4abe71-2af8-4bc3-b23f-a3774f62d89c",
                 "resourcePath": "scripts\\playerAttackingRanged2H\\playerAttackingRanged2H.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "da32fae2-b083-4cee-936a-541b8bfa7a93",
+            "Value": {
+                "id": "93b4f897-aa32-4394-a1c0-21808e7b4cd1",
+                "resourcePath": "sprites\\spr_player_hand_crossbow\\spr_player_hand_crossbow.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -9767,6 +9847,14 @@
             }
         },
         {
+            "Key": "fd3c62ca-dd49-4979-a3ce-3beb392f9e4f",
+            "Value": {
+                "id": "87ea43e3-134f-409a-87dd-584da02a39bd",
+                "resourcePath": "sprites\\spr_player_hand_crossbow_recover_1\\spr_player_hand_crossbow_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "fd60a4a6-e592-4b84-be9e-5a2e50335d7b",
             "Value": {
                 "id": "48751f9f-9119-4404-92af-c7be74626149",
@@ -9844,6 +9932,14 @@
                 "id": "3cf98b10-a49e-4e70-bbcb-884567c2ef03",
                 "resourcePath": "scripts\\getPropertyMacro\\getPropertyMacro.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "fee97401-b1bc-4bfd-bf5c-65074ab0e829",
+            "Value": {
+                "id": "013b3255-dc21-483e-87fa-5d391feefc2a",
+                "resourcePath": "views\\fee97401-b1bc-4bfd-bf5c-65074ab0e829.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
