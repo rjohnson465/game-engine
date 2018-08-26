@@ -16,50 +16,6 @@
     "edgeFiltering": false,
     "frames": [
         {
-            "id": "caaf8458-f5c6-48e7-9208-373393dea7bb",
-            "modelName": "GMSpriteFrame",
-            "mvc": "1.0",
-            "SpriteId": "3f05d096-df1b-442b-a084-3e08c16b06d1",
-            "compositeImage": {
-                "id": "42784145-3c6f-4e88-800b-0c157a222de8",
-                "modelName": "GMSpriteImage",
-                "mvc": "1.0",
-                "FrameId": "caaf8458-f5c6-48e7-9208-373393dea7bb",
-                "LayerId": "00000000-0000-0000-0000-000000000000"
-            },
-            "images": [
-                {
-                    "id": "68cc79f1-e146-4da7-b574-a833fc38ec5e",
-                    "modelName": "GMSpriteImage",
-                    "mvc": "1.0",
-                    "FrameId": "caaf8458-f5c6-48e7-9208-373393dea7bb",
-                    "LayerId": "99398a3b-b40c-47bc-9255-4c19128ac295"
-                }
-            ]
-        },
-        {
-            "id": "94ea2216-7fec-4622-8483-cee3697cbeba",
-            "modelName": "GMSpriteFrame",
-            "mvc": "1.0",
-            "SpriteId": "3f05d096-df1b-442b-a084-3e08c16b06d1",
-            "compositeImage": {
-                "id": "d0583e41-6106-4e7d-bea4-790d81812a67",
-                "modelName": "GMSpriteImage",
-                "mvc": "1.0",
-                "FrameId": "94ea2216-7fec-4622-8483-cee3697cbeba",
-                "LayerId": "00000000-0000-0000-0000-000000000000"
-            },
-            "images": [
-                {
-                    "id": "2b8b84e1-eef2-4685-b25f-cfec038f9e57",
-                    "modelName": "GMSpriteImage",
-                    "mvc": "1.0",
-                    "FrameId": "94ea2216-7fec-4622-8483-cee3697cbeba",
-                    "LayerId": "99398a3b-b40c-47bc-9255-4c19128ac295"
-                }
-            ]
-        },
-        {
             "id": "7db246ae-4770-47ce-94fb-e6bf38cf4a28",
             "modelName": "GMSpriteFrame",
             "mvc": "1.0",
@@ -231,50 +187,6 @@
                     "modelName": "GMSpriteImage",
                     "mvc": "1.0",
                     "FrameId": "0233df0a-5a9c-4ae3-86f4-c0439ff7720d",
-                    "LayerId": "99398a3b-b40c-47bc-9255-4c19128ac295"
-                }
-            ]
-        },
-        {
-            "id": "45deae2d-48f7-4939-a515-98de168a026e",
-            "modelName": "GMSpriteFrame",
-            "mvc": "1.0",
-            "SpriteId": "3f05d096-df1b-442b-a084-3e08c16b06d1",
-            "compositeImage": {
-                "id": "715ad8a2-33b5-4644-bd5a-1c8ce6151fb3",
-                "modelName": "GMSpriteImage",
-                "mvc": "1.0",
-                "FrameId": "45deae2d-48f7-4939-a515-98de168a026e",
-                "LayerId": "00000000-0000-0000-0000-000000000000"
-            },
-            "images": [
-                {
-                    "id": "e788f860-a15f-47f9-945d-3af57d8569aa",
-                    "modelName": "GMSpriteImage",
-                    "mvc": "1.0",
-                    "FrameId": "45deae2d-48f7-4939-a515-98de168a026e",
-                    "LayerId": "99398a3b-b40c-47bc-9255-4c19128ac295"
-                }
-            ]
-        },
-        {
-            "id": "e4ae87b7-2482-4872-8647-ec5fb1c6a7e7",
-            "modelName": "GMSpriteFrame",
-            "mvc": "1.0",
-            "SpriteId": "3f05d096-df1b-442b-a084-3e08c16b06d1",
-            "compositeImage": {
-                "id": "d30ac1c2-016e-4c1c-9215-f884f8ddc53e",
-                "modelName": "GMSpriteImage",
-                "mvc": "1.0",
-                "FrameId": "e4ae87b7-2482-4872-8647-ec5fb1c6a7e7",
-                "LayerId": "00000000-0000-0000-0000-000000000000"
-            },
-            "images": [
-                {
-                    "id": "6aaf18b2-e31c-442e-ba49-548b35036acb",
-                    "modelName": "GMSpriteImage",
-                    "mvc": "1.0",
-                    "FrameId": "e4ae87b7-2482-4872-8647-ec5fb1c6a7e7",
                     "LayerId": "99398a3b-b40c-47bc-9255-4c19128ac295"
                 }
             ]

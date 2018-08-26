@@ -497,7 +497,10 @@ switch(state) {
 			staggerSpeed = noone;
 			
 			// possibly become wary (less chance after stagger than dodging)
-			if maybeBecomeWary(1.5) break;
+			// don't do this if the player is using ranged attacks
+			if lastAttackHitWith != noone && instance_exists(lastAttackHitWith) && !lastAttackHitWith.isRanged {
+				if maybeBecomeWary(1.5) break;
+			}
 			state = CombatantStates.Idle;
 		}
 		break;

@@ -351,14 +351,6 @@
             }
         },
         {
-            "Key": "08a0e74a-a190-43ee-abe3-67fa6372df10",
-            "Value": {
-                "id": "264e4099-649f-4b77-94d9-4fec395cea8b",
-                "resourcePath": "sprites\\spr_enemy_unfairy_dead\\spr_enemy_unfairy_dead.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "08e230db-d7b0-42cd-acce-f60726893ba5",
             "Value": {
                 "id": "6f5a4a2d-e490-4b86-888e-8a02e21c4ec4",
@@ -3511,6 +3503,14 @@
             }
         },
         {
+            "Key": "58fc3139-38ac-4992-9658-7c501195dd56",
+            "Value": {
+                "id": "2e8ad7fb-3471-4fe1-b98b-ab6491a53477",
+                "resourcePath": "sprites\\spr_francis_move\\spr_francis_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "59093129-8839-457b-889f-56c3aef3fc2d",
             "Value": {
                 "id": "e715edeb-677f-4b7e-8795-e4a1c3916122",
@@ -4356,6 +4356,14 @@
                 "id": "1563bbca-b7b0-40c0-83b2-4f3f97daadbc",
                 "resourcePath": "scripts\\enemyUnfairyDualSwordsInit\\enemyUnfairyDualSwordsInit.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "6e8f4d88-41df-4025-8df5-813e001b35c0",
+            "Value": {
+                "id": "c67bc71c-1fac-478a-8ff6-1149a9ffb8a2",
+                "resourcePath": "sprites\\spr_player\\spr_player.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5652,6 +5660,14 @@
                 "id": "163d6684-44e1-4f1f-b443-1fb174506d75",
                 "resourcePath": "scripts\\modifyShieldElementalBlock\\modifyShieldElementalBlock.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8ea4d269-f2e9-4121-a2e2-7998fd4541b4",
+            "Value": {
+                "id": "fe12a1d4-3d12-4c74-b2c6-5f888834e089",
+                "resourcePath": "sprites\\spr_enemy_unfairy\\spr_enemy_unfairy.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8170,7 +8186,7 @@
             "Key": "cf10f946-5302-4761-a66f-62c83f0a91e7",
             "Value": {
                 "id": "d5915814-3cb4-44b0-8aea-222f8d80e0b9",
-                "resourcePath": "sprites\\spr_enemy_unfairy\\spr_enemy_unfairy.yy",
+                "resourcePath": "sprites\\spr_enemy_unfairy11\\spr_enemy_unfairy11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -9019,14 +9035,6 @@
             "Value": {
                 "id": "9301c565-6e11-4541-b1f9-8119c3e780f2",
                 "resourcePath": "sprites\\spr_stats_level\\spr_stats_level.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "e5bfff94-b9d5-4552-9312-9bf1ace4a28a",
-            "Value": {
-                "id": "28a1dfcd-e861-4bf8-b9e2-bf520410590c",
-                "resourcePath": "sprites\\spr_player\\spr_player.yy",
                 "resourceType": "GMSprite"
             }
         },

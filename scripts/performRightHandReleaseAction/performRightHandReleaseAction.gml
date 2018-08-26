@@ -11,7 +11,7 @@ with obj_fade {
 	}
 }
 if isFading exit;
-
+if hp <= 0 exit;
 if rightHandItem.isRanged && rightHandItem.ammo < 1 && !rightHandItem.isTwoHanded {
 	alert(rightHandItem.name + " is out of ammo", c_red);
 	exit;

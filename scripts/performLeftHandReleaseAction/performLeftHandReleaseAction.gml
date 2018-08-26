@@ -27,6 +27,7 @@ if global.isLooting && !gamepad_is_connected(gamePadIndex) exit;
 
 if global.isWishing exit;
 if global.isInteractingWithNpc exit;
+if hp <= 0 exit;
 
 if leftHandItem.isRanged && leftHandItem.ammo < 1 && !leftHandItem.isTwoHanded {
 	alert(leftHandItem.name + " is out of ammo", c_red);

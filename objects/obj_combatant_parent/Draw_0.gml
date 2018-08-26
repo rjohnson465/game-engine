@@ -101,6 +101,8 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 	idleFrame += 1;
 	idleFrame = idleFrame % totalIdleFrames;
 	//image_speed = oldImageSpeed;
+	//show_debug_message(string(sprite_get_name(sprite_index)) + " image index: " + string(image_index) + " alpha: " + string(alpha) + " visibility " + string(visible));
+
 }
 
 if isFairy {

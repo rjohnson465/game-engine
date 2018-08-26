@@ -13,6 +13,8 @@ var actualDamage = argument[3];
 var isCriticalHit = argument[4];
 var itemHitWith = argument[5];
 
+lastAttackHitWith = attackObj.attackData != noone ? attackObj.attackData : attackObj.weapon;
+
 hp -= damage;	
 global.damageAmount = damage;
 global.healingSustained = 0;

@@ -9,7 +9,8 @@ if state == CombatantStates.Moving {
 	updateMoveSpriteAndImageSpeed();
 	draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_white, alpha);
 } else {
-	draw_sprite_ext(sprite_index, 1, x, y, scale, scale, facingDirection, c_white, alpha);
+	updateMoveSpriteAndImageSpeed();
+	draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_white, alpha);
 }
 
 if isFairy {

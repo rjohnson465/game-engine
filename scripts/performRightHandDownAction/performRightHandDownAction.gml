@@ -11,6 +11,7 @@ with obj_fade {
 		isFading = true;
 	}
 }
+if hp <= 0 exit;
 if isFading exit;
 
 if !isMouseInMenu && !isFrozen && !global.ui.isShowingMenus {
