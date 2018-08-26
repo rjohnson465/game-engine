@@ -2,7 +2,10 @@
 /// @param inventoryDataMap
 /// creates inventory from save game file
 
-// destroy all current enemy data objs
+
+var sd_inventory = argument[0];
+// destroy all current items in inventory
+
 with obj_item_parent {
 	var _name = object_get_name(object_index);
 	var _owner = owner == global.player;
@@ -24,7 +27,7 @@ var lhi = p.leftHandItem;
 var rhi = p.rightHandItem;
 ds_list_clear(p.inventory);
 
-var sd_inventory = argument[0];
+
 var holdingList = ds_list_create(); 
 var cv = ds_map_find_first(sd_inventory);
 for (var j = 0; j < ds_map_size(sd_inventory); j++) {
@@ -32,7 +35,6 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 	var sd_item = ds_map_find_value(sd_inventory,cv);
 	var objName = ds_map_find_value(sd_item,"ObjectName");
 	var objIndex = asset_get_index(objName);
-	//var objIndexName = object_get_name(objIndex);
 	
 	var item = instance_create_depth(x,y,1,objIndex);
 	item.owner = global.player;
@@ -131,6 +133,9 @@ for (var i = 0; i < ds_list_size(holdingList); i++) {
 		if owner == global.player && invIndex == string(i) {
 			//ds_list_add(global.player.inventory,id);
 			addItemToInventory(id);
+		}
+		if !is_string(invIndex) && invIndex < 0 && !object_index == obj_unarmed_parent {
+			instance_destroy(id,1);
 		}
 	}
 }

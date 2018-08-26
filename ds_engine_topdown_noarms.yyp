@@ -2775,6 +2775,14 @@
             }
         },
         {
+            "Key": "4770fe76-520a-4d62-9ec8-e2c18d881f24",
+            "Value": {
+                "id": "b6211edf-71bb-42f4-baa3-9b1c7710c7db",
+                "resourcePath": "scripts\\performSwapLeftHand\\performSwapLeftHand.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "478523d3-04ad-497d-8568-ebe75e28b943",
             "Value": {
                 "id": "72e2516d-903c-4008-abab-cc42d4416f65",
@@ -4260,6 +4268,14 @@
                 "id": "b87e440b-4c99-494a-a128-5d4f1a03e81d",
                 "resourcePath": "views\\6cd76182-06dc-467a-83a6-a3d5a2f47798.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6d1a3b9f-bbf9-4ec4-bebf-d04cc05703e1",
+            "Value": {
+                "id": "07c58785-dab0-433e-89d4-5d9d27801175",
+                "resourcePath": "scripts\\performSwapRightHand\\performSwapRightHand.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -10104,6 +10120,8 @@
         "b2c857d6-9d45-4af9-b4cd-805adc7bdccc",
         "75d7b37c-fdca-47ba-892b-63ef4bbcb916",
         "aaf4f76e-3e03-4e56-8549-a0304dcbdbe6",
+        "6d1a3b9f-bbf9-4ec4-bebf-d04cc05703e1",
+        "4770fe76-520a-4d62-9ec8-e2c18d881f24",
         "12a88325-7bec-4632-b9cf-d41413c9fcb1",
         "7a983319-c1fb-4e41-8a4a-c45cca8b06d2",
         "19347952-65c4-40a4-a417-064362d8c7d9",
