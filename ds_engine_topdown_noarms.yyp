@@ -3391,6 +3391,14 @@
             }
         },
         {
+            "Key": "54ce8f6b-f91e-4660-bdbb-8c9d411d4e52",
+            "Value": {
+                "id": "b59043d6-9ec2-4708-bd93-fd4f0c1e477c",
+                "resourcePath": "sprites\\spr_gem_amethyst_exquisite\\spr_gem_amethyst_exquisite.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5516e234-38c7-4656-87b1-fa4142fec887",
             "Value": {
                 "id": "3065b234-c934-4df7-8459-ab01401a7dc1",
@@ -3468,6 +3476,14 @@
                 "id": "d67ca6c1-ed14-436d-96b7-c67d8291bd1e",
                 "resourcePath": "sprites\\spr_filter_other\\spr_filter_other.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "56966e27-d929-433e-98da-107618bd7a9f",
+            "Value": {
+                "id": "3b1933e9-05da-4101-a961-9c1a31d851a3",
+                "resourcePath": "views\\56966e27-d929-433e-98da-107618bd7a9f.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -4223,6 +4239,14 @@
             }
         },
         {
+            "Key": "6a6ae571-0da2-4057-b539-73bd7ba06834",
+            "Value": {
+                "id": "aa770e5a-5d70-430b-b6f4-e5882dd84a0d",
+                "resourcePath": "sprites\\spr_gem_emerald_exquisite\\spr_gem_emerald_exquisite.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6a6ba4da-50aa-41b9-9a09-37313224114a",
             "Value": {
                 "id": "213925dc-291c-4f2e-bb60-234d9d17aa31",
@@ -4783,6 +4807,14 @@
             }
         },
         {
+            "Key": "76fdae69-8826-439e-8eac-b18ab14432a8",
+            "Value": {
+                "id": "e3515949-8716-4483-bae7-8fb336fefa31",
+                "resourcePath": "sprites\\spr_gem_lapis_exquisite\\spr_gem_lapis_exquisite.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "77238aaa-ce7e-4a7f-9257-0d62495ff219",
             "Value": {
                 "id": "fe551a57-83b7-4d7e-81f2-a05fe92ec7b0",
@@ -4988,6 +5020,14 @@
                 "id": "c710e311-e78e-4a0b-9e36-b44bdfd2fe7c",
                 "resourcePath": "sounds\\snd_conversation_francis_welcome_2\\snd_conversation_francis_welcome_2.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "7b1515ca-b434-447f-bc63-fcd0d68b4460",
+            "Value": {
+                "id": "e4a60c01-41ba-422d-9ace-d58b8cad63cd",
+                "resourcePath": "sprites\\spr_gem_hematite_exquisite\\spr_gem_hematite_exquisite.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5547,6 +5587,14 @@
             "Value": {
                 "id": "45defda7-afc1-4c64-92af-cbad8f56857f",
                 "resourcePath": "sprites\\spr_block\\spr_block.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "89c5a874-9a41-4ae5-9978-9b75ea7859bb",
+            "Value": {
+                "id": "9701f742-2c65-4b33-8337-7b02ab932b20",
+                "resourcePath": "sprites\\spr_gem_aquamarine_exquisite\\spr_gem_aquamarine_exquisite.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6260,6 +6308,14 @@
                 "id": "269cbe25-b682-4928-800c-0596c5b1e030",
                 "resourcePath": "scripts\\iterateOverRecoveringLimbs\\iterateOverRecoveringLimbs.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "9d7cab57-846c-4973-8210-bc104ab2fa63",
+            "Value": {
+                "id": "3d291cf7-44d0-4980-bb61-b1c4e3050dec",
+                "resourcePath": "sprites\\spr_gem_ruby_exquisite\\spr_gem_ruby_exquisite.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

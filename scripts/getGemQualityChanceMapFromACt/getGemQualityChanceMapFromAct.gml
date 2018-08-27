@@ -6,10 +6,10 @@ var map = ds_map_create();
 
 switch act {
 	case 1: {
-		ds_map_replace(map,CRACKED,[0,33]);
-		ds_map_replace(map,NORMAL,[33,66]);
-		ds_map_replace(map,EXQUISITE,[-1,-1]);
-		ds_map_replace(map,FLAWLESS,[66,100]);
+		ds_map_replace(map,CRACKED,[0,25]);
+		ds_map_replace(map,NORMAL,[25,50]);
+		ds_map_replace(map,EXQUISITE,[50,75]);
+		ds_map_replace(map,FLAWLESS,[75,100]);
 		break;
 	}
 	case 2: {

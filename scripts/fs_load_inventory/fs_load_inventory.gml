@@ -13,8 +13,6 @@ with obj_item_parent {
 	var _is_unarmed_parent = object_index != obj_unarmed_parent;
 	//if owner == global.player && !object_is_ancestor(object_index,obj_unarmed_parent) && object_index != obj_unarmed_parent {
 	if _owner && _is_not_ancestor && _is_unarmed_parent {
-		var ls_data = ds_map_find_value(sd_inventory,"1");
-		show_debug_message("Socketed gems list id: " + string(ds_map_find_value(ls_data, "SocketedGems")));
 		instance_destroy(id,1);
 	}
 }

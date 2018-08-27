@@ -2,9 +2,13 @@
 global.meleeWeaponsAct1 = [
 	obj_hand_item_longsword, obj_hand_item_dagger, obj_hand_item_battleaxe, 
 	obj_hand_item_foil, obj_hand_item_club, obj_hand_item_greatsword, 
-	obj_hand_item_warhammer, obj_hand_item_spear, obj_hand_item_hatchet
+	obj_hand_item_warhammer, obj_hand_item_spear, obj_hand_item_hatchet,
+	obj_hand_item_wand
 	];
-global.rangedWeaponsAct1 = [obj_hand_item_shortbow, obj_hand_item_thrownknife, obj_hand_item_pistol];
+global.rangedWeaponsAct1 = [
+	obj_hand_item_shortbow, obj_hand_item_thrownknife, obj_hand_item_pistol,
+	obj_hand_item_shuriken, obj_hand_item_arquebus, obj_hand_item_crossbow
+	];
 global.shieldsAct1 = [obj_hand_item_woodshield];
 
 global.hatsAct1 = [obj_hat_leathercap];

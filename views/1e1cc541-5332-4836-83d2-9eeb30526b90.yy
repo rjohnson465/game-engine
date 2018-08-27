@@ -6,7 +6,8 @@
     "children": [
         "95002745-a764-4999-aa4a-71ea01418cc4",
         "b1b68909-e874-4ea5-a930-d85a2d600037",
-        "5715bf8a-3f56-435e-b114-ce22b215aaeb"
+        "5715bf8a-3f56-435e-b114-ce22b215aaeb",
+        "56966e27-d929-433e-98da-107618bd7a9f"
     ],
     "filterType": "GMSprite",
     "folderName": "gems",
