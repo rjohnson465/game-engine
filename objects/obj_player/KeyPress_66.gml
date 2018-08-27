@@ -1,6 +1,7 @@
 if room == game_menu {
 	exit;
 }
+xpTemp += 1000;
 var typeMap = ds_map_create();
 ds_map_add(typeMap,ItemTypes.HandItem,0);
 ds_map_add(typeMap,ItemTypes.Other,1);

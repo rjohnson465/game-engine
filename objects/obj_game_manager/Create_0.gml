@@ -51,6 +51,7 @@ global.playerDoNothing = false;
 if room == game_menu {
 	global.playerDoNothing = true;
 }
+global.populateInventory = true;
 
 global.ALL_WEAPON_TYPES = [
 	SWORD1H, SWORD2H, DAGGER, UNARMED, AXE1H, AXE2H, BLUNT1H, BLUNT2H, RAPIER, SPEAR,

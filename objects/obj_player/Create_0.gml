@@ -163,106 +163,106 @@ currentSpellAttunement = MAGIC;
 goldDropMultiplier = 100; // %
 // inventory -- holds all items
 inventory = ds_list_create();
-addItemToInventory(makeGold(100000,200000));
+if global.populateInventory {
+	addItemToInventory(makeGold(100000,200000));
 
 
-var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
-longsword.persistent = true;
-longsword.numberOfSockets = 3;
-insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
-insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
-insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
-addItemToInventory(longsword);
+	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
+	longsword.persistent = true;
+	longsword.numberOfSockets = 3;
+	insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
+	insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
+	insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
+	addItemToInventory(longsword);
+
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_hatchet));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_battleaxe));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_club));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_foil));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_spear));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shuriken));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_arquebus));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_wand));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
+
+	//var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
+	//addItemToInventory(baxe);
+
+	//addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
+	//addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
+	/*
+	var ring = instance_create_depth(x,y,1,obj_item_ring);
+	ds_map_add(ring.itemProperties,ModifiableProperties.StaminaMax,50);
+	ds_map_add(ring.itemProperties,ModifiableProperties.StaminaRegen,10);
+	addItemProperty(ring,ModifiableProperties.ElementalDamageTypesMultiplier,[FIRE,10]);
+	addItemProperty(ring,ModifiableProperties.Defenses,[SLASH,25]);
+	addItemProperty(ring,ModifiableProperties.WeaponTypesDamage,[AXE2H,7]);
+
+	updateItemName(ring);
+	addItemToInventory(ring);
+	addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
+	addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));*/
+
+	/*
+	addItemToInventory(makeGem(obj_gem_lapis,CRACKED));
+	addItemToInventory(makeGem(obj_gem_amethyst,CRACKED));
+	addItemToInventory(makeGem(obj_gem_emerald,CRACKED));
+	addItemToInventory(makeGem(obj_gem_ruby,CRACKED));
+	addItemToInventory(makeGem(obj_gem_hematite,CRACKED));*/
+	/*
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
+
+	//var lcap = instance_create_depth(x,y,1,obj_hat_leathercap);
+	//addItemToInventory(lcap);
 
 
 
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_hatchet));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_battleaxe));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_club));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_foil));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_thrownknife));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_spear));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shuriken));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_arquebus));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_wand));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
-
-//var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
-//addItemToInventory(baxe);
-
-//addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
-//addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
-/*
-var ring = instance_create_depth(x,y,1,obj_item_ring);
-ds_map_add(ring.itemProperties,ModifiableProperties.StaminaMax,50);
-ds_map_add(ring.itemProperties,ModifiableProperties.StaminaRegen,10);
-addItemProperty(ring,ModifiableProperties.ElementalDamageTypesMultiplier,[FIRE,10]);
-addItemProperty(ring,ModifiableProperties.Defenses,[SLASH,25]);
-addItemProperty(ring,ModifiableProperties.WeaponTypesDamage,[AXE2H,7]);
-
-updateItemName(ring);
-addItemToInventory(ring);
-addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));
-addItemToInventory(makeGem(obj_gem_aquamarine,CRACKED));*/
-
-/*
-addItemToInventory(makeGem(obj_gem_lapis,CRACKED));
-addItemToInventory(makeGem(obj_gem_amethyst,CRACKED));
-addItemToInventory(makeGem(obj_gem_emerald,CRACKED));
-addItemToInventory(makeGem(obj_gem_ruby,CRACKED));
-addItemToInventory(makeGem(obj_gem_hematite,CRACKED));*/
-/*
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_pistol));
-
-//var lcap = instance_create_depth(x,y,1,obj_hat_leathercap);
-//addItemToInventory(lcap);
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 
 
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_foil));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_club));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+	// bs
 
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-
-
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_foil));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_club));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-// bs
-
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
-addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
-addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
-*/
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_longsword));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+	*/
+}
 
 lastFountain = noone;
 lastFountainRoom = noone;

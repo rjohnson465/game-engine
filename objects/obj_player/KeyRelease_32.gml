@@ -1,6 +1,7 @@
 if room == game_menu {
 	exit;
-}if isPhasing {
+}
+/*if isPhasing {
 	
 	isPhasing = false;
 }
