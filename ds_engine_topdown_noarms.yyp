@@ -327,6 +327,14 @@
             }
         },
         {
+            "Key": "076e1049-cfc6-4d9a-a6a7-f9d07a67efd8",
+            "Value": {
+                "id": "6c196c79-810a-4c3a-9e42-4752e33f020b",
+                "resourcePath": "objects\\obj_attack_unfairy_spear_1_1\\obj_attack_unfairy_spear_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "08194db1-d2a2-4872-a92d-b0467ea6c160",
             "Value": {
                 "id": "b54240ed-d1fe-4842-83db-6c100dc572f3",
@@ -927,6 +935,14 @@
             }
         },
         {
+            "Key": "162d825c-d475-45d4-acb3-4d7a620bb36e",
+            "Value": {
+                "id": "8d90e633-41dd-4ea4-bc33-0c4f8b8ef44f",
+                "resourcePath": "scripts\\enemyUnfairySpearInit\\enemyUnfairySpearInit.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "16568123-5957-4757-92be-a766ccac59ff",
             "Value": {
                 "id": "2df231bf-4ff9-444d-81ee-05e947c60c14",
@@ -1187,6 +1203,14 @@
             "Value": {
                 "id": "824d80e0-b549-4c10-853c-1fb241531685",
                 "resourcePath": "sprites\\spr_slot_off_hand\\spr_slot_off_hand.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1cfbfeae-654f-4d4b-976c-227fce6f91d7",
+            "Value": {
+                "id": "5d038c22-2dcd-4e1b-a4c6-86b9223f150e",
+                "resourcePath": "sprites\\spr_enemy_unfairy_spear_prep_1_1\\spr_enemy_unfairy_spear_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2255,6 +2279,14 @@
             }
         },
         {
+            "Key": "39923840-b131-407d-9027-ca3288aff097",
+            "Value": {
+                "id": "688be7ec-5c51-4e31-9dae-562cacade19c",
+                "resourcePath": "scripts\\makeKey\\makeKey.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "39bca976-b17b-4112-9141-1a5112b868ba",
             "Value": {
                 "id": "bf403c82-b85b-492e-af51-4a652cf528a2",
@@ -2692,6 +2724,14 @@
                 "id": "edbb236f-7b0c-4c71-9acc-e710ff202a28",
                 "resourcePath": "scripts\\drawVendorItems\\drawVendorItems.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "446db4d1-0c3c-461e-b7b0-49a1b791ad4c",
+            "Value": {
+                "id": "c8e85689-1c1e-4e1e-a45b-cb9583d0ed80",
+                "resourcePath": "sprites\\spr_enemy_unfairy_spear_recover_1_2\\spr_enemy_unfairy_spear_recover_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3599,6 +3639,14 @@
             }
         },
         {
+            "Key": "59c4a63d-8d8f-4a42-85d4-2e0173fa0bad",
+            "Value": {
+                "id": "bb205659-9f76-4584-a4d7-bc3dca733d8a",
+                "resourcePath": "views\\59c4a63d-8d8f-4a42-85d4-2e0173fa0bad.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "59ef01dd-a365-478f-b3b9-86a9b240eb9c",
             "Value": {
                 "id": "aa6de918-6e1d-4a68-a17a-71e237e33782",
@@ -3676,6 +3724,14 @@
                 "id": "a8430218-01a4-4325-a0d2-9d0cd60a1aa1",
                 "resourcePath": "scripts\\updateMoveSpriteAndImageSpeed\\updateMoveSpriteAndImageSpeed.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5ddbaedc-1933-4de8-ad23-4a69fa291738",
+            "Value": {
+                "id": "ef394f26-5aaa-4be4-9e17-1559b32e4ec3",
+                "resourcePath": "views\\5ddbaedc-1933-4de8-ad23-4a69fa291738.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -4111,6 +4167,14 @@
             }
         },
         {
+            "Key": "665bb96f-29f6-4677-8d90-cfb9a03a8bf1",
+            "Value": {
+                "id": "71ed3394-5ce2-4c6e-bd6a-702f3295c2c6",
+                "resourcePath": "objects\\obj_item_key\\obj_item_key.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "668a444a-c726-4207-b536-ab691b4b5f9a",
             "Value": {
                 "id": "5d838c42-35fa-4f7d-961c-40002755b33f",
@@ -4188,6 +4252,14 @@
                 "id": "8aa99b60-858b-41c1-b263-692ae0b514db",
                 "resourcePath": "scripts\\fs_save_player\\fs_save_player.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "68d6984a-d8fb-4ba8-a816-5a54bcf021f8",
+            "Value": {
+                "id": "67255710-0ba3-40e3-9272-8030ee046d63",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_spear_attack_1_1\\spr_enemy_unfairy_limb_spear_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4647,11 +4719,35 @@
             }
         },
         {
+            "Key": "720d79d1-8a5a-47d6-9b6d-7ff40655c260",
+            "Value": {
+                "id": "17f5b688-35a6-4db6-b576-fb61e7e193db",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_spear_prep_1_2\\spr_enemy_unfairy_limb_spear_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "72584b69-7905-4e0b-9e96-69dcc783172f",
+            "Value": {
+                "id": "48cf664f-d976-4652-b028-20abed12aff1",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_spear_attack_1_2\\spr_enemy_unfairy_limb_spear_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7270319f-655b-44f0-81b3-decb78ba87f7",
             "Value": {
                 "id": "ab48687b-d88a-43e7-9ebd-0e39df4e718a",
                 "resourcePath": "scripts\\modifyBasePropertiesWeapon\\modifyBasePropertiesWeapon.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "727a7d68-ad3d-4e1e-a7f4-6087cf6477f6",
+            "Value": {
+                "id": "0e81c64b-60b6-449d-ac82-7e5ea1e12ec7",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_spear_recover_1_2\\spr_enemy_unfairy_limb_spear_recover_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5156,6 +5252,14 @@
                 "id": "cd6c1770-4199-4f2a-a8c0-da11f6f5230d",
                 "resourcePath": "views\\7fd2f0d6-f2a7-4a1b-91c8-92acdea108c0.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "7fdc3d99-9407-49cd-ba7a-e4652ece23d8",
+            "Value": {
+                "id": "20e8e863-b8a0-4a85-9ffa-85fbd34cc23d",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_spear\\spr_enemy_unfairy_limb_spear.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5724,6 +5828,14 @@
                 "id": "5c52cc01-fec2-45db-bd7d-a9e573d313a0",
                 "resourcePath": "sprites\\spr_player_longsword\\spr_player_longsword.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8c80c709-4b9e-453e-a1be-ca680feb0325",
+            "Value": {
+                "id": "537aa369-150b-486b-9e3e-3164ecfe820f",
+                "resourcePath": "scripts\\enemyGenClearHandItems\\enemyGenClearHandItems.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -6567,6 +6679,14 @@
             }
         },
         {
+            "Key": "a280384c-5183-48d2-aa4e-213a6dd89ece",
+            "Value": {
+                "id": "040248f1-fa1b-457c-9279-8d655cdadd02",
+                "resourcePath": "sprites\\spr_enemy_unfairy_spear\\spr_enemy_unfairy_spear.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a28249af-c480-4395-98e3-8e90e96c49f9",
             "Value": {
                 "id": "4e504899-2a96-4475-bc23-6cdb1f7ea839",
@@ -6828,6 +6948,14 @@
                 "id": "c0b0fc48-99c1-4b55-a4fc-f16ac0550c23",
                 "resourcePath": "sounds\\snd_conversation_francis_unfairyslayer_2\\snd_conversation_francis_unfairyslayer_2.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "a9c68570-9f3b-485b-9bbe-f39bf41d8475",
+            "Value": {
+                "id": "9923a23b-7219-4a3b-be7e-63fcdc23c09f",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_spear_recover_1_1\\spr_enemy_unfairy_limb_spear_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7111,6 +7239,14 @@
             }
         },
         {
+            "Key": "afd91bfa-3f23-45ba-9852-1cd7c08fc1b6",
+            "Value": {
+                "id": "27411521-293c-40ee-8e84-a4831631edaf",
+                "resourcePath": "views\\afd91bfa-3f23-45ba-9852-1cd7c08fc1b6.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "aff0f7d4-55e8-45e8-af7c-cefedaa763f9",
             "Value": {
                 "id": "593c6895-0f1c-4d01-b53f-2705c6df64a9",
@@ -7236,6 +7372,14 @@
                 "id": "aef21ca0-f190-4c47-936c-7b124d98ef88",
                 "resourcePath": "views\\b2eb5445-15dc-471a-8ff4-79a21caa16f9.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b345e351-8231-4cf7-90f6-b9cc73afeee5",
+            "Value": {
+                "id": "357535c5-5e68-49c7-a5b2-3b5f2da5bca0",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_spear_prep_1_1\\spr_enemy_unfairy_limb_spear_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7439,6 +7583,14 @@
             }
         },
         {
+            "Key": "b802e1b0-b9cd-40eb-a9aa-e4755ff73fee",
+            "Value": {
+                "id": "d7332397-4727-48b4-bc35-3a554f006ea4",
+                "resourcePath": "sprites\\spr_enemy_unfairy_spear_prep_1_2\\spr_enemy_unfairy_spear_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b83a85db-30ce-4de2-8852-8fe01ae3d392",
             "Value": {
                 "id": "f0db9d06-46f5-45d3-bb42-223feef7d886",
@@ -7467,6 +7619,14 @@
             "Value": {
                 "id": "f3686e75-f3ca-479f-9ebc-ca3de3054295",
                 "resourcePath": "objects\\obj_condition_bar\\obj_condition_bar.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "b8c05111-7126-4bc5-83c4-893d7f9dff27",
+            "Value": {
+                "id": "01fc6357-42b4-4469-a11c-98c6023fb47d",
+                "resourcePath": "objects\\obj_attack_unfairy_spear_1_2\\obj_attack_unfairy_spear_1_2.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -7644,6 +7804,14 @@
                 "id": "e3253a73-e297-4e1c-9c30-c99a964c689f",
                 "resourcePath": "views\\be71ebce-9564-47f6-9751-24a4c152e746.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "be73436a-f1d0-4165-bd01-e440fe49eedd",
+            "Value": {
+                "id": "d4051420-38b2-44a7-8539-aaedb8a9ca33",
+                "resourcePath": "sprites\\spr_enemy_unfairy_spear_attack_1_2\\spr_enemy_unfairy_spear_attack_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8615,6 +8783,14 @@
             }
         },
         {
+            "Key": "d47cf076-26ea-481f-8d74-5ea138f446d8",
+            "Value": {
+                "id": "f1f2b3f3-e1f4-4552-8e9c-394a65d65042",
+                "resourcePath": "sprites\\spr_enemy_unfairy_spear_attack_1_1\\spr_enemy_unfairy_spear_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d4fe3baf-9497-4d48-8c13-3f40477f31b8",
             "Value": {
                 "id": "2ddf3db1-a27d-42d6-90e9-b51f68d79ee7",
@@ -8999,6 +9175,14 @@
             }
         },
         {
+            "Key": "de6a1428-8147-4ce3-8deb-1090521b063a",
+            "Value": {
+                "id": "daa83487-4c90-4ad0-bbd2-b0121802a1f9",
+                "resourcePath": "sprites\\spr_enemy_unfairy_spear_recover_1_1\\spr_enemy_unfairy_spear_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "de790846-221e-4654-afa2-9a97d1a864c4",
             "Value": {
                 "id": "ccc26848-9a50-4c1b-97c2-1f870962989f",
@@ -9132,6 +9316,14 @@
                 "id": "8cff9fbe-e83c-45d6-8086-161b6d733f3d",
                 "resourcePath": "scripts\\getDefaultItemTypeChanceMap\\getDefaultItemTypeChanceMap.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "e31dc35f-d2bd-42d2-96fc-63dc249199af",
+            "Value": {
+                "id": "b97e1455-ec6e-4cb1-ad62-74c2d3ceb018",
+                "resourcePath": "sprites\\spr_item_key\\spr_item_key.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -10295,7 +10487,9 @@
         "95635d4e-ed7c-48f5-876a-c6e2335065ca",
         "f4ca97d5-d0a1-41ee-98b7-0ea96f4ae44c",
         "2169cab8-d610-44a5-af9c-277f0707a879",
+        "162d825c-d475-45d4-acb3-4d7a620bb36e",
         "6e85e585-2ec9-4d94-ad4f-4a02080b5aa7",
+        "8c80c709-4b9e-453e-a1be-ca680feb0325",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",
         "566e567f-06b1-4a92-9cea-84bc4525cdf8",
@@ -10444,6 +10638,7 @@
         "43786b47-6090-4ba2-941f-43d45db1dbd3",
         "e7796687-2f6c-4473-b6d2-2756ef6352a2",
         "03aee9d0-1aa2-4784-8652-aaff890e3241",
+        "39923840-b131-407d-9027-ca3288aff097",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
         "8305d611-d802-438b-a7f2-7d475431cb73",
         "8da4eee5-515f-4749-8509-780e480c1519",

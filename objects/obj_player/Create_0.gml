@@ -191,6 +191,8 @@ if global.populateInventory {
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_wand));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
+	
+	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
 
 	//var baxe = instance_create_depth(x,y,1,obj_hand_item_battleaxe);
 	//addItemToInventory(baxe);

@@ -7,8 +7,8 @@
     "HTile": false,
     "VTile": false,
     "bbox_bottom": 184,
-    "bbox_left": 121,
-    "bbox_right": 346,
+    "bbox_left": 145,
+    "bbox_right": 283,
     "bbox_top": 124,
     "bboxmode": 0,
     "colkind": 0,
@@ -330,7 +330,7 @@
             "isLocked": false,
             "name": "default",
             "opacity": 100,
-            "visible": true
+            "visible": false
         }
     ],
     "origin": 4,

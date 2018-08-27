@@ -19,7 +19,7 @@ for (var i = 0; i < ds_map_size(sd_enemies); i++) {
 	enemyDataObj.hp = ds_map_find_value(sd_enemy,"hp");
 	if enemyDataObj.hp <= 0 {
 		enemyDataObj.isAlive = false;
-	}
+	} else enemyDataObj.isAlive = true;
 	enemyDataObj.key = cv;
 	enemyDataObj.maxHp = ds_map_find_value(sd_enemy,"maxHp");
 	enemyDataObj.postX = ds_map_find_value(sd_enemy,"postX");

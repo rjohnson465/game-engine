@@ -1,3 +1,4 @@
+// create the persistent room data object for this door (if one does not exist)
 if data == noone || !instance_exists(data) {
 	global.el = id;
 	var dd = instance_create_depth(x,y,1,obj_persistent_environment_data_parent);
@@ -9,6 +10,7 @@ if data == noone || !instance_exists(data) {
 	ds_map_replace(dd.properties, "isOpen", isOpen);
 }
 
+// set properties of this door from the data object
 with obj_persistent_environment_data_parent {
 	if key == other.key {
 		other.postX = postX;

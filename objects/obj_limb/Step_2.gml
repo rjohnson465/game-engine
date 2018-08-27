@@ -15,14 +15,16 @@ if ds_map_find_value(owner.equippedLimbItems,limbKey) != limbItem {
 	sprite_index = asset_get_index(spriteString);
 }
 
+
 // if we currently have a 2h weapon equipped, make the right hand fuck off
 var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
+
 if leftHandItem {
 	if owner == global.player && owner.currentUsingSpell != noone {
 		x = owner.x;
 		y = owner.y;
 	}
-	else if leftHandItem.isTwoHanded && limbKey == "r" {
+	else if leftHandItem.isTwoHanded && limbKey == "r" && owner.currentUsingSpell == noone {
 		x = -1000;
 		y = -1000;
 	} else {
@@ -34,7 +36,10 @@ image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
 image_xscale = 1*owner.scale;
 image_yscale = 1*owner.scale;
-if !(limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded)) {
+if !(limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded && owner.currentUsingSpell == noone)) {
+	image_yscale = -1*owner.scale;
+}
+if limbKey == "l" && owner.currentUsingSpell != noone {
 	image_yscale = -1*owner.scale;
 }
 layer = owner.layer;

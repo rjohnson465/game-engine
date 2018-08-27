@@ -5,6 +5,7 @@
 isLoading = true;
 alarm[0] = 1;
 global.populateInventory = false;
+global.ui.isShowingMenus = false;
 
 // TODO -- load in player (persistent) before moving rooms?
 if instance_exists(obj_player) {

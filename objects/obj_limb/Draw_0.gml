@@ -20,10 +20,15 @@ if limbKey == "r" {
 	if leftHand {
 		
 		if leftHandItem.isTwoHanded && owner.currentUsingSpell == noone exit;
+		
+		if leftHandItem.isTwoHanded && owner.currentUsingSpell != noone {
+			var a = 3;
+		}
 	}
 }
 
 var ys = (limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded)) ? 1 : -1;
+if limbKey == "l" && owner.currentUsingSpell != noone ys = -1;
 var rot = owner.facingDirection;
 //if limbItem.subType == HandItemTypes.Shield && owner.isShielding rot+=90;
 var frame = 0; var sprite = asset_get_index(spriteString);

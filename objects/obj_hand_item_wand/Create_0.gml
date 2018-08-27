@@ -13,7 +13,10 @@ numberOfTargets = [2];
 charges = 50;
 chargesMax = 50;
 
-range = 25;
+durability = 10;
+durabilityMax = 10;
+
+range = 15;
 
 ds_map_set(damages,SLASH,[0,0]);
 ds_map_set(damages,PIERCE,[0,0]);
