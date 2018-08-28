@@ -111,7 +111,7 @@
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
-            "eventtype": 12,
+            "eventtype": 1,
             "m_owner": "db2140f3-1136-4eb1-bb59-f40aced65d44"
         },
         {

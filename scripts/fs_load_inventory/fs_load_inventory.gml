@@ -6,7 +6,7 @@
 var sd_inventory = argument[0];
 // destroy all current items in inventory
 
-with obj_item_parent {
+/*with obj_item_parent {
 	var _name = object_get_name(object_index);
 	var _owner = owner == global.player;
 	var _is_not_ancestor = !object_is_ancestor(object_index,obj_unarmed_parent);
@@ -15,7 +15,7 @@ with obj_item_parent {
 	if _owner && _is_not_ancestor && _is_unarmed_parent {
 		instance_destroy(id,1);
 	}
-}
+}*/
 
 var p = global.player;
 ds_list_clear(p.equippedItems);
@@ -47,6 +47,7 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 	item.acceptableEquipmentSlots = ds_map_find_value(sd_item,"AcceptableEquipmentSlots");
 	item.numberOfSockets = ds_map_find_value(sd_item,"NumberOfSockets");
 	
+	
 	// insert gems
 	var gemsList = ds_map_find_value(sd_item,"SocketedGems");
 	if gemsList != undefined && ds_exists(gemsList,ds_type_list) {
@@ -54,10 +55,12 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 			//var gemArr = ds_list_find_value(gemsList,i);
 			var gemObjIndex = asset_get_index(ds_list_find_value(gemsList,i));
 			var gemCondition = ds_list_find_value(gemsList,i+1);
-			insertGemIntoItem(makeGem(gemObjIndex,gemCondition),item);
+			var gem = makeGem(gemObjIndex,gemCondition);
+			insertGemIntoItem(gem,item);
 		}
-		ds_list_destroy(gemsList); gemsList = -1;
+		//ds_list_destroy(gemsList); gemsList = -1;
 	}
+	
 	
 	
 	// populate item properties
@@ -77,7 +80,7 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 			
 			addItemProperty(item,prop,val);
 		}
-		ds_list_destroy(propsList); propsList = -1;
+		//ds_list_destroy(propsList); propsList = -1;
 	}
 	
 	// populate item property modifiers
@@ -95,7 +98,7 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 			
 			ds_map_replace(item.itemPropertyModifiers,prop,val);
 		}
-		ds_list_destroy(propsList); propsList = -1;
+		//ds_list_destroy(propsList); propsList = -1;
 	}
 	applyBasePropertyModifiers(item);
 	
@@ -114,7 +117,7 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 			
 			ds_map_replace(item.itemPropertyModifiersPts,prop,val);
 		}
-		ds_list_destroy(propsList); propsList = -1;
+		//ds_list_destroy(propsList); propsList = -1;
 	}
 
 	// if item is equipped, equip item
@@ -136,7 +139,6 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 for (var i = 0; i < ds_list_size(holdingList); i++) {
 	with obj_item_parent {
 		if owner == global.player && invIndex == string(i) {
-			//ds_list_add(global.player.inventory,id);
 			addItemToInventory(id);
 		}
 		if !is_string(invIndex) && invIndex < 0 && !object_index == obj_unarmed_parent {
@@ -154,3 +156,5 @@ if global.player.leftHandItem == noone {
 if global.player.rightHandItem == noone && !global.player.leftHandItem.isTwoHanded {
 	global.player.rightHandItem = unarmed;
 }
+
+ds_map_destroy(sd_inventory); sd_inventory = -1;

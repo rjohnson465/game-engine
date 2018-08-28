@@ -41,18 +41,7 @@ for (var j = 0; j < ds_map_size(sd_quests); j++) {
 				event_perform(ev_step, ev_step_begin);
 			}
 		}
-		
-		/*var paramsMap = ds_map_find_value(sd_quest,"Parameters");
-		if ds_map_size(paramsMap) > 0 {
-			var ck = ds_map_find_first(paramsMap);
-			for (var k = 0; k < ds_map_size(paramsMap); k++) {
-				var val = ds_map_find_value(paramsMap,ck);
-				
-				ds_map_replace(currentQuestStep.parameters,ck,val);
-				
-				ck = ds_map_find_next(paramsMap,ck);
-			}
-		}*/
+	
 	}
 	
 	if ds_map_find_value(sd_quest,"IsWatchedQuest") {
@@ -67,3 +56,4 @@ for (var j = 0; j < ds_map_size(sd_quests); j++) {
 	
 	cv = ds_map_find_next(sd_quests,cv);
 }
+ds_map_destroy(sd_quests); sd_quests = -1;
