@@ -11,6 +11,7 @@ type = ItemTypes.Other;
 
 isStackable = true;
 isSellable = false;
+isDestroyable = false;
 
 soundDrop = snd_item_coins;
 soundGrab = snd_item_coins;

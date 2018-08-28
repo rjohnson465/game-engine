@@ -56,7 +56,9 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 			var gemCondition = ds_list_find_value(gemsList,i+1);
 			insertGemIntoItem(makeGem(gemObjIndex,gemCondition),item);
 		}
+		ds_list_destroy(gemsList); gemsList = -1;
 	}
+	
 	
 	// populate item properties
 	var propsList = ds_map_find_value(sd_item,"ItemProperties");
@@ -75,6 +77,7 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 			
 			addItemProperty(item,prop,val);
 		}
+		ds_list_destroy(propsList); propsList = -1;
 	}
 	
 	// populate item property modifiers
@@ -92,6 +95,7 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 			
 			ds_map_replace(item.itemPropertyModifiers,prop,val);
 		}
+		ds_list_destroy(propsList); propsList = -1;
 	}
 	applyBasePropertyModifiers(item);
 	
@@ -110,6 +114,7 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 			
 			ds_map_replace(item.itemPropertyModifiersPts,prop,val);
 		}
+		ds_list_destroy(propsList); propsList = -1;
 	}
 
 	// if item is equipped, equip item

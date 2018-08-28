@@ -1,6 +1,5 @@
 /// fs_save_roomdata
 /// returns a map of all the fountain data in the game
-//var sd_fountains = ds_map_create();
 var sd_roomdatas = ds_map_create();
 
 // save all persistent room elements

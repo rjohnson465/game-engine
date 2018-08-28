@@ -2,34 +2,41 @@
 
 var save_data = ds_map_create();
 var filename = global.gameManager.currentSaveFile;
-
-// save the current room
-// this must be loaded and the game manager must take us to this room before anything else can be loaded
-//ds_map_replace(save_data,"Room",room_get_name(room));
-
 // save player info
-ds_map_add_map(save_data,"Player",fs_save_player());
+var playerDataMap = fs_save_player();
+ds_map_add_map(save_data,"Player",playerDataMap);
 
 // save fountain info
-ds_map_add_map(save_data,"RoomData",fs_save_roomdata());
+var roomDataMap = fs_save_roomdata();
+ds_map_add_map(save_data,"RoomData",roomDataMap);
 
 // save enemy info
-ds_map_add_map(save_data,"Enemies",fs_save_enemies());
+var enemyDataMap = fs_save_enemies();
+ds_map_add_map(save_data,"Enemies",enemyDataMap);
 
 // save inventory items
-ds_map_add_map(save_data,"Inventory",fs_save_inventory());
+var inventoryDataMap = fs_save_inventory();
+ds_map_add_map(save_data,"Inventory",inventoryDataMap);
 
 // save skills data
-ds_map_add_map(save_data,"Skills",fs_save_skills());
+var skillsDataMap = fs_save_skills();
+ds_map_add_map(save_data,"Skills",skillsDataMap);
 
 // save quests data 
-ds_map_add_map(save_data,"Quests",fs_save_quests());
+var questsDataMap = fs_save_quests();
+ds_map_add_map(save_data,"Quests",questsDataMap);
 
 // save npc data
-ds_map_add_map(save_data,"Npcs",fs_save_npcs());
+var npcsDataMap = fs_save_npcs();
+ds_map_add_map(save_data,"Npcs",npcsDataMap);
 
 // save to file name
 ds_map_secure_save(save_data,filename);
 
-
-
+ds_map_destroy(playerDataMap); playerDataMap = -1;
+ds_map_destroy(enemyDataMap); enemyDataMap = -1;
+ds_map_destroy(inventoryDataMap); inventoryDataMap = -1;
+ds_map_destroy(skillsDataMap); skillsDataMap = -1;
+ds_map_destroy(questsDataMap); questsDataMap = -1;
+ds_map_destroy(npcsDataMap); npcsDataMap = -1;
+// destroying roomDataMap or save_data results in a stack overflow -- why?

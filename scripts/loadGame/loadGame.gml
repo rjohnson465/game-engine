@@ -1,7 +1,4 @@
 // must be called by game manager obj
-
-
-
 isLoading = true;
 alarm[0] = 1;
 global.populateInventory = false;
@@ -17,9 +14,11 @@ if instance_exists(obj_player) {
 	
 	with global.player {
 		instance_destroy(playerLightRadius,1);
+		instance_destroy(unarmed,1);
 		
 		// prevent mem leak
 		ds_map_destroy(attackAgain); attackAgain = -1;
+		ds_map_destroy(propertiesBaseValues); propertiesBaseValues = -1;
 		ds_map_destroy(itemPropertyBonuses); itemPropertyBonuses = -1;
 		ds_map_destroy(skillPropertyBonuses); skillPropertyBonuses = -1;
 		ds_map_destroy(physicalDamageTypesMultipliers); physicalDamageTypesMultipliers = -1;
@@ -35,11 +34,53 @@ if instance_exists(obj_player) {
 		ds_list_destroy(lockOnList); lockOnList = -1;
 		ds_list_destroy(lockOnListSeen); lockOnListSeen = -1;
 		ds_list_destroy(beenHitWith); beenHitWith = -1;
+
+		
+		mp_grid_destroy(personalGrid); personalGrid = -1;
+		path_delete(gridPath); gridPath = -1;
+		path_delete(path); path = -1;
+		
+		ds_map_destroy(preparingLimbs); preparingLimbs = -1;
+		ds_map_destroy(attackingLimbs); attackingLimbs = -1;
+		ds_map_destroy(recoveringLimbs); recoveringLimbs = -1;
+		ds_map_destroy(prepFrames); prepFrames = -1;
+		ds_map_destroy(prepFrameTotals); prepFrameTotals = -1;
+		ds_map_destroy(attackFrames); attackFrames = -1;
+		ds_map_destroy(recoverFrames); recoverFrames = -1;
+		ds_map_destroy(recoverFrameTotals); recoverFrameTotals = -1;
+		ds_map_destroy(handItems); handItems = -1;
+		ds_map_destroy(equippedLimbItems); equippedLimbItems = -1;
+		
+		ds_map_destroy(knownSpells); knownSpells = -1;
+		ds_map_destroy(defenses); defenses = -1;
+		ds_map_destroy(conditionPercentages); conditionPercentages = -1;
+		ds_map_destroy(conditionLevels); conditionLevels = -1;
+		var ck = ds_map_find_first(conditionsEmittersMap);
+		for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
+			var emitter = ds_map_find_value(conditionsEmittersMap,ck);
+			audio_emitter_free(emitter); emitter = -1;
+			ck = ds_map_find_next(conditionsEmittersMap,ck);
+		}
+		ds_map_destroy(conditionsEmittersMap); conditionsEmittersMap = -1;
 		
 		event_perform(ev_create,0);
 	}
-} else {
-	//instance_create_depth(x,y,1,obj_player);
+} 
+// destroy all items in inventory
+with obj_item_parent {
+	var _name = object_get_name(object_index);
+	var _owner = owner == global.player;
+	var _is_not_ancestor = !object_is_ancestor(object_index,obj_unarmed_parent);
+	var _is_unarmed_parent = object_index != obj_unarmed_parent;
+	//if owner == global.player && !object_is_ancestor(object_index,obj_unarmed_parent) && object_index != obj_unarmed_parent {
+	if _owner && _is_not_ancestor && _is_unarmed_parent {
+		instance_destroy(id,1);
+	}
+}
+
+// destroy all itemdrops
+with obj_item_drop {
+	instance_destroy(id,1);
 }
 var p = global.player;
 p.gamePadIndex = global.gamePadIndex;
@@ -49,18 +90,9 @@ p.x = ds_map_find_value(pData,"LastFountainX");
 p.y = ds_map_find_value(pData,"LastFountainY");
 p.layerToMoveTo = ds_map_find_value(pData,"LastFountainZ");
 roomToGoTo = ds_map_find_value(pData,"LastFountainRoom");
-
-// destroy all itemdrops
-with obj_item_drop {
-	instance_destroy(id,1);
-}
-
-//if instance_exists(fade) {
-	//if fade.frame == .5*fade.fadeDuration {
 		
-		room_goto(roomToGoTo);
-		audio_stop_all();
-	//}
-//}
+room_goto(roomToGoTo);
+audio_stop_all();
+
 
 
