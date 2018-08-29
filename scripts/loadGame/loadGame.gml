@@ -72,7 +72,6 @@ with obj_item_parent {
 	var _owner = owner == global.player;
 	var _is_not_ancestor = !object_is_ancestor(object_index,obj_unarmed_parent);
 	var _is_unarmed_parent = object_index != obj_unarmed_parent;
-	//if owner == global.player && !object_is_ancestor(object_index,obj_unarmed_parent) && object_index != obj_unarmed_parent {
 	if _owner && _is_not_ancestor && _is_unarmed_parent {
 		instance_destroy(id,1);
 	}
@@ -93,6 +92,8 @@ roomToGoTo = ds_map_find_value(pData,"LastFountainRoom");
 		
 room_goto(roomToGoTo);
 audio_stop_all();
+
+ds_map_destroy(save_data); save_data = -1;
 
 
 

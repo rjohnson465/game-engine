@@ -42,4 +42,4 @@ for (var i = 0; i < ds_map_size(sd_enemies); i++) {
 	cv = ds_map_find_next(sd_enemies,cv);
 }
 
-ds_map_destroy(sd_enemies); sd_enemies = -1;
+//ds_map_destroy(sd_enemies); sd_enemies = -1;

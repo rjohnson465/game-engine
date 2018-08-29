@@ -3,6 +3,7 @@ if ds_exists(socketedGems,ds_type_list) && ds_list_size(socketedGems) > 0 {
 		var gem = ds_list_find_value(socketedGems,i);
 		instance_destroy(gem,1);
 	}
+	ds_list_destroy(socketedGems); socketedGems = -1;
 }
 
 if ds_exists(itemProperties,ds_type_list) {

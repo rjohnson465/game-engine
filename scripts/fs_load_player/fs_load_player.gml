@@ -12,4 +12,4 @@ with global.player {
 	skillPoints = ds_map_find_value(sd_player,"SkillPoints");
 }
 
-ds_map_destroy(sd_player); sd_player = -1;
+//ds_map_destroy(sd_player); sd_player = -1;

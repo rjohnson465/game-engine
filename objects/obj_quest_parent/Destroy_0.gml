@@ -11,4 +11,5 @@ if rewardItems != noone && rewardItems != undefined && ds_exists(rewardItems,ds_
 		var ri = ds_list_find_value(rewardItems,i);
 		instance_destroy(ri,1);
 	}
+	ds_list_destroy(rewardItems); rewardItems = -1;
 }

@@ -56,4 +56,4 @@ for (var j = 0; j < ds_map_size(sd_quests); j++) {
 	
 	cv = ds_map_find_next(sd_quests,cv);
 }
-ds_map_destroy(sd_quests); sd_quests = -1;
+//ds_map_destroy(sd_quests); sd_quests = -1;

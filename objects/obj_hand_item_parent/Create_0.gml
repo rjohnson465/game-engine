@@ -47,7 +47,6 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 }
 
 numberOfSockets = 0;
-socketedGems = ds_list_create();
 
 requiredMastery = 0;
 

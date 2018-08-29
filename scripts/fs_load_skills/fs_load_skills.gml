@@ -23,4 +23,4 @@ for (var j = 0; j < ds_map_size(sd_skills); j++) {
 	cv = ds_map_find_next(sd_skills,cv);
 }
 
-ds_map_destroy(sd_skills); sd_skills = -1;
+//ds_map_destroy(sd_skills); sd_skills = -1;

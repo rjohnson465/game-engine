@@ -3,8 +3,8 @@ if room == game_menu {
 }
 //xpTemp += 1000;
 var typeMap = ds_map_create();
-ds_map_add(typeMap,ItemTypes.HandItem,0);
-ds_map_add(typeMap,ItemTypes.Other,1);
+ds_map_add(typeMap,ItemTypes.HandItem,1);
+ds_map_add(typeMap,ItemTypes.Other,0);
 ds_map_add(typeMap,ItemTypes.Head,0);
 ds_map_add(typeMap,ItemTypes.Ring,0);
 var rarityMap = ds_map_create();

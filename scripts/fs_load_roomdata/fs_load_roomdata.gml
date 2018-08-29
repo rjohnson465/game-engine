@@ -92,9 +92,9 @@ for (var i = 0; i < ds_map_size(sd_roomdatas); i++) {
 		
 		
 		ckk = ds_map_find_next(sd_roomdata, ckk);
-		ds_map_destroy(sd_el_map); sd_el_map = -1;
+		//ds_map_destroy(sd_el_map); sd_el_map = -1;
 	}
 	
 	ck = ds_map_find_next(sd_roomdatas,ck);
-	ds_map_destroy(sd_roomdata); sd_roomdata = -1;
+	//ds_map_destroy(sd_roomdata); sd_roomdata = -1;
 }

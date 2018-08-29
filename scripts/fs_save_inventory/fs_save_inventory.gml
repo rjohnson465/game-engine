@@ -30,10 +30,6 @@ with obj_item_parent {
 			var gemsList = ds_list_create(); // every 2 indexes describe 1 gem (index 0 - gem obj index, index 1 - gem condition...)
 			for (var i = 0; i < ds_list_size(socketedGems); i++) {
 				var gem = ds_list_find_value(socketedGems,i);
-				
-				//var gemData = [gem.object_index,gem.condition];
-				
-				
 				ds_list_add(gemsList,object_get_name(gem.object_index));
 				ds_list_add(gemsList,gem.condition);
 			}
@@ -47,6 +43,13 @@ with obj_item_parent {
 			var currentProp = ds_map_find_first(itemPropertyModifiers);
 			for (var i = 0; i < ds_map_size(itemPropertyModifiers); i++) {
 				var val = ds_map_find_value(itemPropertyModifiers,currentProp);
+				
+				// save as formatted string for macro / val arrays (otherwise we have to save / load lists, which are fickle)
+				if is_array(val) {
+					var macro = val[0];
+					var v = val[1];
+					val = macro + " " + string(v);
+				}
 				
 				ds_list_add(propsList,currentProp);
 				ds_list_add(propsList,val);
@@ -62,6 +65,13 @@ with obj_item_parent {
 			for (var i = 0; i < ds_map_size(itemPropertyModifiersPts); i++) {
 				var val = ds_map_find_value(itemPropertyModifiersPts,currentProp);
 				
+				// save as formatted string for macro / val arrays (otherwise we have to save / load lists, which are fickle)
+				if is_array(val) {
+					var macro = val[0];
+					var v = val[1];
+					val = macro + " " + string(v);
+				}
+				
 				ds_list_add(propsList,currentProp);
 				ds_list_add(propsList,val);
 				currentProp = ds_map_find_next(itemPropertyModifiersPts,currentProp);
@@ -76,29 +86,23 @@ with obj_item_parent {
 			for (var i = 0; i < ds_map_size(itemProperties); i++) {
 				var val = ds_map_find_value(itemProperties,currentProp);
 				
+				// save as formatted string for macro / val arrays (otherwise we have to save / load lists, which are fickle)
+				if is_array(val) {
+					var macro = val[0];
+					var v = val[1];
+					val = macro + " " + string(v);
+				}
+				
 				ds_list_add(propsList,currentProp);
 				ds_list_add(propsList,val);
 				currentProp = ds_map_find_next(itemProperties,currentProp);
 			}
 			ds_map_add_list(sd_item,"ItemProperties",propsList);
 		}
-		
-		// durability, ammo, charges, should all be inherent to the object_index
-		// these things may be modified later by itemPropertyModifiers
-		/*
-		ds_map_replace(sd_item,"Durability",durability);
-		ds_map_replace(sd_item,"DurabilityMax",durabilityMax);
-		
-		ds_map_replace(sd_item,"Charges",charges);
-		ds_map_replace(sd_item,"ChargesMax",chargesMax);
-		
-		ds_map_replace(sd_item,"Ammo",ammo);
-		ds_map_replace(sd_item,"AmmoMax",ammoMax);*/
 	
 		//var key = fs_generate_key(id); // TODO this is not guaranteed unique at all for items -- reference their location in inventory?
 		var key = ds_list_find_index(global.player.inventory,id);
 		// or maybe key can just be inventory index
-
 		ds_map_add_map(sd_inventory,key,sd_item);
 	}
 }
