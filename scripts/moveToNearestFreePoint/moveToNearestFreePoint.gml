@@ -25,7 +25,7 @@ if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) 
 	x = x+lengthdir_x(sp,d); 
 	y = y+lengthdir_y(sp,d);
 	direction = point_direction(oldX,oldY,x,y);
-	//return true;
+	return true;
 }
 else {
 	var dir = d;
@@ -72,7 +72,7 @@ else {
 		x = x+lengthdir_x(sp,dir); 
 		y = y+lengthdir_y(sp,dir);
 		direction = point_direction(oldX,oldY,x,y);
-		//return true;
+		return true;
 	}
 	ds_list_destroy(possibleAngles); possibleAngles = -1;
 }

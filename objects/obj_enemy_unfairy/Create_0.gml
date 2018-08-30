@@ -15,13 +15,9 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 
 // all weapons / shields enemy can use
 var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
-unarmed.persistent = false;
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
-woodshield.persistent = false;
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
-longsword.persistent = false;
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
-shortbow.persistent = false;
 ds_map_add(handItems,"lm1",longsword);
 ds_map_add(handItems,"rm1",woodshield);
 ds_map_add(handItems, "lr1",shortbow);
@@ -69,8 +65,8 @@ if longswordStab == noone longswordStab = instance_create_depth(x,y,1,obj_attack
 //longswordStab.limbKey = "l";
 var longswordStab2 = instance_create_depth(x,y,1,obj_attack_unfairy_longsword_2_1);
 longswordStab2.limbKey = "l";
-longswordStab2.coolDownFrames = [90,100];
-longswordStab2.turnSpeed = 45;
+longswordStab2.coolDownFrames = [900,1000];
+longswordStab2.turnSpeed = 10;
 //longswordStab.isBlockable = false;
 
 var meleeChain0 = [longswordSwing];

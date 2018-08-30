@@ -333,8 +333,11 @@ lastAttackHitWith = noone; // either a weapon or attack_data obj
 
 sightAngleDelta = 100; // combatant can see +/- this much in his field of view
 hearingDistance = 500; // how far away some hit particles must be for enemy to investigate
-investigatingFramesTotal = 90;
+investigatingFramesTotal = 200;
 investigatingFrame = 0;
+investigatingDirection = 0;
+isInvestigating = false;
 
+currentSpellPrepSound = noone;
 soundsWhenDodge = [snd_dodge1];
 soundsWhenHit = [snd_hit1]; // array of potential "hit" sounds (not "ahhs" or dialogue, just like metal in flesh, metal on metal...)

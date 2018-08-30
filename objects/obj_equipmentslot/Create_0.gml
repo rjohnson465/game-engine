@@ -45,3 +45,4 @@ up = global.up;
 down = global.down;
 left = global.left;
 right = global.right;
+depth -= 1000;

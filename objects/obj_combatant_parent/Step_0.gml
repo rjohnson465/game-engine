@@ -1,13 +1,7 @@
 if isFloating {
 	functionalSpeed = normalSpeed*slowedSpeedModifier;
 }
-var isFading = false;
-with obj_fade {
-	if instance_count > 0 {
-		isFading = true;
-	}
-}
-if isFading {
+if scr_is_fading() {
 	speed = 0;
 	state = CombatantStates.Idle;
 	path_end();
@@ -92,7 +86,7 @@ switch(state) {
 			else if canHearNearbyHit() != noone {
 				var hit = canHearNearbyHit();
 				global.owner = id;
-				var dir = hit.particleDirection;
+				var dir = (hit.particleDirection+180)%360;
 				var x1 = hit.x1 + lengthdir_x(50,dir); var y1 = hit.y1 + lengthdir_y(50,dir);
 				var target = instance_create_depth(x1,y1,1,obj_temp_lockontarget);
 				lockOnTarget = target;
@@ -100,7 +94,7 @@ switch(state) {
 				break;
 			}
 			// else, check if the player is just too goddamn close 
-			else if distance_to_object(global.player) < 10 {
+			else if distance_to_object(global.player) < 15 {
 				state = CombatantStates.AggroMelee; break;
 			}
 			// if no aggro and not at postX/postY, head back there
@@ -177,22 +171,34 @@ switch(state) {
 					onAlert = false;
 					break;
 				}
-				
+				tempPostX = lockOnTarget.x; tempPostY = lockOnTarget.y;
 				// pursue the source of the sound
-				if instance_exists(lockOnTarget) && distance_to_point(lockOnTarget.x,lockOnTarget.y) > 25 {
+				if instance_exists(lockOnTarget) && distance_to_object(lockOnTarget) > 25 {
 					if mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0) {
 						path_start(path,functionalSpeed,path_action_stop,false);
 						turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 					} else {
-						mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,4,0);
+						mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,14,0);
 						path_start(path,functionalSpeed,path_action_stop,false);
 						turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 					}
 				} else {
+					//instance_destroy(lockOnTarget,1);
+					//lockOnTarget = noone;
 					// look around before giving up
 					if investigatingFrame <= investigatingFramesTotal {
 						investigatingFrame++;
-						turnToFacePoint(turnSpeed, global.player.x, global.player.y);
+						
+						//turnToFacePoint(turnSpeed, global.player.x, global.player.y);
+						// wander around this point
+						if alarm[6] == -1 alarm[6] = 30;
+						if isInvestigating {
+							moveToNearestFreePoint(investigatingDirection,functionalSpeed*.5,0);
+							var x1 = x+lengthdir_x(5,investigatingDirection); var y1 = y+lengthdir_y(5,investigatingDirection);
+							turnToFacePoint(turnSpeed,x1,y1);
+						}
+
+						
 						if	((canSeeLockOnTarget()) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
 							lockOnTarget = noone;
 							state = CombatantStates.AggroMelee;
@@ -209,6 +215,7 @@ switch(state) {
 					} else {
 					
 						if lockOnTarget.object_index == obj_temp_lockontarget instance_destroy(lockOnTarget,1);
+						investigatingFrame = 0;
 						lockOnTarget = noone;
 						state = CombatantStates.Idle;
 						onAlert = false;
@@ -227,9 +234,8 @@ switch(state) {
 				if distance_to_point(actingPostX,actingPostY) > 2 {
 					mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 					path_start(path,functionalSpeed,path_action_stop,false);
-					//facingDirection = direction;
 					var x1 = x+lengthdir_x(10,direction); var y1 = y+lengthdir_y(10,direction);
-					turnToFacePoint(turnSpeed,x1,y1);
+					turnToFacePoint(turnSpeed*2,x1,y1);
 					
 					// can aggro while returning to post 
 					// check if in melee aggro range

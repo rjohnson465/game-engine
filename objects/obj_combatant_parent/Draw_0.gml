@@ -13,16 +13,16 @@ if state == CombatantStates.Staggering {
 		isSlowed = false; isFrozen = false;
 		alpha = (-dyingFrame/dyingTotalFrames)+1;
 	}
-	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,1,1,facingDirection,c_white,alpha);
+	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,scale,scale,facingDirection,c_white,alpha);
 	// slowed
 	if isSlowed || isFrozen {
 		var percentFrozen = ds_map_find_value(conditionPercentages,ICE);
 		var colorAlpha = (3/320)*percentFrozen;
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_aqua, .5*alpha);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, scale, scale, facingDirection, c_aqua, .5*alpha);
 	} else if isPoisoned {
 		var percentPoisoned = ds_map_find_value(conditionPercentages,POISON);
 		var colorAlpha = (3/320)*percentPoisoned;
-		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, 1, 1, facingDirection, c_green, .5*alpha);
+		draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"), 1, x, y, scale, scale, facingDirection, c_green, .5*alpha);
 	}
 }
 

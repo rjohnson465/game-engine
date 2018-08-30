@@ -3,7 +3,6 @@ limbKey = global.limbKey;
 limbItem = ds_map_find_value(owner.equippedLimbItems,limbKey);
 persistent = global.isPersistent;
 layer = owner.layer;
-//depth = layer_get_depth(layer) + 1;
 
 global.limb = id;
 instance_create_depth(x,y,1,obj_weapon);
@@ -11,24 +10,8 @@ instance_create_depth(x,y,1,obj_weapon);
 spriteString = "";
 
 if owner.type != CombatantTypes.Player {
-	spriteString = "spr_"+owner.spriteString + "_limb_" + limbItem.spriteName;
-} else {
-	if limbItem.type == HandItemTypes.Ranged {
-		
-	} 
-	else if limbItem.subType == HandItemTypes.Melee {
-		switch limbItem.weaponType {
-			case SWORD1H: {
-				spriteString = "spr_player_hand_sword_1h";
-				break;
-			}
-			case UNARMED: {
-				spriteString = "spr_player_hand_unarmed";
-				break;
-			}
-		}
-	}
-}
+	spriteString = "spr_"+owner.spriteString + "_limb_" + limbItem.name;
+} 
 
 if limbKey == "l" {
 	image_yscale = -1;

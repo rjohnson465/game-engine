@@ -1,3 +1,3 @@
-/*if owner != global.player {
+if owner == noone {
 	instance_destroy(id,1);
 }

@@ -33,3 +33,7 @@ if hasHands {
 isStrafing = false;
 currentUsingSpell = noone;
 attackNumberInChain = noone;
+if currentSpellPrepSound != noone {
+	audio_stop_sound(currentSpellPrepSound);
+	currentSpellPrepSound = noone;
+}

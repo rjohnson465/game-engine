@@ -5,16 +5,6 @@
     "name": "obj_temp_lockontarget",
     "eventList": [
         {
-            "id": "40d9a95c-fc00-457f-9642-2f37ed83a9e8",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "7ab4cfa4-de6c-4298-aefa-12e711702444",
-            "enumb": 0,
-            "eventtype": 4,
-            "m_owner": "49aa7d24-3524-4d66-b40e-f933231a007a"
-        },
-        {
             "id": "ad15e702-a11b-4efe-8d9c-7d5f43e4ec18",
             "modelName": "GMEvent",
             "mvc": "1.0",

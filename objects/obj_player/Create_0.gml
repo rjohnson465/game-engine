@@ -257,3 +257,4 @@ if moveSprite != -1 {
 hasIssuedAmmoOut = false;
 
 quests = ds_list_create();
+

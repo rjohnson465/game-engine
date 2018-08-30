@@ -24,6 +24,7 @@ if !isMouseInMenu {
 			state = CombatantStates.Attacking;
 			var snd = asset_get_index("snd_magic_"+currentSpellAttunement+"_charge");
 			audio_play_sound(snd,1,1);
+			currentSpellPrepSound = snd;
 		} else if !hasAlertedNoMagicCharges {
 			alert("No magic charges",c_red);
 			hasAlertedNoMagicCharges = true;

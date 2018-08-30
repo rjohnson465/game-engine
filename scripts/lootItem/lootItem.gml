@@ -7,6 +7,7 @@ var dropItem = argument[1];
 
 if !instance_exists(item) exit;
 if !instance_exists(dropItem) exit;
+if !ds_exists(dropItem.items,ds_type_list) exit;
 
 var itemPos = ds_list_find_index(dropItem.items,item.id);
 with item {
