@@ -335,6 +335,7 @@ sightAngleDelta = 100; // combatant can see +/- this much in his field of view
 hearingDistance = 500; // how far away some hit particles must be for enemy to investigate
 investigatingFramesTotal = 200;
 investigatingFrame = 0;
+investigatingDirectionPrev = 0;
 investigatingDirection = 0;
 isInvestigating = false;
 

@@ -51,7 +51,7 @@ switch prop {
 		s = "% damage"; break;
 	}
 	case ModifiableProperties.Poise: {
-		s = " poise"; break;
+		s = "% poise"; break;
 	}
 	case ModifiableProperties.XpMultiplier: {
 		s = "% XP gained from kills"; break;

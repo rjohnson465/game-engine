@@ -21,7 +21,6 @@ limbKey = noone; // l | r | s | e | o | <limbKey> | noone
 damages = ds_map_create();
 isRanged = false;
 isBlockable = true;
-nextChoices = [];
 projectileSpeed = 0;
 numberOfTargets = 1;
 staggersAgainstBlocks = true;

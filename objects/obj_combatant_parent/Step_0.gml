@@ -84,18 +84,16 @@ switch(state) {
 			}
 			// else, check if we can hear any commotion (hit particles) 
 			else if canHearNearbyHit() != noone {
-				var hit = canHearNearbyHit();
-				global.owner = id;
-				var dir = (hit.particleDirection+180)%360;
-				var x1 = hit.x1 + lengthdir_x(50,dir); var y1 = hit.y1 + lengthdir_y(50,dir);
-				var target = instance_create_depth(x1,y1,1,obj_temp_lockontarget);
-				lockOnTarget = target;
-				state = CombatantStates.Moving;
+				startInvestigation();
 				break;
 			}
 			// else, check if the player is just too goddamn close 
 			else if distance_to_object(global.player) < 15 {
-				state = CombatantStates.AggroMelee; break;
+				if array_length_1d(meleeAttacks) > 0 {
+					state = CombatantStates.AggroMelee; break;
+				} else {
+					state = CombatantStates.AggroRanged; break;
+				}
 			}
 			// if no aggro and not at postX/postY, head back there
 			else if distance_to_point(postX, postY) > 10 && layer == postZ {
@@ -153,24 +151,16 @@ switch(state) {
 					break;
 				}
 			}
+			/// if we're not attacking, we're either investigating a sound already, or returning to post. we should be listening either way
+			else if canHearNearbyHit() {
+				startInvestigation();
+			}
 			// this means we're going to a temp lockOnTarget, probably investigating a sound
 			else if lockOnTarget != noone {
 				onAlert = true;
 				// can aggro while investigating sound
-				// check if in melee aggro range
-				if	((canSeeLockOnTarget()) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
-					lockOnTarget = noone;
-					state = CombatantStates.AggroMelee;
-					onAlert = false;
-					break;
-				} else
-				// check if in ranged aggro range
-				if canSeeLockOnTarget() && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
-					lockOnTarget = noone;
-					state = CombatantStates.AggroRanged;
-					onAlert = false;
-					break;
-				}
+				if maybeAggro() break;
+				
 				tempPostX = lockOnTarget.x; tempPostY = lockOnTarget.y;
 				// pursue the source of the sound
 				if instance_exists(lockOnTarget) && distance_to_object(lockOnTarget) > 25 {
@@ -183,35 +173,10 @@ switch(state) {
 						turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 					}
 				} else {
-					//instance_destroy(lockOnTarget,1);
-					//lockOnTarget = noone;
 					// look around before giving up
 					if investigatingFrame <= investigatingFramesTotal {
-						investigatingFrame++;
-						
-						//turnToFacePoint(turnSpeed, global.player.x, global.player.y);
-						// wander around this point
-						if alarm[6] == -1 alarm[6] = 30;
-						if isInvestigating {
-							moveToNearestFreePoint(investigatingDirection,functionalSpeed*.5,0);
-							var x1 = x+lengthdir_x(5,investigatingDirection); var y1 = y+lengthdir_y(5,investigatingDirection);
-							turnToFacePoint(turnSpeed,x1,y1);
-						}
-
-						
-						if	((canSeeLockOnTarget()) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
-							lockOnTarget = noone;
-							state = CombatantStates.AggroMelee;
-							onAlert = false;
-							break;
-						} else
-						// check if in ranged aggro range
-						if canSeeLockOnTarget() && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
-							lockOnTarget = noone;
-							state = CombatantStates.AggroRanged;
-							onAlert = false;
-							break;
-						}
+						maybeInvestigate();	
+						if maybeAggro() break;
 					} else {
 					
 						if lockOnTarget.object_index == obj_temp_lockontarget instance_destroy(lockOnTarget,1);
@@ -223,8 +188,9 @@ switch(state) {
 					}
 				}
 			}
-			// if no attack is chosen and we have no lockOnTarget, we're probably heading back to post
+			// if no attack is chosen, we're not investigating a sound, there's no new sound we can hear, and we have no lockOnTarget, we're probably heading back to post
 			else {
+				
 				var actingPostX = postX;
 				var actingPostY = postY;
 				if layer != postZ {
@@ -238,16 +204,7 @@ switch(state) {
 					turnToFacePoint(turnSpeed*2,x1,y1);
 					
 					// can aggro while returning to post 
-					// check if in melee aggro range
-					if	((canSeeLockOnTarget()) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
-						state = CombatantStates.AggroMelee;
-						break;
-					} else
-					// check if in ranged aggro range
-					if canSeeLockOnTarget() && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
-						state = CombatantStates.AggroRanged;
-						break;
-					}
+					if maybeAggro() break;
 				} else {
 					state = CombatantStates.Idle;
 				}

@@ -11,7 +11,8 @@
         "b8c05111-7126-4bc5-83c4-893d7f9dff27",
         "40878b55-7be4-4b55-9bd7-6027f8cae96b",
         "932351e0-3ec0-4007-acbe-982adfdae804",
-        "a17f1504-d55e-4e37-93dc-c92f3d82b0fc"
+        "a17f1504-d55e-4e37-93dc-c92f3d82b0fc",
+        "e84c8cdd-d0ad-4d07-b3d4-aac762916a67"
     ],
     "filterType": "GMObject",
     "folderName": "unfairy",

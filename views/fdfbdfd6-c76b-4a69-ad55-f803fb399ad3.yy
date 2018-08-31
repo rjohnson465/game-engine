@@ -6,7 +6,9 @@
     "children": [
         "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
         "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
-        "366ba9cd-aa4e-49d1-9f44-28270833e64a"
+        "366ba9cd-aa4e-49d1-9f44-28270833e64a",
+        "fcb0f5f7-bcfc-4156-9718-013cbe6ee0dc",
+        "7be05a52-c2d9-4be1-9e2e-d7ed675d7296"
     ],
     "filterType": "GMScript",
     "folderName": "Limbs",

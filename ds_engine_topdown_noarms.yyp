@@ -191,6 +191,14 @@
             }
         },
         {
+            "Key": "04e8f936-a33e-426e-98ed-54584d2e1f82",
+            "Value": {
+                "id": "765d6cd8-ecc5-4176-947c-a7dbe2bc7b9e",
+                "resourcePath": "scripts\\maybeAggroRanged\\maybeAggroRanged.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "04eeeaa4-f0e5-4f89-a0cb-8c2a3c4f5616",
             "Value": {
                 "id": "96f71f36-e351-4628-a5ee-12a55ca266e2",
@@ -2031,6 +2039,14 @@
             }
         },
         {
+            "Key": "333deed3-58a4-4613-a31c-e61f61395111",
+            "Value": {
+                "id": "03cc1888-a6d2-4d6e-b0dc-c496049253f2",
+                "resourcePath": "scripts\\maybeInvestigate\\maybeInvestigate.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "336b23b2-c1c2-4b2f-a7e9-3f7646cb0949",
             "Value": {
                 "id": "e9748874-adf6-4360-82ea-db3fbd9df17a",
@@ -2131,6 +2147,14 @@
             "Value": {
                 "id": "94e88a94-1d73-4c74-baa2-fb05a2a3ccf7",
                 "resourcePath": "scripts\\scr_is_fading\\scr_is_fading.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "3574d04e-560a-4e26-bc19-aa379b070b45",
+            "Value": {
+                "id": "22bc2b6f-f131-4b31-8b17-632888e80b0e",
+                "resourcePath": "scripts\\maybeAggro\\maybeAggro.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -4887,6 +4911,14 @@
             }
         },
         {
+            "Key": "76345c83-e9ef-43c2-856b-a473e7a6354d",
+            "Value": {
+                "id": "87d5114e-ccf5-4a74-a831-a32cd050fab5",
+                "resourcePath": "scripts\\maybeAggroMelee\\maybeAggroMelee.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "76487f07-ba98-45b0-b7be-653353f16123",
             "Value": {
                 "id": "7c30b01c-ba7c-4436-8992-94e257b4e33b",
@@ -5131,6 +5163,14 @@
             "Value": {
                 "id": "6f7fb5c3-1594-4614-8336-11ddb3397869",
                 "resourcePath": "scripts\\updateItemNameGems\\updateItemNameGems.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "7be05a52-c2d9-4be1-9e2e-d7ed675d7296",
+            "Value": {
+                "id": "3dcb9cd9-ccb2-41e0-9152-35b0524e97dd",
+                "resourcePath": "scripts\\makeEnemyAttackObj\\makeEnemyAttackObj.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -5828,14 +5868,6 @@
                 "id": "5c52cc01-fec2-45db-bd7d-a9e573d313a0",
                 "resourcePath": "sprites\\spr_player_longsword\\spr_player_longsword.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "8c80c709-4b9e-453e-a1be-ca680feb0325",
-            "Value": {
-                "id": "537aa369-150b-486b-9e3e-3164ecfe820f",
-                "resourcePath": "scripts\\enemyGenClearHandItems\\enemyGenClearHandItems.yy",
-                "resourceType": "GMScript"
             }
         },
         {
@@ -7767,6 +7799,14 @@
             }
         },
         {
+            "Key": "bc5e780e-f86c-42f3-97aa-960a42f1bbae",
+            "Value": {
+                "id": "146cb0fc-237c-4749-82b4-a4ea4df405a2",
+                "resourcePath": "scripts\\startInvestigation\\startInvestigation.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "bce6ed13-d724-4ce1-9850-03801ef36d0b",
             "Value": {
                 "id": "31dbb168-67bc-4553-a88d-d2323e830be1",
@@ -9527,6 +9567,14 @@
             }
         },
         {
+            "Key": "e84c8cdd-d0ad-4d07-b3d4-aac762916a67",
+            "Value": {
+                "id": "fbcfdf94-367a-4c67-ab8b-98186fbe1b6b",
+                "resourcePath": "objects\\obj_attack_unfairy_longsword_2_2\\obj_attack_unfairy_longsword_2_2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e8895f9f-8cd4-46f8-9062-c275805a99f4",
             "Value": {
                 "id": "8662a611-9e21-46d1-8cf5-ef4dd9077fb1",
@@ -10239,6 +10287,14 @@
             }
         },
         {
+            "Key": "fcb0f5f7-bcfc-4156-9718-013cbe6ee0dc",
+            "Value": {
+                "id": "005e3b8e-ee3c-473c-9349-1ecd3fe19640",
+                "resourcePath": "scripts\\makeEnemyWeapon\\makeEnemyWeapon.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fcb6e595-d748-4db3-b8c1-65e0c4ddcc6e",
             "Value": {
                 "id": "c4fb0a9f-e45c-4d6b-b8dd-9a55612238b6",
@@ -10454,6 +10510,8 @@
         "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
         "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
         "366ba9cd-aa4e-49d1-9f44-28270833e64a",
+        "fcb0f5f7-bcfc-4156-9718-013cbe6ee0dc",
+        "7be05a52-c2d9-4be1-9e2e-d7ed675d7296",
         "77368ac4-b37c-46be-b669-868159fb25ee",
         "4f2ff3e7-f02b-476c-b9b5-755770042d31",
         "ad3c51c6-364c-4f11-8f1a-0b172e753fd9",
@@ -10482,6 +10540,8 @@
         "f363be3c-d933-480d-8602-502a5c5a721f",
         "c86c3fc8-df04-4ccf-a457-36ff93d7cf49",
         "01a586ae-1990-4a09-aa7b-413bc1526884",
+        "333deed3-58a4-4613-a31c-e61f61395111",
+        "bc5e780e-f86c-42f3-97aa-960a42f1bbae",
         "85ab87d2-fc88-4cbf-919f-eecfe09947f4",
         "cd615c88-1626-485a-a27f-9b20e17a6a15",
         "665b024d-e45b-499a-b0f1-36247fa53d9e",
@@ -10495,10 +10555,12 @@
         "2c8e8f25-16c3-4d22-8fda-849a321d4dd8",
         "95635d4e-ed7c-48f5-876a-c6e2335065ca",
         "f4ca97d5-d0a1-41ee-98b7-0ea96f4ae44c",
+        "76345c83-e9ef-43c2-856b-a473e7a6354d",
+        "04e8f936-a33e-426e-98ed-54584d2e1f82",
+        "3574d04e-560a-4e26-bc19-aa379b070b45",
         "2169cab8-d610-44a5-af9c-277f0707a879",
         "162d825c-d475-45d4-acb3-4d7a620bb36e",
         "6e85e585-2ec9-4d94-ad4f-4a02080b5aa7",
-        "8c80c709-4b9e-453e-a1be-ca680feb0325",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",
         "566e567f-06b1-4a92-9cea-84bc4525cdf8",

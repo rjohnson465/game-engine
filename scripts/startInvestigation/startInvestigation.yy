@@ -1,8 +1,8 @@
 {
-    "id": "8c80c709-4b9e-453e-a1be-ca680feb0325",
+    "id": "bc5e780e-f86c-42f3-97aa-960a42f1bbae",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "enemyGenClearHandItems",
+    "name": "startInvestigation",
     "IsCompatibility": false,
     "IsDnD": false
 }

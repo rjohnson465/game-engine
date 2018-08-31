@@ -1,5 +1,4 @@
 /// enemyUnfairySpearInit()
-enemyGenClearHandItems();
 /// initialize this unfairy to have a spear and no ranged
 var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
 var spear = instance_create_depth(x,y,1,obj_hand_item_spear);

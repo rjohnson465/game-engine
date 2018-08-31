@@ -68,5 +68,5 @@ line+=3;
 draw_sprite(spr_stats_poise,1,wdCol1XPictures,startingY+(line*20));
 if ui.isShowingExplanations {
 	draw_text_ext(wdCol1XText,startingY+(line*20),"Determines stagger chance and duration",20,wdCol1Width-21);
-} else draw_text(wdCol1XText,startingY+(line*20),"Poise: " + string(p.poise));
+} else draw_text(wdCol1XText,startingY+(line*20),"Poise: " + string(p.poise) + "%");
 draw_set_font(font_main);

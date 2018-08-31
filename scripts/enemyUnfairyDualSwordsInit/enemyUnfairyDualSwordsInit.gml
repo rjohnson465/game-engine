@@ -1,10 +1,5 @@
 /// enemyUnfairyDualSwordsInit()	
 
-var lh = ds_map_find_value(handItems, "lm1");
-var rh = ds_map_find_value(handItems, "lm1");
-if instance_exists(lh) instance_destroy(lh);
-if instance_exists(rh) instance_destroy(rh);
-
 /// initialize this unfairy to have 2 longswords
 var longsword1 = instance_create_depth(x,y,1,obj_hand_item_longsword);
 var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);

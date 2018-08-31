@@ -7,7 +7,6 @@ limbKey = "l"; // default value
 ds_map_add(damages,SLASH,[15,30]);
 isRanged = false;
 staminaCost = 10;
-//nextChoices = [];
 staggerDuration = 18;
 
 attackSound = snd_sword1h_attack_1;
