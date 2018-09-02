@@ -2,6 +2,7 @@ var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
 
 if !global.ui.isShowingMenus exit;
+if global.ui.currentMenu != INVENTORY exit;
 
 // cycle through buttons and see if we've clicked on one
 var currentButton = ds_map_find_first(menuButtonCoordinates);

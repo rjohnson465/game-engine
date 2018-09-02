@@ -30,8 +30,20 @@ drawSkillSlot(explosionMasteryX,explosionMasteryY,Skills.ExplosionMastery,skillE
 drawSkillSlot(magicMissileMasteryX,magicMissileMasteryY,Skills.MagicMissileMastery,skillMagicMissile);
 
 // Remaining skill points
-draw_set_alpha(1); draw_set_color(c_white); draw_set_halign(fa_right);
-draw_text(remainingPointsX,remainingPointsY,string(p.skillPoints) + " skill points");
+draw_set_color(c_black); var rw = 150;
+var x1 = remainingPointsX-rw; var x2 = remainingPointsX;
+var y1 = remainingPointsY; var y2 = remainingPointsY+25;
+draw_rectangle(x1, y1, x2, y2,0);
+draw_set_alpha(1); draw_set_color(c_white);
+draw_rectangle(x1, y1, x2, y2,1);
+var s = string(p.skillPoints);
+s += p.skillPoints == 1 ? " skill point" : " skill points";
+var sw = string_width(s); var xs = 1;
+if sw > rw {
+	xs = rw/sw;
+}
+draw_set_halign(fa_center); draw_set_valign(fa_center);
+draw_text_transformed(mean(x1,x2),mean(y1,y2),s,xs,xs,0);
 
 // selected item details box
 draw_set_color(c_dkgray);
@@ -51,7 +63,9 @@ var w = 0;
 if ui.currentMenu == SKILLS && skillSelector.selectedSkill && skillSelector.selectedSkill != noone && isActive {
 	// controller prompts
 	if gamepad_is_connected(global.player.gamePadIndex) {
-		w += drawPrompt("Level up " + string(skillSelector.selectedSkill.name), Input.F,promptsStartX+w,promptsY)+xOffset;
+		if global.player.skillPoints > 0 {
+			w += drawPrompt("Level up " + string(skillSelector.selectedSkill.name), Input.F,promptsStartX+w,promptsY)+xOffset;
+		}
 		w += drawPrompt("Browse quests", Input.RB,promptsStartX+w,promptsY)+xOffset;
 	}
 	// m/k prompts
@@ -64,13 +78,13 @@ if ui.currentMenu == SKILLS && skillSelector.selectedSkill && skillSelector.sele
 			}
 		}
 		
-		if hoveredSkill != noone {
+		/*if hoveredSkill != noone {
 			w += drawPrompt("Level up " + string(hoveredSkill.name), Input.RMB,promptsStartX+w,promptsY)+xOffset;
 		}
 		else {
 			w += drawPrompt("Level up skill", Input.RMB,promptsStartX+w,promptsY)+xOffset;
-		}
+		}*/
 		
-		w += drawPrompt("Select quest", Input.LMB,promptsStartX+w,promptsY)+xOffset;
+		//w += drawPrompt("Select quest", Input.LMB,promptsStartX+w,promptsY)+xOffset;
 	}
 }

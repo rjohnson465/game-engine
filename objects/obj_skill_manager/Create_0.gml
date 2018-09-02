@@ -86,8 +86,8 @@ magicMissileMasteryX = blastMasteryX;
 magicMissileMasteryY = explosionMasteryY+skillHeight+5;
 
 // Skill points remaining
-remainingPointsX = blastMasteryX;
-remainingPointsY = magicMissileMasteryY+skillHeight+skillHeight+5;
+remainingPointsX = blastMasteryX+50;
+remainingPointsY = magicMissileMasteryY+skillHeight+skillHeight;
 
 // General
 skillHpMax = makeSkillObj(obj_skill_hpmax,healthMaxX,healthMaxY);

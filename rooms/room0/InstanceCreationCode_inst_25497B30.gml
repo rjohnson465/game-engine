@@ -1,0 +1,2 @@
+enemyUnfairyUnarmedInit();
+facingDirection = 270;

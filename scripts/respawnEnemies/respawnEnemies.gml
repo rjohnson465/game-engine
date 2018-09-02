@@ -11,5 +11,8 @@ with obj_enemy_parent {
 	layer = postZ;
 	hp = maxHp;
 	isAlive = true;
+	onAlert = false;
+	state = CombatantStates.Idle;
+	lockOnTarget = noone;
 	event_perform(ev_other,ev_room_start);
 }

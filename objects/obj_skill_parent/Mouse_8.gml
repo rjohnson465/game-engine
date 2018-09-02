@@ -1,4 +1,4 @@
-with obj_skill_selector {
+/*with obj_skill_selector {
 	selectedSkill = other.id;
 	levelUpSkill();
 }
