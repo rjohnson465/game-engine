@@ -3,4 +3,5 @@ if item && item.name != "Unarmed" && global.ui.isShowingMenus && global.ui.curre
 		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	global.equippedItemsManager.selectedItem = item;
+	
 }

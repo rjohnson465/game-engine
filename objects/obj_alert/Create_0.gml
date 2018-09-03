@@ -21,5 +21,10 @@ if instance_number(object_index) > 3 {
 		}
 	}
 	alertToDestroy.isVisible = false;
-	var a = 3;
+}
+// do not display the exact same message twice on screen
+with obj_alert {
+	if id != other && message == other.message {
+		isVisible = false;
+	}
 }

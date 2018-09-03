@@ -3999,6 +3999,14 @@
             }
         },
         {
+            "Key": "63a4b9d3-7664-4fde-b74a-f03fcbcf5ff8",
+            "Value": {
+                "id": "0b0766f5-087e-4127-a6ef-4cf2d170a161",
+                "resourcePath": "sprites\\spr_skill_poise\\spr_skill_poise.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "63ba5741-082a-4bdb-8970-7e0b3e8af491",
             "Value": {
                 "id": "4f7b1c3f-3678-4c06-bddd-12a4619c7f2a",
@@ -6435,6 +6443,14 @@
             "Value": {
                 "id": "2226b161-ef58-4143-a677-3c8fe410a328",
                 "resourcePath": "objects\\obj_condition_particles\\obj_condition_particles.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9cfc3247-c5de-4217-9796-e1dff4c8386b",
+            "Value": {
+                "id": "8f54eb3a-fa93-4c04-9343-3409674508b7",
+                "resourcePath": "objects\\obj_skill_poisemin\\obj_skill_poisemin.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -9647,6 +9663,14 @@
             }
         },
         {
+            "Key": "ead1f01a-22e3-4fd4-b5f7-5805bcb41210",
+            "Value": {
+                "id": "ad55adf7-e1e4-488a-8cc7-83df1d826979",
+                "resourcePath": "scripts\\drawSelector\\drawSelector.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "eb8d9ffa-1537-43c8-9076-7935c1712123",
             "Value": {
                 "id": "83f58730-3977-4f49-af80-2b539bbf1192",
@@ -10602,6 +10626,7 @@
         "5999c26c-6d24-44fc-ab4b-62ea7b2ec60e",
         "6970c333-d11e-4ae7-9620-8d123358cb30",
         "0aafa26c-a5fb-4aac-940c-a8f1df7e71c4",
+        "ead1f01a-22e3-4fd4-b5f7-5805bcb41210",
         "66d96a45-c863-45a1-baa1-d84d084bea72",
         "22ffe7d1-cfcb-4531-ad15-59c9a46b5895",
         "b79353b3-8730-4b28-89fd-d8cd4333dcc5",

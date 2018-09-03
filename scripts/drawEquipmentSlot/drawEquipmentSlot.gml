@@ -59,7 +59,6 @@ else if drawGreen {
 	draw_sprite(spr_item_slot,1,xx,yy);
 	var twoHandedItem = getItemAtSelectorPosition(ui.moveSelector);
 	draw_sprite_ext(twoHandedItem.itemSprite,1,xx,yy,1,1,0,c_black,.5);
-	//draw_line_color(xx,yy,xx+global.inventory.slotWidth,yy+global.inventory.slotHeight,c_red,c_red);
 }
 else draw_sprite(spr_item_slot,1,xx,yy);
 

@@ -13,7 +13,8 @@
         "217b3657-a721-4f8d-8554-97294dc2fcb7",
         "fef9994e-d1e4-4799-9bd1-2cc1ff8462f4",
         "17454f5d-debc-40f7-a39e-92be91a3ddc9",
-        "4dc52287-9b6e-4d2e-a243-c237eefb8268"
+        "4dc52287-9b6e-4d2e-a243-c237eefb8268",
+        "63a4b9d3-7664-4fde-b74a-f03fcbcf5ff8"
     ],
     "filterType": "GMSprite",
     "folderName": "skills",

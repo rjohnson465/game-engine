@@ -1,3 +1,5 @@
+if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
+
 var ei = global.player.equippedItems;
 for (var i = 0; i < ds_list_size(ei); i++) {
 	var it = ds_list_find_value(ei,i);
@@ -21,4 +23,8 @@ if item != noone && !item != undefined && item == global.ui.grabbedItem {
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
 	draw_sprite_ext(item.itemSprite,1,mouse_x-vx-32,mouse_y-vy-32,xs,ys,0,c_white,1);
+}
+
+if item != noone && instance_exists(item) && !gamepad_is_connected(global.gamePadIndex) && global.equippedItemsManager.selectedItem == item {
+	drawSelector(x1,y1);
 }

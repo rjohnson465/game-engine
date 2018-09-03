@@ -55,6 +55,8 @@ if owner.currentUsingSpell == noone {
 	var sprite = asset_get_index("spr_player_hand_spellprep");
 }
 
+if sprite == -1 exit;
+
 draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_white,owner.alpha);
 
 if owner.isSlowed {

@@ -12,6 +12,7 @@ else draw_set_alpha(1);
 drawSkillSlot(healthMaxX,healthMaxY,Skills.HealthMax,skillHpMax);
 drawSkillSlot(staminaMaxX,staminaMaxY,Skills.StaminaMax,skillStaminaMax);
 drawSkillSlot(offHandMasteryX,offHandMasteryY,Skills.OffHandDamage,skillAmbidextrous);
+drawSkillSlot(poiseMinX,poiseMinY,Skills.PoiseMin,skillPoise);
 
 // Melee skills
 drawSkillSlot(bladeMasteryX,bladeMasteryY,Skills.BladeMastery,skillBladeMastery);

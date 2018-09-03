@@ -1,7 +1,8 @@
 if !isActive && type != SelectorTypes.Select exit;
 
 if ui.isShowingMenus && ui.currentMenu == INVENTORY {
-	draw_set_color(color);
+	drawSelector(x1,y1,color);
+	/*draw_set_color(color);
 	draw_rectangle(x1,y1,x1+global.inventory.slotWidth,y1+global.inventory.slotHeight,true);
 	
 	var topMidPointX = mean(x1,x1+global.inventory.slotWidth);
@@ -11,5 +12,5 @@ if ui.isShowingMenus && ui.currentMenu == INVENTORY {
 	var sideMidPoint = mean(y1,y1+global.inventory.slotHeight);
 	draw_triangle(x1,sideMidPoint-5,x1,sideMidPoint+5,x1+5,sideMidPoint,false);
 	draw_triangle(x1+global.inventory.slotWidth,sideMidPoint-5,x1+global.inventory.slotWidth,sideMidPoint+5,x1+global.inventory.slotWidth-5,sideMidPoint,false);
-	
+	*/
 }
