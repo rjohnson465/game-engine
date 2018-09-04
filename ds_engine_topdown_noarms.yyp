@@ -823,6 +823,14 @@
             }
         },
         {
+            "Key": "13179ed4-5760-49dd-9831-09c6381e1ea1",
+            "Value": {
+                "id": "b5032e26-c848-45cb-bf04-895f008ab993",
+                "resourcePath": "objects\\obj_environment_particles_controller\\obj_environment_particles_controller.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "133b3e1d-f7a8-4076-88a9-c6c66fb0e77e",
             "Value": {
                 "id": "3fd91417-9f85-475e-915d-acd3a2a48e05",
@@ -2999,6 +3007,14 @@
             }
         },
         {
+            "Key": "49ff4001-e53a-4e58-921a-66fae748a5e5",
+            "Value": {
+                "id": "4e8e33bd-a69c-4b22-982e-0e3d9b45eb92",
+                "resourcePath": "views\\49ff4001-e53a-4e58-921a-66fae748a5e5.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "4a0f14f3-342c-4905-a6c5-266f0952cf1a",
             "Value": {
                 "id": "c6371225-d144-4ef7-801c-4ee991297f89",
@@ -4791,6 +4807,14 @@
             }
         },
         {
+            "Key": "72c471f5-2829-4ec1-bdf0-2bfbedb3ca72",
+            "Value": {
+                "id": "d6c7fece-84ae-4cbb-9804-b2fb9bb78c8f",
+                "resourcePath": "objects\\obj_environment_particles\\obj_environment_particles.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7313b201-7b4d-444c-b457-5ecd6e2c82f0",
             "Value": {
                 "id": "79060f45-4e7a-4427-aa06-751ad0f44a03",
@@ -6404,6 +6428,14 @@
                 "id": "265eee39-8c69-484c-bf87-c0b7434742e7",
                 "resourcePath": "sprites\\spr_player_hand_spear_recover_2\\spr_player_hand_spear_recover_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9bc41832-6a87-4da3-ac29-a595f5d52bdd",
+            "Value": {
+                "id": "85a46e45-8cf4-4c95-910a-30099909224c",
+                "resourcePath": "shaders\\shd_wave\\shd_wave.yy",
+                "resourceType": "GMShader"
             }
         },
         {
@@ -8735,6 +8767,14 @@
             }
         },
         {
+            "Key": "d1f01d70-c3f2-4cc6-afb1-3a9c43e7f9d1",
+            "Value": {
+                "id": "8e9fa96b-badb-4265-b8b1-ac203a209b73",
+                "resourcePath": "scripts\\makeEnvironmentParticles\\makeEnvironmentParticles.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d213858a-cbdf-4e9f-9dc9-00246c9f0573",
             "Value": {
                 "id": "3b74ae06-4407-4614-a3a7-6a2cbaf36072",
@@ -10773,7 +10813,8 @@
         "bd7dfde2-b268-47bf-bc09-2183fd6627e4",
         "c0e09787-a19e-40ce-9535-6aa20f82c058",
         "558ef868-3e37-4ed7-8294-6a5de4aab97a",
-        "29637b3d-cad2-43be-8798-f52be753b041"
+        "29637b3d-cad2-43be-8798-f52be753b041",
+        "d1f01d70-c3f2-4cc6-afb1-3a9c43e7f9d1"
     ],
     "tutorial": ""
 }

@@ -7,11 +7,12 @@ if lockOnTarget != noone {
 	if wallsBetweenTarget == noone {
 		turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 	} else {
-		facingDirection = direction;
+		//facingDirection = direction;
+		turnToFacePoint(turnSpeed,pathNextX,pathNextY);
 	}
 	if wallsBetweenTarget != noone {
 		ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 	}
 } else {
-	facingDirection = direction;
+	turnToFacePoint(turnSpeed,pathNextX,pathNextY);
 }

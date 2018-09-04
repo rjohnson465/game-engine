@@ -58,8 +58,6 @@ global.ALL_WEAPON_TYPES = [
 	BOW, CROSSBOW, SHURIKEN, MUSKET, THROWN, PISTOL
 ];
 
-//window_set_fullscreen(true);
-
 depth = -10000;
 
 enum TitleScreenState {
@@ -123,3 +121,5 @@ fade = noone;
 defineItemsByAct();
 defineItemPropertyPrefixes();
 definePropertiesByRarity();
+
+enviroParticlesController = instance_create_depth(x,y,depth,obj_environment_particles_controller);

@@ -37,7 +37,7 @@ switch(state) {
 		// player overrides this
 		if type != CombatantTypes.Player {
 			speed = 0;
-			
+			onAlert = false;
 			var actingPostX = postX;
 			var actingPostY = postY;
 			if layer != postZ {
@@ -118,15 +118,14 @@ switch(state) {
 	case CombatantStates.Moving: {
 		// player overrides this entirely
 		if type != CombatantTypes.Player {
-			
+			// face the proper direction
+			faceMovingDirection();
 			// maybe return to post
 			maybeReturnToPost();
 			
 			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
 			if currentMeleeAttack != noone || currentRangedAttack != noone {
 				
-				// face the proper direction
-				faceMovingDirection();
 				// CHECK 1: ARE WE OUT OF RANGE FOR THE CURRENTLY CHOSEN ATTACK?
 				//if maybeChangeAttack() break;
 				// CHECK 2: WILL WE DODGE IN THIS MOVE STATE?
@@ -163,14 +162,12 @@ switch(state) {
 				
 				tempPostX = lockOnTarget.x; tempPostY = lockOnTarget.y;
 				// pursue the source of the sound
-				if instance_exists(lockOnTarget) && distance_to_object(lockOnTarget) > 25 {
+				if instance_exists(lockOnTarget) && distance_to_object(lockOnTarget) > 25 && investigatingFrame <= 0 {
 					if mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0) {
 						path_start(path,functionalSpeed,path_action_stop,false);
-						turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 					} else {
-						mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,14,0);
+						mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,5,0);
 						path_start(path,functionalSpeed,path_action_stop,false);
-						turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 					}
 				} else {
 					// look around before giving up
@@ -200,8 +197,9 @@ switch(state) {
 				if distance_to_point(actingPostX,actingPostY) > 2 {
 					mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 					path_start(path,functionalSpeed,path_action_stop,false);
-					var x1 = x+lengthdir_x(10,direction); var y1 = y+lengthdir_y(10,direction);
-					turnToFacePoint(turnSpeed*2,x1,y1);
+					//var x1 = x+lengthdir_x(1,direction); var y1 = y+lengthdir_y(1,direction);
+					//var x1 = path_get_x()
+					//turnToFacePoint(turnSpeed*2,x1,y1);
 					
 					// can aggro while returning to post 
 					if maybeAggro() break;

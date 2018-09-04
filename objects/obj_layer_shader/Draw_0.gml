@@ -5,6 +5,9 @@ if( !surface_exists(surface_canvas_1) ){
     surface_canvas_1 = surface_create(room_width,room_height);
 }
 
+var l = layer_tilemap_get_id(layer_get_id("tiles_floor_"+string(floorNum)));
+draw_tilemap(l,0,0);
+
 surface_set_target(surface_canvas_1);
 
 var l = layer_tilemap_get_id(layer_get_id("tiles_floor_"+string(floorNum)));

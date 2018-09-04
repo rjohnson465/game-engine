@@ -19,3 +19,5 @@ var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
 if pLayerNum == floorNum {
 	isPlayerLayer = true;
 }
+
+
