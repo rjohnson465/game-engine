@@ -125,8 +125,7 @@ if (xp + xpTemp) >= xpToNextLevel {
 	xpToNextLevel = round(1000*(power(level,1.1)));
 	skillPoints++;
 	alert("Level " + string(level) + " reached!",c_lime,90);
-	//var s = skillPoints > 1 ? "points" : "point";
-	//alert("You have " + string(skillPoints) + " skill " + s + " to spend",c_lime,90);
+	audio_play_sound(snd_levelup,1,0);
 	
 	global.damageType = "LevelUp"; global.x1 = x; global.y1 = y; global.particleDirection = noone;
 	global.hitParticlesLayer = layer;

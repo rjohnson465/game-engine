@@ -41,5 +41,10 @@ global.player.hp = global.player.maxHp;
 global.player.stamina = global.player.maxStamina;
 
 
+with obj_environment_particles_controller {
+	event_perform(ev_other,ev_room_end);
+	//event_perform(ev_other,ev_room_start);
+}
+
 ds_map_destroy(save_data); save_data = -1;
 

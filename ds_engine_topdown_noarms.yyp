@@ -7719,6 +7719,14 @@
             }
         },
         {
+            "Key": "b9639b82-66de-4dae-aba3-8a6d6bef36a8",
+            "Value": {
+                "id": "ef84852d-02af-40a6-88c9-a1b547cd5488",
+                "resourcePath": "sounds\\snd_levelup\\snd_levelup.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "b96d72b5-310e-4b72-b2cb-a5f86d3330c4",
             "Value": {
                 "id": "07e52b27-c24a-45c8-b323-73bae6bfc992",

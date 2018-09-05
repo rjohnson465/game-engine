@@ -95,5 +95,8 @@ audio_stop_all();
 
 ds_map_destroy(save_data); save_data = -1;
 
-
+// reset enviro particles
+with obj_environment_particles {
+	instance_destroy(id,1);
+}
 
