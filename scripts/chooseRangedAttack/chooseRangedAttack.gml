@@ -12,3 +12,4 @@ ds_map_replace(equippedLimbItems,"l",leftHandItem);
 ds_map_replace(equippedLimbItems,"r",rightHandItem);
 				
 state = CombatantStates.Moving;
+substate = CombatantMoveSubstates.Chasing;

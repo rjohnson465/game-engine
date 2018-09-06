@@ -67,13 +67,14 @@ switch(state) {
 					ds_list_destroy(wallsBetweenAlly); wallsBetweenAlly = -1;
 				}
 			}
-			if	((canSeeLockOnTarget() || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
+			/*if	((canSeeLockOnTarget() || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
 				state = CombatantStates.AggroMelee;
 				break;
 			} else if canSeeLockOnTarget() && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
 				state = CombatantStates.AggroRanged;
 				break;
-			}
+			}*/
+			if maybeAggro() break;
 			// just hit or sees a friend who is in trouble
 			else if isNoticingEngagement || wasJustHit {
 				wasJustHit = false;
@@ -84,8 +85,7 @@ switch(state) {
 			}
 			// else, check if we can hear any commotion (hit particles) 
 			else if canHearNearbyHit() != noone {
-				startInvestigation();
-				break;
+				startInvestigation(); break;
 			}
 			// else, check if the player is just too goddamn close 
 			else if distance_to_object(global.player) < 15 {
@@ -98,6 +98,7 @@ switch(state) {
 			// if no aggro and not at postX/postY, head back there
 			else if distance_to_point(postX, postY) > 10 && layer == postZ {
 				state = CombatantStates.Moving;
+				substate = CombatantMoveSubstates.ReturningToPost;
 				break;
 			} else {
 				showHp = false;
@@ -122,14 +123,103 @@ switch(state) {
 			faceMovingDirection();
 			// maybe return to post
 			maybeReturnToPost();
+			// be listening for any commotion, if you're not already in a fight
+			if substate != CombatantMoveSubstates.Chasing && canHearNearbyHit() {
+				// if already investigating, reset investigation point to this new sound
+				if substate == CombatantMoveSubstates.Investigating {
+					instance_destroy(lockOnTarget,1);
+					investigatingFrame = 0;
+					lockOnTarget = noone;
+				}
+				startInvestigation();
+			}
 			
-			// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
-			if currentMeleeAttack != noone || currentRangedAttack != noone {
+			switch substate {
+				case CombatantMoveSubstates.Chasing: {
+					// CHECK 2: WILL WE DODGE IN THIS MOVE STATE?
+					if maybeDodge() break;
+					// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
+					maybeShield();
+					// CHECK 4: Maybe switch to melee / range
+					if currentRangedAttack > -1 && distance_to_object(lockOnTarget) < meleeAggroRange {
+						state = CombatantStates.AggroMelee; break;
+					}
+					else if currentMeleeAttack > -1 && distance_to_object(lockOnTarget) > meleeAggroRange {
+						state = CombatantStates.AggroRanged; break;
+					}
+				
+					// if we're not in range for attack, do this
+					if maybeMoveNotInAttackRange() break;
+					// within range for attack
+					else {
+						moveInAttackRange();
+						break;
+					}
+					break;
+				}
+				case CombatantMoveSubstates.Investigating: {
+					onAlert = true;
+					// can aggro while investigating sound
+					if maybeAggro() break;
+					// remember, lockOnTarget is a temp lockon target, just where the sound was heard
+					tempPostX = lockOnTarget.x; tempPostY = lockOnTarget.y;
+					// pursue the source of the sound, if not close enough
+					if instance_exists(lockOnTarget) && distance_to_object(lockOnTarget) > 25 && investigatingFrame <= 0 {
+						if mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0) {
+							path_start(path,functionalSpeed,path_action_stop,false);
+						} else {
+							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,5,0);
+							path_start(path,functionalSpeed,path_action_stop,false);
+						}
+					}
+					// we've reached the source of the sound
+					else {
+						// look around before giving up
+						if investigatingFrame <= investigatingFramesTotal {
+							maybeInvestigate();	// maybe wander around the sound point
+							if maybeAggro() break;
+						}
+						// return to post if done investigating
+						else {
+							if lockOnTarget.object_index == obj_temp_lockontarget instance_destroy(lockOnTarget,1);
+							investigatingFrame = 0;
+							lockOnTarget = noone;
+							substate = CombatantMoveSubstates.ReturningToPost;
+							onAlert = false;
+							break;
+						}
+					}
+					break;	
+				}
+				case CombatantMoveSubstates.ReturningToPost: {
+					var actingPostX = postX;
+					var actingPostY = postY;
+					if layer != postZ {
+						actingPostX = tempPostX;
+						actingPostY = tempPostY;
+					}
+					if distance_to_point(actingPostX,actingPostY) > 2 {
+						mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
+						path_start(path,functionalSpeed,path_action_stop,false);
+					
+						// can aggro while returning to post 
+						if maybeAggro() break;
+					} else {
+						state = CombatantStates.Idle;
+						break;
+					}
+					break;
+				}
+			}
+			break;
+			
+			/*// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
+			if substate == CombatantMoveSubstates.Chasing {
 				
 				// CHECK 1: ARE WE OUT OF RANGE FOR THE CURRENTLY CHOSEN ATTACK?
 				//if maybeChangeAttack() break;
 				// CHECK 2: WILL WE DODGE IN THIS MOVE STATE?
-				calculateWillDodge();
+				//calculateWillDodge();
 				if maybeDodge() break;
 				// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
 				maybeShield();
@@ -150,12 +240,13 @@ switch(state) {
 					break;
 				}
 			}
-			/// if we're not attacking, we're either investigating a sound already, or returning to post. we should be listening either way
+			// if we're not attacking, we're either investigating a sound already, or returning to post. we should be listening either way
 			else if canHearNearbyHit() {
 				startInvestigation();
 			}
 			// this means we're going to a temp lockOnTarget, probably investigating a sound
-			else if lockOnTarget != noone {
+			//else if lockOnTarget != noone {
+			else if substate == CombatantMoveSubstates.Investigating {
 				onAlert = true;
 				// can aggro while investigating sound
 				if maybeAggro() break;
@@ -169,24 +260,27 @@ switch(state) {
 						mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,5,0);
 						path_start(path,functionalSpeed,path_action_stop,false);
 					}
-				} else {
+				}
+				// we've reached the source of the sound
+				else {
 					// look around before giving up
 					if investigatingFrame <= investigatingFramesTotal {
 						maybeInvestigate();	
 						if maybeAggro() break;
-					} else {
-					
+					}
+					// return to post if done investigating
+					else {
 						if lockOnTarget.object_index == obj_temp_lockontarget instance_destroy(lockOnTarget,1);
 						investigatingFrame = 0;
 						lockOnTarget = noone;
-						state = CombatantStates.Idle;
+						substate = CombatantMoveSubstates.ReturningToPost;
 						onAlert = false;
 						break;
 					}
 				}
 			}
 			// if no attack is chosen, we're not investigating a sound, there's no new sound we can hear, and we have no lockOnTarget, we're probably heading back to post
-			else {
+			else if substate == CombatantMoveSubstates.ReturningToPost {
 				
 				var actingPostX = postX;
 				var actingPostY = postY;
@@ -197,17 +291,15 @@ switch(state) {
 				if distance_to_point(actingPostX,actingPostY) > 2 {
 					mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 					path_start(path,functionalSpeed,path_action_stop,false);
-					//var x1 = x+lengthdir_x(1,direction); var y1 = y+lengthdir_y(1,direction);
-					//var x1 = path_get_x()
-					//turnToFacePoint(turnSpeed*2,x1,y1);
 					
 					// can aggro while returning to post 
 					if maybeAggro() break;
 				} else {
 					state = CombatantStates.Idle;
+					break;
 				}
 				break;
-			}
+			}*/
 		}
 	}
 	case CombatantStates.Attacking: {

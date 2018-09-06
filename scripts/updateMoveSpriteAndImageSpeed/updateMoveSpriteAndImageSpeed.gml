@@ -1,5 +1,5 @@
 var sprString = "spr_"+spriteString;
-if asset_get_index(sprString+"_move") && (state == CombatantStates.Moving || state == CombatantStates.Wary) {
+if asset_get_index(sprString+"_move") && ((state == CombatantStates.Moving || state == CombatantStates.Wary) && prevX != x && prevY != y) {
 	if type != CombatantTypes.Player || (!global.ui.isShowingMenus && !global.isWishing) {
 		sprString = sprString+"_move";
 	}

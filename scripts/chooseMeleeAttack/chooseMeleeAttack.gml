@@ -62,3 +62,4 @@ ds_list_destroy(properRangeAttacks); properRangeAttacks = -1;
 ds_list_destroy(differences); differences = -1;
 
 state = CombatantStates.Moving;
+substate = CombatantMoveSubstates.Chasing;

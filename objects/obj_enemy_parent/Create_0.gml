@@ -77,8 +77,8 @@ totalShieldingFrames = 140 - cautiousness; // how regularly can we check to shie
 
 lockOnTargetType = obj_goodguy_parent;
 
-global.owner = id;
-instance_create_depth(x,y,1,obj_enemy_gui);
+//global.owner = id;
+//instance_create_depth(x,y,1,obj_enemy_gui);
 
 droppedItems = ds_list_create();
 

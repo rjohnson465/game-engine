@@ -75,6 +75,12 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 		alpha = (-dyingFrame/dyingTotalFrames)+1;
 	}
 	
+	// only animate if actually moving (state can be Moving but its possible there's no actual movement going on)
+	/*var ii = image_index;
+	if prevX == x && prevY == y && state == CombatantStates.Moving {
+		ii = 1;
+	}*/
+	
 	draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_white, alpha);
 	
 	if isSlowed {
@@ -91,17 +97,11 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
 		draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_aqua, .5*alpha);
 	}
 	
-	/*if isBeingHit {
-		var hitAlpha = alarm[5]/5;
-		draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_red, hitAlpha*alpha);
-	}*/
 	
 	var totalIdleFrames = sprite_get_number(asset_get_index("spr_"+spriteString));
 	
 	idleFrame += 1;
 	idleFrame = idleFrame % totalIdleFrames;
-	//image_speed = oldImageSpeed;
-	//show_debug_message(string(sprite_get_name(sprite_index)) + " image index: " + string(image_index) + " alpha: " + string(alpha) + " visibility " + string(visible));
 
 }
 

@@ -19,6 +19,8 @@ isFloating = false; // being a Fairy means you float; floating doesn't mean you'
 isPhasing = false;
 randomize()
 floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
+prevX = x;
+prevY = y;
 
 isAlive = true;
 
@@ -82,6 +84,12 @@ enum CombatantStates {
 	Wary // prioritize getting away from target / reassessing
 }
 
+enum CombatantMoveSubstates {
+	Chasing,
+	Investigating,
+	ReturningToPost
+}
+
 enum CombatantTypes {
 	Player,
 	Enemy,
@@ -90,6 +98,7 @@ enum CombatantTypes {
 
 // idle | moving | attacking | dodging | staggering
 state = CombatantStates.Idle;
+substate = noone;
 
 // general hands stuff
 hasHands = true;
@@ -337,7 +346,7 @@ investigatingFramesTotal = 200;
 investigatingFrame = 0;
 investigatingDirectionPrev = 0;
 investigatingDirection = 0;
-isInvestigating = false;
+isInvestigatingMoving = false;
 
 currentSpellPrepSound = noone;
 soundsWhenDodge = [snd_dodge1];
