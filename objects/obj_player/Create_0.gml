@@ -258,3 +258,5 @@ hasIssuedAmmoOut = false;
 
 quests = ds_list_create();
 
+lastStairs = noone;
+

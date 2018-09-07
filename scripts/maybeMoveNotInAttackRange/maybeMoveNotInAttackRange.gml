@@ -1,4 +1,8 @@
-if lockOnTarget == noone exit;
+// if we don't have an attack picked out, go pick one
+if lockOnTarget == noone || (currentMeleeAttack == noone && currentRangedAttack == noone) {
+	maybeAggro();
+	return true;
+}
 // move to lockOnTarget until in range for chosen attack
 var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 var allyType = object_is_ancestor(object_index,obj_enemy_parent) ? obj_enemy_parent : obj_goodguy_parent;
@@ -25,7 +29,7 @@ var pred = currentMeleeAttack == noone ?
 	// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 	(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack]) 
 		|| wallsBetweenTarget != noone || alliesBetweenTarget != noone || enemyObstaclesBetweenTarget != noone || (layer != lockOnTarget.layer) : 
-	(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack]) || (layer != lockOnTarget.layer);
+	(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack]) || (layer != lockOnTarget.layer || wallsBetweenTarget != noone);
 
 if wallsBetweenTarget != noone && ds_exists(wallsBetweenTarget, ds_type_list) {
 	ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
@@ -39,35 +43,29 @@ if enemyObstaclesBetweenTarget != noone && ds_exists(enemyObstaclesBetweenTarget
 
 if pred && !isFlinching {
 	// Movement for AI combatants not in attack range
+	// simplest case -- we're on the same layer as target and can find a potential path there
 	if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false) {
 		mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false);
 		path_start(path,functionalSpeed,path_action_stop,false);
 	}
-	// if can't find potential path directly to player, find grid path to player and potential path steps on it
+	// if can't find potential path directly to target (but target is still on the same layer), find grid path to player and potential path steps on it
 	else 
 	if layer == lockOnTarget.layer {
 		populatePersonalGrid();
 		var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,lockOnTarget.x,lockOnTarget.y,true);
-		if isGridPathAvailable /*&& recalculatePathFrame >= recalculatePathFrameTotal*/ {
+		if isGridPathAvailable  {
 			var xx = path_get_x(gridPath,.1);
 			var yy = path_get_y(gridPath,.1);
 			mp_potential_path(path,xx,yy,functionalSpeed,1,0);
 			path_start(path,functionalSpeed,path_action_stop,false);
-			//recalculatePathFrame = 0;
 		} else if mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false) {
 			mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false);
 			path_start(path,functionalSpeed,path_action_stop,false);
 		}
 		else {
-			//recalculatePathFrame++;
 			if postZ == layer {
-				var a = mp_grid_path(personalGrid,path,x,y,postX,postY,0);
-				if a {
-					path_start(path,functionalSpeed,path_action_stop,false);
-					currentMeleeAttack = noone;
-					currentRangedAttack = noone;
-					lockOnTarget = noone;
-				}
+				path_end();
+				substate = CombatantMoveSubstates.ReturningToPost;
 			}
 			// not on post layer, not on lockOnTarget layer
 			else {
@@ -80,15 +78,17 @@ if pred && !isFlinching {
 			}
 		}
 	}
+	// trickier case: target is no longer on our layer. Maybe target went up or down some stairs
+	else if lockOnTarget.layer != layer && lockOnTarget.lastStairs != noone && instance_exists(lockOnTarget.lastStairs) {
+		path_end();
+		stairsToTraverse = lockOnTarget.lastStairs;
+		substate = CombatantMoveSubstates.TraverseStairs;
+		
+	}
 	// return to post if no path to target can be found
 	else if postZ == layer {
-		var a = mp_grid_path(personalGrid,path,x,y,postX,postY,0);
-		if a {
-			path_start(path,functionalSpeed,path_action_stop,false);
-			currentMeleeAttack = noone;
-			currentRangedAttack = noone;
-			lockOnTarget = noone;
-		}
+		path_end();
+		substate = CombatantMoveSubstates.ReturningToPost;
 	}
 	// not on post layer, not on lockOnTarget layer
 	else {

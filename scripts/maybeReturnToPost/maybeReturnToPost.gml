@@ -11,10 +11,11 @@ if layer != postZ {
 
 var p = path_add();
 mp_grid_path(personalGrid,p,x,y,actingPostX,actingPostY,true);
-if path_get_length(p) > farthestAllowedFromPost || global.player.layer != layer {
-	currentMeleeAttack = noone;
-	currentRangedAttack = noone;
-	lockOnTarget = noone;
+if path_get_length(p) > farthestAllowedFromPost /*|| global.player.layer != layer*/ {
+	//currentMeleeAttack = noone;
+	//currentRangedAttack = noone;
+	//lockOnTarget = noone;
+	substate = CombatantMoveSubstates.ReturningToPost;
 }
 
 

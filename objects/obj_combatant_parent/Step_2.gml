@@ -10,6 +10,7 @@ if layer == global.player.layer && fallFrame >= fallTotalFrames {
 }
 previousFacingDirection = facingDirection;
 
+
 /*
 // functional speed is a function of the direction we're moving to 
 if instance_exists(lockOnTarget) && lockOnTarget != noone {

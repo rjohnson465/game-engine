@@ -21,8 +21,17 @@ randomize()
 floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
 prevX = x;
 prevY = y;
+movingDir = 0;
 
 isAlive = true;
+hasJustChangedLayers = false;
+hasJustChangedLayersDown = false;
+stairsBeginPtX = noone; stairsBeginPtY = noone;
+stairsEndPtX = noone; stairsEndPtY = noone;
+stairsResetClimb = false;
+stairsToTraverse = noone;
+isDescendingStairs = false;
+hasReachedMidStairs = false;
 
 _light_sprite = spr_light_point;
 lightRadiusAlpha = .5;
@@ -87,7 +96,8 @@ enum CombatantStates {
 enum CombatantMoveSubstates {
 	Chasing,
 	Investigating,
-	ReturningToPost
+	ReturningToPost,
+	TraverseStairs
 }
 
 enum CombatantTypes {
@@ -344,6 +354,8 @@ sightAngleDelta = 100; // combatant can see +/- this much in his field of view
 hearingDistance = 500; // how far away some hit particles must be for enemy to investigate
 investigatingFramesTotal = 200;
 investigatingFrame = 0;
+investigationPtX = noone;
+investigationPtY = noone;
 investigatingDirectionPrev = 0;
 investigatingDirection = 0;
 isInvestigatingMoving = false;

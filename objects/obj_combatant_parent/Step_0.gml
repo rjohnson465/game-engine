@@ -67,14 +67,10 @@ switch(state) {
 					ds_list_destroy(wallsBetweenAlly); wallsBetweenAlly = -1;
 				}
 			}
-			/*if	((canSeeLockOnTarget() || lockOnTarget != noone) && meleeAggroRange != noone && distance_to_object(lockOnTargetType) < meleeAggroRange)	{
-				state = CombatantStates.AggroMelee;
+			if maybeAggro() {
+				var a = 3;
 				break;
-			} else if canSeeLockOnTarget() && rangedAggroRange != noone && distance_to_object(lockOnTargetType) < rangedAggroRange {
-				state = CombatantStates.AggroRanged;
-				break;
-			}*/
-			if maybeAggro() break;
+			}
 			// just hit or sees a friend who is in trouble
 			else if isNoticingEngagement || wasJustHit {
 				wasJustHit = false;
@@ -120,7 +116,7 @@ switch(state) {
 		// player overrides this entirely
 		if type != CombatantTypes.Player {
 			// face the proper direction
-			faceMovingDirection();
+			//faceMovingDirection();
 			// maybe return to post
 			maybeReturnToPost();
 			// be listening for any commotion, if you're not already in a fight
@@ -162,13 +158,13 @@ switch(state) {
 					// can aggro while investigating sound
 					if maybeAggro() break;
 					// remember, lockOnTarget is a temp lockon target, just where the sound was heard
-					tempPostX = lockOnTarget.x; tempPostY = lockOnTarget.y;
-					// pursue the source of the sound, if not close enough
-					if instance_exists(lockOnTarget) && distance_to_object(lockOnTarget) > 25 && investigatingFrame <= 0 {
-						if mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0) {
+					//tempPostX = lockOnTarget.x; tempPostY = lockOnTarget.y;
+					// pursue the investigationPt, if not close enough
+					if distance_to_point(investigationPtX,investigationPtY) > 25 && investigatingFrame <= 0 {
+						if mp_grid_path(personalGrid,path,x,y,investigationPtX,investigationPtY,0) {
 							path_start(path,functionalSpeed,path_action_stop,false);
 						} else {
-							mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,5,0);
+							mp_potential_path(path,investigationPtX,investigationPtY,functionalSpeed,5,0);
 							path_start(path,functionalSpeed,path_action_stop,false);
 						}
 					}
@@ -181,8 +177,9 @@ switch(state) {
 						}
 						// return to post if done investigating
 						else {
-							if lockOnTarget.object_index == obj_temp_lockontarget instance_destroy(lockOnTarget,1);
+							//if lockOnTarget.object_index == obj_temp_lockontarget instance_destroy(lockOnTarget,1);
 							investigatingFrame = 0;
+							investigationPtX = noone; investigationPtY = noone;
 							lockOnTarget = noone;
 							substate = CombatantMoveSubstates.ReturningToPost;
 							onAlert = false;
@@ -191,17 +188,38 @@ switch(state) {
 					}
 					break;	
 				}
+				case CombatantMoveSubstates.TraverseStairs: {
+					// might aggro while going to / up / down stairs
+					/*if maybeAggro() {
+						stairsBeginPtX = noone; stairsBeginPtY = noone;
+						//stairsEndPtY = noone; stairsEndPtX = noone;
+						stairsToTraverse = noone;
+						stairsResetClimb = true;
+						break;
+					}*/
+					// go up/down the stairs specified in our "stairsToTraverse" property
+					// this property is set in either the "Chasing" substate, when we chase someone via stairs
+					// or (TODO) in the "ReturningToPost" substate, when we are tracing our steps back to our post
+					var isGoingUp = true;
+					if stairsResetClimb {
+						var currentLayerNum = real(string_copy(layer_get_name(layer),string_length(layer_get_name(layer)),1));
+						if currentLayerNum == stairsToTraverse.floorUp isGoingUp = false;
+						isDescendingStairs = !isGoingUp;
+						stairsResetClimb = false;
+					}
+					traverseStairs(stairsToTraverse,isGoingUp);
+					//pursueOnStairs();
+					break;
+				}
 				case CombatantMoveSubstates.ReturningToPost: {
-					var actingPostX = postX;
-					var actingPostY = postY;
+					currentMeleeAttack = noone; currentRangedAttack = noone; lockOnTarget = noone;
+					var actingPostX = postX; var actingPostY = postY;
 					if layer != postZ {
-						actingPostX = tempPostX;
-						actingPostY = tempPostY;
+						actingPostX = tempPostX; actingPostY = tempPostY;
 					}
 					if distance_to_point(actingPostX,actingPostY) > 2 {
 						mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 						path_start(path,functionalSpeed,path_action_stop,false);
-					
 						// can aggro while returning to post 
 						if maybeAggro() break;
 					} else {
@@ -213,93 +231,6 @@ switch(state) {
 			}
 			break;
 			
-			/*// if we've already chosen an attack during Idle state, we need to get close enough to target for that attack
-			if substate == CombatantMoveSubstates.Chasing {
-				
-				// CHECK 1: ARE WE OUT OF RANGE FOR THE CURRENTLY CHOSEN ATTACK?
-				//if maybeChangeAttack() break;
-				// CHECK 2: WILL WE DODGE IN THIS MOVE STATE?
-				//calculateWillDodge();
-				if maybeDodge() break;
-				// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
-				maybeShield();
-				
-				// CHECK 4: Maybe switch to melee / range
-				if currentRangedAttack > -1 && distance_to_object(lockOnTarget) < meleeAggroRange {
-					state = CombatantStates.AggroMelee; break;
-				}
-				else if currentMeleeAttack > -1 && distance_to_object(lockOnTarget) > meleeAggroRange {
-					state = CombatantStates.AggroRanged; break;
-				}
-				
-				// if we're not in range for attack, do this
-				if maybeMoveNotInAttackRange() break;
-				// within range for attack
-				else {
-					moveInAttackRange();
-					break;
-				}
-			}
-			// if we're not attacking, we're either investigating a sound already, or returning to post. we should be listening either way
-			else if canHearNearbyHit() {
-				startInvestigation();
-			}
-			// this means we're going to a temp lockOnTarget, probably investigating a sound
-			//else if lockOnTarget != noone {
-			else if substate == CombatantMoveSubstates.Investigating {
-				onAlert = true;
-				// can aggro while investigating sound
-				if maybeAggro() break;
-				
-				tempPostX = lockOnTarget.x; tempPostY = lockOnTarget.y;
-				// pursue the source of the sound
-				if instance_exists(lockOnTarget) && distance_to_object(lockOnTarget) > 25 && investigatingFrame <= 0 {
-					if mp_grid_path(personalGrid,path,x,y,lockOnTarget.x,lockOnTarget.y,0) {
-						path_start(path,functionalSpeed,path_action_stop,false);
-					} else {
-						mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,functionalSpeed,5,0);
-						path_start(path,functionalSpeed,path_action_stop,false);
-					}
-				}
-				// we've reached the source of the sound
-				else {
-					// look around before giving up
-					if investigatingFrame <= investigatingFramesTotal {
-						maybeInvestigate();	
-						if maybeAggro() break;
-					}
-					// return to post if done investigating
-					else {
-						if lockOnTarget.object_index == obj_temp_lockontarget instance_destroy(lockOnTarget,1);
-						investigatingFrame = 0;
-						lockOnTarget = noone;
-						substate = CombatantMoveSubstates.ReturningToPost;
-						onAlert = false;
-						break;
-					}
-				}
-			}
-			// if no attack is chosen, we're not investigating a sound, there's no new sound we can hear, and we have no lockOnTarget, we're probably heading back to post
-			else if substate == CombatantMoveSubstates.ReturningToPost {
-				
-				var actingPostX = postX;
-				var actingPostY = postY;
-				if layer != postZ {
-					actingPostX = tempPostX;
-					actingPostY = tempPostY;
-				}
-				if distance_to_point(actingPostX,actingPostY) > 2 {
-					mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
-					path_start(path,functionalSpeed,path_action_stop,false);
-					
-					// can aggro while returning to post 
-					if maybeAggro() break;
-				} else {
-					state = CombatantStates.Idle;
-					break;
-				}
-				break;
-			}*/
 		}
 	}
 	case CombatantStates.Attacking: {
@@ -453,7 +384,8 @@ switch(state) {
 				currentMeleeAttack = noone;
 				currentRangedAttack = noone;
 				stupidityFrame = 0;
-				state = CombatantStates.Idle;
+				state = CombatantStates.Moving;
+				substate = CombatantMoveSubstates.Chasing;
 				hasCalculatedNextAttack = false;
 				attackFrequencyTotalFrames = attackData.coolDownFrames;
 			}
@@ -584,8 +516,80 @@ with obj_fallzone {
 // if colliding with a solid object, jump to nearest free point
 // this mainly resolves issues when enemies are using mp_grids and suddenly switch to mp_potential_* stuff
 if type == CombatantTypes.Enemy {
-	if !place_free(x,y) {
+	// special case : if enemy just started going down stairs, 
+	// jump ahead of the "wall" that marks the end of the staircase for the lower floor
+	if !place_free(x,y) && (hasJustChangedLayersDown || isDescendingStairs) && place_meeting_layer(x,y,obj_stair_wall_top) /*&& hasJustChangedLayers*/ { 
+		// only do this check if we're facing within min and max distance
+		var stairs = noone; var closestDist = 1000; 
+		with obj_stairs {
+			var dist = distance_to_object(other);
+			if dist < closestDist && layer == other.layer {
+				closestDist = dist;
+				stairs = id;
+			}
+		}
+		var newLayerNum = real(string_copy(layer_get_name(layer),string_length(layer_get_name(layer)),1));
+		var minDir = (stairs.upDirectionMin+180)%360;
+		var maxDir = (stairs.upDirectionMax+180)%360;
+		while place_meeting_layer(x,y,obj_stair_wall_top) {
+			jumpToNearestFreePoint(1,minDir,maxDir,1);
+		}
+	}
+	else if !place_free(x,y) {
 		jumpToNearestFreePoint(true);
 	}
 }
 
+if hasJustChangedLayers hasJustChangedLayers = false;
+if hasJustChangedLayersDown hasJustChangedLayersDown = false;
+if isDescendingStairs && !place_meeting_layer(x,y,obj_enemy_stairs) isDescendingStairs = false;
+if hasReachedMidStairs && !place_meeting_layer(x,y,obj_enemy_stairs) {
+	hasReachedMidStairs = false;
+	populatePersonalGrid();
+}
+
+// change layer on stairs
+if type != CombatantTypes.Player {
+	// the second the enemy is on stairs, put him on the layer he's "going" to
+	if place_meeting_layer(x,y,obj_enemy_stairs) {
+		var stairs = noone; var closestDist = 1000;
+		with obj_stairs {
+			var dist = distance_to_object(other);
+			if (dist < closestDist && layer == other.layer) {
+				stairs = id; closestDist = dist;
+			}
+		}
+		/*var prevLayerNum = real(string_copy(layer_get_name(layer),string_length(layer_get_name(layer)),1));
+		var layer1Name = "instances_floor_"+string(stairs.floorUp);
+		var layer2Name = "instances_floor_"+string(stairs.floorDown);
+		// TODO -- what if the lockOnTarget is not on either layer anymore?
+		//if lockOnTarget.layer == layer_get_id(layer1Name) || lockOnTarget.layer == layer_get_id(layer2Name) {
+		if lockOnTarget != noone && (lockOnTarget.layer == layer_get_id(layer1Name) || lockOnTarget.layer == layer_get_id(layer2Name)) {
+			layer = lockOnTarget.layer;
+		}*/
+		// set layer based on the direction the ai combatant is moving
+		if isDescendingStairs {
+			layer = layer_get_id("instances_floor_"+string(stairs.floorDown));
+		} else {
+			layer = layer_get_id("instances_floor_"+string(stairs.floorUp));
+		}
+		populatePersonalGrid();
+		
+		// if the player is on these stairs, no matter what, make the enemy on their level
+		with obj_player {
+			if place_meeting(x,y,stairs) {
+				other.layer = layer;
+				other.lockOnTarget = id;
+				other.state = CombatantStates.Moving;
+				other.substate = CombatantMoveSubstates.Chasing;
+				other.stairsResetClimb = true;
+			}
+		}
+		/*var newLayerNum = real(string_copy(layer_get_name(layer),string_length(layer_get_name(layer)),1));
+		hasJustChangedLayers = true;
+		if newLayerNum < prevLayerNum {
+			hasJustChangedLayersDown = true;
+			isDescendingStairs = true;
+		}*/
+	}
+}
