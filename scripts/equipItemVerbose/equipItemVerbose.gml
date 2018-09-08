@@ -27,6 +27,9 @@ if droppedItem.type == ItemTypes.HandItem {
 	}
 }
 
+if droppedItem.baseName == "Torch" && (slot != EquipmentSlots.RightHand1 && slot != EquipmentSlots.RightHand2) {
+	alert("Torches must be equipped in offhand",c_red); exit;
+}
 
 with slotObj {
 	// first, make sure the dropped item can go in this slot 

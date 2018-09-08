@@ -170,6 +170,7 @@ if global.populateInventory {
 	insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
 	insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 	addItemToInventory(longsword);
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));
 	/*
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_hatchet));

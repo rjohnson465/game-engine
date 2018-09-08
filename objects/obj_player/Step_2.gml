@@ -6,8 +6,8 @@ event_inherited();
 // death
 if hp < 1 && isAlive && !isDying {
 	isDying = true;
-	fallFrame = fallTotalFrames;
-	fallScaleFactor = 1;
+	/*fallFrame = fallTotalFrames;
+	fallScaleFactor = 1;*/
 	hp = 0;
 	speed = 0;
 	totalFlinchFrames = 0;
@@ -18,17 +18,21 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_clear(preparingLimbs);
 	ds_map_clear(attackingLimbs);
 	ds_map_clear(recoveringLimbs);
-	// create death particles
-	global.owner = id;
-	randomize();
-	var rand = random_range(0,100);
-	if ds_map_find_value(conditionPercentages,ICE) > 50 && (rand > 60) {
-		global.condition = "IceDeath";
-		dyingFrame = dyingTotalFrames;
+	if fallFrame == fallTotalFrames {
+		// create death particles
+		global.owner = id;
+		randomize();
+		var rand = random_range(0,100);
+		if ds_map_find_value(conditionPercentages,ICE) > 50 && (rand > 60) {
+			global.condition = "IceDeath";
+			dyingFrame = dyingTotalFrames;
+		} else {
+			global.condition = "Death";
+		}
+		instance_create_depth(x,y,1,obj_condition_particles);
 	} else {
-		global.condition = "Death";
+		fallScaleFactor = 0;
 	}
-	instance_create_depth(x,y,1,obj_condition_particles);
 	state = CombatantStates.Idle;
 	// cure any and all conditions
 	var currentCondition = ds_map_find_first(conditionPercentages);

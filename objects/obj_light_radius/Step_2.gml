@@ -1,5 +1,18 @@
 if instance_exists(owner) {
-	if owner.isShowingLightRadius {
+	if object_is_ancestor(owner.object_index, obj_combatant_parent) && owner.hp < 1 {
+		x = -1000; y = -1000;
+	}
+	else if owner.object_index == obj_weapon && owner.limbItem.baseName == "Torch" {
+		randomize(); 
+		var rand = random_range(.8,1);
+		light_set_scale(rand);
+		//randomize();
+		//var rand2 = random_range(.25,.5);
+		
+		light_set_alpha(1);
+		exit;
+	}
+	else if owner.isShowingLightRadius {
 		x = owner.x;
 		y = owner.y;
 	} 

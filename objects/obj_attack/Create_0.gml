@@ -21,7 +21,7 @@ particle2 = noone;
 spellElement = noone;
 percentCharged = 1;
 system = part_system_create();
-part_system_depth(system,-4);
+part_system_depth(system,layer_get_depth(owner.layer));
 emitter = part_emitter_create(system);
 soundEmitter = audio_emitter_create();
 sound = noone;
@@ -386,8 +386,8 @@ if (weapon != noone && weapon.weaponType == PISTOL || weapon.weaponType == MUSKE
 	var nx = (cs * (sx - cx)) + (sn * (sy - cy)) + cx;
 	var ny = (cs * (sy - cy)) - (sn * (sx - cx)) + cy;
 	
-	xx = nx;
-	yy = ny;
+	var xx = nx;
+	var yy = ny;
 
 	part_emitter_region(system,emitter,
 		xx,xx,

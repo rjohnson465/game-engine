@@ -6,7 +6,8 @@
     "children": [
         "c3c6c900-249c-46cc-84a1-b1c85f852d3d",
         "388ced0a-468a-47b7-a638-f38c7af9cb15",
-        "2c15255a-0156-49b8-956b-a92711e9c979"
+        "2c15255a-0156-49b8-956b-a92711e9c979",
+        "b57edca5-42f1-44f7-a32b-d7978d4c1778"
     ],
     "filterType": "GMObject",
     "folderName": "club_1h",

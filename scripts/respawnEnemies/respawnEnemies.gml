@@ -11,6 +11,8 @@ with obj_enemy_parent {
 	layer = postZ;
 	facingDirection = postDir;
 	hp = maxHp;
+	fallFrame = fallTotalFrames;
+	fallScaleFactor = 1;
 	isAlive = true;
 	onAlert = false;
 	state = CombatantStates.Idle;

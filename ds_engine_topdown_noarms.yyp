@@ -807,6 +807,14 @@
             }
         },
         {
+            "Key": "12e17ce4-59b8-4b5b-b9a7-a36a193064c6",
+            "Value": {
+                "id": "41055d40-08c4-4344-9cd3-3444df0fb61d",
+                "resourcePath": "sprites\\spr_player_torch\\spr_player_torch.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "12f32476-4833-46a9-8a60-eed1051d1177",
             "Value": {
                 "id": "820bb9f6-6640-4912-9189-b3356d4a5a91",
@@ -1787,6 +1795,14 @@
             "Value": {
                 "id": "477feee9-f935-483f-a8c9-6ef37cb0ec3e",
                 "resourcePath": "sprites\\spr_skill_clubmastery\\spr_skill_clubmastery.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2aeff85c-1875-47fa-98d9-1e510719de32",
+            "Value": {
+                "id": "4c7a1cee-f992-4db7-8b23-9653c5a65083",
+                "resourcePath": "sprites\\spr_item_torch\\spr_item_torch.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5743,6 +5759,14 @@
             }
         },
         {
+            "Key": "8989e070-2ddb-4f9a-b995-b54144c47197",
+            "Value": {
+                "id": "300f82c8-c8b3-4de5-8a64-233e78249683",
+                "resourcePath": "scripts\\getTorchOffset\\getTorchOffset.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "89a22c1e-0d14-48b4-92e7-a1b5916814aa",
             "Value": {
                 "id": "266e717b-789d-4e1c-bab6-49fc05ca0b7c",
@@ -5956,6 +5980,14 @@
                 "id": "28821700-4a90-4303-8357-4fc333a8ea5a",
                 "resourcePath": "scripts\\scr_conversation_francis_dagger\\scr_conversation_francis_dagger.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8dc9904c-f370-4b15-964e-74b2550ccbd0",
+            "Value": {
+                "id": "e99d5ac7-1774-49e7-a139-97f0f6924a8b",
+                "resourcePath": "sprites\\spr_player_torch_attack_1\\spr_player_torch_attack_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -6303,6 +6335,14 @@
             }
         },
         {
+            "Key": "973641b9-7f8b-4170-9919-2e2b4baa0b43",
+            "Value": {
+                "id": "8d4865ad-a610-4b62-9cc6-e0fd423f0609",
+                "resourcePath": "sprites\\spr_player_torch_prep_1\\spr_player_torch_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9757bdf1-dd22-408a-9a8b-8d1d14d6e3be",
             "Value": {
                 "id": "7ac1efb0-7874-456f-a528-db7804f1673d",
@@ -6527,11 +6567,27 @@
             }
         },
         {
+            "Key": "9e6c686a-171b-402d-87b6-853f87b4b3eb",
+            "Value": {
+                "id": "ea6131ed-1448-4e7a-b654-f894ff2475dd",
+                "resourcePath": "sprites\\spr_player_torch_recover_1\\spr_player_torch_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9e7989bf-a028-40cb-9a73-1f2149c21bec",
             "Value": {
                 "id": "ef0061e0-1461-4997-8acd-4f5c64161617",
                 "resourcePath": "sprites\\spr_door\\spr_door.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9e8c127a-b351-4c81-a000-20ad80719d45",
+            "Value": {
+                "id": "7067da20-2a0d-4b86-909d-325934881233",
+                "resourcePath": "views\\9e8c127a-b351-4c81-a000-20ad80719d45.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -7563,6 +7619,14 @@
             "Value": {
                 "id": "81ffcdfc-a48a-4881-9d3b-e0ef7538ce2e",
                 "resourcePath": "objects\\obj_enemy_data\\obj_enemy_data.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "b57edca5-42f1-44f7-a32b-d7978d4c1778",
+            "Value": {
+                "id": "6d558df9-939c-4a4f-9a6f-a080dc67c0b0",
+                "resourcePath": "objects\\obj_hand_item_torch\\obj_hand_item_torch.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -10814,7 +10878,8 @@
         "c0e09787-a19e-40ce-9535-6aa20f82c058",
         "558ef868-3e37-4ed7-8294-6a5de4aab97a",
         "29637b3d-cad2-43be-8798-f52be753b041",
-        "d1f01d70-c3f2-4cc6-afb1-3a9c43e7f9d1"
+        "d1f01d70-c3f2-4cc6-afb1-3a9c43e7f9d1",
+        "8989e070-2ddb-4f9a-b995-b54144c47197"
     ],
     "tutorial": ""
 }

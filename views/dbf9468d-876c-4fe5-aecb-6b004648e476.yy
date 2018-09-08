@@ -5,7 +5,8 @@
     "name": "dbf9468d-876c-4fe5-aecb-6b004648e476",
     "children": [
         "e4e1c253-10e5-4c1a-854d-d9bd7e584f3c",
-        "6f3d21d3-d7bc-40ff-a5f2-bf74a4287f74"
+        "6f3d21d3-d7bc-40ff-a5f2-bf74a4287f74",
+        "9e8c127a-b351-4c81-a000-20ad80719d45"
     ],
     "filterType": "GMSprite",
     "folderName": "1h_club",

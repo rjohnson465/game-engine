@@ -141,6 +141,8 @@ if instance_exists(fade) {
 				currentUsingSpell = noone;
 				attackNumberInChain = noone;
 				isShielding = false;
+				fallScaleFactor = 1;
+				fallFrame = fallTotalFrames;
 			}
 			//other.fade.frame++;
 		}

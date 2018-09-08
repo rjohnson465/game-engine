@@ -11,7 +11,7 @@ switch room {
 		part_type_speed(dust,.3,1,0,0);
 		part_type_direction(dust,0,360,0,4);
 		part_type_life(dust,250,500);
-		makeEnvironmentParticles(dust,noone,"instances_floor_2",-1,noone);
+		makeEnvironmentParticles(dust,noone,"instances_floor_1",-1,noone);
 		break;
 	}
 }

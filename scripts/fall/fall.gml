@@ -43,6 +43,12 @@ if fallFrame == .5*fallTotalFrames {
 	var layerNum = real(string_char_at(layerName,string_length(layerName)));
 	var lowerLayerNum = layerNum-1;
 	var lowerLayer = layer_get_id("instances_floor_"+string(lowerLayerNum));
+	
+	// lower layer doesn't exit? we fallin to our deaths brotha
+	if lowerLayer < 0 {
+		hp = 0;
+		exit;
+	}
 
 	layer = lowerLayer;
 	updateRoomLayers();
