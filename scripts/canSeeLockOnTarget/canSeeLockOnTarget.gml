@@ -4,7 +4,7 @@
 // find the best potential target if none exists and set it to lockOnTarget
 var target = noone;
 var wouldBeLockOnTarget = lockOnTarget;
-if !instance_exists(lockOnTarget) || lockOnTarget == noone || lockOnTarget.object_index == obj_temp_lockontarget {
+if !instance_exists(lockOnTarget) || lockOnTarget == noone {
 	var totalPossibilities = 0;
 	with lockOnTargetType {
 		totalPossibilities = instance_count;

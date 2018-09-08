@@ -21,17 +21,8 @@ randomize()
 floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
 prevX = x;
 prevY = y;
-movingDir = 0;
 
 isAlive = true;
-hasJustChangedLayers = false;
-hasJustChangedLayersDown = false;
-stairsBeginPtX = noone; stairsBeginPtY = noone;
-stairsEndPtX = noone; stairsEndPtY = noone;
-stairsResetClimb = false;
-stairsToTraverse = noone;
-isDescendingStairs = false;
-hasReachedMidStairs = false;
 
 _light_sprite = spr_light_point;
 lightRadiusAlpha = .5;
@@ -57,8 +48,8 @@ floorsFallen = 0;
 
 functionalSpeed = 5;
 normalSpeed = 5;
-facingDirection = 0;
-previousFacingDirection = 0;
+facingDirection = (image_angle+360)%360;
+previousFacingDirection = facingDirection;
 turnSpeed = 45; // how many degrees a combatant may turn per step to face their target
 turningSpeedModifier = 1; // less than 1 when turning a lot
 // player | enemy | ally
@@ -71,6 +62,7 @@ spriteString = spriteType + "_" + spriteName;
 postX = x;
 postY = y;
 postZ = layer;
+postDir = facingDirection;
 // tempPost is used when not on player layer -- wander around it, but not too far from it
 tempPostX = noone;
 tempPostY = noone;
@@ -96,8 +88,7 @@ enum CombatantStates {
 enum CombatantMoveSubstates {
 	Chasing,
 	Investigating,
-	ReturningToPost,
-	TraverseStairs
+	ReturningToPost
 }
 
 enum CombatantTypes {
@@ -241,6 +232,7 @@ stupidity = 30;
 stupidityFrame = 0;
 
 lockOnTarget = noone;
+tempTargetX = noone; tempTargetY = noone;
 // obj_enemy_parent for allies / player, obj_goodguy_parent for enemies
 lockOnTargetType = noone;
 
@@ -337,6 +329,7 @@ climbingDir = noone;
 
 recalculatePathFrame = 15;
 recalculatePathFrameTotal = 15;
+hasSetGuessPath = false;
 
 chargePointX = noone;
 chargePointY = noone;
@@ -354,10 +347,9 @@ sightAngleDelta = 100; // combatant can see +/- this much in his field of view
 hearingDistance = 500; // how far away some hit particles must be for enemy to investigate
 investigatingFramesTotal = 200;
 investigatingFrame = 0;
-investigationPtX = noone;
-investigationPtY = noone;
 investigatingDirectionPrev = 0;
 investigatingDirection = 0;
+investigationPtX = noone; investigationPtY = noone;
 isInvestigatingMoving = false;
 
 currentSpellPrepSound = noone;

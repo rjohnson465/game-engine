@@ -45,9 +45,7 @@ if state == CombatantStates.Dodging {
 } 
 
 if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
-	if type != CombatantTypes.Player {
-		faceMovingDirection();
-	}
+	
 	updateMoveSpriteAndImageSpeed();
 	
 	// normally draw base sprite -- on top of hands

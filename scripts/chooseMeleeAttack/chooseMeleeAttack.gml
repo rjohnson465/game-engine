@@ -1,9 +1,4 @@
 // pick a melee attack 
-
-// if we're just aggroing for the first time, show a ! above enemy head so player knows theyve been spotted
-if lockOnTarget == noone {
-	drawCombatText("!",id);
-}
 // this might be a dumb way to pick a lockOnTarget...
 lockOnTarget = instance_nearest(x,y,lockOnTargetType);
 currentRangedAttack = noone;

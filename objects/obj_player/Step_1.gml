@@ -1,4 +1,3 @@
-if !instance_exists(global.player) || global.player == noone global.player = id;
 if room == game_menu {
 	exit;
 }

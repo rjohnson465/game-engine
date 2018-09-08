@@ -1,20 +1,10 @@
-/// jumpToNearestFreePoint(*isEnemy, *minDir, *maxDir, *factor)
+/// jumpToNearestFreePoint(*isEnemy)
 /// @param *isEnemy
-/// @param *minDir
-/// @param *maxDir
-/// @param *factor
 
 var isEnemy = false;
-var minDir = 0;
-var maxDir = 360;
-var factor = 10;
-if argument_count > 0 {
+if argument_count == 1 {
 	isEnemy = argument[0];
 }
-if argument_count > 1 minDir = argument[1];
-if argument_count > 2 maxDir = argument[2];
-if argument_count > 3 factor = argument[3];
-
 
 var obstacleType = obj_solid_parent;
 if isEnemy {
@@ -29,8 +19,8 @@ with obstacleType {
 	}
 }
 
-var distanceToTry = factor;
-var dir = minDir;
+var distanceToTry = 10;
+var dir = 10;
 // try going distanceToTry pixels out from current place at direction dir
 // until the proposed x/y coordinates would not make a collision with an obstacle
 var xx = x;
@@ -40,15 +30,10 @@ while obstaclesInside {
 	dir = (dir + 10)%360;
 	xx = x+lengthdir_x(distanceToTry,dir);
 	yy = y+lengthdir_y(distanceToTry,dir);
-	if dir >= maxDir || (dir == 0 && maxDir == 360) {
-		distanceToTry += factor;
-		dir = minDir;
+	if dir == 0 {
+		distanceToTry += 10;
 	}
 	obstaclesInside = place_meeting_list(xx,yy,obstacles);
-}
-var _dist = point_distance(x,y,xx,yy);
-if _dist > 25 {
-	var _a = 3;
 }
 x = xx;
 y = yy;

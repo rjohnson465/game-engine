@@ -1,7 +1,11 @@
-// if we don't have an attack picked out, go pick one
 if lockOnTarget == noone || (currentMeleeAttack == noone && currentRangedAttack == noone) {
-	maybeAggro();
-	return true;
+	if maybeAggro() {
+		return true;
+	} else {
+		substate = CombatantMoveSubstates.ReturningToPost;
+		return true;
+	}
+	exit;
 }
 // move to lockOnTarget until in range for chosen attack
 var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
@@ -29,7 +33,7 @@ var pred = currentMeleeAttack == noone ?
 	// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 	(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack]) 
 		|| wallsBetweenTarget != noone || alliesBetweenTarget != noone || enemyObstaclesBetweenTarget != noone || (layer != lockOnTarget.layer) : 
-	(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack]) || (layer != lockOnTarget.layer || wallsBetweenTarget != noone);
+	(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack]) || (layer != lockOnTarget.layer);
 
 if wallsBetweenTarget != noone && ds_exists(wallsBetweenTarget, ds_type_list) {
 	ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
@@ -42,18 +46,40 @@ if enemyObstaclesBetweenTarget != noone && ds_exists(enemyObstaclesBetweenTarget
 }
 
 if pred && !isFlinching {
+	// first, check if can't see lockOnTarget anymore
+	// if so, initiate a path (ONCE) that will update every 15 frames with a new point (where the lockOnTarget is) 
+	var _canSee = canSeeLockOnTarget();
+	if layer == lockOnTarget.layer && !canSeeLockOnTarget() {
+		if tempTargetX == noone {
+			tempTargetX = lockOnTarget.x; tempTargetY = lockOnTarget.y; alarm[7] = 15;
+		}
+		populatePersonalGrid();
+		var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,tempTargetX,tempTargetY,true);
+		if isGridPathAvailable {
+			var xx = path_get_x(gridPath,.1);
+			var yy = path_get_y(gridPath,.1);
+			mp_potential_path(path,xx,yy,functionalSpeed,1,0);
+			path_start(path,functionalSpeed,path_action_stop,false);
+		} else if mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,4,false) {
+			mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,4,false);
+			path_start(path,functionalSpeed,path_action_stop,false);
+		}
+		return true; 
+	} else if layer == lockOnTarget.layer && canSeeLockOnTarget() && alarm[7] > -1 {
+		alarm[7] = -1;
+	}
+	tempTargetX = noone; tempTargetY = noone;
 	// Movement for AI combatants not in attack range
-	// simplest case -- we're on the same layer as target and can find a potential path there
 	if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false) {
 		mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false);
 		path_start(path,functionalSpeed,path_action_stop,false);
 	}
-	// if can't find potential path directly to target (but target is still on the same layer), find grid path to player and potential path steps on it
+	// if can't find potential path directly to player, find grid path to player and potential path steps on it
 	else 
 	if layer == lockOnTarget.layer {
 		populatePersonalGrid();
 		var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,lockOnTarget.x,lockOnTarget.y,true);
-		if isGridPathAvailable  {
+		if isGridPathAvailable {
 			var xx = path_get_x(gridPath,.1);
 			var yy = path_get_y(gridPath,.1);
 			mp_potential_path(path,xx,yy,functionalSpeed,1,0);
@@ -64,8 +90,13 @@ if pred && !isFlinching {
 		}
 		else {
 			if postZ == layer {
-				path_end();
-				substate = CombatantMoveSubstates.ReturningToPost;
+				var a = mp_grid_path(personalGrid,path,x,y,postX,postY,0);
+				if a {
+					path_start(path,functionalSpeed,path_action_stop,false);
+					currentMeleeAttack = noone;
+					currentRangedAttack = noone;
+					lockOnTarget = noone;
+				}
 			}
 			// not on post layer, not on lockOnTarget layer
 			else {
@@ -78,17 +109,15 @@ if pred && !isFlinching {
 			}
 		}
 	}
-	// trickier case: target is no longer on our layer. Maybe target went up or down some stairs
-	else if lockOnTarget.layer != layer && lockOnTarget.lastStairs != noone && instance_exists(lockOnTarget.lastStairs) {
-		path_end();
-		stairsToTraverse = lockOnTarget.lastStairs;
-		substate = CombatantMoveSubstates.TraverseStairs;
-		
-	}
 	// return to post if no path to target can be found
 	else if postZ == layer {
-		path_end();
-		substate = CombatantMoveSubstates.ReturningToPost;
+		var a = mp_grid_path(personalGrid,path,x,y,postX,postY,0);
+		if a {
+			path_start(path,functionalSpeed,path_action_stop,false);
+			currentMeleeAttack = noone;
+			currentRangedAttack = noone;
+			lockOnTarget = noone;
+		}
 	}
 	// not on post layer, not on lockOnTarget layer
 	else {

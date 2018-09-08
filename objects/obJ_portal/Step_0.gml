@@ -1,5 +1,3 @@
-var _p = global.player;
-var _p1 = global.player.gamePadIndex;
 var interactInputReceived = keyboard_check_released(ord("F"));
 if gamepad_is_connected(global.player.gamePadIndex) {
 	interactInputReceived = keyboard_check_released(ord("F")) || 

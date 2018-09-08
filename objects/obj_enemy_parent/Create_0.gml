@@ -51,8 +51,6 @@ staminaRegen = 4;
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
-facingDirection = 0;
-
 // stagger stuff
 poise = 20;
 staggerDuration = 0;

@@ -1,8 +1,4 @@
 // pick a ranged attack
-// if we're just aggroing for the first time, show a ! above enemy head so player knows theyve been spotted
-if lockOnTarget == noone {
-	drawCombatText("!",id);
-}
 lockOnTarget = instance_nearest(x,y,lockOnTargetType);
 currentMeleeAttack = noone;
 attackNumberInChain = noone;

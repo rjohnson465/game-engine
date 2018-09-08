@@ -8,7 +8,6 @@ if alarm[6] == -1 alarm[6] = 30;
 
 if isInvestigatingMoving {
 	moveToNearestFreePoint(investigatingDirection,functionalSpeed*.5,1);
-	// TODO -- be smarter about the direction we investigate?
 	//faceMovingDirection();
 	//var x1 = x+lengthdir_x(5,investigatingDirection); var y1 = y+lengthdir_y(5,investigatingDirection);
 	//turnToFacePoint(turnSpeed,x1,y1);

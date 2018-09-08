@@ -9,6 +9,7 @@ with obj_enemy_parent {
 	x = postX;
 	y = postY;
 	layer = postZ;
+	facingDirection = postDir;
 	hp = maxHp;
 	isAlive = true;
 	onAlert = false;
