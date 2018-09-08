@@ -14,3 +14,4 @@ isOneSided = false; // only opens from its "opensFrom" direction
 
 //openingFrames = 30;
 keyRequired = noone; // this is either the string name of the required key, or noone
+isNonPriorityInteractable = true;

@@ -2,6 +2,10 @@ if !instance_exists(limb) {
 	instance_destroy(id,1);
 }
 
+if !instance_exists(limbItem) || limbItem == noone {
+	limbItem = noone; exit;
+}
+
 if limbItem.baseName == "Torch" {
 	fireOffsetX = 50; fireOffsetY = 0;
 	if torchLightRadius == noone || !instance_exists(torchLightRadius) {
@@ -112,6 +116,5 @@ if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && 
 		} else {
 			x = owner.x; y = owner.y;
 		}
-		//x = owner.x; y = owner.y;
 	}
 }

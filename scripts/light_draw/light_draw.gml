@@ -64,6 +64,7 @@ if global._light_time >= global._light_max_time
                         for (var j = 0; j < ds_list_size(global._light_casters); j++) {
                             var _caster = ds_list_find_value(global._light_casters, j)
                             with _caster {
+								//if _caster.layer != other.layer continue;
                                 if rectangle_in_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, _light_left, _light_top, _light_right, _light_bottom) {
                                     draw_primitive_begin(pr_trianglestrip)
                                     var points_cast_x, points_cast_y, points_start_x, points_start_y;

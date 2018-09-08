@@ -8,3 +8,6 @@ with obj_persistent_environment_data_parent {
 		other.data = id;
 	}
 }
+
+isNonPriorityInteractable = false;
+isCurrentInteractableObject = false;

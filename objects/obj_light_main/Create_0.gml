@@ -1,4 +1,5 @@
 depth = -1; // just above the top layer
+//depth = layer_get_depth(layer_get_id("instances_floor_1")-1);
 color = make_colour_rgb(0.05*255, 0.05*255, 0.10 * 255) // The darker the color, the darker the shadow.
 //color = c_gray;
 //color = C_HANDLES;

@@ -20,4 +20,4 @@ if pLayerNum == floorNum {
 	isPlayerLayer = true;
 }
 
-
+depth = layer_get_depth(layer_get_name("tiles_floor_"+string(floorNum)));

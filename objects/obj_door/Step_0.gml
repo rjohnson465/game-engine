@@ -1,3 +1,4 @@
+event_inherited();
 var interactInputReceived = keyboard_check_released(ord("F"));
 if gamepad_is_connected(global.player.gamePadIndex) {
 	interactInputReceived = keyboard_check_released(ord("F")) || 
@@ -9,7 +10,8 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 var p = global.player;
-if !isOpen && distance_to_object(obj_player) < 20 && layer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
+
+if isCurrentInteractableObject && !isOpen && distance_to_object(obj_player) < 20 && layer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
 	
 	var canOpenFromThisSide = false;
 	// check if the player is on the proper side of the door

@@ -1,0 +1,30 @@
+// create the persistent room data object for this sconce (if one does not exist)
+if data == noone || !instance_exists(data) {
+	global.el = id;
+	var dd = instance_create_depth(x,y,1,obj_persistent_environment_data_parent);
+	with obj_room_data {
+		if string(roomIndex) == string(room) {
+			ds_map_replace(persistentElements, fs_generate_key(global.el), dd);
+		}
+	}
+	ds_map_replace(dd.properties, "isLit", isLit);
+}
+
+// set properties of this sconce from the data object
+with obj_persistent_environment_data_parent {
+	if key == other.key {
+		other.postX = postX;
+		other.postY = postY;
+		var isL = ds_map_find_value(properties, "isLit");
+		other.isLit = isL;
+		if other.isLit {
+			global.owner = other.id;
+			global.makeLightOnCreate = true;
+			lightRadius = instance_create_depth(x,y,depth,obj_light_radius);
+			with lightRadius {
+				light_set_alpha(calculateLightRadiusAlpha());
+			}
+		}
+		other.data = id;
+	}
+}
