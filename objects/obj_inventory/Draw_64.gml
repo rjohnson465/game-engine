@@ -1,4 +1,5 @@
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
+if !instance_exists(selectedItem) selectedItem = noone;
 if isConfirmingDestroyItem draw_set_alpha(.5);
 var leftHandItem = ds_map_find_value(global.player.equippedLimbItems,"l");
 var leftHandItem2 = ds_map_find_value(global.player.equippedLimbItems,"l2");

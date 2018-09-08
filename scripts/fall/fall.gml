@@ -50,7 +50,15 @@ if fallFrame == .5*fallTotalFrames {
 		exit;
 	}
 
+	var oldLayer = layer;
 	layer = lowerLayer;
+	var lr = noone;
+	with obj_light_radius {
+		if owner == other lr = id;
+	}
+	if lr != noone {
+		updateLightLayer(lr,oldLayer,layer);
+	}
 	updateRoomLayers();
 	
 	// check if we should keep falling

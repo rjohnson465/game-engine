@@ -6,7 +6,8 @@ if instance_exists(owner) {
 		randomize(); 
 		var rand = random_range(.8,1);
 		light_set_scale(rand);
-		light_set_alpha(calculateLightRadiusAlpha());
+		var floorNum = getLayerFloorNumber(layer);
+		light_set_alpha(calculateLightRadiusAlphaLayer(floorNum));
 		
 		if owner.owner.state == CombatantStates.Dodging || owner.owner.currentUsingSpell != noone {
 			x = -1000; y = -1000;

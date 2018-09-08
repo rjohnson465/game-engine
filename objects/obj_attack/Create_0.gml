@@ -176,7 +176,8 @@ if owner.currentUsingSpell != noone {
 if isSpell {
 	isSoundLooping = true;
 	lightRadius = 256;
-	lightRadiusAlpha = calculateLightRadiusAlpha();
+	var floorNum = getLayerFloorNumber(layer);
+	lightRadiusAlpha = calculateLightRadiusAlphaLayer(floorNum);
 	if lightRadiusAlpha <=.01 {
 		lightRadiusAlpha = .3;
 	}

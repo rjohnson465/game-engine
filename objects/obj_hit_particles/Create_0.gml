@@ -11,7 +11,7 @@ randomize();
 var num = random_range(7,10); // maybe make this dependent on how hard the hit was?
 
 system = part_system_create();
-part_system_depth(system,0);
+part_system_depth(system,layer_get_depth(layer));
 emitter = part_emitter_create(system);
 particle = noone;
 particle2 = noone;

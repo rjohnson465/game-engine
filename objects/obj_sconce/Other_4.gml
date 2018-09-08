@@ -20,9 +20,10 @@ with obj_persistent_environment_data_parent {
 		if other.isLit {
 			global.owner = other.id;
 			global.makeLightOnCreate = true;
-			lightRadius = instance_create_depth(x,y,depth,obj_light_radius);
-			with lightRadius {
-				light_set_alpha(calculateLightRadiusAlpha());
+			other.lightRadius = instance_create_depth(x,y,depth,obj_light_radius);
+			with other.lightRadius {
+				var floorNum = getLayerFloorNumber(layer);
+				light_set_alpha(calculateLightRadiusAlphaLayer(floorNum));
 			}
 		}
 		other.data = id;

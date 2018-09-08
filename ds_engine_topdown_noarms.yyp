@@ -1711,6 +1711,14 @@
             }
         },
         {
+            "Key": "29416bf6-7d40-48db-8428-88265316444b",
+            "Value": {
+                "id": "6d6c2d29-0fe0-469f-8f36-75d428681fd2",
+                "resourcePath": "scripts\\light_set_ambient_color_layer\\light_set_ambient_color_layer.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "29571c22-9147-44ee-ac4c-56a483e00072",
             "Value": {
                 "id": "012a38c6-9c18-499d-8970-f1d0410c2297",
@@ -2023,6 +2031,14 @@
             }
         },
         {
+            "Key": "30ff1364-bc1c-4ca9-8230-dd681c3a0fe7",
+            "Value": {
+                "id": "8ee5a56e-4c79-4c15-b048-88f1996eaba7",
+                "resourcePath": "scripts\\light_draw_layer\\light_draw_layer.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "310f071f-fafe-4a1a-bffb-47af7fe97435",
             "Value": {
                 "id": "083f659d-6f72-4109-8816-751f81d687e2",
@@ -2203,6 +2219,14 @@
             "Value": {
                 "id": "22bc2b6f-f131-4b31-8b17-632888e80b0e",
                 "resourcePath": "scripts\\maybeAggro\\maybeAggro.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "35c8059c-7da4-4bf5-a2c1-913b32fab710",
+            "Value": {
+                "id": "b226b6d2-8696-49aa-9703-3871554f5d5a",
+                "resourcePath": "scripts\\calculateLightRadiusAlpha\\calculateLightRadiusAlpha.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -3067,6 +3091,14 @@
             "Value": {
                 "id": "1b12c8c6-8a10-4884-9f5d-55faa3f13148",
                 "resourcePath": "scripts\\updateItemNameBaseMods\\updateItemNameBaseMods.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "4a6f0447-1ac1-4725-9f7e-b1334aca9e6e",
+            "Value": {
+                "id": "5f663f77-d033-4f4f-a34c-b89528e4c7e9",
+                "resourcePath": "scripts\\light_create_layer\\light_create_layer.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -4015,6 +4047,14 @@
             }
         },
         {
+            "Key": "6258a76b-cce7-4621-b5d1-87ba8670f08b",
+            "Value": {
+                "id": "a473b6b6-07fe-4c1f-bd50-f5a4235d6fd6",
+                "resourcePath": "scripts\\light_create_caster_layer\\light_create_caster_layer.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "628622dd-e007-49e3-b5ba-ffea2b02de5b",
             "Value": {
                 "id": "700278cd-88c6-4d1a-a980-06a2648f7d71",
@@ -4644,6 +4684,14 @@
                 "id": "94212656-7c8e-4679-85f9-b3c49f25a876",
                 "resourcePath": "sprites\\spr_player_hand_sword_1h_attack_1\\spr_player_hand_sword_1h_attack_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6f3ff3e1-f459-4910-83f0-02866babb2c3",
+            "Value": {
+                "id": "f08a97c5-be48-4a42-808e-f75cf1e8a240",
+                "resourcePath": "objects\\obj_layer_lighting\\obj_layer_lighting.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -6143,6 +6191,14 @@
             }
         },
         {
+            "Key": "920d472b-176d-459d-a718-a20e56569c6f",
+            "Value": {
+                "id": "7dc70d4d-2452-462a-8033-25556b6a8958",
+                "resourcePath": "scripts\\getLayerFloorNumber\\getLayerFloorNumber.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "922c9cb8-23d7-4b95-b555-6a6f746ce3ea",
             "Value": {
                 "id": "e48d7d5d-a5e7-4872-b2af-87010ef8df5d",
@@ -6831,6 +6887,14 @@
             }
         },
         {
+            "Key": "a1938765-90a2-4241-ac75-e0f1fd5f5abe",
+            "Value": {
+                "id": "0db2d281-ba96-40d4-97b0-10f000a0a704",
+                "resourcePath": "scripts\\light_destroy_caster_layer\\light_destroy_caster_layer.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a1e21466-f249-4d90-a729-ff7330034cd7",
             "Value": {
                 "id": "36f01997-154c-4c9a-8c66-806cd3678563",
@@ -7147,6 +7211,14 @@
             "Value": {
                 "id": "752cbd48-a918-4ada-9341-b1646a4ae289",
                 "resourcePath": "scripts\\factorial\\factorial.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a9df1787-6a36-4249-9f1f-6ccb994655b5",
+            "Value": {
+                "id": "0d40923b-eb41-4b3b-96d1-230b955adbfd",
+                "resourcePath": "scripts\\updateLightLayer\\updateLightLayer.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -7700,6 +7772,14 @@
                 "id": "6592e813-cadb-4922-8461-3cb2f2bd1cc1",
                 "resourcePath": "views\\b5de912c-c2f1-44a5-ac90-a4e79c66784e.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b5e3a888-cf46-434b-a2d7-53e4acc6706f",
+            "Value": {
+                "id": "aaf22c59-2679-4ac1-91f3-32110f78b3b8",
+                "resourcePath": "scripts\\light_init_layer\\light_init_layer.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -10031,6 +10111,14 @@
             }
         },
         {
+            "Key": "ef99d6ef-2857-4c19-85bc-35354dc233a2",
+            "Value": {
+                "id": "6c9614f4-6a3e-40a1-a24c-2ff6d132699f",
+                "resourcePath": "scripts\\updateLightLayer2\\updateLightLayer2.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "efeb36c6-526b-4776-9d20-f3198572524b",
             "Value": {
                 "id": "a34d78d1-8f28-4651-b48a-2881f2a0e922",
@@ -10402,7 +10490,7 @@
             "Key": "fa7ad02b-0643-4312-a17d-b79441f2e1e4",
             "Value": {
                 "id": "1a943f69-d922-43d3-9597-8141327e3d88",
-                "resourcePath": "scripts\\calculateLightRadiusAlpha\\calculateLightRadiusAlpha.yy",
+                "resourcePath": "scripts\\calculateLightRadiusAlphaLayer\\calculateLightRadiusAlphaLayer.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -10675,17 +10763,26 @@
         "39bca976-b17b-4112-9141-1a5112b868ba",
         "f8705dbb-e7d5-47c3-a2ec-c0a1a23186ba",
         "1d2c5934-19c8-4b69-8108-9a1dd6bbfe19",
+        "4a6f0447-1ac1-4725-9f7e-b1334aca9e6e",
         "9f8a107a-2263-4254-8c9b-742f8091675e",
         "c4791fe0-84a5-4dbf-9392-b4da283f6daa",
+        "30ff1364-bc1c-4ca9-8230-dd681c3a0fe7",
         "ba2a0fdd-69c4-4b0d-9131-4a7cb91b0423",
         "656c3723-d7eb-42d0-ac95-27dbfdc534da",
+        "6258a76b-cce7-4621-b5d1-87ba8670f08b",
         "2daf145c-5cdc-4ea1-b6de-fd82a34676ed",
+        "29416bf6-7d40-48db-8428-88265316444b",
         "53095c17-a8c1-4769-bc3d-922b03d5890d",
         "f0eff6a6-dd20-4359-a231-97e9f908deb3",
+        "a1938765-90a2-4241-ac75-e0f1fd5f5abe",
         "c1eb91a1-c734-48cb-8620-eeb1a88f1f43",
         "fa7ad02b-0643-4312-a17d-b79441f2e1e4",
+        "35c8059c-7da4-4bf5-a2c1-913b32fab710",
         "115656bb-1594-4120-8af9-32f93786fca5",
         "65daeba5-ad3c-48bc-9f00-c797fa12f7d1",
+        "b5e3a888-cf46-434b-a2d7-53e4acc6706f",
+        "a9df1787-6a36-4249-9f1f-6ccb994655b5",
+        "ef99d6ef-2857-4c19-85bc-35354dc233a2",
         "af4faec1-d8c4-4e8c-a879-6cd5e3540170",
         "b60cbf73-d564-44ac-aeb7-c7d4b94e9b78",
         "06f9a3f8-d8da-41ce-9324-cb2200c4dbf0",
@@ -10740,6 +10837,7 @@
         "a9cf5b3d-53d6-4996-87d2-aa2913bf8778",
         "356af44f-c7cb-440d-8da1-b2dd766722be",
         "9f47ff84-553f-4daa-9cbb-ee40ee56bd58",
+        "920d472b-176d-459d-a718-a20e56569c6f",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "89e792c3-5306-41a1-8e55-479f0f2db5de",
         "295e5a03-8983-4afd-bdb3-14c23bed2058",

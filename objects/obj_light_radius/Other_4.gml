@@ -1,4 +1,4 @@
-colorAlpha = calculateLightRadiusAlpha();
+colorAlpha = calculateLightRadiusAlphaLayer(floorNum);
 
 if owner.object_index == obj_item_drop {
 	var a = 3;
@@ -7,7 +7,5 @@ if owner.object_index == obj_item_drop {
 	var d = 3;
 }
 
-//if global._lights {
-if ds_exists(global._lights,ds_type_list) {
-	light_create(spr, scale, color, colorAlpha, 0, true);
-}
+
+light_create_layer(spr, scale, color, colorAlpha, 0, true);

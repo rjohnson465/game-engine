@@ -2,6 +2,7 @@
 // floorNum is the floor level tiles this object will draw
 // it will shade these tiles darker if the player is on a floor higher than this
 floorNum = global.floorNum; 
+instance_create_depth(x,y,1,obj_layer_lighting);
 pseudoLayer = global.shaderInstanceLayer;
 surface_canvas_1 = -1;
 surface_canvas_2 = -1;
@@ -20,4 +21,4 @@ if pLayerNum == floorNum {
 	isPlayerLayer = true;
 }
 
-depth = layer_get_depth(layer_get_name("tiles_floor_"+string(floorNum)));
+//depth = layer_get_depth(layer_get_name("tiles_floor_"+string(floorNum)));

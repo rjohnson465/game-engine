@@ -1,4 +1,4 @@
-// only draw if not player's layer
+/*// only draw if not player's layer
 if isPlayerLayer exit;
 
 if( !surface_exists(surface_canvas_1) ){
@@ -29,4 +29,3 @@ shade = (-.05/100)*diff;
 shader_set_uniform_f(uPOSITION,shade);
 draw_surface(surface_canvas_1,0,0);
 shader_reset();
-

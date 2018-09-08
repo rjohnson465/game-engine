@@ -1,5 +1,5 @@
-/// calculateLightRadiusAlpha()
-/// return appropriate alpha value for light radii, based on the global lighting (light_main)
+/// calculateLightRadiusAlpha(layerNum)
+/// return appropriate alpha value for light radii, based on the lighting of a certain layer (light_main)
 
 var lightColor = global._light_color;
 
@@ -13,4 +13,6 @@ var luma = (0.2126*R + 0.7152*G + 0.0722*B);
 // when x is 0, want 1, when x is 256, want 0
 var lightRadiusAlpha = ((-1/128)*luma) + 1;
 
-return lightRadiusAlpha;
+//return lightRadiusAlpha;
+
+return 1;

@@ -23,6 +23,7 @@ if !isLit && distance_to_object(obj_player) < 20 && layer == p.layer && interact
 	global.makeLightOnCreate = true;
 	lightRadius = instance_create_depth(x,y,depth,obj_light_radius);
 	with lightRadius {
-		light_set_alpha(calculateLightRadiusAlpha());
+		var floorNum = getLayerFloorNumber(layer);
+		light_set_alpha(calculateLightRadiusAlphaLayer(floorNum));
 	}
 } 

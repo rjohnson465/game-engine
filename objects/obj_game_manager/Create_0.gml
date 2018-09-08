@@ -60,6 +60,9 @@ global.ALL_WEAPON_TYPES = [
 
 depth = -10000;
 
+global._light_layers = ds_map_create();
+global._light_color = c_black;
+
 enum TitleScreenState {
 	Options,
 	Load,

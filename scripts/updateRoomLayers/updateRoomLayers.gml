@@ -72,11 +72,13 @@ with obj_enemy_obstacle_parent {
 	}
 }
 
+
 with obj_wall_parent {
-	light_destroy_caster();
+/*	var layerNum = real(string_copy(layer_get_name(layer),string_length(layer_get_name(layer)),1));
+	light_destroy_caster_layer(layerNum);
 	if layer == playerLayer {
-		light_create_caster();
-	}
+		light_create_caster_layer();
+	}*/
 }
 
 // this will make enemies avoid fallzones when walking, but lets them dodge into them
