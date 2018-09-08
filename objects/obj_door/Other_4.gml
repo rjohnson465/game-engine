@@ -19,6 +19,7 @@ with obj_persistent_environment_data_parent {
 		other.isOpen = isO;
 		if other.isOpen {
 			other.sprite_index = noone;
+			//light_destroy_caster();
 		}
 		other.data = id;
 	}

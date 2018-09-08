@@ -42,6 +42,7 @@ if !isOpen && distance_to_object(obj_player) < 20 && layer == p.layer && interac
 	var canOpen = canOpenFromThisSide && hasKey;
 	
 	if canOpen {
+		//light_destroy_caster();
 		isOpen = true;
 		ds_map_replace(data.properties, "isOpen", true);
 		sprite_index = noone;

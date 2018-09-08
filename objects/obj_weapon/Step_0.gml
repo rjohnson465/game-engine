@@ -26,7 +26,7 @@ if limbItem.baseName == "Torch" {
 }
 
 
-if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone {
+if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && owner.state != CombatantStates.Dodging {
 	audio_emitter_gain(torchAudioEmitter,.4);
 	// destroy torch parts, emitters, and systems to avoid mem leak
 	if part_type_exists(torchParticle1) part_type_destroy(torchParticle1);
@@ -96,7 +96,22 @@ if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone {
 	part_emitter_region(torchSystem1,torchEmitter1,xx-1,xx+1,yy-1,yy+1,ps_shape_diamond,ps_distr_gaussian);
 	part_emitter_burst(torchSystem1,torchEmitter1,fire,5);
 	audio_emitter_position(torchAudioEmitter,xx,yy,owner.depth);
+	// set the torch light radius position
 	with torchLightRadius {
-		x = xx; y = yy;
+		
+		var positionTorchAtOwner = false;
+		with obj_wall_parent {
+			if distance_to_point(xx,yy) < 20 && layer == other.layer {
+				positionTorchAtOwner = true;
+			}
+		}
+		
+		// if the torch light is actually in a caster, this can look like shit, so make sure its not
+		if !positionTorchAtOwner {
+			x = xx; y = yy;
+		} else {
+			x = owner.x; y = owner.y;
+		}
+		//x = owner.x; y = owner.y;
 	}
 }

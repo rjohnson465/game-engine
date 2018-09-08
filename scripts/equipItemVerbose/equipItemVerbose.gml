@@ -27,7 +27,7 @@ if droppedItem.type == ItemTypes.HandItem {
 	}
 }
 
-if droppedItem.baseName == "Torch" && (slot != EquipmentSlots.RightHand1 && slot != EquipmentSlots.RightHand2) {
+if droppedItem.baseName == "Torch" && (slotObj.slot != EquipmentSlots.RightHand1 && slotObj.slot != EquipmentSlots.RightHand2) {
 	alert("Torches must be equipped in offhand",c_red); exit;
 }
 

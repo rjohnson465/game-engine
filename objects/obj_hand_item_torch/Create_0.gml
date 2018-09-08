@@ -4,7 +4,7 @@ subType = HandItemTypes.Melee;
 name = "Torch";
 baseName = "Torch";
 spriteName = "torch";
-itemSprite = spr_item_wand;
+itemSprite = spr_item_torch;
 baseValue = 200;
 
 // for each attack in chain
@@ -26,4 +26,4 @@ staminaCostArray=[5];
 
 act = 1;
 
-//attackSounds = [snd_dagger_attack_1];
+attackSounds = [snd_axe2h_attack_1];

@@ -12,6 +12,7 @@ if rand <= odds {
 	removeGemsFromItem(item);
 
 	spendGold(namedPrice);
+	appraiseItem(item);
 				
 	// refresh item particles if equipped
 	with obj_weapon {

@@ -10,25 +10,6 @@ Blurry shadows generally makes a lower quality lightmap look nicer without the e
 Important note: The object calling this function should have a lower depth than the casters.
 */
 
-if !ds_exists(global._lights, ds_type_list) {
-	var a = 3;
-	// TODO in catastrophic failure, recreate all lights based on light_parent objects
-	//var bslights = ds_list_create();
-	global._lights = ds_list_create();
-	//ds_list_destroy(bslights);
-	with obj_light_radius {
-		ds_list_add(global._lights,id);
-	}
-	//exit;
-}
-
-var lightss = global._lights;
-
-// TODO -- reconstruct casters list
-if !ds_exists(global._light_casters,ds_type_list) {
-	exit;
-}
-
 global._light_time += delta_time
 if global._light_time >= global._light_max_time
 {
@@ -97,8 +78,8 @@ if global._light_time >= global._light_max_time
                                             points_start_y[k] = y + _light_points_y[k] * image_yscale
                                         }
                                         var dir = point_direction(other.x, other.y, points_start_x[k], points_start_y[k]);
-                                        points_cast_x[k] = points_start_x[k] + lengthdir_x(other._light_max_dist, dir)
-                                        points_cast_y[k] = points_start_y[k] + lengthdir_y(other._light_max_dist, dir)
+                                        points_cast_x[k] = points_start_x[k] + lengthdir_x(other._light_max_dist+1000, dir)
+                                        points_cast_y[k] = points_start_y[k] + lengthdir_y(other._light_max_dist+1000, dir)
                                         
                                         draw_vertex_colour((points_start_x[k] - (other.x - global._light_half_size)) * global._light_quality, (points_start_y[k] - (other.y - global._light_half_size)) * global._light_quality, c_black, 1)
                                         draw_vertex_colour((points_cast_x[k] - (other.x - global._light_half_size)) * global._light_quality, (points_cast_y[k] - (other.y - global._light_half_size)) * global._light_quality, c_black, 1)

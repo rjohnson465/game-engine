@@ -11,6 +11,7 @@ if rand <= odds {
 	alert(string(gem.name)+ " sucessfully inserted into " + string(item.name),c_lime);
 	spendGold(namedPrice);
 	insertGemIntoItem(gem,item);
+	appraiseItem(item);
 				
 	// refresh item particles if equipped
 	with obj_weapon {

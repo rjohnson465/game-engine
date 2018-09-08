@@ -40,7 +40,7 @@ torchEmitter1 = part_emitter_create(torchSystem1);
 torchEmitter2 = part_emitter_create(torchSystem2);
 torchAudioEmitter = audio_emitter_create();
 audio_emitter_gain(torchAudioEmitter,0);
-audio_play_sound_on(torchAudioEmitter,snd_magic_fire_condition,1,0);
+audio_play_sound_on(torchAudioEmitter,snd_torch_loop,1,0);
 // torchlight stuff
 torchLightRadius = noone;
 lightRadiusColor = c_orange; 
