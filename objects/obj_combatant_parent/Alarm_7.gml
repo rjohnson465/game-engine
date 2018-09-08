@@ -4,6 +4,7 @@ if type == CombatantTypes.Player || lockOnTarget == noone || !instance_exists(lo
 // this helps so we don't randomly change course while pursuing lockOnTarget when we can't see them
 // these random changes of course happen when using mp_grid path functions, which is bad since the enemy
 // shouldn't be able to see / know where target is going so well they alter course because of it
-tempTargetX = lockOnTarget.x; tempTargetY = lockOnTarget.y;
+//tempTargetX = lockOnTarget.x; tempTargetY = lockOnTarget.y;
+ds_list_add(guessPathPts,[lockOnTarget.x,lockOnTarget.y]);
 alarm[7] = 15;
 //path_add_point(gridPath,,lockOnTarget.y,100);

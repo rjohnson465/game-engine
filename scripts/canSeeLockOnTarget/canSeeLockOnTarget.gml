@@ -1,6 +1,5 @@
 /// @description canSeeLockOnTarget
 // returns true if there are no walls between lockOnTarget and invoking combatant instance
-
 // find the best potential target if none exists and set it to lockOnTarget
 var target = noone;
 var wouldBeLockOnTarget = lockOnTarget;

@@ -127,16 +127,18 @@ switch(state) {
 			}
 			
 			switch substate {
+				
+				// precondition: we have a lockOnTarget
 				case CombatantMoveSubstates.Chasing: {
 					// CHECK 2: WILL WE DODGE IN THIS MOVE STATE?
 					if maybeDodge() break;
 					// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
 					maybeShield();
 					// CHECK 4: Maybe switch to melee / range
-					if currentRangedAttack > -1 && distance_to_object(lockOnTarget) < meleeAggroRange {
+					if currentRangedAttack > -1 && distance_to_object(lockOnTarget) < meleeAggroRange && canSeeLockOnTarget() {
 						state = CombatantStates.AggroMelee; break;
 					}
-					else if currentMeleeAttack > -1 && distance_to_object(lockOnTarget) > meleeAggroRange {
+					else if currentMeleeAttack > -1 && distance_to_object(lockOnTarget) > meleeAggroRange && canSeeLockOnTarget() {
 						state = CombatantStates.AggroRanged; break;
 					}
 				

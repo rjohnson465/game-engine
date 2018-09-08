@@ -1799,14 +1799,6 @@
             }
         },
         {
-            "Key": "2b8f938b-c81b-4646-9a2e-2a8413fae3b9",
-            "Value": {
-                "id": "fa497342-7610-4799-9bba-cdc3a1eb7b58",
-                "resourcePath": "objects\\obj_visual_barrier\\obj_visual_barrier.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "2c15255a-0156-49b8-956b-a92711e9c979",
             "Value": {
                 "id": "2351f93c-a8de-4790-b8e5-5687f20be716",

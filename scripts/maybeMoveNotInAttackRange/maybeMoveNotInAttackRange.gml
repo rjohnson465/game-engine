@@ -32,8 +32,8 @@ if enemyObstaclesBetweenTarget != noone {
 var pred = currentMeleeAttack == noone ? 
 	// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 	(distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack]) 
-		|| wallsBetweenTarget != noone || alliesBetweenTarget != noone || enemyObstaclesBetweenTarget != noone || (layer != lockOnTarget.layer) : 
-	(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack]) || (layer != lockOnTarget.layer);
+		|| wallsBetweenTarget != noone || alliesBetweenTarget != noone || enemyObstaclesBetweenTarget != noone || (layer != lockOnTarget.layer) || !canSeeLockOnTarget() : 
+	(distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack]) || (layer != lockOnTarget.layer) || !canSeeLockOnTarget();
 
 if wallsBetweenTarget != noone && ds_exists(wallsBetweenTarget, ds_type_list) {
 	ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
@@ -48,10 +48,16 @@ if enemyObstaclesBetweenTarget != noone && ds_exists(enemyObstaclesBetweenTarget
 if pred && !isFlinching {
 	// first, check if can't see lockOnTarget anymore
 	// if so, initiate a path (ONCE) that will update every 15 frames with a new point (where the lockOnTarget is) 
-	var _canSee = canSeeLockOnTarget();
 	if layer == lockOnTarget.layer && !canSeeLockOnTarget() {
+		if distance_to_point(tempTargetX,tempTargetY) < 10 && ds_list_size(guessPathPts) > 0 {
+			
+			var pt = ds_list_find_value(guessPathPts,0);
+			tempTargetX = pt[0]; tempTargetY = pt[1];
+			ds_list_delete(guessPathPts,0);
+		}
 		if tempTargetX == noone {
-			tempTargetX = lockOnTarget.x; tempTargetY = lockOnTarget.y; alarm[7] = 15;
+			alarm[7] = 15;
+			tempTargetX = lockOnTarget.x; tempTargetY = lockOnTarget.y;
 		}
 		populatePersonalGrid();
 		var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,tempTargetX,tempTargetY,true);
@@ -67,6 +73,7 @@ if pred && !isFlinching {
 		return true; 
 	} else if layer == lockOnTarget.layer && canSeeLockOnTarget() && alarm[7] > -1 {
 		alarm[7] = -1;
+		ds_list_clear(guessPathPts);
 	}
 	tempTargetX = noone; tempTargetY = noone;
 	// Movement for AI combatants not in attack range
@@ -130,4 +137,6 @@ if pred && !isFlinching {
 	}
 	return true;
 }
+// do not enter Attack / Move In Attack Range state if we can't even see our target
+if !canSeeLockOnTarget() return true;
 return false;

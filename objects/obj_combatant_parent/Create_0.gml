@@ -232,7 +232,8 @@ stupidity = 30;
 stupidityFrame = 0;
 
 lockOnTarget = noone;
-tempTargetX = noone; tempTargetY = noone;
+guessPathPts = ds_list_create();
+//tempTargetX = noone; tempTargetY = noone;
 // obj_enemy_parent for allies / player, obj_goodguy_parent for enemies
 lockOnTargetType = noone;
 
