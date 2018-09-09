@@ -50,12 +50,11 @@ if pred && !isFlinching {
 	// if so, initiate a path (ONCE) that will update every 15 frames with a new point (where the lockOnTarget is) 
 	if layer == lockOnTarget.layer && !canSeeLockOnTarget() {
 		if distance_to_point(tempTargetX,tempTargetY) < 10 && ds_list_size(guessPathPts) > 0 {
-			
 			var pt = ds_list_find_value(guessPathPts,0);
 			tempTargetX = pt[0]; tempTargetY = pt[1];
 			ds_list_delete(guessPathPts,0);
 		}
-		if tempTargetX == noone {
+		if tempTargetX == noone || ds_list_size(guessPathPts) < 1 {
 			alarm[7] = 15;
 			tempTargetX = lockOnTarget.x; tempTargetY = lockOnTarget.y;
 		}
@@ -69,6 +68,10 @@ if pred && !isFlinching {
 		} else if mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,4,false) {
 			mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,4,false);
 			path_start(path,functionalSpeed,path_action_stop,false);
+		} else {
+			path_end();
+			substate = CombatantMoveSubstates.ReturningToPost; lockOnTarget = noone;
+			tempTargetX = noone; tempTargetY = noone; ds_list_clear(guessPathPts);
 		}
 		return true; 
 	} else if layer == lockOnTarget.layer && canSeeLockOnTarget() && alarm[7] > -1 {

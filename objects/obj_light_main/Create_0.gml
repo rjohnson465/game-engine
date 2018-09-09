@@ -16,7 +16,7 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 	if substr == "instances" {
 		var lNum = real(string_copy(lName,string_length(lName),1));
 		color = make_colour_rgb(0.11*255, 0.13*255, 0.15 * 255) // The darker the color, the darker the shadow.
-		//color = c_dkgray;
+		color = c_dkgray;
 		var w = camera_get_view_width(view_camera[0]);
 		var h = camera_get_view_height(view_camera[1]);
 		light_init_layer(w, h, w, color, 0.35, 40, lNum)

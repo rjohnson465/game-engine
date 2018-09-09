@@ -1,3 +1,7 @@
+if point_distance(x,y,prevX,prevY) > 15 && id != global.player {
+	var a = 3;
+}
+
 var sprString = "spr_"+spriteString;
 if asset_get_index(sprString+"_move") && ((state == CombatantStates.Moving || state == CombatantStates.Wary) && prevX != x && prevY != y) {
 	if type != CombatantTypes.Player || (!global.ui.isShowingMenus && !global.isWishing) {
