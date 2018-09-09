@@ -15,7 +15,10 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if !isLit && distance_to_object(obj_player) < 20 && layer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
+var angleToSconce = point_direction(p.x,p.y,x,y);
+var isFacing = angleBetween(p.facingDirection-45,p.facingDirection+45,angleToSconce);
+
+if isFacing && !isLit && distance_to_object(obj_player) < 20 && layer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
 	isLit = true;
 	ds_map_replace(data.properties, "isLit", true);
 	audio_play_sound_at(snd_magic_fire_shoot,x,y,depth,100,300,1,0,1);

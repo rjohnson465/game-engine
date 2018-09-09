@@ -15,7 +15,7 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 	var substr = string_copy(lName,0,9);
 	if substr == "instances" {
 		var lNum = real(string_copy(lName,string_length(lName),1));
-		color = make_colour_rgb(0.11*255, 0.13*255, 0.15 * 255) // The darker the color, the darker the shadow.
+		//color = make_colour_rgb(0.05*255, 0.1*255, 0.1 * 255) // The darker the color, the darker the shadow.
 		color = c_dkgray;
 		var w = camera_get_view_width(view_camera[0]);
 		var h = camera_get_view_height(view_camera[1]);

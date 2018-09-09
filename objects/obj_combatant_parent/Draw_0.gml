@@ -1,3 +1,4 @@
+updateIsMoving();
 if !isBeingHit {
 	prepareLayerShader();
 } else {

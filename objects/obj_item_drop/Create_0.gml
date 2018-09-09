@@ -48,6 +48,7 @@ hasSetAlarm = false;
 //lightRadius = 256;
 var floorNum = getLayerFloorNumber(layer);
 lightRadiusAlpha = calculateLightRadiusAlphaLayer(floorNum)*2;
+if lightRadiusAlpha < .5 lightRadiusAlpha = .5;
 lightRadiusScale = .1;
 lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;

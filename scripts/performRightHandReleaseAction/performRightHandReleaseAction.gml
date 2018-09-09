@@ -56,6 +56,9 @@ if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMo
 				ds_map_replace(attackAgain,"r",true);
 			} else if ds_map_find_value(preparingLimbs,"r") == undefined {
 				ds_map_replace(preparingLimbs,"r",1);
+				
+				ds_map_replace(prepFrames,"l",-1);
+				ds_map_replace(prepFrameTotals,"l",0);
 			}
 			state = CombatantStates.Attacking;
 	}

@@ -18,7 +18,8 @@ with obj_player {
 if !isRunning {
 	isRunning = true;
 	sprite_index = asset_get_index("spr_fountain_filling");	
-	audio_play_sound_at(snd_fountain_running,x,y,depth,50,250,1,1,.5);
+	//audio_play_sound_at(snd_fountain_running,x,y,depth,50,250,1,1,.5);
+	audio_emitter_gain(fountainRunningSoundEmitter,1);
 	audio_play_sound(snd_fountain_turnon,1,0);
 	if performBlur {
 		alarm[0] = 30; // trigger radial blur

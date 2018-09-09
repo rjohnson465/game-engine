@@ -54,7 +54,9 @@ switch state {
 
 if map != noone {
 	var offsets = ds_map_find_value(map,frame);
-	xOff = offsets[0]; yOff = offsets[1];
+	if offsets != undefined {
+		xOff = offsets[0]; yOff = offsets[1];
+	}
 }
 
 ds_map_destroy(prepOffsets); prepOffsets = -1;

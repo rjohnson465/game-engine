@@ -9,7 +9,9 @@
         "9914c008-cf60-4bb2-ab73-a14430d0ae11",
         "de5ba57b-ae8a-47e0-9370-63e7dbf896bd",
         "18ea8d09-ff89-4b00-9e97-122f5226e6ac",
-        "8ff10341-f96e-4865-a2d9-827c7683196c"
+        "8ff10341-f96e-4865-a2d9-827c7683196c",
+        "e591c2e6-e431-43ab-b8ef-cc75a06f98d3",
+        "cb6c2093-a54e-421c-a1dd-5c8d33e291e6"
     ],
     "filterType": "GMObject",
     "folderName": "zone\/invisible",

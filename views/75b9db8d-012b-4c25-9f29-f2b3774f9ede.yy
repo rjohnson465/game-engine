@@ -24,7 +24,8 @@
         "65daeba5-ad3c-48bc-9f00-c797fa12f7d1",
         "b5e3a888-cf46-434b-a2d7-53e4acc6706f",
         "a9df1787-6a36-4249-9f1f-6ccb994655b5",
-        "ef99d6ef-2857-4c19-85bc-35354dc233a2"
+        "ef99d6ef-2857-4c19-85bc-35354dc233a2",
+        "08f5b9aa-70c1-4d4a-86ea-a330f96619d7"
     ],
     "filterType": "GMScript",
     "folderName": "Lighting",

@@ -22,7 +22,7 @@ part_type_sprite(fire,spr_particle_fire,0,0,1);
 part_type_size(fire,.05,.15,0,0);
 part_type_color2(fire,c_orange,c_red);
 part_type_alpha3(fire,1,1,0);
-part_type_speed(fire,4,10,0,0);
+part_type_speed(fire,4,7,0,0);
 part_type_direction(fire,85,95,0,5);
 part_type_orientation(fire,0,359,0,0,0);
 part_type_blend(fire,1);
@@ -38,7 +38,19 @@ part_type_alpha3(cinder,1,1,0);
 part_type_speed(cinder,1,2,0,0);
 part_type_direction(cinder,85,95,0,0);
 part_type_blend(cinder,1);
-part_type_life(cinder,25,50);
+part_type_life(cinder,15,30);
 particle2 = cinder;
+
+// smoke particle
+var smoke = part_type_create();
+part_type_shape(smoke,pt_shape_smoke);
+part_type_size(smoke,.1,.2,0,0);
+part_type_color2(smoke,c_dkgray,c_ltgray);
+part_type_alpha3(smoke,.7,.4,0); 
+part_type_speed(smoke,.5,1.5,0,0);
+part_type_direction(smoke,85,95,0,0);
+part_type_blend(smoke,1);
+part_type_life(smoke,25,50);
+particle3 = smoke;
 
 part_emitter_region(system, emitter, x-10, x+10, y-10, y+10, ps_shape_diamond, ps_distr_gaussian);

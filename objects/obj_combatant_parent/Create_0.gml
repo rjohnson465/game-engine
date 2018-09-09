@@ -9,6 +9,8 @@ personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
 gridPath = path_add();
 
 postX = x; postY = y;
+isMoving = false;
+movingDirection = 0;
 
 key = fs_generate_key();
 
@@ -21,6 +23,9 @@ randomize()
 floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
 prevX = x;
 prevY = y;
+walkingInWaterEmitter = audio_emitter_create();
+audio_emitter_gain(walkingInWaterEmitter,0);
+audio_play_sound_on(walkingInWaterEmitter,snd_water_walking_loop,1,0);
 
 isAlive = true;
 

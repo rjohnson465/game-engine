@@ -25,6 +25,8 @@ if ds_map_find_value(prepFrames,"l") >= ds_map_find_value(prepFrameTotals,"l") |
 		ds_map_replace(prepFrames,"l",-1);
 		ds_map_replace(prepFrameTotals,"l",0);
 		ds_map_delete(preparingLimbs,"l");
+		ds_map_replace(prepFrames,"r",-1);
+		ds_map_replace(prepFrameTotals,"r",0);
 		currentUsingSpell = noone;
 		state = CombatantStates.Idle;
 	} else {
@@ -60,6 +62,8 @@ if ds_map_find_value(prepFrames,"l") >= ds_map_find_value(prepFrameTotals,"l") |
 		ds_map_replace(prepFrames,"l",-1);
 		ds_map_replace(prepFrameTotals,"l",0);
 		ds_map_delete(preparingLimbs,"l");
+		ds_map_replace(prepFrames,"r",-1);
+		ds_map_replace(prepFrameTotals,"r",0);
 		currentUsingSpell = noone;
 		state = CombatantStates.Idle;
 	}

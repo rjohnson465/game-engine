@@ -117,6 +117,11 @@ switch(state) {
 			// maybe return to post
 			maybeReturnToPost();
 			
+			// if stuck in fallzone, get out
+			if place_meeting_layer(x,y,obj_fallzone) && !isFlinching {
+				jumpToNearestFreePoint(1);
+			}
+			
 			// be listening for any commotion, if you're not already in a fight
 			if substate != CombatantMoveSubstates.Chasing && canHearNearbyHit() {
 				// if already investigating, reset investigation point to this new sound

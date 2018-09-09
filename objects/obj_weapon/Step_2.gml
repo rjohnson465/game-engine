@@ -111,18 +111,20 @@ if limbItem != limb.limbItem || refreshParticles {
 			}
 			case FIRE: {
 				// cinder Particle
-				var cinder = part_type_create();
-				part_type_shape(cinder,pt_shape_flare);
-				part_type_size(cinder,0,.1,0,0);
-				part_type_color2(cinder,c_orange,c_red);
-				part_type_alpha3(cinder,1,1,0); 
-				part_type_speed(cinder,1,2,0,0);
-				part_type_direction(cinder,85,95,0,0);
-				part_type_blend(cinder,1);
-				part_type_life(cinder,25,50);
-				if i == 0 particle1 = cinder;
-				else if i == 1 particle2 = cinder;
-				else particle3 = cinder;
+				if limbItem.object_index != obj_hand_item_torch {
+					var cinder = part_type_create();
+					part_type_shape(cinder,pt_shape_flare);
+					part_type_size(cinder,0,.1,0,0);
+					part_type_color2(cinder,c_orange,c_red);
+					part_type_alpha3(cinder,1,1,0); 
+					part_type_speed(cinder,1,2,0,0);
+					part_type_direction(cinder,85,95,0,0);
+					part_type_blend(cinder,1);
+					part_type_life(cinder,25,50);
+					if i == 0 particle1 = cinder;
+					else if i == 1 particle2 = cinder;
+					else particle3 = cinder;
+				}
 				break;
 			}
 			case POISON: {

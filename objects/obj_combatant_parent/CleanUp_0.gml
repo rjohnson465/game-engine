@@ -6,3 +6,4 @@ for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
 }
 ds_map_destroy(conditionsEmittersMap); conditionsEmittersMap = -1;
 
+audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;

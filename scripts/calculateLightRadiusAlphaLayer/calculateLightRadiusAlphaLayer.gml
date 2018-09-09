@@ -7,14 +7,11 @@ var map = ds_map_find_value(global._light_layers,layerNum);
 
 var lightColor = ds_map_find_value(map,"_light_color");
 
-var R = color_get_red(lightColor);
-var G = color_get_green(lightColor);
-var B = color_get_blue(lightColor);
-
-var luma = (0.2126*R + 0.7152*G + 0.0722*B);
+var luma = getLumaForColor(lightColor);
 
 // luma at 256 = light is bright AF, luma at 0 = light DNE
 // when x is 0, want 1, when x is 256, want 0
-var lightRadiusAlpha = ((-1/128)*luma) + 1;
-
+var lightRadiusAlpha = ((-1/128)*luma) + 1 + .35;
+if lightRadiusAlpha > 1 lightRadiusAlpha = 1;
+if lightRadiusAlpha < .5 lightRadiusAlpha = .5;
 return lightRadiusAlpha;

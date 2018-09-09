@@ -54,7 +54,7 @@ if pred && !isFlinching {
 			tempTargetX = pt[0]; tempTargetY = pt[1];
 			ds_list_delete(guessPathPts,0);
 		}
-		if tempTargetX == noone || ds_list_size(guessPathPts) < 1 {
+		if tempTargetX == noone /*|| ds_list_size(guessPathPts) < 1*/ {
 			alarm[7] = 15;
 			tempTargetX = lockOnTarget.x; tempTargetY = lockOnTarget.y;
 		}

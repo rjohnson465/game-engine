@@ -48,27 +48,27 @@ if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && 
 	// fire particle
 	var fire = part_type_create();
 	part_type_sprite(fire,spr_particle_fire,0,0,1);
-	part_type_size(fire,.05*owner.scale,.15*owner.scale,0,0);
+	part_type_size(fire,.09*owner.fallScaleFactor,.15*owner.fallScaleFactor,0,0);
 	part_type_color2(fire,c_orange,c_red);
 	part_type_alpha3(fire,1,1,0);
-	part_type_speed(fire,4,10,0,0);
+	part_type_speed(fire,4,7,0,0);
 	part_type_direction(fire,85,95,0,5);
 	part_type_orientation(fire,0,359,0,0,0);
 	part_type_blend(fire,1);
-	part_type_life(fire,5,8);
+	part_type_life(fire,3,8);
 	torchParticle1 = fire;
 		
-	// cinder Particle
-	var cinder = part_type_create();
-	part_type_shape(cinder,pt_shape_flare);
-	part_type_size(cinder,0,.1,0,0);
-	part_type_color2(cinder,c_orange,c_red);
-	part_type_alpha3(cinder,1,1,0); 
-	part_type_speed(cinder,1,2,0,0);
-	part_type_direction(cinder,85,95,0,0);
-	part_type_blend(cinder,1);
-	part_type_life(cinder,25,50);
-	torchParticle2 = cinder;
+	// Smoke Particle
+	var smoke = part_type_create();
+	part_type_shape(smoke,pt_shape_smoke);
+	part_type_size(smoke,.1,.2,0,0);
+	part_type_color2(smoke,c_dkgray,c_gray);
+	part_type_alpha3(smoke,.5,.2,0); 
+	part_type_speed(smoke,.5,1.5,0,0);
+	part_type_direction(smoke,85,95,0,0);
+	part_type_blend(smoke,1);
+	part_type_life(smoke,25,50);
+	torchParticle2 = smoke;
 	
 	// get state and frame
 	var frame = 0; var state = "";
@@ -106,8 +106,10 @@ if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && 
 	var xx = nx;
 	var yy = ny;
 	
+	part_system_depth(torchSystem1,owner.depth-1);
 	part_emitter_region(torchSystem1,torchEmitter1,xx-1,xx+1,yy-1,yy+1,ps_shape_diamond,ps_distr_gaussian);
-	part_emitter_burst(torchSystem1,torchEmitter1,fire,5);
+	part_emitter_burst(torchSystem1,torchEmitter1,smoke,-3);
+	part_emitter_burst(torchSystem1,torchEmitter1,fire,6);
 	audio_emitter_position(torchAudioEmitter,xx,yy,owner.depth);
 	// set the torch light radius position
 	with torchLightRadius {

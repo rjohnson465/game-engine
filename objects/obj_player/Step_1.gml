@@ -1,3 +1,5 @@
+prevX = x;
+prevY = y;
 if room == game_menu {
 	exit;
 }

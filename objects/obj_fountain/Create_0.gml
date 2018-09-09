@@ -20,6 +20,10 @@ part_system_depth(system,-4);
 emitter = part_emitter_create(system);
 particle = noone;
 
+fountainRunningSoundEmitter = audio_emitter_create();
+audio_emitter_gain(fountainRunningSoundEmitter,0);
+audio_play_sound_on(fountainRunningSoundEmitter,snd_fountain_running,1,0);
+
 num = random_range(10,25);
 // water particle
 var water = part_type_create();

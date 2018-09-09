@@ -6,3 +6,7 @@ with obj_layer_lighting {
 		instance_destroy(id,1);
 	}
 }
+
+isActive = false;
+var lightLayerMap = ds_map_find_value(global._light_layers,floorNum);
+lightColor = ds_map_find_value(lightLayerMap, "_light_color");
