@@ -223,6 +223,14 @@
             }
         },
         {
+            "Key": "0581b948-0b50-457a-a940-abaaf1d7d754",
+            "Value": {
+                "id": "71e0ebc1-765a-4ea5-b342-ac31563194fe",
+                "resourcePath": "sprites\\spr_enemy_speyeder_move\\spr_enemy_speyeder_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "05a4488b-0417-4568-8a27-d538610eacb9",
             "Value": {
                 "id": "705656a4-eb79-4de6-8dd4-da0467dc324e",
@@ -516,6 +524,14 @@
                 "id": "3246f6c2-7c3c-47a7-8992-64e8ec4767c8",
                 "resourcePath": "scripts\\endureConditions\\endureConditions.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "0ca0a188-0912-4276-a7d5-1d100a13d946",
+            "Value": {
+                "id": "385530b6-dfc1-4619-bca3-9b9a1ea6601a",
+                "resourcePath": "sprites\\spr_enemy_speyeder_head_recover_1_1\\spr_enemy_speyeder_head_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2159,6 +2175,14 @@
             }
         },
         {
+            "Key": "33804774-acf5-42f2-b915-9c8154cac69d",
+            "Value": {
+                "id": "ce5294cb-46d2-4284-8e1b-76a61ed24a59",
+                "resourcePath": "objects\\obj_enemy_speyeder\\obj_enemy_speyeder.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "3388d61e-899a-46d7-b4a4-d6ca771233bc",
             "Value": {
                 "id": "468d17eb-a82c-4e83-a927-ebca3b821dea",
@@ -2188,6 +2212,14 @@
                 "id": "5a393bf2-23cf-474e-a157-e2744b371aa1",
                 "resourcePath": "sprites\\spr_player_greatsword\\spr_player_greatsword.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3426ed3b-83e4-4f04-b8a4-64b6a4176189",
+            "Value": {
+                "id": "d534366d-4030-45cc-8745-146f28b7370c",
+                "resourcePath": "objects\\obj_attack_speyeder_head_1_1\\obj_attack_speyeder_head_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2715,6 +2747,14 @@
             "Value": {
                 "id": "93f981db-8065-4742-9ad2-2fc642c0c65e",
                 "resourcePath": "sprites\\spr_player_greatsword_attack_1\\spr_player_greatsword_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3fc7e96a-fcab-4520-bf76-cb69f053263f",
+            "Value": {
+                "id": "4a6d97d2-a24f-4810-aa14-ddf5fc548015",
+                "resourcePath": "sprites\\spr_enemy_speyeder_stagger\\spr_enemy_speyeder_stagger.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4571,6 +4611,14 @@
             "Value": {
                 "id": "4965fba8-92ec-4d8c-9226-67f345b59e6d",
                 "resourcePath": "sprites\\spr_player_hand_club_1h_recover_2\\spr_player_hand_club_1h_recover_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6c9f4004-4f83-4ebc-a18c-05c7e59eac6d",
+            "Value": {
+                "id": "922b06a7-aba9-47fd-9d16-f46241aace5d",
+                "resourcePath": "sprites\\spr_enemy_speyeder_head_prep_1_1\\spr_enemy_speyeder_head_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6471,6 +6519,14 @@
             }
         },
         {
+            "Key": "9629a890-2413-43a1-a597-4eea3f0a585e",
+            "Value": {
+                "id": "86b3aa5b-1dc9-4d85-9663-50ac2da67616",
+                "resourcePath": "sprites\\spr_enemy_speyeder_head_attack_1_1_mask\\spr_enemy_speyeder_head_attack_1_1_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "964e2ccc-4c50-46a2-8d08-e5d26b5fb540",
             "Value": {
                 "id": "c0e7f002-eed1-48c1-b7ba-cd696fdce504",
@@ -7179,6 +7235,14 @@
             "Value": {
                 "id": "6ab810e8-3cfc-476f-8221-8f1329c44c3e",
                 "resourcePath": "views\\a79e4a5d-9bb1-4148-b23a-187231efdfe0.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a7e647c6-aaa0-47aa-a9c4-6c111eeaa705",
+            "Value": {
+                "id": "e5260dd5-5d58-46e8-906e-cc6f885a663e",
+                "resourcePath": "views\\a7e647c6-aaa0-47aa-a9c4-6c111eeaa705.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -8147,6 +8211,14 @@
             "Value": {
                 "id": "31dbb168-67bc-4553-a88d-d2323e830be1",
                 "resourcePath": "views\\bce6ed13-d724-4ce1-9850-03801ef36d0b.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "bd31066b-cbc7-439b-afff-41345010ef41",
+            "Value": {
+                "id": "7a0e8dca-51e5-4ace-a595-b873fd875a59",
+                "resourcePath": "views\\bd31066b-cbc7-439b-afff-41345010ef41.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -9455,6 +9527,14 @@
             }
         },
         {
+            "Key": "db912fdd-9840-4a26-96f5-5c75033ddc2f",
+            "Value": {
+                "id": "ac12cbcf-33e4-4b9f-a560-554fb0564e06",
+                "resourcePath": "sprites\\spr_enemy_speyeder_head_attack_1_1\\spr_enemy_speyeder_head_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "dbe2528d-4a43-4403-8763-a60cd6eb6745",
             "Value": {
                 "id": "b1640f1c-5d93-418a-9eb4-5d02613435e8",
@@ -10083,6 +10163,14 @@
             "Value": {
                 "id": "5d530be4-add4-4838-a009-cdbcc7c33e75",
                 "resourcePath": "sprites\\spr_enemy_unfairy_stagger1\\spr_enemy_unfairy_stagger1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ed274248-e97a-4117-9a04-afd178cf4d30",
+            "Value": {
+                "id": "ed7e05cd-ea0c-44e7-8f53-82d76fa0bbe2",
+                "resourcePath": "sprites\\spr_enemy_speyeder\\spr_enemy_speyeder.yy",
                 "resourceType": "GMSprite"
             }
         },

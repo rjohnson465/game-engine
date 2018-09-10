@@ -1,5 +1,8 @@
 path_end();
 
+if currentRangedAttack == noone && currentMeleeAttack == noone {
+	maybeAggro(); exit;
+}
 var attackNumber = currentMeleeAttack == noone ? currentRangedAttack : currentMeleeAttack;
 var isRanged = currentRangedAttack != noone;
 

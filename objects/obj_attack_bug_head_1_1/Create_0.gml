@@ -7,3 +7,4 @@ limbKey = noone;
 ds_map_add(damages,PHYSICAL,[1,3]);
 isRanged = false;
 staminaCost = 5;
+staggerDuration = 18;

@@ -8,6 +8,7 @@ if !isBeingHit {
 	var amt = alarm[5]/5;
 	shader_set_uniform_f(uPOSITION,amt);
 }
+var isAttackingWithCore = type != CombatantTypes.Player && state == CombatantStates.Attacking && attackData != noone && attackData.limbKey == noone;
 // draw stagger sprite if staggering
 if state == CombatantStates.Staggering {
 	if isDying {
@@ -45,7 +46,29 @@ if state == CombatantStates.Dodging {
 	
 } 
 
-if state != CombatantStates.Dodging && state != CombatantStates.Staggering {
+// attacks that come from the core body are drawn here 
+if type != CombatantTypes.Player && state == CombatantStates.Attacking && attackData != noone && attackData.limbKey == noone {
+	var attackSpriteName = attackData.spriteName;
+	var attackNumber = attackData.spriteAttackNumber; var attackNumberInChain = attackData.spriteAttackNumberInChain;
+	var spr = noone;
+	if ds_map_size(preparingLimbs) > 0 {
+		var frame = ds_map_find_value(prepFrames,noone);
+		spr = asset_get_index(attackSpriteName+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));
+	}
+	else if ds_map_size(attackingLimbs) > 0 {
+		var frame = ds_map_find_value(attackFrames,noone);
+		spr = asset_get_index(attackSpriteName+"_attack_"+string(attackNumber)+"_"+string(attackNumberInChain));
+	}
+	else if ds_map_size(recoveringLimbs) > 0 {
+		var frame = ds_map_find_value(recoverFrames,noone);
+		spr = asset_get_index(attackSpriteName+"_recover_"+string(attackNumber)+"_"+string(attackNumberInChain));
+	}
+	if spr != noone && frame >= 0 {
+		draw_sprite_ext(spr,frame,x,y,1,1,facingDirection,c_white,1);
+	}
+}
+
+if state != CombatantStates.Dodging && state != CombatantStates.Staggering && !isAttackingWithCore {
 	
 	updateMoveSpriteAndImageSpeed();
 	

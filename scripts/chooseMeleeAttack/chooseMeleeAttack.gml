@@ -61,5 +61,7 @@ ds_map_replace(equippedLimbItems,"r",rightHandItem);
 ds_list_destroy(properRangeAttacks); properRangeAttacks = -1;
 ds_list_destroy(differences); differences = -1;
 
+if array_length_1d(meleeAttacks) == 0 currentMeleeAttack = noone;
+
 state = CombatantStates.Moving;
 substate = CombatantMoveSubstates.Chasing;

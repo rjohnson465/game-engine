@@ -153,6 +153,7 @@ prepAnimationFrame = -1;
 prepAnimationTotalFrames = 0;
 recoverAnimationFrame = -1;
 recoverAnimationTotalFrames = 0;
+attackData = noone // enemies only
 
 // this is used to tell enemy / ally they were just hit (useful if in idle and out of normal aggro range)
 wasJustHit = false; 

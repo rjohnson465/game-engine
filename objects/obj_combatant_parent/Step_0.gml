@@ -117,11 +117,6 @@ switch(state) {
 			// maybe return to post
 			maybeReturnToPost();
 			
-			// if stuck in fallzone, get out
-			if place_meeting_layer(x,y,obj_fallzone) && !isFlinching {
-				jumpToNearestFreePoint(1);
-			}
-			
 			// be listening for any commotion, if you're not already in a fight
 			if substate != CombatantMoveSubstates.Chasing && canHearNearbyHit() {
 				// if already investigating, reset investigation point to this new sound
@@ -143,7 +138,7 @@ switch(state) {
 					if currentRangedAttack > -1 && distance_to_object(lockOnTarget) < meleeAggroRange && canSeeLockOnTarget() {
 						state = CombatantStates.AggroMelee; break;
 					}
-					else if currentMeleeAttack > -1 && distance_to_object(lockOnTarget) > meleeAggroRange && canSeeLockOnTarget() {
+					else if currentMeleeAttack > -1 && distance_to_object(lockOnTarget) > meleeAggroRange && canSeeLockOnTarget() && array_length_1d(rangedAttacks) > 0 {
 						state = CombatantStates.AggroRanged; break;
 					}
 				
@@ -228,7 +223,7 @@ switch(state) {
 			var isRanged = currentRangedAttack != noone;
 			
 			// find attack data object
-			var attackData = noone;
+			attackData = noone;
 			var attackChain = isRanged ? rangedAttacks[attackNumber] : meleeAttacks[attackNumber];
 			if attackNumberInChain == noone {
 				attackData = attackChain[0];
@@ -239,7 +234,7 @@ switch(state) {
 			// get previous attacking limb
 			if attackNumberInChain == noone && !isRanged && hasHands {
 				var attackChain = meleeAttacks[attackNumber];
-				var attackData = attackChain[0];
+				attackData = attackChain[0];
 				var lk = attackData.limbKey;
 				switch lk {
 					case "e": {
@@ -256,7 +251,7 @@ switch(state) {
 			}
 			
 			// aim when preparing attack
-			if ds_map_size(preparingLimbs) != 0 {
+			if ds_map_size(preparingLimbs) != 0 && ds_map_size(attackingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
 				turnToFacePoint(attackData.turnSpeed,lockOnTarget.x,lockOnTarget.y);
 			}
 			
@@ -298,10 +293,11 @@ switch(state) {
 				// attack logic
 				if willAttack && stamina > 0 {
 					var lk = "r";
+					if !hasHands lk = attackData.limbKey;
 					if !isRanged{
 						var a = meleeAttacks[attackNumber];
 					} else var a = rangedAttacks[attackNumber];
-					var attackData = a[attackNumberInChain - 1];
+					attackData = a[attackNumberInChain - 1];
 					if hasHands && !isRanged {
 						
 						var limbKeyInData = attackData.limbKey;
@@ -319,6 +315,9 @@ switch(state) {
 							case "o": {
 								lk = prevAttackLimb == "r" ? "l" : "r";
 								break;
+							}
+							case noone: {
+								lk = noone; break;
 							}
 							default: {
 								lk = limbKeyInData;

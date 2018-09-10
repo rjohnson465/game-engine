@@ -1,5 +1,7 @@
 /// @description maybeDodge()
 
+if totalDodgeFrames == -1 exit; // this combatant can't dodge
+
 // if we've not yet calculated if we'll dodge during this Move state, calculate that now
 // this is calculated only once per move state
 if !hasCalculatedWillDodge {

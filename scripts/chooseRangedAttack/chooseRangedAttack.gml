@@ -3,6 +3,7 @@ lockOnTarget = instance_nearest(x,y,lockOnTargetType);
 currentMeleeAttack = noone;
 attackNumberInChain = noone;
 currentRangedAttack = round(random_range(0,array_length_1d(rangedAttacks)-1));
+if array_length_1d(rangedAttacks) == 0 currentRangedAttack = noone;
 onAlert = true;
 isShielding = false;
 				

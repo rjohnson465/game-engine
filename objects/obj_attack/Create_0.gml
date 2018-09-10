@@ -224,6 +224,7 @@ if isSpell {
 // ranged or melee: NOT A SPELL
 else {
 	weapon = ds_map_find_value(owner.equippedLimbItems,limbKey);
+	if weapon == undefined weapon = noone;
 	// get attack number
 	if owner.type != CombatantTypes.Player {
 		isRanged = owner.currentMeleeAttack == noone ? true: false;
@@ -265,10 +266,11 @@ else {
 	} else {
 		//sprStr = "_"+string(owner.attackNumberInChain);
 		sprStr = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain);
+		maskString = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain) + "_mask";
 	}
 
 	// if this is a left hand attack, flip yscale 
-	if !(limbKey == "r" || (weapon.isRanged && weapon.isTwoHanded)) {
+	if !(limbKey == "r" || (weapon != noone && weapon.isRanged && weapon.isTwoHanded)) {
 		image_yscale = -1;
 	}
 	
@@ -342,7 +344,7 @@ if isSoundLooping {
 }
 
 // special case -- guns create fire / smoke particles when attack starts
-if weapon == noone exit;
+if weapon == noone || weapon == undefined exit;
 if (weapon != noone && weapon.weaponType == PISTOL || weapon.weaponType == MUSKET) {
 
 	// knockback
