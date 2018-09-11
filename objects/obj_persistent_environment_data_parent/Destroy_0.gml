@@ -1,0 +1,1 @@
+ds_map_destroy(properties); properties = -1;

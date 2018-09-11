@@ -6,7 +6,7 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 339,
+    "bbox_bottom": 340,
     "bbox_left": 0,
     "bbox_right": 159,
     "bbox_top": 0,
@@ -123,7 +123,7 @@
             "isLocked": false,
             "name": "default",
             "opacity": 50,
-            "visible": false
+            "visible": true
         }
     ],
     "origin": 0,

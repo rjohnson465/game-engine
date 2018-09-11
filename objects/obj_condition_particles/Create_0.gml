@@ -8,7 +8,7 @@ alarm[0] = noone;
 hasSetAlarm = false;
 
 system = part_system_create();
-part_system_depth(system,layer_get_depth(owner.layer));
+//part_system_depth(system,layer_get_depth(owner.layer)+100);
 emitter = part_emitter_create(system);
 
 if owner == global.player persistent = true;

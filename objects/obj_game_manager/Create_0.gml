@@ -125,4 +125,6 @@ defineItemsByAct();
 defineItemPropertyPrefixes();
 definePropertiesByRarity();
 
+currentRoomData = noone;
+
 enviroParticlesController = instance_create_depth(x,y,depth,obj_environment_particles_controller);

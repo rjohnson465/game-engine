@@ -57,6 +57,16 @@ for (var i = 0; i < size; i++) {
 	}
 	randomize();
 	var damageBase = random_range(damageMin,damageMax);
+	
+	// it's possible attackObj has some additional damages (such as if an arrow was set on fire in a sconce)
+	var addDamage = ds_map_find_value(attackObj.additionalDamages,currentDamageType);
+	if addDamage != undefined {
+		var range = ds_map_find_value(attackObj.additionalDamages, currentDamageType);
+		randomize();
+		var addAmount = random_range(range[0], range[1]);
+		damageBase += addAmount;
+	}
+	
 	// off hand weapons deal less damage
 	if attackObj.owner.type == CombatantTypes.Player && attackObj.limbKey == "r" {
 		if !attackObj.isSpell {
@@ -112,6 +122,7 @@ for (var i = 0; i < size; i++) {
 		global.y1 = __y;
 		global.particleDirection = noone;
 		global.hitParticlesLayer = layer;
+		global.victim = id;
 		//if (!(currentDamageType == PHYSICAL && isShielding)) {
 		if (!(isShielding && scr_is_facing(assailant,id))) {
 			instance_create_depth(0,0,1,obj_hit_particles);
@@ -121,9 +132,11 @@ for (var i = 0; i < size; i++) {
 				
 	// elemental conditions applied?			
 	// roll random and compare against defense
+	var hitWithTorch = currentDamageType == FIRE && damageBase > 0 && attackObj.weapon != noone && attackObj.weapon.object_index == obj_hand_item_torch;
 	var nonConditioningDamageTypes = [PHYSICAL,CRUSH,PIERCE,SLASH];
-	if damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType) {
-		applyElementalCondition(currentDamageType,damageBase,spell);
+	if (damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType)) {
+		if hitWithTorch maybeApplyElementalCondition(currentDamageType,damageBase,spell,1);
+		else maybeApplyElementalCondition(currentDamageType,damageBase,spell);
 	}
 			
 	// if this was fire or poison damage, record an altered version of the base amount in case this is the attack that burns or poisons 

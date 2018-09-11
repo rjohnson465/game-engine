@@ -7874,7 +7874,7 @@
             "Key": "b4fe8e3d-9643-496d-96a0-3c44b781c731",
             "Value": {
                 "id": "86f2622b-4b1c-4ed3-a020-dcbb1e4145e3",
-                "resourcePath": "scripts\\applyElementalCondition\\applyElementalCondition.yy",
+                "resourcePath": "scripts\\maybeApplyElementalCondition\\maybeApplyElementalCondition.yy",
                 "resourceType": "GMScript"
             }
         },

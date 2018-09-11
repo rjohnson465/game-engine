@@ -112,6 +112,7 @@ switch(state) {
 	case CombatantStates.Moving: {
 		// player overrides this entirely
 		if type != CombatantTypes.Player {
+			if substate == noone substate = CombatantMoveSubstates.Chasing;
 			// face the proper direction
 			faceMovingDirection();
 			// maybe return to post

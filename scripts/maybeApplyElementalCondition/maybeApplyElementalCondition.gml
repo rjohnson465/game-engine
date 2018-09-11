@@ -1,7 +1,8 @@
-/// applyElementalCondition(victim, damageType, damageAmount, spell)
+/// maybeApplyElementalCondition(victim, damageType, damageAmount, spell, *percentChance)
 /// @param damageType
 /// @param damageAmount
 /// @param spell -- if it exists, otherwise this will be noone
+/// @param percentChance
 
 var damageType = argument[0];
 var damageAmount = argument[1];
@@ -10,8 +11,9 @@ var spell = argument[2];
 randomize();
 var top = 1000;
 var percentChance = .2;
-//percentChance = 1;
-//percentChance = 0;
+if argument_count == 4 {
+	percentChance = argument[3];
+}
 if spell != noone && spell.name == "magicmissile" {
 	// every misile has a 20/numProjectiles% chance
 	var percentChance = (20/spell.numberOfProjectiles)/100;

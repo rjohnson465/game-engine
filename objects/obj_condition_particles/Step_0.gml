@@ -1,4 +1,4 @@
-part_system_depth(system,layer_get_depth(owner.layer));
+part_system_depth(system,layer_get_depth(owner.layer)-1);
 if owner.layer != global.player.layer exit;
 if (condition == "Death" || condition == "IceDeath") && (!owner.isAlive || owner.hp > 0) && !hasSetAlarm {
 	//instance_destroy(id);

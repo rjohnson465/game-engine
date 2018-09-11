@@ -6,9 +6,14 @@ spriteString = "enemy_speyeder";
 isFairy = false;
 isFloating = false;
 
-functionalSpeed = 4;
-normalSpeed = 4;
+functionalSpeed = 7;
+normalSpeed = 7;
 turnSpeed = 7;
+
+dyingParticleColor1 = C_HANDLES;
+dyingParticleColor2 = c_navy;
+
+canJump = false;
 
 hasHands = false; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it

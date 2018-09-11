@@ -23,6 +23,7 @@ global.x1 = __x;
 global.y1 = __y;
 global.particleDirection = facingDirection;
 global.hitParticlesLayer = layer;
+global.victim = id;
 instance_create_depth(0,0,1,obj_hit_particles);
 var snd = shield.material == WOOD ? snd_shield_hit_wood : snd_shield_hit_metal;
 audio_play_sound_at(snd,__x,__y,depth,100,100,1,0,1);

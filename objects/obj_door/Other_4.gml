@@ -1,5 +1,5 @@
 // create the persistent room data object for this door (if one does not exist)
-if data == noone || !instance_exists(data) {
+/*if data == noone || !instance_exists(data) {
 	global.el = id;
 	var dd = instance_create_depth(x,y,1,obj_persistent_environment_data_parent);
 	with obj_room_data {
@@ -8,6 +8,13 @@ if data == noone || !instance_exists(data) {
 		}
 	}
 	ds_map_replace(dd.properties, "isOpen", isOpen);
+}*/
+
+event_inherited();
+
+// if data.properties is empty, you need to set the properties this persistent element remembers
+if ds_map_size(data.properties) == 0 {
+	ds_map_replace(data.properties, "isOpen", isOpen);
 }
 
 // set properties of this door from the data object

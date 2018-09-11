@@ -1,4 +1,3 @@
-
 if isSpell && !hasSetAlarm {
 	if layer >= global.player.layer {
 		var x1 = bbox_left; var x2 = bbox_right;

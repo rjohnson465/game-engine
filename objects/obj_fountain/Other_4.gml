@@ -1,7 +1,7 @@
 
 // re-renter room and fountain has been actived before
 //fountainData = findPersistentRoomElementData(obj_fountain_data,id);
-
+/*
 if data == noone || !instance_exists(data) {
 	global.el = id;
 	var fd = instance_create_depth(x,y,1,obj_persistent_environment_data_parent);
@@ -11,6 +11,13 @@ if data == noone || !instance_exists(data) {
 		}
 	}
 	ds_map_replace(fd.properties, "isDoneFilling", isDoneFilling);
+}*/
+
+event_inherited();
+
+// if data.properties is empty, you need to set the properties this persistent element remembers
+if ds_map_size(data.properties) == 0 {
+	ds_map_replace(data.properties, "isDoneFilling", isDoneFilling);
 }
 
 with obj_persistent_environment_data_parent {

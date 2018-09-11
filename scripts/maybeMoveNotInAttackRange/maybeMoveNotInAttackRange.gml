@@ -67,8 +67,8 @@ if pred && !isFlinching {
 			var yy = path_get_y(gridPath,.1);
 			mp_potential_path(path,xx,yy,functionalSpeed,1,0);
 			path_start(path,functionalSpeed,path_action_stop,false);
-		} else if mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,4,false) {
-			mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,4,false);
+		} else if mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,10,false) {
+			mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,10,false);
 			path_start(path,functionalSpeed,path_action_stop,false);
 		} else {
 			path_end();
@@ -90,13 +90,14 @@ if pred && !isFlinching {
 	else 
 	if layer == lockOnTarget.layer {
 		populatePersonalGrid();
+		//if !place_free(x,y) jumpToNearestFreePoint(1);
 		var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,lockOnTarget.x,lockOnTarget.y,true);
 		if isGridPathAvailable {
 			var xx = path_get_x(gridPath,.1);
 			var yy = path_get_y(gridPath,.1);
 			mp_potential_path(path,xx,yy,functionalSpeed,1,0);
 			path_start(path,functionalSpeed,path_action_stop,false);
-		} else if mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false) {
+		} else if mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false) /*|| canSeeLockOnTarget()*/ {
 			mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false);
 			path_start(path,functionalSpeed,path_action_stop,false);
 		}

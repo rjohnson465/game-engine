@@ -1,5 +1,6 @@
 layer = global.hitParticlesLayer;
 type = global.damageType;
+victim = global.victim;
 if type == SLASH || type == PIERCE || type == CRUSH {
 	type = PHYSICAL;
 }
@@ -26,7 +27,7 @@ switch type {
 		// blood particle
 		var blood = part_type_create();
 		part_type_shape(blood, pt_shape_sphere);
-		part_type_color2(blood,c_red,c_maroon);
+		part_type_color2(blood,victim.dyingParticleColor1,victim.dyingParticleColor2);
 		part_type_orientation(blood,0,0,0,15,1);
 		part_type_size(blood,0,0.15,0,0);
 		part_type_speed(blood,2,8,0,0);

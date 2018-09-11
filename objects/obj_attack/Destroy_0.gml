@@ -12,3 +12,5 @@ if isSpell || isSoundLooping {
 if isRanged && weapon != noone && weapon.isTwoHanded && owner == global.player {
 	event_perform(ev_alarm,1);
 }
+
+ds_map_destroy(additionalDamages); additionalDamages = -1;

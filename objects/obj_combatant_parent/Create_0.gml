@@ -44,6 +44,7 @@ dodgeStartY = noone;
 // "jumping" -- just has sprite drawn larger until halfway through jumpTotalFrames
 jumpFrame = 12;
 jumpTotalFrames = 12;
+canJump = true;
 
 // "falling" -- draw sprite from 1-.5, set layer to next lower layer, then from .5 to 1
 fallFrame = 32;
