@@ -1,1 +1,0 @@
-//facingDirection = 90;

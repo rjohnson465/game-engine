@@ -1,3 +1,5 @@
+var a = ds_map_secure_load("Game");
+
 display_set_gui_size(view_get_wport(view_camera[0]),view_get_hport(view_camera[0]));
 global.gameManager = id;
 // use macros for elements rather than enums (helps with sprite getting)
@@ -75,7 +77,11 @@ selectedOption = noone;
 
 state = TitleScreenState.Options;
 isLoading = false;
-currentSaveFile = "Game.sav";
+currentSaveFile = noone;
+fs_clear_roomdata_tempfile();
+#macro TEMP_ROOMDATA_FILENAME "TempRoomData.sav"
+
+//currentSaveFile = "Game.sav";
 roomToGoTo = noone;
 isReadyToMoveRooms = false;
 newGameName = "";

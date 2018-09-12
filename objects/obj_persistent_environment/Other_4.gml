@@ -1,2 +1,1 @@
-if data == noone exit;
-
+persistentElementUpdateProperties(id);

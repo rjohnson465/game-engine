@@ -2,7 +2,7 @@
 with obj_solid_environment {
 	if distance_to_object(other) < 2 {
 		with other {
-			if other.object_index == obj_sconce exit; // sconces are a special case
+			if other.object_index == obj_sconce && isRanged exit; // sconces are a special case
 
 			with obj_enemy_parent {
 				if layer == global.player.layer && fallFrame >= fallTotalFrames {

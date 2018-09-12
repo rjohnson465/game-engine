@@ -1,7 +1,8 @@
 if isRunning && !isDoneFilling {
 	isDoneFilling = true;
 	
-	ds_map_replace(data.properties, "isDoneFilling", true);
+	//ds_map_replace(data.properties, "isDoneFilling", true);
+	updatePersistentElementProperty(id, "isDoneFilling", true);
 	
 	sprite_index = spr_fountain_full;
 	

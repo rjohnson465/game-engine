@@ -1,15 +1,17 @@
 /// loadGame(*filename)
 /// @param filename
 
-var filename = "Game.sav";
+var filename = currentSaveFile;
 if argument_count == 1 {
 	filename = argument[0];
 }
+if filename == noone filename = "Game";
+currentSaveFile = filename;
 
 var save_data = ds_map_secure_load(filename);
 
-// load all enemies
-fs_load_enemies(ds_map_find_value(save_data,"Enemies"));
+// load all enemies -- TODO -- redo this with obj_roomdata and temp files
+// fs_load_enemies(ds_map_find_value(save_data,"Enemies"));
 
 // load all persistent room elements (fountains, doors)
 fs_load_roomdata(ds_map_find_value(save_data,"RoomData"));

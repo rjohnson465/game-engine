@@ -11,12 +11,20 @@
 }*/
 
 event_inherited();
+isOpen = ds_map_find_value(properties, "isOpen");
+if isOpen {
+	sprite_index = noone;
+}
 
+/*
 // if data.properties is empty, you need to set the properties this persistent element remembers
 if ds_map_size(data.properties) == 0 {
 	ds_map_replace(data.properties, "isOpen", isOpen);
-}
+}*/
 
+
+
+/*
 // set properties of this door from the data object
 with obj_persistent_environment_data_parent {
 	if key == other.key {

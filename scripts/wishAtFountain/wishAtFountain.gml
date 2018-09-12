@@ -91,7 +91,8 @@ if !isRunning {
 
 // trigger a save 
 with obj_game_manager {
-	alert("Saving " + currentSaveFile, c_yellow);
-	ds_map_replace(other.data.properties, "isDoneFilling", true);
+	//ds_map_replace(other.data.properties, "isDoneFilling", true);
+	updatePersistentElementProperty(other, "isDoneFilling", true);
 	fs_save_game();
+	alert("Saving " + currentSaveFile, c_yellow);
 }

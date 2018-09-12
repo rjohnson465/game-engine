@@ -1,9 +1,10 @@
 // must be called by game manager obj
+if currentSaveFile == noone currentSaveFile = "Game";
 isLoading = true;
 alarm[0] = 1;
 global.populateInventory = false;
 global.ui.isShowingMenus = false;
-
+fs_clear_roomdata_tempfile();
 // TODO -- load in player (persistent) before moving rooms?
 if instance_exists(obj_player) {
 	with obj_limb {

@@ -51,6 +51,9 @@ if pred && !isFlinching {
 	// first, check if can't see lockOnTarget anymore
 	// if so, initiate a path (ONCE) that will update every 15 frames with a new point (where the lockOnTarget is) 
 	if layer == lockOnTarget.layer && !canSeeLockOnTarget() {
+		while ds_list_size(guessPathPts) > 4 {
+			ds_list_delete(guessPathPts,0);
+		}
 		if distance_to_point(tempTargetX,tempTargetY) < 10 && ds_list_size(guessPathPts) > 0 {
 			var pt = ds_list_find_value(guessPathPts,0);
 			tempTargetX = pt[0]; tempTargetY = pt[1];
@@ -100,6 +103,9 @@ if pred && !isFlinching {
 		} else if mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false) /*|| canSeeLockOnTarget()*/ {
 			mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false);
 			path_start(path,functionalSpeed,path_action_stop,false);
+		} else if canSeeLockOnTarget() {
+			path_end();
+			mp_potential_step(lockOnTarget.x, lockOnTarget.y, functionalSpeed, false);
 		}
 		else {
 			if postZ == layer {

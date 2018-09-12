@@ -23,7 +23,8 @@
         "bd7dfde2-b268-47bf-bc09-2183fd6627e4",
         "c0e09787-a19e-40ce-9535-6aa20f82c058",
         "558ef868-3e37-4ed7-8294-6a5de4aab97a",
-        "29637b3d-cad2-43be-8798-f52be753b041"
+        "29637b3d-cad2-43be-8798-f52be753b041",
+        "ef7581dd-9499-4559-926a-755db5cb25d7"
     ],
     "filterType": "GMScript",
     "folderName": "Filesystem",
