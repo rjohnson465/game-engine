@@ -19,17 +19,22 @@ if instance_exists(owner) {
 		x = owner.x;
 		y = owner.y;
 	} 
-	/*if layer != global.player.layer  {
-		x = -10000;
-		y = -10000;
-	}*/
+	// when we're above a light, make it really bright
+	if layer != global.player.layer  {
+		var a = colorAlpha + .5;
+		if a > 1 a = 1;
+		light_set_alpha(a);
+	} else {
+		light_set_alpha(colorAlpha);
+	}
+	
 	var wallsBetweenTarget = scr_collision_line_list_layer(x,y,global.player.x,global.player.y,obj_wall_parent,true,true);
 	var doorsBetweenTarget = scr_collision_line_list_layer(x,y,global.player.x,global.player.y,obj_door,true,true);
 	if object_is_ancestor(owner.object_index,obj_combatant_parent) && owner != global.player && (wallsBetweenTarget != noone || doorsBetweenTarget != noone) {
 		x = -10000; y = -10000;
 	}
-	if ds_exists(doorsBetweenTarget,ds_type_list) {
-		ds_list_destroy(doorsBetweenTarget); doorsBetweenTarget = -1;
+	if ds_exists(wallsBetweenTarget,ds_type_list) {
+		ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 	}
 	if ds_exists(doorsBetweenTarget,ds_type_list) {
 		ds_list_destroy(doorsBetweenTarget); doorsBetweenTarget = -1;

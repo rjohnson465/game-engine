@@ -39,7 +39,7 @@ ds_map_replace(map,"_light_surface",surface_create(argument2 * argument4, argume
 //global._light_map = surface_create(global._light_width * global._light_quality, global._light_height * global._light_quality)
 ds_map_replace(map,"_light_map",surface_create(argument0 * argument4, argument1 * argument4));
 //global._lights = ds_list_create()
-ds_map_replace(map,"_lights",ds_list_create());
+ds_map_add_list(map,"_lights",ds_list_create());
 //global._light_casters = ds_list_create()
-ds_map_replace(map,"_light_casters",ds_list_create());
-ds_map_replace(global._light_layers,floorNum,map);
+ds_map_add_list(map,"_light_casters",ds_list_create());
+ds_map_add_map(global._light_layers,floorNum,map);

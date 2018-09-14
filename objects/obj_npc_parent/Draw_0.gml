@@ -1,3 +1,4 @@
+updateIsMoving();
 prepareLayerShader();
 alpha = 1;
 scale = 1;

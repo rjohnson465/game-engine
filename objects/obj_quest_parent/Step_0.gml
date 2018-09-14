@@ -3,14 +3,7 @@ if !instance_exists(currentQuestStep) {
 	currentQuestStepIndex = 0;
 }
 
-//show_debug_message(steps);
-
-if !ds_exists(questSteps,ds_type_list) {
-	var a = 3;
-	var b = 3;
-}
-
-
+/*
 // reconstruct your steps you fuckwit
 if !ds_exists(questSteps,ds_type_list) {
 	var foundSteps = ds_map_create();

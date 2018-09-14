@@ -23,6 +23,10 @@ if	 stamina < maxStamina && (state == CombatantStates.Idle || state == Combatant
 }
 if hp < maxHp {
 	hp += hpRegen/30;
+	// update the data for this combatant if not player
+	if type != CombatantTypes.Player {
+		updatePersistentElementProperty(id, "Hp", hp);
+	}
 }
 
 if stamina > maxStamina stamina = maxStamina;

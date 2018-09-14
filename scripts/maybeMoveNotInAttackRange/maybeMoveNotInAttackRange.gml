@@ -24,7 +24,9 @@ if enemyObstaclesBetweenTarget != noone {
 			ds_list_delete(enemyObstaclesBetweenTarget,i);
 		}
 	}
-	if ds_list_size(enemyObstaclesBetweenTarget) == 0 enemyObstaclesBetweenTarget = noone;
+	if ds_list_size(enemyObstaclesBetweenTarget) == 0 {
+		ds_list_destroy(enemyObstaclesBetweenTarget); enemyObstaclesBetweenTarget = -1;
+	}
 }
 
 
@@ -51,6 +53,7 @@ if pred && !isFlinching {
 	// first, check if can't see lockOnTarget anymore
 	// if so, initiate a path (ONCE) that will update every 15 frames with a new point (where the lockOnTarget is) 
 	if layer == lockOnTarget.layer && !canSeeLockOnTarget() {
+		//turnSpeed = 100; // TODO check with speyeder if turning no longer fucks up guess path
 		while ds_list_size(guessPathPts) > 4 {
 			ds_list_delete(guessPathPts,0);
 		}
@@ -66,15 +69,19 @@ if pred && !isFlinching {
 		populatePersonalGrid();
 		var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,tempTargetX,tempTargetY,true);
 		if isGridPathAvailable {
-			var xx = path_get_x(gridPath,.1);
-			var yy = path_get_y(gridPath,.1);
-			mp_potential_path(path,xx,yy,functionalSpeed,1,0);
+			var xx = path_get_x(gridPath,.5);
+			var yy = path_get_y(gridPath,.5);
+			if distance_to_point(xx,yy) < 50 {
+				xx = path_get_x(gridPath,1);
+				yy = path_get_y(gridPath,1);
+			}
+			mp_potential_path(path,xx,yy,normalSpeed,4,0);
 			path_start(path,functionalSpeed,path_action_stop,false);
 		} else if mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,10,false) {
 			mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,10,false);
 			path_start(path,functionalSpeed,path_action_stop,false);
 		} else {
-			path_end();
+			path_end(); turnSpeed = normalTurnSpeed;
 			substate = CombatantMoveSubstates.ReturningToPost; lockOnTarget = noone;
 			tempTargetX = noone; tempTargetY = noone; ds_list_clear(guessPathPts);
 		}
@@ -83,7 +90,7 @@ if pred && !isFlinching {
 		alarm[7] = -1;
 		ds_list_clear(guessPathPts);
 	}
-	tempTargetX = noone; tempTargetY = noone;
+	tempTargetX = noone; tempTargetY = noone; turnSpeed = normalTurnSpeed;
 	// Movement for AI combatants not in attack range
 	if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false) {
 		mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false);

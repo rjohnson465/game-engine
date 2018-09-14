@@ -21,17 +21,3 @@ if instance_exists(npc) {
 		ds_map_replace(conversations,c.name,c.isFinished);
 	}
 }
-//ds_list_copy(conversations,npc.conversations);
-
-/*
-postX = enemy.postX;
-postY = enemy.postY;
-postZ = enemy.postZ;
-tempPostX = noone;
-tempPostY = noone;
-currentX = postX;
-currentY = postY;
-currentZ = postZ;
-hp = enemy.hp;
-maxHp = enemy.maxHp;
-isAlive = enemy.isAlive;

@@ -1,6 +1,11 @@
+var a = ds_list_create();
+var b = ds_map_create();
+ds_list_destroy(a); a = -1;
+ds_map_destroy(b); b = -1;
+
 if isLoading {
 	// wait until we're at the right room to actually load
-	if isReadyToMoveRooms && room == roomToGoTo {
+	if isReadyToMoveRooms && room_get_name(room) == roomToGoTo {
 		alert("Loading " + currentSaveFile, c_yellow);
 		isLoading = false;
 		roomToGoTo = noone;

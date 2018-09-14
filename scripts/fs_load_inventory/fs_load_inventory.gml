@@ -13,6 +13,11 @@ var lhi = p.leftHandItem;
 var rhi = p.rightHandItem;
 ds_list_clear(p.inventory);
 
+var a = ds_list_create();
+var b = ds_map_create();
+ds_list_destroy(a); a = -1;
+ds_map_destroy(b); b = -1;
+
 
 var holdingList = ds_list_create(); 
 var cv = ds_map_find_first(sd_inventory);
@@ -23,6 +28,7 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 	var objIndex = asset_get_index(objName);
 	
 	var item = instance_create_depth(x,y,1,objIndex);
+	
 	item.persistent = true;
 	item.owner = global.player; // ensure player is created before inventory is loaded
 	item.rarity = ds_map_find_value(sd_item,"Rarity");
@@ -139,6 +145,7 @@ if global.player.rightHandItem == noone && !global.player.leftHandItem.isTwoHand
 	global.player.rightHandItem = unarmed;
 }
 
-/*
-ds_map_destroy(sd_inventory); 
-sd_inventory = -1;
+var a = ds_list_create();
+var b = ds_map_create();
+ds_list_destroy(a); a = -1;
+ds_map_destroy(b); b = -1;

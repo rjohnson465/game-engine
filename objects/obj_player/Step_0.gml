@@ -1,4 +1,3 @@
-
 audio_listener_position(x, y, depth);
 if room == game_menu {
 	exit;
@@ -95,7 +94,7 @@ switch(state) {
 
 // walking up / down stairs change layers, set solids for enemies on this layer (done in updateRoomLayers)
 var nearestStairs = instance_nearest(x,y,obj_stairs);
-if distance_to_object(nearestStairs) < 200 /*&& nearestStairs.layer == layer*/ {
+if distance_to_object(nearestStairs) < 200 {
 	if !place_meeting_layer(x,y,obj_stairs) && climbingDir != noone {
 		
 		var oldLayer = layer;

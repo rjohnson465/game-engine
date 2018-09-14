@@ -3,31 +3,21 @@
 
 // Inherit the parent event
 event_inherited();
+populatePersonalGrid();
 
-if enemyData == noone || !instance_exists(enemyData) {
-	state = CombatantStates.Idle;
-	lockOnTarget = noone;
-	global.enemy = id;
-	instance_create_depth(x,y,1,obj_enemy_data);
+persistentElementUpdateProperties(id);
+isAlive = ds_map_find_value(persistentProperties, "IsAlive");
+if isAlive {
+	isShowingLightRadius = true;
+	x = ds_map_find_value(persistentProperties, "CurrentX");
+	y = ds_map_find_value(persistentProperties, "CurrentY");
+} else {
+	x = -1000;
+	y = -1000;
 }
-
-with obj_enemy_data {
-	if key == other.key {
-		other.isAlive = isAlive;
-		if isAlive || hp < 0 {
-			other.isShowingLightRadius = true;
-			other.x = currentX;
-			other.y = currentY;
-		} else {
-			other.x = -1000;
-			other.y = -1000;
-		}
-		other.hp = hp;
+hp = ds_map_find_value(persistentProperties, "Hp");
 		
-		other.layer = currentZ;
-		other.tempPostX = tempPostX;
-		other.tempPostY = tempPostY;
-		other.enemyData = id;
-		other.facingDirection = facingDirection;
-	}
-}
+layer = ds_map_find_value(persistentProperties, "CurrentZ");
+tempPostX = ds_map_find_value(persistentProperties, "TempPostX");
+tempPostY = ds_map_find_value(persistentProperties, "TempPostY");
+facingDirection = ds_map_find_value(persistentProperties, "FacingDirection");

@@ -1,1 +1,0 @@
-fs_clear_roomdata_tempfile();

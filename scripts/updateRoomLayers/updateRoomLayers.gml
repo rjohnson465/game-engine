@@ -25,13 +25,11 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 		
 		// if this layer is some floor above the player, it is not visible
 		if lNum > pLayerNum {
-			//show_debug_message("Setting layer " + lName + " to invisible");
 			layer_set_visible(l,false);
 		}
 		// make visible layers at or below player's layer
-		// draw layers below a little darker, might need to use a Shader
+		// draw layers below a little darker, use a Shader
 		else {
-			//show_debug_message("Setting layer " + lName + " to visible");
 			layer_set_visible(l,true);
 			
 			// depth needs to be average of tiles layer and instances layer for this floor
@@ -50,13 +48,10 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 }
 
 with obj_enemy_obstacle_parent {
-	// why does this have any bearing on ds_lists (i.e. quest.steps)????
 	if layer == playerLayer {
 		solid = true;
-		//persistent = true;
 	} else {
 		solid = false;
-		//persistent = false;
 	}
 	
 	if object_index == obj_fountain && origLayer == playerLayer {
@@ -70,15 +65,6 @@ with obj_enemy_obstacle_parent {
 	if object_index == obj_player {
 		solid = false;
 	}
-}
-
-
-with obj_wall_parent {
-/*	var layerNum = real(string_copy(layer_get_name(layer),string_length(layer_get_name(layer)),1));
-	light_destroy_caster_layer(layerNum);
-	if layer == playerLayer {
-		light_create_caster_layer();
-	}*/
 }
 
 // this will make enemies avoid fallzones when walking, but lets them dodge into them

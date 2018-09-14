@@ -63,6 +63,7 @@ if instance_exists(obj_player) {
 			ck = ds_map_find_next(conditionsEmittersMap,ck);
 		}
 		ds_map_destroy(conditionsEmittersMap); conditionsEmittersMap = -1;
+		audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
 		
 		event_perform(ev_create,0);
 	}
@@ -74,6 +75,7 @@ with obj_item_parent {
 	var _is_not_ancestor = !object_is_ancestor(object_index,obj_unarmed_parent);
 	var _is_unarmed_parent = object_index != obj_unarmed_parent;
 	if _owner && _is_not_ancestor && _is_unarmed_parent {
+		event_perform(ev_cleanup, 0); // ds clearing
 		instance_destroy(id,1);
 	}
 }
@@ -91,7 +93,7 @@ p.y = ds_map_find_value(pData,"LastFountainY");
 p.layerToMoveTo = ds_map_find_value(pData,"LastFountainZ");
 roomToGoTo = ds_map_find_value(pData,"LastFountainRoom");
 		
-room_goto(roomToGoTo);
+room_goto(asset_get_index(roomToGoTo));
 audio_stop_all();
 
 ds_map_destroy(save_data); save_data = -1;

@@ -1,4 +1,4 @@
-var a = ds_map_secure_load("Game");
+//var a = ds_map_secure_load("Game");
 
 display_set_gui_size(view_get_wport(view_camera[0]),view_get_hport(view_camera[0]));
 global.gameManager = id;
@@ -15,6 +15,7 @@ global.gameManager = id;
 
 #macro C_HANDLES make_color_rgb(47,79,79)
 #macro C_DKRGRAY make_color_rgb(42,42,42)
+#macro C_FIRELIGHT make_color_rgb(255,178,102)
 
 #macro C_RARITY_NORMAL c_white
 #macro C_RARITY_FINE c_lime
@@ -78,8 +79,10 @@ selectedOption = noone;
 state = TitleScreenState.Options;
 isLoading = false;
 currentSaveFile = noone;
+//currentSaveFile = "Game"; // only for load test purposes, should be noone
 fs_clear_roomdata_tempfile();
 #macro TEMP_ROOMDATA_FILENAME "TempRoomData.sav"
+#macro TEMP_ENEMYDATA_FILENAME "TempEnemyData.sav"
 
 //currentSaveFile = "Game.sav";
 roomToGoTo = noone;

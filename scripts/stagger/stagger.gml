@@ -10,8 +10,7 @@ var sDir = staggerDirection;
 direction = staggerDirection;
 // stagger twice as quickly early on
 var solidsToCheck = type == CombatantTypes.Enemy ? obj_enemy_obstacle_parent : obj_solid_parent;
-if (staggerFrame > .5*staggerDuration) {
-			
+if (staggerFrame > .5*staggerDuration) {	
 	var x1 = x+lengthdir_x(.5*sspeed, sDir);
 	var y1 = y+lengthdir_y(.5*sspeed, sDir);
 	do {

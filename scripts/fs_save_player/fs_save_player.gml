@@ -10,7 +10,7 @@ with global.player {
 		lastFountainX = lastFountain.spawnX;
 		lastFountainY = lastFountain.spawnY;
 		lastFountainZ = lastFountain.layerName;
-		lastFountainRoom = room;
+		lastFountainRoom = room_get_name(room);
 	}
 
 	ds_map_replace(sd_player,"LastFountainX",lastFountainX);

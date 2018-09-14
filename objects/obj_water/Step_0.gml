@@ -1,4 +1,4 @@
-with obj_combatant_parent {
+/*with obj_combatant_parent {
 	if place_meeting_layer(x,y,other) && isMoving {
 		var currentWaterParticlesObj = noone; 
 		var currentWaterParticlesObjIsDestroying = false;

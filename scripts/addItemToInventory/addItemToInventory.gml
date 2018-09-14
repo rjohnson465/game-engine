@@ -36,6 +36,13 @@ if item.isStackable {
 	if !item.persistent {
 		item.persistent = true;
 	}
+	// make sure all socketed gems belong to the player now too
+	if ds_list_size(item.socketedGems) > 0 {
+		for (var i = 0; i < ds_list_size(item.socketedGems); i++) {
+			var gem = ds_list_find_value(item.socketedGems, i);
+			gem.owner = global.player;
+		}
+	}
 }
 
 

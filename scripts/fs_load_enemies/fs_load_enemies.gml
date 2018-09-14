@@ -1,45 +1,29 @@
-/// fs_load_enemies(enemiesDataMap)
-/// @param enemiesDataMap
-/// creates enemy data objects from save game file
+/// fs_load_enemies(enemyDataMap)
+/// @param enemyDataMap
+/// populates obj_room_data.enemiesData 
 
-//var sd_enemies = ds_map_find_value(save_data,"Enemies");
+var sd_enemydatas = argument[0];
 
-// destroy all current enemy data objs
-with obj_enemy_data {
-	instance_destroy(id,1);
+var rn = room_get_name(room);
+
+// Find the enemydata for the current room in saved file data
+var sd_enemydata = ds_map_find_value(sd_enemydatas, rn);
+var sd_enemydata_copy = ds_map_deep_clone(sd_enemydata);
+// set the temp enemy data at room index to this data
+var sd_temp_enemydatas = ds_map_secure_load(TEMP_ENEMYDATA_FILENAME); // Need to destroy this for mem leak
+if sd_temp_enemydatas == undefined || !ds_exists(sd_temp_enemydatas, ds_type_map) {
+	sd_temp_enemydatas = ds_map_create();
 }
 
-var sd_enemies = argument[0];
-var cv = ds_map_find_first(sd_enemies);
-for (var i = 0; i < ds_map_size(sd_enemies); i++) {
-	
-	var sd_enemy = ds_map_find_value(sd_enemies,cv);
-	
-	var enemyDataObj = instance_create_depth(x,y,1,obj_enemy_data);
-	enemyDataObj.hp = ds_map_find_value(sd_enemy,"hp");
-	if enemyDataObj.hp <= 0 {
-		enemyDataObj.isAlive = false;
-	} else enemyDataObj.isAlive = true;
-	enemyDataObj.key = cv;
-	enemyDataObj.maxHp = ds_map_find_value(sd_enemy,"maxHp");
-	enemyDataObj.postX = ds_map_find_value(sd_enemy,"postX");
-	enemyDataObj.postY = ds_map_find_value(sd_enemy,"postY");
-	enemyDataObj.postZ = ds_map_find_value(sd_enemy,"postZ");
-	enemyDataObj.tempPostX = ds_map_find_value(sd_enemy,"tempPostX");
-	enemyDataObj.tempPostY = ds_map_find_value(sd_enemy,"tempPostY");
-	enemyDataObj.currentX = ds_map_find_value(sd_enemy,"currentX");
-	enemyDataObj.currentY = ds_map_find_value(sd_enemy,"currentY");
-	enemyDataObj.currentZ = ds_map_find_value(sd_enemy,"currentZ");
-	enemyDataObj.facingDirection = ds_map_find_value(sd_enemy,"facingDirection");
-	
-	with obj_enemy_parent {
-	if key == cv {
-		enemyData = enemyDataObj;
-	}
-	event_perform(ev_other,ev_room_start);
-}
-	
-	cv = ds_map_find_next(sd_enemies,cv);
+// obj_room_data will use that when creating its enemiesData property
+ds_map_delete(sd_temp_enemydatas, rn);
+ds_map_add_map(sd_temp_enemydatas, rn, sd_enemydata_copy);
+ds_map_secure_save(sd_temp_enemydatas, TEMP_ENEMYDATA_FILENAME);
+
+// force obj_room_data create event so "enemiesData" property is reset
+with obj_room_data {
+	event_perform(ev_create,0);
 }
 
-//ds_map_destroy(sd_enemies); sd_enemies = -1;
+ds_map_destroy(sd_temp_enemydatas); sd_temp_enemydatas = -1;
+

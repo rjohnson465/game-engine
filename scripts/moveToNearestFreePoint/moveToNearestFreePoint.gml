@@ -15,7 +15,7 @@ if argument_count == 3 {
 d = d mod 360;
 
 var objectsToAvoid = obj_solid_parent;
-var additionalObjects = ds_list_create();
+//var additionalObjects = ds_list_create();
 if isEnemy objectsToAvoid = obj_enemy_obstacle_parent;
 
 var oldX = x;
@@ -72,9 +72,10 @@ else {
 		x = x+lengthdir_x(sp,dir); 
 		y = y+lengthdir_y(sp,dir);
 		direction = point_direction(oldX,oldY,x,y);
+		ds_list_destroy(possibleAngles); possibleAngles = -1;
 		return true;
 	}
 	ds_list_destroy(possibleAngles); possibleAngles = -1;
 }
-ds_list_destroy(additionalObjects); additionalObjects = -1;
+//ds_list_destroy(additionalObjects); additionalObjects = -1;
 

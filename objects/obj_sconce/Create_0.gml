@@ -9,7 +9,7 @@ isLit = false;
 lightRadius = noone;
 lightRadiusAlpha = .5;
 lightRadiusScale = 1.5;
-lightRadiusColor = c_orange;
+lightRadiusColor = C_FIRELIGHT;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
 

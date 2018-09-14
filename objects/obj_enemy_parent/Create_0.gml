@@ -1,5 +1,5 @@
 event_inherited();
-populatePersonalGrid();
+
 type = CombatantTypes.Enemy;
 name = "parent enemy";
 spriteName = "dummy";
@@ -82,9 +82,21 @@ droppedItems = ds_list_create();
 
 xpReward = 100;
 
-enemyData = noone;
-with obj_enemy_data {
-	if key == other.key {
-		other.enemyData = id;
-	}
-}
+
+currentX = postX; currentY = postY; currentZ = postZ;
+
+// new system of storing enemies data -- use properties map, like with persistent room elements
+persistentProperties = ds_map_create();
+ds_map_replace(persistentProperties, "ObjectIndexName", object_get_name(object_index));
+ds_map_replace(persistentProperties, "PostX", postX);
+ds_map_replace(persistentProperties, "PostY", postY);
+ds_map_replace(persistentProperties, "PostZ", postZ);
+ds_map_replace(persistentProperties, "TempPostY", tempPostY);
+ds_map_replace(persistentProperties, "TempPostX", tempPostX);
+ds_map_replace(persistentProperties, "CurrentX", currentX);
+ds_map_replace(persistentProperties, "CurrentY", currentY);
+ds_map_replace(persistentProperties, "CurrentZ", currentZ);
+//ds_map_replace(persistentProperties, "Hp", hp);
+//ds_map_replace(persistentProperties, "MaxHp", maxHp);
+ds_map_replace(persistentProperties, "IsAlive", isAlive);
+ds_map_replace(persistentProperties, "FacingDirection", facingDirection);

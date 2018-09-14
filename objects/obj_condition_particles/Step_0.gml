@@ -114,6 +114,11 @@ if conditionLevel == 0 {
 			break;
 		}
 	}
+	
+	// scale num for sprite size
+	num *= ((owner.sprite_width*owner.sprite_height) / 4096);
+	num2 *= ((owner.sprite_width*owner.sprite_height) / 4096);
+	
 	part_emitter_burst(system,emitter,particle, num);
 	if particle2 {
 		part_emitter_burst(system,emitter,particle2, num2);

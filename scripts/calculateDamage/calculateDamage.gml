@@ -232,8 +232,9 @@ if	state != CombatantStates.Dodging &&
 	}
 		
 	// update enemy data for room persistence, if this combatant is an enemy
-	if type == CombatantTypes.Enemy && enemyData != noone  {
-		enemyData.hp = hp;
+	if type == CombatantTypes.Enemy {
+		//enemyData.hp = hp;
+		updatePersistentElementProperty(id,"Hp",hp);
 	}
 	
 	ds_map_destroy(damagesTaken); damagesTaken = -1;

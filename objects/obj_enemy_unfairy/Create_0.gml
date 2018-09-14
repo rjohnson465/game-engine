@@ -9,6 +9,7 @@ isFloating = true;
 functionalSpeed = 5;
 normalSpeed = 5;
 turnSpeed = 10;
+normalTurnSpeed = 10;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
@@ -18,6 +19,7 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
 var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);*/
+
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var woodshield = makeEnemyWeapon(obj_hand_item_woodshield);
 var longsword = makeEnemyWeapon(obj_hand_item_longsword);

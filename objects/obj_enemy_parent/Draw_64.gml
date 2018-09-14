@@ -1,4 +1,3 @@
-
 // if player is locked on to this enemy, view hp / name in top middle screen
 if id == global.player.lockOnTarget {
 	draw_set_font(font_main);

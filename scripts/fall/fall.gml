@@ -98,8 +98,10 @@ if fallFrame == .5*fallTotalFrames {
 		tempPostX = x;
 		tempPostY = y;
 		if type == CombatantTypes.Enemy {
-			enemyData.tempPostX = tempPostX;
-			enemyData.tempPostY = tempPostY;
+			//enemyData.tempPostX = tempPostX;
+			//enemyData.tempPostY = tempPostY;
+			updatePersistentElementProperty(id, "TempPostX", tempPostX);
+			updatePersistentElementProperty(id, "TempPostY", tempPostY);
 		}
 	}
 }

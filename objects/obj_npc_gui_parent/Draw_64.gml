@@ -1,4 +1,4 @@
-
+/*
 with npc {
 	var canLoot = false;
 	with obj_item_drop {

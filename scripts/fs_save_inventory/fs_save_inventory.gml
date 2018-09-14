@@ -1,6 +1,6 @@
 /// fs_save_inventory
 /// returns a map of all the inventory items
-var sd_inventory = ds_map_create();
+var sd_inventory = ds_map_create(); // this is the only ds that should survive 
 with obj_item_parent {
 	
 	if owner == global.player {
@@ -8,15 +8,6 @@ with obj_item_parent {
 	
 		ds_map_replace(sd_item,"ObjectIndex",object_index);
 		ds_map_replace(sd_item,"ObjectName",object_get_name(object_index));
-		// All these things will be generated once instance is instantiated
-		//ds_map_replace(sd_item,"Name",name); -- will be generated / fixed after gems
-		//ds_map_replace(sd_item,"BaseName",baseName);
-		//ds_map_replace(sd_item,"Description",name);
-		// type
-		// subType
-		// spriteName / itemSprite
-		// isSellable / isUsable
-		// value -- should be calculated as item is generated
 		
 		ds_map_replace(sd_item,"Rarity",rarity);
 		ds_map_replace(sd_item,"Count",count);
@@ -33,9 +24,9 @@ with obj_item_parent {
 				ds_list_add(gemsList,object_get_name(gem.object_index));
 				ds_list_add(gemsList,gem.condition);
 			}
-			//ds_map_replace(sd_item,"SocketedGems",gemsList);
 			ds_map_add_list(sd_item,"SocketedGems",gemsList);
 		}
+		
 		
 		// saving item property modifiers
 		if ds_exists(itemPropertyModifiers,ds_type_map) && ds_map_size(itemPropertyModifiers) > 0 {
@@ -100,7 +91,6 @@ with obj_item_parent {
 			ds_map_add_list(sd_item,"ItemProperties",propsList);
 		}
 	
-		//var key = fs_generate_key(id); // TODO this is not guaranteed unique at all for items -- reference their location in inventory?
 		var key = ds_list_find_index(global.player.inventory,id);
 		// or maybe key can just be inventory index
 		ds_map_add_map(sd_inventory,key,sd_item);

@@ -1,5 +1,5 @@
 {
-    "id": "b9c57985-e8ab-4f36-89d2-9f205a25717f",
+    "id": "8b70c4d0-6684-4169-a4b8-77836da4a112",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "fs_save_enemies",

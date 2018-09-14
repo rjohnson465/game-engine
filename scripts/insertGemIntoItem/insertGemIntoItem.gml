@@ -10,6 +10,7 @@ if argument_count > 2 {
 	isRemoving = argument[2];
 }
 
+gem.owner = item.owner;
 
 var isEquipped = item.equipmentSlot != noone;
 var slot = noone;
@@ -166,3 +167,4 @@ if gemIndex != -1 {
 if isEquipped {
 	equipItem(item,slot)
 }
+

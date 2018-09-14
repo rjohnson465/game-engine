@@ -28,6 +28,9 @@ showBuySell = false;
 postX = x;
 postY = y;
 
+prevX = x;
+prevY = y;
+
 normalSpeed = 2;
 alarm[0] = 90;
 
@@ -46,7 +49,6 @@ alpha = 1;
 scale = 1;
 
 // light radius
-//lightRadius = 256;
 lightRadiusAlpha = .5;
 lightRadiusScale = .5;
 lightRadiusColor = c_white;
@@ -67,7 +69,9 @@ selectedConversation = noone;
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;
 
+/*
 global.npc = id;
 instance_create_depth(x,y,-1001,obj_npc_gui_parent);
+*/
 
 npcData = noone;

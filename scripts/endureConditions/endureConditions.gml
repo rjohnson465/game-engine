@@ -42,8 +42,11 @@ for (var i = 0; i < size; i++) {
 	if conditionLevel <= 0 {
 		switch currentCondition {
 			case ICE: {
-				//functionalSpeed = normalSpeed;
-				slowedSpeedModifier = 1;
+				slowedSpeedModifier = 1; break;
+			}
+			case FIRE: {
+				light_set_scale(lightRadiusScale);
+				break;
 			}
 		}
 	}
@@ -52,8 +55,6 @@ for (var i = 0; i < size; i++) {
 			case ICE: {
 				// slowed
 				if conditionLevel == 1 {
-					//functionalSpeed = (1-(conditionPercent/100))*normalSpeed;
-					//slowedSpeedModifier = (1-(conditionPercent/100));
 					if conditionPercent > 0 && conditionPercent < 25 {
 						slowedSpeedModifier = .7;
 					} else if conditionPercent > 25 && conditionPercent < 50 {
@@ -63,7 +64,6 @@ for (var i = 0; i < size; i++) {
 				// frozen
 				else if conditionLevel == 2 {
 					slowedSpeedModifier = 0;
-					//functionalSpeed = 0;
 				}
 				break;
 			}
@@ -73,6 +73,13 @@ for (var i = 0; i < size; i++) {
 			}
 			// burning
 			case FIRE: {
+				
+				// light radius should flicker
+				randomize();
+				var lrMin = .75*normalLightRadiusScale;
+				var rand = random_range(lrMin, normalLightRadiusScale);
+				lightRadiusScale = rand;
+				
 				// burn damage taken every 2 seconds by default
 				// if fire defense is positive, defense% of 60 is added to burn frames
 				burnFrames = (defense >= 0) ? 30 + 30*(defense/100) : 30 - 30*(defense/100);

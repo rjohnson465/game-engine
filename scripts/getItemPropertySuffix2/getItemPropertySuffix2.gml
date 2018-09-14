@@ -3,10 +3,6 @@
 
 var props = argument[0];
 
-if arrayIncludes(props, ModifiableProperties.GoldDrop) {
-	var a = 3;
-}
-
 switch array_length_1d(props) {
 	case 0: {
 		return noone;

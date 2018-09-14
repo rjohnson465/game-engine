@@ -20,6 +20,6 @@
     nearest = noone;
     with (object) ds_priority_add(list,id,distance_to_point(pointx,pointy));
     repeat (n) nearest = ds_priority_delete_min(list);
-    ds_priority_destroy(list);
+    ds_priority_destroy(list); list = -1;
     return nearest;
 }

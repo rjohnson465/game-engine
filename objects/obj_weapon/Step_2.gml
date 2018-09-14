@@ -15,7 +15,6 @@ layer = owner.layer;
 if owner.currentUsingSpell != noone {
 	visible = false;
 }
-//depth = layer_get_depth(layer) + 1;
 
 // switch weapon sprite
 if limbItem != limb.limbItem || refreshParticles {

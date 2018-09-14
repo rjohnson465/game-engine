@@ -43,7 +43,7 @@ audio_emitter_gain(torchAudioEmitter,0);
 audio_play_sound_on(torchAudioEmitter,snd_torch_loop,1,0);
 // torchlight stuff
 torchLightRadius = noone;
-lightRadiusColor = c_orange; 
+lightRadiusColor = C_FIRELIGHT; 
 lightRadiusAlpha = .5;
 lightRadiusScale = 1;
 lightRadiusSprite = spr_light_point;

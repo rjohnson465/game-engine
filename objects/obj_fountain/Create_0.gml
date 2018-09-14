@@ -1,4 +1,3 @@
-
 isRunning = false;
 isDoneFilling = false;
 

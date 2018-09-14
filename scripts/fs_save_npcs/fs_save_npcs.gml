@@ -9,8 +9,9 @@ with obj_npc_data {
 	ds_map_replace(sd_npc,"NpcObjIndexName",npcObjIndexName);
 	ds_map_replace(sd_npc,"HasInitializedItems",hasInitializedItems);
 	
-	// TODO this needs to be fomatted correctly -- save conversation data
-	ds_map_add_map(sd_npc,"Conversations",conversations);
+	// clone the conversations map, otherwise we're gonna destroy it at the end of fs_save
+	var conversations_clone = ds_map_deep_clone(conversations);
+	ds_map_add_map(sd_npc,"Conversations",conversations_clone);
 	
 	//var key = fs_generate_key(enemy);
 

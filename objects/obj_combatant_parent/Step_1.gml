@@ -118,8 +118,10 @@ if !isAlive {
 		isShowingLightRadius = false;
 		lightRadiusColor = c_white;
 				
-		enemyData.hp = 0;
-		enemyData.isAlive = false;
+		//enemyData.hp = 0;
+		//enemyData.isAlive = false;
+		updatePersistentElementProperty(id,"Hp",0);
+		updatePersistentElementProperty(id,"IsAlive",false);
 				
 		var idd = id;
 		with obj_light_radius {

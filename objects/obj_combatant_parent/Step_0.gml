@@ -96,7 +96,8 @@ switch(state) {
 			} else {
 				showHp = false;
 			}
-			break;
+			
+			break; // end Idle state
 		}
 	}
 	case CombatantStates.AggroMelee: {
@@ -165,7 +166,7 @@ switch(state) {
 						if mp_grid_path(personalGrid,path,x,y,investigationPtX,investigationPtY,0) {
 							path_start(path,functionalSpeed,path_action_stop,false);
 						} else {
-							mp_potential_path(path,investigationPtX,investigationPtY,functionalSpeed,5,0);
+							mp_potential_path(path,investigationPtX,investigationPtY,normalSpeed,5,0);
 							path_start(path,functionalSpeed,path_action_stop,false);
 						}
 					}

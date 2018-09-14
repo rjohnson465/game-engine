@@ -47,10 +47,11 @@ if state == CombatantStates.Dodging {
 } 
 
 // attacks that come from the core body are drawn here 
-if type != CombatantTypes.Player && state == CombatantStates.Attacking && attackData != noone && attackData.limbKey == noone {
+if isAttackingWithCore {
 	var attackSpriteName = attackData.spriteName;
 	var attackNumber = attackData.spriteAttackNumber; var attackNumberInChain = attackData.spriteAttackNumberInChain;
 	var spr = noone;
+	var frame = -4;
 	if ds_map_size(preparingLimbs) > 0 {
 		var frame = ds_map_find_value(prepFrames,noone);
 		spr = asset_get_index(attackSpriteName+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));
@@ -62,6 +63,10 @@ if type != CombatantTypes.Player && state == CombatantStates.Attacking && attack
 	else if ds_map_size(recoveringLimbs) > 0 {
 		var frame = ds_map_find_value(recoverFrames,noone);
 		spr = asset_get_index(attackSpriteName+"_recover_"+string(attackNumber)+"_"+string(attackNumberInChain));
+	}
+	if spr == noone {
+		spr = asset_get_index(attackSpriteName+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));
+		frame = 0;
 	}
 	if spr != noone && frame >= 0 {
 		draw_sprite_ext(spr,frame,x,y,1,1,facingDirection,c_white,1);
@@ -98,12 +103,6 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering && !i
 	if isDying {
 		alpha = (-dyingFrame/dyingTotalFrames)+1;
 	}
-	
-	// only animate if actually moving (state can be Moving but its possible there's no actual movement going on)
-	/*var ii = image_index;
-	if prevX == x && prevY == y && state == CombatantStates.Moving {
-		ii = 1;
-	}*/
 	
 	draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_white, alpha);
 	

@@ -20,10 +20,6 @@ if limbKey == "r" {
 	if leftHand {
 		
 		if leftHandItem.isTwoHanded && owner.currentUsingSpell == noone exit;
-		
-		if leftHandItem.isTwoHanded && owner.currentUsingSpell != noone {
-			var a = 3;
-		}
 	}
 }
 

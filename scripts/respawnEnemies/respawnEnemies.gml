@@ -1,10 +1,6 @@
 // re-spawn all enemies in all maps
 // TODO - do not respawn bosses? MAYBE?
 
-with obj_enemy_data {
-	instance_destroy(id,1);
-}
-
 with obj_enemy_parent {
 	x = postX;
 	y = postY;

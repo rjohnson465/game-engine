@@ -1,24 +1,9 @@
-
 event_inherited();
 
 isDoneFilling = ds_map_find_value(properties, "isDoneFilling");
 if isDoneFilling {
 	isRunning = true;
 }
-
-/*
-with obj_persistent_environment_data_parent {
-	if key == other.key {
-		other.postX = postX;
-		other.postY = postY;
-		var isDF = ds_map_find_value(properties, "isDoneFilling");
-		other.isDoneFilling = isDF;
-		if isDF {
-			other.isRunning = true;
-		}
-		other.data = id;
-	}
-}*/
 
 if isRunning || (global.player.justRevivedAtFountain && distance_to_object(obj_player) < 100) {
 	sprite_index = asset_get_index("spr_fountain_full");
@@ -39,4 +24,5 @@ if isRunning || (global.player.justRevivedAtFountain && distance_to_object(obj_p
 if isRunning {
 	audio_emitter_gain(fountainRunningSoundEmitter,1);
 }
+
 

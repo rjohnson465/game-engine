@@ -9,9 +9,6 @@ shader_set(shd_greyscale);
 	
 	// stretched width
 	var stw = vw*(sh/vh);
-	if stw > 1024 {
-		var a = 3;
-	}
 	// view point x
 	var vpx = (sw/2)-(stw/2);
 	

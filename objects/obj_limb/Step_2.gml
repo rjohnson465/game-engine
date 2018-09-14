@@ -67,11 +67,6 @@ image_angle = owner.facingDirection;
 
 if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {
 	image_index = ds_map_find_value(owner.prepFrames,limbKey);
-	
-	if ds_map_find_value(owner.preparingLimbs,limbKey) == 2 {
-		var a = 3;
-	}
-	
 	sprite_index = getLimbSpriteIndex("prep");
 }
 

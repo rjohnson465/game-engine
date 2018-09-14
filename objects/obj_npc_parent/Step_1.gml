@@ -1,3 +1,5 @@
+prevX = x;
+prevY = y;
 var pad = global.player.gamePadIndex;
 if joystickInputFrame < joystickInputTotalFrames {
 	joystickInputFrame++;

@@ -52,7 +52,7 @@ for (var i = 0; i < size; i++) {
 					isFrozen = false;
 				}
 				isBurning = true; 
-				lightRadiusColor = c_orange;
+				lightRadiusColor = C_FIRELIGHT;
 				//lightRadiusAlpha = .75;
 				break;
 			}
@@ -97,9 +97,9 @@ for (var i = 0; i < size; i++) {
 			case FIRE: {
 				isBurning = false; 
 				burnDamage = 0; 
-				if lightRadiusColor == c_orange {
+				if lightRadiusColor != c_white {
 					lightRadiusColor = c_white;
-					//lightRadiusAlpha = .25;
+					lightRadiusScale = normalLightRadiusScale;
 					lightRadiusSprite = spr_light_point;
 				}
 				break;

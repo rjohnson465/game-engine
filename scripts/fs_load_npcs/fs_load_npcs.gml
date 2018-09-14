@@ -14,19 +14,21 @@ for (var i = 0; i < ds_map_size(sd_npcs); i++) {
 	var sd_npc = ds_map_find_value(sd_npcs,cv);
 	
 	var npcDataObj = noone;
-	with obj_npc_data {
-		if npcNmae == ds_map_find_value(sd_npc,"NpcName") {
-			npcDataObj = id;
+	var npcObj = noone;
+	with obj_npc_parent {
+		if name == ds_map_find_value(sd_npc,"NpcName") {
+			npcObj = id;
 		}
 	}
-	if npcDataObj == noone {
-		npcDataObj = instance_create_depth(x,y,1,obj_npc_data);
-	}
+	if npcObj == noone continue;
+	else global.npc = npcObj;
+	npcDataObj = instance_create_depth(x,y,1,obj_npc_data);
 	
 	npcDataObj.name = ds_map_find_value(sd_npc,"NpcName");
 	npcDataObj.npcObjIndex = ds_map_find_value(sd_npc,"NpcObjIndex");
 	npcDataObj.npcObjIndexName = ds_map_find_value(sd_npc,"NpcObjIndexName");
-	npcDataObj.conversations = ds_map_find_value(sd_npc,"Conversations");
+	var conversations_copy = ds_map_deep_clone(ds_map_find_value(sd_npc, "Conversations"));
+	npcDataObj.conversations = conversations_copy;
 	
 	with obj_npc_parent {
 		if name == cv {
@@ -42,4 +44,3 @@ for (var i = 0; i < ds_map_size(sd_npcs); i++) {
 	
 	cv = ds_map_find_next(sd_npcs,cv);
 }
-//ds_map_destroy(sd_npcs); sd_npcs = -1;

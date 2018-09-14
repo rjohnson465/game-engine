@@ -8,7 +8,7 @@ var fountain = id;
 
 with obj_player {
 	lastFountain = other.id;
-	lastFountainRoom = room;
+	lastFountainRoom = room_get_name(room);
 	lastFountainX = fountain.spawnX;
 	lastFountainY = fountain.spawnY;
 	lastFountainZ = fountain.layerName;
@@ -28,66 +28,65 @@ if !isRunning {
 }
 	
 // wish at fountain
-//else if isDoneFilling {
 		
-	audio_play_sound(snd_fountain_wish,1,0);
-	if performBlur {
-		alarm[0] = 30; // trigger radial blur
-		var vx = camera_get_view_x(view_camera[0]);
-		var vy = camera_get_view_y(view_camera[0]);
-		var sw = view_get_wport(view_camera[0]);
-		var sh = view_get_hport(view_camera[0]);
-		var_mouse_pos_x = vx+sw/2;
-		var_mouse_pos_y = vy+sh/2;
-		application_surface_draw_enable(false);
-	}
+audio_play_sound(snd_fountain_wish,1,0);
+if performBlur {
+	alarm[0] = 30; // trigger radial blur
+	var vx = camera_get_view_x(view_camera[0]);
+	var vy = camera_get_view_y(view_camera[0]);
+	var sw = view_get_wport(view_camera[0]);
+	var sh = view_get_hport(view_camera[0]);
+	var_mouse_pos_x = vx+sw/2;
+	var_mouse_pos_y = vy+sh/2;
+	application_surface_draw_enable(false);
+}
 	
-	// despawn all itemDrops
-	with obj_item_drop {
-		instance_destroy(id,1);
-	}
-	// destroy any remaining itemdrop data objects
-	with obj_itemdrop_data {
-		instance_destroy(id,1);
-	}
+// despawn all itemDrops
+with obj_item_drop {
+	instance_destroy(id,1);
+}
+// destroy any remaining itemdrop data objects
+with obj_itemdrop_data {
+	instance_destroy(id,1);
+}
 	
-	// respawn all enemies
-	respawnEnemies();
+// respawn all enemies
+respawnEnemies();
 		
-	// refill player health and stamina
-	with obj_player {
-		hp = maxHp;
-		stamina = maxStamina;
+// refill player health and stamina
+with obj_player {
+	hp = maxHp;
+	stamina = maxStamina;
 		
-		// convert temp xp to real xp
-		xp += xpTemp;
-		xpTemp = 0;
+	// convert temp xp to real xp
+	xp += xpTemp;
+	xpTemp = 0;
 		
-		// cure any and all conditions
-		var currentCondition = ds_map_find_first(conditionPercentages);
-		for (var i = 0; i < ds_map_size(conditionPercentages);i++) {
-			ds_map_replace(conditionPercentages,currentCondition,0);
-			currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
-		}
+	// cure any and all conditions
+	var currentCondition = ds_map_find_first(conditionPercentages);
+	for (var i = 0; i < ds_map_size(conditionPercentages);i++) {
+		ds_map_replace(conditionPercentages,currentCondition,0);
+		currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
+	}
 		
-		// refill all weapon charges / durability for inventory weapons, repair all durability
-		for (var i = 0 ; i < ds_list_size(inventory); i++) {
-			var item = ds_list_find_value(inventory,i);
-			if item.type == ItemTypes.HandItem {
-				if item.chargesMax > 0 {
-					item.charges = item.chargesMax;
-				}
-				if item.durability > 0 {
-					item.durability = item.durabilityMax;
-				}
-				item.hasIssuedDurabilityWarning = false;
-				item.hasIssuedDurabilityObituary = false;
-				item.ammo = item.ammoMax;
-
+	// refill all weapon charges / durability for inventory weapons, repair all durability
+	for (var i = 0 ; i < ds_list_size(inventory); i++) {
+		var item = ds_list_find_value(inventory,i);
+		if item.type == ItemTypes.HandItem {
+			if item.chargesMax > 0 {
+				item.charges = item.chargesMax;
 			}
+			if item.durability > 0 {
+				item.durability = item.durabilityMax;
+			}
+			item.hasIssuedDurabilityWarning = false;
+			item.hasIssuedDurabilityObituary = false;
+			item.ammo = item.ammoMax;
+
 		}
 	}
-//}
+}
+
 
 // trigger a save 
 with obj_game_manager {

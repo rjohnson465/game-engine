@@ -24,7 +24,7 @@ if !instance_exists(lockOnTarget) || lockOnTarget == noone {
 						wouldBeLockOnTarget = target;
 					}
 				}
-				if wallsBetweenTarget != noone {
+				if wallsBetweenTarget != noone && ds_exists(wallsBetweenTarget, ds_type_list) {
 					ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 				}
 				break;

@@ -32,6 +32,7 @@ isAlive = true;
 _light_sprite = spr_light_point;
 lightRadiusAlpha = .5;
 lightRadiusScale = .5;
+normalLightRadiusScale = lightRadiusScale;
 lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
@@ -57,6 +58,7 @@ normalSpeed = 5;
 facingDirection = (image_angle+360)%360;
 previousFacingDirection = facingDirection;
 turnSpeed = 45; // how many degrees a combatant may turn per step to face their target
+normalTurnSpeed = turnSpeed;
 turningSpeedModifier = 1; // less than 1 when turning a lot
 // player | enemy | ally
 spriteType = ""; 

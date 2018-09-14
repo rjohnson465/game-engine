@@ -9,9 +9,11 @@ isFloating = false;
 functionalSpeed = 7;
 normalSpeed = 7;
 turnSpeed = 7;
+normalTurnSpeed = turnSpeed;
+//isFloating = true;
 
-dyingParticleColor1 = C_HANDLES;
-dyingParticleColor2 = c_navy;
+dyingParticleColor1 = make_color_rgb(64,90,111)
+dyingParticleColor2 = make_color_rgb(19,38,52)
 
 canJump = false;
 

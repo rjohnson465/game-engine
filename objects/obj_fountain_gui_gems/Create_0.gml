@@ -2,10 +2,7 @@ depth = -1002;
 isAcceptingInput = false;
 
 menusHandleHeight = 20;
-//bsInv = ds_list_create();
 inv = ds_list_create();
-
-//ds_list_destroy(inv);
 
 slotWidth = sprite_get_width(spr_item_slot);
 slotHeight = sprite_get_height(spr_item_slot);

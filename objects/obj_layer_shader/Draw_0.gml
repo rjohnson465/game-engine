@@ -1,5 +1,4 @@
 // get the average luma value for all lighting colors in layers above
-var floorsAbove = ds_list_create(); // list of floorNums above
 var avgColor = c_gray; var cumSum = 0; var n = 0;
 with obj_layer_lighting {
 	if floorNum > other.floorNum && isActive {

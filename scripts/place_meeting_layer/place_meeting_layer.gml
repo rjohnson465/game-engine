@@ -42,8 +42,6 @@ for (var i = 0; i < ds_list_size(touchingInstances); i++) {
 	}
 }
 var pred = false;
-
-
 if ((place_meeting(xx,yy,obj) && touchingInstanceIsOnSameLayer) || touchingAdditionalObjects) {
 	pred = true;
 	ds_list_destroy(touchingInstances); touchingInstances = -1;
@@ -51,4 +49,10 @@ if ((place_meeting(xx,yy,obj) && touchingInstanceIsOnSameLayer) || touchingAddit
 	ds_list_destroy(touchingInstances); touchingInstances = -1;
 	pred = false;
 }
+
+if touchingInstances != undefined && ds_exists(touchingInstances, ds_type_list) {
+	ds_list_destroy(touchingInstances); touchingInstances = -1;
+}
+
+
 return pred;
