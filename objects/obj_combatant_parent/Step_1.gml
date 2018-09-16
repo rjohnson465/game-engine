@@ -4,6 +4,15 @@ if state != CombatantStates.Attacking attackData = noone;
 if type == CombatantTypes.Player exit;
 // death
 if hp < 1 && isAlive && !isDying {
+	
+	if array_length_1d(soundsWhenDie) > 0 {
+		// pick a death sound
+		randomize();
+		var rand = round(random_range(0,array_length_1d(soundsWhenDie)-1));
+		var deathSnd = soundsWhenDie[rand];
+		audio_play_sound_at(deathSnd,x,y,depth,50,300,1,0,1);
+	}
+	
 	isDying = true;
 	lockOnTarget = noone;
 	
@@ -23,6 +32,7 @@ if hp < 1 && isAlive && !isDying {
 			dyingFrame = dyingTotalFrames;
 			audio_play_sound_at(snd_iceshatter,x,y,depth,20,200,1,0,1);
 		} else {
+			audio_play_sound_at(snd_death_fade,x,y,depth,50,300,1,0,1);
 			global.condition = "Death";
 		}
 		instance_create_depth(x,y,1,obj_condition_particles);

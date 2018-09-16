@@ -59,7 +59,7 @@ switch condition {
 		part_type_sprite(fire,spr_particle_fire,0,0,1);
 		part_type_size(fire,.2,.5,0,0);
 		part_type_color2(fire,c_orange,c_red);
-		part_type_alpha3(fire,1,1,0);
+		part_type_alpha3(fire,.5,.2,0);
 		part_type_speed(fire,4,10,0,0);
 		part_type_direction(fire,85,95,0,5);
 		part_type_orientation(fire,0,359,0,0,0);

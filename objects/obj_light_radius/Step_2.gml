@@ -20,13 +20,13 @@ if instance_exists(owner) {
 		y = owner.y;
 	} 
 	// when we're above a light, make it really bright
-	if layer != global.player.layer  {
+	/*if layer != global.player.layer  {
 		var a = colorAlpha + .5;
 		if a > 1 a = 1;
 		light_set_alpha(a);
 	} else {
 		light_set_alpha(colorAlpha);
-	}
+	}*/
 	
 	var wallsBetweenTarget = scr_collision_line_list_layer(x,y,global.player.x,global.player.y,obj_wall_parent,true,true);
 	var doorsBetweenTarget = scr_collision_line_list_layer(x,y,global.player.x,global.player.y,obj_door,true,true);

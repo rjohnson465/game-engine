@@ -2,6 +2,10 @@ draw_set_halign(fa_center); draw_set_valign(fa_center);
 draw_set_alpha(1);
 draw_set_font(font_main);
 
+draw_set_color(c_black);
+draw_rectangle(topLeftX, topLeftY, bottomRightX, bottomRightY, 1);
+draw_line(topLeftX, topLeftY+subMenuTitleHeight, bottomRightX, topLeftY+subMenuTitleHeight);
+
 if global.fountainGui.currentSubMenu != CHOOSEITEM {
 	draw_set_alpha(.5);
 }

@@ -53,7 +53,7 @@ if pred && !isFlinching {
 	// first, check if can't see lockOnTarget anymore
 	// if so, initiate a path (ONCE) that will update every 15 frames with a new point (where the lockOnTarget is) 
 	if layer == lockOnTarget.layer && !canSeeLockOnTarget() {
-		//turnSpeed = 100; // TODO check with speyeder if turning no longer fucks up guess path
+		turnSpeed = 100; // TODO check with speyeder if turning no longer fucks up guess path
 		while ds_list_size(guessPathPts) > 4 {
 			ds_list_delete(guessPathPts,0);
 		}

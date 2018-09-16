@@ -15,17 +15,45 @@ if( !surface_exists(surface_canvas_1) ){
     surface_canvas_1 = surface_create(room_width,room_height);
 }
 
-var l = layer_tilemap_get_id(layer_get_id("tiles_floor_"+string(floorNum)));
-var le = layer_tilemap_get_id(layer_get_id("tiles_environment_floor_"+string(floorNum)));
-draw_tilemap(l,0,0);
-draw_tilemap(le,0,0);
+//get layers to shade
+var mainTilesLayer = layer_get_id("tiles_floor_"+string(floorNum));
+var l = layer_tilemap_get_id(mainTilesLayer);
+
+var layersToShade = ds_list_create();
+ds_list_add(layersToShade,l);
+var layers = layer_get_all();
+for (var i = 0; i < array_length_1d(layers); i++) {
+	var lay = layers[i];
+	var lname = layer_get_name(lay);
+	var layDepth = layer_get_depth(lay);
+	var mtlDepth = layer_get_depth(mainTilesLayer);
+	var ab = abs(layDepth - mtlDepth);
+	if abs(layer_get_depth(lay) - layer_get_depth(mainTilesLayer)) <= 5 {
+		var tm = layer_tilemap_get_id(lay);
+		if tm != l {
+			ds_list_add(layersToShade, tm);
+		}
+	}
+}
+
+//var le = layer_tilemap_get_id(layer_get_id("tiles_environment_floor_"+string(floorNum)));
+//draw_tilemap(l,0,0);
+//draw_tilemap(le,0,0);
+for (var i = 0; i < ds_list_size(layersToShade); i++) {
+	var tm = ds_list_find_value(layersToShade, i);
+	draw_tilemap(tm, 0, 0);
+}
 
 surface_set_target(surface_canvas_1);
 
-var l = layer_tilemap_get_id(layer_get_id("tiles_floor_"+string(floorNum)));
-var le = layer_tilemap_get_id(layer_get_id("tiles_environment_floor_"+string(floorNum)));
-draw_tilemap(l,0,0);
-draw_tilemap(le,0,0);
+//var l = layer_tilemap_get_id(layer_get_id("tiles_floor_"+string(floorNum)));
+//var le = layer_tilemap_get_id(layer_get_id("tiles_environment_floor_"+string(floorNum)));
+for (var i = 0; i < ds_list_size(layersToShade); i++) {
+	var tm = ds_list_find_value(layersToShade, i);
+	draw_tilemap(tm, 0, 0);
+}
+//draw_tilemap(l,0,0);
+//draw_tilemap(le,0,0);
 
 surface_reset_target();
 
@@ -46,3 +74,5 @@ shade = (-.05/200)*diff;
 shader_set_uniform_f(uPOSITION,shade);
 draw_surface(surface_canvas_1,0,0);
 shader_reset();
+
+ds_list_destroy(layersToShade); layersToShade = -1;

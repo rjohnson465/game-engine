@@ -23,8 +23,14 @@ if instance_number(object_index) > 3 {
 	alertToDestroy.isVisible = false;
 }
 // do not display the exact same message twice on screen
+var isAlreadyOnScreen = false;
 with obj_alert {
 	if id != other && message == other.message {
 		isVisible = false;
+		isAlreadyOnScreen = true;
 	}
+}
+
+if isVisible && color == c_red && !isAlreadyOnScreen {
+	audio_play_sound(snd_ui_error,1,0);
 }

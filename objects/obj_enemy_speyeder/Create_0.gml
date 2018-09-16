@@ -1,5 +1,6 @@
 event_inherited();
 name = "Speyeder";
+descriptionChoices = ["Way too many eyes", "KILL IT WITH FIRE", "Wow what a great pun", "5/7 walk animation"];
 description = "Way too many eyes";
 spriteName = "speyeder";
 spriteString = "enemy_speyeder";
@@ -10,7 +11,6 @@ functionalSpeed = 7;
 normalSpeed = 7;
 turnSpeed = 7;
 normalTurnSpeed = turnSpeed;
-//isFloating = true;
 
 dyingParticleColor1 = make_color_rgb(64,90,111)
 dyingParticleColor2 = make_color_rgb(19,38,52)
@@ -19,7 +19,6 @@ canJump = false;
 
 hasHands = false; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
-
 
 // general attacks info
 meleeAggroRange = 300;
@@ -47,10 +46,14 @@ meleeRangeArray=[5];
 
 // ATTACKS
 global.owner = id;
-var bugBite = makeEnemyAttackObj(obj_attack_speyeder_head_1_1)
+var bugBite = makeEnemyAttackObj(obj_attack_speyeder_head_1_1);
 
-var meleeChain0 = [bugBite];
-meleeAttacks = [meleeChain0];
+var webAoe = makeEnemyAttackObj(obj_attack_speyeder_aoe_1_1);
+
+var meleeChain0 = [webAoe];
+var meleeChain1 = [bugBite];
+var meleeChain2 = [bugBite, webAoe];
+meleeAttacks = [meleeChain2];
 
 // ranged attacks info
 
@@ -71,11 +74,11 @@ showHp = false; // hit at all (flag for showing health bar)
 // stagger stuff
 poise = 20;
 
+ds_map_replace(defenses, FIRE, -100);
+
 // dodge stuff
 agility = 20; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
-//ds_map_replace(defenses,POISON,50);
-
-
-
+soundsWhenHitVocals = [snd_enemy_speyeder_hit_1, snd_enemy_speyeder_hit_2];
+soundsWhenDie = [snd_enemy_speyeder_death];

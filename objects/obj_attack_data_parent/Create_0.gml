@@ -1,6 +1,7 @@
 enum AttackTypes {
 	Standard,
-	Charge
+	Charge,
+	AOE
 }
 
 owner = global.owner;
@@ -37,3 +38,8 @@ coolDownFrames = [25,40];
 
 // how fast the owner may turn when prepping this attack
 turnSpeed = owner.turnSpeed;
+
+// aoe stuff
+part1 = noone;
+part2 = noone;
+numberOfProjectiles = noone;

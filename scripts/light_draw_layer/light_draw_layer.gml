@@ -78,8 +78,19 @@ if _light_time >= _light_max_time
                     }
                     surface_set_target(_light_surface)
                     draw_clear(c_black)
+					var xs = _light_scale; var ys = _light_scale;
+					if _light_is_multiscaled {
+						xs = _light_xscale; ys = _light_yscale;
+					}
+					// draw lights below player brighter 
+					var a = _light_alpha;
+					var playerLayerNum = getLayerFloorNumber(global.player.layer);
+					if layerNum < playerLayerNum {
+						a += .5;
+						if a > 1 a = 1;
+					}
                     draw_sprite_ext(_light_sprite, 0, _light_half_size * _light_quality, _light_half_size * _light_quality, 
-                        _light_scale * _light_quality, _light_scale * _light_quality, _light_angle, _light_color, _light_alpha)
+                        xs * _light_quality, ys * _light_quality, _light_angle, _light_color, a)
                     if argument3 {
                         // Draw shadows.
                         for (var j = 0; j < ds_list_size(_light_casters); j++) {

@@ -18,6 +18,7 @@ global.isTrading = false;
 functionalSpeed = 6;
 normalSpeed = 6;
 facingDirection = 0;
+isSprinting = false;
 
 spriteType = "player";
 spriteString = "player";
@@ -172,7 +173,8 @@ if global.populateInventory {
 	addItemToInventory(longsword);
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
-	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_shortbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_spear));
 	/*
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_hatchet));

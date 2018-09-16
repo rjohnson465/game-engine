@@ -9,14 +9,6 @@ if ds_exists(items,ds_type_list) {
 		var item = ds_list_find_value(items,i);
 		instance_destroy(item,1);
 	}
-
 	ds_list_destroy(items); items = -1;
 }
 global.canLoot = false;
-
-/*
-with obj_room_data {
-	if roomIndex == room {
-		ds_list_delete(itemDropsData,other.itemDropData);
-	}
-}

@@ -27,3 +27,15 @@ if assailant.type == CombatantTypes.Player && attackObj.isMelee {
 		damageItem(itemHitWith,.05*actualDamage);
 	}
 }
+
+// maybe vocalize
+if array_length_1d(soundsWhenHitVocals) != 0 && hp >= 1 {
+	randomize();
+	var rand = round(random_range(-3,array_length_1d(soundsWhenHitVocals)-1));
+	if rand >= 0 {
+		var snd = soundsWhenHitVocals[rand];
+		if snd && snd != noone {
+			audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
+		}
+	}
+}

@@ -82,7 +82,6 @@ droppedItems = ds_list_create();
 
 xpReward = 100;
 
-
 currentX = postX; currentY = postY; currentZ = postZ;
 
 // new system of storing enemies data -- use properties map, like with persistent room elements
@@ -100,3 +99,8 @@ ds_map_replace(persistentProperties, "CurrentZ", currentZ);
 //ds_map_replace(persistentProperties, "MaxHp", maxHp);
 ds_map_replace(persistentProperties, "IsAlive", isAlive);
 ds_map_replace(persistentProperties, "FacingDirection", facingDirection);
+ds_map_replace(persistentProperties, "FacingDirectionStart", facingDirection);
+
+texFrame = 0;
+texFrameTotals = 0;//sprite_get_number(spr_texture_clouds_red);
+descriptionChoices = [];

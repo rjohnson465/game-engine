@@ -177,6 +177,7 @@ if	state != CombatantStates.Dodging &&
 				audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
 			}
 		}
+		
 		handleUnblockedAttack(attackObj,assailant,damage,actualDamage,isCriticalHit,itemHitWith);
 		isBeingHit = true;
 		alarm[5] = 5;
@@ -193,7 +194,7 @@ if	state != CombatantStates.Dodging &&
 	
 	
 	// destroy most ranged projectiles on impact
-	if attackObj.isRanged || attackObj.isSpell {
+	if attackObj.isRanged || attackObj.isSpell || attackObj.object_index == obj_attack_aoe {
 		
 		if attackObj.isSpell && !attackObj.hasSetAlarm {
 			with attackObj {

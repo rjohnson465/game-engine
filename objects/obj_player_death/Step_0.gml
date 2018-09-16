@@ -1,4 +1,4 @@
-global.player.hp = 0; // keep player hp at 0
+//global.player.hp = 0; // keep player hp at 0
 // if mouse enters a button, highlight it
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);

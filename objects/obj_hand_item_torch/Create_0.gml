@@ -22,7 +22,7 @@ ds_map_set(damages,SLASH,[0,0]);
 ds_map_set(damages,PIERCE,[0,0]);
 ds_map_set(damages,CRUSH,[1,3]);
 ds_map_set(damages,FIRE,[1,5]);
-staminaCostArray=[5];
+staminaCostArray=[15];
 
 act = 1;
 

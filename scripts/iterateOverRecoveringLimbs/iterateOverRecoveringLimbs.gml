@@ -8,19 +8,23 @@ if ds_map_size(recoveringLimbs) != 0 {
 	for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
 		var recoverFrame = ds_map_find_value(recoverFrames,currentRecoveringLimbKey);
 		var recoverFrameTotal = ds_map_find_value(recoverFrameTotals,currentRecoveringLimbKey);
-				
+		
+		var currentAttack = currentMeleeAttack != noone ? currentMeleeAttack : currentRangedAttack;
+		var attacksChainArray = currentMeleeAttack != noone ? meleeAttacks : rangedAttacks;
+		var attackChainArray = attacksChainArray[currentAttack];
+		var attackInChain = ds_map_find_value(recoveringLimbs,currentRecoveringLimbKey);
+		var attackData = attackChainArray[attackInChain-1];
+		var spriteAttackNumber = attackData.spriteAttackNumber;
+		var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
+		
+		var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
+		var recoverSpriteSpeed = sprite_get_speed(recoverSprite);
+		var incAmount = recoverSpriteSpeed/30;
+		
 		// check if this hand just started recovering attack
 		if recoverFrame == -1 {
 			prevAttackLimb = currentRecoveringLimbKey;
-			ds_map_replace(recoverFrames,currentRecoveringLimbKey,0);
-						
-			var currentAttack = currentMeleeAttack != noone ? currentMeleeAttack : currentRangedAttack;
-			var attacksChainArray = currentMeleeAttack != noone ? meleeAttacks : rangedAttacks;
-			var attackChainArray = attacksChainArray[currentAttack];
-			var attackInChain = ds_map_find_value(recoveringLimbs,currentRecoveringLimbKey);
-			var attackData = attackChainArray[attackInChain-1];
-			var spriteAttackNumber = attackData.spriteAttackNumber;
-			var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
+			ds_map_replace(recoverFrames,currentRecoveringLimbKey,0)
 						
 			var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
 			ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,sprite_get_number(recoverSprite));
@@ -33,9 +37,11 @@ if ds_map_size(recoveringLimbs) != 0 {
 			ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,0);
 		} else {
 			if isSlowed {
-				ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+.5);
+				ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+(.5*incAmount));
 			} else {
-				ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+1);
+				// increment frames according to sprite image speed
+				
+				ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+incAmount);
 			}
 		}
 		currentRecoveringLimbKey = ds_map_find_next(recoveringLimbs,currentRecoveringLimbKey);

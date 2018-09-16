@@ -57,7 +57,7 @@ if ds_map_find_value(prepFrames,"l") >= ds_map_find_value(prepFrameTotals,"l") |
 				global.limbKey = "l";
 				//global.spellAttunement = spellAttunement;
 				//instance_create_depth(x,y,1,obj_attack);	
-				instance_create_depth(x,y,1,obj_attack_ranged);	
+				instance_create_depth(x,y,1,obj_attack);	
 			}
 		}
 		ds_map_replace(prepFrames,"l",-1);

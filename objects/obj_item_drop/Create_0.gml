@@ -4,9 +4,8 @@ ds_list_copy(items,global.droppedItems);
 for (var i = 0; i < ds_list_size(global.droppedItems); i++) {
 	var item = ds_list_find_value(items, i);
 	item.itemDropObj = id;
+	item.persistent = true;
 }
-
-//ds_list_destroy(itemsBS);
 
 owner = global.owner;
 layer = owner.layer;

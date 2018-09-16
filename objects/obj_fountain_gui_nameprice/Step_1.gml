@@ -22,33 +22,64 @@ if gamepad_is_connected(pad) {
 	var acceptingJoystickInput = joystickInputFrame >= joystickInputTotalFrames;
 	// move selector left
 	if gamepad_button_check_pressed(pad,gp_padl) || (angleBetween(135,225,pdir) && pdir != noone && acceptingJoystickInput) {
-		//moveFountainInvSelector("left");
+		switch selectedPriceIncrease {
+			case WISH: {
+				selectedPriceIncrease = RESETPRICE; break;
+			}
+			case RESETPRICE: {
+				selectedPriceIncrease = WISH; break;
+			}
+		}
+		if ds_list_find_index(allPriceIncrements, selectedPriceIncrease) != -1 {
+			var newIndex = ds_list_find_index(allPriceIncrements, selectedPriceIncrease) - 1;
+			if newIndex == -1 {
+				newIndex = ds_list_size(allPriceIncrements) - 1;
+			}
+			selectedPriceIncrease = ds_list_find_value(allPriceIncrements, newIndex);
+		}
 		joystickInputFrame = 0;
+		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	
 	// move selector right
 	if gamepad_button_check_pressed(pad,gp_padr) || (angleBetween(315,45,pdir) && pdir != noone && acceptingJoystickInput) {
-		//moveFountainInvSelector("right");
+		switch selectedPriceIncrease {
+			case WISH: {
+				selectedPriceIncrease = RESETPRICE; break;
+			}
+			case RESETPRICE: {
+				selectedPriceIncrease = WISH; break;
+			}
+		}
+		if ds_list_find_index(allPriceIncrements, selectedPriceIncrease) != -1 {
+			var newIndex = ds_list_find_index(allPriceIncrements, selectedPriceIncrease) + 1;
+			if newIndex > ds_list_size(allPriceIncrements) - 1 {
+				newIndex = 0;
+			}
+			selectedPriceIncrease = ds_list_find_value(allPriceIncrements, newIndex);
+		}
 		joystickInputFrame = 0;
+		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	
 	// move selector up
 	if gamepad_button_check_pressed(pad,gp_padu) || (angleBetween(45,135,pdir) && pdir != noone  && acceptingJoystickInput) {
-		var currentPos = ds_list_find_index(allPriceIncrements,selectedPriceIncrease);
-		var listSize = ds_list_size(allPriceIncrements);
-		if currentPos == 0 {
-			currentPos = listSize;
+		if selectedPriceIncrease == WISH || selectedPriceIncrease == RESETPRICE {
+			selectedPriceIncrease = INCREASE100;
+		} else {
+			selectedPriceIncrease = RESETPRICE;
 		}
-		selectedPriceIncrease = ds_list_find_value(allPriceIncrements,(abs(currentPos-1))%listSize);
 		joystickInputFrame = 0;
 		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	
 	// move selector down 
 	if gamepad_button_check_pressed(pad,gp_padd) || (angleBetween(225,315,pdir) && pdir != noone  && acceptingJoystickInput) {
-		var currentPos = ds_list_find_index(allPriceIncrements,selectedPriceIncrease);
-		var listSize = ds_list_size(allPriceIncrements);
-		selectedPriceIncrease = ds_list_find_value(allPriceIncrements,(currentPos+1)%listSize);
+		if selectedPriceIncrease == WISH || selectedPriceIncrease == RESETPRICE {
+			selectedPriceIncrease = INCREASE100;
+		} else {
+			selectedPriceIncrease = RESETPRICE;
+		}
 		joystickInputFrame = 0;
 		audio_play_sound(snd_ui_option_change,1,0);
 	}
@@ -80,9 +111,6 @@ if gamepad_is_connected(pad) {
 				}
 				case INCREASE100K: {
 					newProposal += 100000; break;
-				}
-				case INCREASE1M: {
-					newProposal += 1000000; break;
 				}
 			}
 			if newProposal < getGoldCount() {

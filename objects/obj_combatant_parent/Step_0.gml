@@ -253,12 +253,12 @@ switch(state) {
 			}
 			
 			// aim when preparing attack
-			if ds_map_size(preparingLimbs) != 0 && ds_map_size(attackingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
+			if ds_map_size(preparingLimbs) != 0 && ds_map_size(attackingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 && attackData.type != AttackTypes.AOE {
 				turnToFacePoint(attackData.turnSpeed,lockOnTarget.x,lockOnTarget.y);
 			}
 			
 			// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
-			if !isRanged && ds_map_size(preparingLimbs) !=0 && attackData.type != AttackTypes.Charge {
+			if !isRanged && ds_map_size(preparingLimbs) !=0 && attackData.type != AttackTypes.Charge && attackData.type != AttackTypes.AOE {
 				if distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack] && !place_meeting_layer(x,y,lockOnTarget) {
 					mp_potential_step(lockOnTarget.x,lockOnTarget.y,functionalSpeed*1.25,false);
 				}

@@ -9,7 +9,6 @@ if owner.isMoving && !isDestroying && ownerTouchingWater {
 	}
 	audio_emitter_gain(owner.walkingInWaterEmitter,1);
 	
-	//var water = part_type_create();
 	part_type_shape(part1,pt_shape_explosion);
 	part_type_size(part1,.05,.15,0,0);
 	part_type_color2(part1,c_aqua,c_ltgray);

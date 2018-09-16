@@ -8,6 +8,10 @@ else if global.fountainGui.currentSubMenu == NAMEPRICE {
 	draw_set_alpha(1);
 }
 
+draw_set_color(c_black);
+draw_rectangle(topLeftX, topLeftY, bottomRightX, bottomRightY, 1);
+draw_line(topLeftX, topLeftY+subMenuTitleHeight, bottomRightX, topLeftY+subMenuTitleHeight);
+
 draw_set_halign(fa_center); draw_set_valign(fa_center); draw_set_color(c_white);
 if global.fountainGui.currentSubMenu == CHOOSEGEM || global.fountainGui.currentSubMenu == CHOOSEITEM {
 	draw_text(mean(topLeftX,topLeftX+width),mean(MENUS_TOPLEFT_Y+menusHandleHeight,MENUS_TOPLEFT_Y+menusHandleHeight+subMenuTitleHeight),"Choose Gem");

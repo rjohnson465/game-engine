@@ -55,6 +55,10 @@ floorsFallen = 0;
 
 functionalSpeed = 5;
 normalSpeed = 5;
+isSprinting = false;
+sprintParticle = noone;
+sprintParticleSystem = noone;
+sprintParticleEmitter = noone;
 facingDirection = (image_angle+360)%360;
 previousFacingDirection = facingDirection;
 turnSpeed = 45; // how many degrees a combatant may turn per step to face their target
@@ -365,3 +369,5 @@ isInvestigatingMoving = false;
 currentSpellPrepSound = noone;
 soundsWhenDodge = [snd_dodge1];
 soundsWhenHit = [snd_hit1]; // array of potential "hit" sounds (not "ahhs" or dialogue, just like metal in flesh, metal on metal...)
+soundsWhenHitVocals = [];
+soundsWhenDie = [];

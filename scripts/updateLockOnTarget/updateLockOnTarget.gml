@@ -1,21 +1,26 @@
 // lock on target logic
 
 if global.isWishing exit;
-
+var origTarget = lockOnTarget;
 var lockOnInputReceived = keyboard_check_released(vk_control);
+var lockOnInputChangeReceived = keyboard_check_released(vk_tab);
 if gamepad_is_connected(gamePadIndex) {
 	lockOnInputReceived = keyboard_check_released(vk_control)
 	|| (gamepad_button_check_released(gamePadIndex,gp_stickr) && !isLockedOn);
 }
-if lockOnInputReceived {
+
+if lockOnInputReceived || lockOnInputChangeReceived {
 	// always refresh lockOnList (enemies could have left radius or entered
 	lockOnList = scr_collision_circle_list_layer(x,y,LOCK_ON_DISTANCE,obj_enemy_parent, true, true);
 	if (lockOnList == noone) {
 		lockOnTarget = noone;
 		isLockedOn = false;
 	}
-	// if already locked on, only look through enemies not yet locked onto
+	// if already locked on, only look through enemies not yet locked onto, and only if we pressed tab
 	if (isLockedOn) {
+		if !lockOnInputChangeReceived {
+			lockOnTarget = noone; isLockedOn = false; exit;
+		}
 		var closestInstance = noone;
 		var foundClosest = false; var i = 1;
 		while !foundClosest && i <= ds_list_size(lockOnList) {
@@ -101,5 +106,14 @@ if isLockedOn && gamepad_is_connected(gamePadIndex) {
 		if possibleTargets != noone {
 			ds_list_destroy(possibleTargets); possibleTargets = -1;
 		}
+	}
+}
+
+// update the lockOnTarget description with a random one of its possible descriptions
+if lockOnTarget != noone && instance_exists(lockOnTarget) && lockOnTarget != origTarget {
+	with lockOnTarget {
+		randomize();
+		var rand = round(random_range(0,array_length_1d(descriptionChoices)-1));
+		description = descriptionChoices[rand];
 	}
 }

@@ -20,7 +20,30 @@ if id == global.player.lockOnTarget {
 	var x2 = middleX+(.5*nameWidth)+widthBuffer;
 	var y2 = 15+nameHeight;
 	var percentHp = (id.hp / id.maxHp)*100;
+	// percentX 
+	var width = x2 - x1; var perDec = percentHp/100;
+	var px = x1+(width*perDec);
+	/*texFrame = (texFrame + 1) % texFrameTotals;
 	
+	draw_set_colour(c_red);
+	//var tex = background_get_texture(background0);
+	var tex = sprite_get_texture(spr_texture_clouds_red,texFrame);
+	//draw_primitive_begin_texture(pr_trianglelist, tex);
+	// triangle 1
+	draw_vertex_texture(x1, y1, 0, 0);
+	draw_vertex_texture(x1, y2, 1, 0);
+	draw_vertex_texture(px,y2, perDec, 1);
+	// triangle 2
+	draw_vertex_texture(px,y1, perDec, 1);
+	draw_vertex_texture(x1,y1, 0, 1);
+	draw_vertex_texture(px,y2, perDec, 1);
+	draw_primitive_end();
+	draw_primitive_begin_texture(pr_trianglestrip, tex);
+	draw_vertex_texture(x1, y2, 0, 1);
+	draw_vertex_texture(x1, y1, 0, 0);
+	draw_vertex_texture(px, y2, 1*perDec, 1);
+	draw_vertex_texture(px, y1, 1*perDec, 0);
+	draw_primitive_end();*/
 	draw_healthbar(x1,y1,x2,y2,percentHp,c_black,c_red,c_maroon,0,1,1);
 	draw_set_color(c_white);
 	draw_rectangle(x1,y1,x2,y2,1);

@@ -16,15 +16,25 @@ if (staggerFrame > .5*staggerDuration) {
 	do {
 		x1 = x+lengthdir_x(.5*sspeed, sDir);
 		y1 = y+lengthdir_y(.52*sspeed, sDir);
+		var _pml = place_meeting_layer(x1,y1,solidsToCheck);
+		var _pml2 = place_meeting_layer(x1,y1,obj_combatant_parent);
 		if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 			sDir = (sDir + 45)%360;
+			if sDir == staggerDirection {
+				
+				var _pml = place_meeting_layer(x1,y1,solidsToCheck);
+				var _pml2 = place_meeting_layer(x1,y1,obj_combatant_parent);
+				var a = 3;
+			}
 		}
 	} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
 			
-	if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
+	//if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 		speed = .25*sspeed;
 		staggerDirection = sDir;
-	}
+	//}
+	/*moveToNearestFreePoint(sDir, .25*sspeed,1);
+	staggerDirection = sDir;*/
 } else {
 			
 	var x1 = x+lengthdir_x(.25*sspeed, sDir);
@@ -38,10 +48,10 @@ if (staggerFrame > .5*staggerDuration) {
 		}
 	} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
 			
-	if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
+	//if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 		speed = .5*sspeed;
 		staggerDirection = sDir;
-	}
+	//}
 			
 }
 staggerFrame++;

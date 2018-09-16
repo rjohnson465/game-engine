@@ -20,10 +20,11 @@
         "fbbb18bc-f658-419f-bb66-9d9dc596b6f5",
         "79a48a38-7540-44ea-952b-6c4e04c7f0dc",
         "77f749e6-7956-4f5b-818b-e7e92a04b367",
-        "743c14a2-cb40-4500-9083-224bacb80cc3"
+        "743c14a2-cb40-4500-9083-224bacb80cc3",
+        "7ffa19bd-0cb9-437d-b46b-abefbb83f672"
     ],
     "filterType": "GMSound",
-    "folderName": "combat",
+    "folderName": "attacks",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

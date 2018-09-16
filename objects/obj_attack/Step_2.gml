@@ -1,4 +1,14 @@
-if place_meeting_layer(x,y,obj_solid_environment) {
+var isHittingSolid = false;
+with obj_solid_environment {
+	var _dist = distance_to_object(other);
+	if _dist <= 1 && layer == other.layer {
+		isHittingSolid = true;
+		var a = 3;
+	}
+}
+
+
+if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 	var x1 = x + lengthdir_x(100,facingDirection);
 	var y1 = y + lengthdir_y(100,facingDirection);
 	var firstObj = noone;

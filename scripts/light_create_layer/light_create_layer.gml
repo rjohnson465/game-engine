@@ -15,6 +15,7 @@ _light_color = argument2
 _light_alpha = argument3
 _light_angle = argument4
 _light_shadows = argument5
+_light_is_multiscaled = false
 
 _light_max_dist = max(sprite_get_width(_light_sprite),
                       sprite_get_height(_light_sprite)) * _light_scale

@@ -7,6 +7,7 @@ var DOWN = keyboard_check(ord("S"));
 var LEFT = keyboard_check(ord("A"));
 var RIGHT = keyboard_check(ord("D"));
 var SHIFT = keyboard_check(vk_shift) || gamepad_button_check(gamePadIndex, gp_stickl) || gamepad_button_check(gamePadIndex,gp_face4);
+isSprinting = SHIFT;
 speed = 0;
 var canMove = false;
 var gamePadInputReceived = false;

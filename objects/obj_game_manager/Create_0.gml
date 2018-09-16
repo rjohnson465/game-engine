@@ -1,5 +1,5 @@
 //var a = ds_map_secure_load("Game");
-
+fs_clear_enemydata_tempfile(); fs_clear_roomdata_tempfile();
 display_set_gui_size(view_get_wport(view_camera[0]),view_get_hport(view_camera[0]));
 global.gameManager = id;
 // use macros for elements rather than enums (helps with sprite getting)
@@ -16,6 +16,7 @@ global.gameManager = id;
 #macro C_HANDLES make_color_rgb(47,79,79)
 #macro C_DKRGRAY make_color_rgb(42,42,42)
 #macro C_FIRELIGHT make_color_rgb(255,178,102)
+#macro C_GOLD make_color_rgb(255, 215, 0)
 
 #macro C_RARITY_NORMAL c_white
 #macro C_RARITY_FINE c_lime

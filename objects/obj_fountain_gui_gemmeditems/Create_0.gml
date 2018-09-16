@@ -18,6 +18,8 @@ invBottomRightY = invTopLeftY+invHeight;
 
 topLeftX = MENUS_TOPLEFT_X;
 topLeftY = MENUS_TOPLEFT_Y+menusHandleHeight;
+bottomRightX = topLeftX + width;
+bottomRightY = MENUS_BOTTOMRIGHT_Y;
 
 hoveredItem = noone;
 selectedItem = noone;
