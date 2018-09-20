@@ -1,7 +1,7 @@
-/// maybeMakeItem(dropChance,raritiesMap,*typeMap,*act,*gemTypeMap,*itemPropertiesChanceAddendums)
+/// maybeMakeItem(dropChance,raritiesMap,*typeMapOrIndexesArray,*act,*gemTypeMap,*itemPropertiesChanceAddendums)
 /// @param dropChance number 0-100
 /// @param raritiesMap map (<RarityType>, number)
-/// @param *typeMap map (<ItemType>, [minRange,maxRange]) -- odds of a specific type (i.e. Ring, Hat...)
+/// @param *typeMapOrIndexesArray map | Array (<ItemType>, [minRange,maxRange]) -- odds of a specific type (i.e. Ring, Hat...)
 /// @param *act number (what "act" should this item correspond to?)
 /// @param *gemTypeMap map stating drop chances for each Gem 
 /// @param *itemPropertiesChanceAddendums 
@@ -17,47 +17,59 @@ var rand1 = random_range(0,100);
 if rand1 >= dropChance return noone;
 
 // PART 1: Select base item type
-var typeMap = getDefaultItemTypeChanceMap();
-if argument_count >=3 && argument[2] != noone {
-	typeMap = argument[2];
-}
-
-var cumSum = 0;
-var currentTypeKey = ds_map_find_first(typeMap);
-for (var i = 0; i < ds_map_size(typeMap); i++) {
-	var weight = ds_map_find_value(typeMap,currentTypeKey);
-	cumSum += weight;
-	currentTypeKey = ds_map_find_next(typeMap,currentTypeKey);
-}
-
-randomize(); 
-var rand = random_range(0,cumSum);
-	
-var currentTypeKey = ds_map_find_first(typeMap);
-var itemType = noone; // the chosen item type based on this roll
-var lowerBound = 0; var upperBound = 0;
-for (var i = 0; i < ds_map_size(typeMap); i++) {
-	var weight = ds_map_find_value(typeMap,currentTypeKey);
-	upperBound += weight;
-	if rand >= lowerBound && rand <= upperBound {
-		itemType = currentTypeKey; break;
+if argument_count >= 3 && is_array(argument[2]) {
+} else {
+	var typeMap = getDefaultItemTypeChanceMap();
+	if argument_count >=3 && argument[2] != noone {
+		typeMap = argument[2];
 	}
+
+	var cumSum = 0;
+	var currentTypeKey = ds_map_find_first(typeMap);
+	for (var i = 0; i < ds_map_size(typeMap); i++) {
+		var weight = ds_map_find_value(typeMap,currentTypeKey);
+		cumSum += weight;
+		currentTypeKey = ds_map_find_next(typeMap,currentTypeKey);
+	}
+
+	randomize(); 
+	var rand = random_range(0,cumSum);
+	
+	var currentTypeKey = ds_map_find_first(typeMap);
+	var itemType = noone; // the chosen item type based on this roll
+	var lowerBound = 0; var upperBound = 0;
+	for (var i = 0; i < ds_map_size(typeMap); i++) {
+		var weight = ds_map_find_value(typeMap,currentTypeKey);
+		upperBound += weight;
+		if rand >= lowerBound && rand <= upperBound {
+			itemType = currentTypeKey; break;
+		}
 		
-	lowerBound += weight;
-	currentTypeKey = ds_map_find_next(typeMap,currentTypeKey);
-}
-if itemType == noone itemType = ItemTypes.HandItem;
+		lowerBound += weight;
+		currentTypeKey = ds_map_find_next(typeMap,currentTypeKey);
+	}
+	if itemType == noone itemType = ItemTypes.HandItem;
 
-ds_map_destroy(typeMap); typeMap = -1; // prevent mem leak
-
-// PART 2: Select object based on "act"
-var act = getRoomAct();
-if argument_count >= 4 && argument[3] != noone {
-	act = argument[3];
+	ds_map_destroy(typeMap); typeMap = -1; // prevent mem leak
 }
 
-var itemIndex = getBaseItemFromAct(itemType,act);
+// PART 2: Select object based on "act" || based on indexesArray param
+var itemIndex = noone;
+if argument_count >= 3 && is_array(argument[2]) {
+	var possibleObjIndexes = argument[2];
+	randomize();
+	var rand = random_range(0,array_length_1d(possibleObjIndexes)-1);
+	itemIndex = possibleObjIndexes[rand];
+} else {
+	var act = getRoomAct();
+	if argument_count >= 4 && argument[3] != noone {
+		act = argument[3];
+	}
+
+	itemIndex = getBaseItemFromAct(itemType,act);
+}
 var item = instance_create_depth(x,y,1,itemIndex);
+itemType = item.type;
 
 // TODO -- the item might just be one of a set of possible object indexes provided.
 // Add support for an itemIndexMap -- a map of object indexes that might be dropped

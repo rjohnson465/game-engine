@@ -19,8 +19,15 @@ var objLayer = obj.layer;
 var invokingInstanceLayer = layer;
 
 // get all touching objects
-var dia = (bbox_right-bbox_left);
-var touchingInstances = scr_collision_circle_list(xx,yy,dia/2,obj,true,true);
+//var dia = (bbox_right-bbox_left);
+//var touchingInstances = scr_collision_circle_list(xx,yy,dia/2,obj,true,true);
+var touchingInstances = ds_list_create();
+with obj {
+	if distance_to_object(other) < 1 {
+		ds_list_add(touchingInstances, id);
+	}
+}
+
 var touchingInstanceIsOnSameLayer = false;
 var touchingAdditionalObjects = false;
 var offendingInstance = noone;

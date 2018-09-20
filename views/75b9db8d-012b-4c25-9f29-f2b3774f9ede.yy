@@ -16,6 +16,7 @@
         "2daf145c-5cdc-4ea1-b6de-fd82a34676ed",
         "29416bf6-7d40-48db-8428-88265316444b",
         "53095c17-a8c1-4769-bc3d-922b03d5890d",
+        "a197e596-fa97-47a1-85ab-1700f6384f53",
         "f0eff6a6-dd20-4359-a231-97e9f908deb3",
         "a1938765-90a2-4241-ac75-e0f1fd5f5abe",
         "c1eb91a1-c734-48cb-8620-eeb1a88f1f43",
@@ -29,7 +30,8 @@
         "a9df1787-6a36-4249-9f1f-6ccb994655b5",
         "ef99d6ef-2857-4c19-85bc-35354dc233a2",
         "08f5b9aa-70c1-4d4a-86ea-a330f96619d7",
-        "d85572a7-927a-4dc5-b2c2-2d9b627144c4"
+        "d85572a7-927a-4dc5-b2c2-2d9b627144c4",
+        "2ab55183-52a8-4286-8e57-45da2a945a5b"
     ],
     "filterType": "GMScript",
     "folderName": "Lighting",

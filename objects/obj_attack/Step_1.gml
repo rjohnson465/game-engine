@@ -1,3 +1,4 @@
+life --;
 // special case - 2h club on 3rd attack create dust particles from hitting the ground
 if (weapon != noone && weapon.weaponType == BLUNT2H && attackNumber == 3) {
 	
@@ -37,13 +38,13 @@ with obj_sconce {
 	}
 }
 
-if isOnFire {
+if isOnFire && !hasSetAlarm {
 	// cinder Particle
 	var cinder = part_type_create();
 	part_type_shape(cinder,pt_shape_flare);
 	part_type_size(cinder,0,.1,0,0);
 	part_type_color2(cinder,c_orange,c_red);
-	part_type_alpha3(cinder,1,1,0); 
+	part_type_alpha3(cinder,1,.5,0); 
 	part_type_speed(cinder,1,2,0,0);
 	part_type_direction(cinder,85,95,0,0);
 	part_type_blend(cinder,1);

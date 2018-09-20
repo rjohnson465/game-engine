@@ -17,6 +17,8 @@ hasSetAlarm = false;
 isOnFire = false; // for arrows that pass through torches
 additionalDamages = ds_map_create();
 
+life = 60; // frames bfore ranged attack fades away
+
 spell = noone;
 particle = noone;
 particle2 = noone;

@@ -30,7 +30,7 @@ if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) 
 else {
 	var dir = d;
 	var possibleAngles = ds_list_create();
-	dir = (dir + 5.625)%360; 
+	dir = (dir + 22.5)%360; 
 	while dir != d
 	{
 		if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) {

@@ -14,10 +14,12 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 	var firstObj = noone;
 	var possibleSolids = scr_collision_line_list_layer(x,y,x1,y1,obj_solid_parent,true,true);
 	if possibleSolids != noone {
-		var closestDist = 1000;
+		//var closestDist = 1000;
 		for (var i = 0; i < ds_list_size(possibleSolids); i++) {
 			var el = ds_list_find_value(possibleSolids,i);
-			if !object_is_ancestor(el.object_index,obj_combatant_parent) && distance_to_object(el) < closestDist {
+			var _dist = distance_to_object(el);
+			var _isTouching = place_meeting_layer(x,y,el);
+			if !object_is_ancestor(el.object_index,obj_combatant_parent) && _isTouching {
 				firstObj = el;
 			}
 		}
@@ -27,7 +29,7 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		ds_list_destroy(possibleSolids); possibleSolids = -1;
 	}
 	
-	if firstObj == noone exit;
+	if firstObj == noone || !firstObj.stopsAttacks exit;
 	
 	if firstObj.object_index == obj_sconce && isRanged exit; // sconces are a special case
 
@@ -103,7 +105,7 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		global.hitParticlesLayer = layer; 
 		global.victim = firstObj;
 		instance_create_depth(0,0,1,obj_hit_particles);
-		alarm[0] = 15;
+		alarm[0] = 25;
 		visible = 0;
 		speed = 0;
 		hasSetAlarm = true;

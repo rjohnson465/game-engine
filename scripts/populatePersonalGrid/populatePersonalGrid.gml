@@ -17,6 +17,13 @@ with obj_enemy_obstacle_parent {
 		}
 	}
 }
+
+with obj_fallzone {
+	if layer == myLayer {
+		ds_list_add(solids, id);
+	}
+}
+
 for (var i = 0; i < ds_list_size(solids); i++) {
 	mp_grid_add_instances(personalGrid,ds_list_find_value(solids,i),true);
 }

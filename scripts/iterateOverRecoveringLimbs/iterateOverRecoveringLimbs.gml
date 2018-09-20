@@ -13,19 +13,21 @@ if ds_map_size(recoveringLimbs) != 0 {
 		var attacksChainArray = currentMeleeAttack != noone ? meleeAttacks : rangedAttacks;
 		var attackChainArray = attacksChainArray[currentAttack];
 		var attackInChain = ds_map_find_value(recoveringLimbs,currentRecoveringLimbKey);
-		var attackData = attackChainArray[attackInChain-1];
-		var spriteAttackNumber = attackData.spriteAttackNumber;
-		var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
+		if attackInChain != undefined {
+			var attackData = attackChainArray[attackInChain-1];
+			var spriteAttackNumber = attackData.spriteAttackNumber;
+			var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
 		
-		var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
-		var recoverSpriteSpeed = sprite_get_speed(recoverSprite);
-		var incAmount = recoverSpriteSpeed/30;
+			var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
+			var recoverSpriteSpeed = sprite_get_speed(recoverSprite);
+			var incAmount = recoverSpriteSpeed/30;
+		} else exit;
 		
 		// check if this hand just started recovering attack
 		if recoverFrame == -1 {
 			prevAttackLimb = currentRecoveringLimbKey;
 			ds_map_replace(recoverFrames,currentRecoveringLimbKey,0)
-						
+			
 			var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
 			ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,sprite_get_number(recoverSprite));
 		}

@@ -4,3 +4,4 @@
 // Inherit the parent event
 event_inherited();
 
+audio_emitter_free(sprintSoundEmitter); sprintSoundEmitter = -1;

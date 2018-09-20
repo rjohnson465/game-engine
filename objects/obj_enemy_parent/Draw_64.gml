@@ -1,67 +1,5 @@
-// if player is locked on to this enemy, view hp / name in top middle screen
-if id == global.player.lockOnTarget {
-	draw_set_font(font_main);
-	var name = id.name;
-	var nameWidth = string_width(name);
-	var nameHeight = string_height(name);
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_top);
-	var middleX = view_get_wport(view_camera[0])/2;
-	
-	var projectedWidth = nameWidth+20;
-	var widthBuffer = 10;
-	if projectedWidth < 250 {
-		var diff = 250 - projectedWidth;
-		widthBuffer = diff / 2;
-	}
-	
-	var x1 = middleX-(.5*nameWidth)-widthBuffer;
-	var y1 = 11;
-	var x2 = middleX+(.5*nameWidth)+widthBuffer;
-	var y2 = 15+nameHeight;
-	var percentHp = (id.hp / id.maxHp)*100;
-	// percentX 
-	var width = x2 - x1; var perDec = percentHp/100;
-	var px = x1+(width*perDec);
-	/*texFrame = (texFrame + 1) % texFrameTotals;
-	
-	draw_set_colour(c_red);
-	//var tex = background_get_texture(background0);
-	var tex = sprite_get_texture(spr_texture_clouds_red,texFrame);
-	//draw_primitive_begin_texture(pr_trianglelist, tex);
-	// triangle 1
-	draw_vertex_texture(x1, y1, 0, 0);
-	draw_vertex_texture(x1, y2, 1, 0);
-	draw_vertex_texture(px,y2, perDec, 1);
-	// triangle 2
-	draw_vertex_texture(px,y1, perDec, 1);
-	draw_vertex_texture(x1,y1, 0, 1);
-	draw_vertex_texture(px,y2, perDec, 1);
-	draw_primitive_end();
-	draw_primitive_begin_texture(pr_trianglestrip, tex);
-	draw_vertex_texture(x1, y2, 0, 1);
-	draw_vertex_texture(x1, y1, 0, 0);
-	draw_vertex_texture(px, y2, 1*perDec, 1);
-	draw_vertex_texture(px, y1, 1*perDec, 0);
-	draw_primitive_end();*/
-	draw_healthbar(x1,y1,x2,y2,percentHp,c_black,c_red,c_maroon,0,1,1);
-	draw_set_color(c_white);
-	draw_rectangle(x1,y1,x2,y2,1);
-	draw_text(middleX,15,name);
-	draw_set_font(font_small);
-	draw_text(middleX,y2+2,id.description);
-	draw_set_font(font_main);
-}
 
-//draw_path(id.path,x,y,true);
-//draw_path(id.gridPath,x,y,true);
-draw_set_alpha(0.3);
-//mp_grid_draw(id.personalGrid);
-draw_set_alpha(1);
-if id.layer != global.player.layer exit;
-if id.showHp && id.isAlive && !id.isDying {
-	
-	
+if id.showHp && id.isAlive && !id.isDying && layer == global.player.layer {
 	
 	// totalhp bar outline
 	var vx = camera_get_view_x(view_camera[0]);
@@ -139,5 +77,93 @@ if id.showHp && id.isAlive && !id.isDying {
 		x2,
 		y2,
 		false);
-		
 }
+
+
+// if player is locked on to this enemy, view hp / name in top middle screen
+if id == global.player.lockOnTarget {
+	draw_set_font(font_main);
+	var name = id.name;
+	var nameWidth = string_width(name);
+	var nameHeight = string_height(name);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_top);
+	var middleX = view_get_wport(view_camera[0])/2;
+	
+	var projectedWidth = nameWidth+20;
+	var widthBuffer = 10;
+	if projectedWidth < 250 {
+		var diff = 250 - projectedWidth;
+		widthBuffer = diff / 2;
+	}
+	
+	var x1 = middleX-(.5*nameWidth)-widthBuffer;
+	var y1 = 11;
+	var x2 = middleX+(.5*nameWidth)+widthBuffer;
+	var y2 = 15+nameHeight;
+	var percentHp = (id.hp / id.maxHp)*100;
+	// percentX 
+	var width = x2 - x1; var perDec = percentHp/100;
+	var px = x1+(width*perDec);
+	draw_healthbar(x1,y1,x2,y2,percentHp,c_black,c_red,c_maroon,0,1,1);
+	draw_set_color(c_white);
+	draw_rectangle(x1,y1,x2,y2,1);
+	draw_text(middleX,15,name);
+	draw_set_font(font_small);
+	scr_draw_text_outline(middleX,y2+2,id.description, c_white, c_white);
+	draw_set_font(font_main);
+	
+	// draw conditions
+	var conditionsList = ds_list_create();
+	var curEl = ds_map_find_first(conditionPercentages);
+	for (var i = 0; i < ds_map_size(conditionPercentages); i++) {
+		var perc = ds_map_find_value(conditionPercentages, curEl);
+		if perc > 0 {
+			ds_list_add(conditionsList, curEl);
+		}
+		curEl = ds_map_find_next(conditionPercentages, curEl);
+	}
+	
+	// now draw each active condition
+	var xOff = 0;
+	for (var i = 0; i < ds_list_size(conditionsList); i++) {
+		var el = ds_list_find_value(conditionsList, i);
+		var spr = asset_get_index("spr_attunement_"+el);
+		var perc = ds_map_find_value(conditionPercentages, el);
+		var hbWidth = x2 - x1;
+		var reqCondiWidth = hbWidth / 5;
+		var scale = reqCondiWidth / sprite_get_width(spr);
+		if scale > .5 scale = .5;
+		var sw = (sprite_get_width(spr)*scale);
+		var sh = (sprite_get_height(spr)*scale);
+		
+		draw_sprite_ext(spr, 1, x1 + xOff, y2 + 25, scale, scale, 0, c_white, 1);
+		// draw amount as colored bar
+		var xx1 = x1+xOff; var xx2 = xx1 + sw;
+		var yy1 = y2 + 25 + sh; var yy2 = yy1 + 3;
+		var c = c_red;
+		switch el {
+			case MAGIC: {
+				c = c_aqua; break;
+			}
+			case FIRE: {
+				c = c_orange; break;
+			}
+			case ICE: {
+				c = c_white; break;
+			}
+			case POISON: {
+				c = c_green; break;
+			}
+			case LIGHTNING: {
+				c = c_purple; break;
+			}
+		}
+		draw_healthbar(xx1,yy1,xx2,yy2,perc,c_black,c,c,0,1,1);
+		
+		xOff += sw;
+	}
+	
+	ds_list_destroy(conditionsList); conditionsList = -1;
+}
+

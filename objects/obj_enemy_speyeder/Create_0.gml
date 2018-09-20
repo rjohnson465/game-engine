@@ -42,7 +42,7 @@ meleeRangeArray=[];
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[5];
+meleeRangeArray=[10,30,30];
 
 // ATTACKS
 global.owner = id;
@@ -53,7 +53,7 @@ var webAoe = makeEnemyAttackObj(obj_attack_speyeder_aoe_1_1);
 var meleeChain0 = [webAoe];
 var meleeChain1 = [bugBite];
 var meleeChain2 = [bugBite, webAoe];
-meleeAttacks = [meleeChain2];
+meleeAttacks = [meleeChain0, meleeChain1, meleeChain2];
 
 // ranged attacks info
 
@@ -72,7 +72,7 @@ beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
 // stagger stuff
-poise = 20;
+poise = 75;
 
 ds_map_replace(defenses, FIRE, -100);
 

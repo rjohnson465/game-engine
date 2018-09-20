@@ -1,14 +1,18 @@
 if isFlinching || global.ui.isShowingMenus {
 	exit;
 }
+if fallFrame != fallTotalFrames {
+	isSprinting = false;
+	exit;
+}
 if global.isWishing exit;
 var UP = keyboard_check(ord("W"));
 var DOWN = keyboard_check(ord("S"));
 var LEFT = keyboard_check(ord("A"));
 var RIGHT = keyboard_check(ord("D"));
 var SHIFT = keyboard_check(vk_shift) || gamepad_button_check(gamePadIndex, gp_stickl) || gamepad_button_check(gamePadIndex,gp_face4);
-isSprinting = SHIFT;
 speed = 0;
+isSprinting = false;
 var canMove = false;
 var gamePadInputReceived = false;
 if gamepad_is_connected(gamePadIndex) {
@@ -19,7 +23,7 @@ if gamepad_is_connected(gamePadIndex) {
 		direction = (point_direction(0,0,h_point,v_point))%360;
 	}
 } else {
-	var usingSpeed = SHIFT ? functionalSpeed*2 : functionalSpeed;
+	//var usingSpeed = SHIFT ? functionalSpeed*10 : functionalSpeed;
 	if UP && RIGHT {
 		direction = 45;
 	}
@@ -49,17 +53,23 @@ if gamepad_is_connected(gamePadIndex) {
 if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowingMenus && !global.isInteractingWithNpc {
 	var useSpeed = functionalSpeed;
 	if SHIFT && stamina > 0 {
-		useSpeed = functionalSpeed*1.25;
+		useSpeed = functionalSpeed*2;
 		stamina -= .35;
 	}
 	// walking backwards is slow
 	dirDiff = abs(direction - facingDirection);
 	if (dirDiff > 135 && dirDiff < 225) || isShielding  {
 		var modifier = .5;
-		if SHIFT modifier = .8;
+		if SHIFT {
+			modifier = .8;
+			isSprinting = true;
+		}
 		moveToNearestFreePoint(direction,modifier*useSpeed);
 	}	
 	else {
+		if SHIFT {
+			isSprinting = true;
+		}
 		moveToNearestFreePoint(direction,useSpeed);
 	}
 }	

@@ -53,4 +53,6 @@ part_type_blend(smoke,1);
 part_type_life(smoke,25,50);
 particle3 = smoke;
 
+floorNum = getLayerFloorNumber(layer);
+
 part_emitter_region(system, emitter, x-10, x+10, y-10, y+10, ps_shape_diamond, ps_distr_gaussian);

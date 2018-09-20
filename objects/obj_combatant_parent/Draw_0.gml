@@ -50,8 +50,7 @@ if state == CombatantStates.Dodging {
 if isAttackingWithCore {
 	var attackSpriteName = attackData.spriteName;
 	var attackNumber = attackData.spriteAttackNumber; var attackNumberInChain = attackData.spriteAttackNumberInChain;
-	var spr = noone;
-	var frame = -4;
+	var spr = noone; var frame = -1;
 	if ds_map_size(preparingLimbs) > 0 {
 		var frame = ds_map_find_value(prepFrames,noone);
 		spr = asset_get_index(attackSpriteName+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));
@@ -68,8 +67,24 @@ if isAttackingWithCore {
 		spr = asset_get_index(attackSpriteName+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));
 		frame = 0;
 	}
+	if frame < 0 {
+		frame = 0;
+	}
+	
+	
 	if spr != noone && frame >= 0 {
 		draw_sprite_ext(spr,frame,x,y,1,1,facingDirection,c_white,1);
+		
+		// slowed
+		if isSlowed {
+			var percentFrozen = ds_map_find_value(conditionPercentages,ICE);
+			var colorAlpha = (3/320)*percentFrozen;
+			draw_sprite_ext(spr, frame, x, y, 1, 1, facingDirection, c_aqua, .5*alpha);
+		} else if isPoisoned {
+			var percentPoisoned = ds_map_find_value(conditionPercentages,POISON);
+			var colorAlpha = (3/320)*percentPoisoned;
+			draw_sprite_ext(spr, frame, x, y, 1, 1, facingDirection, c_green, .5*alpha);
+		}
 	}
 }
 

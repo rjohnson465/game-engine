@@ -64,9 +64,13 @@ if gamepad_is_connected(pad) {
 	
 	// move selector up
 	if gamepad_button_check_pressed(pad,gp_padu) || (angleBetween(45,135,pdir) && pdir != noone  && acceptingJoystickInput) {
-		if selectedPriceIncrease == WISH || selectedPriceIncrease == RESETPRICE {
+		if selectedPriceIncrease == WISH {
 			selectedPriceIncrease = INCREASE100;
-		} else {
+		} else if selectedPriceIncrease == RESETPRICE {
+			selectedPriceIncrease = INCREASE10K;
+		} else if selectedPriceIncrease == INCREASE100 || selectedPriceIncrease == INCREASE1K {
+			selectedPriceIncrease = WISH;
+		} else if selectedPriceIncrease == INCREASE10K || selectedPriceIncrease == INCREASE100K {
 			selectedPriceIncrease = RESETPRICE;
 		}
 		joystickInputFrame = 0;
@@ -75,9 +79,13 @@ if gamepad_is_connected(pad) {
 	
 	// move selector down 
 	if gamepad_button_check_pressed(pad,gp_padd) || (angleBetween(225,315,pdir) && pdir != noone  && acceptingJoystickInput) {
-		if selectedPriceIncrease == WISH || selectedPriceIncrease == RESETPRICE {
+		if selectedPriceIncrease == WISH {
 			selectedPriceIncrease = INCREASE100;
-		} else {
+		} else if selectedPriceIncrease == RESETPRICE {
+			selectedPriceIncrease = INCREASE10K;
+		} else if selectedPriceIncrease == INCREASE100 || selectedPriceIncrease == INCREASE1K {
+			selectedPriceIncrease = WISH;
+		} else if selectedPriceIncrease == INCREASE10K || selectedPriceIncrease == INCREASE100K {
 			selectedPriceIncrease = RESETPRICE;
 		}
 		joystickInputFrame = 0;

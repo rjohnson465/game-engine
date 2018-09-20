@@ -41,9 +41,6 @@ for (var i = 0 ; i < ds_map_size(sd_temp_enemydatas); i++) {
 	cri = ds_map_find_next(sd_temp_enemydatas, cri);
 }
 
-// flush the tempfile data, so new persistent element data starts with the savefile data
-fs_clear_enemydata_tempfile();
-
 // sd_enemydatas should be the only ds to survive this shit
 ds_map_destroy(sd_temp_enemydatas); sd_temp_enemydatas = -1;
 

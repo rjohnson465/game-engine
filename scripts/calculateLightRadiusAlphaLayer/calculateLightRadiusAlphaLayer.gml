@@ -13,5 +13,5 @@ var luma = getLumaForColor(lightColor);
 // when x is 0, want 1, when x is 256, want 0
 var lightRadiusAlpha = ((-1/128)*luma) + 1 + .35;
 if lightRadiusAlpha > 1 lightRadiusAlpha = 1;
-if lightRadiusAlpha < .5 lightRadiusAlpha = .5;
+//if lightRadiusAlpha < .5 lightRadiusAlpha = .5;
 return lightRadiusAlpha;

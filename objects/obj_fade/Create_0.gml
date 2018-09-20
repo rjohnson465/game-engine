@@ -1,6 +1,7 @@
 fadeDuration = global.fadeDuration;
 owner = global.owner;
 frame = 0;
+alpha = 1;
 emitter = noone;
 system = noone;
 particle = noone;

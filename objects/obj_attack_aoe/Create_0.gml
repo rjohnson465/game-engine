@@ -1,4 +1,5 @@
 owner = global.owner;
+life = 60;
 depth = 1;
 layer = owner.layer;
 x = owner.x;

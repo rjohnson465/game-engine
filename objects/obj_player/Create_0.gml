@@ -266,3 +266,7 @@ quests = ds_list_create();
 // holds a list of all the objects currently "vying for interaction" that are not explicitly prioritied
 // the first object that wants attention (in pos 0) will be adressed first
 nonPriorityInteractionPrompts = ds_list_create(); 
+
+sprintSoundEmitter = audio_emitter_create();
+audio_emitter_gain(sprintSoundEmitter,0);
+audio_play_sound_on(sprintSoundEmitter,snd_move_sprint,1,0);

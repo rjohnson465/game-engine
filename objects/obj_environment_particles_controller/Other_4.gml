@@ -1,7 +1,7 @@
 
 // look at what room we're in, then make particles accordingly
 switch room {
-	case room0: {
+	case rm_dungeon: {
 		var dust = part_type_create();
 		part_type_shape(dust, pt_shape_sphere);
 		part_type_alpha2(dust,.8,0);

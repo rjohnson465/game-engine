@@ -1,7 +1,7 @@
 /// getRoomAct()
 
 switch room {
-	case room0: {
+	case rm_dungeon: {
 		return 1; break;
 	}
 }

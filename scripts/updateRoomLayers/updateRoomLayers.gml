@@ -69,9 +69,9 @@ with obj_enemy_obstacle_parent {
 
 // this will make enemies avoid fallzones when walking, but lets them dodge into them
 with obj_fallzone {
-	if layer == playerLayer {
+	/*if layer == playerLayer {
 		solid = true;
-	} else solid = false;
+	} else solid = false;*/
 }
 ds_list_destroy(instanceLayersAbove); instanceLayersAbove = -1;
 ds_list_destroy(tileLayersAbove); tileLayersAbove = -1;

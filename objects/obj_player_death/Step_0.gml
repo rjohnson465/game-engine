@@ -97,14 +97,13 @@ if instance_exists(fade) {
 					lastFountain = nearestFountain;
 				}
 				
-				
-
 				layerToMoveTo = lastFountainZ;
 				justRevivedAtFountain = true;
 			} 
 			// or used revive orb
 			else {
 				other.reviveOrbs.count--;
+				jumpToNearestFreePoint(0);
 			}
 			
 			with obj_combatant_parent {

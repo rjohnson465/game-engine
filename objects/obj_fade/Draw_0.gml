@@ -4,6 +4,7 @@ if frame < .5*fadeDuration {
 } else {
 	a = ((-1/(.5*fadeDuration))*frame)+2;
 }
+alpha = a;
 
 // the fade rectangle
 draw_set_alpha(a);

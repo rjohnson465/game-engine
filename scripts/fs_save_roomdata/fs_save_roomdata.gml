@@ -25,6 +25,20 @@ if save_data != undefined && ds_exists(save_data, ds_type_map) {
 	ds_map_destroy(save_data); save_data = -1;
 }
 
+var garbageKeys = ds_list_create();
+var crn = ds_map_find_first(sd_roomdatas); 
+for (var i = 0 ; i < ds_map_size(sd_roomdatas); i++) {
+	if asset_get_index(crn) == -1 {
+		ds_list_add(garbageKeys, crn);
+	}
+	crn = ds_map_find_next(sd_roomdatas, crn);
+}
+for (var i = 0; i < ds_list_size(garbageKeys); i++) {
+	var rn = ds_list_find_value(garbageKeys, i);
+	ds_map_delete(sd_roomdatas, rn);
+}
+ds_list_destroy(garbageKeys); garbageKeys = -1;
+
 // integrate the temp room data contents with the saved room data contents
 // iterate through temp room contents and replace each entry in saved room data contents with it
 var sd_temp_roomdatas = ds_map_secure_load(TEMP_ROOMDATA_FILENAME); // Need to destroy this to prevent memory leak
@@ -36,16 +50,10 @@ for (var i = 0 ; i < ds_map_size(sd_temp_roomdatas); i++) {
 	var sd_temp_room_data_copy = ds_map_deep_clone(sd_temp_room_data); // need to clone, sd_temp_room_data will be destroyed later
 	ds_map_add_map(sd_roomdatas, cri, sd_temp_room_data_copy);
 	
-	//ds_map_destroy(sd_temp_room_data); sd_temp_room_data = -1;
-	
 	cri = ds_map_find_next(sd_temp_roomdatas, cri);
 }
 
-// flush the tempfile data, so new persistent element data starts with the savefile data
-fs_clear_roomdata_tempfile();
-
 // sd_roomdatas should be the only ds that survives this shit
 ds_map_destroy(sd_temp_roomdatas); sd_temp_roomdatas = -1;
-//ds_map_destroy(save_data); save_data = -1; // this is destroying sd_temp_room_data_copy?
 
 return sd_roomdatas;

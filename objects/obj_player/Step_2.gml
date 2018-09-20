@@ -2,6 +2,7 @@ if room == game_menu {
 	exit;
 }
 event_inherited();
+if !isMoving isSprinting = false;
 
 // death
 if hp < 1 && isAlive && !isDying {

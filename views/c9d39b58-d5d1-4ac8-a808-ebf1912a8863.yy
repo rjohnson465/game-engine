@@ -10,7 +10,9 @@
         "886e348c-19b9-4f57-bb18-5c4077d2e0fd",
         "3bd196ae-016e-4cad-a712-524f5bcc2c93",
         "c8eee05d-2bb0-4848-8936-cfdee6279009",
-        "89ac9ad7-4b0d-4dd7-ab79-9f33d50fe4bc"
+        "89ac9ad7-4b0d-4dd7-ab79-9f33d50fe4bc",
+        "0d5315ae-b4e3-4a0d-bc60-0edf7b00fd74",
+        "877825c9-7452-4a20-ab0c-e94debe9038f"
     ],
     "filterType": "GMSprite",
     "folderName": "zones",

@@ -64,6 +64,7 @@ if instance_exists(obj_player) {
 		}
 		ds_map_destroy(conditionsEmittersMap); conditionsEmittersMap = -1;
 		audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
+		audio_emitter_free(sprintSoundEmitter); sprintSoundEmitter = -1;
 		
 		event_perform(ev_create,0);
 	}

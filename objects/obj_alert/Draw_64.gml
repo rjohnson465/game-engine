@@ -6,7 +6,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_top);
 var vw = view_get_wport(view_camera[0]);
 var x1 = vw/2; // half the viewport width
-var startingY = global.player.lockOnTarget == noone ? 25 : 75;
+var startingY = global.player.lockOnTarget == noone ? 25 : 85;
 var cumHeight = 0;
 with obj_alert {
 	if id != other.id && alertNumber < other.alertNumber && isVisible {

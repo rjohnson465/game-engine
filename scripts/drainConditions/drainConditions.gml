@@ -28,9 +28,14 @@ for (var i = 0; i < size; i++) {
 		ds_map_replace(conditionLevels,currentCondition,1);
 		switch currentCondition {
 			case ICE: {
+				// if freeze applied on a burning target, burn is removed
+				if (!isSlowed && !isFrozen) && isBurning {
+					ds_map_replace(conditionPercentages,FIRE,0);
+					isBurning = false;
+				}
+				ds_map_replace(conditionLevels,currentCondition,1);
 				isFrozen = false;
 				isSlowed = true;
-				ds_map_replace(conditionLevels,currentCondition,1);
 				break;
 			}
 			case MAGIC: {
@@ -63,7 +68,10 @@ for (var i = 0; i < size; i++) {
 					for (var i = 0; i < ds_map_size(defenses); i++) {
 						if arrayIncludes(global.ALL_ELEMENTS,currentDefense) {
 							var defense = ds_map_find_value(defenses,currentDefense);
-							ds_map_replace(defenses,currentDefense,defense-25);
+							// don't lower lightning defense
+							if currentDefense != LIGHTNING {
+								ds_map_replace(defenses,currentDefense,defense-25);
+							}
 						}
 						currentDefense = ds_map_find_next(defenses,currentDefense);
 					}
@@ -132,7 +140,10 @@ for (var i = 0; i < size; i++) {
 					for (var i = 0; i < ds_map_size(defenses); i++) {
 						if arrayIncludes(global.ALL_ELEMENTS,currentDefense) {
 							var defense = ds_map_find_value(defenses,currentDefense);
-							ds_map_replace(defenses,currentDefense,defense+25);
+							// don't lower lightning defense
+							if currentDefense != LIGHTNING {
+								ds_map_replace(defenses,currentDefense,defense+25);
+							}
 						}
 						currentDefense = ds_map_find_next(defenses,currentDefense);
 					}

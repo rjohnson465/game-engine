@@ -11,6 +11,7 @@ var spell = argument[2];
 randomize();
 var top = 1000;
 var percentChance = .2;
+percentChance = 1;
 if argument_count == 4 {
 	percentChance = argument[3];
 }

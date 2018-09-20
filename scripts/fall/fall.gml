@@ -34,6 +34,7 @@ isStrafing = false;
 currentUsingSpell = noone;
 attackNumberInChain = noone;
 isShielding = false;
+isSprinting = false;
 dodgeFrame = 0;
 
 jumpFrame = jumpTotalFrames; // cannot jump while falling
@@ -98,10 +99,9 @@ if fallFrame == .5*fallTotalFrames {
 		tempPostX = x;
 		tempPostY = y;
 		if type == CombatantTypes.Enemy {
-			//enemyData.tempPostX = tempPostX;
-			//enemyData.tempPostY = tempPostY;
 			updatePersistentElementProperty(id, "TempPostX", tempPostX);
 			updatePersistentElementProperty(id, "TempPostY", tempPostY);
+			updatePersistentElementProperty(id, "TempPostZ", layer);
 		}
 	}
 }

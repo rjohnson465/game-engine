@@ -24,6 +24,7 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 		
 		ds_map_replace(sd_temp_enemy,"CurrentX",postX);
 		ds_map_replace(sd_temp_enemy,"CurrentY",postY);
+		ds_map_replace(sd_temp_enemy,"CurrentZ",postZ);
 		ds_map_replace(sd_temp_enemy,"TempPostX",postX);
 		ds_map_replace(sd_temp_enemy,"TempPostY",postX);
 		ds_map_replace(sd_temp_enemy,"FacingDirection",fdStart);
@@ -40,6 +41,8 @@ ds_map_secure_save(sd_temp_enemies_rooms, TEMP_ENEMYDATA_FILENAME);
 
 // force save for room data object
 with rd {
+	//fs_save_enemydata_tempfile();
+	fs_save_roomdata_tempfile();
 	event_perform(ev_create, 0);
 }
 

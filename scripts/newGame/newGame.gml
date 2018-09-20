@@ -8,4 +8,4 @@ with global.player {
 	y = 300;
 	gamePadIndex = global.gamePadIndex;
 }
-room_goto(room0);
+room_goto(rm_dungeon);

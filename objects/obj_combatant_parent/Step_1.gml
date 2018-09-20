@@ -115,6 +115,8 @@ if isDying && isAlive {
 		}
 		isAlive = false;
 		isDying = false;
+		updatePersistentElementProperty(id,"Hp",0);
+		updatePersistentElementProperty(id,"IsAlive",false);
 		//global.player.xpTemp += round((xpReward*(global.player.xpMultiplier/100)));
 	}
 }
@@ -130,8 +132,6 @@ if !isAlive {
 				
 		//enemyData.hp = 0;
 		//enemyData.isAlive = false;
-		updatePersistentElementProperty(id,"Hp",0);
-		updatePersistentElementProperty(id,"IsAlive",false);
 				
 		var idd = id;
 		with obj_light_radius {

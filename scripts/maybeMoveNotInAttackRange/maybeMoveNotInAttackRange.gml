@@ -100,7 +100,7 @@ if pred && !isFlinching {
 	else 
 	if layer == lockOnTarget.layer {
 		populatePersonalGrid();
-		//if !place_free(x,y) jumpToNearestFreePoint(1);
+		if !place_free(x,y) jumpToNearestFreePoint(1);
 		var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,lockOnTarget.x,lockOnTarget.y,true);
 		if isGridPathAvailable {
 			var xx = path_get_x(gridPath,.1);

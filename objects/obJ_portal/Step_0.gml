@@ -57,6 +57,10 @@ if interactInputReceived && place_meeting(x,y,obj_player) && fade == noone && gl
 		attackNumberInChain = noone;
 		isShielding = false;
 		dodgeFrame = 0;
+		global.isInteractingWithNpc = false;
+		global.isLooting = false;
+		global.isTrading = false;
+		global.isWishing = false;
 	}
 	
 	global.fadeDuration = 60;
@@ -73,5 +77,7 @@ else if fade != noone {
 		with obj_weapon {
 			refreshParticles = true;
 		}
+		global.roomName = nextRoomName;
+		instance_create_depth(x,y,1,obj_room_text);
 	}
 }

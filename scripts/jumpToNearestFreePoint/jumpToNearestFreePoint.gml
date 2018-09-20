@@ -20,6 +20,12 @@ with obstacleType {
 		ds_list_add(obstacles,id);
 	}
 }
+// also avoid fallzones
+with obj_fallzone {
+	if layer == other.layer && id != other {
+		ds_list_add(obstacles,id);
+	}
+}
 
 var distanceToTry = 10;
 var dir = 10;

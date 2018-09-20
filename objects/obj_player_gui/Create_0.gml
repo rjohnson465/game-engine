@@ -98,7 +98,7 @@ instance_create_depth(x,y,-1001,obj_inventory);
 instance_create_depth(x,y,-1001,obj_equipped_items_manager);
 
 // combos
-instance_create_depth(x,y,-100,obj_combo_manager);
+//instance_create_depth(x,y,-100,obj_combo_manager);
 
 // stats
 instance_create_depth(x,y,-1001,obj_stats);

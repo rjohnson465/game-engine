@@ -12,6 +12,8 @@ with obj_fade {
 }
 if isFading exit;
 
+isSprinting = false;
+
 if  stamina > 0 &&
 	(state == CombatantStates.Idle || state == CombatantStates.Moving)
 	&& !isFrozen

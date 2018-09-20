@@ -1,1 +1,2 @@
 material = METAL;
+stopsAttacks = true;

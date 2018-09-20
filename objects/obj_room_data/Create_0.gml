@@ -7,6 +7,7 @@ persistentElements = noone;
 
 enemiesData = noone;
 
+
 // load in from temporary room data file, not save file
 persistentElements = fs_load_roomdata_tempfile(roomName);
 

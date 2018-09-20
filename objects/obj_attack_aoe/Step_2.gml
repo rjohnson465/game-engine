@@ -17,7 +17,7 @@ if place_meeting_layer(x,y,obj_solid_environment) {
 		ds_list_destroy(possibleSolids); possibleSolids = -1;
 	}
 	
-	if firstObj == noone exit;
+	if firstObj == noone || !firstObj.stopsAttacks exit;
 	
 	if firstObj.object_index == obj_sconce && isRanged exit; // sconces are a special case
 

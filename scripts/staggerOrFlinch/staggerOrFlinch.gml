@@ -29,17 +29,6 @@ if rand < chanceToStagger {
 	if modifier > 1 modifier = 1;
 	if state != CombatantStates.Staggering {
 		staggerFrame = 0;
-
-		// stagger duration is (100-poise)% of weapon / attack staggerDuration
-		
-		/*if attackObj.attackData != noone {
-			staggerDuration = attackObj.attackData.staggerDuration*modifier;
-		} else if attackObj.isSpell {
-			staggerDuration = attackObj.spell.staggerDuration;
-		} else {
-			var attackStaggerDuration = attackObj.weapon.staggerDuration[attackObj.attackNumber-1];
-			staggerDuration = attackStaggerDuration*modifier;
-		}*/
 		staggerDuration = sd*modifier;
 
 		staggerDirection = (assailant.facingDirection+360)%360;

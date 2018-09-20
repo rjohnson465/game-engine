@@ -11,6 +11,8 @@ if dodgeFrame == 0 && array_length_1d(soundsWhenDodge) != 0 {
 }
 
 var dodgeSpeed = functionalSpeed*2;
+var dDir = dodgeDirection;
+var isEnemy = type != CombatantTypes.Player;
 // Do not dodge into fallzones on purpose (if enemy)
 if type != CombatantTypes.Player {
 	if dodgeFrame == 0 && instance_exists(obj_fallzone) {
@@ -43,7 +45,27 @@ if type != CombatantTypes.Player {
 	}
 	moveToNearestFreePoint(dodgeDirection,dodgeSpeed,true);
 } else {
-	moveToNearestFreePoint(dodgeDirection,dodgeSpeed);
+	
+	/*var solidsToCheck = type == CombatantTypes.Enemy ? obj_enemy_obstacle_parent : obj_solid_parent;
+	var x1 = x+lengthdir_x(dodgeSpeed, dDir);
+	var y1 = y+lengthdir_y(dodgeSpeed, dDir);
+	do {
+		x1 = x+lengthdir_x(dodgeSpeed, dDir);
+		y1 = y+lengthdir_y(dodgeSpeed, dDir);
+
+		if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
+			dDir = (dDir + 1)%360;
+		}
+	} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || dDir == dodgeDirection)
+			
+	if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
+		moveToNearestFreePoint(dDir,dodgeSpeed,isEnemy);
+		//dodgeDirection = dDir;
+	}*/
+	
+	moveToNearestFreePoint(dodgeDirection, dodgeSpeed, isEnemy);
+	if !place_free(x,y) jumpToNearestFreePoint(isEnemy);
+
 }
 
 dodgeFrame++;
