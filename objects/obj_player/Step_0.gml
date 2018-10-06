@@ -1,4 +1,4 @@
-audio_listener_position(x, y, depth);
+audio_listener_position(x, y, layer_get_depth(layer));
 if room == game_menu {
 	exit;
 }
@@ -114,7 +114,21 @@ if distance_to_object(nearestStairs) < 200 {
 maybeLevelUp();
 
 if isSprinting {
-	audio_emitter_gain(sprintSoundEmitter,100);
+	/*audio_emitter_gain(sprintSoundEmitter,1);
+	audio_emitter_position(sprintSoundEmitter,x,y,layer_get_depth(layer));
+	var sx = audio_emitter_get_x(sprintSoundEmitter);
+	var sy = audio_emitter_get_y(sprintSoundEmitter);
+	var _dist = point_distance(x,y,sx,sy);
+	var g = audio_emitter_get_gain(sprintSoundEmitter);
+	var a = 2;*/
+	if !audio_is_playing(snd_move_sprint) {
+		audio_play_sound(snd_move_sprint,1,1);
+	}
 } else {
-	audio_emitter_gain(sprintSoundEmitter,0);
+	//audio_emitter_gain(sprintSoundEmitter,0);
+	if audio_is_playing(snd_move_sprint) {
+		//audio_play_sound(snd_move_sprint,1,1);
+		audio_stop_sound(snd_move_sprint);
+	}
 }
+

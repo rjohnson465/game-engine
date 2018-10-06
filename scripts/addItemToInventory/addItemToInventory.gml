@@ -45,5 +45,48 @@ if item.isStackable {
 	}
 }
 
+if !instance_exists(item) exit;
+
+// some checks for "firsts" tutorial messages
+var ck = ds_map_find_first(p.tutorialFirstsMap);
+for (var i = 0; i < TutFirsts.length; i++) {
+	
+	var val = ds_map_find_value(p.tutorialFirstsMap, ck); // true or false
+	if !val {
+		var msg = ""; var spritesController = []; var spritesMk = [];
+		switch ck {
+			case TutFirsts.TwoHandedRangedWeapons: {
+				if !item.isTwoHanded || !item.isRanged break;
+				spritesController = [spr_prompt_xbox_rb, spr_prompt_xbox_lb];
+				spritesMk = [spr_prompt_mk_rb, spr_prompt_mk_lb];
+				msg = "Ready two handed ranged weapon, then fire. A fully charged weapon delivers the most damage.";
+				break;
+			}
+			case TutFirsts.Shields: {
+				if !object_is_ancestor(item.object_index, obj_shield_parent) break;
+				spritesController = [spr_prompt_xbox_rb];
+				spritesMk = [spr_prompt_mk_rb];
+				msg = "Block (when shield is equipped). Shields absorb some (or all) of various damage types. Feel free to use one if you're a filthy casual.";
+				break;
+			}
+			case TutFirsts.Hats: {
+				if !object_is_ancestor(item.object_index, obj_hat_parent) break;
+				msg = "Hats are primarily responsible for your defenses, and reduce incoming damage. Some are more stylish than others.";
+				break;
+			}
+			case TutFirsts.Rings: {
+				if item.type != ItemTypes.Ring break;
+				msg = "Rings provide all sorts of statistical bonuses for your character. You can have four rings on at once, you diva.";
+				break;
+			}
+		}
+		if msg != "" {
+			showTutorialMessage(msg,spritesController,spritesMk,ck);
+		}
+	}
+	
+	ck = ds_map_find_next(p.tutorialFirstsMap, ck);
+}
+
 
 

@@ -43,22 +43,24 @@ if place_meeting_layer(x,y,obj_solid_environment) {
 
 	// make dust / spark particles, play sound, for range
 	if !hasSetAlarm {
-		global.damageType = firstObj.material == METAL ? "Block" : "Dust";
-		if isSpell {
-			global.damageType = spellElement;
-		}
+		global.damageType = attackData.damageType;
 		global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
 		global.y1 = bbox_bottom;
 		global.particleDirection = facingDirection;
 		global.hitParticlesLayer = layer; 
 		global.victim = firstObj;
+		instance_create_depth(0,0,1,obj_hit_particles); // dust particles
+		// aoe particles
+		global.damageType = attackData;
 		instance_create_depth(0,0,1,obj_hit_particles);
+		
 		alarm[0] = 15;
 		visible = 0;
 		speed = 0;
 		hasSetAlarm = true;
-		var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
-		audio_play_sound_at(snd,global.x1,global.y1,depth,20,200,1,0,1);
+		//var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
+		var snd = attackData.damageType == "Dust" ? snd_shield_hit_wood : snd_wallhit;
+		audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 
 	}
 

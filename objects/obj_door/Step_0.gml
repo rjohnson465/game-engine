@@ -9,6 +9,7 @@ var isInConvo = false;
 with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
+if global.isReadingTutorial exit;
 var p = global.player;
 
 if isCurrentInteractableObject && !isOpen && distance_to_object(obj_player) < 20 && layer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
@@ -44,12 +45,10 @@ if isCurrentInteractableObject && !isOpen && distance_to_object(obj_player) < 20
 	var canOpen = canOpenFromThisSide && hasKey;
 	
 	if canOpen {
-		//light_destroy_caster();
 		isOpen = true;
-		//ds_map_replace(data.properties, "isOpen", true);
 		updatePersistentElementProperty(id,"isOpen",true);
 		sprite_index = noone;
 		alarm[0] = 30;
-		audio_play_sound_at(openingSound,x,y,depth,100,300,1,0,1);
+		audio_play_sound_at(openingSound,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 	} 
 } 

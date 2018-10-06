@@ -46,7 +46,7 @@ switch(state) {
 			}
 			
 			// if not on player layer and close to post, just stand still
-			if layer != global.player.layer && distance_to_point(actingPostX,actingPostY) < 10 {
+			if (layer != global.player.layer && distance_to_point(actingPostX,actingPostY) < 10) || distance_to_object(obj_player) > 1000 {
 				lockOnTarget = noone;
 				break;
 			}
@@ -137,10 +137,11 @@ switch(state) {
 					// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
 					maybeShield();
 					// CHECK 4: Maybe switch to melee / range
+					/*var _dist = distance_to_object(lockOnTarget);
 					if currentRangedAttack > -1 && distance_to_object(lockOnTarget) < meleeAggroRange && canSeeLockOnTarget() {
 						state = CombatantStates.AggroMelee; break;
 					}
-					else if currentMeleeAttack > -1 && distance_to_object(lockOnTarget) > meleeAggroRange && canSeeLockOnTarget() && array_length_1d(rangedAttacks) > 0 {
+					else */if currentMeleeAttack > -1 && distance_to_object(lockOnTarget) > meleeAggroRange && canSeeLockOnTarget() && array_length_1d(rangedAttacks) > 0 {
 						state = CombatantStates.AggroRanged; break;
 					}
 				
@@ -505,3 +506,11 @@ if type == CombatantTypes.Enemy {
 	}
 }
 
+// position water emitter, conditions emitters
+audio_emitter_position(walkingInWaterEmitter,x,y,depth);
+var cc = ds_map_find_first(conditionsEmittersMap);
+for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
+	var emitter = ds_map_find_value(conditionsEmittersMap, cc);
+	audio_emitter_position(emitter,x,y,depth);
+	cc = ds_map_find_next(conditionsEmittersMap, cc);
+}

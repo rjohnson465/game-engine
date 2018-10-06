@@ -1,0 +1,1 @@
+deathFrameFlag = false;

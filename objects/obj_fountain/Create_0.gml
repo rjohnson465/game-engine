@@ -18,8 +18,10 @@ system = part_system_create();
 part_system_depth(system,-4);
 emitter = part_emitter_create(system);
 particle = noone;
-
+origLayer = layer;
 fountainRunningSoundEmitter = audio_emitter_create();
+audio_emitter_position(fountainRunningSoundEmitter,x,y,layer_get_depth(origLayer));
+audio_emitter_falloff(fountainRunningSoundEmitter,50,500,1);
 audio_emitter_gain(fountainRunningSoundEmitter,0);
 audio_play_sound_on(fountainRunningSoundEmitter,snd_fountain_running,1,0);
 
@@ -35,7 +37,7 @@ part_type_direction(water,0,360,0,4);
 part_type_life(water,7,11);
 particle = water;
 
-origLayer = layer;
+
 layerName = layer_get_name(layer);
 
 inUse = false;
@@ -63,16 +65,6 @@ uni_radial_brightness = shader_get_uniform(shd_radial_blur,"radial_brightness");
 var_radial_brightness = 1;
 
 
-
-
-/*
-key = fs_generate_key();
-data = noone;
-with obj_persistent_environment_data_parent {
-	if key == other.key {
-		other.data = id;
-	}
-}
 
 
 

@@ -174,7 +174,7 @@ if	state != CombatantStates.Dodging &&
 			var rand = round(random_range(0,array_length_1d(soundsWhenHit)-1));
 			var snd = soundsWhenHit[rand];
 			if snd && snd != noone {
-				audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
+				audio_play_sound_at(snd,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 			}
 		}
 		

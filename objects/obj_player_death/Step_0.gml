@@ -85,17 +85,19 @@ if instance_exists(fade) {
 					lastFountainZ = nearestFountain.layerName;
 				
 				}
-				room = lastFountainRoom;
+				var rm = asset_get_index(lastFountainRoom);
+				//room = lastFountainRoom;
+				room_goto(rm);
 				x = lastFountainX;
 				y = lastFountainY;
 				xpTemp = 0;
-				if lastFountain == noone {
+				/*if lastFountain == noone {
 					var nearestFountain = instance_nearest(x,y,obj_fountain);
 					global.owner = nearestFountain;
 					global.makeLightOnCreate = true;
 					instance_create_depth(x,y,1,obj_light_radius);
 					lastFountain = nearestFountain;
-				}
+				}*/
 				
 				layerToMoveTo = lastFountainZ;
 				justRevivedAtFountain = true;
@@ -143,7 +145,7 @@ if instance_exists(fade) {
 				fallScaleFactor = 1;
 				fallFrame = fallTotalFrames;
 			}
-			//other.fade.frame++;
+			other.fade.frame++;
 		}
 		
 		
@@ -152,7 +154,7 @@ if instance_exists(fade) {
 		if selectedOption == ReviveOptions.Fountain {
 			with p {
 				if !instance_exists(lastFountain) {
-					lasFountain = findPersistentRoomElement(obj_fountain, lastFountainX, lastFountainY);
+					lastFountain = findPersistentRoomElement(obj_fountain, lastFountainX, lastFountainY);
 				}
 				
 				with lastFountain {

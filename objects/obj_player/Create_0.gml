@@ -1,4 +1,5 @@
 global.player = id;
+alarm[2] = 15; // ensure player isn't "stuck" every 15 frames
 if room == game_menu && global.playerDoNothing {
 	//instance_deactivate_object(id);
 	exit;
@@ -8,6 +9,7 @@ playerLightRadius = noone;
 layer = layer_get_id("instances_floor_1");
 
 event_inherited();
+
 global.isLooting = false;
 global.canLoot = false;
 global.isWishing = false;
@@ -15,6 +17,7 @@ global.fountainGui = noone;
 global.canInteractWithNpc = false;
 global.isInteractingWithNpc = false;
 global.isTrading = false;
+global.isReadingTutorial = false;
 functionalSpeed = 6;
 normalSpeed = 6;
 facingDirection = 0;
@@ -43,6 +46,8 @@ enum EquipmentSlots {
 	RightRing1,
 	RightRing2
 }
+
+tutorialFirstsMap = defineFirstsTutorialMessages();
 
 // grow hands 
 hasHands = true; 
@@ -175,7 +180,7 @@ if global.populateInventory {
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_spear));
-	/*
+	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_hatchet));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_battleaxe));
@@ -191,7 +196,7 @@ if global.populateInventory {
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_arquebus));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_wand));
-	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));*/
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 	
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
 
@@ -267,6 +272,10 @@ quests = ds_list_create();
 // the first object that wants attention (in pos 0) will be adressed first
 nonPriorityInteractionPrompts = ds_list_create(); 
 
+ds_map_destroy(tutorialFirstsMap); tutorialFirstsMap = -1;
+tutorialFirstsMap = defineFirstsTutorialMessages(); // redo
+
+/*
 sprintSoundEmitter = audio_emitter_create();
 audio_emitter_gain(sprintSoundEmitter,0);
-audio_play_sound_on(sprintSoundEmitter,snd_move_sprint,1,0);
+audio_play_sound_on(sprintSoundEmitter,snd_move_sprint,1,1);

@@ -25,7 +25,7 @@ if distance_to_object(obj_player) < 20 && layer == global.player.layer && !globa
 	isInteractingWithPlayer = true;
 	global.player.state = CombatantStates.Idle;
 	state = CombatantStates.Idle; speed = 0;
-	audio_play_sound_at(greeting,x,y,0,100,300,1,0,1);
+	audio_play_sound_at(greeting,x,y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 } else if distance_to_object(obj_player) > 20 {
 	isInteractingWithPlayer = false;
 	global.isInteractingWithNpc = false;

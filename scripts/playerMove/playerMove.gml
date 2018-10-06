@@ -55,6 +55,7 @@ if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowing
 	if SHIFT && stamina > 0 {
 		useSpeed = functionalSpeed*2;
 		stamina -= .35;
+		isSprinting = true;
 	}
 	// walking backwards is slow
 	dirDiff = abs(direction - facingDirection);
@@ -62,14 +63,10 @@ if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowing
 		var modifier = .5;
 		if SHIFT {
 			modifier = .8;
-			isSprinting = true;
 		}
 		moveToNearestFreePoint(direction,modifier*useSpeed);
 	}	
 	else {
-		if SHIFT {
-			isSprinting = true;
-		}
 		moveToNearestFreePoint(direction,useSpeed);
 	}
 }	
@@ -88,3 +85,5 @@ if gamepad_is_connected(gamePadIndex) && !isInteractingWithNpc {
 		turnToFacePoint(turnSpeed,xx,yy);
 	}
 }
+
+if !place_free(x,y) && SHIFT jumpToNearestFreePoint(0);

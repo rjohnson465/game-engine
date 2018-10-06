@@ -12,23 +12,19 @@ var cv = ds_map_find_first(sd_npcs);
 for (var i = 0; i < ds_map_size(sd_npcs); i++) {
 	
 	var sd_npc = ds_map_find_value(sd_npcs,cv);
+	global.npc = noone;
+	var npcDataObj = instance_create_depth(x,y,1,obj_npc_data);
 	
-	var npcDataObj = noone;
-	var npcObj = noone;
-	with obj_npc_parent {
-		if name == ds_map_find_value(sd_npc,"NpcName") {
-			npcObj = id;
-		}
-	}
-	if npcObj == noone continue;
-	else global.npc = npcObj;
-	npcDataObj = instance_create_depth(x,y,1,obj_npc_data);
-	
-	npcDataObj.name = ds_map_find_value(sd_npc,"NpcName");
+	npcDataObj.npcName = ds_map_find_value(sd_npc,"NpcName");
 	npcDataObj.npcObjIndex = ds_map_find_value(sd_npc,"NpcObjIndex");
 	npcDataObj.npcObjIndexName = ds_map_find_value(sd_npc,"NpcObjIndexName");
 	var conversations_copy = ds_map_deep_clone(ds_map_find_value(sd_npc, "Conversations"));
 	npcDataObj.conversations = conversations_copy;
+	var cta = ds_map_find_value(sd_npc, "ConversationsToAdd");
+	for (var j = 0; j < ds_list_size(cta); j++) {
+		var convObjName = ds_list_find_value(cta, j);
+		ds_list_add(npcDataObj.conversationsToAdd, convObjName);
+	}
 	
 	with obj_npc_parent {
 		if name == cv {

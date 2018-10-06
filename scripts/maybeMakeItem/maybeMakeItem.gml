@@ -58,7 +58,7 @@ var itemIndex = noone;
 if argument_count >= 3 && is_array(argument[2]) {
 	var possibleObjIndexes = argument[2];
 	randomize();
-	var rand = random_range(0,array_length_1d(possibleObjIndexes)-1);
+	var rand = round(random_range(0,array_length_1d(possibleObjIndexes)-1));
 	itemIndex = possibleObjIndexes[rand];
 } else {
 	var act = getRoomAct();

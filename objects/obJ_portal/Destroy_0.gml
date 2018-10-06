@@ -5,3 +5,6 @@ if part_emitter_exists(system, emitter) {
 if part_type_exists(part) {
 	part_type_destroy(part); part = -1;
 }
+if audio_emitter_exists(audioEmitter) {
+	audio_emitter_free(audioEmitter); audioEmitter = -1;
+}

@@ -10,6 +10,7 @@ Blurry shadows generally makes a lower quality lightmap look nicer without the e
 Important note: The object calling this function should have a lower depth than the casters.
 */
 
+
 var layerNum = argument5;
 
 var map = ds_map_find_value(global._light_layers,layerNum);

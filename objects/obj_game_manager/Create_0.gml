@@ -28,6 +28,8 @@ ds_map_replace(global.itemRarityColors, ItemRarities.Fine, C_RARITY_FINE);
 ds_map_replace(global.itemRarityColors, ItemRarities.Masterwork, C_RARITY_MASTERWORK);
 ds_map_replace(global.itemRarityColors, ItemRarities.Legendary, C_RARITY_LEGENDARY);
 
+global.weaponParticlesMap = defineWeaponParticles();
+
 global.ALL_ELEMENTS = [MAGIC,FIRE,ICE,POISON,LIGHTNING];
 global.ALL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH,MAGIC,FIRE,ICE,POISON,LIGHTNING];
 global.ALL_PHYSICAL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH];
@@ -129,8 +131,8 @@ joystickInputTotalFrames = 30;
 
 fade = noone;
 
-//audio_falloff_set_model(audio_falloff_exponent_distance); 
-
+audio_falloff_set_model(audio_falloff_linear_distance); 
+#macro AUDIO_MAX_FALLOFF_DIST 1000
 defineItemsByAct();
 defineItemPropertyPrefixes();
 definePropertiesByRarity();
@@ -140,3 +142,19 @@ definePropertiesByRarity();
 currentRoomData = noone;
 
 enviroParticlesController = instance_create_depth(x,y,depth,obj_environment_particles_controller);
+
+bgmEmitter = audio_emitter_create();
+audio_emitter_falloff(bgmEmitter, audio_falloff_none,1,1);
+bgmPossibilities = noone;
+bgmCurrent = noone;
+bgmAlarmSet = false;
+
+ambEmitter = audio_emitter_create();
+audio_emitter_falloff(ambEmitter, audio_falloff_none,1,1);
+ambCurrent = noone;
+
+// stores info on periodical amb sounds (what they are, how often to maybe play them, chance to play them, length to play them
+ambPeriodicalsMap = ds_map_create();
+ambpFrames = ds_map_create(); // keys are snd ids
+ambpEmitters = ds_map_create();
+ambpFrameStarts = ds_map_create();

@@ -61,6 +61,9 @@ if interactInputReceived && place_meeting(x,y,obj_player) && fade == noone && gl
 		global.isLooting = false;
 		global.isTrading = false;
 		global.isWishing = false;
+		global.canLoot = false; 
+		global.canInteractWithNpc = false;
+		global.isReadingTutorial = false;
 	}
 	
 	global.fadeDuration = 60;

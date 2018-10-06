@@ -43,3 +43,7 @@ turnSpeed = owner.turnSpeed;
 part1 = noone;
 part2 = noone;
 numberOfProjectiles = noone;
+part1Num = noone;
+part2Num = noone;
+
+damageType = "Block"; // Block (sparks) or Dust (for when attack hits walls)

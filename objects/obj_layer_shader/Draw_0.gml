@@ -1,4 +1,4 @@
-// get the average luma value for all lighting colors in layers above
+/*// get the average luma value for all lighting colors in layers above
 var avgColor = c_gray; var cumSum = 0; var n = 0;
 with obj_layer_lighting {
 	if floorNum > other.floorNum && isActive {
@@ -60,10 +60,6 @@ surface_reset_target();
 shader_set(sh_saturation);
 
 var playerLayer = global.player.layer;
-/*var pLayerName = layer_get_name(playerLayer);
-var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
-var pDepth = layer_get_depth(global.player.layer);
-var fDepth = layer_get_depth(layer_get_id("tiles_floor_"+string(floorNum)));*/
 var playerFloorNum = getLayerFloorNumber(playerLayer);
 var diff = (playerFloorNum - floorNum)*200;
 

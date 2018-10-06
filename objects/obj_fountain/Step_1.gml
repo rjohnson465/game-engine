@@ -4,3 +4,11 @@ if alarm[0] > 0 {
 	var_radial_blur_offset = (-abs((xx-15)/30))+.5;
 	//show_debug_message(var_radial_blur_offset);
 }
+
+if isRunning {
+	if origLayer != global.player.layer {
+		audio_emitter_gain(fountainRunningSoundEmitter,0);
+	} else {
+		audio_emitter_gain(fountainRunningSoundEmitter,1);
+	}
+}

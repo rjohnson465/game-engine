@@ -1,3 +1,9 @@
+if !gamepad_is_connected(global.player.gamePadIndex) {
+	selectedPriceIncrease = noone;	
+} else if selectedPriceIncrease == noone {
+	selectedPriceIncrease = RESETPRICE;
+}
+
 var alphaMod = 1;
 if global.fountainGui.currentSubMenu != NAMEPRICE {
 	alphaMod = .2;

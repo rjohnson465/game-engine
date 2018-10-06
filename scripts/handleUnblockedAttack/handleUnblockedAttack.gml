@@ -35,7 +35,7 @@ if array_length_1d(soundsWhenHitVocals) != 0 && hp >= 1 {
 	if rand >= 0 {
 		var snd = soundsWhenHitVocals[rand];
 		if snd && snd != noone {
-			audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
+			audio_play_sound_at(snd,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		}
 	}
 }

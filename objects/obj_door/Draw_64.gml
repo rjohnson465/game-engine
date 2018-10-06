@@ -1,3 +1,4 @@
+if global.isReadingTutorial exit;
 var isInConvo = false;
 with obj_npc_parent {
 	if isInConversation isInConvo = true;

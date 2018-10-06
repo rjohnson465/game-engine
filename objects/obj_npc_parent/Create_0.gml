@@ -5,6 +5,7 @@ conversations = ds_list_create();
 
 // all npcs have a "Leave" convo
 global.owner = id;
+global.ownerNpcName = id;
 var leave = instance_create_depth(x,y,1,obj_conversation_parent);
 leave.name = "Leave";
 leave.isRepeatable = true;

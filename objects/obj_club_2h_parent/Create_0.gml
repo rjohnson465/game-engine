@@ -6,8 +6,8 @@ isTwoHanded = true;
 handSpriteString = "spr_player_hand_club_2h";
 
 weaponSpeed = "Slow";
-staggerDuration = [40,45,50];
-staminaCostArray=[22,25,30];
+staggerDuration = [45,45,50];
+staminaCostArray=[20,20,20];
 // for each attack in chain
 numberOfTargets = [3,3,2];
 attackSounds = [snd_axe2h_attack_1, snd_axe2h_attack_1, snd_axe2h_attack_1];

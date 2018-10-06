@@ -11,7 +11,7 @@ weapon = noone;
 limbKey = global.limbKey; // l | r is most common
 isSpell = false;
 isRanged = false; // probably not
-isMelee = true;
+isMelee = false;
 attackData = noone;
 combatantsHit = ds_list_create();
 hasSetAlarm = false;
@@ -41,9 +41,10 @@ var spread = 360 / attackData.numberOfProjectiles;
 direction = spread*global.projectileNumber;
 facingDirection = direction;
 speed = attackData.projectileSpeed;
-/*
+
 if part_type_exists(attackData.part1) {
 	particle = attackData.part1;
+	part_type_direction(particle,direction-45, direction+45, 0, 5);
 }
 if part_type_exists(attackData.part2) {
 	particle = attackData.part2;

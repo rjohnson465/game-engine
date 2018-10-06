@@ -4,6 +4,8 @@ event_inherited();
 
 if layerToMoveTo != noone {
 	layer = layer_get_id(layerToMoveTo);
+	playerLightRadius.layer = layer;
+	playerLightRadius.depth = layer_get_depth(layer);
 }
 
 if justRevivedAtFountain {

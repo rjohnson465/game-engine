@@ -7,7 +7,7 @@ if dodgeFrame == 0 && array_length_1d(soundsWhenDodge) != 0 {
 	randomize();
 	var rand = round(random_range(0,array_length_1d(soundsWhenDodge)-1));
 	var snd = soundsWhenDodge[rand];
-	audio_play_sound_at(snd,x,y,depth,100,300,1,0,1);
+	audio_play_sound_at(snd,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 }
 
 var dodgeSpeed = functionalSpeed*2;

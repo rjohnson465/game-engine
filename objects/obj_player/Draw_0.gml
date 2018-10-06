@@ -5,6 +5,7 @@ if room == game_menu {
 
 // Inherit the parent event
 event_inherited();
+shader_reset();
 
 // hat 
 

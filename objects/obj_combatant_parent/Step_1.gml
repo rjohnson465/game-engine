@@ -10,11 +10,13 @@ if hp < 1 && isAlive && !isDying {
 		randomize();
 		var rand = round(random_range(0,array_length_1d(soundsWhenDie)-1));
 		var deathSnd = soundsWhenDie[rand];
-		audio_play_sound_at(deathSnd,x,y,depth,50,300,1,0,1);
+		audio_play_sound_at(deathSnd,x,y,depth,50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 	}
 	
 	isDying = true;
 	lockOnTarget = noone;
+	deathFrameFlag = true;
+	alarm[8] = 2; // for death flag;
 	
 	hp = 0;
 	
@@ -30,9 +32,9 @@ if hp < 1 && isAlive && !isDying {
 		if ds_map_find_value(conditionPercentages,ICE) > 33 && (rand > 0) {
 			global.condition = "IceDeath";
 			dyingFrame = dyingTotalFrames;
-			audio_play_sound_at(snd_iceshatter,x,y,depth,20,200,1,0,1);
+			audio_play_sound_at(snd_iceshatter,x,y,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		} else {
-			audio_play_sound_at(snd_death_fade,x,y,depth,50,300,1,0,1);
+			audio_play_sound_at(snd_death_fade,x,y,depth,50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 			global.condition = "Death";
 		}
 		instance_create_depth(x,y,1,obj_condition_particles);
@@ -51,8 +53,6 @@ if hp < 1 && isAlive && !isDying {
 	
 	var xpAmount = round(xpReward*(global.player.xpMultiplier/100));
 	gainXp(xpAmount);
-	//global.xpAmount = round(xpReward*(global.player.xpMultiplier/100));
-	//instance_create_depth(x,y,1,obj_xp);
 }
 
 if isDying && isAlive {

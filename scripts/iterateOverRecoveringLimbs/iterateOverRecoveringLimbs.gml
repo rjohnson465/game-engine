@@ -26,7 +26,10 @@ if ds_map_size(recoveringLimbs) != 0 {
 		// check if this hand just started recovering attack
 		if recoverFrame == -1 {
 			prevAttackLimb = currentRecoveringLimbKey;
-			ds_map_replace(recoverFrames,currentRecoveringLimbKey,0)
+			ds_map_replace(recoverFrames,currentRecoveringLimbKey,0);
+			if !place_free(x,y,) {
+				jumpToNearestFreePoint(1);
+			}
 			
 			var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
 			ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,sprite_get_number(recoverSprite));

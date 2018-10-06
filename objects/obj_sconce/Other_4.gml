@@ -5,7 +5,7 @@ if isLit {
 	// ensure there is only ever one light radius object for a sconce
 	with obj_light_radius {
 		if owner == other {
-			light_destroy_layer(getLayerFloorNumber(layer),id);
+			light_destroy_layer(getLayerFloorNumber(other.origLayer),id);
 			instance_destroy(id,1);
 			other.lightRadius = noone;
 		}
@@ -15,7 +15,7 @@ if isLit {
 	global.makeLightOnCreate = true;
 	lightRadius = instance_create_depth(x,y,depth,obj_light_radius);
 	with lightRadius {
-		var floorNum = getLayerFloorNumber(layer);
+		var floorNum = getLayerFloorNumber(other.origLayer);
 		light_set_alpha(calculateLightRadiusAlphaLayer(floorNum));
 	}
 }

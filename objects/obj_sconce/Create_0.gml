@@ -56,3 +56,16 @@ particle3 = smoke;
 floorNum = getLayerFloorNumber(layer);
 
 part_emitter_region(system, emitter, x-10, x+10, y-10, y+10, ps_shape_diamond, ps_distr_gaussian);
+
+soundEmitter = audio_emitter_create();
+audio_emitter_position(soundEmitter,x,y,layer_get_depth(layer));
+audio_emitter_falloff(soundEmitter,50,500,1);
+audio_emitter_gain(soundEmitter,0);
+audio_play_sound_on(soundEmitter,snd_magic_fire_condition,1,0);
+MAXGAIN = .1;
+
+origLayer = layer;
+// to draw under hands
+var lDepth = layer_get_depth(origLayer);
+lDepth += 2;
+depth = lDepth;

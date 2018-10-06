@@ -32,3 +32,9 @@ var x2 = x1 + sw; var y2 = y1 + sh;
 part_emitter_region(system, emitter, x1,x2,y1,y2,ps_shape_rectangle,ps_distr_gaussian);
 
 part_system_depth(system, layer_get_depth(layer));
+
+audioEmitter = audio_emitter_create();
+audio_emitter_position(audioEmitter,x,y,layer_get_depth(layer));
+audio_emitter_falloff(audioEmitter,1,300,1);
+audio_emitter_gain(audioEmitter,1);
+audio_play_sound_on(audioEmitter,snd_portal,1,1);

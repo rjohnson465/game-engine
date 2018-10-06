@@ -23,6 +23,11 @@ addItemToInventory(makeGold(item.value,item.value));
 audio_play_sound(snd_item_coins,1,0);
 alert("Sold " + item.name + " for " + string(item.value) + " gold",c_yellow);
 
+item.persistent = true; // so it is remembered between rooms
+// add this item to npcData.inventory
+var npc = obj_vendor_items.owner;
+ds_list_add(npc.npcData.inventory, item);
+
 // add item to vendor's items
 if !item.isStackable {
 	item.owner = obj_vendor_items.owner;

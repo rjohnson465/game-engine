@@ -285,7 +285,8 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	var emitter = audio_emitter_create();
 	var snd = asset_get_index("snd_magic_"+el+"_condition");
 	audio_emitter_gain(emitter,0);
-	audio_emitter_falloff(emitter,50,300,1);
+	audio_emitter_falloff(emitter,50,AUDIO_MAX_FALLOFF_DIST,1);
+	audio_emitter_position(emitter,x,y,depth);
 	audio_play_sound_on(emitter,snd,1,1);
 	ds_map_replace(conditionsEmittersMap, el, emitter);
 }
@@ -310,6 +311,7 @@ poisonFrame = 0;
 poisonDamage = 0;
 
 // light radius -- only 1/combatant
+
 var lr = noone;
 with obj_light_radius {
 	if owner == other.id {
@@ -326,6 +328,7 @@ __x = 0;
 __y = 0;
 
 isDying = false;
+deathFrameFlag = false;
 dyingFrame = 0;
 dyingTotalFrames = 45;
 dyingParticleColor1 = c_red;
@@ -358,7 +361,7 @@ isBeingHit = false;
 lastAttackHitWith = noone; // either a weapon or attack_data obj
 
 sightAngleDelta = 100; // combatant can see +/- this much in his field of view
-hearingDistance = 500; // how far away some hit particles must be for enemy to investigate
+hearingDistance = 400; // how far away some hit particles must be for enemy to investigate
 investigatingFramesTotal = 200;
 investigatingFrame = 0;
 investigatingDirectionPrev = 0;

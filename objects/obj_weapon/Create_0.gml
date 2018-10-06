@@ -6,7 +6,7 @@ persistent = limb.persistent;
 fireOffsetX = noone; fireOffsetY = noone; // fire offset for torch
 
 spriteString = "spr_"+owner.spriteString+"_"+limbItem.spriteName;
-sprite_index = asset_get_index(spriteString);
+//sprite_index = asset_get_index(spriteString);
 layer = owner.layer;
 //depth = layer_get_depth(layer) + 1;
 
@@ -16,21 +16,11 @@ if limbKey == "l" {
 
 // particle system for elemental effects
 refreshParticles = false;
-system1 = part_system_create();
-part_system_depth(system1,depth);
-system2 = part_system_create();
-part_system_depth(system2,depth);
-system3 = part_system_create();
-part_system_depth(system3,depth);
-emitter1 = part_emitter_create(system1);
-emitter2 = part_emitter_create(system2);
-emitter3 = part_emitter_create(system3);
-particle1 = noone;
-particle2 = noone;
-particle3 = noone;
-num1 = -3;
-num2 = -3
-num3 = -3;
+system = part_system_create();
+part_system_depth(system,depth);
+emitter = part_emitter_create(system);
+weaponParticles = [noone, noone, noone, noone, noone];
+weaponParticlesNums = [noone, noone, noone, noone, noone];
 // particle system for torch
 torchParticle1 = noone;
 torchParticle2 = noone;
@@ -49,109 +39,4 @@ lightRadiusScale = 1;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
 
-// iterate over weapon damages
-var currentDamageType = ds_map_find_first(limbItem.damages);
-var damageTypes = ds_list_create();
-for (var i = 0; i < ds_map_size(limbItem.damages); i++) {
-	if currentDamageType != PHYSICAL {
-		var damagesArray = ds_map_find_value(limbItem.damages,currentDamageType);
-		if damagesArray[0] > 0 || damagesArray[1] > 0 {
-			ds_list_add(damageTypes,currentDamageType);
-		}
-	}
-	currentDamageType = ds_map_find_next(limbItem.damages,currentDamageType);
-}
-		
-// particles for all elemental damages (up to 3)
-for (var i = 0; i < ds_list_size(damageTypes); i++) {
-	var damageType = ds_list_find_value(damageTypes,i);
-	switch damageType {
-		case ICE: {
-			// snowflake particle
-			var snowflake = part_type_create();
-			part_type_shape(snowflake, pt_shape_snow);
-			part_type_orientation(snowflake,0,0,0,15,1);
-			part_type_size(snowflake,0,0.1,0,0);
-			part_type_speed(snowflake,1,1.5,0,0);
-			part_type_direction(snowflake,0,360,0,4);
-			part_type_life(snowflake,10,20);
-			part_type_alpha3(snowflake,1,.75,.5);
-			if i == 0 particle1 = snowflake;
-			else if i == 1 particle2 = snowflake;
-			else particle3 = snowflake;
-			break;
-		}
-		case MAGIC: {
-			// magic particle
-			var magic = part_type_create();
-			part_type_shape(magic, pt_shape_sphere);
-			part_type_color2(magic,c_aqua,c_ltgray);
-			part_type_orientation(magic,0,0,0,15,1);
-			part_type_size(magic,0,0.07,0,0);
-			part_type_speed(magic,1,2,0,0);
-			part_type_direction(magic,0,360,0,4);
-			part_type_life(magic,10,15);
-			if i == 0 particle1 = magic;
-			else if i == 1 particle2 = magic;
-			else particle3 = magic;
-			break;
-		}
-		case FIRE: {
-			// cinder Particle
-			var cinder = part_type_create();
-			part_type_shape(cinder,pt_shape_flare);
-			part_type_size(cinder,0,.1,0,0);
-			part_type_color2(cinder,c_orange,c_red);
-			part_type_alpha3(cinder,1,1,0); 
-			part_type_speed(cinder,1,2,0,0);
-			part_type_direction(cinder,85,95,0,0);
-			part_type_blend(cinder,1);
-			part_type_life(cinder,25,50);
-			if i == 0 particle1 = cinder;
-			else if i == 1 particle2 = cinder;
-			else particle3 = cinder;
-			break;
-		}
-		case POISON: {
-			// poison clouds
-			var poison = part_type_create();
-			part_type_shape(poison, pt_shape_cloud);
-			part_type_orientation(poison,0,359,0,15,1);
-			part_type_size(poison,0.1,.45,0,0);
-			part_type_speed(poison,.5,.75,0,0);
-			part_type_direction(poison,0,360,0,4);
-			part_type_life(poison,15,20);
-			part_type_color2(poison,c_green,c_olive);
-			part_type_alpha3(poison,.75,.5,.25);
-			if i == 0 particle1 = poison;
-			else if i == 1 particle2 = poison;
-			else particle3 = poison;
-			break;
-		}
-		case LIGHTNING: {
-			var spark = part_type_create();
-			part_type_shape(spark, pt_shape_spark);
-			part_type_orientation(spark,0,359,0,15,1);
-			part_type_size(spark,0.01,.15,0,0);
-			part_type_speed(spark,5,8,0,0);
-			part_type_direction(spark,0,360,0,4);
-			part_type_life(spark,3,6);
-			part_type_color2(spark,c_purple,c_white);
-			part_type_alpha3(spark,1,.85,.75);
-			if i == 0 {
-				particle1 = spark;
-				num1 = 2;
-			}
-			else if i == 1 {
-				particle2 = spark;
-				num2 = 2;
-			}
-			else {
-				particle3 = spark;
-				num3 = 2;
-			}
-			break;
-		}
-	}
-}
-ds_list_destroy(damageTypes); damageTypes = -1;
+updateWeaponParticles(limbItem);

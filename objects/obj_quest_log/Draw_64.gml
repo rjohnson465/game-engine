@@ -2,7 +2,7 @@ var p = global.player;
 var pad = p.gamePadIndex;
 
 draw_set_font(font_main);
-if watchedQuest != noone && ds_exists(watchedQuest.questSteps,ds_type_list) {
+if watchedQuest != noone && instance_exists(watchedQuest) && ds_exists(watchedQuest.questSteps,ds_type_list) {
 	// is the HUD showing (clickable shit for menus for m/k?)
 	var yy = 15;
 	if !gamepad_is_connected(pad) {

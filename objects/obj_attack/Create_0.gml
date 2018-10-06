@@ -28,6 +28,7 @@ system = part_system_create();
 part_system_depth(system,layer_get_depth(owner.layer));
 emitter = part_emitter_create(system);
 soundEmitter = audio_emitter_create();
+audio_emitter_falloff(soundEmitter, 50, AUDIO_MAX_FALLOFF_DIST, 1);
 sound = noone;
 isSoundLooping = false;
 
@@ -151,7 +152,15 @@ if isRanged {
 
 	if weapon != noone && weapon.isTwoHanded && weapon.isRanged {
 		ds_map_replace(owner.attackFrames,limbKey,0);
-		alarm[1] = 1;
+		//alarm[1] = 1;
+		var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
+		ds_map_replace(owner.recoveringLimbs,limbKey,attackInChain);
+		
+		// set recoverFrames to -1
+		ds_map_replace(owner.recoverFrames,limbKey,-1);
+		
+		// remove limbKey from attackingLimbs map
+		ds_map_delete(owner.attackingLimbs,limbKey);
 	} else {
 		// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
 		var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
@@ -180,7 +189,6 @@ else if attackData != noone {
 }
 
 
-//audio_play_sound_at(sound,x,y,0,10,30,2,isSoundLooping,1);
 if isSoundLooping {
 	if !audio_is_playing(sound) {
 		audio_play_sound_on(soundEmitter,sound,isSoundLooping,1);
@@ -189,7 +197,7 @@ if isSoundLooping {
 	if owner.type == CombatantTypes.Player {
 		audio_play_sound(sound,1,0);
 	} else {
-		audio_play_sound_at(sound,owner.x,owner.y,0,100,300,1,0,1);
+		audio_play_sound_at(sound,owner.x,owner.y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 	}
 }
 

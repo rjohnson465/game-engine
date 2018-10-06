@@ -11,7 +11,12 @@ if gp >= item.value {
 	alert("Purchased " + item.name + " for " + string(item.value) + " gold",c_yellow);
 	spendGold(item.value);
 	var oldCount = item.count;
-	//item.count = 1;
+	
+	// remove this item from npcData.inventory
+	var npc = obj_vendor_items.owner;
+	var index = ds_list_find_index(npc.npcData.inventory, item);
+	ds_list_delete(npc.npcData.inventory, index);
+	
 	if item.isStackable {
 		var item2 = instance_create_depth(x,y,1,item.object_index);
 		item2.count = 1;

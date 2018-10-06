@@ -55,5 +55,32 @@ else if ds_map_find_value(owner.recoveringLimbs,limbKey) >= 0 {
 
 if sprite == -1 exit;
 
-draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_white,owner.alpha);
+// draw glow effect, iff the weapon has hematite or a physical buff
+var hasHematite = false;
+for (var i = 0; i < limbItem.socketedGems; i++) {
+	var gem = ds_list_find_value(limbItem.socketedGems, i);
+	if gem.object_index == obj_gem_hematite hasHematite = true;
+}
+var hasPhysBuff = false;
+var cb = ds_map_find_first(limbItem.itemPropertyModifiers);
+for (var i = 0; i < ds_map_size(limbItem.itemPropertyModifiers); i++) {
+	var val = ds_map_find_value(limbItem.itemPropertyModifiers, cb);
+	if limbItem.subType != HandItemTypes.Shield {
+		if cb == WeaponProperties.PhysicalDamageBonus && val > 0 {
+			hasPhysBuff = true;
+		}
+	} else if limbItem.subType == HandItemTypes.Shield && cb == ShieldProperties.PhysicalBlockBonus && val > 0 {
+		hasPhysBuff = true;
+	}
+	cb = ds_map_find_next(limbItem.itemPropertyModifiers, cb);
+}
+// only draw glow if hemataite or phys buff on weapon / shield
+if hasHematite || hasPhysBuff {
+	gpu_set_blendmode(bm_add);
+	for(var c = 0;c < 360;c += 15){
+		draw_sprite_ext(sprite,frame,owner.x+lengthdir_x(4,c),owner.y+lengthdir_y(4,c),owner.scale,ys*owner.scale,rot,c_silver,owner.alpha*0.15);
+	}
+	gpu_set_blendmode(bm_normal)
+}
+draw_sprite_ext(sprite_index,image_index,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_white,owner.alpha);
 shader_reset();

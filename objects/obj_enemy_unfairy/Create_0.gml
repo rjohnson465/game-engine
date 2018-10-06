@@ -1,6 +1,6 @@
 event_inherited();
 name = "Unfairy";
-descriptionChoices = ["Magic Resistant", "Wouldn't be fair to call them fairies", "Life is unfairy", "Allergic to death", "Definitely evil being"];
+descriptionChoices = ["Magic Resistant", "It'd' be unfair to call them fairies", "Life is unfairy", "Allergic to death", "Definitely evil being"];
 description = "Magic Resistant";
 spriteName = "unfairy";
 spriteString = "enemy_unfairy";

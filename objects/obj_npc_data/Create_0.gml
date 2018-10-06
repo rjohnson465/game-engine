@@ -14,10 +14,17 @@ conversations = ds_map_create(); // name / isFinished
 // until the npc says them. Then they may be destroyed
 conversationsToAdd = ds_list_create();
 
+inventory = ds_list_create();
+
 hasInitializedItems = false;
 if instance_exists(npc) {
 	for (var i = 0; i < ds_list_size(npc.conversations); i++) {
 		var c = ds_list_find_value(npc.conversations,i);
 		ds_map_replace(conversations,c.name,c.isFinished);
+	}
+	
+	for (var i = 0; i < ds_list_size(npc.items); i++) {
+		var item = ds_list_find_value(npc.items, i );
+		ds_list_add(inventory, item);
 	}
 }

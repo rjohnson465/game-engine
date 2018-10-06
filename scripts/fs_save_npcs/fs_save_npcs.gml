@@ -12,8 +12,10 @@ with obj_npc_data {
 	// clone the conversations map, otherwise we're gonna destroy it at the end of fs_save
 	var conversations_clone = ds_map_deep_clone(conversations);
 	ds_map_add_map(sd_npc,"Conversations",conversations_clone);
-	
-	//var key = fs_generate_key(enemy);
+	// save the conversationsToAdd list
+	var cta = ds_list_create();
+	ds_list_copy(cta, conversationsToAdd);
+	ds_map_add_list(sd_npc, "ConversationsToAdd", cta);
 
 	ds_map_add_map(sd_npcs,npcObjIndexName,sd_npc);
 }

@@ -22,16 +22,17 @@ if (weapon != noone && weapon.weaponType == BLUNT2H && attackNumber == 3) {
 	global.y1 = yy;
 	global.particleDirection = 0;
 	global.hitParticlesLayer = layer;
+	global.victim = noone;
 	instance_create_depth(x,y,1,obj_hit_particles);
 	audio_play_sound(snd_crunchy_thud,1,0);
 }
 
 // special case -- sconces light arrows / bolts on fire
 with obj_sconce {
-	if	layer == other.layer && isLit && distance_to_object(other) < 2 &&
+	if	origLayer == other.layer && isLit && distance_to_object(other) < 2 &&
 		!other.isOnFire && other.weapon != noone && (other.weapon.weaponType == BOW || other.weapon.weaponType == CROSSBOW) {
 		
-		audio_play_sound_at(snd_magic_fire_shoot,x,y,depth,25,300,1,0,1);
+		audio_play_sound_at(snd_magic_fire_shoot,x,y,depth,25,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		other.isOnFire = true;
 		ds_map_replace(other.additionalDamages,FIRE,[1,5]);
 		

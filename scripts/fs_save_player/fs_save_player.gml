@@ -24,6 +24,9 @@ with global.player {
 	ds_map_replace(sd_player,"XpTemp",xpTemp);
 	ds_map_replace(sd_player,"XpToNextLevel",xpToNextLevel);
 	ds_map_replace(sd_player,"SkillPoints",skillPoints);
+	
+	var tutFirstMap = ds_map_deep_clone(tutorialFirstsMap);
+	ds_map_add_map(sd_player,"TutorialFirstsMap",tutFirstMap);
 
 }
 

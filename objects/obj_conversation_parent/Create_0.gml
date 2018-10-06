@@ -1,4 +1,5 @@
 owner = global.owner;
+ownerNpcName = global.ownerNpcName;
 name = "";
 steps = ds_list_create();
 currentStep = noone;

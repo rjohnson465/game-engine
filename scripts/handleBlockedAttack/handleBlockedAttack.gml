@@ -26,7 +26,7 @@ global.hitParticlesLayer = layer;
 global.victim = id;
 instance_create_depth(0,0,1,obj_hit_particles);
 var snd = shield.material == WOOD ? snd_shield_hit_wood : snd_shield_hit_metal;
-audio_play_sound_at(snd,__x,__y,depth,100,100,1,0,1);
+audio_play_sound_at(snd,__x,__y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 var shield = ds_map_find_value(equippedLimbItems,"r");
 					
 // remove the same percentage of stamina as it would have removed health
@@ -63,7 +63,8 @@ if stamina < 1 {
 }	
 // stagger assailant iff assailant weapon / attack staggers against blocks
 var itemOrAttack = attackData != noone ? attackData : itemHitWith;
-if itemOrAttack.staggersAgainstBlocks {
+var isMelee = attackObj.isMelee;
+if (itemOrAttack.staggersAgainstBlocks && isMelee) {
 	with assailant {
 		var itemIsMelee = false;
 		if itemHitWith != noone {

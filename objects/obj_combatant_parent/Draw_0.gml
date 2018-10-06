@@ -1,3 +1,7 @@
+if isDying {
+	isSlowed = false; isFrozen = false;
+	alpha = (-dyingFrame/dyingTotalFrames)+1;
+}
 updateIsMoving();
 if !isBeingHit {
 	prepareLayerShader();

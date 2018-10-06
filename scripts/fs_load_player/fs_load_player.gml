@@ -10,4 +10,8 @@ with global.player {
 	xpToNextLevel = ds_map_find_value(sd_player,"XpToNextLevel");
 	level = ds_map_find_value(sd_player,"Level");
 	skillPoints = ds_map_find_value(sd_player,"SkillPoints");
+	
+	var tutFirstsMap = ds_map_find_value(sd_player,"TutorialFirstsMap");
+	var mapClone = ds_map_deep_clone(tutFirstsMap);
+	tutorialFirstsMap = mapClone;
 }

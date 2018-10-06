@@ -1,7 +1,7 @@
 with obj_combatant_parent {
 	if place_meeting_layer(x,y,other) && isMoving {
 		if isBurning {
-			audio_play_sound_at(snd_magic_fire_hit,x,y,depth,100,300,1,0,1);
+			audio_play_sound_at(snd_magic_fire_hit,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 			ds_map_replace(conditionPercentages,FIRE,0);
 		}
 		var currentWaterParticlesObj = noone; 

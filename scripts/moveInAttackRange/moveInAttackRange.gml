@@ -34,7 +34,7 @@ if attackFrequencyFrame == -1 {
 			hasCalculatedWillDodge = false;
 			isStrafing = false;
 			if attackData.prepSound != noone {
-				audio_play_sound_at(attackData.prepSound,x,y,depth,20,150,1,0,1);
+				audio_play_sound_at(attackData.prepSound,x,y,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 			}
 			state = CombatantStates.Attacking;
 		}
@@ -66,5 +66,6 @@ if attackFrequencyFrame == -1 {
 			strafeFrame--;
 		}
 	}
+	else path_end();
 	attackFrequencyFrame--;
 }

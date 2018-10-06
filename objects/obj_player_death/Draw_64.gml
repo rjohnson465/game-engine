@@ -32,11 +32,13 @@ draw_rectangle(x1,y1,x2,y2,false);
 var c = mouseOverFountainRevive ? c_white : c_ltgray;
 scr_draw_text_outline(s1x,s1y,s1,c,c);
 
+var bottomY = y2;
 // Use revive orb
 if reviveOrbs != noone {
 	var s2 = "Use revive orb";
 
 	var y3 = y1 + 50; var y4 = y2+50;
+	bottomY = y4;
 	if selectedOption == ReviveOptions.Orb {
 		draw_set_color(c_gray);
 	} else draw_set_color(c_dkgray);
@@ -54,6 +56,12 @@ if reviveOrbs != noone {
 		draw_set_font(font_small);
 		scr_draw_text_outline(s1x,s1y+75,"No orb in inventory",c_ltgray,c_ltgray);
 	}
+}
+
+// tell how much xp will be lost if revive at fountain
+if selectedOption == ReviveOptions.Fountain {
+	draw_set_font(font_main);
+	scr_draw_text_outline(s1x, bottomY+50, "You will lose " + string(global.player.xpTemp) + " XP", c_white, c_white);
 }
 
 draw_set_alpha(1);

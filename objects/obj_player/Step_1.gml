@@ -61,6 +61,9 @@ if gamepad_is_connected(gamePadIndex) {
 	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderrb) {
 		performRightHandDownAction();
 	}
+	if leftHandItem.isTwoHanded && leftHandItem.isRanged && gamepad_button_check(gamePadIndex, gp_shoulderrb) {
+		performRightHandDownAction();
+	}
 	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderr) {
 		switch currentSpellAttunement {
 			case MAGIC: {

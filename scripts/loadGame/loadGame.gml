@@ -18,6 +18,7 @@ if instance_exists(obj_player) {
 		instance_destroy(unarmed,1);
 		
 		// prevent mem leak
+		ds_map_destroy(tutorialFirstsMap); tutorialFirstsMap = -1;
 		ds_map_destroy(attackAgain); attackAgain = -1;
 		ds_map_destroy(propertiesBaseValues); propertiesBaseValues = -1;
 		ds_map_destroy(itemPropertyBonuses); itemPropertyBonuses = -1;
@@ -64,7 +65,7 @@ if instance_exists(obj_player) {
 		}
 		ds_map_destroy(conditionsEmittersMap); conditionsEmittersMap = -1;
 		audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
-		audio_emitter_free(sprintSoundEmitter); sprintSoundEmitter = -1;
+		//audio_emitter_free(sprintSoundEmitter); sprintSoundEmitter = -1;
 		
 		event_perform(ev_create,0);
 	}

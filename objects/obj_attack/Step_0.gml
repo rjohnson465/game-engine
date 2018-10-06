@@ -1,3 +1,4 @@
+audio_emitter_position(soundEmitter, x, y, depth);
 if isSpell && !hasSetAlarm {
 	if layer >= global.player.layer {
 		var x1 = bbox_left; var x2 = bbox_right;

@@ -13,11 +13,6 @@ var lhi = p.leftHandItem;
 var rhi = p.rightHandItem;
 ds_list_clear(p.inventory);
 
-var a = ds_list_create();
-var b = ds_map_create();
-ds_list_destroy(a); a = -1;
-ds_map_destroy(b); b = -1;
-
 
 var holdingList = ds_list_create(); 
 var cv = ds_map_find_first(sd_inventory);

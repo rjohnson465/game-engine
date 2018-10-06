@@ -26,12 +26,40 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 		// if this layer is some floor above the player, it is not visible
 		if lNum > pLayerNum {
 			layer_set_visible(l,false);
+			// also don't show fountains or sconces with depth near depth of this layer
+			with obj_fountain {
+				var lDepth = layer_get_depth(l);
+				var diff = abs(lDepth - depth);
+				if diff < 5 {
+					visible = false;
+				}
+			}
+			with obj_sconce {
+				var lDepth = layer_get_depth(l);
+				var diff = abs(lDepth - depth);
+				if diff < 5 {
+					visible = false;
+				}
+			}
 		}
 		// make visible layers at or below player's layer
 		// draw layers below a little darker, use a Shader
 		else {
 			layer_set_visible(l,true);
-			
+			with obj_fountain {
+				var lDepth = layer_get_depth(l);
+				var diff = abs(lDepth - depth);
+				if diff < 5 {
+					visible = true;
+				}
+			}
+			with obj_sconce {
+				var lDepth = layer_get_depth(l);
+				var diff = abs(lDepth - depth);
+				if diff < 5 {
+					visible = true;
+				}
+			}
 			// depth needs to be average of tiles layer and instances layer for this floor
 			var tilesLayer = layer_get_id("tiles_floor_" + string(lNum));
 			var instancesLayer = layer_get_id("instances_floor_" + string(lNum));

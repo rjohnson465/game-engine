@@ -41,7 +41,9 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if distance_to_object(obj_player) < 20 && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !global.canLoot && !inUse && !global.ui.isShowingMenus && !global.canInteractWithNpc && !isInConvo {
+if origLayer != global.player.layer exit;
+
+if distance_to_object(obj_player) < 20 && origLayer == global.player.layer && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !global.canLoot && !inUse && !global.ui.isShowingMenus && !global.canInteractWithNpc && !isInConvo {
 	if !isRunning {
 		wishAtFountain(); // turn fountain on ;)
 	} else {
