@@ -78,7 +78,7 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 with obj_enemy_obstacle_parent {
 	if layer == playerLayer {
 		solid = true;
-	} else {
+	} else if !isObstacleLayerless {
 		solid = false;
 	}
 	

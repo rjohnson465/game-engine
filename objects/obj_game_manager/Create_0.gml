@@ -158,3 +158,6 @@ ambPeriodicalsMap = ds_map_create();
 ambpFrames = ds_map_create(); // keys are snd ids
 ambpEmitters = ds_map_create();
 ambpFrameStarts = ds_map_create();
+
+global.doNotDisplayTutorialMessages = true;
+alarm[3] = 5;

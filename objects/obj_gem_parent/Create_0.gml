@@ -50,3 +50,4 @@ switch condition {
 }
 
 soundDrop = snd_item_gem;
+itemInside = noone;

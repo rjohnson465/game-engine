@@ -16,6 +16,13 @@ if true && global.player.isAlive && !global.isWishing && !global.ui.isShowingMen
 		spriteHeight = sprite_get_height(sprite)*.35;
 		var sw = sprite_get_width(sprite)*.35;
 		spritesWidth += (sw);
+		
+		// maybe include separator width
+		if array_length_1d(promptSpritesSeparators) >= i + 1 {
+			var separator = promptSpritesSeparators[i];
+			var strW = string_width(separator);
+			spritesWidth += strW;
+		}
 	}
 	if spriteHeight != 0 spriteHeight += 5; // padding
 	
@@ -40,6 +47,15 @@ if true && global.player.isAlive && !global.isWishing && !global.ui.isShowingMen
 		var sh = sprite_get_height(sprite)*.35;
 		draw_sprite_ext(sprite,1,xxx+spritesWidthCum,yy-(.25*sh),.35,.35,0,c_white,1);
 		spritesWidthCum += (sw);
+		
+		// maybe draw separator 
+		if array_length_1d(promptSpritesSeparators) >= i + 1 && array_length_1d(sprites) != i + 1 {
+			var separator = promptSpritesSeparators[i];
+			var strW = string_width(separator);
+			var yOff = separator == "," ? .5*sh : .25*sh;
+			draw_text(xxx+spritesWidthCum,yy+yOff,separator);
+			spritesWidthCum += strW;
+		}
 	}
 	
 	draw_set_halign(fa_center); draw_set_font(font_main); draw_set_valign(fa_center);

@@ -17,7 +17,7 @@ hasSetAlarm = false;
 isOnFire = false; // for arrows that pass through torches
 additionalDamages = ds_map_create();
 
-life = 60; // frames bfore ranged attack fades away
+life = 60; // frames before ranged attack fades away
 
 spell = noone;
 particle = noone;
@@ -31,6 +31,9 @@ soundEmitter = audio_emitter_create();
 audio_emitter_falloff(soundEmitter, 50, AUDIO_MAX_FALLOFF_DIST, 1);
 sound = noone;
 isSoundLooping = false;
+
+weaponParticles = [noone, noone, noone, noone, noone];
+weaponParticlesNums = [noone, noone, noone, noone, noone];
 
 // determine attack type
 if isSpell {
@@ -255,4 +258,14 @@ if (weapon != noone && weapon.weaponType == PISTOL || weapon.weaponType == MUSKE
 		yy,yy,0,0);
 	part_emitter_burst(system,emitter,particle,5);
 	part_emitter_burst(system,emitter,particle2,2);
+}
+
+// ranged attacks may have particles 
+if true {
+	var wep = noone;
+	// weapon or attack data, just need access to damages map
+	if instance_exists(weapon) && weapon != noone {
+		wep = weapon;
+	} else wep = attackData;
+	updateWeaponParticles(id);
 }

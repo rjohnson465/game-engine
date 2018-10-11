@@ -1,3 +1,4 @@
+isObstacleLayerless = false;
 // personalGrid is all walls / combatants except for this combatant
 // each combatant has their own grid, telling them where they can't go
 var cell_width = 32;//bbox_right-bbox_left;
@@ -25,7 +26,7 @@ prevX = x;
 prevY = y;
 walkingInWaterEmitter = audio_emitter_create();
 audio_emitter_gain(walkingInWaterEmitter,0);
-audio_play_sound_on(walkingInWaterEmitter,snd_water_walking_loop,1,0);
+// decide which water walk sound to play on room start (if floating a different sound is used than if walking)
 
 isAlive = true;
 
@@ -374,3 +375,8 @@ soundsWhenDodge = [snd_dodge1];
 soundsWhenHit = [snd_hit1]; // array of potential "hit" sounds (not "ahhs" or dialogue, just like metal in flesh, metal on metal...)
 soundsWhenHitVocals = [];
 soundsWhenDie = [];
+
+randomize();
+var s = sprite_get_name(sprite_index);
+image_index = round(random_range(0,sprite_get_number(sprite_index)));
+var a = 3;

@@ -53,12 +53,18 @@ for (var i = 0; i < TutFirsts.length; i++) {
 	
 	var val = ds_map_find_value(p.tutorialFirstsMap, ck); // true or false
 	if !val {
-		var msg = ""; var spritesController = []; var spritesMk = [];
+		var msg = ""; var spritesController = []; var spritesMk = []; var spritesSeps = [];
 		switch ck {
+			case TutFirsts.Gems: {
+				if !object_is_ancestor(item.object_index, obj_gem_parent) break;
+				msg = "Gems can be put into socketed items to enhance various item stats. Insert or remove gems from items at fountains.";
+				break;
+			}
 			case TutFirsts.TwoHandedRangedWeapons: {
 				if !item.isTwoHanded || !item.isRanged break;
 				spritesController = [spr_prompt_xbox_rb, spr_prompt_xbox_lb];
 				spritesMk = [spr_prompt_mk_rb, spr_prompt_mk_lb];
+				spritesSeps = ["(hold) +"];
 				msg = "Ready two handed ranged weapon, then fire. A fully charged weapon delivers the most damage.";
 				break;
 			}

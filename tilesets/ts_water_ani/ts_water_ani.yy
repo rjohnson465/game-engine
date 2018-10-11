@@ -348,7 +348,7 @@
     },
     "tile_animation_frames": [
         {
-            "id": "54cda499-1155-4076-8a61-5a7e5416883d",
+            "id": "b483005c-d4d3-4700-946c-fcdda164be55",
             "modelName": "GMTileAnimation",
             "mvc": "1.0",
             "frames": [
@@ -372,7 +372,7 @@
             "name": "animation_1"
         }
     ],
-    "tile_animation_speed": 9,
+    "tile_animation_speed": 16,
     "tile_count": 20,
     "tileheight": 64,
     "tilehsep": 0,

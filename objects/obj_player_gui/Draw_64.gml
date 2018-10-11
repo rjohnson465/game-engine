@@ -188,9 +188,8 @@ if leftHandItem.isTwoHanded {
 // draw attunements
 if rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0 {
 	
-	//instance_activate_object(obj_attunement);
-	
 	var init_x = 12; // changes on each iteration
+	var final_x = init_x + (array_length_1d(global.ALL_ELEMENTS)*sprite_get_width(spr_attunement_fire));
 	global.y1 = 658; // used for attunement instance creation
 	for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 		var el = global.ALL_ELEMENTS[i];
@@ -199,7 +198,7 @@ if rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0 {
 		
 		if global.player.currentSpellAttunement != el {
 			var sw = sprite_get_width(attunementSpriteIndex);
-			if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+vh-108,vx+x1+sw,vy+vh-108+sw) {
+			if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+vh-108,vx+x1+sw,vy+vh-108+sw) || global.player.isHoldingAttunemntSwapMode {
 				draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_white,1);
 				draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_gray,.75);
 			} else {
@@ -214,8 +213,13 @@ if rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0 {
 			script_execute(scr_draw_text_outline,x1+1,vh-107,string(i+1),c_white,c_white);
 		}
 	}
-} else {
-	//instance_deactivate_object(obj_attunement);
+	
+	// draw an outline if holding rt (in attunement swap mode)
+	if global.player.isHoldingAttunemntSwapMode {
+		var yyy = vh-108; var yyy2 = yyy + sprite_get_height(spr_attunement_fire);
+		draw_set_color(c_white);
+		draw_rectangle(init_x, vh - 108, final_x, yyy2, 1);
+	}
 }
 
 // menus

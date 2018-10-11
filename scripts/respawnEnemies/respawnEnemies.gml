@@ -1,3 +1,4 @@
+/// respawnEnemies()
 // re-spawn all enemies in all maps
 // TODO - do not respawn bosses? MAYBE?
 
@@ -27,7 +28,8 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 		ds_map_replace(sd_temp_enemy,"CurrentZ",postZ);
 		ds_map_replace(sd_temp_enemy,"TempPostX",postX);
 		ds_map_replace(sd_temp_enemy,"TempPostY",postX);
-		ds_map_replace(sd_temp_enemy,"FacingDirection",fdStart);
+		var enemy = findPersistentRoomElement(obj_enemy_parent,postX,postY);
+		ds_map_replace(sd_temp_enemy,"FacingDirection",enemy.postDir);
 		ds_map_replace(sd_temp_enemy,"Hp",hpMax);
 		ds_map_replace(sd_temp_enemy,"IsAlive",true);
 		
@@ -47,6 +49,14 @@ with rd {
 }
 
 // force room restart event for all enemies
+with obj_enemy_parent {
+	state = CombatantStates.Idle;
+	path_end(); 
+	lockOnTarget = noone;
+	onAlert = false;
+	facingDirection = postDir;
+	jumpFrame = 0; wasJustHit = false;
+}
 with obj_enemy_parent {
 	event_perform(ev_other, ev_room_start);
 }

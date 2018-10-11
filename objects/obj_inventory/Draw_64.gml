@@ -125,6 +125,7 @@ var inventory = global.player.inventory;
 ds_list_clear(inv);
 for (var i = 0; i < ds_list_size(inventory); i++) {
 	var el = ds_list_find_value(inventory,i);
+	if !instance_exists(el) continue;
 	
 	//if instance_exists(el) {
 		ds_list_add(inv,el);
@@ -318,7 +319,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 			w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		} 
 	
-		if selectedItem != noone && selectedItem.isDestroyable {
+		if selectedItem != noone && selectedItem.isDestroyable && isSelectorInInventory(global.ui.moveSelector) {
 			//w += drawPrompt("Destroy " + selectedItem.name,Input.Face4,promptsStartX+w,promptsY)+xOffset;
 			w += drawPrompt("Destroy Item" ,Input.Face4,promptsStartX+w,promptsY)+xOffset;
 		}

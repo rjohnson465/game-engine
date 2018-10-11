@@ -1,5 +1,6 @@
 promptSpritesController = global.tutSpritesController;
 promptSpritesMk = global.tutSpritesMk;
+promptSpritesSeparators = global.tutSpritesSeparators;
 message = global.tutMessage;
 global.isReadingTutorial = true;
 global.isLooting = false;

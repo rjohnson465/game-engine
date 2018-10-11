@@ -38,3 +38,5 @@ audio_emitter_position(audioEmitter,x,y,layer_get_depth(layer));
 audio_emitter_falloff(audioEmitter,1,300,1);
 audio_emitter_gain(audioEmitter,1);
 audio_play_sound_on(audioEmitter,snd_portal,1,1);
+
+key = fs_generate_key(id);

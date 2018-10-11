@@ -52,7 +52,16 @@ if isRemoving {
 	var gemIndex = ds_list_find_index(item.socketedGems,gem);
 	ds_list_delete(item.socketedGems,gemIndex);
 } else {
+	// if there is more than one gem in the inventory stack, create a new gem instance and insert that one into the item
+	if gem.count != 1 {
+		var gemStack = gem;
+		gem = makeGem(gemStack.object_index, gemStack.condition);
+		gem.count = 1;
+		gem.owner = "socket";
+		gemStack.count--;
+	}
 	ds_list_add(item.socketedGems,gem);
+	gem.x = -50; gem.y = -50;
 }
 
 switch item.type {
@@ -150,9 +159,22 @@ switch item.type {
 
 // gems in sockets are not "owner" by player (for consistency with saving inventory)
 if isRemoving {
-	gem.owner = global.player;
+	var gemStack = noone;
+	with gem.object_index {
+		if owner == global.player && condition == gem.condition && id != gem {
+			gemStack = id;
+		}
+	}
+	if gemStack != noone {
+		gemStack.count++; 
+		instance_destroy(gem,1);
+	} else {
+		gem.owner = global.player;
+		gem.itemInside = noone;
+	}
 } else {
 	gem.owner = "socket";
+	gem.itemInside = item;
 }
 
 var gemIndex = ds_list_find_index(global.player.inventory,gem);

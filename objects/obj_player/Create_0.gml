@@ -161,6 +161,7 @@ hasAlertedNoMagicCharges = false;
 
 
 currentSpellAttunement = MAGIC;
+isHoldingAttunemntSwapMode = false;
 
 goldDropMultiplier = 100; // %
 // inventory -- holds all items
@@ -179,7 +180,12 @@ if global.populateInventory {
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
+	var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
+	shortbow.numberOfSockets = 3;
+	insertGemIntoItem(makeGem(obj_gem_aquamarine,FLAWLESS),shortbow);
+	addItemToInventory(shortbow);
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_spear));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_hatchet));
@@ -197,6 +203,11 @@ if global.populateInventory {
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_wand));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
+	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
+	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
+	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
+	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
+	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
 	
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
 
@@ -275,7 +286,3 @@ nonPriorityInteractionPrompts = ds_list_create();
 ds_map_destroy(tutorialFirstsMap); tutorialFirstsMap = -1;
 tutorialFirstsMap = defineFirstsTutorialMessages(); // redo
 
-/*
-sprintSoundEmitter = audio_emitter_create();
-audio_emitter_gain(sprintSoundEmitter,0);
-audio_play_sound_on(sprintSoundEmitter,snd_move_sprint,1,1);

@@ -6,7 +6,7 @@ event_inherited();
 populatePersonalGrid();
 
 if instance_number(obj_room_data) == 0 exit;
-persistentElementUpdateProperties(id) 
+persistentElementUpdateProperties(id); 
 isAlive = ds_map_find_value(persistentProperties, "IsAlive");
 if isAlive {
 	isShowingLightRadius = true;
@@ -39,3 +39,6 @@ tempPostX = ds_map_find_value(persistentProperties, "TempPostX");
 tempPostY = ds_map_find_value(persistentProperties, "TempPostY");
 tempPostZ = ds_map_find_value(persistentProperties, "TempPostZ");
 facingDirection = ds_map_find_value(persistentProperties, "FacingDirection");
+path_end();
+state = CombatantStates.Idle;
+currentMeleeAttack = noone; currentRangedAttack = noone;

@@ -1,5 +1,6 @@
 material = WOOD; 
 stopsAttacks = true;
+isObstacleLayerless = true;
 // Make a circle with 16 points.
 var n = 16
 var gap = 360 / n;

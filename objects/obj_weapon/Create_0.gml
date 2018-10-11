@@ -17,15 +17,15 @@ if limbKey == "l" {
 // particle system for elemental effects
 refreshParticles = false;
 system = part_system_create();
-part_system_depth(system,depth);
+part_system_depth(system,layer_get_depth(owner.layer));
 emitter = part_emitter_create(system);
 weaponParticles = [noone, noone, noone, noone, noone];
 weaponParticlesNums = [noone, noone, noone, noone, noone];
 // particle system for torch
 torchParticle1 = noone;
 torchParticle2 = noone;
-torchSystem1 = part_system_create();;
-torchSystem2 = part_system_create()
+torchSystem1 = part_system_create();
+torchSystem2 = part_system_create();
 torchEmitter1 = part_emitter_create(torchSystem1);
 torchEmitter2 = part_emitter_create(torchSystem2);
 torchAudioEmitter = audio_emitter_create();

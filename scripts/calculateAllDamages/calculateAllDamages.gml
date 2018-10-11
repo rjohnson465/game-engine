@@ -88,9 +88,10 @@ for (var i = 0; i < size; i++) {
 		}
 		if damageBase > 0 {
 			if !isShocked {
-				randomize();
-				var damageReduction = random_range(0,defense);
-				damageBase -= damageReduction;
+				//randomize();
+				//var damageReduction = random_range(0,defense);
+				//damageBase -= damageReduction;
+				damageBase = applyDefenseToDamageBase(damageBase, defense);
 			} else {
 				// enhance damage by 25% if shocked
 				damageBase *= 1.25;
@@ -135,8 +136,8 @@ for (var i = 0; i < size; i++) {
 	var hitWithTorch = currentDamageType == FIRE && damageBase > 0 && attackObj.weapon != noone && attackObj.weapon.object_index == obj_hand_item_torch;
 	var nonConditioningDamageTypes = [PHYSICAL,CRUSH,PIERCE,SLASH];
 	if (damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType)) {
-		if hitWithTorch maybeApplyElementalCondition(currentDamageType,damageBase,spell,1);
-		else maybeApplyElementalCondition(currentDamageType,damageBase,spell);
+		if hitWithTorch maybeApplyElementalCondition(currentDamageType,damageBase,spell,attackObj,1);
+		else maybeApplyElementalCondition(currentDamageType,damageBase,spell,attackObj);
 	}
 			
 	// if this was fire or poison damage, record an altered version of the base amount in case this is the attack that burns or poisons 

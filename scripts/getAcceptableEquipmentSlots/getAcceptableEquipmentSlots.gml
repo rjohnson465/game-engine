@@ -14,6 +14,10 @@ switch item.type {
 		else if item.subType == HandItemTypes.Shield {
 			return [EquipmentSlots.RightHand1, EquipmentSlots.RightHand2];
 		}
+		// torch -- always in right hand
+		else if item.object_index == obj_hand_item_torch {
+			return [EquipmentSlots.RightHand1, EquipmentSlots.RightHand2];
+		}
 		// else, general hand item, can go in any hand
 		else return [EquipmentSlots.LeftHand1, EquipmentSlots.LeftHand2, 
 		EquipmentSlots.RightHand1, EquipmentSlots.RightHand2];

@@ -33,7 +33,7 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && !is
 
 // destroy item
 if gamepad_button_check_pressed(global.player.gamePadIndex,gp_face4) {
-	if selectedItem != noone && selectedItem.isDestroyable {
+	if selectedItem != noone && selectedItem.isDestroyable && isSelectorInInventory(global.ui.moveSelector) {
 		isConfirmingDestroyItem = true;
 		audio_play_sound(snd_ui_tab1,1,0);
 	}

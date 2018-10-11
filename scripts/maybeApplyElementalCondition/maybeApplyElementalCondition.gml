@@ -2,22 +2,30 @@
 /// @param damageType
 /// @param damageAmount
 /// @param spell -- if it exists, otherwise this will be noone
-/// @param percentChance
+/// @param *percentChance
 
 var damageType = argument[0];
 var damageAmount = argument[1];
 var spell = argument[2];
+var attackObj = argument[3];
 
 randomize();
 var top = 1000;
 var percentChance = .2;
-percentChance = 1;
-if argument_count == 4 {
-	percentChance = argument[3];
+//percentChance = 1;
+if argument_count == 5 {
+	percentChance = argument[4];
 }
-if spell != noone && spell.name == "magicmissile" {
+if spell != noone /*&& spell.name == "magicmissile"*/ {
 	// every misile has a 20/numProjectiles% chance
 	var percentChance = (20/spell.numberOfProjectiles)/100;
+	// enhance the percentChance by how much the spell was charged
+	var percentCharged = attackObj.percentCharged;
+	if percentCharged > .5 {
+		// 50% charged gives 1.5 normal percent chance, 100% charged gives 2x normal percent chance
+		var modifier = percentCharged + 1;
+		percentChance *= modifier;
+	}
 }
 var rand = random_range(1,top);
 // TODO apply buffs?

@@ -1,5 +1,6 @@
 promptSpritesController = [];
 promptSpritesMk = [];
+promptSpritesSeparators = [];
 message = "Fountains save progress, and maybe, grant wishes... You revive at your last fountain on death.";
 origLayer = layer;
 depth = layer_get_depth(layer) + 5;
@@ -29,3 +30,8 @@ isShowingLightRadius = true;
 global.owner = id;
 global.makeLightOnCreate = true;
 lightRadius = instance_create_depth(x,y,1,obj_light_radius);
+
+key = fs_generate_key(id);
+
+	
+isCurrentInteractableObject = isCurrentInteractionObject(id);

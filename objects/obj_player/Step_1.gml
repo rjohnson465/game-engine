@@ -64,36 +64,9 @@ if gamepad_is_connected(gamePadIndex) {
 	if leftHandItem.isTwoHanded && leftHandItem.isRanged && gamepad_button_check(gamePadIndex, gp_shoulderrb) {
 		performRightHandDownAction();
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderr) {
-		switch currentSpellAttunement {
-			case MAGIC: {
-				currentSpellAttunement = FIRE;
-				break;
-			}
-			case FIRE: {
-				currentSpellAttunement = ICE;
-				break;
-			}
-			case ICE: {
-				currentSpellAttunement = POISON;
-				break;
-			}
-			case POISON: {
-				currentSpellAttunement = LIGHTNING;
-				break;
-			}
-			case LIGHTNING: {
-				currentSpellAttunement = MAGIC;
-				break;
-			}
-		}
-	}
 	if gamepad_button_check_pressed(gamePadIndex,gp_face2) && !global.ui.isShowingMenus && !global.isLooting {
 		performDodge();
 	}
-	/*if gamepad_button_check_pressed(gamePadIndex,gp_face3) && !global.ui.isShowingMenus {
-		performSwapWeaponSet();
-	}*/
 	if gamepad_button_check(gamePadIndex,gp_shoulderl) && !global.ui.isShowingMenus {
 		performChargeSpell();
 	}
@@ -103,10 +76,67 @@ if gamepad_is_connected(gamePadIndex) {
 	if gamepad_button_check_pressed(gamePadIndex,gp_padd) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
 		performCycleThroughSpells("down");
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_padr) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
-		performSwapRightHand();
+	
+	
+	if !gamepad_button_check(gamePadIndex, gp_shoulderr) {
+		isHoldingAttunemntSwapMode = false;
+		if gamepad_button_check_pressed(gamePadIndex,gp_padr) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
+			performSwapRightHand();
+		}
+		if gamepad_button_check_pressed(gamePadIndex,gp_padl) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
+			performSwapLeftHand();
+		}
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_padl) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
-		performSwapLeftHand();
+	// d pad swaps attunements when RT is held down
+	else if !global.ui.isShowingMenus {
+		isHoldingAttunemntSwapMode = true;
+		if gamepad_button_check_pressed(gamePadIndex,gp_padr) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
+			switch currentSpellAttunement {
+				case MAGIC: {
+					currentSpellAttunement = FIRE;
+					break;
+				}
+				case FIRE: {
+					currentSpellAttunement = ICE;
+					break;
+				}
+				case ICE: {
+					currentSpellAttunement = POISON;
+					break;
+				}
+				case POISON: {
+					currentSpellAttunement = LIGHTNING;
+					break;
+				}
+				case LIGHTNING: {
+					currentSpellAttunement = MAGIC;
+					break;
+				}
+			}
+		}
+		if gamepad_button_check_pressed(gamePadIndex,gp_padl) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
+			switch currentSpellAttunement {
+				case MAGIC: {
+					currentSpellAttunement = LIGHTNING;
+					break;
+				}
+				case FIRE: {
+					currentSpellAttunement = MAGIC;
+					break;
+				}
+				case ICE: {
+					currentSpellAttunement = FIRE;
+					break;
+				}
+				case POISON: {
+					currentSpellAttunement = ICE;
+					break;
+				}
+				case LIGHTNING: {
+					currentSpellAttunement = POISON;
+					break;
+				}
+			}
+		}
 	}
 }

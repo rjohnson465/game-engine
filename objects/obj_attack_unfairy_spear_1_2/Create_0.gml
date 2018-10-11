@@ -11,3 +11,4 @@ staggerDuration = 15;
 //prepSound = snd_bow_prep;
 attackSound = snd_thrust_attack_1;
 hitSound = snd_hit1;
+turnSpeed = 2;

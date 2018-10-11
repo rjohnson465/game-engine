@@ -13,4 +13,11 @@ if (xp + xpTemp) >= xpToNextLevel {
 	instance_create_depth(x,y,1,obj_hit_particles);
 	room_speed = 15;
 	alarm[0] = 15;
+	
+	var hasTaughtLevelUp = ds_map_find_value(tutorialFirstsMap, TutFirsts.LevelingUp);
+	if !hasTaughtLevelUp {
+		var msg = "You've leveled up! Each level, you get a skill point, which can be spent in the skills menu. Choose wisely!";
+		showTutorialMessage(msg,[],[],TutFirsts.LevelingUp);
+	}
+	
 }

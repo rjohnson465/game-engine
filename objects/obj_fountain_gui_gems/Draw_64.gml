@@ -84,9 +84,14 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 	var el = ds_list_find_value(inventory,i);
 	ds_list_add(inv,el);
 	
-	if !object_is_ancestor(el.object_index, obj_gem_parent) {
+	if !object_is_ancestor(el.object_index, obj_gem_parent) || (object_is_ancestor(el.object_index, obj_gem_parent) && el.owner == "socket") {
 		var pos = ds_list_find_index(inv,el);
 		ds_list_delete(inv,pos);
+		// these are gems that have already been inserted. make sure they cannot be clicked
+		if object_is_ancestor(el.object_index, obj_gem_parent) {
+			el.x1 = -50;
+			el.y1 = -50;
+		}
 	}
 }
 

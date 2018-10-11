@@ -4,6 +4,8 @@ if place_meeting(x,y,obj_player) {
 
 if isFloating {
 	audio_play_sound_on(walkingInWaterEmitter,snd_water_floating_loop,1,0);
+} else {
+	audio_play_sound_on(walkingInWaterEmitter,snd_water_walking_loop,1,0);
 }
 
 // initiated here so dyingParticle exist

@@ -6,7 +6,9 @@
     "children": [
         "fb612c62-09cb-42f6-9eb1-31472e853c8e",
         "78918f93-d340-44ac-bc2e-29842c2af6ff",
-        "a1bb1d9c-64dd-4b2b-a415-07d94416889f"
+        "a1bb1d9c-64dd-4b2b-a415-07d94416889f",
+        "84b07e70-db91-4e5b-872a-1aa62632eb72",
+        "a8d208f9-704b-4b63-978f-25c2dd5b79ac"
     ],
     "filterType": "GMSound",
     "folderName": "forest",

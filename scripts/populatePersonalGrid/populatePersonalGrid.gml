@@ -12,7 +12,8 @@ with obj_enemy_obstacle_parent {
 	else {
 		if object_index == obj_fountain && origLayer == myLayer {
 			ds_list_add(solids,id);
-		} else if layer == myLayer {
+		}
+		else if layer == myLayer || isObstacleLayerless {
 			ds_list_add(solids,id);
 		}
 	}
