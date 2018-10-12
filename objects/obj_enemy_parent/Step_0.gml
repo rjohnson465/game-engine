@@ -5,5 +5,6 @@ if state == CombatantStates.Moving && x != postX && y != postY {
 	updatePersistentElementProperty(id,"CurrentY",y);
 	updatePersistentElementProperty(id,"CurrentZ",layer);
 	updatePersistentElementProperty(id,"FacingDirection",facingDirection);
+	updatePersistentElementProperty(id,"FacingDirectionStart",postDir);
 }
 

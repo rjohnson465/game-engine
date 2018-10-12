@@ -1,5 +1,5 @@
 if !gamepad_is_connected(global.player.gamePadIndex) {
-	selectedPriceIncrease = noone;	
+	//selectedPriceIncrease = noone;	
 } else if selectedPriceIncrease == noone {
 	selectedPriceIncrease = RESETPRICE;
 }
@@ -85,7 +85,11 @@ if ((mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button(mb_left))
 		&& global.fountainGui.currentSubMenu == NAMEPRICE {
 	draw_set_color(c_black);
 }
-else if (mouseOverGuiRect(x1,y1,x2,y2) || selectedPriceIncrease == WISH) && global.fountainGui.currentSubMenu == NAMEPRICE {
+else if (mouseOverGuiRect(x1,y1,x2,y2) || (gamepad_is_connected(pad) && selectedPriceIncrease == WISH)) && global.fountainGui.currentSubMenu == NAMEPRICE {
+	if selectedPriceIncrease != WISH {
+		audio_play_sound(snd_ui_option_change,1,0);
+	}
+	selectedPriceIncrease = WISH;
 	draw_set_color(c_olive);
 }
 draw_rectangle(x1,y1,x2,y2,0);
@@ -114,7 +118,11 @@ if ((mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button(mb_left))
 		&& global.fountainGui.currentSubMenu == NAMEPRICE {
 	draw_set_color(c_black);
 }
-else if (mouseOverGuiRect(x1,y1,x2,y2) || selectedPriceIncrease == RESETPRICE) && global.fountainGui.currentSubMenu == NAMEPRICE {
+else if (mouseOverGuiRect(x1,y1,x2,y2) || (gamepad_is_connected(pad) && selectedPriceIncrease == RESETPRICE)) && global.fountainGui.currentSubMenu == NAMEPRICE {
+	if selectedPriceIncrease != RESETPRICE {
+		audio_play_sound(snd_ui_option_change,1,0);
+	}
+	selectedPriceIncrease = RESETPRICE;
 	draw_set_color(c_red);
 }
 draw_rectangle(x1,y1,x2,y2,0);
@@ -151,7 +159,11 @@ for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
 		&& global.fountainGui.currentSubMenu == NAMEPRICE {
 		draw_set_color(c_black);
 	}
-	else if (mouseOverGuiRect(x1,y1,x2,y2) || selectedPriceIncrease == s) && global.fountainGui.currentSubMenu == NAMEPRICE {
+	else if (mouseOverGuiRect(x1,y1,x2,y2) || (gamepad_is_connected(pad) && selectedPriceIncrease == s)) && global.fountainGui.currentSubMenu == NAMEPRICE {
+		if selectedPriceIncrease != s {
+			audio_play_sound(snd_ui_option_change,1,0);
+		}
+		selectedPriceIncrease = s;
 		draw_set_color(c_ltgray);
 	}
 	draw_rectangle(x1,y1,x2,y2,0);

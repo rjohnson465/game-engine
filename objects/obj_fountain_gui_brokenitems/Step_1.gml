@@ -24,12 +24,14 @@ if gamepad_is_connected(pad) {
 	if gamepad_button_check_pressed(pad,gp_padl) || (angleBetween(135,225,pdir) && pdir != noone && acceptingJoystickInput) {
 		moveFountainInvSelector("left");
 		joystickInputFrame = 0;
+		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	
 	// move selector right
 	if gamepad_button_check_pressed(pad,gp_padr) || (angleBetween(315,45,pdir) && pdir != noone && acceptingJoystickInput) {
 		moveFountainInvSelector("right");
 		joystickInputFrame = 0;
+		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	
 	// move selector up
@@ -42,6 +44,7 @@ if gamepad_is_connected(pad) {
 	if gamepad_button_check_pressed(pad,gp_padd) || (angleBetween(225,315,pdir) && pdir != noone  && acceptingJoystickInput) {
 		moveFountainInvSelector("down");
 		joystickInputFrame = 0;
+		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	
 	// select item to insert gem into (selectedItem), move onto to choose gem

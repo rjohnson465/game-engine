@@ -43,6 +43,7 @@
 
 	if !hasSetAlarm {
 		var attunement = MAGIC;
+		var _dist = distance_to_object(firstObj);
 		for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 			var el = global.ALL_ELEMENTS[i];
 			var arr = ds_map_find_value(spell.damages,el);

@@ -200,6 +200,7 @@ switch(state) {
 						actingPostY = tempPostY;
 					}
 					if distance_to_point(actingPostX,actingPostY) > 2 {
+						populatePersonalGrid();
 						mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 						path_start(path,functionalSpeed,path_action_stop,false);
 					
@@ -445,6 +446,8 @@ switch(state) {
 			stupidityFrame = 0;
 			dodgeFrame = 0;
 			dodgeDirection = noone;
+			
+			jumpToNearestFreePoint(type == CombatantTypes.Enemy);
 			
 			// possibly become wary
 			if maybeBecomeWary() break;

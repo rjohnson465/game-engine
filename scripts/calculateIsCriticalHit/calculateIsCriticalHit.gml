@@ -14,14 +14,14 @@ if attackObj.owner.type == CombatantTypes.Player {
 			return true;
 		}
 		// back stabs are instant criticals
-		var ad1 = angle_difference(attackObj.owner.facingDirection,facingDirection);
-		if attackObj.weapon.subType == HandItemTypes.Melee {
-			var a1 = ((facingDirection-45)+360)%360;
-			var a2 = (facingDirection+45)%360;
-			if angleBetween(a1,a2,attackObj.owner.facingDirection) {
-				return true;
-			}
+		var ad1 = angle_difference(attackObj.facingDirection,facingDirection);
+		//if attackObj.weapon.subType == HandItemTypes.Melee {
+		var a1 = ((facingDirection-45)+360)%360;
+		var a2 = (facingDirection+45)%360;
+		if angleBetween(a1,a2,attackObj.facingDirection) {
+			return true;
 		}
+		//}
 	}
 	// spell attack
 	else {

@@ -26,7 +26,7 @@ with obj_fallzone {
 }
 
 for (var i = 0; i < ds_list_size(solids); i++) {
-	mp_grid_add_instances(personalGrid,ds_list_find_value(solids,i),true);
+	mp_grid_add_instances(personalGrid,ds_list_find_value(solids,i),1);
 }
 	
 var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);

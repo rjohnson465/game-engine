@@ -7,7 +7,7 @@ with obj_water {
 
 if !owner.isMoving && !isDestroying {
 	isDestroying = true;
-	alarm[0] = 10;
+	alarm[0] = 30;
 } 
 
 var doNotShutUp = false;

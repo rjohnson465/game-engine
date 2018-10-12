@@ -399,6 +399,14 @@
             }
         },
         {
+            "Key": "07fbc114-2024-4c87-98a4-4d58b425c196",
+            "Value": {
+                "id": "03ed7e6b-2656-4e06-a7ef-2a09988b1c39",
+                "resourcePath": "sprites\\spr_lilypad_lily\\spr_lilypad_lily.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "08194db1-d2a2-4872-a92d-b0467ea6c160",
             "Value": {
                 "id": "b54240ed-d1fe-4842-83db-6c100dc572f3",
@@ -1063,6 +1071,14 @@
             }
         },
         {
+            "Key": "156f0b58-9df4-487a-a90e-c142bf363a10",
+            "Value": {
+                "id": "6674035d-5ea0-446f-bd86-7b4d689915f6",
+                "resourcePath": "sprites\\spr_enemy_unfairy_warhammer_prep_1_1\\spr_enemy_unfairy_warhammer_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "15a1c580-0a08-404d-8379-36b6ed6d2f24",
             "Value": {
                 "id": "cdd961b2-0a99-445b-a7f1-9f413146ce4c",
@@ -1106,7 +1122,7 @@
             "Key": "162d825c-d475-45d4-acb3-4d7a620bb36e",
             "Value": {
                 "id": "8d90e633-41dd-4ea4-bc33-0c4f8b8ef44f",
-                "resourcePath": "scripts\\enemyUnfairySpearInit\\enemyUnfairySpearInit.yy",
+                "resourcePath": "scripts\\ei_unfairy_spear\\ei_unfairy_spear.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1327,14 +1343,6 @@
             }
         },
         {
-            "Key": "1b4adc55-e2d7-45e6-bed1-a377bd2d1a2f",
-            "Value": {
-                "id": "44c64e26-da1e-439b-becd-8d7bb3084f5c",
-                "resourcePath": "tilesets\\ts_water_translucent2\\ts_water_translucent2.yy",
-                "resourceType": "GMTileSet"
-            }
-        },
-        {
             "Key": "1b57f33c-10d7-4cce-90dc-ac6c954b3705",
             "Value": {
                 "id": "d4f8d82f-0560-410b-9a96-914a91ca39a1",
@@ -1551,6 +1559,14 @@
             }
         },
         {
+            "Key": "208f138e-fc57-45b0-89ae-0648110ffa41",
+            "Value": {
+                "id": "b08788d5-af40-47e8-962f-82efbf2a4a17",
+                "resourcePath": "views\\208f138e-fc57-45b0-89ae-0648110ffa41.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "20d506c2-0815-4cf3-abbf-698b13e3d524",
             "Value": {
                 "id": "d336ff0e-b4b4-407a-90d4-64421edc6224",
@@ -1578,8 +1594,16 @@
             "Key": "2169cab8-d610-44a5-af9c-277f0707a879",
             "Value": {
                 "id": "d1e4ebcc-7245-4714-94a5-ef9a5f12135d",
-                "resourcePath": "scripts\\enemyUnfairyUnarmedInit\\enemyUnfairyUnarmedInit.yy",
+                "resourcePath": "scripts\\ei_unfairy_unarmed\\ei_unfairy_unarmed.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "216f44da-def4-432b-b2c3-ca0c6425678d",
+            "Value": {
+                "id": "17b9fef1-3728-4cbb-af9d-d996b6f7d444",
+                "resourcePath": "views\\216f44da-def4-432b-b2c3-ca0c6425678d.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1687,14 +1711,6 @@
             }
         },
         {
-            "Key": "235b94d9-6677-4e55-a549-e438d4093cfb",
-            "Value": {
-                "id": "c4ed9c7d-98dd-44f6-b519-a20b33f7ecf5",
-                "resourcePath": "sprites\\spr_ts_water_translucent2\\spr_ts_water_translucent2.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "236f665d-b652-4105-8040-6929ae19ee4a",
             "Value": {
                 "id": "5dd8e1cd-dbaa-4510-872d-c8c406f970fe",
@@ -1739,6 +1755,14 @@
             "Value": {
                 "id": "55937ff5-7cf1-4fab-b990-a0b989e2e184",
                 "resourcePath": "sprites\\spr_skill_blademastery\\spr_skill_blademastery.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "24b80f3d-dae8-4d7f-a16f-d6a86bd54287",
+            "Value": {
+                "id": "8b2c2b17-765d-4311-bbd4-abd738044144",
+                "resourcePath": "sprites\\spr_tree_trunk_mossy\\spr_tree_trunk_mossy.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1835,6 +1859,14 @@
             "Value": {
                 "id": "4e7f0f89-f573-44f4-bc98-23fcb44c5ebd",
                 "resourcePath": "objects\\obj_layer_shader\\obj_layer_shader.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "26f1bc92-6d9c-4184-9444-b747f07f2aec",
+            "Value": {
+                "id": "00ed6d42-dae5-4c59-b82d-5e03e56343f6",
+                "resourcePath": "objects\\obj_tree_trunk_mossy\\obj_tree_trunk_mossy.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -2060,14 +2092,6 @@
                 "id": "29f8c58d-e347-4b89-b9d8-b776279148c4",
                 "resourcePath": "objects\\obj_attack_spell\\obj_attack_spell.yy",
                 "resourceType": "GMObject"
-            }
-        },
-        {
-            "Key": "2bf0e229-e5a5-43bd-9201-2d25b6a48b9a",
-            "Value": {
-                "id": "2450a001-5824-4740-ab8a-a6e12e4ffa33",
-                "resourcePath": "tilesets\\ts_water_translucent\\ts_water_translucent.yy",
-                "resourceType": "GMTileSet"
             }
         },
         {
@@ -2719,14 +2743,6 @@
             }
         },
         {
-            "Key": "3a6f5d01-aff8-4cf2-ba9f-9e855aace412",
-            "Value": {
-                "id": "de4d7fac-e98a-4c5b-8b53-5ac3a5d8a412",
-                "resourcePath": "sprites\\spr_ts_grasslands\\spr_ts_grasslands.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "3a848e3d-8a3a-4b74-b1ca-10ae44c257f6",
             "Value": {
                 "id": "89a085c4-b4e1-4803-9d96-310cf307c1ec",
@@ -3291,6 +3307,14 @@
             "Value": {
                 "id": "283a5c6f-43c1-4fbe-8e2f-195fa861286a",
                 "resourcePath": "sprites\\spr_player_crossbow_prep_1\\spr_player_crossbow_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "474714e6-21a5-46b2-89be-1ecd2c02294a",
+            "Value": {
+                "id": "5717e3a9-9cc5-4906-99d6-6d0e08bdd5e5",
+                "resourcePath": "sprites\\spr_lilypad_anim\\spr_lilypad_anim.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4127,14 +4151,6 @@
             }
         },
         {
-            "Key": "59015434-408b-4305-8371-c2d92e146c0b",
-            "Value": {
-                "id": "268d3341-bf55-49f7-bcaf-64d6d4d3da9b",
-                "resourcePath": "sprites\\spr_ts_water_auto\\spr_ts_water_auto.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "59093129-8839-457b-889f-56c3aef3fc2d",
             "Value": {
                 "id": "e715edeb-677f-4b7e-8795-e4a1c3916122",
@@ -4487,14 +4503,6 @@
             }
         },
         {
-            "Key": "62042cb2-8519-4f61-b3e1-acc0e69088e1",
-            "Value": {
-                "id": "91013957-f151-4d16-ba26-d4ca2e42b198",
-                "resourcePath": "tilesets\\ts_water_ani\\ts_water_ani.yy",
-                "resourceType": "GMTileSet"
-            }
-        },
-        {
             "Key": "62064e3c-f867-413c-bc89-729986c25ca9",
             "Value": {
                 "id": "65eb20b5-ae03-4f6b-95a5-6281a95acefc",
@@ -4602,7 +4610,7 @@
             "Key": "63d56a39-4088-4516-b915-30bf2eed65c1",
             "Value": {
                 "id": "f1364107-43ae-4de4-a06f-4d3ed731b765",
-                "resourcePath": "tilesets\\ts_forest1\\ts_forest1.yy",
+                "resourcePath": "tilesets\\ts_forest\\ts_forest.yy",
                 "resourceType": "GMTileSet"
             }
         },
@@ -4692,14 +4700,6 @@
                 "id": "8402f3b1-4491-414a-bccc-b89a60090641",
                 "resourcePath": "views\\646139a1-bcb5-48f9-bee3-187815d96ff3.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "6469187d-2b9d-41a7-95a3-2c7a11ad1e50",
-            "Value": {
-                "id": "e52b891a-f519-4e41-9fb0-e23222c6237a",
-                "resourcePath": "sprites\\spr_ts_grasslands_env\\spr_ts_grasslands_env.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -4843,6 +4843,14 @@
             "Value": {
                 "id": "39e2b501-159f-4f11-861c-8e9506ae99f2",
                 "resourcePath": "sprites\\spr_player_staff\\spr_player_staff.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "674d99ce-8040-4609-98cf-095321030571",
+            "Value": {
+                "id": "f782d8be-8897-4edf-8a54-308c86f05da1",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_warhammer_recover_1\\spr_enemy_unfairy_limb_warhammer_recover_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5159,14 +5167,6 @@
             }
         },
         {
-            "Key": "6e540412-4ecb-4bf9-aac7-ae99a80575f3",
-            "Value": {
-                "id": "4b8895c8-94d3-412e-8889-0952da50badc",
-                "resourcePath": "tilesets\\tileset1\\tileset1.yy",
-                "resourceType": "GMTileSet"
-            }
-        },
-        {
             "Key": "6e666b46-d7aa-448f-a4b0-1a3188e7add2",
             "Value": {
                 "id": "6864eafe-0e48-4d13-bb15-5be02354011e",
@@ -5178,7 +5178,7 @@
             "Key": "6e85e585-2ec9-4d94-ad4f-4a02080b5aa7",
             "Value": {
                 "id": "1563bbca-b7b0-40c0-83b2-4f3f97daadbc",
-                "resourcePath": "scripts\\enemyUnfairyDualSwordsInit\\enemyUnfairyDualSwordsInit.yy",
+                "resourcePath": "scripts\\ei_unfairy_longswords_elements\\ei_unfairy_longswords_elements.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -5291,6 +5291,14 @@
             "Value": {
                 "id": "f589cc19-1f12-4016-8b45-7a4233b1f394",
                 "resourcePath": "sprites\\spr_player_battleaxe_prep_1\\spr_player_battleaxe_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7070336a-995d-42bd-b42b-d3e3132b01d5",
+            "Value": {
+                "id": "5f72a3b2-8f01-49c9-82ed-31f6c501ce67",
+                "resourcePath": "sprites\\spr_tree2\\spr_tree2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5495,6 +5503,14 @@
             }
         },
         {
+            "Key": "73bdd390-d448-45e7-bad9-66e3e7f11c0c",
+            "Value": {
+                "id": "0ecb692f-24ab-4efc-8f16-d8e8bff5ec6e",
+                "resourcePath": "objects\\obj_attack_unfairy_warhammer_1_1\\obj_attack_unfairy_warhammer_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "73ca0355-5969-4b8a-9a39-92a470273124",
             "Value": {
                 "id": "adc6e733-d328-4860-9b94-cba359caf968",
@@ -5515,14 +5531,6 @@
             "Value": {
                 "id": "d6c1f106-c228-4da4-ae47-c709b673a522",
                 "resourcePath": "sprites\\spr_dummy_enemy_unarmed_recover_1_1\\spr_dummy_enemy_unarmed_recover_1_1.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "7404d834-3a50-4a75-8073-5d1b74805200",
-            "Value": {
-                "id": "fe6c81e9-ea8a-4688-8d5a-90e8b55b5c87",
-                "resourcePath": "sprites\\spr_ts_water_ani\\spr_ts_water_ani.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5647,6 +5655,14 @@
             }
         },
         {
+            "Key": "77102a7a-9f60-4033-b785-9d087ef389f5",
+            "Value": {
+                "id": "406391f4-ea65-4ac4-a747-a3996aff27ab",
+                "resourcePath": "sprites\\spr_lilypad\\spr_lilypad.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "77238aaa-ce7e-4a7f-9257-0d62495ff219",
             "Value": {
                 "id": "fe551a57-83b7-4d7e-81f2-a05fe92ec7b0",
@@ -5675,6 +5691,14 @@
             "Value": {
                 "id": "3c6683be-d749-4030-a8f4-be3d1ca4b9e7",
                 "resourcePath": "sprites\\spr_light_square\\spr_light_square.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "778bd3ca-2509-42e9-8081-6898866fed62",
+            "Value": {
+                "id": "240f28e1-c6de-4799-a116-e373f5e5b7ea",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_warhammer_prep_1\\spr_enemy_unfairy_limb_warhammer_prep_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5860,6 +5884,14 @@
                 "id": "2080e1b6-32c2-40c5-89df-c116267e387f",
                 "resourcePath": "scripts\\updateMovementState\\updateMovementState.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "7ab2dd6b-44c8-41ac-9f69-1ab940ef445e",
+            "Value": {
+                "id": "571ba496-5032-4ff9-9bff-3087a9472e9b",
+                "resourcePath": "objects\\obj_tree2\\obj_tree2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -6167,14 +6199,6 @@
             }
         },
         {
-            "Key": "8237c0ea-048d-41c9-a47c-94ef2a62344d",
-            "Value": {
-                "id": "de919514-d191-4eeb-844a-98a96dfc3582",
-                "resourcePath": "tilesets\\ts_water_auto\\ts_water_auto.yy",
-                "resourceType": "GMTileSet"
-            }
-        },
-        {
             "Key": "824df558-ff22-4c1c-aa28-cdbc6d6f72c0",
             "Value": {
                 "id": "561b8d4d-e26b-40d3-905e-1197bef4fbec",
@@ -6307,6 +6331,14 @@
             "Value": {
                 "id": "0cf275d0-4c64-4b5b-b8e8-0000b0a47959",
                 "resourcePath": "sprites\\spr_player_woodshield_block\\spr_player_woodshield_block.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "83f78dc7-5be5-4d53-9ed6-7706302c2441",
+            "Value": {
+                "id": "fdb2ee08-581f-44fb-82ca-e5078aa48425",
+                "resourcePath": "sprites\\spr_enemy_unfairy_warhammer\\spr_enemy_unfairy_warhammer.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6711,6 +6743,14 @@
             }
         },
         {
+            "Key": "8cf0197b-5284-4cb0-aeed-436d911670e0",
+            "Value": {
+                "id": "0095c279-0da1-44b0-8ee8-a61adcd250d6",
+                "resourcePath": "sprites\\spr_flower_little\\spr_flower_little.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8cf4289b-f50e-478c-ae54-9310ba21a5ce",
             "Value": {
                 "id": "bb4166a3-91f0-41d0-9da2-2f48fedefd4b",
@@ -6772,14 +6812,6 @@
                 "id": "e99d5ac7-1774-49e7-a139-97f0f6924a8b",
                 "resourcePath": "sprites\\spr_player_torch_attack_1\\spr_player_torch_attack_1.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "8de244ba-f5bc-4f26-9ec2-e804a60c902a",
-            "Value": {
-                "id": "3b65ab4c-910d-498c-b8cb-611a357c08a6",
-                "resourcePath": "tilesets\\ts_water\\ts_water.yy",
-                "resourceType": "GMTileSet"
             }
         },
         {
@@ -7015,14 +7047,6 @@
             }
         },
         {
-            "Key": "94189c53-f8a3-450b-b79a-3f66804c8889",
-            "Value": {
-                "id": "2944d309-81ac-4427-875a-49fddfd08560",
-                "resourcePath": "sprites\\spt_ts_forest\\spt_ts_forest.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "941b01e6-6c97-498b-8dc9-96e785f59de9",
             "Value": {
                 "id": "3cac9a85-e48f-4cf3-909d-13765fb06f93",
@@ -7172,6 +7196,14 @@
                 "id": "7dd46135-baf6-4ee6-ad57-d05e42bd4a0f",
                 "resourcePath": "sprites\\spr_player_hand_spear_base\\spr_player_hand_spear_base.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "97350287-ea2b-405f-b4ff-82453814a722",
+            "Value": {
+                "id": "62aebecd-c700-4de0-84da-25cf54724334",
+                "resourcePath": "scripts\\ei_unfairy_warhammer\\ei_unfairy_warhammer.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -7356,6 +7388,14 @@
                 "id": "7219b4b7-1f0c-42d1-a71f-a3c29c4e4ccb",
                 "resourcePath": "objects\\obj_item_ring\\obj_item_ring.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9c411c51-3cb4-4368-a56b-53ca6daa91f0",
+            "Value": {
+                "id": "3d803a7a-31c3-414e-a98e-97b28ab4dfdf",
+                "resourcePath": "sprites\\spr_flower_big\\spr_flower_big.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7740,6 +7780,14 @@
                 "id": "5a7802b0-fc8e-4c78-b4a7-fae66c511726",
                 "resourcePath": "scripts\\scr_collision_line_list_layer\\scr_collision_line_list_layer.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a2febf5c-9d5f-42dc-97ae-d8278e215e82",
+            "Value": {
+                "id": "02caa42d-aa42-4db5-baa4-24e09d5cb310",
+                "resourcePath": "sprites\\spr_enemy_unfairy_warhammer_attack_1_1\\spr_enemy_unfairy_warhammer_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8187,14 +8235,6 @@
             "Value": {
                 "id": "b8ab24c2-86bb-4e1c-96b6-296215269098",
                 "resourcePath": "sprites\\spr_player_warhammer_recover_2\\spr_player_warhammer_recover_2.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "acbb5da9-450d-45c5-9a5c-c6fd32213e9c",
-            "Value": {
-                "id": "8f4ed314-a70a-4486-bf42-ad149626b7bf",
-                "resourcePath": "sprites\\spr_ts_water_translucent\\spr_ts_water_translucent.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -8956,6 +8996,14 @@
                 "id": "22f24a4f-4059-44dd-858c-7d94924e4df6",
                 "resourcePath": "scripts\\fs_load_quests\\fs_load_quests.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "bd9b27c6-a4dc-4d1f-b2f8-02259ad176ea",
+            "Value": {
+                "id": "4d426f5e-658a-4750-aa93-f7a7a9eaed85",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_warhammer_attack_1\\spr_enemy_unfairy_limb_warhammer_attack_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -9791,14 +9839,6 @@
             }
         },
         {
-            "Key": "cecd7ccc-cb3a-45fd-bf2d-871d79a9a1fe",
-            "Value": {
-                "id": "d52e0cb4-a6fa-4839-a74e-e724de617d15",
-                "resourcePath": "sprites\\spr_ts_water_opaque\\spr_ts_water_opaque.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "cf10f946-5302-4761-a66f-62c83f0a91e7",
             "Value": {
                 "id": "d5915814-3cb4-44b0-8aea-222f8d80e0b9",
@@ -9986,7 +10026,7 @@
             "Key": "d2a0313c-b78c-48bb-98fd-ee32f13be23a",
             "Value": {
                 "id": "260ab96d-7adc-4669-85a0-e2b5c6436c27",
-                "resourcePath": "sprites\\spr_ts_forest1\\spr_ts_forest1.yy",
+                "resourcePath": "sprites\\spr_ts_forest\\spr_ts_forest.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -10215,6 +10255,14 @@
             }
         },
         {
+            "Key": "d7cfd98e-030a-4444-a74f-fef1a2a8e462",
+            "Value": {
+                "id": "c5281b91-a725-4c23-a37c-1539fc093421",
+                "resourcePath": "objects\\obj_bigflower\\obj_bigflower.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d81c145c-bf56-4e63-b46b-ecc766a76948",
             "Value": {
                 "id": "00421f5b-b7f9-49dc-b648-02b1d7f00380",
@@ -10330,7 +10378,7 @@
             "Key": "dab1e340-7763-4361-bcf7-f509eb73b1df",
             "Value": {
                 "id": "ab56e894-1c94-49dd-a6ea-4b5bc0b39285",
-                "resourcePath": "tilesets\\ts_water2\\ts_water2.yy",
+                "resourcePath": "tilesets\\ts_water\\ts_water.yy",
                 "resourceType": "GMTileSet"
             }
         },
@@ -10847,14 +10895,6 @@
             }
         },
         {
-            "Key": "e73effc8-b962-4310-8926-7fe6294e33c8",
-            "Value": {
-                "id": "da3ab98f-6824-4c5a-b287-d495efb8ad9e",
-                "resourcePath": "sprites\\spr_ts_grasslands1\\spr_ts_grasslands1.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "e746ffdc-b4f1-421b-8195-fcc9cfa4467a",
             "Value": {
                 "id": "180c05b9-c9c5-4732-9bad-5a503833d59e",
@@ -11266,7 +11306,7 @@
             "Key": "f0a2a907-746d-42ab-ba29-83dc1f153123",
             "Value": {
                 "id": "0e868d0b-525b-4661-92a6-2c5183c0d2d3",
-                "resourcePath": "scripts\\enemyUnfairySwordUnarmedInit\\enemyUnfairySwordUnarmedInit.yy",
+                "resourcePath": "scripts\\ei_unfairy_longsword_unarmed\\ei_unfairy_longsword_unarmed.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -11767,6 +11807,22 @@
             }
         },
         {
+            "Key": "fd896036-56fa-4bab-bf9e-03faba2e2f16",
+            "Value": {
+                "id": "d52a5dfa-3307-42cd-be23-bfb641a3a577",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_warhammer\\spr_enemy_unfairy_limb_warhammer.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fda30dd2-5317-4c7d-b93a-f790616a7dbb",
+            "Value": {
+                "id": "e117680d-c267-4b22-bab9-b601a5418ad8",
+                "resourcePath": "sprites\\spr_enemy_unfairy_warhammer_recover_1_1\\spr_enemy_unfairy_warhammer_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "fddc5fe7-b8f4-44f8-94ba-05de86223e1b",
             "Value": {
                 "id": "cb771d52-4e07-482f-a108-0646bd88ee76",
@@ -12032,6 +12088,7 @@
         "2169cab8-d610-44a5-af9c-277f0707a879",
         "f0a2a907-746d-42ab-ba29-83dc1f153123",
         "162d825c-d475-45d4-acb3-4d7a620bb36e",
+        "97350287-ea2b-405f-b4ff-82453814a722",
         "6e85e585-2ec9-4d94-ad4f-4a02080b5aa7",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",

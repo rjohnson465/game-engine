@@ -2,7 +2,30 @@ if global.inventory.isConfirmingDestroyItem exit;
 var _p1 = ds_list_find_index(global.player.inventory,id);
 var _p2 = !global.ui.isShowingMenus;
 var _p3 = global.ui.currentMenu != INVENTORY;
-if ds_list_find_index(global.player.inventory,id) != -1 && (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) exit;
+if ds_list_find_index(global.player.inventory,id) != -1 && (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) && global.fountainGui == noone exit;
+if global.fountainGui != noone {
+	var fm = global.fountainGui.currentMenu;
+	if global.fountainGui.currentMenu == FOUNTAIN exit;
+	else {
+		switch global.fountainGui.currentMenu {
+			case REPAIRITEM: {
+				var inv = obj_fountain_gui_brokenitems.inv;
+				if ds_list_find_index(inv, id) == -1 exit;
+				break;
+			}
+			case INSERTGEM: {
+				var inv = global.fountainGui.currentSubMenu == CHOOSEITEM ? obj_fountain_gui_socketeditems.inv : obj_fountain_gui_gems.inv;
+				if ds_list_find_index(inv, id) == -1 exit;
+				break;
+			}
+			case BREAKDOWNITEM: {
+				var inv = obj_fountain_gui_gemmeditems.inv;
+				if ds_list_find_index(inv, id) == -1 exit;
+				break;
+			}
+		}
+	}
+}
 if x1 > 0 && global.ui.grabbedItem != id audio_play_sound(snd_ui_option_change,1,0);
 var itemIsBeingLooted = false;
 var dropItem = noone; var itemPos = -1;

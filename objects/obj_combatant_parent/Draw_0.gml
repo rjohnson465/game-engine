@@ -77,7 +77,7 @@ if isAttackingWithCore {
 	
 	
 	if spr != noone && frame >= 0 {
-		draw_sprite_ext(spr,frame,x,y,1,1,facingDirection,c_white,1);
+		draw_sprite_ext(spr,frame,x,y,1,1,facingDirection,c_white,alpha);
 		
 		// slowed
 		if isSlowed {

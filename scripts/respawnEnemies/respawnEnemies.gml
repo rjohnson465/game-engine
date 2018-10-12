@@ -28,8 +28,8 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 		ds_map_replace(sd_temp_enemy,"CurrentZ",postZ);
 		ds_map_replace(sd_temp_enemy,"TempPostX",postX);
 		ds_map_replace(sd_temp_enemy,"TempPostY",postX);
-		var enemy = findPersistentRoomElement(obj_enemy_parent,postX,postY);
-		ds_map_replace(sd_temp_enemy,"FacingDirection",enemy.postDir);
+		//var enemy = findPersistentRoomElement(obj_enemy_parent,postX,postY);
+		ds_map_replace(sd_temp_enemy,"FacingDirection",fdStart);
 		ds_map_replace(sd_temp_enemy,"Hp",hpMax);
 		ds_map_replace(sd_temp_enemy,"IsAlive",true);
 		

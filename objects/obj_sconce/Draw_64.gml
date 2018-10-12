@@ -1,5 +1,3 @@
-if global.isReadingTutorial exit;
-
 var p = global.player;
 var isInConvo = false;
 with obj_npc_parent {

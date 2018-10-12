@@ -2,6 +2,9 @@ if place_meeting(x,y,obj_player) {
 	jumpToNearestFreePoint(1);
 }
 
+audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
+walkingInWaterEmitter = audio_emitter_create();
+audio_emitter_gain(walkingInWaterEmitter,0);
 if isFloating {
 	audio_play_sound_on(walkingInWaterEmitter,snd_water_floating_loop,1,0);
 } else {

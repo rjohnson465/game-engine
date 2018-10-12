@@ -36,8 +36,6 @@ for (var i = 0 ; i < ds_map_size(sd_temp_enemydatas); i++) {
 	var sd_temp_enemy_data_copy = ds_map_deep_clone(sd_temp_enemy_data);
 	ds_map_add_map(sd_enemydatas, cri, sd_temp_enemy_data_copy);
 	
-	//ds_map_destroy(sd_temp_enemy_data); sd_temp_enemy_data = -1;
-	
 	cri = ds_map_find_next(sd_temp_enemydatas, cri);
 }
 

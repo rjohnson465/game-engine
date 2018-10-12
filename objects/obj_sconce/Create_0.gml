@@ -12,6 +12,7 @@ lightRadiusScale = 1.5;
 lightRadiusColor = C_FIRELIGHT;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
+stopsAttacks = false;
 
 system = part_system_create();
 emitter = part_emitter_create(system);

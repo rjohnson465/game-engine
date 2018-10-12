@@ -12,7 +12,7 @@ if owner.isMoving && !isDestroying && ownerTouchingWater {
 	part_type_shape(part1,pt_shape_explosion);
 	part_type_size(part1,.05,.15,0,0);
 	part_type_color2(part1,c_aqua,c_ltgray);
-	part_type_alpha3(part1,1,1,0); 
+	part_type_alpha3(part1,1,.5,0.1); 
 	part_type_speed(part1,1,2,0,0);
 	part_type_direction(part1,dir-45,dir+45,0,0);
 	part_type_blend(part1,1);

@@ -21,9 +21,11 @@ if instance_exists(owner) {
 		} else if conditionPercent > 25 {
 			num = 800;
 		} else num = 400;
+		
+		var vx = camera_get_view_x(view_camera[0]); var vy = camera_get_view_y(view_camera[0]);
+		var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(view_camera[0]);
 	
-	
-		part_emitter_region(system,emitter,0,room_width,0,room_height,0,0);
+		part_emitter_region(system,emitter,vx,vx+vw,vy,vy+vw,0,0);
 		part_emitter_burst(system,emitter,particle, num);
 	} 
 }

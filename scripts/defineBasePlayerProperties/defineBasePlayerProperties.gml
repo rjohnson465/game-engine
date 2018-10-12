@@ -30,7 +30,7 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 			ds_map_replace(basePlayerProperties,i,50); break;
 		}
 		case ModifiableProperties.Poise: {
-			ds_map_replace(basePlayerProperties,i,100); break;
+			ds_map_replace(basePlayerProperties,i,0); break;
 		}
 		case ModifiableProperties.HpSteal: {
 			ds_map_replace(basePlayerProperties,i,0); break;

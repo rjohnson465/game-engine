@@ -15,8 +15,6 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if global.isReadingTutorial exit;
-
 var angleToSconce = point_direction(p.x,p.y,x,y);
 var isFacing = angleBetween(p.facingDirection-45,p.facingDirection+45,angleToSconce);
 

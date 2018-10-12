@@ -8,7 +8,7 @@ fireOffsetX = noone; fireOffsetY = noone; // fire offset for torch
 spriteString = "spr_"+owner.spriteString+"_"+limbItem.spriteName;
 //sprite_index = asset_get_index(spriteString);
 layer = owner.layer;
-//depth = layer_get_depth(layer) + 1;
+//depth = owner.depth - 5;
 
 if limbKey == "l" {
 	image_yscale = -1;

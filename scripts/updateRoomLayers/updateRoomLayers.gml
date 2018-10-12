@@ -41,6 +41,11 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 					visible = false;
 				}
 			}
+			with obj_solid_environment {
+				if origLayer == l {
+					visible = false;
+				}
+			}
 		}
 		// make visible layers at or below player's layer
 		// draw layers below a little darker, use a Shader
@@ -82,10 +87,15 @@ with obj_enemy_obstacle_parent {
 		solid = false;
 	}
 	
-	if object_index == obj_fountain && origLayer == playerLayer {
+	/*if object_index == obj_fountain && origLayer == playerLayer {
 		solid = true;
 	} else if object_index == obj_fountain && origLayer != playerLayer {
 		solid = false;
+	}*/
+	if object_is_ancestor(object_index, obj_solid_environment) {
+		if origLayer == playerLayer {
+			solid = true;
+		} else solid = false;
 	}
 	
 	if object_index == obj_enemy_parent solid = false;

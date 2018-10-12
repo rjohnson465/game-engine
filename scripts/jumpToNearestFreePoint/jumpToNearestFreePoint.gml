@@ -15,7 +15,7 @@ if isEnemy {
 var obstacles = ds_list_create();
 with obstacleType {
 	var l = layer;
-	if object_index == obj_fountain l = origLayer;
+	if object_is_ancestor(object_index, obj_solid_environment) l = origLayer;
 	if l == other.layer && id != other {
 		ds_list_add(obstacles,id);
 	}
