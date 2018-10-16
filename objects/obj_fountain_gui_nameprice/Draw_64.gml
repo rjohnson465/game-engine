@@ -211,7 +211,8 @@ for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
 }
 
 // likeliness of it working
-odds = namedPrice >= guaranteedPrice ? 100 : 0;
+//odds = namedPrice >= guaranteedPrice ? 100 : 0;
+odds = calculateWishOdds(namedPrice, guaranteedPrice);
 //draw_set_alpha(.5);
 draw_set_color(c_white);
 draw_text(mean(topLeftX,topLeftX+width),mean(MENUS_BOTTOMRIGHT_Y-100,MENUS_BOTTOMRIGHT_Y),"Odds of it working: " + string(odds) + "%" );

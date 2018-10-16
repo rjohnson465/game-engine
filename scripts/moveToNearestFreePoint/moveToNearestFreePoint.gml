@@ -72,6 +72,9 @@ else {
 		x = x+lengthdir_x(sp,dir); 
 		y = y+lengthdir_y(sp,dir);
 		direction = point_direction(oldX,oldY,x,y);
+		if x == oldX && y == oldY && object_index == obj_enemy_speyeder {
+			var a = 3;
+		}
 		ds_list_destroy(possibleAngles); possibleAngles = -1;
 		return true;
 	}

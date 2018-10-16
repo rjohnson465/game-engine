@@ -1,3 +1,5 @@
+if gamepad_is_connected(global.gamePadIndex) window_set_cursor(cr_none);
+else window_set_cursor(cr_default);
 if isLoading {
 	// wait until we're at the right room to actually load
 	if isReadyToMoveRooms && room_get_name(room) == roomToGoTo {

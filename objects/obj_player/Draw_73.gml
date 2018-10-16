@@ -9,7 +9,7 @@ if state == CombatantStates.Attacking {
 	
 	// martial spell
 	if currentUsingSpell != noone {
-		var spellHandPrepSprite = asset_get_index("spr_player_spellprep");
+		/*var spellHandPrepSprite = asset_get_index("spr_player_spellprep");
 		var spellPrepHandSpriteTotalFrames = sprite_get_number(spellHandPrepSprite);
 		
 		//if isPreparingAttack && prepAnimationFrame < prepAnimationTotalFrames {
@@ -23,7 +23,7 @@ if state == CombatantStates.Attacking {
 			
 			ds_map_replace(prepFrames,"r",prepFrame+1);
 			//prepAnimationFrame++;
-		}
+		}*/
 	}
 	// physical attack (ranged or melee) TODO -- consolidate with obj_combatant
 	else {

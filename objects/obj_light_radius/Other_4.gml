@@ -1,6 +1,6 @@
 colorAlpha = calculateLightRadiusAlphaLayer(floorNum);
 
-if owner.object_index == obj_item_drop && colorAlpha < .5 {
+if (owner.object_index == obj_item_drop || owner.object_index == obj_portal) && colorAlpha < .5 {
 	colorAlpha = .5;
 }
 

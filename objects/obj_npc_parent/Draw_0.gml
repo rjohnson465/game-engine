@@ -1,5 +1,5 @@
 updateIsMoving();
-prepareLayerShader();
+//prepareLayerShader();
 alpha = 1;
 scale = 1;
 // fairies float

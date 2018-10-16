@@ -5292,7 +5292,7 @@
             "name": "animation_2"
         }
     ],
-    "tile_animation_speed": 15,
+    "tile_animation_speed": 10,
     "tile_count": 80,
     "tileheight": 64,
     "tilehsep": 0,

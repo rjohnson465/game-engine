@@ -1,10 +1,11 @@
+shader_reset();
 if isDying {
 	isSlowed = false; isFrozen = false;
 	alpha = (-dyingFrame/dyingTotalFrames)+1;
 }
 updateIsMoving();
 if !isBeingHit {
-	prepareLayerShader();
+	//prepareLayerShader();
 } else {
 	
 	shader_set(sh_red);

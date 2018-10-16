@@ -14,6 +14,7 @@ if mouseOverFountainRevive && selectedOption != ReviveOptions.Fountain {
 mouseOverOrbRevive = acceptingInput && reviveOrbs != noone && mouse_x > vx + reviveWithOrbButtonCoordinates[0] && mouse_y > vy + reviveWithOrbButtonCoordinates[1]
 	&& mouse_x < vx + reviveWithOrbButtonCoordinates[2] && mouse_y < vy + reviveWithOrbButtonCoordinates[3];
 if mouseOverOrbRevive && selectedOption != ReviveOptions.Orb {
+	audio_play_sound(snd_ui_option_change,1,0);
 	selectedOption = ReviveOptions.Orb;
 }
 
@@ -43,6 +44,7 @@ if gamepad_is_connected(p.gamePadIndex) {
 }
 
 if UP || DOWN && fade == noone && acceptingInput {
+	audio_play_sound(snd_ui_option_change,1,0);
 	selectedOption = selectedOption == ReviveOptions.Fountain ? ReviveOptions.Orb : ReviveOptions.Fountain;
 	if reviveOrbs == noone {
 		selectedOption = ReviveOptions.Fountain;

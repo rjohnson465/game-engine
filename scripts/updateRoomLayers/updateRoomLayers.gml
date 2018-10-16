@@ -72,28 +72,23 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 			var depth2 = layer_get_depth(instancesLayer);
 			var d = mean(depth1,depth2);
 			
-			global.shaderInstanceLayer = instancesLayer;
 			global.floorNum = lNum;
-			instance_create_depth(x,y,d,obj_layer_shader);
+			instance_create_depth(x,y,1,obj_layer_lighting);
+			/*global.shaderInstanceLayer = instancesLayer;
+			instance_create_depth(x,y,d,obj_layer_shader);*/
 
 		}
 	}
 }
 
 with obj_enemy_obstacle_parent {
-	if layer == playerLayer {
+	
+	if layer == playerLayer || isObstacleLayerless {
 		solid = true;
-	} else if !isObstacleLayerless {
-		solid = false;
 	}
 	
-	/*if object_index == obj_fountain && origLayer == playerLayer {
-		solid = true;
-	} else if object_index == obj_fountain && origLayer != playerLayer {
-		solid = false;
-	}*/
 	if object_is_ancestor(object_index, obj_solid_environment) {
-		if origLayer == playerLayer {
+		if origLayer == playerLayer || isObstacleLayerless {
 			solid = true;
 		} else solid = false;
 	}
@@ -106,11 +101,11 @@ with obj_enemy_obstacle_parent {
 }
 
 // this will make enemies avoid fallzones when walking, but lets them dodge into them
-with obj_fallzone {
-	/*if layer == playerLayer {
+/*with obj_fallzone {
+	if layer == playerLayer {
 		solid = true;
-	} else solid = false;*/
-}
+	} else solid = false;
+}*/
 ds_list_destroy(instanceLayersAbove); instanceLayersAbove = -1;
 ds_list_destroy(tileLayersAbove); tileLayersAbove = -1;
 

@@ -10,7 +10,7 @@ if limbKey == "l" && leftHandItem.weaponType == THROWN && leftHandItem.ammo == 0
 	exit;
 }
 
-prepareLayerShader();
+//prepareLayerShader();
 
 if sprite_index == -1 {
 	exit;

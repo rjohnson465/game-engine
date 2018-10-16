@@ -13,6 +13,7 @@ if !(limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded)) {
 	image_yscale = -1*owner.scale;
 }
 layer = owner.layer;
+//depth = layer_get_depth(layer) - 5000;
 if owner.currentUsingSpell != noone {
 	visible = false;
 }

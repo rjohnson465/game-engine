@@ -9,6 +9,7 @@ switch rm {
 		return [c_dkgray, c_dkgray, c_red]; break;
 	}
 	case rm_forest: {
-		return [c_dkgray, c_gray];
+		//return [make_color_rgb(56, 68, 89), c_gray];
+		return [c_dkgray, c_dkgray];
 	}
 }

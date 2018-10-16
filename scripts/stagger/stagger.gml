@@ -1,4 +1,4 @@
-var sspeed = staggerSpeed == noone ? functionalSpeed : staggerSpeed;
+var sspeed = staggerSpeed == noone ? normalSpeed : staggerSpeed;
 		
 if staggerDuration > 30 staggerDuration = 30; // never stagger more than a full second
 		
@@ -32,12 +32,10 @@ if (staggerFrame > .5*staggerDuration) {
 		}
 	} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
 			
-	if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
-		//speed = .25*sspeed;
-		//staggerDirection = sDir;
+	//if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
 		moveToNearestFreePoint(sDir,.25*sspeed,isEnemy);
 		staggerDirection = sDir;
-	}
+	//}
 } else {
 			
 	var x1 = x+lengthdir_x(.25*sspeed, sDir);
@@ -51,10 +49,14 @@ if (staggerFrame > .5*staggerDuration) {
 		}
 	} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
 			
-	if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
+	//if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
+	var oldX = x ; var oldY = y;
 		moveToNearestFreePoint(sDir,.5*sspeed,isEnemy);
 		staggerDirection = sDir;
-	}
+		if x == oldX && y == oldY {
+			var a = 3;
+		}
+	//}
 			
 }
 staggerFrame++;

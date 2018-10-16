@@ -51,6 +51,8 @@ global.ALL_PHYSICAL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH];
 #macro THROWN "Thrown/1H"
 #macro PISTOL "Pistol/1H"
 
+#macro MATH_E 2.71828
+
 global.gamePadIndex = noone;
 
 global.playerDoNothing = false;
@@ -161,3 +163,5 @@ ambpFrameStarts = ds_map_create();
 
 global.doNotDisplayTutorialMessages = true;
 alarm[3] = 5;
+
+waterManager = instance_create_depth(x,y,1,obj_water_manager);

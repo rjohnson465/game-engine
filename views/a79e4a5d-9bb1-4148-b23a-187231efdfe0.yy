@@ -10,7 +10,8 @@
         "b09cf7be-b07e-4c3e-adbf-de1f72227443",
         "4b2bf60e-04ad-4a2c-9aa4-9debc1fb3b01",
         "a96ec3b5-a54a-454f-ab4b-024bba86a50b",
-        "e89ebab9-8da2-4f40-b2df-8999ac5923f0"
+        "e89ebab9-8da2-4f40-b2df-8999ac5923f0",
+        "4766fd0d-1c27-4366-a984-8768a7ed5a95"
     ],
     "filterType": "GMSound",
     "folderName": "francis",

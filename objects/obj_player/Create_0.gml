@@ -152,9 +152,10 @@ staggerSpeed = noone; // optional -- used to indicate slow staggers, mainly
 // spells stuff
 knownSpells = ds_map_create();
 // spell instances created by obj_skills_manager
-ds_map_add(knownSpells, "magicmissile", obj_spell_magicmissile);
-ds_map_add(knownSpells, "projectile", obj_spell_projectile);
-ds_map_add(knownSpells, "aoe", obj_spell_aoe);
+var skm = global.skillManager;
+ds_map_add(knownSpells, "magicmissile", skm.skillMagicMissile);
+ds_map_add(knownSpells, "projectile", skm.skillBlast);
+ds_map_add(knownSpells, "aoe", skm.skillExplosion);
 currentSpell = ds_map_find_first(knownSpells);
 currentUsingSpell = noone;
 hasAlertedNoMagicCharges = false;

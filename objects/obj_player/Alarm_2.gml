@@ -1,5 +1,5 @@
 // periodically ensure we're not stuck
-if !isMoving && !place_free(x,y) {
+/*if !isMoving && !place_free(x,y) {
 	var dir = 0;
 	var origX = x; var origY = y;
 	var canMove = false;

@@ -1,4 +1,4 @@
-prepareLayerShader();
+//prepareLayerShader();
 if !isOpen {
 	draw_sprite_ext(closedSprite,1,x,y,xscale,yscale,angle,c_white,1);
 } else {

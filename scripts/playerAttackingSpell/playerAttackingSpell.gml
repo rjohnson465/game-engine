@@ -1,5 +1,5 @@
 speed = .5*speed;
-var currentSpell = ds_map_find_value(knownSpells,currentUsingSpell);
+var currentSpellObj = ds_map_find_value(knownSpells,currentUsingSpell);
 var MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle);
 if gamepad_is_connected(gamePadIndex) {
 	MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle) || 
@@ -7,7 +7,8 @@ if gamepad_is_connected(gamePadIndex) {
 }
 			
 if ds_map_size(attackingLimbs) == 0 && ds_map_size(preparingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {
-	ds_map_replace(prepFrameTotals,"l",currentSpell.castFrames);
+//if ds_map_find_value(prepFrameTotals, "l") <= 0 {
+	ds_map_replace(prepFrameTotals,"l",currentSpellObj.castFrames);
 	ds_map_replace(prepFrames,"l",0);
 	ds_map_replace(preparingLimbs,"l",1);
 }
@@ -31,7 +32,7 @@ if ds_map_find_value(prepFrames,"l") >= ds_map_find_value(prepFrameTotals,"l") |
 		state = CombatantStates.Idle;
 	} else {
 				
-		var chargeCost = round(percentCharged*currentSpell.maxChargeCost);
+		var chargeCost = round(percentCharged*currentSpellObj.maxChargeCost);
 		var shootSound = asset_get_index("snd_magic_"+currentSpellAttunement+"_shoot");
 		audio_play_sound(shootSound,1,0);
 		// subtract charges from right hand item first
@@ -49,8 +50,8 @@ if ds_map_find_value(prepFrames,"l") >= ds_map_find_value(prepFrameTotals,"l") |
 				
 		// only cast spell if charged enough to cost at least one magic charge
 		if chargeCost > 0 {
-			stamina -= percentCharged*currentSpell.staminaCost;
-			for (var i = 0; i < currentSpell.numberOfProjectiles; i++) {
+			stamina -= percentCharged*currentSpellObj.staminaCost;
+			for (var i = 0; i < currentSpellObj.numberOfProjectiles; i++) {
 				global.owner = id;
 				global.projectileNumber = i+1;
 				global.percentCharged = percentCharged;

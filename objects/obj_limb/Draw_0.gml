@@ -1,7 +1,7 @@
 //if limbItem.weaponType == PISTOL exit; // must draw pistols on top of hands
 
 if !owner.isBeingHit {
-	prepareLayerShader();
+	//prepareLayerShader();
 } else {
 	shader_set(sh_red);
 	var uPOSITION = shader_get_uniform(sh_red, "Position");

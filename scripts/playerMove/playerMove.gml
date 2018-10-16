@@ -86,4 +86,4 @@ if gamepad_is_connected(gamePadIndex) && !isInteractingWithNpc {
 	}
 }
 
-if !place_free(x,y) && SHIFT jumpToNearestFreePoint(0);
+//if !place_free(x,y) && SHIFT jumpToNearestFreePoint(0);

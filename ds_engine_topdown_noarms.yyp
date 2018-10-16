@@ -431,6 +431,14 @@
             }
         },
         {
+            "Key": "08bd7c7b-d373-4dda-99f8-50ec71d05ada",
+            "Value": {
+                "id": "40a33a23-50e9-424b-812b-4543e19e1e62",
+                "resourcePath": "sprites\\spr_enemy_speyeder_claw_recover_1_1\\spr_enemy_speyeder_claw_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "08e230db-d7b0-42cd-acce-f60726893ba5",
             "Value": {
                 "id": "6f5a4a2d-e490-4b86-888e-8a02e21c4ec4",
@@ -743,6 +751,14 @@
             }
         },
         {
+            "Key": "0faac4e1-b52d-4740-9478-e6ddb96e6456",
+            "Value": {
+                "id": "c520bfbe-3ab5-4fa6-8099-76ec193e75a5",
+                "resourcePath": "scripts\\appraiseItemForRepair\\appraiseItemForRepair.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "0ffe9206-ae36-443d-86a4-53096bc4e108",
             "Value": {
                 "id": "2c295026-a56f-445d-a990-64089edda24e",
@@ -820,6 +836,14 @@
                 "id": "dc45bce5-7233-4c8c-9d90-c5b87f5e106e",
                 "resourcePath": "scripts\\performSelectorBackspacePressed\\performSelectorBackspacePressed.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "10f1127b-0f35-4da2-8868-647e52f667bb",
+            "Value": {
+                "id": "5baf2003-3a7f-43b3-bdae-6d0fe67e3122",
+                "resourcePath": "tilesets\\ts_woodhouse\\ts_woodhouse.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
@@ -1188,6 +1212,14 @@
                 "id": "17383e18-f4a7-4ce4-8b40-a749d0c669b6",
                 "resourcePath": "sounds\\snd_magic_fire\\snd_magic_fire.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "178bf604-9c14-4bb9-95cf-07c877fb567c",
+            "Value": {
+                "id": "61e70043-d395-4a73-bfee-665779060681",
+                "resourcePath": "objects\\obj_wall_wood\\obj_wall_wood.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1991,6 +2023,14 @@
             }
         },
         {
+            "Key": "298739ab-ce9b-4791-a02a-dcaa7fafd41c",
+            "Value": {
+                "id": "005c20a3-cf5b-4320-a2d5-36e4be2ec2be",
+                "resourcePath": "scripts\\appraiseItemForInsertion\\appraiseItemForInsertion.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "29b11835-fd05-4cf0-b145-8a11f853b500",
             "Value": {
                 "id": "8c37294b-bf40-4d61-a39a-4ffca3c651f9",
@@ -2743,6 +2783,14 @@
             }
         },
         {
+            "Key": "3a4f4e5d-aae5-4528-93d9-9d2cb6f27b93",
+            "Value": {
+                "id": "0ba650c8-5d86-4b23-a5d8-5853cb08c6a2",
+                "resourcePath": "scripts\\calculateWishOdds\\calculateWishOdds.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "3a848e3d-8a3a-4b74-b1ca-10ae44c257f6",
             "Value": {
                 "id": "89a085c4-b4e1-4803-9d96-310cf307c1ec",
@@ -3183,6 +3231,14 @@
             }
         },
         {
+            "Key": "449dbf9c-42d5-45a0-8fde-d2715522f38f",
+            "Value": {
+                "id": "1806a957-b197-4427-8d7c-24f73370f666",
+                "resourcePath": "sounds\\snd_enemy_unfairy_hit1\\snd_enemy_unfairy_hit1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "44a92146-49c0-44c1-917a-eca3d1a27f52",
             "Value": {
                 "id": "58c38a18-3a82-4ebb-8f72-66781802daff",
@@ -3227,6 +3283,14 @@
             "Value": {
                 "id": "c70a1c52-1725-4f92-8158-04b05618abce",
                 "resourcePath": "sprites\\spr_player_unarmed_prep_1\\spr_player_unarmed_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "45fc6f87-97b0-42bf-a829-64807eb2f882",
+            "Value": {
+                "id": "78f91d53-7984-44d3-a206-a37de6845609",
+                "resourcePath": "sprites\\spr_enemy_speyeder_claw_prep_1_1\\spr_enemy_speyeder_claw_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3316,6 +3380,14 @@
                 "id": "5717e3a9-9cc5-4906-99d6-6d0e08bdd5e5",
                 "resourcePath": "sprites\\spr_lilypad_anim\\spr_lilypad_anim.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4766fd0d-1c27-4366-a984-8768a7ed5a95",
+            "Value": {
+                "id": "8c9eb0cf-d87b-4fc7-bd63-60cc967d688a",
+                "resourcePath": "sounds\\snd_conversation_francis_unfairyslayer_thankyou\\snd_conversation_francis_unfairyslayer_thankyou.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -5447,6 +5519,14 @@
             }
         },
         {
+            "Key": "72745977-35f8-45e9-b0d1-aa3c8b1b765f",
+            "Value": {
+                "id": "8ef05817-4564-44e6-8eb3-b175c640261a",
+                "resourcePath": "views\\72745977-35f8-45e9-b0d1-aa3c8b1b765f.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "727a7d68-ad3d-4e1e-a7f4-6087cf6477f6",
             "Value": {
                 "id": "0e81c64b-60b6-449d-ac82-7e5ea1e12ec7",
@@ -6007,6 +6087,14 @@
             }
         },
         {
+            "Key": "7d5eb63b-56cf-4fc9-8a26-3b9a532d05ef",
+            "Value": {
+                "id": "a44c6437-5386-443d-80bf-4c158d3fae06",
+                "resourcePath": "sprites\\spr_block_brown\\spr_block_brown.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7d877b53-0ee3-4a33-85b9-8446d35c0acd",
             "Value": {
                 "id": "a874f471-051e-4068-b549-9ce064cd81f6",
@@ -6132,6 +6220,14 @@
                 "id": "dcf4595d-8616-4b8d-bf9d-3bb0453e0abb",
                 "resourcePath": "scripts\\getCumulativeProbabilitiesMap\\getCumulativeProbabilitiesMap.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "80dfd20a-06c6-4b9c-af38-a03fd721f490",
+            "Value": {
+                "id": "85afd950-5b61-4f0d-be6b-f054daa4c187",
+                "resourcePath": "objects\\obj_water_manager\\obj_water_manager.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -8751,6 +8847,14 @@
             }
         },
         {
+            "Key": "b798c505-05ca-4176-bbc3-33242ae28ef4",
+            "Value": {
+                "id": "694caf89-bf37-4bf5-bec5-208b2426197d",
+                "resourcePath": "sprites\\spr_cattails1\\spr_cattails1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b7a8feea-c63e-4390-b590-52553c1e32cb",
             "Value": {
                 "id": "81af0f54-57a7-4ee1-abcd-601067a571e5",
@@ -8955,6 +9059,22 @@
             "Value": {
                 "id": "43ec4b1b-749f-4f51-b76f-5b99d47e6de4",
                 "resourcePath": "sprites\\spr_player_hand_hatchet_base1\\spr_player_hand_hatchet_base1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bbe725bf-f2f2-47e1-a030-452d99aa1180",
+            "Value": {
+                "id": "a3c08c03-4f03-4bc4-b829-172648ac9baa",
+                "resourcePath": "sprites\\spr_ts_woodhouse\\spr_ts_woodhouse.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bbe79a1f-bdb3-47d8-9b57-e0f1e95bf8a0",
+            "Value": {
+                "id": "c4e73722-4cf3-4235-a4a1-0a1e560ca0b5",
+                "resourcePath": "sprites\\spr_enemy_speyeder_claw_attack_1_1\\spr_enemy_speyeder_claw_attack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -9879,6 +9999,14 @@
             }
         },
         {
+            "Key": "d008d3b4-f61b-4df6-9d12-c24ec5cc32d4",
+            "Value": {
+                "id": "1388447f-a136-490e-893a-ef90e6d3163f",
+                "resourcePath": "sprites\\spr_enemy_speyeder_claw_attack_1_1_mask\\spr_enemy_speyeder_claw_attack_1_1_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d0364db3-6b8d-4a56-a76d-4dbb3e424417",
             "Value": {
                 "id": "1599ebf1-5ef6-4ba6-9155-5a56f297beec",
@@ -9900,6 +10028,14 @@
                 "id": "a389f833-fbf1-4533-94ef-aeb140bb1c36",
                 "resourcePath": "sprites\\spr_item_info_damage_magic\\spr_item_info_damage_magic.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d087a8c6-cdc4-40b2-b192-8ab169d40334",
+            "Value": {
+                "id": "30d159f7-909a-4261-973a-909e79eba3dc",
+                "resourcePath": "scripts\\appraiseItemForBreakdown\\appraiseItemForBreakdown.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -10380,6 +10516,14 @@
                 "id": "ab56e894-1c94-49dd-a6ea-4b5bc0b39285",
                 "resourcePath": "tilesets\\ts_water\\ts_water.yy",
                 "resourceType": "GMTileSet"
+            }
+        },
+        {
+            "Key": "daedfe74-dc11-4cff-a89d-ac7b8733bc10",
+            "Value": {
+                "id": "5fdf47fc-2bb3-43e5-a7c1-502fb1351aaa",
+                "resourcePath": "objects\\obj_attack_speyeder_claw_1_1\\obj_attack_speyeder_claw_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -12242,11 +12386,15 @@
         "43786b47-6090-4ba2-941f-43d45db1dbd3",
         "e7796687-2f6c-4473-b6d2-2756ef6352a2",
         "03aee9d0-1aa2-4784-8652-aaff890e3241",
+        "298739ab-ce9b-4791-a02a-dcaa7fafd41c",
+        "d087a8c6-cdc4-40b2-b192-8ab169d40334",
+        "0faac4e1-b52d-4740-9478-e6ddb96e6456",
         "39923840-b131-407d-9027-ca3288aff097",
         "934f6f2d-62e1-43d5-b43e-fd331c1df017",
         "debfa67e-d1dc-46dc-845e-8830a83db600",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
         "8305d611-d802-438b-a7f2-7d475431cb73",
+        "3a4f4e5d-aae5-4528-93d9-9d2cb6f27b93",
         "8da4eee5-515f-4749-8509-780e480c1519",
         "ad389817-86f0-4fa2-bfa9-17773f67dfac",
         "d7bc54d2-9209-4ff2-ba0e-cf931dea81cc",

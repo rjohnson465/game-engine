@@ -1,4 +1,21 @@
 if global.fountainGui.currentSubMenu != NAMEPRICE exit;
+// calc guaranteed price
+if instance_number(obj_fountain_gui_gemmeditems) > 0 {
+	var gi = instance_nearest(x,y,obj_fountain_gui_gemmeditems);
+	var item = gi.selectedItem;
+	guaranteedPrice = appraiseItemForBreakdown(item);
+} else if instance_number(obj_fountain_gui_gems) > 0 {
+	var guiGems = instance_nearest(x,y,obj_fountain_gui_gems);
+	var guiItems = instance_nearest(x,y,obj_fountain_gui_socketeditems);
+	var item = guiItems.selectedItem;
+	var gem = guiGems.selectedItem;
+	guaranteedPrice = appraiseItemForInsertion(item, gem);
+} else if instance_number(obj_fountain_gui_brokenitems) > 0 {
+	var guiBroken = instance_nearest(x,y,obj_fountain_gui_brokenitems);
+	var item = guiBroken.selectedItem;
+	guaranteedPrice = appraiseItemForRepair(item);
+}
+
 if gamepad_is_connected(global.player.gamePadIndex) exit;
 
 var vx = camera_get_view_x(view_camera[0]);
@@ -26,4 +43,3 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 	
 	currentButton = ds_map_find_next(menuButtonCoordinates,currentButton);
 }
-

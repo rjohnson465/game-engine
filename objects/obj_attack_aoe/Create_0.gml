@@ -38,7 +38,7 @@ var s = attackData.spriteName+"_"+string(attackData.spriteAttackNumber)+"_"+stri
 sprite_index = asset_get_index(s);
 
 var spread = 360 / attackData.numberOfProjectiles;
-direction = spread*global.projectileNumber;
+direction = ((spread*global.projectileNumber) + owner.facingDirection) mod 360;
 facingDirection = direction;
 speed = attackData.projectileSpeed;
 

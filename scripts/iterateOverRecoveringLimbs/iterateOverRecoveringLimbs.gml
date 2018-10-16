@@ -27,9 +27,9 @@ if ds_map_size(recoveringLimbs) != 0 {
 		if recoverFrame == -1 {
 			prevAttackLimb = currentRecoveringLimbKey;
 			ds_map_replace(recoverFrames,currentRecoveringLimbKey,0);
-			if !place_free(x,y) || distance_to_object(obj_player) < 1 {
+			/*if !place_free(x,y) || distance_to_object(obj_player) < 1 {
 				jumpToNearestFreePoint(1);
-			}
+			}*/
 			
 			var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
 			ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,sprite_get_number(recoverSprite));
