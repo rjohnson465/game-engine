@@ -213,9 +213,12 @@ for (var i = 0; i < ds_list_size(allPriceIncrements); i++) {
 // likeliness of it working
 //odds = namedPrice >= guaranteedPrice ? 100 : 0;
 odds = calculateWishOdds(namedPrice, guaranteedPrice);
-//draw_set_alpha(.5);
+if odds > 100 odds = 100;
+var x1 = topLeftX+10; var x2 = bottomRightX-10;
+var y1 = MENUS_BOTTOMRIGHT_Y-50; var y2 = MENUS_BOTTOMRIGHT_Y-25;
+draw_healthbar(x1,y1,x2,y2,odds,c_black,c_red,c_green,0,true,true);
 draw_set_color(c_white);
-draw_text(mean(topLeftX,topLeftX+width),mean(MENUS_BOTTOMRIGHT_Y-100,MENUS_BOTTOMRIGHT_Y),"Odds of it working: " + string(odds) + "%" );
+draw_text(mean(x1,x2),mean(y1,y2),"Odds of success: " + string(odds) + "%" );
 
 // draw prompts
 var promptsStartX = MENUS_TOPLEFT_X+18;

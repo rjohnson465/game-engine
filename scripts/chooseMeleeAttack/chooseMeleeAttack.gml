@@ -1,3 +1,4 @@
+/// chooseMeleeAttack()
 // pick a melee attack 
 // this might be a dumb way to pick a lockOnTarget...
 lockOnTarget = instance_nearest(x,y,lockOnTargetType);
@@ -5,6 +6,15 @@ currentRangedAttack = noone;
 attackNumberInChain = noone;
 
 var range = distance_to_object(lockOnTarget);
+
+// build meleeRangeArray based off the "minRange" property of the first attackData object in each chain
+var meleeRangeArray = [];
+for (var i = 0; i < array_length_1d(meleeAttacks); i++) {
+	/*var currentMeleeChain = meleeAttacks[i];
+	var firstAttackDataObj = currentMeleeChain[0];
+	meleeRangeArray[i] = firstAttackDataObj.minRange;*/
+	meleeRangeArray[i] = getRangeForAttackIndex(i,true);
+}
 
 var differences = ds_list_create();
 for (var i = 0; i < array_length_1d(meleeRangeArray); i++) {

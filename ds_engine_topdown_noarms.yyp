@@ -87,6 +87,14 @@
             }
         },
         {
+            "Key": "01b10d04-3a63-4f0a-aa2a-8a49c5d796f7",
+            "Value": {
+                "id": "8aa0b8ca-8947-40ff-96ce-386f37427077",
+                "resourcePath": "sprites\\spr_enemy_speyeder_claw_prep_1_2\\spr_enemy_speyeder_claw_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "020ae970-9049-4636-8526-df7f18d014a5",
             "Value": {
                 "id": "00457ae9-6ab3-46fd-8807-70556dcbde49",
@@ -419,6 +427,14 @@
             "Value": {
                 "id": "87bb53e0-45b2-40d7-9dfd-b1e03c726bb0",
                 "resourcePath": "sprites\\spr_item_pistol\\spr_item_pistol.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "08563b0f-166f-4606-bcbe-a60aaf52d97c",
+            "Value": {
+                "id": "d01cd124-8fb9-4e12-b845-8be1a2e940c6",
+                "resourcePath": "sprites\\spr_enemy_speyeder_claw_recover_1_2\\spr_enemy_speyeder_claw_recover_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -823,6 +839,14 @@
             }
         },
         {
+            "Key": "10c8556a-4857-4d38-9b52-b622406f587a",
+            "Value": {
+                "id": "2964113f-d588-4e68-8a46-43e73b361342",
+                "resourcePath": "sounds\\snd_amb_springpeepers\\snd_amb_springpeepers.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "10ccd56a-3afd-44a8-9540-2a9fddc4b5bf",
             "Value": {
                 "id": "4c1d79df-fac4-4973-9a34-387364f48d6f",
@@ -1103,6 +1127,14 @@
             }
         },
         {
+            "Key": "158a680a-26ed-43d9-818b-102fc64f3a46",
+            "Value": {
+                "id": "18d0e066-9012-440b-8150-20937c512023",
+                "resourcePath": "scripts\\getRangeForAttackIndex\\getRangeForAttackIndex.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "15a1c580-0a08-404d-8379-36b6ed6d2f24",
             "Value": {
                 "id": "cdd961b2-0a99-445b-a7f1-9f413146ce4c",
@@ -1212,6 +1244,14 @@
                 "id": "17383e18-f4a7-4ce4-8b40-a749d0c669b6",
                 "resourcePath": "sounds\\snd_magic_fire\\snd_magic_fire.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "17772d97-51de-4745-993f-a176169da66b",
+            "Value": {
+                "id": "1c771b8f-47a2-4c22-a1d6-1c20a7640660",
+                "resourcePath": "sprites\\spr_snd\\spr_snd.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1583,6 +1623,22 @@
             }
         },
         {
+            "Key": "1fa9ab1b-eeb8-4dd2-b507-b0ead85ef476",
+            "Value": {
+                "id": "75b9a4f9-6c7d-4cce-9bb7-cbe218709203",
+                "resourcePath": "objects\\obj_snd_springpeepers\\obj_snd_springpeepers.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "200513d9-f6bb-4cff-9729-b77d93789abf",
+            "Value": {
+                "id": "cd35de68-9a58-496e-af81-91ee7cc74cd5",
+                "resourcePath": "sprites\\spr_enemy_speyeder_claw_attack_1_2\\spr_enemy_speyeder_claw_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "206a4e7f-f8b5-4bf7-b052-374b514f413b",
             "Value": {
                 "id": "64bd8312-066d-4adf-9916-de5bc5a6ddf2",
@@ -1612,6 +1668,14 @@
                 "id": "a7a34f94-a556-453a-9ef8-93d92db5ea28",
                 "resourcePath": "scripts\\levelUpSkill\\levelUpSkill.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "2129ca59-29b3-4e09-afc6-706931e17afc",
+            "Value": {
+                "id": "26f22b11-a887-4293-a7b3-a810e4c666b9",
+                "resourcePath": "sprites\\spr_enemy_speyeder_poison_prep_1_1\\spr_enemy_speyeder_poison_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1820,6 +1884,14 @@
                 "id": "be4ceec4-65d0-4da1-969d-7bd9a21c7664",
                 "resourcePath": "sprites\\spr_enemy_speyeder_aoe_1_1_particle\\spr_enemy_speyeder_aoe_1_1_particle.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "256d1b1c-be1e-46bc-8b74-89cf75ebca69",
+            "Value": {
+                "id": "b081a1a4-266c-4092-a60d-495334e7c491",
+                "resourcePath": "objects\\obj_attack_zone_part\\obj_attack_zone_part.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2079,6 +2151,14 @@
             }
         },
         {
+            "Key": "2a81891d-124a-4225-b676-ce5a62e0abeb",
+            "Value": {
+                "id": "a7413655-25b6-4a0e-836d-a860e0d6f2a2",
+                "resourcePath": "objects\\obj_snd_frogs\\obj_snd_frogs.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "2a9249ec-c635-44bb-9c90-5356a4253d0e",
             "Value": {
                 "id": "ce0a37a0-d1e1-41c7-8ad7-7cc4ed4cdda8",
@@ -2175,6 +2255,14 @@
             }
         },
         {
+            "Key": "2c7d1049-5c01-4627-a0c0-cb493b254d4a",
+            "Value": {
+                "id": "725670af-1c86-4725-ac96-cd0c8ebc8609",
+                "resourcePath": "objects\\obj_roofs_manager\\obj_roofs_manager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "2c8e8f25-16c3-4d22-8fda-849a321d4dd8",
             "Value": {
                 "id": "cbb15414-f934-402e-b015-1e60583e1673",
@@ -2255,6 +2343,14 @@
             }
         },
         {
+            "Key": "2de98a03-2a60-451c-ae95-3c4d0618ff8f",
+            "Value": {
+                "id": "9a2042b6-b6a9-4e34-855a-eafa631c4754",
+                "resourcePath": "views\\2de98a03-2a60-451c-ae95-3c4d0618ff8f.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "2f0e53fa-cbe1-4adc-96ca-045316416b56",
             "Value": {
                 "id": "698224ed-ab07-4964-b9af-9050904ba420",
@@ -2308,6 +2404,14 @@
                 "id": "65b957af-b806-44b2-a50b-5cdf06284a50",
                 "resourcePath": "sprites\\spr_player_hand_pistol\\spr_player_hand_pistol.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "30d9c74e-f1fa-4849-9556-17034d034131",
+            "Value": {
+                "id": "767a4818-38b5-498e-ada3-3b4477d101f7",
+                "resourcePath": "objects\\obj_attack_zone\\obj_attack_zone.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2780,6 +2884,14 @@
                 "id": "947659a3-5402-4164-9a7f-6c94c78fe798",
                 "resourcePath": "sprites\\spr_player_greatsword_attack_2\\spr_player_greatsword_attack_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3a46a844-2541-4295-b07a-17b5d7c76ec9",
+            "Value": {
+                "id": "e23e8acd-4393-4d11-a55e-693f997c6fe0",
+                "resourcePath": "objects\\obj_sound_emitter\\obj_sound_emitter.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3307,6 +3419,14 @@
             "Value": {
                 "id": "88229768-c978-495e-b41f-d4c9e10646a3",
                 "resourcePath": "sprites\\spr_background_1\\spr_background_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "463d9c72-8368-4f16-bc1a-c7b44688ac83",
+            "Value": {
+                "id": "18ece017-a608-438b-bcbf-de0ceddb4bd4",
+                "resourcePath": "sprites\\spr_chimney\\spr_chimney.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4252,6 +4372,14 @@
                 "id": "1ac186ed-7b59-4b78-8ee7-13ae107197a8",
                 "resourcePath": "sounds\\snd_item_metal\\snd_item_metal.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "599651e8-5c41-410e-8a4b-07145cd1d0e4",
+            "Value": {
+                "id": "52cc8610-61a1-4e80-8a27-31e0d3d8f352",
+                "resourcePath": "objects\\obj_attack_speyeder_poison_1_1\\obj_attack_speyeder_poison_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -5487,6 +5615,14 @@
             }
         },
         {
+            "Key": "71e94908-f26e-4137-ae9d-4977b7235ab3",
+            "Value": {
+                "id": "d5074911-4468-4b7d-b0f2-f781a73051de",
+                "resourcePath": "sprites\\spr_enemy_speyeder_poison_attack_1_1\\spr_enemy_speyeder_poison_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "71eb75e6-c77d-42a3-a671-eca5cbc98648",
             "Value": {
                 "id": "a58e39a7-237e-454e-b9fe-fe3f1819d50d",
@@ -6495,6 +6631,14 @@
             }
         },
         {
+            "Key": "84f8ec50-191f-4013-8c9a-be42ad84a1f8",
+            "Value": {
+                "id": "144c99a1-1f59-413e-93e6-79fb47649898",
+                "resourcePath": "sprites\\spr_enemy_speyeder_poison_1_1_zone\\spr_enemy_speyeder_poison_1_1_zone.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "85083e4f-691a-40fe-8efc-1582736de910",
             "Value": {
                 "id": "fc96826b-3c6a-4ec4-969f-810bfc8a70e7",
@@ -6636,6 +6780,14 @@
                 "id": "2305c758-bc3d-4a81-9ded-5f33b2829380",
                 "resourcePath": "sprites\\spr_gem_amethyst_normal\\spr_gem_amethyst_normal.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "895a1637-8cc7-4264-bc6d-fd7f554917a4",
+            "Value": {
+                "id": "de625f4f-0f8a-4cd0-aabb-e35d4ccb23b7",
+                "resourcePath": "scripts\\maybeUpdatePotentialPath\\maybeUpdatePotentialPath.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -7863,6 +8015,14 @@
             }
         },
         {
+            "Key": "a288f6b2-08aa-4b1b-9ff6-b2e77dd42e30",
+            "Value": {
+                "id": "179892d0-86fc-4446-9ab7-5538fe5607e0",
+                "resourcePath": "shaders\\sh_halfAlpha\\sh_halfAlpha.yy",
+                "resourceType": "GMShader"
+            }
+        },
+        {
             "Key": "a2a00b8f-d341-4da6-8881-f00adf3d8634",
             "Value": {
                 "id": "6893a9ba-b550-45d7-b467-14ab800de14a",
@@ -7924,6 +8084,14 @@
                 "id": "bdb22225-d266-439e-8ade-14e7856f6059",
                 "resourcePath": "views\\a4543e65-995c-4755-a189-37b19cb368af.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a45c14b1-4c8e-42ce-92c9-779d5e1423a4",
+            "Value": {
+                "id": "76a48c71-3852-492a-b6d1-ead749162653",
+                "resourcePath": "sprites\\spr_enemy_speyeder_claw_attack_1_2_mask\\spr_enemy_speyeder_claw_attack_1_2_mask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -9287,6 +9455,14 @@
             }
         },
         {
+            "Key": "c2414ead-97d4-4c4c-8d46-866f70747b8b",
+            "Value": {
+                "id": "3da6464e-928b-4f1f-a0f0-94a7b9e06d43",
+                "resourcePath": "sprites\\spr_enemy_speyeder_poison_recover_1_1\\spr_enemy_speyeder_poison_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c24a0c2e-ab71-41dd-93a8-e9c403e3bd28",
             "Value": {
                 "id": "b28fd1a3-64aa-4d04-b6f3-9ac5f51d5604",
@@ -9508,6 +9684,14 @@
                 "id": "64d82dbe-f3ca-488c-a8de-c2701c301ee3",
                 "resourcePath": "scripts\\maybeRemoveObjectFromInteractionList\\maybeRemoveObjectFromInteractionList.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c65fb116-ed9d-4945-b6a3-7001406dca9c",
+            "Value": {
+                "id": "a6606357-3118-489d-9eb3-c05181e07a6f",
+                "resourcePath": "sounds\\snd_amb_frogs\\snd_amb_frogs.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -11623,6 +11807,14 @@
             }
         },
         {
+            "Key": "f50ba72d-337e-49a2-9b5b-760d54439dc1",
+            "Value": {
+                "id": "6930ab76-8d64-4ca6-865e-c79bc0ef60b7",
+                "resourcePath": "sprites\\spr_part_pixel\\spr_part_pixel.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f5318c21-772a-49fc-a0d6-c74039dfe954",
             "Value": {
                 "id": "a9db8954-3ae4-4801-b2ad-934e545ab991",
@@ -11903,6 +12095,14 @@
             }
         },
         {
+            "Key": "fcacc3c5-8fda-4fa2-bdb3-c71ceb825d13",
+            "Value": {
+                "id": "b6617130-cfa9-4540-bb6b-fdcd81180949",
+                "resourcePath": "objects\\obj_attack_speyeder_claw_1_2\\obj_attack_speyeder_claw_1_2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "fcb0f5f7-bcfc-4156-9718-013cbe6ee0dc",
             "Value": {
                 "id": "005e3b8e-ee3c-473c-9349-1ecd3fe19640",
@@ -12176,6 +12376,7 @@
         "ae87fee5-f9f2-48e8-94af-b19479c267cf",
         "b4fe8e3d-9643-496d-96a0-3c44b781c731",
         "ba3523fb-3100-4c94-bc79-672a22a76c4c",
+        "158a680a-26ed-43d9-818b-102fc64f3a46",
         "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
         "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
         "366ba9cd-aa4e-49d1-9f44-28270833e64a",
@@ -12213,6 +12414,7 @@
         "01a586ae-1990-4a09-aa7b-413bc1526884",
         "333deed3-58a4-4613-a31c-e61f61395111",
         "bc5e780e-f86c-42f3-97aa-960a42f1bbae",
+        "895a1637-8cc7-4264-bc6d-fd7f554917a4",
         "85ab87d2-fc88-4cbf-919f-eecfe09947f4",
         "cd615c88-1626-485a-a27f-9b20e17a6a15",
         "665b024d-e45b-499a-b0f1-36247fa53d9e",

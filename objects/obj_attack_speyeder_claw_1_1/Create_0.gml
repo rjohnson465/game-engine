@@ -5,7 +5,7 @@ spriteAttackNumberInChain = 1;
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
 limbKey = noone;
 ds_map_add(damages,SLASH,[1,3]);
-ds_map_add(damages,PIERCE,[100,300]);
+ds_map_add(damages,PIERCE,[1,3]);
 isRanged = false;
 staminaCost = 5;
 staggerDuration = 18;

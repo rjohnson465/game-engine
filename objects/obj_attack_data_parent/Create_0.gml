@@ -1,7 +1,8 @@
 enum AttackTypes {
 	Standard,
 	Charge,
-	AOE
+	AOE,
+	Zone // breath attacks, poison clouds, whatever
 }
 
 owner = global.owner;
@@ -47,3 +48,5 @@ part1Num = noone;
 part2Num = noone;
 
 damageType = "Block"; // Block (sparks) or Dust (for when attack hits walls)
+
+doesNotStagger = false; // attacks normally have a chance to stagger opponents. Some (like zones) may not

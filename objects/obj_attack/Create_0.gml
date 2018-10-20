@@ -100,6 +100,11 @@ if attackData != noone && attackData.type == AttackTypes.AOE {
 	exit;
 }
 
+if attackData != noone && attackData.type == AttackTypes.Zone {
+	global.attackData = attackData;
+	instance_change(obj_attack_zone,1); exit;
+}
+
 if isMelee && owner.isSlowed {
 	image_speed = .5; // TODO
 }
@@ -124,7 +129,7 @@ if owner.type == CombatantTypes.Player {
 }
 
 // if this is a left hand attack, flip yscale 
-if !(limbKey == "r" || (weapon != noone && weapon.isRanged && weapon.isTwoHanded)) {
+if !(limbKey == "r" || (weapon != noone && weapon.isRanged && weapon.isTwoHanded)) && limbKey != noone {
 	image_yscale = -1;
 }
 	

@@ -10,4 +10,4 @@ staminaCost = 5;
 staggerDuration = 18;
 limbKey = noone;
 type = AttackTypes.Charge;
-minRange = 20;
+minRange = 30;

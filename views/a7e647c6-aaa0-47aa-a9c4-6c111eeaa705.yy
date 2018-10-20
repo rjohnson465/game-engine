@@ -18,9 +18,17 @@
         "2551ea66-7ef0-4f35-bb33-53ffe280a934",
         "21de08a9-fddc-46ef-a765-bbe60a560b93",
         "45fc6f87-97b0-42bf-a829-64807eb2f882",
+        "01b10d04-3a63-4f0a-aa2a-8a49c5d796f7",
         "bbe79a1f-bdb3-47d8-9b57-e0f1e95bf8a0",
+        "200513d9-f6bb-4cff-9729-b77d93789abf",
+        "a45c14b1-4c8e-42ce-92c9-779d5e1423a4",
         "d008d3b4-f61b-4df6-9d12-c24ec5cc32d4",
-        "08bd7c7b-d373-4dda-99f8-50ec71d05ada"
+        "08bd7c7b-d373-4dda-99f8-50ec71d05ada",
+        "08563b0f-166f-4606-bcbe-a60aaf52d97c",
+        "2129ca59-29b3-4e09-afc6-706931e17afc",
+        "71e94908-f26e-4137-ae9d-4977b7235ab3",
+        "84f8ec50-191f-4013-8c9a-be42ad84a1f8",
+        "c2414ead-97d4-4c4c-8d46-866f70747b8b"
     ],
     "filterType": "GMSprite",
     "folderName": "speyeder",

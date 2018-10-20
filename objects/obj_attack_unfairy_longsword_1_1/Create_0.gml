@@ -11,3 +11,5 @@ staggerDuration = 9;
 
 attackSound = snd_sword1h_attack_1;
 hitSound = snd_hit1;
+
+minRange = 15;

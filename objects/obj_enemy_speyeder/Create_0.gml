@@ -42,7 +42,7 @@ meleeRangeArray=[];
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[10,30,30,30,30];
+//meleeRangeArray=[10,30,30,30,30];
 //meleeRangeArray = [30];
 
 // ATTACKS
@@ -52,14 +52,20 @@ var bugBite = makeEnemyAttackObj(obj_attack_speyeder_head_1_1);
 var webAoe = makeEnemyAttackObj(obj_attack_speyeder_aoe_1_1);
 
 var claw1 = makeEnemyAttackObj(obj_attack_speyeder_claw_1_1);
+var claw2 = makeEnemyAttackObj(obj_attack_speyeder_claw_1_2);
 
-var meleeChain0 = [webAoe];
+var poisonAttack = makeEnemyAttackObj(obj_attack_speyeder_poison_1_1);
+
+var webAoeChain = [webAoe];
 var meleeChain1 = [bugBite];
 var meleeChain2 = [bugBite, webAoe];
 var meleeChain3 = [claw1];
 var meleeChain4 = [bugBite, claw1];
-meleeAttacks = [meleeChain0, meleeChain1, meleeChain3, meleeChain2, meleeChain4];
-//meleeAttacks = [meleeChain3];
+var doubleClawChain = [claw1,claw2];
+var poisonAttackChain = [poisonAttack];
+var jumpClaws = [bugBite,claw1,claw2];
+meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4, doubleClawChain, doubleClawChain, jumpClaws, poisonAttackChain];
+//meleeAttacks = [poisonAttackChain];
 
 // ranged attacks info
 
@@ -78,7 +84,7 @@ beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
 // stagger stuff
-poise = 0;
+poise = 50;
 
 ds_map_replace(defenses, FIRE, -100);
 

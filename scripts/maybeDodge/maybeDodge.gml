@@ -67,7 +67,7 @@ else if lockOnTarget.type != CombatantTypes.Player && isMeleeAttack {
 }
 // if the attack is coming from an Ally or Enemy, base it on their current attack range
 else if (lockOnTarget.type == CombatantTypes.Ally || lockOnTarget.type == CombatantTypes.Enemy) && isMeleeAttack {
-	range = lockOnTarget.meleeRangeArray[lockOnTarget.currentMeleeAttack] + 10; // 10px padding
+	range = getRangeForAttackIndex(lockOnTarget.currentMeleeAttack, true) /*lockOnTarget.meleeRangeArray[lockOnTarget.currentMeleeAttack]*/ + 10; // 10px padding
 }
 
 if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.preparingLimbs) != 0 && willDodge && isMeleeAttack {
@@ -96,7 +96,7 @@ if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.prep
 		hasCalculatedWillDodge = false;
 		dodgeDirection = (facingDirection+180)%360;
 		path_end();
-		stamina -= 10;
+		stamina -= 15;
 		state = CombatantStates.Dodging;
 		return true;
 		//break;
@@ -129,7 +129,7 @@ else if distance_to_object(obj_attack) < 200 - agility && willDodge {
 		var rand = floor(random_range(1.01,2.99));
 		dodgeDirection = rand == 1 ? (attackObj.owner.facingDirection+90)%360 : (attackObj.owner.facingDirection - 90 + 360)%360;
 		path_end();
-		stamina -= 10;
+		stamina -= 15;
 		state = CombatantStates.Dodging;
 		return true;
 		//break;

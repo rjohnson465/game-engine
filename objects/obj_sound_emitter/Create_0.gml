@@ -1,0 +1,11 @@
+snd = global.snd;
+refDist = global.sndFalloffRef;
+maxDist = global.sndFalloffMax;
+factor = global.sndFalloffFactor;
+gain = global.sndGain;
+isLooping = global.sndIsLooping;
+emitter = audio_emitter_create();
+audio_emitter_position(emitter,x,y,depth);
+audio_emitter_gain(emitter,gain);
+audio_emitter_falloff(emitter,refDist,maxDist,factor);
+audio_play_sound_on(emitter,snd,isLooping,1);

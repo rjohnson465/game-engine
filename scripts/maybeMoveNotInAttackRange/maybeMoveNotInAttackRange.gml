@@ -33,11 +33,11 @@ if enemyObstaclesBetweenTarget != noone {
 // if predicate is true, you need to keep moving
 var pred = currentMeleeAttack == noone ? 
 	// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
-	(array_length_1d(rangedRangeArray) > 0 && distance_to_object(lockOnTarget) > rangedRangeArray[currentRangedAttack]) 
+	(array_length_1d(rangedAttacks) > 0 && distance_to_object(lockOnTarget) > getRangeForAttackIndex(currentRangedAttack,false)) 
 		|| wallsBetweenTarget != noone /*|| alliesBetweenTarget != noone*/ || enemyObstaclesBetweenTarget >= 0 || (layer != lockOnTarget.layer) || !canSeeLockOnTarget() : 
-	(array_length_1d(meleeRangeArray) > 0 && distance_to_object(lockOnTarget) > meleeRangeArray[currentMeleeAttack]) || (layer != lockOnTarget.layer) || !canSeeLockOnTarget();
+	(array_length_1d(meleeAttacks) > 0 && distance_to_object(lockOnTarget) > getRangeForAttackIndex(currentMeleeAttack, true)) || (layer != lockOnTarget.layer) || !canSeeLockOnTarget();
 
-if currentMeleeAttack == noone && array_length_1d(rangedRangeArray) == 0 pred = true; // if we have no possible ranged attack and no melee attack chose, you have to get closer!
+if currentMeleeAttack == noone && array_length_1d(rangedAttacks) == 0 pred = true; // if we have no possible ranged attack and no melee attack chose, you have to get closer!
 
 if wallsBetweenTarget != noone && ds_exists(wallsBetweenTarget, ds_type_list) {
 	ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
@@ -75,10 +75,13 @@ if pred && !isFlinching {
 				xx = path_get_x(gridPath,1);
 				yy = path_get_y(gridPath,1);
 			}
-			mp_potential_path(path,xx,yy,normalSpeed,4,0);
+			mp_potential_path(path,xx,yy,normalSpeed,1,0);
+			//maybeUpdatePotentialPath(xx,yy);
 			path_start(path,functionalSpeed,path_action_stop,false);
-		} else if mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,10,false) {
-			mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,10,false);
+			//moveToNearestFreePoint(point_direction(x,y,xx,yy),functionalSpeed,1);
+			//mp_potential_step(xx,yy,functionalSpeed,0);
+		} else if mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,4,false) {
+			//mp_potential_path(path,tempTargetX,tempTargetY,normalSpeed,10,false);
 			path_start(path,functionalSpeed,path_action_stop,false);
 		} else {
 			path_end(); turnSpeed = normalTurnSpeed;
@@ -105,10 +108,14 @@ if pred && !isFlinching {
 		if isGridPathAvailable {
 			var xx = path_get_x(gridPath,.1);
 			var yy = path_get_y(gridPath,.1);
+			//mp_potential_step(xx,yy,functionalSpeed,0);
 			mp_potential_path(path,xx,yy,functionalSpeed,1,0);
+			//maybeUpdatePotentialPath(xx,yy);
 			path_start(path,functionalSpeed,path_action_stop,false);
-		} else if mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false) /*|| canSeeLockOnTarget()*/ {
-			mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false);
+			//var dir = point_direction(x,y,xx,yy);
+			//moveToNearestFreePoint(dir,functionalSpeed,1);
+		} else if maybeUpdatePotentialPath(lockOnTarget.x, lockOnTarget.y) { //if mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false) /*|| canSeeLockOnTarget()*/ {
+			//mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false);
 			path_start(path,functionalSpeed,path_action_stop,false);
 		} else if canSeeLockOnTarget() {
 			path_end();

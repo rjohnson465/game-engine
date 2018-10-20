@@ -11,3 +11,5 @@ staggerDuration = 20;
 
 attackSound = snd_axe2h_attack_1;
 hitSound = snd_hit1;
+
+minRange = 45;

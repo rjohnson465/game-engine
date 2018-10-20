@@ -19,7 +19,7 @@ if  stamina > 0 &&
 	&& !isFrozen
 	{
 	
-	stamina-= 10;
+	stamina-= 15;
 	var UP = keyboard_check(ord("W"));
 	var DOWN = keyboard_check(ord("S"));
 	var LEFT = keyboard_check(ord("A"));

@@ -1,5 +1,5 @@
 audio_emitter_position(soundEmitter, x, y, depth);
-if isSpell && !hasSetAlarm {
+/*if isSpell && !hasSetAlarm {
 	if layer >= global.player.layer {
 		var x1 = bbox_left; var x2 = bbox_right;
 		var y1 = bbox_top; var y2 = bbox_bottom;
@@ -49,7 +49,7 @@ if isSpell && !hasSetAlarm {
 	}
 	image_angle = facingDirection;
 	
-} else {
+} else {*/
 	if isMelee {
 		image_angle = owner.facingDirection;
 		x = owner.x;
@@ -62,7 +62,7 @@ if isSpell && !hasSetAlarm {
 			instance_destroy(id, 1);
 		}
 	}
-}
+//}
 
 // dim spell light linearly
 if isSpell && hasSetAlarm {

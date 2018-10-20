@@ -59,7 +59,7 @@ if attackFrequencyFrame == -1 {
 				var dist = distance_to_object(lockOnTarget);
 				var targetRadius = point_distance(x,y,lockOnTarget.x,lockOnTarget.y)-distance_to_object(lockOnTarget);
 				var orbit = targetRadius+distance_to_object(lockOnTarget);
-				if dist <= meleeRangeArray[currentMeleeAttack] {
+				if dist <= getRangeForAttackIndex(currentMeleeAttack,true) /*meleeRangeArray[currentMeleeAttack]*/ {
 					strafeAroundPoint(lockOnTarget.x,lockOnTarget.y,functionalSpeed*.3,orbit);
 				} 
 			}

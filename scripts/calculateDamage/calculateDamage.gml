@@ -189,8 +189,9 @@ if	state != CombatantStates.Dodging &&
 	}
 	
 	// STAGGER OR FLINCH
-	staggerOrFlinch(attackObj,assailant,actualDamage);
-	
+	if (attackData == noone || !attackData.doesNotStagger) {
+		staggerOrFlinch(attackObj,assailant,actualDamage);
+	}
 	
 	
 	// destroy most ranged projectiles on impact

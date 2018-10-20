@@ -12,3 +12,5 @@ staggerDuration = 8;
 prepSound = snd_bow_prep;
 attackSound = snd_bow_attack;
 hitSound = snd_hit1;
+
+minRange = 400;

@@ -379,4 +379,5 @@ soundsWhenDie = [];
 randomize();
 var s = sprite_get_name(sprite_index);
 image_index = round(random_range(0,sprite_get_number(sprite_index)));
-var a = 3;
+
+alarm[9] = 15; // update "path" every 15 frames
