@@ -12,7 +12,7 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 			ds_map_replace(basePlayerProperties,i,100); break;
 		}
 		case ModifiableProperties.HpMax: {
-			ds_map_replace(basePlayerProperties,i,1000); break;
+			ds_map_replace(basePlayerProperties,i,100); break;
 		}
 		case ModifiableProperties.HpRegen: {
 			ds_map_replace(basePlayerProperties,i,.5); break;

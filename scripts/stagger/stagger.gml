@@ -44,18 +44,17 @@ if (staggerFrame > .5*staggerDuration) {
 	do {
 		x1 = x+lengthdir_x(.25*sspeed, sDir);
 		y1 = y+lengthdir_y(.25*sspeed, sDir);
+		var _pml = place_meeting_layer(x1,y1,solidsToCheck);
+		var _pml2 = place_meeting_layer(x1,y1,obj_combatant_parent);
 		if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 			sDir = (sDir + 22.5)%360;
 		}
 	} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
 			
 	//if !place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent) {
-	var oldX = x ; var oldY = y;
 		moveToNearestFreePoint(sDir,.5*sspeed,isEnemy);
 		staggerDirection = sDir;
-		if x == oldX && y == oldY {
-			var a = 3;
-		}
+
 	//}
 			
 }

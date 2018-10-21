@@ -17,3 +17,4 @@ if part_type_exists(sprintParticle) && isSprinting {
 	part_emitter_region(sprintParticleSystem, sprintParticleEmitter, x-1, x+1, y-1, y+1,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(sprintParticleSystem,sprintParticleEmitter,sprintParticle,-1);
 }
+

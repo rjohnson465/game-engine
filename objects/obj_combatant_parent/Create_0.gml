@@ -24,6 +24,8 @@ randomize()
 floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
 prevX = x;
 prevY = y;
+endX = x;
+endY = y;
 walkingInWaterEmitter = audio_emitter_create();
 audio_emitter_gain(walkingInWaterEmitter,0);
 // decide which water walk sound to play on room start (if floating a different sound is used than if walking)
@@ -380,4 +382,6 @@ randomize();
 var s = sprite_get_name(sprite_index);
 image_index = round(random_range(0,sprite_get_number(sprite_index)));
 
-alarm[9] = 15; // update "path" every 15 frames
+RECALC_PATH_FRAMES = 7;
+randomize();
+alarm[9] = round(random_range(1,RECALC_PATH_FRAMES)); // update "path" every RECALC_PATH_FRAMES frames

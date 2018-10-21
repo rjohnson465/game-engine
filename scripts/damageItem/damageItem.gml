@@ -15,6 +15,7 @@ if (item.durability/item.durabilityMax) < .33 && item.durability > 0 && !item.ha
 
 if item.durability <= 0 && !item.hasIssuedDurabilityObituary {
 	alert(item.name + " broke!",c_red);
+	audio_play_sound(snd_shield_hit_metal,1,0);
 	item.hasIssuedDurabilityObituary = true;
 	
 	// if this is the first time an item has broken in this game, give tutorial on item repair

@@ -1,4 +1,4 @@
-with obj_player {
+/*with obj_player {
 	
 	var floorNum = getLayerFloorNumber(layer);
 	var s = "tiles_roofs_floor_"+string(floorNum);

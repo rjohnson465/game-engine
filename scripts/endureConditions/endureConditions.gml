@@ -1,3 +1,5 @@
+if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked exit;
+
 // account for any currently active conditions (slowed/frozen, burning, poisoned, electrified)
 var currentCondition = ds_map_find_first(conditionLevels);
 var size = ds_map_size(conditionLevels);
@@ -12,14 +14,6 @@ for (var i = 0; i < size; i++) {
 	var emitter = ds_map_find_value(conditionsEmittersMap, currentCondition);
 	audio_emitter_position(emitter,x,y,depth);
 	audio_emitter_gain(emitter,conditionPercent/100);
-	
-	/*if id != global.player && conditionLevel > 0 {
-		show_debug_message("emitter pos: " + string(audio_emitter_get_x(emitter)) + ", " + string(audio_emitter_get_y(emitter)));
-		var ld = audio_listener_get_data(0); var lx = ds_map_find_value(ld,"x"); var ly = ds_map_find_value(ld,"y");
-		show_debug_message("listener pos: " + string(lx) + "," + string(ly));
-		var distanceToListener = point_distance(x,y,lx,ly);
-		show_debug_message("distance to listener: " + string(distanceToListener));
-	}*/
 	
 	// particle effects for conditions
 	if conditionLevel > 0 && currentCondition != PHYSICAL {
@@ -133,10 +127,10 @@ for (var i = 0; i < size; i++) {
 					instance_create_depth(x,y,1,obj_damage);
 					// builds every pulse
 					// TODO math major DEVIN
-					poisonDamage = originalPoisonDamage;
+					/*poisonDamage = originalPoisonDamage;
 					poisonDamage = defense >= 0 ? 
 						poisonDamage + ((.1*poisonDamage)-((.1*poisonDamage)*(defense/100))) : 
-						poisonDamage + ((.1*poisonDamage)+((.1*poisonDamage)*(defense/100)));
+						poisonDamage + ((.1*poisonDamage)+((.1*poisonDamage)*(defense/100)));*/
 					poisonFrame = 0;
 				}
 				poisonFrame++;

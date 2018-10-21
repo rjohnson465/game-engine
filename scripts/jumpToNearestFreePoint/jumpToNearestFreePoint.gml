@@ -1,5 +1,6 @@
-/// jumpToNearestFreePoint(*isEnemy)
+/// jumpToNearestFreePoint(*isEnemy, *includesFallzones)
 /// @param *isEnemy
+/// @param *includesFallzones
 
 var isEnemy = false;
 if argument_count == 1 {
@@ -21,9 +22,15 @@ with obstacleType {
 	}
 }
 // also avoid fallzones
-with obj_fallzone {
-	if layer == other.layer && id != other {
-		ds_list_add(obstacles,id);
+var includesFallzones = false;
+if argument_count > 1 {
+	includesFallzones = argument[1];
+}
+if includesFallzones {
+	with obj_fallzone {
+		if layer == other.layer && id != other {
+			ds_list_add(obstacles,id);
+		}
 	}
 }
 

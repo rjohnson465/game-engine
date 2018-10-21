@@ -12,6 +12,9 @@ with obj_combatant_parent {
 				audio_play_sound_at(snd_magic_fire_hit,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 				ds_map_replace(conditionPercentages,FIRE,0);
 			}
+			
+			if !isMoving exit;
+			
 			var currentWaterParticlesObj = noone; 
 			var currentWaterParticlesObjIsDestroying = false;
 			with obj_water_particles {

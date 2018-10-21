@@ -165,4 +165,4 @@ global.doNotDisplayTutorialMessages = true;
 alarm[3] = 5;
 
 waterManager = instance_create_depth(x,y,1,obj_water_manager);
-roofsManager = instance_create_depth(x,y,1,obj_roofs_manager);
+//roofsManager = instance_create_depth(x,y,1,obj_roofs_manager);

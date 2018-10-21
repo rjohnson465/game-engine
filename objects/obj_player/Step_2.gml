@@ -11,6 +11,12 @@ if hp < 1 && isAlive && !isDying {
 	speed = 0;
 	totalFlinchFrames = 0;
 	
+	audio_play_sound(snd_death_fade,1,0);
+	
+	if currentSpellPrepSound != noone {
+		audio_stop_sound(currentSpellPrepSound);
+	}
+	
 	// lose combo mode
 	comboModeLevel = 0;
 	

@@ -1,9 +1,9 @@
-with obj_player {
+/*with obj_player {
 	
 	var floorNum = getLayerFloorNumber(layer);
 	var s = "tiles_roofs_floor_"+string(floorNum);
 	var l = layer_get_id(s);
-	layer_set_visible(l,true);
+	if !layer_get_visible(l) layer_set_visible(l,true);
 	if !layer_exists(l) continue;
 	var tmap = layer_tilemap_get_id(l);
 	if tmap >= 0 {

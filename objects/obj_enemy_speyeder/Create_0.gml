@@ -64,8 +64,8 @@ var meleeChain4 = [bugBite, claw1];
 var doubleClawChain = [claw1,claw2];
 var poisonAttackChain = [poisonAttack];
 var jumpClaws = [bugBite,claw1,claw2];
-meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4, doubleClawChain, doubleClawChain, jumpClaws, poisonAttackChain];
-//meleeAttacks = [poisonAttackChain];
+//meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4, doubleClawChain, doubleClawChain, jumpClaws, poisonAttackChain];
+meleeAttacks = [poisonAttackChain];
 
 // ranged attacks info
 

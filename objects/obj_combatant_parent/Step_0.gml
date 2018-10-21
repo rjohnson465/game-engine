@@ -117,7 +117,7 @@ switch(state) {
 			// face the proper direction
 			faceMovingDirection();
 			// maybe return to post
-			maybeReturnToPost();
+			//if substate != CombatantMoveSubstates.ReturningToPost && maybeReturnToPost() break;
 			
 			// be listening for any commotion, if you're not already in a fight
 			if substate != CombatantMoveSubstates.Chasing && canHearNearbyHit() {
@@ -200,11 +200,11 @@ switch(state) {
 						actingPostY = tempPostY;
 					}
 					if distance_to_point(actingPostX,actingPostY) > 2 {
-						populatePersonalGrid();
+						//if alarm[9] == 0 populatePersonalGrid();
 						mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 						path_start(path,functionalSpeed,path_action_stop,false);
 					
-						// can aggro while returning to post 
+						// can aggro while returning to post ??
 						if maybeAggro() break;
 					} else {
 						state = CombatantStates.Idle;
@@ -495,9 +495,23 @@ if jumpFrame <= jumpTotalFrames {
 with obj_fallzone {
 	var d = point_in_rectangle(other.bbox_left+10,other.bbox_top+10,bbox_left,bbox_top,bbox_right,bbox_bottom);
 	var e = point_in_rectangle(other.bbox_right-10,other.bbox_bottom-10,bbox_left,bbox_top,bbox_right,bbox_bottom);
+	
+	var a = point_in_rectangle(other.bbox_left,other.bbox_top,bbox_left,bbox_top,bbox_right,bbox_bottom);
+	var b = point_in_rectangle(other.bbox_right,other.bbox_bottom,bbox_left,bbox_top,bbox_right,bbox_bottom);
+	
 	if	d && e && layer == other.layer {
 		other.fallFrame = 0;
 		other.floorsFallen = 1;
+	} else if (a || b) && layer == other.layer && other.type == CombatantTypes.Enemy {
+		/*if other.state == CombatantStates.Moving && !other.isFlinching {
+			jumpToNearestFreePoint(1,1);
+			other.alarm[9] = 1;
+			if other.substate == CombatantMoveSubstates.Chasing {
+				with other {
+					maybeMoveNotInAttackRange();
+				}
+			}
+		}*/
 	}
 }
 
@@ -505,7 +519,7 @@ with obj_fallzone {
 // this mainly resolves issues when enemies are using mp_grids and suddenly switch to mp_potential_* stuff
 if type == CombatantTypes.Enemy {
 	if !place_free(x,y) {
-		jumpToNearestFreePoint(true);
+		jumpToNearestFreePoint(true, false);
 	}
 }
 

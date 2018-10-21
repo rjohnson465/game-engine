@@ -137,15 +137,23 @@ for (var i = 0; i < size; i++) {
 	var nonConditioningDamageTypes = [PHYSICAL,CRUSH,PIERCE,SLASH];
 	if (damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType)) {
 		if hitWithTorch maybeApplyElementalCondition(currentDamageType,damageBase,spell,attackObj,1);
-		else maybeApplyElementalCondition(currentDamageType,damageBase,spell,attackObj);
+		else {
+			maybeApplyElementalCondition(currentDamageType,damageBase,spell,attackObj);
+		}
 	}
 			
 	// if this was fire or poison damage, record an altered version of the base amount in case this is the attack that burns or poisons 
 	// TODO get a math major Devin. Need to figure out how much damage should be set to burn damage (or added to?)
 	if currentDamageType == FIRE {
 		burnDamage += .75*damageBase;
+		if burnDamage > maxHp/10 {
+			burnDamage = maxHp/10;
+		}
 	} else if currentDamageType == POISON {
 		poisonDamage += .5*damageBase;
+		if poisonDamage > maxHp/10 {
+			poisonDamage = maxHp/10;
+		}
 	}
 			
 	// go to the next damageType in array

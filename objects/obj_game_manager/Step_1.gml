@@ -85,3 +85,27 @@ if ds_map_size(ambPeriodicalsMap) > 0 {
 		ck = ds_map_find_next(ambPeriodicalsMap, ck);
 	}
 }
+
+/*
+var vx = camera_get_view_x(view_camera[0]); var vy = camera_get_view_y(view_camera[0]);
+var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(view_camera[0]);
+
+instance_activate_object(obj_solid_environment);
+with obj_solid_environment {
+	if !point_in_rectangle(x,y,vx-500,vy-500,vx+vw+500,vy+vh+500) {
+		instance_deactivate_object(id);
+	}
+}
+
+
+instance_activate_object(obj_enemy_parent);
+with obj_enemy_parent {
+	if  state == CombatantStates.Idle &&
+		(!point_in_rectangle(x,y,vx-500,vy-500,vx+vw+500,vy+vh+500) ||
+			layer != global.player.layer
+		)
+		{
+			hp = maxHp;
+			instance_deactivate_object(id);
+		}
+}

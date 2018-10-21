@@ -1,3 +1,4 @@
+//if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked exit;
 // conditionPercentages drain every step
 // TODO Devin fix calculations for draining
 var currentCondition = ds_map_find_first(conditionPercentages);

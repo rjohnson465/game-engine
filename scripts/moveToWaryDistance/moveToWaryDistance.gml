@@ -8,7 +8,7 @@ if (distance_to_object(lockOnTarget) < waryDistance && !hasReachedWaryDistance) 
 	var xx = x+lengthdir_x(sp,dir);
 	var yy = y+lengthdir_y(sp,dir);
 	var i = 0;
-	while place_meeting_layer(xx,yy,obj_enemy_obstacle_parent) && dir != startDir {
+	while (place_meeting_layer(xx,yy,obj_enemy_obstacle_parent) || place_meeting_layer(xx,yy,obj_fallzone)) && dir != startDir {
 		dir = (dir+10)%360;
 		xx = x+lengthdir_x(sp,dir);
 		yy = y+lengthdir_y(sp,dir);

@@ -1,5 +1,7 @@
+endX = prevX; endY = prevY;
 prevX = x;
 prevY = y;
+
 if state != CombatantStates.Attacking attackData = noone;
 if type == CombatantTypes.Player exit;
 // death

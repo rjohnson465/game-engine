@@ -107,7 +107,7 @@ if instance_exists(fade) {
 			// or used revive orb
 			else {
 				other.reviveOrbs.count--;
-				jumpToNearestFreePoint(0);
+				jumpToNearestFreePoint(0,1);
 			}
 			
 			with obj_combatant_parent {

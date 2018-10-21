@@ -12,6 +12,12 @@ var attackObj = argument[3];
 randomize();
 var top = 1000;
 var percentChance = .2;
+if attackObj != noone && attackObj.attackData != noone {
+	var condiChance = ds_map_find_value(attackObj.attackData.conditionsChances, damageType);
+	if condiChance != undefined {
+		percentChance = condiChance;
+	}
+}
 //percentChance = 1;
 if argument_count == 5 {
 	percentChance = argument[4];
