@@ -18,6 +18,7 @@ for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
 }
 ds_map_destroy(conditionsEmittersMap); conditionsEmittersMap = -1;
 audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
+audio_emitter_free(walkingEmitter); walkingEmitter = -1;
 
 if part_emitter_exists(sprintParticleSystem, sprintParticleEmitter) {
 	part_emitter_destroy(sprintParticleSystem, sprintParticleEmitter);

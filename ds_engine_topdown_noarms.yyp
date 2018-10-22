@@ -207,6 +207,14 @@
             }
         },
         {
+            "Key": "04396af8-f614-4505-9e18-384c85fc0f09",
+            "Value": {
+                "id": "df716c2a-ea76-478f-a889-12b68a71ee2e",
+                "resourcePath": "objects\\obj_damage_dealer\\obj_damage_dealer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "04409e0b-ffea-4000-a439-1f108cba2662",
             "Value": {
                 "id": "3ca5f674-6c32-4672-877e-62f7ecfa759c",
@@ -412,6 +420,14 @@
                 "id": "03ed7e6b-2656-4e06-a7ef-2a09988b1c39",
                 "resourcePath": "sprites\\spr_lilypad_lily\\spr_lilypad_lily.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "081592a4-04e9-496d-ae3b-0251697c81fe",
+            "Value": {
+                "id": "9f1425ff-9a3d-4b72-bd96-d31649c14453",
+                "resourcePath": "objects\\obj_attack_noeyeddeer_passive_charge\\obj_attack_noeyeddeer_passive_charge.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -927,6 +943,14 @@
             }
         },
         {
+            "Key": "117f9cac-cfbc-4710-8acb-70d5e49934b8",
+            "Value": {
+                "id": "6d7c14eb-a46d-443e-ae00-d376c14a584a",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_longsword_recover_1_2\\spr_enemy_unfairy_limb_longsword_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1188a712-8006-4f4d-9410-945f32e43924",
             "Value": {
                 "id": "11945fd0-fa2c-4126-bcc2-bee600b70d74",
@@ -939,6 +963,14 @@
             "Value": {
                 "id": "1cd006c1-3580-4dd4-96e3-06b8e1f0da14",
                 "resourcePath": "sprites\\spr_player_shortbow_attack_1\\spr_player_shortbow_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "122d655b-34ce-45bb-865e-4ebfe04a5b5a",
+            "Value": {
+                "id": "2d214601-caed-463a-94fb-5c00bdd7ace6",
+                "resourcePath": "sprites\\spr_enemy_unfairy_longsword_attack_1_2\\spr_enemy_unfairy_longsword_attack_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1124,6 +1156,14 @@
                 "id": "6674035d-5ea0-446f-bd86-7b4d689915f6",
                 "resourcePath": "sprites\\spr_enemy_unfairy_warhammer_prep_1_1\\spr_enemy_unfairy_warhammer_prep_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "156ff7d3-e198-44eb-9838-ccc1ebbab53c",
+            "Value": {
+                "id": "dbf99e9d-a1dc-4df4-83b8-ba9e2133fd5c",
+                "resourcePath": "scripts\\getRoomName\\getRoomName.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2180,6 +2220,14 @@
                 "id": "1a6ca356-9769-440b-b6d3-79cd7aae6d2a",
                 "resourcePath": "sprites\\spr_player_dodge\\spr_player_dodge.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2ab2acd1-b53a-4c22-900f-fa800e70a0f1",
+            "Value": {
+                "id": "227c7361-c6ee-42c9-b800-77c3f02766c9",
+                "resourcePath": "objects\\obj_attack_unfairy_longsword_1_2\\obj_attack_unfairy_longsword_1_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -6543,6 +6591,14 @@
             }
         },
         {
+            "Key": "839f9e3e-40ab-48b9-a1ee-c8aabe4423bd",
+            "Value": {
+                "id": "731f1c4d-0edb-44f6-ba6b-f57b74ef19b9",
+                "resourcePath": "objects\\obj_attack_unfairy_longsword_3_1\\obj_attack_unfairy_longsword_3_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "83cae823-e0ca-4b60-b3ac-e29307f35a9d",
             "Value": {
                 "id": "2406ef8c-98fa-4503-85d3-24f36bdf4114",
@@ -6767,6 +6823,14 @@
             }
         },
         {
+            "Key": "88933b3d-1b62-4c69-8f2a-8c44e0da15bc",
+            "Value": {
+                "id": "748c44d5-3689-41fe-b714-2a8c2a9eb8a3",
+                "resourcePath": "sprites\\spr_enemy_unfairy_longsword_recover_1_2\\spr_enemy_unfairy_longsword_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "88a3faa7-f272-4625-852c-2e17a2971fdf",
             "Value": {
                 "id": "2a20c6a8-508d-4ec4-b04b-e4dbbb22d20f",
@@ -6796,14 +6860,6 @@
                 "id": "2305c758-bc3d-4a81-9ded-5f33b2829380",
                 "resourcePath": "sprites\\spr_gem_amethyst_normal\\spr_gem_amethyst_normal.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "895a1637-8cc7-4264-bc6d-fd7f554917a4",
-            "Value": {
-                "id": "de625f4f-0f8a-4cd0-aabb-e35d4ccb23b7",
-                "resourcePath": "scripts\\maybeUpdatePotentialPath\\maybeUpdatePotentialPath.yy",
-                "resourceType": "GMScript"
             }
         },
         {
@@ -7351,6 +7407,14 @@
             }
         },
         {
+            "Key": "94ccfba1-6290-4f7e-8563-9c45d130396d",
+            "Value": {
+                "id": "d338c7bb-88ee-42ed-8256-6bcf9066edb4",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_longsword_prep_1_2\\spr_enemy_unfairy_limb_longsword_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "94d107f7-4e39-421d-8b0b-db37c4f2cb09",
             "Value": {
                 "id": "0461e719-283c-47dd-b47e-1c9f57cbb097",
@@ -7476,6 +7540,14 @@
                 "id": "8d4865ad-a610-4b62-9cc6-e0fd423f0609",
                 "resourcePath": "sprites\\spr_player_torch_prep_1\\spr_player_torch_prep_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9756379f-835c-4ff0-bb1f-44e4fca7014f",
+            "Value": {
+                "id": "385dd7d8-0978-4abe-aa6f-8e5998e94978",
+                "resourcePath": "objects\\obj_item_drop_persistent\\obj_item_drop_persistent.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -7643,6 +7715,14 @@
             "Value": {
                 "id": "842b56f0-4fe1-4312-9eed-d9a3beb73bc5",
                 "resourcePath": "sprites\\spr_player_foil_recover_2\\spr_player_foil_recover_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9c3765ed-1d7b-4855-8f0d-9d51e9150834",
+            "Value": {
+                "id": "e6acd3d8-f527-42bd-b536-997d8fddd51e",
+                "resourcePath": "sprites\\spr_enemy_noeyeddeer\\spr_enemy_noeyeddeer.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -8135,6 +8215,14 @@
             }
         },
         {
+            "Key": "a5c9686a-f6a4-452f-8cc4-af4293d92ee0",
+            "Value": {
+                "id": "3039eb2f-2bec-41a0-be2d-bab849e4c051",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_longsword_attack_1_2\\spr_enemy_unfairy_limb_longsword_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a5ee90e2-bf80-4016-9099-e97b50ffaeb9",
             "Value": {
                 "id": "6ede9aa8-a44c-49ae-bc33-0e416ca6150d",
@@ -8623,6 +8711,14 @@
             }
         },
         {
+            "Key": "af27231f-cca5-46fd-91f1-5b86d830c3da",
+            "Value": {
+                "id": "98d8eb8b-2e0a-4bab-98e4-75bebd644f29",
+                "resourcePath": "views\\af27231f-cca5-46fd-91f1-5b86d830c3da.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "af4faec1-d8c4-4e8c-a879-6cd5e3540170",
             "Value": {
                 "id": "4f764e18-2ae9-4148-8e82-f70c4d9cddc7",
@@ -8644,6 +8740,14 @@
                 "id": "22921873-1627-4d5e-916a-70d1a46a631a",
                 "resourcePath": "scripts\\getItemPropertyPrefix\\getItemPropertyPrefix.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "af60bf6d-c5b3-4a8b-92f0-b3582cb3af35",
+            "Value": {
+                "id": "449d4766-93b8-4385-b494-eabba5c98776",
+                "resourcePath": "objects\\obj_enemy_noeyeddeer\\obj_enemy_noeyeddeer.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -9087,6 +9191,14 @@
             }
         },
         {
+            "Key": "b8936b20-ddda-459a-a454-2c214511d2e0",
+            "Value": {
+                "id": "a26bb444-5058-4d07-9066-163cef080982",
+                "resourcePath": "sprites\\spr_enemy_unfairy_longsword_prep_1_2\\spr_enemy_unfairy_longsword_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b8c05111-7126-4bc5-83c4-893d7f9dff27",
             "Value": {
                 "id": "01fc6357-42b4-4469-a11c-98c6023fb47d",
@@ -9316,6 +9428,14 @@
                 "id": "18585bd1-3585-474f-9891-00f241fded8a",
                 "resourcePath": "sounds\\snd_bow_prep\\snd_bow_prep.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "be26e287-1b57-449b-8c3b-090e2381dfdf",
+            "Value": {
+                "id": "beab53ed-821a-4088-b36e-7bda63109f51",
+                "resourcePath": "views\\be26e287-1b57-449b-8c3b-090e2381dfdf.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -9988,6 +10108,14 @@
                 "id": "51f0b472-a841-4707-b501-7cd44c9bd445",
                 "resourcePath": "objects\\obj_water\\obj_water.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "cb72a283-c18d-499d-9823-42743ed0641a",
+            "Value": {
+                "id": "8084931f-290e-4854-a5b0-8f188edfbaa7",
+                "resourcePath": "sprites\\spr_enemy_noeyeddeer_move\\spr_enemy_noeyeddeer_move.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -10791,6 +10919,14 @@
             }
         },
         {
+            "Key": "dc2467f7-96b6-4972-b43c-15bdef8f735b",
+            "Value": {
+                "id": "0d838b92-2169-473a-987c-4cb01c3d7ed1",
+                "resourcePath": "sounds\\snd_walking_galloping\\snd_walking_galloping.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "dc585519-2fc3-4998-bfd6-c631473cfe85",
             "Value": {
                 "id": "a7176987-b440-4cd4-9150-885b5dbeeef5",
@@ -11292,6 +11428,14 @@
                 "id": "fbcfdf94-367a-4c67-ab8b-98186fbe1b6b",
                 "resourcePath": "objects\\obj_attack_unfairy_longsword_2_2\\obj_attack_unfairy_longsword_2_2.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "e8822fd5-addd-4b63-9592-51a30341add9",
+            "Value": {
+                "id": "35da581c-53bb-4624-affe-d9c32ac89957",
+                "resourcePath": "scripts\\damageCombatant\\damageCombatant.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -11999,6 +12143,14 @@
             }
         },
         {
+            "Key": "fa3e0cdf-2413-4f2c-9108-927dd50839c7",
+            "Value": {
+                "id": "4a7c774e-d996-4b9f-b0b3-4d7bc12f43d2",
+                "resourcePath": "views\\fa3e0cdf-2413-4f2c-9108-927dd50839c7.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "fa7ad02b-0643-4312-a17d-b79441f2e1e4",
             "Value": {
                 "id": "1a943f69-d922-43d3-9597-8141327e3d88",
@@ -12386,6 +12538,7 @@
         "e0e6895a-f76c-4605-bdea-66ef95918631",
         "cd00c9aa-31d9-4107-a296-f851558bc60d",
         "84f78818-09a2-4bfd-9ec3-cb5abe44122e",
+        "e8822fd5-addd-4b63-9592-51a30341add9",
         "620dcd03-eea4-496a-b3d5-2e7432921bcf",
         "e4cc2799-f1e7-42bb-9d2d-053f5c24587a",
         "1eb01434-0b0f-4ea5-bdf5-d56425d51319",
@@ -12420,6 +12573,7 @@
         "9f47ff84-553f-4daa-9cbb-ee40ee56bd58",
         "920d472b-176d-459d-a718-a20e56569c6f",
         "620086ac-1e3e-46e8-9137-5d4d8a271376",
+        "156ff7d3-e198-44eb-9838-ccc1ebbab53c",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "89e792c3-5306-41a1-8e55-479f0f2db5de",
         "295e5a03-8983-4afd-bdb3-14c23bed2058",
@@ -12430,7 +12584,6 @@
         "01a586ae-1990-4a09-aa7b-413bc1526884",
         "333deed3-58a4-4613-a31c-e61f61395111",
         "bc5e780e-f86c-42f3-97aa-960a42f1bbae",
-        "895a1637-8cc7-4264-bc6d-fd7f554917a4",
         "16b805ca-830c-4dcd-8330-c29f451c3f1c",
         "3c96ca40-833d-4451-be48-e7b6d5569a98",
         "85ab87d2-fc88-4cbf-919f-eecfe09947f4",

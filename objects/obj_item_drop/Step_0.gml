@@ -1,7 +1,7 @@
 // particles
 if layer >= global.player.layer {
 	part_emitter_region(system,emitter,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
-	part_emitter_burst(system,emitter,particle, 1);
+	part_emitter_burst(system,emitter,particle, 2);
 }
 if global.isReadingTutorial exit;
 global.isLooting = false;

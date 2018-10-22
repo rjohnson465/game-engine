@@ -35,7 +35,7 @@ switch(state) {
 	case CombatantStates.Idle: {
 		
 		// player overrides this
-		if type != CombatantTypes.Player {
+		if type != CombatantTypes.Player && usesDefaultIdleState {
 			speed = 0;
 			onAlert = false;
 			var actingPostX = postX;
@@ -98,7 +98,7 @@ switch(state) {
 			}
 			
 			break; // end Idle state
-		}
+		} break;
 	}
 	case CombatantStates.AggroMelee: {
 		if type == CombatantTypes.Player break;
@@ -112,7 +112,7 @@ switch(state) {
 	}
 	case CombatantStates.Moving: {
 		// player overrides this entirely
-		if type != CombatantTypes.Player {
+		if type != CombatantTypes.Player && usesDefaultMoveState {
 			if substate == noone substate = CombatantMoveSubstates.Chasing;
 			// face the proper direction
 			faceMovingDirection();
@@ -214,7 +214,7 @@ switch(state) {
 				}
 			}
 			break;
-		}
+		} break;
 	}
 	case CombatantStates.Attacking: {
 		
@@ -295,7 +295,7 @@ switch(state) {
 				}
 			
 				// attack logic
-				if willAttack && stamina > 0 {
+				if willAttack /*&& stamina > 0*/ {
 					var lk = "r";
 					if !hasHands lk = attackData.limbKey;
 					if !isRanged{
@@ -525,9 +525,15 @@ if type == CombatantTypes.Enemy {
 
 // position water emitter, conditions emitters
 audio_emitter_position(walkingInWaterEmitter,x,y,depth);
+audio_emitter_position(walkingEmitter,x,y,depth);
 var cc = ds_map_find_first(conditionsEmittersMap);
 for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
 	var emitter = ds_map_find_value(conditionsEmittersMap, cc);
 	audio_emitter_position(emitter,x,y,depth);
 	cc = ds_map_find_next(conditionsEmittersMap, cc);
 }
+
+if state == CombatantStates.Moving {
+	audio_emitter_gain(walkingEmitter,1);
+} else audio_emitter_gain(walkingEmitter,0);
+

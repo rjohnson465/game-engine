@@ -1,15 +1,20 @@
-/// moveToNearestFreePoint(direction,speed,*isEnemy)
+/// moveToNearestFreePoint(direction,speed,*isEnemy,*includesFallzones)
 /// @param direction
 /// @param speed
 /// @param *isEnemy
+/// @param *includesFallzones
 
 /// returns true if the instance can move in that general direction
 
 var d = argument[0];
 var sp = argument[1];
 var isEnemy = false;
-if argument_count == 3 {
+if argument_count > 2 {
 	isEnemy = argument[2];
+}
+var includesFallzones = false;
+if argument_count > 3 {
+	includesFallzones = argument[3];
 }
 
 d = d mod 360;
@@ -33,8 +38,13 @@ else {
 	dir = (dir + 22.5)%360; 
 	while dir != d
 	{
-		if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) {
-			
+		
+		var pred =	includesFallzones ? 
+					!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone)
+					: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid);
+		
+		//if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) {
+		if pred {	
 			x = x+lengthdir_x(sp,dir); 
 			y = y+lengthdir_y(sp,dir); 
 			if place_meeting_layer(x,y,objectsToAvoid) || abs(angle_difference(d,dir) > 100) {
@@ -45,6 +55,9 @@ else {
 				x = oldX;
 				y = oldY;
 			}
+			pred =	includesFallzones ? 
+					!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone)
+					: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid);
 		}
 		dir = (dir + 5.625)%360;
 	}
@@ -72,9 +85,7 @@ else {
 		x = x+lengthdir_x(sp,dir); 
 		y = y+lengthdir_y(sp,dir);
 		direction = point_direction(oldX,oldY,x,y);
-		if x == oldX && y == oldY && object_index == obj_enemy_speyeder {
-			var a = 3;
-		}
+
 		ds_list_destroy(possibleAngles); possibleAngles = -1;
 		return true;
 	}

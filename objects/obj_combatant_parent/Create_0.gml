@@ -26,8 +26,12 @@ prevX = x;
 prevY = y;
 endX = x;
 endY = y;
+walkingEmitter = audio_emitter_create();
+audio_emitter_gain(walkingEmitter, 0);
+audio_emitter_falloff(walkingEmitter,50,AUDIO_MAX_FALLOFF_DIST,1);
 walkingInWaterEmitter = audio_emitter_create();
 audio_emitter_gain(walkingInWaterEmitter,0);
+audio_emitter_falloff(walkingInWaterEmitter,50,AUDIO_MAX_FALLOFF_DIST,1);
 // decide which water walk sound to play on room start (if floating a different sound is used than if walking)
 
 isAlive = true;
@@ -385,3 +389,6 @@ image_index = round(random_range(0,sprite_get_number(sprite_index)));
 RECALC_PATH_FRAMES = 7;
 randomize();
 alarm[9] = round(random_range(1,RECALC_PATH_FRAMES)); // update "path" every RECALC_PATH_FRAMES frames
+
+usesDefaultIdleState = true;
+usesDefaultMoveState = true;

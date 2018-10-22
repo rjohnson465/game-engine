@@ -17,7 +17,7 @@ if isGridPathAvailable {
 	path_add_point(path,xx,yy,functionalSpeed);*/
 } else {
 	if place_meeting_layer(x,y,obj_fallzone) {
-		jumpToNearestFreePoint(1);
+		jumpToNearestFreePoint(1,1);
 		//mp_potential_step_object(lockOnTarget.x, lockOnTarget.y, functionalSpeed,obj_fallzone);
 		alarm[9] = 1;
 	} else {

@@ -53,52 +53,62 @@ if	state != CombatantStates.Dodging &&
 	if !script_execute(scr_collision_point,id,attackObj.id) {
 		__x = x; __y = y;
 	}
-		
+	
 	var assailant = attackObj.owner;
 	var damage = 0;
 	var damagesMap = noone;
 	var spell = noone;
-	var attackNumber; var attackNumberInChain;
+	var attackNumber = noone; var attackNumberInChain = noone;
 	var percentCharged = 1;
 	var isBlockBroken = false;
 	// case: AI combatant as assailant
 	var attackData = noone;
 	// case: Player as assailant; this could be a melee weapon, ranged weapon, or spell 
 	var itemHitWith = noone;
-	// find damages map for the attack received (Player damage map dependent on item, enemy / ally damage map is hardcoded)
-	if assailant.type == CombatantTypes.Player {
+	
+	if attackObj != noone && attackObj.object_index == obj_damage_dealer {
+		attackData = attackObj.attackData;
+		damagesMap = attackData.damages;
+	}
+		
+	
+		// find damages map for the attack received (Player damage map dependent on item, enemy / ally damage map is hardcoded)
+	else {
+		if assailant.type == CombatantTypes.Player {
 			
-		if !attackObj.spell {
-			itemHitWith = attackObj.weapon;
+			if !attackObj.spell {
+				itemHitWith = attackObj.weapon;
+				attackNumber = attackObj.attackNumber;
+				attackNumberInChain = attackObj.attackNumberInChain;
+			} else {
+				itemHitWith = attackObj.spell;
+				spell = attackObj.spell;
+				attackNumber = 1;
+				attackNumberInChain = 1;
+				percentCharged = attackObj.percentCharged;
+			}
+			// calculate damage, given this weapon / spell
+			damagesMap = itemHitWith.damages;
+		} 
+		// enemies / allies have their attack damages pre-loaded
+		else {
 			attackNumber = attackObj.attackNumber;
 			attackNumberInChain = attackObj.attackNumberInChain;
-		} else {
-			itemHitWith = attackObj.spell;
-			spell = attackObj.spell;
-			attackNumber = 1;
-			attackNumberInChain = 1;
-			percentCharged = attackObj.percentCharged;
-		}
-		// calculate damage, given this weapon / spell
-		damagesMap = itemHitWith.damages;
-	} 
-	// enemies / allies have their attack damages pre-loaded
-	else {
-		attackNumber = attackObj.attackNumber;
-		attackNumberInChain = attackObj.attackNumberInChain;
-		var isRanged = attackObj.isRanged;
-		var attackChain = isRanged ? attackObj.owner.rangedAttacks[attackNumber] : attackObj.owner.meleeAttacks[attackNumber];
-		attackData = attackChain[attackNumberInChain-1];
-		damagesMap = attackData.damages;
+			var isRanged = attackObj.isRanged;
+			var attackChain = isRanged ? attackObj.owner.rangedAttacks[attackNumber] : attackObj.owner.meleeAttacks[attackNumber];
+			attackData = attackChain[attackNumberInChain-1];
+			//damagesMap = attackData.damages;
+			damagesMap = attackObj.attackData.damages;
 			
-		// unblockable attacks break guard / kill stamina
-		if !attackData.isBlockable && isShielding {
-			stamina = -10;
-			isShielding = false;
-			// damage shield durability (1/10 of attack's damage)
-			if type == CombatantTypes.Player {
-				var shield = ds_map_find_value(equippedLimbItems,"r");
-				isBlockBroken = true;
+			// unblockable attacks break guard / kill stamina
+			if !attackData.isBlockable && isShielding {
+				stamina = -10;
+				isShielding = false;
+				// damage shield durability (1/10 of attack's damage)
+				if type == CombatantTypes.Player {
+					var shield = ds_map_find_value(equippedLimbItems,"r");
+					isBlockBroken = true;
+				}
 			}
 		}
 	}

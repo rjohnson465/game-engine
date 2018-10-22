@@ -1,0 +1,1 @@
+moveLootItemSelector("left");

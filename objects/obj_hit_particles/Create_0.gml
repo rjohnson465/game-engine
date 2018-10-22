@@ -10,6 +10,9 @@ particleDirection = global.particleDirection;
 
 randomize();
 var num = random_range(7,10); // maybe make this dependent on how hard the hit was?
+if type == PHYSICAL {
+	num = random_range(14,20);
+}
 
 system = part_system_create();
 part_system_depth(system,layer_get_depth(layer));

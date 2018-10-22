@@ -28,4 +28,12 @@ if id != global.player && !isFloating {
 	functionalSpeed = normalSpeed*slowedSpeedModifier*turningSpeedModifier;
 	
 	if (functionalSpeed > normalSpeed || functionalSpeed < 0) functionalSpeed = normalSpeed;
+	
+	if type == CombatantTypes.Enemy {
+		with obj_player {
+			if place_meeting_layer(x,y,other) {
+				moveToNearestFreePoint(pdir,functionalSpeed,0,0);
+			}
+		}
+	}
 }

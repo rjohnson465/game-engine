@@ -287,3 +287,5 @@ nonPriorityInteractionPrompts = ds_list_create();
 ds_map_destroy(tutorialFirstsMap); tutorialFirstsMap = -1;
 tutorialFirstsMap = defineFirstsTutorialMessages(); // redo
 
+global.roomName = getRoomName(room);
+instance_create_depth(x,y,1,obj_room_text);

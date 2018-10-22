@@ -129,10 +129,29 @@ for (var i = 0; i < size; i++) {
 			instance_create_depth(0,0,1,obj_hit_particles);
 		}
 		
+		// possibly: special particles 
+		if attackObj != noone && attackObj.attackData != noone && attackObj.attackData.part1 != noone && part_type_exists(attackObj.attackData.part1) {
+			global.damageType = attackObj.attackData;
+			global.x1 = __x;
+			global.y1 = __y;
+			global.particleDirection = noone;
+			global.hitParticlesLayer = layer;
+			global.victim = id;
+			//if (!(currentDamageType == PHYSICAL && isShielding)) {
+			if (!(isShielding && scr_is_facing(assailant,id))) {
+				instance_create_depth(0,0,1,obj_hit_particles);
+			}
+		}
+		
 	}
 				
 	// elemental conditions applied?			
 	// roll random and compare against defense
+	
+	if currentDamageType == POISON {
+		var a = 3;
+	}
+	
 	var hitWithTorch = currentDamageType == FIRE && damageBase > 0 && attackObj.weapon != noone && attackObj.weapon.object_index == obj_hand_item_torch;
 	var nonConditioningDamageTypes = [PHYSICAL,CRUSH,PIERCE,SLASH];
 	if (damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType)) {

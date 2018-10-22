@@ -46,8 +46,8 @@ meleeAggroRange = 300;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 1500;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
-attackFrequencyTotalFramesMelee = [10,25];
-attackFrequencyTotalFramesRanged = [60,90];
+attackFrequencyTotalFramesMelee = [20,45];
+attackFrequencyTotalFramesRanged = [45,70];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
 waryTotalFrames=[60,90];
@@ -58,21 +58,28 @@ cautiousness = 50;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-meleeRangeArray=[15, 65, 65];
+//meleeRangeArray=[15, 65, 65];
 
 // ATTACKS
 global.owner = id;
 
 var longswordSwing = makeEnemyAttackObj(obj_attack_unfairy_longsword_1_1);
+var lsSwing2 = makeEnemyAttackObj(obj_attack_unfairy_longsword_1_2);
 
 var longswordStab = makeEnemyAttackObj(obj_attack_unfairy_longsword_2_1);
 var longswordStab2 = makeEnemyAttackObj(obj_attack_unfairy_longsword_2_2);
+var lsStabNoCharge = makeEnemyAttackObj(obj_attack_unfairy_longsword_3_1);
 
-var meleeChain0 = [longswordSwing];
-var meleeChain1 = [longswordStab,longswordStab2];
-var meleeChain2 = [longswordStab];
-meleeAttacks = [meleeChain0, meleeChain1, meleeChain2];
-
+var c0 = [longswordSwing];
+var c1 = [longswordStab,longswordStab2];
+var c2 = [longswordStab];
+var c3 = [longswordSwing, longswordStab];
+var c4 = [lsStabNoCharge];
+var c5 = [longswordSwing,  lsSwing2];
+var c6 = [longswordSwing, lsSwing2, lsStabNoCharge];
+var c7 = [longswordSwing, lsSwing2, longswordSwing];
+//meleeAttacks = [meleeChain0, meleeChain1, meleeChain2];
+meleeAttacks = [c0,c1,c2,c3,c4,c5,c6,c7];
 // ranged attacks info
 
 // currently chosen ranged attack

@@ -4,12 +4,12 @@ spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 limbKey = "l"; // default value
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
-ds_map_add(damages,SLASH,[15,30]);
+ds_map_add(damages,SLASH,[7,15]);
 isRanged = false;
 staminaCost = 10;
-staggerDuration = 9;
+staggerDuration = 5;
 
 attackSound = snd_sword1h_attack_1;
 hitSound = snd_hit1;
 
-minRange = 15;
+minRange = 30;

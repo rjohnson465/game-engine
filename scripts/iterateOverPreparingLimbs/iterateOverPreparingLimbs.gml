@@ -65,7 +65,8 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 			var minRange = attackData.minRange;
 			if distance_to_object(lockOnTarget) < minRange {
 				var startDir = (facingDirection+180)%360;
-				moveToNearestFreePoint(startDir,functionalSpeed,true);
+				moveToNearestFreePoint(startDir,functionalSpeed,true,1);
+				// TODO -- don't back up into fallzones you egg
 				facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 			}
 		} else {

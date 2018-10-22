@@ -15,6 +15,9 @@ if hp < 1 && isAlive && !isDying {
 		audio_play_sound_at(deathSnd,x,y,depth,50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 	}
 	
+	audio_emitter_gain(walkingEmitter,0);
+	audio_emitter_gain(walkingInWaterEmitter,0);
+	
 	isDying = true;
 	lockOnTarget = noone;
 	deathFrameFlag = true;
