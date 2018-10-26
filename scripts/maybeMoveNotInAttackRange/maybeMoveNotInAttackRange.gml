@@ -55,6 +55,10 @@ if enemyObstaclesBetweenTarget != noone && ds_exists(enemyObstaclesBetweenTarget
 var shouldRecalc = alarm[9] == 0 || path_index == -1;
 
 if pred && !isFlinching {
+	if distance_to_object(lockOnTarget) > 75 && currentMeleeAttack != noone {
+		attackFrequencyFrame = 0;
+	}
+	
 	// first, check if can't see lockOnTarget anymore
 	// if so, initiate a path (ONCE) that will update every 15 frames with a new point (where the lockOnTarget is) 
 	if layer == lockOnTarget.layer && !canSeeLockOnTarget() {

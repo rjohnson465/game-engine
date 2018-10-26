@@ -66,17 +66,12 @@ var doubleClawChain = [claw1,claw2];
 var poisonAttackChain = [poisonAttack];
 var jumpClaws = [bugBite,claw1,claw2];
 meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4, doubleClawChain, jumpClaws, poisonAttackChain];
-*/
+
 var c1 = makeEnemyAttackObj(obj_attack_noeyeddeer_passive_charge);
-meleeAttacks = [c1]; 
+meleeAttacks = [c1]; */
 alarm[4] = 7; // create passive attack obj every 15 frames
 
-// ranged attacks info
-
-// currently chosen ranged attack
-rangedRangeArray=[];
-rangedAttacks = [];
-
+xpReward = 175;
 hp = 200;
 maxHp = 200;
 
@@ -94,11 +89,14 @@ poise = 100;
 agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
-//soundsWhenHitVocals = [snd_enemy_speyeder_hit_1, snd_enemy_speyeder_hit_2];
-//soundsWhenDie = [snd_enemy_speyeder_death];
+soundsWhenHitVocals = [snd_enemy_deer_hit1, snd_enemy_deer_hit2];
+soundsWhenDie = [snd_enemy_deer_death];
 
-runningDirection = 90;
+runningDirection = image_angle;
 usesDefaultIdleState = false;
 usesDefaultMoveState = false;
+staysOutOfEnemies = false;
+
+canFlinch = false;
 
 audio_play_sound_on(walkingEmitter,snd_walking_galloping,1,1);

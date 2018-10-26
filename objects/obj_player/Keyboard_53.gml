@@ -1,3 +1,7 @@
 if room == game_menu {
 	exit;
-}currentSpellAttunement = LIGHTNING;
+}
+if currentSpellPrepSound != noone {
+	audio_stop_sound(currentSpellPrepSound);
+}
+currentSpellAttunement = LIGHTNING;

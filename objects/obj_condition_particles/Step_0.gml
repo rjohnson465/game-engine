@@ -28,10 +28,12 @@ if conditionLevel == 0 {
 	if owner.object_index == obj_fountain {
 		part_emitter_region(system,emitter,0,room_width,0,room_height,0,0);
 	} else {
-		var x1 = owner.x - (.5*owner.sprite_width);
-		var y1 = owner.y - (.5*owner.sprite_height);
-		var x2 = owner.x + (.5*owner.sprite_width);
-		var y2 = owner.y + (.5*owner.sprite_height);
+		var sw = sprite_get_bbox_right(owner.sprite_index) - sprite_get_bbox_left(owner.sprite_index);
+		var sh = sprite_get_bbox_bottom(owner.sprite_index) - sprite_get_bbox_top(owner.sprite_index);
+		var x1 = owner.x - (.5*sw);
+		var y1 = owner.y - (.5*sh);
+		var x2 = owner.x + (.5*sw);
+		var y2 = owner.y + (.5*sh);
 		part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,0);
 	}
 	var num = 1;
@@ -116,8 +118,10 @@ if conditionLevel == 0 {
 	}
 	
 	// scale num for sprite size
-	num *= ((owner.sprite_width*owner.sprite_height) / 4096);
-	num2 *= ((owner.sprite_width*owner.sprite_height) / 4096);
+	var sw = sprite_get_bbox_right(owner.sprite_index) - sprite_get_bbox_left(owner.sprite_index);
+	var sh = sprite_get_bbox_bottom(owner.sprite_index) - sprite_get_bbox_top(owner.sprite_index);
+	num *= ((sw*sh) / 1024);
+	num2 *= ((sw*sh) / 1024);
 	
 	part_emitter_burst(system,emitter,particle, num);
 	if particle2 {

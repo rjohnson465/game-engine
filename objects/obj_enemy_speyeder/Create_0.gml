@@ -25,7 +25,7 @@ meleeAggroRange = 300;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 5000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
-attackFrequencyTotalFramesMelee = [10,25];
+attackFrequencyTotalFramesMelee = [20,45];
 attackFrequencyTotalFramesRanged = [60,90];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
@@ -36,6 +36,8 @@ cautiousness = 50;
 // melee attacks info
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 meleeRangeArray=[];
+
+xpReward = 200;
 
 // ATTACKS
 
@@ -65,7 +67,7 @@ var doubleClawChain = [claw1,claw2];
 var poisonAttackChain = [poisonAttack];
 var jumpClaws = [bugBite,claw1,claw2];
 meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4, doubleClawChain, jumpClaws, poisonAttackChain];
-//meleeAttacks = [poisonAttackChain];
+//meleeAttacks = [webAoeChain];
 
 // ranged attacks info
 
@@ -75,6 +77,7 @@ rangedAttacks = [];
 
 hp = 150;
 maxHp = 150;
+hpRegen = 1;
 
 stamina = 60;
 maxStamina = 60;

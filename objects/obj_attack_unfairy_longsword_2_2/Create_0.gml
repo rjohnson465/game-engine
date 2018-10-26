@@ -5,7 +5,7 @@ spriteName = "spr_enemy_unfairy_longsword";
 limbKey = "l"; // default value
 spriteAttackNumber = 2;
 spriteAttackNumberInChain = 1;
-ds_map_add(damages,PIERCE,[15,30]);
+ds_map_add(damages,PIERCE,[15,20]);
 isRanged = false;
 staminaCost = 10;
 type = AttackTypes.Charge;

@@ -1,3 +1,4 @@
+if hp < 1 exit;
 // only regen stamina when moving or idle
 var SHIFT = keyboard_check(vk_shift) 
 			|| gamepad_button_check(global.player.gamePadIndex, gp_stickl)

@@ -15,7 +15,13 @@
         "9c411c51-3cb4-4368-a56b-53ca6daa91f0",
         "8cf0197b-5284-4cb0-aeed-436d911670e0",
         "b798c505-05ca-4176-bbc3-33242ae28ef4",
-        "463d9c72-8368-4f16-bc1a-c7b44688ac83"
+        "463d9c72-8368-4f16-bc1a-c7b44688ac83",
+        "001a30b2-134d-44d6-b6c3-193a0474da80",
+        "bca06432-3ab8-4397-bb26-5e699a596ce5",
+        "176ab2a8-7259-4c30-b78e-20876ef317f5",
+        "3f0581af-a285-494c-9161-4782ce3351bb",
+        "21fd2c67-33c1-4bcc-af08-c18fc90db962",
+        "333dc759-84fb-4939-8c6d-5c87bdc49ec4"
     ],
     "filterType": "GMSprite",
     "folderName": "forest",

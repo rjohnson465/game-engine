@@ -91,6 +91,9 @@ if gamepad_is_connected(gamePadIndex) {
 	else if !global.ui.isShowingMenus {
 		isHoldingAttunemntSwapMode = true;
 		if gamepad_button_check_pressed(gamePadIndex,gp_padr) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
+			if currentSpellPrepSound != noone {
+				audio_stop_sound(currentSpellPrepSound);
+			}
 			switch currentSpellAttunement {
 				case MAGIC: {
 					currentSpellAttunement = FIRE;
@@ -115,6 +118,9 @@ if gamepad_is_connected(gamePadIndex) {
 			}
 		}
 		if gamepad_button_check_pressed(gamePadIndex,gp_padl) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
+			if currentSpellPrepSound != noone {
+				audio_stop_sound(currentSpellPrepSound);
+			}
 			switch currentSpellAttunement {
 				case MAGIC: {
 					currentSpellAttunement = LIGHTNING;

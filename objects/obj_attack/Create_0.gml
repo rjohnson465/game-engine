@@ -76,6 +76,40 @@ if owner.type != CombatantTypes.Player {
 	isMelee = weapon.subType == HandItemTypes.Melee;
 }
 
+// sounds
+if (weapon != noone && owner.type == CombatantTypes.Player) {
+	if array_length_1d(weapon.attackSounds) >= attackNumberInChain {
+		sound = weapon.attackSounds[attackNumberInChain-1];
+	} else {
+		sound = weapon.attackSounds[attackNumberInChain-1];
+	}
+}
+else if attackData != noone {
+	sound = attackData.attackSound;
+	var vocalsSound = noone;
+	if array_length_1d(attackData.attackSoundsVocals) != 0 {
+		randomize();
+		var rand = round(random_range(-1,array_length_1d(attackData.attackSoundsVocals)-1));
+		if rand >= 0 {
+			vocalsSound = attackData.attackSoundsVocals[rand];
+			audio_play_sound_at(vocalsSound, owner.x, owner.y, owner.depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+		}
+	}
+}
+
+
+if isSoundLooping {
+	if !audio_is_playing(sound) {
+		audio_play_sound_on(soundEmitter,sound,isSoundLooping,1);
+	}
+} else {
+	if owner.type == CombatantTypes.Player {
+		audio_play_sound(sound,1,0);
+	} else {
+		audio_play_sound_at(sound,owner.x,owner.y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+	}
+}
+
 if attackData != noone && attackData.type == AttackTypes.AOE {
 	// create "projectileNumber" of aoe attack objs
 	for (var i = 1; i < attackData.numberOfProjectiles; i++) {
@@ -185,29 +219,7 @@ if isRanged {
 } else {
 	image_alpha = .5;
 }
-if (weapon != noone && owner.type == CombatantTypes.Player) {
-	if array_length_1d(weapon.attackSounds) >= attackNumberInChain {
-		sound = weapon.attackSounds[attackNumberInChain-1];
-	} else {
-		sound = weapon.attackSounds[attackNumberInChain-1];
-	}
-}
-else if attackData != noone {
-	sound = attackData.attackSound;
-}
 
-
-if isSoundLooping {
-	if !audio_is_playing(sound) {
-		audio_play_sound_on(soundEmitter,sound,isSoundLooping,1);
-	}
-} else {
-	if owner.type == CombatantTypes.Player {
-		audio_play_sound(sound,1,0);
-	} else {
-		audio_play_sound_at(sound,owner.x,owner.y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
-	}
-}
 
 // special case -- guns create fire / smoke particles when attack starts
 if weapon == noone || weapon == undefined exit;

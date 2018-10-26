@@ -205,6 +205,7 @@ waryDistance = 0;
 hasReachedWaryDistance = false;
 
 // flinch stuff
+canFlinch = true;
 isFlinching = false;
 flinchFrame = 0;
 totalFlinchFrames = 0;
@@ -392,3 +393,4 @@ alarm[9] = round(random_range(1,RECALC_PATH_FRAMES)); // update "path" every REC
 
 usesDefaultIdleState = true;
 usesDefaultMoveState = true;
+staysOutOfEnemies = true;

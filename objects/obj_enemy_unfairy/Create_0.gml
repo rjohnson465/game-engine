@@ -111,7 +111,8 @@ totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_d
 
 ds_map_replace(defenses,MAGIC,20);
 
-soundsWhenHitVocals = [snd_enemy_unfairy_hit1];
+soundsWhenHitVocals = [snd_enemy_unfairy_hit1, snd_enemy_unfairy_hit2];
+soundsWhenDie = [snd_enemy_unfairy_die];
 
 
 

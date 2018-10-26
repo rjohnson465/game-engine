@@ -1,5 +1,5 @@
 // loot item
-if isBeingLooted {
+if isBeingLooted && !global.isReadingTutorial {
 	lootItem(selectedItem,id);
 	updatePersistentElementProperty(id,"isLooted",true);
 }

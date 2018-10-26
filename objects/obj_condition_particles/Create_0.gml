@@ -162,10 +162,12 @@ switch condition {
 		randomize();
 		var num  = random_range(7,10);
 		var num2 = random_range(10,15);
-		var x1 = owner.x - (.5*owner.sprite_width);
-		var y1 = owner.y - (.5*owner.sprite_height);
-		var x2 = owner.x + (.5*owner.sprite_width);
-		var y2 = owner.y + (.5*owner.sprite_height);
+		var sw = sprite_get_bbox_right(owner.sprite_index) - sprite_get_bbox_left(owner.sprite_index);
+		var sh = sprite_get_bbox_bottom(owner.sprite_index) - sprite_get_bbox_top(owner.sprite_index);
+		var x1 = owner.x - (.5*sw);
+		var y1 = owner.y - (.5*sh);
+		var x2 = owner.x + (.5*sw);
+		var y2 = owner.y + (.5*sh);
 		part_system_depth(system,0);
 		part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,0);
 		part_emitter_burst(system,emitter,particle, num);

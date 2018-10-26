@@ -517,7 +517,7 @@ with obj_fallzone {
 
 // if colliding with a solid object, jump to nearest free point
 // this mainly resolves issues when enemies are using mp_grids and suddenly switch to mp_potential_* stuff
-if type == CombatantTypes.Enemy {
+if type == CombatantTypes.Enemy && staysOutOfEnemies {
 	if !place_free(x,y) {
 		jumpToNearestFreePoint(true, false);
 	}

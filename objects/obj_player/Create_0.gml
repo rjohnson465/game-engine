@@ -208,7 +208,7 @@ if global.populateInventory {
 	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
 	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
 	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
-	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
+	addItemToInventory(makeGem(obj_gem_ruby,FLAWLESS));
 	
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
 

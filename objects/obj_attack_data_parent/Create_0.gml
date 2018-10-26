@@ -30,6 +30,7 @@ type = AttackTypes.Standard;
 prepSound = noone;
 attackSound = noone;
 hitSound = noone;
+attackSoundsVocals = [];
 
 // must be within this number of pixels of target to begin attack
 minRange = 0;

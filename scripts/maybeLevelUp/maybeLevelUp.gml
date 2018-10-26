@@ -8,6 +8,9 @@ if (xp + xpTemp) >= xpToNextLevel {
 	alert("Level " + string(level) + " reached!",c_lime,90);
 	audio_play_sound(snd_levelup,1,0);
 	
+	hp = maxHp;
+	stamina = maxStamina;
+	
 	global.damageType = "LevelUp"; global.x1 = x; global.y1 = y; global.particleDirection = noone;
 	global.hitParticlesLayer = layer; global.victim = id;
 	instance_create_depth(x,y,1,obj_hit_particles);

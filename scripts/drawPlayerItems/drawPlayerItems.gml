@@ -89,37 +89,8 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	draw_sprite_ext(spr_prompt_xbox_rb,1,topLeftX+(filtersTotalWidth+filtersWidth),topLeftY,scale,scale,0,c_white,1);
 }
 filtersTotalWidth += (filtersWidth*filterOffset);
-var filterString = "";
-switch filter {
-	case InventoryFilters.Melee: {
-		filterString = "Melee";
-		break;
-	}
-	case InventoryFilters.Ranged: {
-		filterString = "Ranged";
-		break;
-	}
-	case InventoryFilters.Shields: {
-		filterString = "Shields";
-		break;
-	}
-	case InventoryFilters.Rings: {
-		filterString = "Rings";
-		break;
-	}
-	case InventoryFilters.Head: {
-		filterString = "Hats";
-		break;
-	}
-	case InventoryFilters.Other: {
-		filterString = "Misc.";
-		break;
-	}
-	case InventoryFilters.None: {
-		filterString = "All";
-		break;
-	}
-}
+var filterString = getInvFilterName(filter);
+
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
@@ -195,52 +166,9 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 	el.x1 = -500;
 	el.y1 = -500;
 	
-	// filter?
-	switch filter {
-		case InventoryFilters.Melee: {
-			if el.subType != HandItemTypes.Melee || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
-			}
-			break;
-		}
-		case InventoryFilters.Shields: {
-			if el.subType != HandItemTypes.Shield || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
-			}
-			break;
-		}
-		case InventoryFilters.Ranged: {
-			if el.subType != HandItemTypes.Ranged || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
-			}
-			break;
-		}
-		case InventoryFilters.Rings: {
-			if el.type != ItemTypes.Ring {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
-			}
-			break;
-		}
-		case InventoryFilters.Head: {
-			if el.type != ItemTypes.Head {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
-			}
-			break;
-		}
-		case InventoryFilters.Other: {
-			if el.type != ItemTypes.Other {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
-			}
-			break;
-		}
-	}
 }
+
+filterInvItems(items,filter);
 
 for (var i = 0; i < ds_list_size(inv); i++) {
 	var el = ds_list_find_value(inv,i);

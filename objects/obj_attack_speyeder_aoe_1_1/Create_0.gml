@@ -4,7 +4,7 @@ spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
 limbKey = noone;
-ds_map_add(damages,PHYSICAL,[1,3]);
+ds_map_add(damages,CRUSH,[5,15]);
 isRanged = false;
 staminaCost = 5;
 staggerDuration = 2;
@@ -26,4 +26,5 @@ part_type_orientation(part1,0,360,5,5,1);
 part_type_life(part1,15,25);
 part1Num = 15;
 
-attackSound = snd_bow_attack;
+attackSound = snd_enemy_speyeder_web_shoot;
+prepSound = snd_enemy_speyeder_webprep;

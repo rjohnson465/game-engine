@@ -1,5 +1,8 @@
 // flinching just moves you back a little in a given direction
 // its like staggering but doesnt interrupt attacks
+
+if !canFlinch exit;
+
 isStrafing = false;
 if flinchFrame < totalFlinchFrames {
 	var fspeed = flinchSpeed == 0 ? functionalSpeed : flinchSpeed;

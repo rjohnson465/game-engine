@@ -47,7 +47,6 @@ isShowingLightRadius = true;
 global.owner = id;
 global.makeLightOnCreate = true;
 lightRadius = instance_create_depth(x,y,1,obj_light_radius);
-lightRadius.persistent = true;
 
 system = part_system_create();
 part_system_depth(system,depth);

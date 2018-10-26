@@ -20,15 +20,18 @@ switch state {
 		}
 		
 		with obj_combatant_parent {
-			if place_meeting_layer(x,y,other) {
+			//if other.object_index == obj_enemy_noeyeddeer break;
+			if place_meeting_layer(x,y,other) && object_index != obj_enemy_noeyeddeer {
 				if !moveToNearestFreePoint(other.runningDirection,other.functionalSpeed,type==CombatantTypes.Enemy,0) {
 					jumpToNearestFreePoint(type==CombatantTypes.Enemy,0);
 				}
 				if other.alarm[4] < 0 other.alarm[4] = 7;
 				if other.alarm[4] == 1 {
 					var damagesMap = ds_map_create();
-					ds_map_replace(damagesMap,CRUSH,[2,5]);
+					ds_map_replace(damagesMap,CRUSH,[4,8]);
+					ds_map_replace(damagesMap,PIERCE,[4,8]);
 					damageCombatant(damagesMap,2,other.runningDirection,snd_hit1,other);
+					ds_map_destroy(damagesMap); damagesMap = -1;
 				}
 			}
 		}

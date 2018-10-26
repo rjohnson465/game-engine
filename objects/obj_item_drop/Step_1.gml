@@ -47,7 +47,7 @@ if gamepad_is_connected(pad) && isBeingLooted {
 	}
 	
 	// handle select / equip with selector
-	if gamepad_button_check_pressed(pad,gp_face1) && isBeingLooted && ds_exists(items,ds_type_list) {
+	if gamepad_button_check_pressed(pad,gp_face1) && isBeingLooted && ds_exists(items,ds_type_list) && !global.isReadingTutorial {
 		// loot item
 		lootItem(selectedItem,id);
 	} 

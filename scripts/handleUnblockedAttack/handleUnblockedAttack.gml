@@ -31,7 +31,7 @@ if assailant.type == CombatantTypes.Player && attackObj.isMelee {
 // maybe vocalize
 if array_length_1d(soundsWhenHitVocals) != 0 && hp >= 1 {
 	randomize();
-	var rand = round(random_range(-3,array_length_1d(soundsWhenHitVocals)-1));
+	var rand = round(random_range(-1,array_length_1d(soundsWhenHitVocals)-1));
 	if rand >= 0 {
 		var snd = soundsWhenHitVocals[rand];
 		if snd && snd != noone {

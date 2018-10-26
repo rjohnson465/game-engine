@@ -57,6 +57,16 @@ audio_emitter_position(sndEmitter, owner.x, owner.y, owner.depth);
 audio_emitter_falloff(sndEmitter, 50, AUDIO_MAX_FALLOFF_DIST, 1);
 audio_play_sound_on(sndEmitter, attackData.attackSoundLoop, 1, 1);
 
-
+if attackData != noone {
+	var vocalsSound = noone;
+	if array_length_1d(attackData.attackSoundsVocals) != 0 {
+		randomize();
+		var rand = round(random_range(-1,array_length_1d(attackData.attackSoundsVocals)-1));
+		if rand >= 0 {
+			vocalsSound = attackData.attackSoundsVocals[rand];
+			audio_play_sound_at(vocalsSound, owner.x, owner.y, owner.depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+		}
+	}
+}
 
 

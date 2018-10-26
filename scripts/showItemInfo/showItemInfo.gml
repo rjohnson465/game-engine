@@ -274,7 +274,7 @@ if item.type == ItemTypes.HandItem {
 			}
 			var blockPercentage = ds_map_find_value(item.defenses,defenseType);
 			if blockPercentage > 100 blockPercentage = 100;
-			if blockPercentage < 0 blockPercentage = 0;
+			//if blockPercentage < 0 blockPercentage = 0;
 			// draw damage texts in second column
 			draw_sprite(sprite,1,itemDescriptionCol2XPictures,itemDescriptionColY+((i+1)*25));
 			if !global.ui.isShowingExplanations {
@@ -284,10 +284,14 @@ if item.type == ItemTypes.HandItem {
 					if el == defenseType {
 						draw_set_color(getPropertyColorForBuffAmount(elBuff[1]));
 					} else {
-						draw_set_color(c_white);
+						if blockPercentage < 0 {
+							draw_set_color(c_red);
+						} else draw_set_color(c_white);
 					}
 				} else {
-					draw_set_color(c_white);
+					if blockPercentage < 0 {
+						draw_set_color(c_red);
+					} else draw_set_color(c_white);
 				}
 				draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),string(blockPercentage)+"%");
 			} else {

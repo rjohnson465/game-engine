@@ -24,12 +24,6 @@ if isGridPathAvailable {
 	}
 	mp_potential_path(path,xx,yy,normalSpeed,1,0);
 	path_start(path,functionalSpeed,path_action_stop,false);
-	//direction = point_direction(x,y,xx,yy);
-	/*mp_potential_step(xx,yy,functionalSpeed,0);
-	path_delete(path);
-	path = path_add();
-	path_add_point(path,x,y,functionalSpeed);
-	path_add_point(path,xx,yy,functionalSpeed);*/
 } else {
 	if place_meeting_layer(x,y,obj_fallzone) {
 		jumpToNearestFreePoint(1);

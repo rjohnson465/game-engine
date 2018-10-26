@@ -1,3 +1,7 @@
 if room == game_menu {
 	exit;
-}currentSpellAttunement = FIRE;
+}
+if currentSpellPrepSound != noone {
+	audio_stop_sound(currentSpellPrepSound);
+}
+currentSpellAttunement = FIRE;

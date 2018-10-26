@@ -7,6 +7,7 @@ var dir = argument[0];
 if global.ui.isShowingMenus exit; // menus take priority over loot
 
 if !items exit;
+if !isBeingLooted exit;
 
 var closestItem = selectedItem; var closestDist = 10000;
 for (var i = 0; i < ds_list_size(items); i++) {

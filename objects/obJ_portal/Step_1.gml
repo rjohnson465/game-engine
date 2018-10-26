@@ -2,6 +2,9 @@ if distance_to_object(obj_player) < 20 {
 	maybeAddObjectToInteractionList(id);
 } else maybeRemoveObjectFromInteractionList(id);
 
+var fn = getLayerFloorNumber(layer);
+var pfn = getLayerFloorNumber(global.player.layer);
+if fn > pfn exit;
 scale = .1*cos((pi*scaleFrame)/30)+.9;
 scaleFrame = (scaleFrame + 1)%60;
 

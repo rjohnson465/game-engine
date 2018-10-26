@@ -50,6 +50,17 @@ if part_type_exists(attackData.part2) {
 	particle = attackData.part2;
 }
 
+if attackData != noone {
+	var vocalsSound = noone;
+	if array_length_1d(attackData.attackSoundsVocals) != 0 {
+		randomize();
+		var rand = round(random_range(-1,array_length_1d(attackData.attackSoundsVocals)-1));
+		if rand >= 0 {
+			vocalsSound = attackData.attackSoundsVocals[rand];
+			audio_play_sound_at(vocalsSound, owner.x, owner.y, owner.depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+		}
+	}
+}
 
 
 

@@ -14,6 +14,7 @@ var rand1 = round(random_range(0,array_length_1d(global.ALL_ELEMENTS)-1));
 var rand2 = round(random_range(0,array_length_1d(global.ALL_ELEMENTS)-1));
 var el1 = global.ALL_ELEMENTS[rand1];
 var el2 = global.ALL_ELEMENTS[rand2];
+el1 = FIRE;
 
 // for particle effects
 ds_map_replace(longsword2.damages,el1,[1,2]);

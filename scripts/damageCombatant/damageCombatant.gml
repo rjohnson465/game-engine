@@ -7,6 +7,8 @@
 // invoking instance must be combatant to damage
 // used to damage a combatant by some non-standard combat means (i.e. environment hazard)
 
+if hp <= 0 exit;
+
 var damagesMap = argument[0];
 
 var damage = 0;
