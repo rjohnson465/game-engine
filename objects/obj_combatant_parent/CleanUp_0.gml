@@ -30,3 +30,6 @@ if part_system_exists(sprintParticleSystem) {
 if part_type_exists(sprintParticle) {
 	part_type_destroy(sprintParticle); sprintParticle = -1;
 }
+if audio_emitter_exists(attackPrepSoundEmitter) {
+	audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
+}

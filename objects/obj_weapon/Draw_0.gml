@@ -57,11 +57,7 @@ if sprite == -1 exit;
 //draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_white,owner.alpha);
 
 // draw glow effect, iff the weapon has hematite or a physical buff
-var hasHematite = false;
-for (var i = 0; i < limbItem.socketedGems; i++) {
-	var gem = ds_list_find_value(limbItem.socketedGems, i);
-	if gem.object_index == obj_gem_hematite hasHematite = true;
-}
+
 var hasPhysBuff = false;
 var cb = ds_map_find_first(limbItem.itemPropertyModifiers);
 for (var i = 0; i < ds_map_size(limbItem.itemPropertyModifiers); i++) {

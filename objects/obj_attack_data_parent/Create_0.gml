@@ -2,7 +2,8 @@ enum AttackTypes {
 	Standard,
 	Charge,
 	AOE,
-	Zone // breath attacks, poison clouds, whatever
+	Zone, // breath attacks, poison clouds, whatever
+	MultiRand // multiple random projectiles at random locations
 }
 
 owner = global.owner;
@@ -52,3 +53,8 @@ damageType = "Block"; // Block (sparks) or Dust (for when attack hits walls)
 
 conditionsChances = ds_map_create();
 doesNotStagger = false; // attacks normally have a chance to stagger opponents. Some (like zones) may not
+
+// particles to make during prep
+prepPart1 = noone;
+prepPart1Num = 4;
+prepPart1BelowOwner = false;

@@ -55,8 +55,24 @@ if enemyObstaclesBetweenTarget != noone && ds_exists(enemyObstaclesBetweenTarget
 var shouldRecalc = alarm[9] == 0 || path_index == -1;
 
 if pred && !isFlinching {
+	/*
 	if distance_to_object(lockOnTarget) > 75 && currentMeleeAttack != noone {
 		attackFrequencyFrame = 0;
+	}*/
+	// remember how long its been since last attack, even if not in range
+	// this way player must deal with an attack every x frames (approx), not just every x frames
+	// enemy is in range (which they could cheese easily by breaking range regularly)
+	if attackFrequencyFrame < 0 {
+		randomize();
+		var isRanged = currentMeleeAttack == noone ? true : false;
+		if isRanged {
+			attackFrequencyFrame = round(random_range(attackFrequencyTotalFramesRanged[0],attackFrequencyTotalFramesRanged[1]));
+		} else {
+			attackFrequencyFrame = round(random_range(attackFrequencyTotalFramesMelee[0],attackFrequencyTotalFramesMelee[1]));
+		}
+	}
+	if attackFrequencyFrame > 1 {
+		attackFrequencyFrame--;
 	}
 	
 	// first, check if can't see lockOnTarget anymore

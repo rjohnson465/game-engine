@@ -20,6 +20,7 @@ ds_map_destroy(conditionsEmittersMap); conditionsEmittersMap = -1;
 audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
 audio_emitter_free(walkingEmitter); walkingEmitter = -1;
 
+// sprint particles system destroy
 if part_emitter_exists(sprintParticleSystem, sprintParticleEmitter) {
 	part_emitter_destroy(sprintParticleSystem, sprintParticleEmitter);
 	sprintParticle = -1;
@@ -29,4 +30,16 @@ if part_system_exists(sprintParticleSystem) {
 }
 if part_type_exists(sprintParticle) {
 	part_type_destroy(sprintParticle); sprintParticle = -1;
+}
+
+// attack prep particle system destroy
+if part_emitter_exists(appSystem, appEmitter) {
+	part_emitter_destroy(appSystem, appEmitter); appEmitter = -1;
+}
+if part_system_exists(appSystem) {
+	part_system_destroy(appSystem); appSystem = -1;
+}
+
+if audio_emitter_exists(attackPrepSoundEmitter) {
+	audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
 }

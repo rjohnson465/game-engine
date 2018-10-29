@@ -112,7 +112,7 @@ if isSoundLooping {
 
 if attackData != noone && attackData.type == AttackTypes.AOE {
 	// create "projectileNumber" of aoe attack objs
-	for (var i = 1; i < attackData.numberOfProjectiles; i++) {
+	for (var i = 0; i < attackData.numberOfProjectiles; i++) {
 		global.attackData = attackData;
 		global.projectileNumber = i;
 		instance_create_depth(x,y,depth,obj_attack_aoe);
@@ -131,6 +131,36 @@ if attackData != noone && attackData.type == AttackTypes.AOE {
 	ds_map_delete(owner.attackingLimbs,limbKey);
 		
 	owner.prevAttackHand = limbKey;
+	exit;
+}
+
+if attackData != noone && attackData.type == AttackTypes.MultiRand {
+	// create "projectileNumber" of multi rand prep attack objs
+	for (var i = 0; i < attackData.numberOfProjectiles; i++) {
+		randomize();
+		var xo = random_range(0, attackData.mrOffset);
+		var yo = random_range(0, attackData.mrOffset);
+		var target = owner.lockOnTarget != noone ? owner.lockOnTarget : owner;
+		var xd = random_range(0,360); var yd = random_range(0,360);
+		var xx = target.x + lengthdir_x(xo,xd); var yy = target.y + lengthdir_y(yo,yd);
+		global.attackData = attackData;
+		instance_create_depth(xx,yy,depth,obj_attack_multirand_prep);
+	}
+	//instance_change(obj_attack_aoe,1); 
+	
+	// start recovery
+	// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
+	var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
+	ds_map_replace(owner.recoveringLimbs,limbKey,attackInChain);
+		
+	// set recoverFrames to -1
+	ds_map_replace(owner.recoverFrames,limbKey,-1);
+		
+	// remove limbKey from attackingLimbs map
+	ds_map_delete(owner.attackingLimbs,limbKey);
+		
+	owner.prevAttackHand = limbKey;
+	instance_destroy(id,1);
 	exit;
 }
 

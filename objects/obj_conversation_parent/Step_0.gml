@@ -19,12 +19,16 @@ if isActive {
 			var pStep = ds_list_find_value(steps,prevStep);
 			if pStep.func != noone {
 				script_execute(pStep.func);
+			} else if pStep.func != noone && pStep.funcParam1 != noone {
+				script_execute(pStep.func, pStep.funcParam1);
 			}
 		}
 		
 		if currentStep == ds_list_size(steps)-1 {
-			if step.func != noone {
+			if step.func != noone && step.funcParam1 == noone {
 				script_execute(step.func);
+			} else if step.func != noone && step.funcParam1 != noone {
+				script_execute(step.func, step.funcParam1);
 			}
 		}
 		

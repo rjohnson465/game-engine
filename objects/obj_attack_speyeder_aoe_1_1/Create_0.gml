@@ -28,3 +28,6 @@ part1Num = 15;
 
 attackSound = snd_enemy_speyeder_web_shoot;
 prepSound = snd_enemy_speyeder_webprep;
+
+prepPart1 = part1;
+prepPart1Num = 2;

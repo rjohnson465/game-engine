@@ -4,6 +4,8 @@
 // Inherit the parent event
 event_inherited();
 
+if hp < 1 exit;
+
 switch state {
 	case CombatantStates.Moving: {
 		

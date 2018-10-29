@@ -53,7 +53,7 @@ if _light_time >= _light_max_time
 			// don't draw lights outside the view
 			var vx = camera_get_view_x(view_camera[0]); var vy = camera_get_view_y(view_camera[0]);
 			var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(view_camera[0]);
-			if !point_in_rectangle(_light.x,_light.y,vx-100,vy-100,vx+vw+100,vy+vh+100) continue; 
+			if !point_in_rectangle(_light.x,_light.y,vx-500,vy-500,vx+vw+500,vy+vh+500) continue; 
 			
 			if _light.x < 0 || _light.y < 0 continue; // don't draw displaced lights
 		}
@@ -135,10 +135,10 @@ if _light_time >= _light_max_time
 
                                     // Draw the outline of the shadow.
                                     // If you don't plan on your lights going "behind" the casters, commenting this loop out is a small optomiztation.
-                                    /*for(var k = 0; k < array_length_1d(_light_points_x); k++) {                                       
+                                    for(var k = 0; k < array_length_1d(_light_points_x); k++) {                                       
                                         draw_vertex_colour((points_cast_x[k] - (other.x - _light_half_size)) * _light_quality, (points_cast_y[k] - (other.y - _light_half_size)) * _light_quality, c_black, 1)
                                         draw_vertex_colour((points_cast_x[0] - (other.x - _light_half_size)) * _light_quality, (points_cast_y[0] - (other.y - _light_half_size)) * _light_quality, c_black, 1)
-                                    } */                                     
+                                    }                                      
 
                                     draw_primitive_end()
                                 }

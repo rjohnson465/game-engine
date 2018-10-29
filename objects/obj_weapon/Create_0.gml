@@ -40,3 +40,5 @@ lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
 
 updateWeaponParticles(limbItem);
+
+hasHematite = false;

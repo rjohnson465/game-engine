@@ -55,6 +55,14 @@
             }
         },
         {
+            "Key": "00966474-237a-454a-9151-42761746b836",
+            "Value": {
+                "id": "ed42b95c-62de-4c0d-b8f2-772e91a9369f",
+                "resourcePath": "objects\\obj_attack_mushroom_spores_1_1\\obj_attack_mushroom_spores_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "00a4e3d4-7934-49ec-912a-7d08be417862",
             "Value": {
                 "id": "7f855166-d13e-4469-a6e8-8e3bd9a12a0b",
@@ -279,6 +287,14 @@
             }
         },
         {
+            "Key": "0580dcca-0f0a-46b5-bedc-038a7f7eec34",
+            "Value": {
+                "id": "34218b61-acb6-42f0-86f1-07fa09739822",
+                "resourcePath": "sprites\\spr_log1\\spr_log1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0581b948-0b50-457a-a940-abaaf1d7d754",
             "Value": {
                 "id": "71e0ebc1-765a-4ea5-b342-ac31563194fe",
@@ -290,7 +306,7 @@
             "Key": "05a4488b-0417-4568-8a27-d538610eacb9",
             "Value": {
                 "id": "705656a4-eb79-4de6-8dd4-da0467dc324e",
-                "resourcePath": "scripts\\questStarUnfairySlayer\\questStarUnfairySlayer.yy",
+                "resourcePath": "scripts\\questStartUnfairySlayer\\questStartUnfairySlayer.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -748,6 +764,14 @@
                 "id": "684f0775-dd8f-4e7c-baae-ca74717006ac",
                 "resourcePath": "views\\0e9ee59c-a445-4a6e-a6a2-9110df48c9ab.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "0eb2714d-9ad6-47da-884b-5503b8cec6a3",
+            "Value": {
+                "id": "ffbc1cbc-9f65-45b5-9f5e-f4daa1198848",
+                "resourcePath": "sounds\\snd_enemy_mushroom_hit2\\snd_enemy_mushroom_hit2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -2087,6 +2111,14 @@
             }
         },
         {
+            "Key": "288177c9-fa1e-4dd3-aede-fbf47584d1b1",
+            "Value": {
+                "id": "776e6ce0-5b10-4442-b9b5-2ea48fc4b022",
+                "resourcePath": "sounds\\snd_enemy_mushroom_death1\\snd_enemy_mushroom_death1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "28b17df0-66e8-46db-b6e5-bedd2e4e0b79",
             "Value": {
                 "id": "30e8d319-7cba-4e96-b72c-be731e3feec3",
@@ -2783,6 +2815,14 @@
             }
         },
         {
+            "Key": "36d6b778-aff0-413e-9b6c-d97d8607ebc1",
+            "Value": {
+                "id": "4ae05b3c-01ec-4e95-b634-9276c38b9bc7",
+                "resourcePath": "sprites\\spr_enemy_mushroom_spores_recover_1_11\\spr_enemy_mushroom_spores_recover_1_11.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "36f2a18f-a3be-4359-9d54-35ebc445e172",
             "Value": {
                 "id": "8b0b4278-df4d-45e2-a9b9-baf56b7d6ed1",
@@ -3439,6 +3479,14 @@
             }
         },
         {
+            "Key": "444b3a46-d383-4d33-a425-248b2bd08be0",
+            "Value": {
+                "id": "33452791-6457-4d85-8a7e-1953e28baa58",
+                "resourcePath": "sounds\\snd_enemy_mushroom_spore_vocals\\snd_enemy_mushroom_spore_vocals.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "444d53ef-ed21-40c4-bd49-7c4b41ebef94",
             "Value": {
                 "id": "53d8d9f6-7525-4340-b7ae-84c51017d002",
@@ -4007,6 +4055,14 @@
             }
         },
         {
+            "Key": "4e1b6cf1-83c3-49f7-b5ef-a4e519bf0967",
+            "Value": {
+                "id": "50f120fc-f396-4c82-9a53-746102f83699",
+                "resourcePath": "sprites\\spr_enemy_mushroom_move\\spr_enemy_mushroom_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
             "Value": {
                 "id": "7f92ad17-9476-402f-a4e8-86a2be635d0a",
@@ -4559,10 +4615,26 @@
             }
         },
         {
+            "Key": "5b9a5018-78d0-46d1-bfd6-f652692030c6",
+            "Value": {
+                "id": "3f485704-4cdb-49e1-8c48-f99ea6d016d3",
+                "resourcePath": "sounds\\snd_enemy_mushroom_hit1\\snd_enemy_mushroom_hit1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "5bdf3c46-9ae6-4a18-b434-49b80b433b97",
             "Value": {
                 "id": "e97bf1b1-48d3-4989-b5b2-8c637bcaccea",
                 "resourcePath": "sprites\\spr_player_hand_sword_2h_attack_1\\spr_player_hand_sword_2h_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5be5739e-1fd4-40ba-ab03-86a7bb0420d1",
+            "Value": {
+                "id": "21ab00cd-6c1a-42d2-8cc0-8c9e941b3ed4",
+                "resourcePath": "sprites\\spr_enemy_mushroom_spores_attack_1_11\\spr_enemy_mushroom_spores_attack_1_11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5847,6 +5919,14 @@
             }
         },
         {
+            "Key": "73811119-a143-4865-8418-f5973a63283a",
+            "Value": {
+                "id": "2a49683d-9e3b-491a-ad2d-fa2eb99c9354",
+                "resourcePath": "objects\\obj_log\\obj_log.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "73bdd390-d448-45e7-bad9-66e3e7f11c0c",
             "Value": {
                 "id": "0ecb692f-24ab-4efc-8f16-d8e8bff5ec6e",
@@ -6287,6 +6367,14 @@
             }
         },
         {
+            "Key": "7bc8aab8-8716-4401-b73d-69f40f251c2b",
+            "Value": {
+                "id": "3e094d0e-ef94-4800-ac2f-aaec9b46af47",
+                "resourcePath": "sprites\\spr_enemy_mushroom\\spr_enemy_mushroom.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7be05a52-c2d9-4be1-9e2e-d7ed675d7296",
             "Value": {
                 "id": "3dcb9cd9-ccb2-41e0-9152-35b0524e97dd",
@@ -6572,6 +6660,14 @@
                 "id": "93effb17-74d0-484c-afc9-48238f22e981",
                 "resourcePath": "scripts\\getDefaultItemSubTypeChanceMap\\getDefaultItemSubTypeChanceMap.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "826801d8-5d2c-404e-bab9-a98e1fe47c50",
+            "Value": {
+                "id": "07653097-13be-4ccc-af11-422999680c10",
+                "resourcePath": "sounds\\snd_enemy_mushroom_hit4\\snd_enemy_mushroom_hit4.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -7935,6 +8031,14 @@
             }
         },
         {
+            "Key": "9eea4527-9a9f-4b8e-832b-e6d230a6d546",
+            "Value": {
+                "id": "655fa96a-4624-4b08-b587-29e4894ee539",
+                "resourcePath": "sprites\\spr_enemy_mushroom_spores_1_1_projectile\\spr_enemy_mushroom_spores_1_1_projectile.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9ef17622-4d13-42dd-b32d-04af13120cfa",
             "Value": {
                 "id": "55c35d5d-b027-448c-990f-c55765aa1b9f",
@@ -8628,6 +8732,14 @@
                 "id": "4eac1351-f147-4635-8bc4-26a116995c47",
                 "resourcePath": "objects\\obj_axe_2h_parent\\obj_axe_2h_parent.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "abb69d22-424e-40d9-a5d5-670bdfdcd547",
+            "Value": {
+                "id": "06cee718-88ff-4165-b299-3b0a9438a697",
+                "resourcePath": "sprites\\spr_enemy_mushroom_spores_prep_1_1\\spr_enemy_mushroom_spores_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -9551,6 +9663,14 @@
             }
         },
         {
+            "Key": "be2a8501-763d-45a4-9af1-365b1cbbdb20",
+            "Value": {
+                "id": "0411a82f-f93e-4d4b-963f-acffe57771de",
+                "resourcePath": "sprites\\spr_enemy_mushroom_spores_recover_1_1\\spr_enemy_mushroom_spores_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "be342bdb-a747-48b2-8110-d077ac1a87cb",
             "Value": {
                 "id": "80bd69a6-b411-42ad-be1d-8e31b4891415",
@@ -9628,6 +9748,22 @@
                 "id": "1f4e03e4-3216-4a84-9d06-d6bbce5810fb",
                 "resourcePath": "scripts\\alertQuestComplete\\alertQuestComplete.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c0384881-94ad-47b8-a7ca-8da10a55a82e",
+            "Value": {
+                "id": "f2817ac5-21fb-4894-9b69-7f52fc09ec76",
+                "resourcePath": "objects\\obj_attack_multirand_prep\\obj_attack_multirand_prep.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c03c7825-5adf-400c-b620-9c17312533f1",
+            "Value": {
+                "id": "ebe954a2-d404-4df7-8d3e-4975ed1fd5bc",
+                "resourcePath": "views\\c03c7825-5adf-400c-b620-9c17312533f1.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -9716,6 +9852,14 @@
                 "id": "b28fd1a3-64aa-4d04-b6f3-9ac5f51d5604",
                 "resourcePath": "scripts\\loadFilesGetMaxScrollLevel\\loadFilesGetMaxScrollLevel.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c2623270-8b1e-47f4-9b79-cca757304e55",
+            "Value": {
+                "id": "a5583a69-0423-4753-b550-6ff8103b75ba",
+                "resourcePath": "sprites\\spr_enemy_mushroom_spores_attack_1_1\\spr_enemy_mushroom_spores_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -9835,6 +9979,14 @@
             "Value": {
                 "id": "d13903ff-382c-4551-8eed-574f16924bd9",
                 "resourcePath": "sprites\\spr_skill_ambidextrous\\spr_skill_ambidextrous.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c3f9cbc3-6e84-434a-b8f3-599dd5f612f5",
+            "Value": {
+                "id": "8bd25ff0-d37b-463f-ad27-fced45415ef7",
+                "resourcePath": "sprites\\spr_stump\\spr_stump.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -10035,6 +10187,14 @@
             "Value": {
                 "id": "4450fcb2-32d9-4b81-a57f-3661c02ad4e7",
                 "resourcePath": "sprites\\spr_player_dagger_attack_1\\spr_player_dagger_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c81cd172-d028-4797-a74f-eb0bb7caa4dd",
+            "Value": {
+                "id": "b175e4f7-65e8-4f97-a8a8-501bcd7c48a7",
+                "resourcePath": "sprites\\spr_enemy_mushroom_stagger\\spr_enemy_mushroom_stagger.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -10767,6 +10927,14 @@
             }
         },
         {
+            "Key": "d5cb9850-58f6-4dec-b546-c52c5f236b6c",
+            "Value": {
+                "id": "efda54e0-25f2-4f54-b501-dc116419cd5a",
+                "resourcePath": "objects\\obj_attack_multirand\\obj_attack_multirand.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d5f233e9-c174-4650-b40f-1cb4b243510f",
             "Value": {
                 "id": "217c3fd2-9600-4f27-8dc7-ff85cfb15571",
@@ -10836,6 +11004,14 @@
                 "id": "c5281b91-a725-4c23-a37c-1539fc093421",
                 "resourcePath": "objects\\obj_bigflower\\obj_bigflower.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d809ae01-7032-4274-b87d-d349bc38fa1c",
+            "Value": {
+                "id": "d27b96c9-915b-4c06-ad79-c4dff2a39e73",
+                "resourcePath": "sounds\\snd_enemy_mushroom_hit3\\snd_enemy_mushroom_hit3.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -11055,6 +11231,14 @@
             }
         },
         {
+            "Key": "dc8a757a-d773-450b-ad1c-2c6b7bbec13a",
+            "Value": {
+                "id": "17afed90-83c4-4dfb-a3c9-9a6de0b1a83d",
+                "resourcePath": "sounds\\snd_enemy_mushroom_death2\\snd_enemy_mushroom_death2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "dc9a4097-d231-4b78-b49a-fd98d5f2e18d",
             "Value": {
                 "id": "9fb29950-d47b-4759-aaf5-5b2199149fe5",
@@ -11211,6 +11395,14 @@
             "Value": {
                 "id": "e326198c-79ab-44fa-9c7a-3974f9647f59",
                 "resourcePath": "sounds\\snd_magic_poison_condition\\snd_magic_poison_condition.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "df59738b-ff68-4b2a-8b27-360923cf2174",
+            "Value": {
+                "id": "dd214dbd-58cf-4eac-b991-25f3748de933",
+                "resourcePath": "sounds\\snd_enemy_mushroom_spore_crunch\\snd_enemy_mushroom_spore_crunch.yy",
                 "resourceType": "GMSound"
             }
         },
@@ -12167,6 +12359,14 @@
             }
         },
         {
+            "Key": "f6d2b95f-b06d-4200-a718-524989332b64",
+            "Value": {
+                "id": "cf17008d-cea8-4c7c-a7df-74d2e937f6b2",
+                "resourcePath": "views\\f6d2b95f-b06d-4200-a718-524989332b64.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "f6ec8a70-3b5c-42a7-a70b-515fcb25f1c3",
             "Value": {
                 "id": "c5eb150e-38db-41f9-8c3c-675352f76017",
@@ -12375,6 +12575,14 @@
             }
         },
         {
+            "Key": "fbffbfc0-06aa-428e-8cb5-b61f80b16282",
+            "Value": {
+                "id": "be030925-da60-4467-b00f-9df36d917b48",
+                "resourcePath": "objects\\obj_stump\\obj_stump.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "fc6bdce3-7461-40ed-a9f5-aff54d7f23e4",
             "Value": {
                 "id": "de0b2709-4d4f-4636-b00e-bf59dc4b12e1",
@@ -12551,6 +12759,14 @@
             }
         },
         {
+            "Key": "ff30baf7-0824-45ea-9a53-d08634445464",
+            "Value": {
+                "id": "cd555f74-f280-44cf-8d15-d5f5e2756288",
+                "resourcePath": "views\\ff30baf7-0824-45ea-9a53-d08634445464.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "ff4d983d-ae8f-4301-8843-b1ab93d13f4d",
             "Value": {
                 "id": "d1bc09f6-30ee-4e71-8345-8beb848eb97b",
@@ -12604,6 +12820,14 @@
                 "id": "e6773ecb-0f23-4850-a52d-a4aaaeac44b4",
                 "resourcePath": "scripts\\modifyWeaponDurabilityOrAmmo\\modifyWeaponDurabilityOrAmmo.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "fff29b8f-9009-46fc-94ab-9487d66ea284",
+            "Value": {
+                "id": "0699d09b-118c-47d4-81c5-f9293d0a27c5",
+                "resourcePath": "objects\\obj_enemy_mushroom\\obj_enemy_mushroom.yy",
+                "resourceType": "GMObject"
             }
         },
         {

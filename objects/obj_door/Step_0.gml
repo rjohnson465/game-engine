@@ -50,5 +50,6 @@ if isCurrentInteractableObject && !isOpen && distance_to_object(obj_player) < 20
 		sprite_index = noone;
 		alarm[0] = 30;
 		audio_play_sound_at(openingSound,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		light_destroy_caster_layer(getLayerFloorNumber(layer));
 	} 
 } 

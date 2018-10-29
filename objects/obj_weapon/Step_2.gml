@@ -21,6 +21,11 @@ if owner.currentUsingSpell != noone {
 // switch weapon sprite
 if limbItem != limb.limbItem || refreshParticles {
 	limbItem = limb.limbItem;
+	
+	for (var i = 0; i < limbItem.socketedGems; i++) {
+		var gem = ds_list_find_value(limbItem.socketedGems, i);
+		if gem.object_index == obj_gem_hematite hasHematite = true;
+	}
 
 	refreshParticles = false;
 	if owner.type == CombatantTypes.Player {

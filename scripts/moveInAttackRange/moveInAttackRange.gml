@@ -17,7 +17,7 @@ if attackNumberInChain == noone {
 
 // TODO do not commit to a charge attack if there are obstacles between target
 					
-if attackFrequencyFrame == -1 {
+if attackFrequencyFrame < 0 {
 	randomize();
 	var isRanged = currentMeleeAttack == noone ? true : false;
 	if isRanged {
@@ -34,7 +34,13 @@ if attackFrequencyFrame == -1 {
 			hasCalculatedWillDodge = false;
 			isStrafing = false;
 			if attackData.prepSound != noone {
-				audio_play_sound_at(attackData.prepSound,x,y,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+				if audio_emitter_exists(attackPrepSoundEmitter) { 
+					audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
+				}
+				attackPrepSoundEmitter = audio_emitter_create();
+				audio_emitter_falloff(attackPrepSoundEmitter, 50, AUDIO_MAX_FALLOFF_DIST, 1);
+				audio_emitter_gain(attackPrepSoundEmitter, 1);
+				audio_play_sound_on(attackPrepSoundEmitter,attackData.prepSound,0,1);
 			}
 			state = CombatantStates.Attacking;
 		}

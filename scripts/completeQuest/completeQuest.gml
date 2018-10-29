@@ -2,6 +2,8 @@
 /// @param quest
 var quest = argument[0];
 
+if !quest.currentQuestStep.isRewardStep || quest.isFinished exit;
+
 gainXp(quest.xpReward);
 var itemsString = "";
 for (var i = 0; i < ds_list_size(quest.rewardItems); i++) {
@@ -29,6 +31,9 @@ if itemsString != "" {
 alert(s,c_lime,150);
 
 quest.isFinished = true;
+
 with global.ui {
-	showHideSkills();
+	if isShowingMenus {
+		showHideSkills();
+	}
 }

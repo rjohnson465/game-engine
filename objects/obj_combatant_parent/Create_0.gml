@@ -391,6 +391,15 @@ RECALC_PATH_FRAMES = 7;
 randomize();
 alarm[9] = round(random_range(1,RECALC_PATH_FRAMES)); // update "path" every RECALC_PATH_FRAMES frames
 
+alarm[0] = 15; // reassess melee attack if in range
+
 usesDefaultIdleState = true;
 usesDefaultMoveState = true;
 staysOutOfEnemies = true;
+
+attackPrepSoundEmitter = audio_emitter_create();
+audio_emitter_gain(attackPrepSoundEmitter, 0);
+
+// attack prep particles stuff
+appSystem = part_system_create();
+appEmitter = part_emitter_create(appSystem);

@@ -23,5 +23,10 @@ if ds_map_find_value(other.parameters,"unfairies_slain") == 3 {
 		}
 	}
 	
+	// force room start event for npcs to add conversations to
+	with obj_npc_parent {
+		event_perform(ev_other, ev_room_start);
+	}
+	
 	status = QuestStepStatus.Completed;
 }

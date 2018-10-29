@@ -51,6 +51,13 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 		global.owner = id; // passed as param to attackObj
 		global.limbKey = currentPreparingLimbKey;
 		var attackObj = instance_create_depth(x,y,1,obj_attack);
+		
+		if attackData.prepSound != noone {
+			if audio_emitter_exists(attackPrepSoundEmitter) {
+				audio_emitter_gain(attackPrepSoundEmitter, 0);
+				audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
+			}
+		}
 					
 		hasCalculatedNextAttack = false;
 	} else {
