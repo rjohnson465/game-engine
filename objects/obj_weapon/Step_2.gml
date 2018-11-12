@@ -22,10 +22,12 @@ if owner.currentUsingSpell != noone {
 if limbItem != limb.limbItem || refreshParticles {
 	limbItem = limb.limbItem;
 	
+	var hh = false;
 	for (var i = 0; i < limbItem.socketedGems; i++) {
 		var gem = ds_list_find_value(limbItem.socketedGems, i);
-		if gem.object_index == obj_gem_hematite hasHematite = true;
+		if gem.object_index == obj_gem_hematite hh = true;
 	}
+	hasHematite = hh;
 
 	refreshParticles = false;
 	if owner.type == CombatantTypes.Player {

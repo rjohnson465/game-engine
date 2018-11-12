@@ -1,6 +1,6 @@
 // stop attacking -- 
 jumpFrame = jumpTotalFrames;
-if hasHands {
+if true {
 	// stop preparing attacks
 	if ds_map_size(preparingLimbs) != 0 {
 		var hand = ds_map_find_first(preparingLimbs);
@@ -29,6 +29,9 @@ if hasHands {
 			hand = ds_map_find_next(recoveringLimbs,hand);
 		}
 	}
+	ds_map_clear(preparingLimbs);
+	ds_map_clear(attackingLimbs);
+	ds_map_clear(recoveringLimbs);
 }
 isStrafing = false;
 currentUsingSpell = noone;

@@ -10,6 +10,22 @@ if lockOnTarget == noone || (currentMeleeAttack == noone && currentRangedAttack 
 }
 // move to lockOnTarget until in range for chosen attack
 var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
+// make sure at least one of those walls is not a no interrupt wall
+var doSwitch = false;
+if wallsBetweenTarget != noone && ds_exists(wallsBetweenTarget, ds_type_list) {	
+	for (var i = 0; i < ds_list_size(wallsBetweenTarget); i++) {
+		var wall = ds_list_find_value(wallsBetweenTarget, i);
+		if (!object_is_ancestor(wall.object_index, obj_wall_nocast_nointerrupt)) {
+			break;
+		}
+		else if i == ds_list_size(wallsBetweenTarget)-1 {
+			doSwitch = true;
+		}
+	}
+}
+if doSwitch {
+	wallsBetweenTarget = noone;
+}
 //var allyType = object_is_ancestor(object_index,obj_enemy_parent) ? obj_enemy_parent : obj_goodguy_parent;
 //var alliesBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,allyType,true,true);
 var fallzonesBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_fallzone,true,true);
@@ -18,18 +34,29 @@ if type == CombatantTypes.Enemy {
 	enemyObstaclesBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_enemy_obstacle_parent,true,true);
 }
 
+var garbage = ds_list_create();
 if enemyObstaclesBetweenTarget != noone {
 	for (var i = 0; i < ds_list_size(enemyObstaclesBetweenTarget); i++) {
 		var el = ds_list_find_value(enemyObstaclesBetweenTarget,i);
 		// enemies, feel free to not consider your targets "obstacles" you dolts
-		if object_is_ancestor(el.object_index,obj_goodguy_parent) {
-			ds_list_delete(enemyObstaclesBetweenTarget,i);
+		if object_is_ancestor(el.object_index,obj_goodguy_parent) || object_is_ancestor(el.object_index, obj_wall_nocast_nointerrupt) {
+			//ds_list_delete(enemyObstaclesBetweenTarget,i);
+			ds_list_add(garbage, el);
 		}
 	}
-	if ds_list_size(enemyObstaclesBetweenTarget) == 0 {
-		ds_list_destroy(enemyObstaclesBetweenTarget); enemyObstaclesBetweenTarget = -1;
-	}
+	
 }
+
+for (var i = 0; i < ds_list_size(garbage); i++) {
+	var objIndex = ds_list_find_value(garbage, i);
+	var index = ds_list_find_index(enemyObstaclesBetweenTarget, objIndex);
+	ds_list_delete(enemyObstaclesBetweenTarget, index);
+}
+if ds_exists(enemyObstaclesBetweenTarget, ds_type_list) && ds_list_size(enemyObstaclesBetweenTarget) == 0 {
+	ds_list_destroy(enemyObstaclesBetweenTarget); enemyObstaclesBetweenTarget = -1;
+}
+
+ds_list_destroy(garbage); garbage = -1;
 
 
 // if predicate is true, you need to keep moving

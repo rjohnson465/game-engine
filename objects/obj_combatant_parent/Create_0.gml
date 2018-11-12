@@ -1,8 +1,8 @@
 isObstacleLayerless = false;
 // personalGrid is all walls / combatants except for this combatant
 // each combatant has their own grid, telling them where they can't go
-var cell_width = 32;//bbox_right-bbox_left;
-var cell_height = 32; //bbox_bottom-bbox_top;
+cell_width = 32;//bbox_right-bbox_left;
+cell_height = 32; //bbox_bottom-bbox_top;
 
 var hcells = room_width div cell_width;
 var vcells = room_height div cell_height;

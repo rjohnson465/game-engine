@@ -199,7 +199,12 @@ if !(limbKey == "r" || (weapon != noone && weapon.isRanged && weapon.isTwoHanded
 	
 if asset_get_index(maskString) != -1 {
 	sprite_index = asset_get_index(maskString);
-} else {
+}
+else if !owner.hasHands {
+	var sprStr = attackData.spriteName + "_wattack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain);
+	sprite_index = asset_get_index(sprStr);
+}
+else {
 	sprite_index = asset_get_index(sprStr);
 }
 	

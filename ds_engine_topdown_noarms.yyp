@@ -111,6 +111,14 @@
             }
         },
         {
+            "Key": "01d598b6-cbdc-4c6f-8793-7ecd4b238c90",
+            "Value": {
+                "id": "3be71b8b-3456-4baf-ac71-9cd365788807",
+                "resourcePath": "sprites\\spr_enemy_troll_stagger\\spr_enemy_troll_stagger.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "020ae970-9049-4636-8526-df7f18d014a5",
             "Value": {
                 "id": "00457ae9-6ab3-46fd-8807-70556dcbde49",
@@ -575,6 +583,14 @@
             }
         },
         {
+            "Key": "0a79e619-3920-4e41-b8a6-9b3d58797671",
+            "Value": {
+                "id": "ef965487-17cf-4fd1-bbc4-b2c9ffe4fc37",
+                "resourcePath": "sounds\\snd_walking_heavy\\snd_walking_heavy.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "0a8af756-7833-40ff-88fb-544244090418",
             "Value": {
                 "id": "7164b28b-8ad8-45c5-8f7f-88a59bcf0745",
@@ -615,6 +631,14 @@
             }
         },
         {
+            "Key": "0b5c7a10-382d-4a6b-9c5d-729b523399e1",
+            "Value": {
+                "id": "759e9209-39c8-46c2-9d55-ae294f44dfd8",
+                "resourcePath": "sprites\\spr_enemy_troll_move\\spr_enemy_troll_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0b60e134-8478-4139-b696-f9d2ea94cf18",
             "Value": {
                 "id": "787cf367-b290-4637-bb79-86fd7f5f7aa3",
@@ -644,6 +668,14 @@
                 "id": "7826b95a-c2a2-48d2-9a1c-be2c32a9f8c9",
                 "resourcePath": "views\\0bda2564-ce38-4cd9-9463-6a364bbb21f0.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "0be5afb2-4696-4bae-885f-7761736b5709",
+            "Value": {
+                "id": "3a6506fb-9354-4745-b838-33f387d9a75c",
+                "resourcePath": "sprites\\spr_enemy_troll_staff_attack_1_1\\spr_enemy_troll_staff_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -735,6 +767,14 @@
             }
         },
         {
+            "Key": "0d6c4727-c1bc-4a46-9bb7-2996a96fe30c",
+            "Value": {
+                "id": "68e107bf-a962-45dd-9360-bfc0685f6833",
+                "resourcePath": "objects\\obj_hand_item_trollstaff\\obj_hand_item_trollstaff.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0d8a0195-87cf-4b2f-b518-ea26b3b9a254",
             "Value": {
                 "id": "c2b8cc7f-a76e-4b15-a917-5562bbdc6149",
@@ -756,6 +796,14 @@
                 "id": "124a9325-2139-4e70-8f57-5408de18fdd0",
                 "resourcePath": "scripts\\playerMove\\playerMove.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "0e71034f-1c70-4a35-a23c-1395e8b8cca1",
+            "Value": {
+                "id": "a3780526-fc1c-49a6-afca-09778849e3d0",
+                "resourcePath": "objects\\obj_weapon_limbless\\obj_weapon_limbless.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -788,6 +836,14 @@
                 "id": "5175fce1-1387-4dbd-b31f-cbad77678830",
                 "resourcePath": "views\\0ef7f238-2c71-4ed6-b8b6-db6a5ddebc4d.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "0f0fa72b-c365-4125-817d-cf41ee39756d",
+            "Value": {
+                "id": "3b94fa78-caa4-4e7c-a559-0b349449b811",
+                "resourcePath": "sprites\\spr_enemy_troll_staff_wprep_1_1\\spr_enemy_troll_staff_wprep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1279,6 +1335,14 @@
             }
         },
         {
+            "Key": "16fbe680-38a3-4d51-acef-e0356da6c861",
+            "Value": {
+                "id": "f25f4587-61ce-4d8a-ab9c-9498fc41f95e",
+                "resourcePath": "sprites\\spr_enemy_troll_staff_move\\spr_enemy_troll_staff_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "17014358-78d7-4b92-ad19-cd674f7892ac",
             "Value": {
                 "id": "5e362d3b-2e8f-4cf9-a75e-8edba6eeff09",
@@ -1371,6 +1435,14 @@
             "Value": {
                 "id": "403c69cc-9651-464d-8a29-c7cfa8ae14ed",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_recover_1_2\\spr_enemy_unfairy_limb_unarmed_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "186ef642-22ce-4d14-9d2f-b45cc8329f07",
+            "Value": {
+                "id": "ca2d525f-24b6-4c01-a6be-f5553dbe9742",
+                "resourcePath": "sprites\\spr_enemy_troll_spikedshield_move\\spr_enemy_troll_spikedshield_move.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1532,6 +1604,14 @@
                 "id": "197dea7c-f9b3-49a1-a404-d7ebaed29b2f",
                 "resourcePath": "views\\1b973377-4691-4280-89a1-933cbd753074.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "1bda8aa3-5473-46d4-8dd7-5d417b70c1c9",
+            "Value": {
+                "id": "eee7923c-7e88-43e8-88c2-7b1180ad325d",
+                "resourcePath": "sprites\\spr_enemy_troll_spikedshield_wprep_1_1\\spr_enemy_troll_spikedshield_wprep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1740,6 +1820,22 @@
                 "id": "b08788d5-af40-47e8-962f-82efbf2a4a17",
                 "resourcePath": "views\\208f138e-fc57-45b0-89ae-0648110ffa41.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "20a917c5-98ba-49a1-82f3-ff8c458449f5",
+            "Value": {
+                "id": "a3df95f7-2fff-4e45-9cde-a398dd4ae0d0",
+                "resourcePath": "sprites\\spr_enemy_troll_spikedshield_stagger\\spr_enemy_troll_spikedshield_stagger.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "20ca1129-9434-4052-8752-80a2302929fc",
+            "Value": {
+                "id": "0b2004f1-7abf-409c-ab03-f3d82b85f098",
+                "resourcePath": "scripts\\mp_grid_get_nearest_free_cell\\mp_grid_get_nearest_free_cell.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2083,6 +2179,14 @@
             "Value": {
                 "id": "f81d1412-9c8f-4454-9b6f-a114bd7664b6",
                 "resourcePath": "sprites\\spr_player_club_attack_1\\spr_player_club_attack_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "27cfe6eb-c852-4f0c-97d2-58afef942b4a",
+            "Value": {
+                "id": "1fbf10a4-c454-4324-858f-0c564341e53c",
+                "resourcePath": "sprites\\spr_enemy_troll_spikedshield_wrecover_1_1\\spr_enemy_troll_spikedshield_wrecover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2479,6 +2583,14 @@
             }
         },
         {
+            "Key": "2f801a91-ed78-461c-9306-74f365769e62",
+            "Value": {
+                "id": "5705d04f-ac3c-434a-9cc6-e8cc84944f4a",
+                "resourcePath": "views\\2f801a91-ed78-461c-9306-74f365769e62.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "3028e6b1-5393-4a2c-b89f-ab1475ed7540",
             "Value": {
                 "id": "374861b2-cc6f-4c17-923d-02b9e0040e41",
@@ -2524,6 +2636,14 @@
                 "id": "65b957af-b806-44b2-a50b-5cdf06284a50",
                 "resourcePath": "sprites\\spr_player_hand_pistol\\spr_player_hand_pistol.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "30c28ba5-9e1d-4d02-b282-89988032547a",
+            "Value": {
+                "id": "a4808f06-6343-48f0-88de-8901187bfcc8",
+                "resourcePath": "views\\30c28ba5-9e1d-4d02-b282-89988032547a.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -2812,14 +2932,6 @@
                 "id": "672aa689-3aef-4d6f-b73d-e64a72773019",
                 "resourcePath": "scripts\\getLimbSpriteIndex\\getLimbSpriteIndex.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "36d6b778-aff0-413e-9b6c-d97d8607ebc1",
-            "Value": {
-                "id": "4ae05b3c-01ec-4e95-b634-9276c38b9bc7",
-                "resourcePath": "sprites\\spr_enemy_mushroom_spores_recover_1_11\\spr_enemy_mushroom_spores_recover_1_11.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -3175,10 +3287,26 @@
             }
         },
         {
+            "Key": "3cf6ca51-82cf-4ca7-9024-7deb28469e68",
+            "Value": {
+                "id": "0230178e-211c-445e-95cb-8c46cfddf310",
+                "resourcePath": "sprites\\spr_enemy_troll_spikedshield_wattack_1_1\\spr_enemy_troll_spikedshield_wattack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3cf8365a-9af4-4097-bd85-155dbbe39798",
             "Value": {
                 "id": "350125b2-7809-48dc-875c-2ba572554b8e",
                 "resourcePath": "sprites\\spr_player_hatchet_prep_3\\spr_player_hatchet_prep_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3d0d0271-37e2-4a2b-8a4a-1da81e53b142",
+            "Value": {
+                "id": "8e74df80-18bf-4dd8-aa2f-d078b6dfe97d",
+                "resourcePath": "sprites\\spr_enemy_troll_staff_stagger\\spr_enemy_troll_staff_stagger.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3275,6 +3403,14 @@
             "Value": {
                 "id": "8728f68d-7f15-4632-842a-9f37cbd39fed",
                 "resourcePath": "sprites\\spr_enemy_unfairy_longsword_attack_1_1\\spr_enemy_unfairy_longsword_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3eda31e1-3396-4aa2-b8d6-470f2686d311",
+            "Value": {
+                "id": "c56b26fc-139e-47ee-8fea-85437c452d1e",
+                "resourcePath": "sprites\\spr_enemy_troll_staff_wattack_1_1\\spr_enemy_troll_staff_wattack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3999,6 +4135,14 @@
             }
         },
         {
+            "Key": "4d150c3d-1bde-49ff-b6b3-9c2dbfd3bfbd",
+            "Value": {
+                "id": "e110f15f-e2a1-49de-9084-03c29d29dd66",
+                "resourcePath": "views\\4d150c3d-1bde-49ff-b6b3-9c2dbfd3bfbd.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "4d423f2a-6499-4064-87ec-99192250ba03",
             "Value": {
                 "id": "9eb3b7a3-249d-4dd0-bcc5-3878d2609038",
@@ -4163,6 +4307,14 @@
             "Value": {
                 "id": "b5f6b4d7-bab1-4d2c-80ad-0ddc206a4f62",
                 "resourcePath": "scripts\\modifyWeaponElementalDamage\\modifyWeaponElementalDamage.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5151f8e7-e64d-4fc0-b6af-ffe66ffb6748",
+            "Value": {
+                "id": "bc785b07-5322-4d22-8d0f-14a7503a2ab9",
+                "resourcePath": "scripts\\makeLimblessWeapon\\makeLimblessWeapon.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -4627,14 +4779,6 @@
             "Value": {
                 "id": "e97bf1b1-48d3-4989-b5b2-8c637bcaccea",
                 "resourcePath": "sprites\\spr_player_hand_sword_2h_attack_1\\spr_player_hand_sword_2h_attack_1.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "5be5739e-1fd4-40ba-ab03-86a7bb0420d1",
-            "Value": {
-                "id": "21ab00cd-6c1a-42d2-8cc0-8c9e941b3ed4",
-                "resourcePath": "sprites\\spr_enemy_mushroom_spores_attack_1_11\\spr_enemy_mushroom_spores_attack_1_11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5383,6 +5527,14 @@
             }
         },
         {
+            "Key": "6a70598f-8b93-4f12-a733-9c77b9805032",
+            "Value": {
+                "id": "8eaf1ae4-b7b8-4813-a891-cee5ae95d0ba",
+                "resourcePath": "objects\\obj_enemy_troll\\obj_enemy_troll.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6acd97b4-ac0c-4bc5-bdcc-704d05349f7c",
             "Value": {
                 "id": "f93b4140-35a9-4072-a263-0639ad3380d4",
@@ -5991,6 +6143,14 @@
             }
         },
         {
+            "Key": "75083550-1e7d-4930-871b-885cc4a05d13",
+            "Value": {
+                "id": "7ab4da8f-b660-4949-bf7b-759fb06ce622",
+                "resourcePath": "sounds\\snd_enemy_troll_death1\\snd_enemy_troll_death1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "751b098c-f371-4bda-ab6a-705f00226582",
             "Value": {
                 "id": "881ff2aa-4c3b-4eac-8493-d49748916378",
@@ -6351,6 +6511,14 @@
             }
         },
         {
+            "Key": "7b0f6008-eb47-42ed-96fe-73e622106023",
+            "Value": {
+                "id": "09357609-fc8e-4e77-8537-090b1324f3e3",
+                "resourcePath": "sprites\\spr_enemy_troll\\spr_enemy_troll.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7b1515ca-b434-447f-bc63-fcd0d68b4460",
             "Value": {
                 "id": "e4a60c01-41ba-422d-9ace-d58b8cad63cd",
@@ -6468,6 +6636,14 @@
                 "id": "1e38bad9-8320-448d-ab21-387879fa6463",
                 "resourcePath": "scripts\\modifyBasePropertiesByRarity\\modifyBasePropertiesByRarity.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "7e4821b6-899b-4c70-9fff-10b16e746742",
+            "Value": {
+                "id": "02a4104f-5a34-43dd-91d8-3b1d270130f9",
+                "resourcePath": "sprites\\spr_enemy_troll_staff_wrecover_1_1\\spr_enemy_troll_staff_wrecover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7287,6 +7463,14 @@
             }
         },
         {
+            "Key": "8d6c971d-1c0b-4bcc-9156-1089edba8271",
+            "Value": {
+                "id": "8d4d3e9b-ce90-404d-b9ee-102f06480c8c",
+                "resourcePath": "views\\8d6c971d-1c0b-4bcc-9156-1089edba8271.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "8d7dea9e-cfb1-4e07-9fdb-d9830e8ca447",
             "Value": {
                 "id": "11d879db-e288-4ebf-8ab9-ebac967e025a",
@@ -7783,6 +7967,14 @@
             }
         },
         {
+            "Key": "98edf0fa-93c7-416f-8a9f-86a71764953a",
+            "Value": {
+                "id": "d4b404d6-c9f0-4751-ba52-f8d94414c7fe",
+                "resourcePath": "sprites\\spr_enemy_troll_staff_recover_1_1\\spr_enemy_troll_staff_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9914c008-cf60-4bb2-ab73-a14430d0ae11",
             "Value": {
                 "id": "10290fc4-2b41-41c1-9fdf-a6834b04ab84",
@@ -7931,6 +8123,14 @@
             "Value": {
                 "id": "2226b161-ef58-4143-a677-3c8fe410a328",
                 "resourcePath": "objects\\obj_condition_particles\\obj_condition_particles.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9cd35237-17fd-4c80-bf86-80dead00039e",
+            "Value": {
+                "id": "facf51d1-819b-4973-a52e-9b54f582c8dd",
+                "resourcePath": "objects\\obj_attack_troll_staff_1_1\\obj_attack_troll_staff_1_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -8887,6 +9087,14 @@
             }
         },
         {
+            "Key": "ae40eeb7-e5b9-4a11-820a-780e3f239855",
+            "Value": {
+                "id": "df854a95-166f-4c4d-b44f-04fa0ec7bfd5",
+                "resourcePath": "objects\\obj_hand_item_spikedshield\\obj_hand_item_spikedshield.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ae5c63ed-aadd-4d83-8607-5a85ce922455",
             "Value": {
                 "id": "3cbb2573-d2f1-4ff6-8f5c-745cb6dc025b",
@@ -9148,6 +9356,14 @@
                 "id": "d056ae71-800e-4633-b792-c6dcc381b3ec",
                 "resourcePath": "views\\b3784c9d-59fd-46db-b9b7-f69895e5cc75.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b387ad8e-37ed-4606-ae00-843f3be97663",
+            "Value": {
+                "id": "881a92f5-738d-4f66-8944-db59be8c2d0f",
+                "resourcePath": "sprites\\spr_enemy_troll_spikedshield\\spr_enemy_troll_spikedshield.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -10004,6 +10220,14 @@
                 "id": "c9547a8d-fef4-4c40-bb24-222e4edd332a",
                 "resourcePath": "scripts\\light_draw\\light_draw.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c4c75725-a617-4224-a292-2f5c68da1011",
+            "Value": {
+                "id": "aa46f389-3cc5-4e85-ac56-77bdfe3708b5",
+                "resourcePath": "views\\c4c75725-a617-4224-a292-2f5c68da1011.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -11175,6 +11399,14 @@
             }
         },
         {
+            "Key": "dba91c5b-62b9-44ab-9d2d-4217785a2980",
+            "Value": {
+                "id": "07b28237-e9ef-441f-b530-0ed4732175d5",
+                "resourcePath": "scripts\\mp_grid_astar\\mp_grid_astar.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "dbe2528d-4a43-4403-8763-a60cd6eb6745",
             "Value": {
                 "id": "b1640f1c-5d93-418a-9eb4-5d02613435e8",
@@ -12079,6 +12311,14 @@
             }
         },
         {
+            "Key": "f010c42f-4b42-47d3-b178-2d45f2a404e6",
+            "Value": {
+                "id": "549fb058-02d4-4e48-a3de-7a3975646226",
+                "resourcePath": "sprites\\spr_enemy_troll_staff_prep_1_1\\spr_enemy_troll_staff_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f033b67f-26e2-408a-a4b2-a470f65e8a7c",
             "Value": {
                 "id": "0c76ca9f-adf0-41d9-8345-b53951f837ad",
@@ -12116,6 +12356,14 @@
                 "id": "0e868d0b-525b-4661-92a6-2c5183c0d2d3",
                 "resourcePath": "scripts\\ei_unfairy_longsword_unarmed\\ei_unfairy_longsword_unarmed.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f0d7e102-969c-49c1-95bc-f7ab590f07b7",
+            "Value": {
+                "id": "e7ecb9cf-7d1b-4bb4-a037-4882261141ac",
+                "resourcePath": "sprites\\spr_enemy_troll_staff\\spr_enemy_troll_staff.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -12300,6 +12548,14 @@
                 "id": "a9db8954-3ae4-4801-b2ad-934e545ab991",
                 "resourcePath": "scripts\\alertQuestUpdate\\alertQuestUpdate.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f54ea41e-bdc8-40ae-be3d-f0892e5f10bf",
+            "Value": {
+                "id": "afc97938-53e5-4ef8-82de-2d9b3d0b6278",
+                "resourcePath": "views\\f54ea41e-bdc8-40ae-be3d-f0892e5f10bf.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -12881,6 +13137,8 @@
         "e4374775-f49c-4989-8fc4-9ae3a9545331",
         "5dc1c55a-d410-4fc7-a098-b9544d713bf6",
         "94d107f7-4e39-421d-8b0b-db37c4f2cb09",
+        "dba91c5b-62b9-44ab-9d2d-4217785a2980",
+        "20ca1129-9434-4052-8752-80a2302929fc",
         "00feb608-5eda-4896-afe4-aa97abfda795",
         "3ba0e475-52bf-40db-82b9-fe6e9814970d",
         "74218bb9-e73b-41b3-8941-df309aba8980",
@@ -12907,6 +13165,7 @@
         "ba3523fb-3100-4c94-bc79-672a22a76c4c",
         "158a680a-26ed-43d9-818b-102fc64f3a46",
         "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
+        "5151f8e7-e64d-4fc0-b6af-ffe66ffb6748",
         "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",
         "366ba9cd-aa4e-49d1-9f44-28270833e64a",
         "fcb0f5f7-bcfc-4156-9718-013cbe6ee0dc",

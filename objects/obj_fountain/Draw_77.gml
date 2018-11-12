@@ -1,4 +1,4 @@
-if alarm[0] == 0 exit;
+if alarm[0] <= 0 exit;
 // ripple effect when lit
 var_time_var+=0.04;
 shader_set(shd_radial_blur);

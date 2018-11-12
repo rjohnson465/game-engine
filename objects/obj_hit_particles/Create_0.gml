@@ -10,9 +10,6 @@ particleDirection = global.particleDirection;
 
 randomize();
 var num = random_range(7,10); // maybe make this dependent on how hard the hit was?
-if type == PHYSICAL {
-	num = random_range(14,20);
-}
 
 system = part_system_create();
 part_system_depth(system,layer_get_depth(layer));
@@ -30,7 +27,7 @@ if instance_exists(type) && object_is_ancestor(type.object_index, obj_attack_dat
 
 	switch type {
 		case PHYSICAL: {
-			num = random_range(10,25);
+			num = random_range(25,50);
 			// blood particle
 			var blood = part_type_create();
 			part_type_shape(blood, pt_shape_sphere);

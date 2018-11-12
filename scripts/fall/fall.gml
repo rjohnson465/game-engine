@@ -104,6 +104,7 @@ if fallFrame == .5*fallTotalFrames {
 			updatePersistentElementProperty(id, "TempPostY", tempPostY);
 			updatePersistentElementProperty(id, "TempPostZ", layer);
 		}
+		populatePersonalGrid();
 	}
 }
 state = CombatantStates.Idle;

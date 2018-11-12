@@ -37,7 +37,7 @@ attackSoundsVocals = [];
 minRange = 0;
 
 // if this is the last attack in a chain, the combatant's attackFrequencyFrames is set to this array
-coolDownFrames = [25,40]; 
+coolDownFrames = [25, 40]; 
 
 // how fast the owner may turn when prepping this attack
 turnSpeed = owner.turnSpeed;

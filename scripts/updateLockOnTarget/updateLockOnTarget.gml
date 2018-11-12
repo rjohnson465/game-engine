@@ -60,6 +60,25 @@ var wallsBetweenLockOnTarget = noone;
 if lockOnTarget {
 	wallsBetweenLockOnTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 }
+// filter out no interrupt walls
+var garbageIndices = ds_list_create();
+if ds_exists(wallsBetweenLockOnTarget, ds_type_list) {
+	for (var i = 0; i < ds_list_size(wallsBetweenLockOnTarget); i++) {
+		var w = ds_list_find_value(wallsBetweenLockOnTarget, i);
+		if w.object_index == obj_wall_nocast_nointerrupt || object_is_ancestor(w.object_index, obj_wall_nocast_nointerrupt) {
+			ds_list_add(garbageIndices, i);
+		}
+	}
+}
+for (var i = 0; i < ds_list_size(garbageIndices); i++) {
+	var index = ds_list_find_value(garbageIndices, i);
+	ds_list_delete(wallsBetweenLockOnTarget, index);
+	if ds_list_size(wallsBetweenLockOnTarget) == 0 {
+		ds_list_destroy(wallsBetweenLockOnTarget);
+		wallsBetweenLockOnTarget = noone;
+	}
+}
+ds_list_destroy(garbageIndices);
 // if too far from current lockon target, or esc pressed, or cannot see lockOnTarget no more lock on
 var cancelLockOnInputReceived = keyboard_check(vk_escape);
 if gamepad_is_connected(gamePadIndex) {

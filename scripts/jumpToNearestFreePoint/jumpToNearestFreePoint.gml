@@ -1,6 +1,7 @@
-/// jumpToNearestFreePoint(*isEnemy, *includesFallzones)
+/// jumpToNearestFreePoint(*isEnemy, *includesFallzones, *distance)
 /// @param *isEnemy
 /// @param *includesFallzones
+/// @param *distance -- if this is specified, just nudge the instance this much in the direction of the nearest free point
 
 var isEnemy = false;
 if argument_count == 1 {
@@ -34,6 +35,11 @@ if includesFallzones {
 	}
 }
 
+var dis = noone;
+if argument_count > 2 {
+	dis = argument[2];
+}
+
 var distanceToTry = 10;
 var dir = 10;
 // try going distanceToTry pixels out from current place at direction dir
@@ -50,6 +56,13 @@ while obstaclesInside {
 	}
 	obstaclesInside = place_meeting_list(xx,yy,obstacles);
 }
+
+// if distance is specified, just nudge instance dis px in direction of nearest free point
+if dis != noone {
+	xx = x+lengthdir_x(dis,dir);
+	yy = y+lengthdir_y(dis,dir);
+}
+
 x = xx;
 y = yy;
 ds_list_destroy(obstacles); obstacles = -1;

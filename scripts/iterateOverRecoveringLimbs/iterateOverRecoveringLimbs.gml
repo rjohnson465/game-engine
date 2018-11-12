@@ -31,6 +31,12 @@ if ds_map_size(recoveringLimbs) != 0 {
 				jumpToNearestFreePoint(1);
 			}*/
 			
+			if isRanged {
+				attackFrequencyTotalFramesRanged = attackData.coolDownFrames;
+			} else {
+				attackFrequencyTotalFramesMelee = attackData.coolDownFrames;
+			}
+			
 			var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
 			ds_map_replace(recoverFrameTotals,currentRecoveringLimbKey,sprite_get_number(recoverSprite));
 		}

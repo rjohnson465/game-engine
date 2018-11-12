@@ -9,8 +9,12 @@ var myLayer = layer;
 var idd = id;
 with obj_enemy_obstacle_parent {
 	if object_is_ancestor(object_index,obj_combatant_parent) continue;
+	if object_is_ancestor(object_index, obj_door) && isOpen continue;
 	else {
 		if object_index == obj_fountain && origLayer == myLayer {
+			ds_list_add(solids,id);
+		}
+		else if abs(depth - layer_get_depth(myLayer)) <= 10 {
 			ds_list_add(solids,id);
 		}
 		else if layer == myLayer || isObstacleLayerless {
@@ -28,7 +32,7 @@ with obj_fallzone {
 for (var i = 0; i < ds_list_size(solids); i++) {
 	mp_grid_add_instances(personalGrid,ds_list_find_value(solids,i),1);
 }
-	
+	/*
 var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
 for (var i = 0; i < ds_list_size(combatants); i++) {
 	var ci = ds_list_find_value(combatants,i);
@@ -36,5 +40,6 @@ for (var i = 0; i < ds_list_size(combatants); i++) {
 		mp_grid_add_instances(personalGrid,ds_list_find_value(combatants,i),true);
 	} 
 }
-ds_list_destroy(combatants); combatants = -1;
+ds_list_destroy(combatants); combatants = -1;*/
+
 ds_list_destroy(solids); solids = -1;

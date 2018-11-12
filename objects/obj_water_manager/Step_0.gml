@@ -10,10 +10,21 @@ with obj_combatant_parent {
 		if tile {
 			if isBurning {
 				audio_play_sound_at(snd_magic_fire_hit,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+				var condiEmi = noone; var ck = ds_map_find_first(conditionsEmittersMap);
+				for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
+					var ce = ds_map_find_value(conditionsEmittersMap, ck);
+					if ck == FIRE {
+						condiEmi = ce;
+					}
+					ck = ds_map_find_next(conditionsEmittersMap, ck);
+				}
+				if condiEmi != noone {
+					audio_emitter_gain(condiEmi, 0);
+				}
 				ds_map_replace(conditionPercentages,FIRE,0);
 			}
 			
-			if !isMoving exit;
+			//if !isMoving exit;
 			
 			var currentWaterParticlesObj = noone; 
 			var currentWaterParticlesObjIsDestroying = false;

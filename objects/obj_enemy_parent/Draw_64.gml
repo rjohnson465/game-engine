@@ -58,7 +58,7 @@ if id.showHp && id.isAlive && !id.isDying && layer == global.player.layer {
 	}
 		
 	
-	
+	/*
 	// total stamina bar outline
 	var x1 = (id.x-vx)-(.5*id.sprite_width);
 	var y1 = (id.y-vy)-(.5*id.sprite_height)-20;
@@ -76,7 +76,7 @@ if id.showHp && id.isAlive && !id.isDying && layer == global.player.layer {
 		y1,
 		x2,
 		y2,
-		false);
+		false);*/
 }
 
 

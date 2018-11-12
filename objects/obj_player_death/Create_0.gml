@@ -47,3 +47,7 @@ for (var i = 0; i < ds_list_size(global.player.inventory); i++) {
 		reviveOrbs = el;
 	}
 }
+
+with obj_enemy_parent {
+	showHp = false;
+}

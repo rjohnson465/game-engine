@@ -13,7 +13,7 @@ if !isBeingHit {
 	var amt = alarm[5]/5;
 	shader_set_uniform_f(uPOSITION,amt);
 }
-var isAttackingWithCore = type != CombatantTypes.Player && state == CombatantStates.Attacking && attackData != noone && attackData.limbKey == noone;
+var isAttackingWithCore = type != CombatantTypes.Player && state == CombatantStates.Attacking && attackData != noone && (attackData.limbKey == noone || !hasHands);
 // draw stagger sprite if staggering
 if state == CombatantStates.Staggering {
 	if isDying {
@@ -57,15 +57,15 @@ if isAttackingWithCore {
 	var attackNumber = attackData.spriteAttackNumber; var attackNumberInChain = attackData.spriteAttackNumberInChain;
 	var spr = noone; var frame = -1;
 	if ds_map_size(preparingLimbs) > 0 {
-		var frame = ds_map_find_value(prepFrames,noone);
+		var frame = ds_map_find_value(prepFrames,attackData.limbKey);
 		spr = asset_get_index(attackSpriteName+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));
 	}
 	else if ds_map_size(attackingLimbs) > 0 {
-		var frame = ds_map_find_value(attackFrames,noone);
+		var frame = ds_map_find_value(attackFrames,attackData.limbKey);
 		spr = asset_get_index(attackSpriteName+"_attack_"+string(attackNumber)+"_"+string(attackNumberInChain));
 	}
 	else if ds_map_size(recoveringLimbs) > 0 {
-		var frame = ds_map_find_value(recoverFrames,noone);
+		var frame = ds_map_find_value(recoverFrames,attackData.limbKey);
 		spr = asset_get_index(attackSpriteName+"_recover_"+string(attackNumber)+"_"+string(attackNumberInChain));
 	}
 	if spr == noone {

@@ -107,7 +107,8 @@ if instance_exists(fade) {
 			// or used revive orb
 			else {
 				other.reviveOrbs.count--;
-				jumpToNearestFreePoint(0,1);
+				jumpToNearestFreePoint(0,1); // don't let player revive in a fallzone
+				respawnEnemies();
 			}
 			
 			with obj_combatant_parent {

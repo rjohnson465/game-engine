@@ -57,9 +57,10 @@ lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
 
 // light radius
+/*
 global.owner = id;
 global.makeLightOnCreate = false;
-instance_create_depth(x,y,1,obj_light_radius);
+instance_create_depth(x,y,1,obj_light_radius);*/
 
 menusHandleHeight = 20;
 
