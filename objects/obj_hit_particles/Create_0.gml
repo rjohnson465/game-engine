@@ -20,7 +20,7 @@ particle3 = noone;
 particle4 = noone;
 
 // special: if type is an instance of obj_attack_data_parent, use its part1 for particle
-if instance_exists(type) && object_is_ancestor(type.object_index, obj_attack_data_parent) {
+if !is_string(type) && instance_exists(type) && object_is_ancestor(type.object_index, obj_attack_data_parent) {
 	particle = type.part1;
 	num = type.part1Num;
 } else {

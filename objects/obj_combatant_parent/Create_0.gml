@@ -26,6 +26,8 @@ prevX = x;
 prevY = y;
 endX = x;
 endY = y;
+walkingSound = noone;
+walkingSoundIndex = noone;
 walkingEmitter = audio_emitter_create();
 audio_emitter_gain(walkingEmitter, 0);
 audio_emitter_falloff(walkingEmitter,50,AUDIO_MAX_FALLOFF_DIST,1);
@@ -329,6 +331,11 @@ with obj_light_radius {
 if lr == noone {
 	global.owner = id;
 	global.makeLightOnCreate = false;
+	
+	if object_index == obj_player {
+		var a = 3;
+	}
+	
 	instance_create_depth(x,y,1,obj_light_radius);
 }
 

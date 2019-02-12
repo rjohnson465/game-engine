@@ -7,7 +7,7 @@ draw_set_color(c_gray); draw_set_alpha(.5);
 draw_rectangle(topLeftX,MENUS_TOPLEFT_Y,topLeftX+width,MENUS_BOTTOMRIGHT_Y,0);
 
 draw_set_color(c_black); draw_set_alpha(1);
-draw_rectangle(invTopLeftX,invTopLeftY,MENUS_TOPLEFT_X+width,MENUS_BOTTOMRIGHT_Y,1);
+draw_rectangle(invTopLeftX+width,invTopLeftY,MENUS_TOPLEFT_X+width+width,MENUS_BOTTOMRIGHT_Y,1);
 
 draw_set_color(C_HANDLES); draw_set_alpha(1);
 draw_rectangle(topLeftX,MENUS_TOPLEFT_Y,topLeftX+width,MENUS_TOPLEFT_Y+menusHandleHeight,0);
@@ -89,12 +89,24 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	draw_sprite_ext(spr_prompt_xbox_rb,1,topLeftX+(filtersTotalWidth+filtersWidth),topLeftY,scale,scale,0,c_white,1);
 }
 filtersTotalWidth += (filtersWidth*filterOffset);
+/*
 var filterString = getInvFilterName(filter);
-
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 draw_text(mean(topLeftX+filtersTotalWidth,topLeftX+width),mean(topLeftY,topLeftY+filtersHeight),filterString);
+*/
+
+// gold?
+var sh = sprite_get_height(spr_item_coins);
+var sys = filtersHeight / sh;
+draw_set_color(c_gray);
+draw_rectangle(topLeftX+filtersTotalWidth+1, topLeftY+1, topLeftX+width-1, topLeftY+filtersHeight-1,1);
+draw_sprite_ext(spr_item_coins,1,topLeftX+filtersTotalWidth+5,topLeftY,sys,sys,0,c_white,1);
+draw_set_color(c_white); draw_set_halign(fa_right); draw_set_valign(fa_center);
+draw_text(topLeftX+width-5, mean(topLeftY+1, topLeftY+filtersHeight-1), getGoldCount());
+
+
 	
 // scroll bar
 draw_set_color(c_black);

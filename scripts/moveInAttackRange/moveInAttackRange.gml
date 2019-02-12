@@ -30,7 +30,7 @@ if attackFrequencyFrame < 0 {
 	randomize();
 	var rand = random_range(1,100);
 	if rand <= aggressiveness {
-		if !isFrozen {
+		if !isFrozen && !isShielding {
 			hasCalculatedWillDodge = false;
 			isStrafing = false;
 			if attackData.prepSound != noone {

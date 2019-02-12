@@ -1,11 +1,9 @@
 if global.playerDoNothing exit;
 
 event_inherited();
-
+isShowingLightRadius = true;
 if layerToMoveTo != noone {
 	layer = layer_get_id(layerToMoveTo);
-	playerLightRadius.layer = layer;
-	playerLightRadius.depth = layer_get_depth(layer);
 }
 
 if justRevivedAtFountain {
@@ -19,11 +17,13 @@ if justRevivedAtFountain {
 		}
 		wishAtFountain(false);
 	}
-}
+
+	updateLightLayer(playerLightRadius,noone,layer);
+
+} 
 
 // handles layer shading
 updateRoomLayers();
-isShowingLightRadius = true;
 
 audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
 walkingInWaterEmitter = audio_emitter_create();

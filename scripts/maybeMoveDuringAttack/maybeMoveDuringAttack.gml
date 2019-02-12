@@ -18,7 +18,7 @@ if ds_map_size(attackingLimbs) != 0 {
 		var y1 = y + lengthdir_y(2,facingDirection);
 
 		if attackingMelee && attackData.type == AttackTypes.Standard {
-			moveToNearestFreePoint(facingDirection,functionalSpeed);
+			moveToNearestFreePoint(facingDirection,functionalSpeed, type == CombatantTypes.Enemy, type == CombatantTypes.Enemy, 45);
 		} else {
 			speed = 0;
 		}

@@ -24,7 +24,10 @@ with obj_combatant_parent {
 				ds_map_replace(conditionPercentages,FIRE,0);
 			}
 			
-			//if !isMoving exit;
+			//if id == global.player {
+			//show_debug_message(object_get_name(object_index));
+			//}
+			if !isMoving continue;
 			
 			var currentWaterParticlesObj = noone; 
 			var currentWaterParticlesObjIsDestroying = false;

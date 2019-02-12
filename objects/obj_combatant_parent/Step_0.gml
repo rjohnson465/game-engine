@@ -544,6 +544,13 @@ for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
 }
 
 if state == CombatantStates.Moving && isMoving {
+	if walkingSoundIndex = noone {
+		walkingSoundIndex = audio_play_sound_on(walkingEmitter, walkingSound, 1, 1);
+	}
 	audio_emitter_gain(walkingEmitter,1);
-} else audio_emitter_gain(walkingEmitter,0);
+} else {
+	audio_stop_sound(walkingSoundIndex);
+	walkingSoundIndex = noone;
+	audio_emitter_gain(walkingEmitter,0);
+}
 

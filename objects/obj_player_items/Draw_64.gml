@@ -64,6 +64,7 @@ if isConfirming {
 	}
 }
 
+/*
 // draw player funds
 draw_set_color(c_black);
 draw_set_font(font_main);

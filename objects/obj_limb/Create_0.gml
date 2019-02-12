@@ -1,6 +1,9 @@
 owner = global.owner;
 limbKey = global.limbKey;
 limbItem = ds_map_find_value(owner.equippedLimbItems,limbKey);
+// a "limited" limb only matters during attacks for collision purposes
+// a limited limb does not really exist during idle / move states
+isLimbLimited = global.isLimbLimited;
 persistent = global.isPersistent;
 layer = owner.layer;
 
@@ -9,9 +12,12 @@ instance_create_depth(x,y,1,obj_weapon);
 
 spriteString = "";
 
-if owner.type != CombatantTypes.Player {
+if owner.type != CombatantTypes.Player && !isLimbLimited {
 	spriteString = "spr_"+owner.spriteString + "_limb_" + limbItem.name;
 } 
+/*if isLimbLimited {
+	spriteString = noone;
+}*/
 
 if limbKey == "l" {
 	image_yscale = -1;

@@ -15,6 +15,11 @@ for (var i = 0; i < size; i++) {
 	audio_emitter_position(emitter,x,y,depth);
 	audio_emitter_gain(emitter,conditionPercent/100);
 	
+	// do not play sound if not on player layer
+	if depth < global.player.depth {
+		audio_emitter_gain(emitter,0);
+	}
+	
 	// particle effects for conditions
 	if conditionLevel > 0 && currentCondition != PHYSICAL {
 		var condParticlesExist = false;

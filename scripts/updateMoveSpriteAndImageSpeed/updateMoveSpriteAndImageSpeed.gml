@@ -3,6 +3,12 @@ if asset_get_index(sprString+"_move") && ((state == CombatantStates.Moving || st
 	if type != CombatantTypes.Player || (!global.ui.isShowingMenus && !global.isWishing) {
 		sprString = sprString+"_move";
 	}
+	if object_is_ancestor(object_index, obj_combatant_parent) && isShielding {
+		var sprString2 = sprString + "_shielding";
+		if asset_get_index(sprString2) >= 0 {
+			sprString = sprString2;
+		}
+	}
 }
 
 if asset_get_index(sprString+"_move") && type == CombatantTypes.Player && !global.ui.isShowingMenus {
@@ -54,4 +60,13 @@ if isSlowed {
 	is = is*.5;
 	image_speed = is
 }
+
+// maybe use a special base sprite for shielding
+if object_is_ancestor(object_index, obj_combatant_parent) && isShielding {
+	var sprString2 = sprString + "_shielding";
+	if asset_get_index(sprString2) >= 0 {
+		sprString = sprString2;
+	}
+}
+
 sprite_index = asset_get_index(sprString);

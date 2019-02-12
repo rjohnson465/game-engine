@@ -7,6 +7,7 @@ if isLoading {
 		isLoading = false;
 		roomToGoTo = noone;
 		isReadyToMoveRooms = false;
+	
 		fs_load_game(currentSaveFile);
 	}
 }

@@ -356,3 +356,5 @@ if ui.currentMenu == SKILLS && isActive {
 		w += drawPrompt("Browse skills", Input.LB,promptsStartX+w,promptsY)+xOffset;
 	}
 }
+
+draw_set_alpha(1);

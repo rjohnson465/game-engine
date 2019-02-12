@@ -5,9 +5,11 @@ draw_set_color(c_white);
 draw_set_font(font_damage);
 draw_set_halign(fa_left);
 var x1 = 0; var y1 = 0;
+var spw = sprite_get_bbox_right(sprite_index)-sprite_get_bbox_left(sprite_index); 
+var sph = sprite_get_bbox_bottom(sprite_index)-sprite_get_bbox_top(sprite_index);
 if victim.type == CombatantTypes.Enemy {
-	x1 = (victim.x-vx)+(victim.sprite_width*.5)+5;
-	y1 = (victim.y-vy)-(victim.sprite_height*.5)-15;
+	x1 = (victim.x-vx)+(spw*.5)+5;
+	y1 = (victim.y-vy)-(sph*.5)-15;
 } else if victim.type == CombatantTypes.Player {
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);

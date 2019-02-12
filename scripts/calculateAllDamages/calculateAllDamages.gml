@@ -179,5 +179,5 @@ for (var i = 0; i < size; i++) {
 	currentDamageType = ds_map_find_next(damagesMap, currentDamageType);
 }
 
-//return [damage,damagesTaken];
-return [0, damagesTaken];
+return [damage,damagesTaken];
+//return [0, damagesTaken];

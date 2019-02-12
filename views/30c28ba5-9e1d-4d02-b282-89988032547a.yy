@@ -9,7 +9,8 @@
         "20a917c5-98ba-49a1-82f3-ff8c458449f5",
         "1bda8aa3-5473-46d4-8dd7-5d417b70c1c9",
         "3cf6ca51-82cf-4ca7-9024-7deb28469e68",
-        "27cfe6eb-c852-4f0c-97d2-58afef942b4a"
+        "27cfe6eb-c852-4f0c-97d2-58afef942b4a",
+        "0191b575-46a0-4104-b39c-293535c6f12e"
     ],
     "filterType": "GMSprite",
     "folderName": "spikedshield",

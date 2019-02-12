@@ -22,9 +22,9 @@ fs_load_enemies(ds_map_find_value(save_data,"Enemies"));
 fs_load_roomdata(ds_map_find_value(save_data,"RoomData"));
 
 // load in player -- TODO
-var nextRoomLayer = "instances_floor_1";
+/*var nextRoomLayer = "instances_floor_1";
 var p = global.player;
-p.layerToMoveTo = nextRoomLayer;
+p.layerToMoveTo = nextRoomLayer;*/
 with obj_weapon {
 	refreshParticles = true;
 }

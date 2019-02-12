@@ -36,10 +36,10 @@ visible = true;
 var s = attackData.spriteName+"_"+string(attackData.spriteAttackNumber)+"_"+string(attackData.spriteAttackNumberInChain)+"_projectile";
 sprite_index = asset_get_index(s);
 
-if part_type_exists(attackData.part1) {
+/*if part_type_exists(attackData.part1) {
 	particle = attackData.part1;
 	part_type_direction(particle,direction-45, direction+45, 0, 5);
-}
+}*/
 if part_type_exists(attackData.part2) {
 	particle = attackData.part2;
 }

@@ -50,6 +50,7 @@ if _light_time >= _light_max_time
         var _light = ds_list_find_value(_lights, i)
 		
 		if instance_exists(_light) {
+
 			// don't draw lights outside the view
 			var vx = camera_get_view_x(view_camera[0]); var vy = camera_get_view_y(view_camera[0]);
 			var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(view_camera[0]);

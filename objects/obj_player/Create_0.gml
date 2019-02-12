@@ -1,3 +1,7 @@
+if instance_number(object_index) > 1 {
+	instance_destroy(id,0);
+	exit;
+}
 global.player = id;
 alarm[2] = 15; // ensure player isn't "stuck" every 15 frames
 if room == game_menu && global.playerDoNothing {
@@ -9,6 +13,7 @@ playerLightRadius = noone;
 layer = layer_get_id("instances_floor_1");
 
 event_inherited();
+
 
 global.isLooting = false;
 global.canLoot = false;
@@ -221,8 +226,9 @@ lastFountainY = noone;
 lastFountainZ = noone;
 
 gamePadIndex = noone;
-
-layerToMoveTo = noone;
+if !global.gameManager.isLoading {
+	layerToMoveTo = noone;
+}
 
 dyingParticleColor1 = c_white;
 dyingParticleColor2 = c_gray;

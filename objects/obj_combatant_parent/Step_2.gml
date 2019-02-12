@@ -18,12 +18,16 @@ if part_type_exists(sprintParticle) && isSprinting {
 	part_emitter_burst(sprintParticleSystem,sprintParticleEmitter,sprintParticle,-1);
 }
 
+var pDepth = global.player.depth;
+
 if	type != CombatantTypes.Player && attackData != noone && attackData.prepPart1 != noone 
-	&& part_type_exists(attackData.prepPart1) && ds_map_size(preparingLimbs) != 0 {
+	&& part_type_exists(attackData.prepPart1) && ds_map_size(preparingLimbs) != 0 && depth >= pDepth {
 	var parttype = attackData.prepPart1;
 	// TODO maybe define a more specific burst region
 	if attackData.prepPart1BelowOwner {
 		part_system_depth(appSystem, layer_get_depth(layer)+1);
+	} else {
+		part_system_depth(appSystem, layer_get_depth(layer)-1);
 	}
 	part_emitter_region(appSystem,appEmitter,bbox_left, bbox_right, bbox_top, bbox_bottom, ps_shape_ellipse, ps_distr_gaussian);
 	part_emitter_burst(appSystem,appEmitter,parttype, attackData.prepPart1Num);

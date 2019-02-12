@@ -61,7 +61,7 @@ if currentMeleeAttackIndex == 3 {
 
 currentMeleeAttack = ds_list_find_value(properRangeAttacks,currentMeleeAttackIndex);
 onAlert = true;
-isShielding = false;
+//isShielding = false;
 				
 // TODO -- melee 2H accounting
 var rightHandItem = ds_map_find_value(handItems,"rm1");

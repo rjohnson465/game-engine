@@ -89,3 +89,5 @@ if ui.currentMenu == SKILLS && skillSelector.selectedSkill && skillSelector.sele
 		//w += drawPrompt("Select quest", Input.LMB,promptsStartX+w,promptsY)+xOffset;
 	}
 }
+
+draw_set_alpha(1);

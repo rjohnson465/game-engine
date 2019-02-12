@@ -6,9 +6,9 @@ if owner.state == CombatantStates.Dodging {
 if ds_map_find_value(owner.equippedLimbItems,limbKey) != limbItem {
 	limbItem = ds_map_find_value(owner.equippedLimbItems,limbKey);
 	
-	if owner.type != CombatantTypes.Player {
+	if owner.type != CombatantTypes.Player /*&& !isLimbLimited*/ {
 		spriteString = "spr_"+owner.spriteString + "_limb_" + limbItem.spriteName;
-	} else {
+	} else if !isLimbLimited {
 		spriteString = limbItem.handSpriteString;
 	}
 	
@@ -47,14 +47,14 @@ layer = owner.layer;
 
 
 if limbItem.subType == HandItemTypes.Shield && owner.isShielding {
-	if owner.type == CombatantTypes.Player {
+	if owner.type == CombatantTypes.Player /*&& !isLimbLimited*/ {
 		spriteString = limbItem.handSpriteString+"_block";
 	} else {
 		spriteString = "spr_"+owner.spriteString + "_limb_" + limbItem.spriteName + "_block";
 	}
 	sprite_index = asset_get_index(spriteString);
 } else {
-	if owner.type != CombatantTypes.Player {
+	if owner.type != CombatantTypes.Player /*&& !isLimbLimited*/ {
 		spriteString = "spr_"+owner.spriteString + "_limb_" + limbItem.spriteName;
 	} else {
 		spriteString = limbItem.handSpriteString;
@@ -64,7 +64,7 @@ if limbItem.subType == HandItemTypes.Shield && owner.isShielding {
 }
 image_angle = owner.facingDirection;
 
-
+// TODO factor for "limited" limbs
 if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {
 	image_index = ds_map_find_value(owner.prepFrames,limbKey);
 	sprite_index = getLimbSpriteIndex("prep");

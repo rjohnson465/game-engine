@@ -1,4 +1,4 @@
-if !instance_exists(type) || (instance_exists(type) && !object_is_ancestor(type.object_index, obj_attack_data_parent)) {
+if !is_string(type) && (!instance_exists(type) || (instance_exists(type) && !object_is_ancestor(type.object_index, obj_attack_data_parent))) {
 	part_type_destroy(particle);
 }
 

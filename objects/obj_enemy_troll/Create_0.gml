@@ -31,7 +31,7 @@ strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
 waryTotalFrames=[60,90];
 skittishness = 100;
-cautiousness = 50;
+cautiousness = 100;
 
 xpReward = 400;
 
@@ -49,6 +49,8 @@ ds_map_replace(equippedLimbItems,"r",spikedshield);
 
 var rightWep = makeLimblessWeapon(id,"r");
 var leftWep = makeLimblessWeapon(id,"l");
+//var rightHand = makeLimb(id,"r", true);
+//var leftHand = makeLimb(id,"l", true);
 
 // ATTACKS
 
@@ -92,7 +94,8 @@ ds_map_replace(defenses, FIRE, -100);
 agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
-audio_play_sound_on(walkingEmitter,snd_walking_heavy,1,1);
+//audio_play_sound_on(walkingEmitter,snd_walking_heavy,1,1);
+walkingSound = snd_walking_heavy;
 
 //soundsWhenHitVocals = [snd_enemy_mushroom_hit1, snd_enemy_mushroom_hit2, snd_enemy_mushroom_hit3, snd_enemy_mushroom_hit4];
 soundsWhenDie = [snd_enemy_troll_death1];

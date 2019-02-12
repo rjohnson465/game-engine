@@ -93,6 +93,26 @@ if isAttackingWithCore {
 	}
 }
 
+// if shielding with "limbless" hand item, change base sprite to <sprite_name>+_"shielding" sprite
+if isShielding && state != CombatantStates.Moving {
+	var spr = asset_get_index("spr_"+spriteString+"_shielding");
+	var frame = 1;
+	if spr >= 0 && spr != undefined && frame >= 0 {
+		draw_sprite_ext(spr,frame,x,y,1,1,facingDirection,c_white,alpha);
+		
+		// slowed
+		if isSlowed {
+			var percentFrozen = ds_map_find_value(conditionPercentages,ICE);
+			var colorAlpha = (3/320)*percentFrozen;
+			draw_sprite_ext(spr, frame, x, y, 1, 1, facingDirection, c_aqua, .5*alpha);
+		} else if isPoisoned {
+			var percentPoisoned = ds_map_find_value(conditionPercentages,POISON);
+			var colorAlpha = (3/320)*percentPoisoned;
+			draw_sprite_ext(spr, frame, x, y, 1, 1, facingDirection, c_green, .5*alpha);
+		}
+	}
+}
+
 if state != CombatantStates.Dodging && state != CombatantStates.Staggering && !isAttackingWithCore {
 	
 	updateMoveSpriteAndImageSpeed();

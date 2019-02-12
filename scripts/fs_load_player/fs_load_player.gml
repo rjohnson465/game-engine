@@ -14,4 +14,13 @@ with global.player {
 	var tutFirstsMap = ds_map_find_value(sd_player,"TutorialFirstsMap");
 	var mapClone = ds_map_deep_clone(tutFirstsMap);
 	tutorialFirstsMap = mapClone;
+	
+	// reset player light radius to the persistent player light radius object
+	with obj_light_radius {
+		if owner == other {
+			other.playerLightRadius = id;
+		}
+	}
+	
+	updateLightLayer(playerLightRadius, noone, layerToMoveTo);
 }

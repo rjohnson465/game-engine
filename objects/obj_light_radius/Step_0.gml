@@ -10,6 +10,7 @@ if instance_exists(owner) {
 		depth = layer_get_depth(layer);
 	} else {
 		layer = owner.layer;
+		// updateLightLayer(id,noone, layer);
 	}
 }
 

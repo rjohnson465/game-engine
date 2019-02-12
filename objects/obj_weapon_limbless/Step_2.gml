@@ -60,6 +60,9 @@ if (owner.state == CombatantStates.Moving || owner.state == CombatantStates.Wary
 else if owner.state == CombatantStates.Staggering {
 	sprite_index = asset_get_index(spriteString + "_stagger");
 }
+else if owner.isShielding {
+	sprite_index = asset_get_index(spriteString + "_block");
+}
 /*
 else if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {
 	image_index = ds_map_find_value(owner.prepFrames,limbKey);

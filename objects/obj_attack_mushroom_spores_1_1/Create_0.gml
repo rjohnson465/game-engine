@@ -18,7 +18,7 @@ part1 = part_type_create();
 //part_type_sprite(part1,spr_enemy_speyeder_aoe_1_1_particle,1,0,1);
 part_type_shape(part1, pt_shape_sphere);
 part_type_alpha2(part1,1,.2);
-part_type_color2(part1,c_olive,c_gray);
+part_type_color2(part1,c_olive,c_white);
 part_type_size(part1,.05,.15,0,0);
 part_type_speed(part1,.5,2,0,0);
 part_type_direction(part1,0,360,0,4); // set later
@@ -32,7 +32,7 @@ prepSound = snd_enemy_speyeder_webprep;
 
 prepPart1 = part1;
 prepPart1BelowOwner = true;
-prepPart1Num = 2;
+prepPart1Num = 20;
 
 mrOffset = 200; // random projectiles within n px of target
 mrPrepDuration = 60; // how long each projectile charges

@@ -16,6 +16,9 @@ var itemHitWith = argument[5];
 var attackData = argument[6];
 
 var shield = ds_map_find_value(equippedLimbItems, "r");
+if shield.subType != HandItemTypes.Shield {
+	shield = ds_map_find_value(equippedLimbItems, "l");
+}
 if !object_is_ancestor(shield.object_index,obj_shield_parent) shield = ds_map_find_value(equippedLimbItems, "r");
 var dt = shield.material == WOOD ? "Dust" : "Block";
 global.damageType = dt;
@@ -27,7 +30,7 @@ global.victim = id;
 instance_create_depth(0,0,1,obj_hit_particles);
 var snd = shield.material == WOOD ? snd_shield_hit_wood : snd_shield_hit_metal;
 audio_play_sound_at(snd,__x,__y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
-var shield = ds_map_find_value(equippedLimbItems,"r");
+//var shield = ds_map_find_value(equippedLimbItems,"r");
 					
 // remove the same percentage of stamina as it would have removed health
 var percentageOfHealth = actualDamage / maxHp;

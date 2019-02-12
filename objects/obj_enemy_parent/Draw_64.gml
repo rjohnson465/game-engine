@@ -4,16 +4,18 @@ if id.showHp && id.isAlive && !id.isDying && layer == global.player.layer {
 	// totalhp bar outline
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
-	var hpOutlineLeftX = (id.x-vx)-(.5*id.sprite_width);
-	var hpOutlineTopY = (id.y-vy)-(.5*id.sprite_height)-10;
-	var hpOutlineRightX = (id.x-vx)+(.5*id.sprite_width);
-	var hpOutlineBottomY = (id.y-vy)-(.5*id.sprite_height)-5;
+	var spw = sprite_get_bbox_right(sprite_index)-sprite_get_bbox_left(sprite_index); 
+	var sph = sprite_get_bbox_bottom(sprite_index)-sprite_get_bbox_top(sprite_index);
+	var hpOutlineLeftX = (id.x-vx)-(.5*spw);
+	var hpOutlineTopY = (id.y-vy)-(.5*sph)-10;
+	var hpOutlineRightX = (id.x-vx)+(.5*spw);
+	var hpOutlineBottomY = (id.y-vy)-(.5*sph)-5;
 	draw_set_color(c_white);
 	draw_rectangle(hpOutlineLeftX,hpOutlineTopY,hpOutlineRightX,hpOutlineBottomY,true);
 	
 	// current hp
 	var percentHpLeft = id.hp / id.maxHp;
-	var currentHpRightX = hpOutlineLeftX + (id.sprite_width * percentHpLeft);
+	var currentHpRightX = hpOutlineLeftX + (spw * percentHpLeft);
 	if (currentHpRightX < hpOutlineLeftX) currentHpRightX = hpOutlineLeftX;
 	draw_set_color(c_red);
 	draw_rectangle(
@@ -40,12 +42,12 @@ if id.showHp && id.isAlive && !id.isDying && layer == global.player.layer {
 		// top right corner of current hp bar
 		var sustainingDamageLeftX = currentHpRightX;
 		var percentOfTotal = sustainingDamage / id.maxHp;
-		var sustainingDamageRightX = sustainingDamageLeftX + (id.sprite_width * percentOfTotal);
+		var sustainingDamageRightX = sustainingDamageLeftX + (spw * percentOfTotal);
 		
 		// offset the damage right x to account for any hp regen or healing
 		if healingSustained > 0 {
 			var deltaPercent = healingSustained / id.maxHp;
-			var xOff = id.sprite_width * deltaPercent;
+			var xOff = spw * deltaPercent;
 			sustainingDamageRightX -= xOff;
 		}
 		

@@ -1,12 +1,26 @@
 owner = global.owner;
+
+
 layer = owner.layer;
 if owner.object_index == obj_fountain || owner.object_index == obj_sconce {
 	layer = owner.origLayer;
 }
-if owner.object_index == obj_player || owner == global.player {
-	persistent = true;
+
+var il = global.gameManager.isLoading;
+if il && owner.object_index == obj_player {
+
+	// do not allow multiple player light radii
+	with obj_light_radius {
+		if instance_exists(id) && owner == global.player {
+			instance_destroy(other);
+			exit;
+		}
+	}
+
 	owner.playerLightRadius = id;
+	
 }
+
 
 
 makeLightOnCreate = global.makeLightOnCreate;

@@ -51,12 +51,12 @@ if argument_count == 11 {
 	draw_set_color(outlineColor);
 	draw_text_ext_transformed(x1 - 1, y1 - 1,text,sep,w,xs,ys,a);
 	draw_text_ext_transformed(x1, y1 - 1, text,sep,w,xs,ys,a);
-	draw_text_ext_transformed(x1 + 1, y1 - 1,sep,w,text,xs,ys,a);
+	draw_text_ext_transformed(x1 + 1, y1 - 1,text,sep,w,xs,ys,a);
 	draw_text_ext_transformed(x1 - 1, y1,text,sep,w,xs,ys,a);
 	draw_text_ext_transformed(x1 + 1, y1,text,sep,w,xs,ys,a);
-	draw_text_ext_transformed(x1 - 1, y1 + 1,sep,w,text,xs,ys,a);
+	draw_text_ext_transformed(x1 - 1, y1 + 1,text,sep,w,xs,ys,a);
 	draw_text_ext_transformed(x1, y1 + 1,text,sep,w,xs,ys,a);
-	draw_text_ext_transformed(x1 + 1, y1 + 1,sep,w,text,xs,ys,a);
+	draw_text_ext_transformed(x1 + 1, y1 + 1,text,sep,w,xs,ys,a);
 
 	draw_text_ext_transformed_color(x1,y1,text,sep,w,xs,ys,a,c1,c1,c2,c2,draw_get_alpha());
 } else {

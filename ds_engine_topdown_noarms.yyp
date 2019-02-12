@@ -87,6 +87,14 @@
             }
         },
         {
+            "Key": "0191b575-46a0-4104-b39c-293535c6f12e",
+            "Value": {
+                "id": "19f5db1c-31cb-48c3-80bf-1fd1f467bddd",
+                "resourcePath": "sprites\\spr_enemy_troll_spikedshield_block\\spr_enemy_troll_spikedshield_block.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "01a586ae-1990-4a09-aa7b-413bc1526884",
             "Value": {
                 "id": "40bd8579-4c11-40b4-a0e2-d041407f1b25",
@@ -787,6 +795,14 @@
             "Value": {
                 "id": "30a3dd84-9742-446e-939a-60fca2fa960b",
                 "resourcePath": "sprites\\spr_player_hand_axe_1h_prep_1\\spr_player_hand_axe_1h_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0dbcbbf6-f57a-451c-8fac-164f3abc099b",
+            "Value": {
+                "id": "0e24ce53-c7ca-457b-b9fb-3aaca24ecea5",
+                "resourcePath": "sprites\\spr_enemy_troll_staff_block\\spr_enemy_troll_staff_block.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1711,6 +1727,14 @@
             }
         },
         {
+            "Key": "1d79cebd-c8a2-4fc4-8620-6b598d88c23a",
+            "Value": {
+                "id": "d7fa085d-bd67-455b-8c4a-f98b1e899451",
+                "resourcePath": "sprites\\spr_enemy_troll_shielding\\spr_enemy_troll_shielding.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1d9c8a6a-92f0-46f6-b5b1-53e340ed7bd0",
             "Value": {
                 "id": "9e1630cd-6b78-4f4d-9a76-cc8a92a3a34a",
@@ -2191,6 +2215,22 @@
             }
         },
         {
+            "Key": "27e6312b-40a4-4de3-b39c-ba9d33718609",
+            "Value": {
+                "id": "0ad7b206-6230-4d08-a9f0-c575aa81799d",
+                "resourcePath": "sprites\\spr_enemy_troll_limb_staff_attack_1_1\\spr_enemy_troll_limb_staff_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "27f58e3d-ec7e-42cd-8fdf-17c8cfe068b5",
+            "Value": {
+                "id": "61f3a002-8298-4e59-ad5c-32cd657a30e4",
+                "resourcePath": "sprites\\spr_enemy_troll_limb_staff_recover_1_2\\spr_enemy_troll_limb_staff_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "280eaca6-28bd-4589-9663-a96fc58ce29a",
             "Value": {
                 "id": "a640bb37-b340-47db-b8cd-4d4f3f9e3f36",
@@ -2372,6 +2412,14 @@
                 "id": "ce0a37a0-d1e1-41c7-8ad7-7cc4ed4cdda8",
                 "resourcePath": "views\\2a9249ec-c635-44bb-9c90-5356a4253d0e.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "2a9f2741-f086-46a9-b0fd-61d4c713ce65",
+            "Value": {
+                "id": "5aa346b5-f5ce-4f4c-90f0-ce314c5bd117",
+                "resourcePath": "sprites\\spr_enemy_troll_move_shielding\\spr_enemy_troll_move_shielding.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3459,6 +3507,14 @@
             "Value": {
                 "id": "df689f59-3af4-4caf-913c-81b1fad447e8",
                 "resourcePath": "sprites\\spr_gem_emerald_normal\\spr_gem_emerald_normal.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3fb59b5b-2b7c-46bc-8482-54ae93afc3ae",
+            "Value": {
+                "id": "a93e2dc1-fe4b-41ec-9496-854b78e5fcb9",
+                "resourcePath": "sprites\\spr_enemy_troll_limb_staff_prep_1_1\\spr_enemy_troll_limb_staff_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6412,6 +6468,14 @@
                 "id": "8967027d-f582-4de1-80ec-44ba480edfd0",
                 "resourcePath": "sprites\\spr_player_warhammer_prep_2\\spr_player_warhammer_prep_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "797e52a2-056a-4330-97d0-e4a373e1a603",
+            "Value": {
+                "id": "4af17669-7e5c-434b-a681-c28ad0b9fbba",
+                "resourcePath": "views\\797e52a2-056a-4330-97d0-e4a373e1a603.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
