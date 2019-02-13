@@ -104,3 +104,5 @@ ds_map_replace(persistentProperties, "FacingDirectionStart", facingDirection);
 texFrame = 0;
 texFrameTotals = 0;//sprite_get_number(spr_texture_clouds_red);
 descriptionChoices = [];
+
+doesEnemyRespawn = true;

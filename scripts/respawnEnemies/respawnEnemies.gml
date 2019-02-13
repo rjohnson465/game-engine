@@ -22,6 +22,7 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 		var postZ = ds_map_find_value(sd_temp_enemy, "PostZ");
 		var fdStart = ds_map_find_value(sd_temp_enemy, "FacingDirectionStart");
 		var hpMax = ds_map_find_value(sd_temp_enemy, "MaxHp");
+		var doesEnemyRespawn = ds_map_find_value(sd_temp_enemy, "DoesEnemyRespawn");
 		
 		ds_map_replace(sd_temp_enemy,"CurrentX",postX);
 		ds_map_replace(sd_temp_enemy,"CurrentY",postY);
@@ -31,7 +32,14 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 		//var enemy = findPersistentRoomElement(obj_enemy_parent,postX,postY);
 		ds_map_replace(sd_temp_enemy,"FacingDirection",fdStart);
 		ds_map_replace(sd_temp_enemy,"Hp",hpMax);
-		ds_map_replace(sd_temp_enemy,"IsAlive",true);
+		var enemyObjIndexName = ds_map_find_value(sd_temp_enemy, "ObjectIndexName");
+		
+		// only set an enemy to be alive if it respawns. If it does not, make sure it stays dead
+		if doesEnemyRespawn == undefined || doesEnemyRespawn > 0 {
+			ds_map_replace(sd_temp_enemy,"IsAlive",true);
+		} else {
+			ds_map_replace(sd_temp_enemy,"IsAlive",false);
+		}
 		
 		ek = ds_map_find_next(sd_temp_enemies_room, ek);
 	}

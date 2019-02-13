@@ -2,7 +2,7 @@ if hp < 1 exit;
 // only regen stamina when moving or idle
 var SHIFT = keyboard_check(vk_shift) 
 			|| gamepad_button_check(global.player.gamePadIndex, gp_stickl)
-			|| gamepad_button_check(global.player.gamePadIndex,gp_face4);
+			|| global.player.isHoldingSprintButton;
 if	 stamina < maxStamina && (state == CombatantStates.Idle || state == CombatantStates.Moving 
 	|| (state == CombatantStates.Attacking && type == CombatantTypes.Player)) {
 	// do not regen stamina while dashing

@@ -17,12 +17,14 @@ if isAlive {
 	y = -1000;
 }
 hp = ds_map_find_value(persistentProperties, "Hp");
-		
-layer = ds_map_find_value(persistentProperties, "CurrentZ");
-if layer == -1 {
-	var pz = ds_map_find_value(persistentProperties, "PostZ");
-	layer = pz;
-}
+
+
+	layer = ds_map_find_value(persistentProperties, "CurrentZ");
+	if layer == -1 {
+		var pz = ds_map_find_value(persistentProperties, "PostZ");
+		layer = pz;
+	}
+
 
 var lr = noone; var oldLayer = noone;
 with obj_light_radius {

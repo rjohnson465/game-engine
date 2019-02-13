@@ -1,5 +1,8 @@
 event_inherited();
 
+isShowingLightRadius = true;
+lightRadiusScale = .3;
+
 // this is pretty stupid, but find your light radius, destroy it, remake it so light radius is made on create
 var lr = noone;
 with obj_light_radius {
@@ -18,12 +21,15 @@ if (lr != noone) {
 name = "Spore";
 descriptionChoices = ["Ugh babies am i right", "EWWWWWWWW"];
 description = "Ugh babies am i right";
-spriteName = "mushroom";
+spriteName = "spore";
 spriteString = "enemy_spore";
 isFairy = false;
 isFloating = false;
 
+sightAngleDelta = 360;
+
 // spore specific
+doesEnemyRespawn = false;
 randomize();
 sporeDirection = random_range(0,360);
 sporeIsInactive = true;
@@ -70,7 +76,7 @@ rangedAggroRange = 800;
 farthestAllowedFromPost = 5000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
 attackFrequencyTotalFramesMelee = [30,50];
-attackFrequencyTotalFramesRanged = [60,90];
+attackFrequencyTotalFramesRanged = [80,120];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
 waryTotalFrames=[60,90];
@@ -122,15 +128,3 @@ totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_d
 
 soundsWhenHitVocals = [snd_enemy_mushroom_hit1, snd_enemy_mushroom_hit2, snd_enemy_mushroom_hit3, snd_enemy_mushroom_hit4];
 soundsWhenDie = [snd_enemy_mushroom_death1, snd_enemy_mushroom_death2];
-
-
-// since this is a dynamically added enemy, we must manually add it to the room data
-with obj_room_data {
-	ds_map_add_map(enemiesData, other.key, other.persistentProperties);
-	var map = ds_map_find_value(enemiesData, other.key);
-	// hp and maxHp init values must be recorded here, otherwise they're always 35 
-	// since thats the default base enemy class values, and persistentProperties map is 
-	// populated at the end of the Create Event of the base enemy class
-	ds_map_replace(map, "Hp", other.hp);
-	ds_map_replace(map, "MaxHp", other.maxHp); 
-}

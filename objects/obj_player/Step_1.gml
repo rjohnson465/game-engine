@@ -40,14 +40,24 @@ isMouseInMenu =
 	;
 	
 if gamepad_is_connected(gamePadIndex) {
-	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderlb) && !global.ui.isShowingMenus {
+	
+	// sprint counter -- when this is less than 0, isHoldingSprintButton is true and we will sprint
+	if gamepad_button_check(gamePadIndex, gp_face2) && !global.ui.isShowingMenus && sprintCounter > 0 {
+		sprintCounter--;
+		if sprintCounter <= 0 {
+			isHoldingSprintButton = true;
+		}
+	}
+	
+	
+	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderl) && !global.ui.isShowingMenus {
 		performLeftHandReleaseAction();
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderrb) && !global.ui.isShowingMenus {
+	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderr) && !global.ui.isShowingMenus {
 		performRightHandReleaseAction();
 	}
 	
-	if gamepad_button_check_released(gamePadIndex,gp_shoulderrb) {
+	if gamepad_button_check_released(gamePadIndex,gp_shoulderr) {
 		if object_is_ancestor(rightHandItem.object_index, obj_shield_parent)
 		|| (leftHandItem.isRanged && leftHandItem.isTwoHanded)
 		{
@@ -55,21 +65,28 @@ if gamepad_is_connected(gamePadIndex) {
 		}
 	}
 	
-	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderlb) {
+	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderl) {
 		performLeftHandDownAction();
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderrb) {
+	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderr) {
 		performRightHandDownAction();
 	}
 	if leftHandItem.isTwoHanded && leftHandItem.isRanged && gamepad_button_check(gamePadIndex, gp_shoulderrb) {
 		performRightHandDownAction();
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_face2) && !global.ui.isShowingMenus && !global.isLooting {
+	if gamepad_button_check_released(gamePadIndex,gp_face2) && !global.ui.isShowingMenus && !global.isLooting && !isHoldingSprintButton {
 		performDodge();
 	}
-	if gamepad_button_check(gamePadIndex,gp_shoulderl) && !global.ui.isShowingMenus {
+	
+	// spell casting
+	if gamepad_button_check(gamePadIndex,gp_shoulderlb) && !global.ui.isShowingMenus {
 		performChargeSpell();
 	}
+	/*if gamepad_button_check_released(gamePadIndex, gp_shoulderlb) && !global.ui.isShowingMenus  {
+		show_debug_message(currentUsingSpell);
+		performLeftHandReleaseAction();
+	}*/
+	
 	if gamepad_button_check_pressed(gamePadIndex,gp_padu) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
 		performCycleThroughSpells("up");
 	}
@@ -78,7 +95,7 @@ if gamepad_is_connected(gamePadIndex) {
 	}
 	
 	
-	if !gamepad_button_check(gamePadIndex, gp_shoulderr) {
+	if !gamepad_button_check(gamePadIndex, gp_shoulderrb) {
 		isHoldingAttunemntSwapMode = false;
 		if gamepad_button_check_pressed(gamePadIndex,gp_padr) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
 			performSwapRightHand();
@@ -144,5 +161,6 @@ if gamepad_is_connected(gamePadIndex) {
 				}
 			}
 		}
+		
 	}
 }

@@ -3,7 +3,7 @@ var currentSpellObj = ds_map_find_value(knownSpells,currentUsingSpell);
 var MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle);
 if gamepad_is_connected(gamePadIndex) {
 	MIDDLE_BUTTON_RELEASED = mouse_check_button_released(mb_middle) || 
-	gamepad_button_check_released(gamePadIndex,gp_shoulderl);
+	gamepad_button_check_released(gamePadIndex,gp_shoulderlb);
 }
 			
 if ds_map_size(attackingLimbs) == 0 && ds_map_size(preparingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 {

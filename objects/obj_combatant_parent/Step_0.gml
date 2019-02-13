@@ -174,13 +174,7 @@ switch(state) {
 					if distance_to_point(investigationPtX,investigationPtY) > 25 && investigatingFrame <= 0 {
 						if mp_grid_path(personalGrid,path,x,y,investigationPtX,investigationPtY,0) {
 							path_start(path,functionalSpeed,path_action_stop,false);
-						} /*else {
-							if !place_free(x,y) {
-								jumpToNearestFreePoint(1,1);
-							}
-							mp_potential_path(path,investigationPtX,investigationPtY,normalSpeed,5,0);
-							path_start(path,functionalSpeed,path_action_stop,false);
-						} */
+						} 
 					}
 					// we've reached the source of the sound
 					else {
@@ -526,14 +520,6 @@ with obj_fallzone {
 	}
 }
 
-// if colliding with a solid object, jump to nearest free point
-// this mainly resolves issues when enemies are using mp_grids and suddenly switch to mp_potential_* stuff
-/*if type == CombatantTypes.Enemy && staysOutOfEnemies {
-	if !place_free(x,y) {
-		jumpToNearestFreePoint(true, false);
-	}
-}*/
-
 // position water emitter, conditions emitters
 audio_emitter_position(walkingInWaterEmitter,x,y,depth);
 audio_emitter_position(walkingEmitter,x,y,depth);
@@ -544,14 +530,16 @@ for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
 	cc = ds_map_find_next(conditionsEmittersMap, cc);
 }
 
-if state == CombatantStates.Moving && isMoving {
-	if walkingSoundIndex = noone {
-		walkingSoundIndex = audio_play_sound_on(walkingEmitter, walkingSound, 1, 1);
+if walkingSound != noone {
+	if state == CombatantStates.Moving && isMoving {
+		if walkingSoundIndex = noone {
+			walkingSoundIndex = audio_play_sound_on(walkingEmitter, walkingSound, 1, 1);
+		}
+		audio_emitter_gain(walkingEmitter,1);
+	} else {
+		audio_stop_sound(walkingSoundIndex);
+		walkingSoundIndex = noone;
+		audio_emitter_gain(walkingEmitter,0);
 	}
-	audio_emitter_gain(walkingEmitter,1);
-} else {
-	audio_stop_sound(walkingSoundIndex);
-	walkingSoundIndex = noone;
-	audio_emitter_gain(walkingEmitter,0);
 }
 

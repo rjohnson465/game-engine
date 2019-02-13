@@ -295,3 +295,8 @@ tutorialFirstsMap = defineFirstsTutorialMessages(); // redo
 
 global.roomName = getRoomName(room);
 instance_create_depth(x,y,1,obj_room_text);
+
+// to sprint, the B button must be held for 1/3 second
+isHoldingSprintButton = false;
+sprintCounterTotal = 5;
+sprintCounter = sprintCounterTotal;

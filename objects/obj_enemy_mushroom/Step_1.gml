@@ -21,9 +21,11 @@ if hp < 1 && isAlive && !isDying {
 	randomize();
 	var rand = round(random_range(3,6));
 	for (var i = 0; i < rand; i++) {
-		var spore = instance_create_depth(x,y,layer_get_depth(layer),obj_enemy_spore);
-		spore.layer = layer;
-		spore.depth = layer_get_depth(layer);
+		var spore = instance_create_depth(x+i,y+i,layer_get_depth(layer),obj_enemy_spore);
+		layer_add_instance(layer, spore);
+		with spore {
+			populatePersonalGrid();
+		}
 		part_system_depth(spore.sporeSystem, layer_get_depth(spore.layer)+1);
 	}
 	

@@ -39,6 +39,58 @@ if enemiesData == noone {
 	}
 }
 
+// weird edge case -- what if there is enemy data for an enemy that is not there by default?
+// i.e. spores that are created upon mushroom death
+var garbageKeys = ds_list_create();
+if enemiesData != noone {
+	var ck = ds_map_find_first(enemiesData);
+	for (var i = 0; i < ds_map_size(enemiesData); i++) {
+		var enemyData = ds_map_find_value(enemiesData, ck);
+		
+		// check if there is an actual enemy for this data.
+		var enemyObj = noone;
+		with obj_enemy_parent {
+			if key == ck {
+				enemyObj = id;
+			}
+		}
+		
+		//  If not, create it
+		var enemyIsAlive = ds_map_find_value(enemyData, "IsAlive");
+		if enemyObj == noone && enemyIsAlive {
+			var enemyLayer = ds_map_find_value(enemyData, "CurrentZ");
+			var enemyX = ds_map_find_value(enemyData, "CurrentX");
+			var enemyY = ds_map_find_value(enemyData, "CurrentY");
+			var enemyObjIndexName = ds_map_find_value(enemyData, "ObjectIndexName");
+			var enemyObjIndex = asset_get_index(enemyObjIndexName);
+			enemyObj = instance_create_depth(enemyX, enemyY, layer_get_depth(enemyLayer), enemyObjIndex);
+			enemyObj.layer = enemyLayer;
+			enemyObj.currentZ = enemyLayer;
+			enemyObj.postX = ds_map_find_value(enemyData, "PostX");
+			enemyObj.postY = ds_map_find_value(enemyData, "PostY");
+			enemyObj.key = fs_generate_key(enemyObj);
+			
+		} else if (enemyObj == noone || !enemyObj.doesEnemyRespawn) && !enemyIsAlive {
+			// if the enemy is no longer alive, remove it from the map
+			ds_list_add(garbageKeys, ck);
+			if enemyObj != noone && instance_exists(enemyObj) {
+				instance_destroy(enemyObj, 1);
+			}
+			
+		}
+		
+		ck = ds_map_find_next(enemiesData, ck);
+	}
+}
+
+// if the enemy is no longer alive, remove it from the map
+for (var i = 0; i < ds_list_size(garbageKeys); i++) {
+	var gkey = ds_list_find_value(garbageKeys, i);
+	ds_map_delete(enemiesData, gkey);
+}
+
+ds_list_destroy(garbageKeys); garbageKeys = -1;
+
 // now that all the persistent elements have their data either set or created, ensure their room start event fires after
 with obj_persistent_environment {
 	event_perform(ev_other,ev_room_start);

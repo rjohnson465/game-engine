@@ -1,4 +1,4 @@
-
+/*
 ds_map_destroy(knownSpells); knownSpells = -1;
 ds_map_destroy(defenses); defenses = -1;
 mp_grid_destroy(personalGrid); personalGrid = -1;

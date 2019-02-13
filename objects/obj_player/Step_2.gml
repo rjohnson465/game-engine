@@ -4,6 +4,12 @@ if room == game_menu {
 event_inherited();
 if !isMoving isSprinting = false;
 
+// if we release the sprint button during sprinting, reset the sprintCounter and set isHoldingSprintButton to false
+if gamepad_button_check_released(gamePadIndex, gp_face2) {
+	sprintCounter = sprintCounterTotal;
+	isHoldingSprintButton = false;
+}
+
 // death
 if hp < 1 && isAlive && !isDying {
 	isDying = true;

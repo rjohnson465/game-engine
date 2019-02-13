@@ -4,6 +4,11 @@ if !sporeIsInactive {
 }
 // if spore is "inactive", just move in sporeDirection as best as you can
 else {
+	
+	if (global.player.lockOnTarget == id) {
+		global.player.lockOnTarget = noone;
+	}
+	
 	moveToNearestFreePoint(sporeDirection,functionalSpeed,1,0);
 	sporeTimer--;
 	if sporeTimer <= 0 {
@@ -11,6 +16,21 @@ else {
 		isInvulnerable = false;
 		state = CombatantStates.Idle;
 		substate = CombatantMoveSubstates.Chasing;
+		
+		// since this is a dynamically added enemy, we must manually add it to the room data
+		with obj_room_data {
+			// regenerate key so it is unique from the other spores in its pod
+			
+			ds_map_add_map(enemiesData, other.key, other.persistentProperties);
+			var map = ds_map_find_value(enemiesData, other.key);
+			// hp and maxHp init values must be recorded here, otherwise they're always 35 
+			// since thats the default base enemy class values, and persistentProperties map is 
+			// populated at the end of the Create Event of the base enemy class
+			ds_map_replace(map, "Hp", other.hp);
+			ds_map_replace(map, "MaxHp", other.maxHp); 
+			ds_map_replace(map, "CurrentZ", other.layer);
+			ds_map_replace(map, "DoesEnemyRespawn", false);
+		}
 	}
 	
 	// maybe damage player / good guy
