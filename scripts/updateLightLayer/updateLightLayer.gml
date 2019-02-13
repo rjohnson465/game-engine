@@ -29,15 +29,15 @@ else {
 		
 		var index = noone;
 		// see if this lights list contains a lightobj whose owner is lightObj.owner, if so delet this cousin
-		for (var i = 0; i < ds_list_size(lightsList); i++) {
-			var _light = ds_list_find_value(lightsList, i);
+		for (var j = 0; j < ds_list_size(lightsList); j++) {
+			var _light = ds_list_find_value(lightsList, j);
 			if !instance_exists(_light) {
 				continue;
 			}
 			if (_light.object_index == obj_light_radius) {
 				var owner = _light.owner;
 				if owner == lightObj.owner {
-					index = i;
+					index = j;
 				}
 			}
 		}

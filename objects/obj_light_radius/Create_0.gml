@@ -17,7 +17,7 @@ if il && owner.object_index == obj_player {
 		}
 	}
 
-	owner.playerLightRadius = id;
+	global.player.playerLightRadius = id;
 	
 }
 
