@@ -2,7 +2,7 @@
 /// @param damageType
 /// @param damageAmount
 /// @param spell -- if it exists, otherwise this will be noone
-/// @param *percentChance
+/// @param attackObj
 
 var damageType = argument[0];
 var damageAmount = argument[1];

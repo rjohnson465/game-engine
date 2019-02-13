@@ -22,7 +22,6 @@ switch state {
 		}
 		
 		with obj_combatant_parent {
-			//if other.object_index == obj_enemy_noeyeddeer break;
 			if place_meeting_layer(x,y,other) && object_index != obj_enemy_noeyeddeer {
 				if !moveToNearestFreePoint(other.runningDirection,other.functionalSpeed,type==CombatantTypes.Enemy,0) {
 					jumpToNearestFreePoint(type==CombatantTypes.Enemy,0);

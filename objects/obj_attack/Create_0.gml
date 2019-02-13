@@ -200,7 +200,7 @@ if !(limbKey == "r" || (weapon != noone && weapon.isRanged && weapon.isTwoHanded
 if asset_get_index(maskString) != -1 {
 	sprite_index = asset_get_index(maskString);
 }
-else if !owner.hasHands {
+else if !owner.hasHands && attackData.usesWeapon {
 	var sprStr = attackData.spriteName + "_wattack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain);
 	sprite_index = asset_get_index(sprStr);
 }
@@ -254,6 +254,15 @@ if isRanged {
 } else {
 	image_alpha = .5;
 }
+
+if attackData != noone && attackData.part1 != noone {
+	particle = attackData.part1;
+}
+
+if attackData != noone && attackData.part2 != noone {
+	particle2 = attackData.part2;
+}
+
 
 
 // special case -- guns create fire / smoke particles when attack starts
@@ -310,6 +319,9 @@ if (weapon != noone && weapon.weaponType == PISTOL || weapon.weaponType == MUSKE
 		yy,yy,0,0);
 	part_emitter_burst(system,emitter,particle,5);
 	part_emitter_burst(system,emitter,particle2,2);
+	
+	part_type_destroy(particle);
+	part_type_destroy(particle2); particle = -1; particle2 = -1;
 }
 
 // ranged attacks may have particles 
@@ -321,3 +333,4 @@ if true {
 	} else wep = attackData;
 	updateWeaponParticles(id);
 }
+

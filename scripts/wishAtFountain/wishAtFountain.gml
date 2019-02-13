@@ -86,6 +86,8 @@ with obj_player {
 
 		}
 	}
+	
+	lightRadiusColor = c_white;
 }
 
 

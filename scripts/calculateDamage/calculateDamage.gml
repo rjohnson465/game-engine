@@ -3,6 +3,7 @@
 /// Pre-Condition -- must be called by the victim in a collision event with attackObj
 
 if hp <= 0 exit;
+if isInvulnerable exit;
 var isFading = false;
 with obj_fade {
 	if instance_count > 0 {

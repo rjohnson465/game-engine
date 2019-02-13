@@ -10,7 +10,8 @@
         "abb69d22-424e-40d9-a5d5-670bdfdcd547",
         "be2a8501-763d-45a4-9af1-365b1cbbdb20",
         "c2623270-8b1e-47f4-9b79-cca757304e55",
-        "9eea4527-9a9f-4b8e-832b-e6d230a6d546"
+        "9eea4527-9a9f-4b8e-832b-e6d230a6d546",
+        "d278fc55-3c07-4941-a94a-9403c786416a"
     ],
     "filterType": "GMSprite",
     "folderName": "mushroom",

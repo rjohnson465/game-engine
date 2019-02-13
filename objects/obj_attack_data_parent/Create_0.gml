@@ -58,3 +58,5 @@ doesNotStagger = false; // attacks normally have a chance to stagger opponents. 
 prepPart1 = noone;
 prepPart1Num = 4;
 prepPart1BelowOwner = false;
+
+usesWeapon = false;

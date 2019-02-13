@@ -141,7 +141,8 @@ switch(state) {
 					if currentRangedAttack > -1 && distance_to_object(lockOnTarget) < meleeAggroRange && canSeeLockOnTarget() {
 						state = CombatantStates.AggroMelee; break;
 					}
-					else */if currentMeleeAttack > -1 && distance_to_object(lockOnTarget) > meleeAggroRange && canSeeLockOnTarget() && array_length_1d(rangedAttacks) > 0 {
+					else */if currentMeleeAttack > -1 && (distance_to_object(lockOnTarget) > meleeAggroRange || array_length_1d(meleeAttacks) == 0) 
+						&& canSeeLockOnTarget() && array_length_1d(rangedAttacks) > 0 {
 						state = CombatantStates.AggroRanged; break;
 					}
 				

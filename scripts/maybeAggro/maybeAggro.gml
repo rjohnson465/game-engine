@@ -1,6 +1,5 @@
 /// maybeAggro()
-//show_debug_message(facingDirection);
-//show_debug_message(canSeeLockOnTarget());
+
 /// check if AI combatant should enter an Aggro state at this moment. Can be Ranged or Melee. Returns true if so.
 if	((canSeeLockOnTarget() || lockOnTarget != noone) && meleeAggroRange != noone && (array_length_1d(rangedAttacks) == 0 || distance_to_object(lockOnTargetType) < meleeAggroRange))	{
 	state = CombatantStates.AggroMelee;

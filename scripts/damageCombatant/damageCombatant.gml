@@ -75,7 +75,7 @@ for (var i = 0; i < size; i++) {
 	// roll random and compare against defense
 	var nonConditioningDamageTypes = [PHYSICAL,CRUSH,PIERCE,SLASH];
 	if (damageBase > 0 && !arrayIncludes(nonConditioningDamageTypes,currentDamageType)) {
-		maybeApplyElementalCondition(currentDamageType,damageBase,spell,attackObj);
+		maybeApplyElementalCondition(currentDamageType,damageBase,noone,noone);
 	}
 			
 	// if this was fire or poison damage, record an altered version of the base amount in case this is the attack that burns or poisons 

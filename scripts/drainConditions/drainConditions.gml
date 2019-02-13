@@ -3,8 +3,13 @@
 // TODO Devin fix calculations for draining
 var currentCondition = ds_map_find_first(conditionPercentages);
 var size = ds_map_size(conditionPercentages);
+var conditionsExist = false;
 for (var i = 0; i < size; i++) {
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
+	
+	if conditionPercent > 0 {
+		conditionsExist = true;
+	}
 	
 	// if condition is ice and it just dropped below 85 (coming from condition level 2, frozen), reset to condition level 1 (slow)
 	if conditionPercent < 85 && currentCondition == ICE && ds_map_find_value(conditionLevels,currentCondition) == 2 {
@@ -156,4 +161,8 @@ for (var i = 0; i < size; i++) {
 	}
 	
 	currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
+}
+
+if !conditionsExist {
+	lightRadiusColor = c_white;
 }
