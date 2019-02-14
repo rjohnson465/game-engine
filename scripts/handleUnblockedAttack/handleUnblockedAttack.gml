@@ -24,6 +24,8 @@ instance_create_depth(x,y,1,obj_damage);
 // if assailant was player, damage their weapon a bit
 if assailant.type == CombatantTypes.Player && attackObj.isMelee {
 	if attackObj.weapon.weaponType != UNARMED {
+		// this has the bug (feature??) of making it so low-durability weapons that are buffed a lot
+		// died quicker
 		damageItem(itemHitWith,.05*actualDamage);
 	}
 }

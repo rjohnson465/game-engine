@@ -3,4 +3,5 @@
 if !hasSetAlarm {
 	alarm[0] = 1;
 	hasSetAlarm = true;
+	global.ui.justClosedMenus = true;
 }

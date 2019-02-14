@@ -24,7 +24,7 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 			ds_map_replace(basePlayerProperties,i,100); break;
 		}
 		case ModifiableProperties.StaminaRegen: {
-			ds_map_replace(basePlayerProperties,i,15); break;
+			ds_map_replace(basePlayerProperties,i,20); break;
 		}
 		case ModifiableProperties.OffHandDamage: {
 			ds_map_replace(basePlayerProperties,i,50); break;

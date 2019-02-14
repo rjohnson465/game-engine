@@ -1,6 +1,15 @@
 var pad = global.player.gamePadIndex;
 if global.inventory.isConfirmingDestroyItem exit;
+
+
+
 if gamepad_is_connected(pad) {
+
+	if gamepad_button_check_released(pad, gp_face2) && !isShowingMenus {
+		if justClosedMenus {
+			justClosedMenus = false;
+		}
+	}
 
 	// show menus
 	if gamepad_button_check_pressed(pad,gp_start) && !isShowingMenus {
@@ -14,6 +23,7 @@ if gamepad_is_connected(pad) {
 			}
 		}
 		isShowingMenus = false;
+		justClosedMenus = true; // flag that disables player dodging immediately on menus exit
 		audio_play_sound(snd_ui_click1,1,0);
 	}
 	

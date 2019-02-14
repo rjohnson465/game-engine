@@ -10,7 +10,7 @@ staminaCost = 5;
 staggerDuration = 2;
 limbKey = noone;
 type = AttackTypes.MultiRand;
-minRange = 200;
+minRange = 300;
 numberOfProjectiles = 8;
 damageType = "Dust";
 

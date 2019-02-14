@@ -44,8 +44,6 @@ xpReward = 200;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-//meleeRangeArray=[10,30,30,30,30];
-//meleeRangeArray = [30];
 
 // ATTACKS
 global.owner = id;
@@ -58,7 +56,7 @@ meleeAttacks = [sporesChain];
 // ranged attacks info
 
 // currently chosen ranged attack
-rangedRangeArray=[];
+//rangedRangeArray=[];
 rangedAttacks = [sporesChain];
 
 hp = 1;

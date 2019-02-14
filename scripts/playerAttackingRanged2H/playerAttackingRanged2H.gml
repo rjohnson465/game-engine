@@ -5,8 +5,8 @@ var RIGHTRELEASED = mouse_check_button_pressed(mb_left);
 var RIGHTHELD = mouse_check_button(mb_left);
 if gamepad_is_connected(gamePadIndex) {
 	RIGHTRELEASED = mouse_check_button_pressed(mb_left) 
-	|| gamepad_button_check_pressed(gamePadIndex,gp_shoulderlb);
-	RIGHTHELD = gamepad_button_check(gamePadIndex,gp_shoulderlb);
+	|| gamepad_button_check_pressed(gamePadIndex,gp_shoulderl);
+	RIGHTHELD = gamepad_button_check(gamePadIndex,gp_shoulderl);
 }
 
 var percentCharged = ds_map_find_value(prepFrames,"l") / (ds_map_find_value(prepFrameTotals,"l")-2);

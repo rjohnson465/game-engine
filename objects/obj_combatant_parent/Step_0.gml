@@ -137,13 +137,28 @@ switch(state) {
 					// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
 					maybeShield();
 					// CHECK 4: Maybe switch to melee / range
-					/*var _dist = distance_to_object(lockOnTarget);
-					if currentRangedAttack > -1 && distance_to_object(lockOnTarget) < meleeAggroRange && canSeeLockOnTarget() {
-						state = CombatantStates.AggroMelee; break;
-					}
-					else */if currentMeleeAttack > -1 && (distance_to_object(lockOnTarget) > meleeAggroRange || array_length_1d(meleeAttacks) == 0) 
-						&& canSeeLockOnTarget() && array_length_1d(rangedAttacks) > 0 {
-						state = CombatantStates.AggroRanged; break;
+					if (lockOnTarget != noone) {
+						var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,lockOnTarget.x,lockOnTarget.y,true);
+						if !isGridPathAvailable {
+							if !place_free(x,y) {
+								jumpToNearestFreePoint(true, true);
+							}
+							var ltl = lockOnTarget.bbox_left; var ltr = lockOnTarget.bbox_right;
+							var ltt = lockOnTarget.bbox_top; var ltb = lockOnTarget.bbox_bottom;
+							var try_arr = [ltl, ltt, ltr, ltt, ltl, ltb, ltr, ltb];
+							for (var i = 0; i < array_length_1d(try_arr); i+=2) {
+								var xx = try_arr[i]; var yy= try_arr[i+1];
+								isGridPathAvailable = mp_grid_path(personalGrid, gridPath, x, y, xx, yy, true);
+								if isGridPathAvailable break;
+							}
+						}
+				
+						if currentMeleeAttack > -1 && 
+							((distance_to_object(lockOnTarget) > meleeAggroRange || array_length_1d(meleeAttacks) == 0) || (!isGridPathAvailable))
+							&& 
+							canSeeLockOnTarget() && array_length_1d(rangedAttacks) > 0 {
+							state = CombatantStates.AggroRanged; break;
+						}
 					}
 				
 					// if we're not in range for attack, do this

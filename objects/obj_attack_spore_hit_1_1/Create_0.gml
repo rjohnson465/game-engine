@@ -9,7 +9,7 @@ ds_map_add(damages,POISON,[3,6]);
 isRanged = true;
 projectileSpeed = 7;
 staminaCost = 5;
-staggerDuration = 2;
+staggerDuration = 0;
 limbKey = noone;
 type = AttackTypes.Standard;
 minRange = 45;

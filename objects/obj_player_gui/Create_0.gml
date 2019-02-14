@@ -170,3 +170,5 @@ hudSkills = instance_create_depth(x,y,1,obj_hud_skills);
 
 global.x1 = 1238; global.y1 = 10;
 hudOptions = instance_create_depth(x,y,1,obj_hud_options);
+
+justClosedMenus = false;

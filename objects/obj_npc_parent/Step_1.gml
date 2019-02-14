@@ -62,5 +62,6 @@ if gamepad_is_connected(pad) {
 			showBuySell = false;
 			global.isInteractingWithNpc = false;
 			global.isTrading = false;
+			global.ui.justClosedMenus = true;
 		}
 }

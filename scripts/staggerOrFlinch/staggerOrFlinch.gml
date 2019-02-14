@@ -21,7 +21,7 @@ chanceToStagger *= (1+sdMod);
 
 randomize();
 var rand = random_range(0,1);
-if rand < chanceToStagger {
+if rand < chanceToStagger && sd >= 1 {
 	if ds_map_size(preparingLimbs) != 0 {
 		drawCombatText("Interrupt!",id);
 	}
