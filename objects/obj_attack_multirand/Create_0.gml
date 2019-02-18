@@ -36,30 +36,15 @@ visible = true;
 var s = attackData.spriteName+"_"+string(attackData.spriteAttackNumber)+"_"+string(attackData.spriteAttackNumberInChain)+"_projectile";
 sprite_index = asset_get_index(s);
 
-/*if part_type_exists(attackData.part1) {
-	particle = attackData.part1;
-	part_type_direction(particle,direction-45, direction+45, 0, 5);
-}*/
+
 if part_type_exists(attackData.part2) {
 	particle = attackData.part2;
 }
 
-if attackData.mrAttackSound != noone {
+if attackData.mrAttackSound != noone && audio_exists(attackData.mrAttackSound) {
 	audio_play_sound_at(attackData.mrAttackSound,x,y,depth,50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 }
 
-/*
-if attackData != noone {
-	var vocalsSound = noone;
-	if array_length_1d(attackData.attackSoundsVocals) != 0 {
-		randomize();
-		var rand = round(random_range(-1,array_length_1d(attackData.attackSoundsVocals)-1));
-		if rand >= 0 {
-			vocalsSound = attackData.attackSoundsVocals[rand];
-			audio_play_sound_at(vocalsSound, owner.x, owner.y, owner.depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
-		}
-	}
-}
 
 
 

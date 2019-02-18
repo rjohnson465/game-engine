@@ -7,7 +7,7 @@ with obj_item_selector {
 	if type == SelectorTypes.Equip && isActive isEquipping = true;
 }
 // controller stuff
-if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderrb) && !isEquipping  {
+if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderr) && !isEquipping  {
 	audio_play_sound(snd_ui_tab2,1,0);
 	var currentFilter = ds_map_find_value(filterSprites, filter);
 	var nextFilter = ds_map_find_next(filterSprites,filter);
@@ -19,7 +19,7 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderrb) && !is
 	scrollLevel = 0;
 
 }
-if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderlb) && !isEquipping {
+if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderl) && !isEquipping {
 	audio_play_sound(snd_ui_tab2,1,0);
 	var currentFilter = ds_map_find_value(filterSprites, filter);
 	var prevFilter = ds_map_find_previous(filterSprites,filter);

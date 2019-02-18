@@ -99,4 +99,5 @@ staysOutOfEnemies = false;
 
 canFlinch = false;
 
-audio_play_sound_on(walkingEmitter,snd_walking_galloping,1,1);
+walkingSound = snd_walking_galloping;
+audio_play_sound_on(walkingEmitter,walkingSound,1,1);

@@ -5,6 +5,7 @@ if isShowingMenus {
 	imbueSelector.isActive = false;
 	equipSelector.acceptableEquipmentSlots = [];
 	cursor_sprite = -1;
+	global.ui.grabbedItem = noone;
 } else {
 	showHideOptions();
 }

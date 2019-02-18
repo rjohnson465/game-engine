@@ -12,6 +12,7 @@ if gamepad_button_check_released(gamePadIndex, gp_face2) {
 
 // death
 if hp < 1 && isAlive && !isDying {
+	window_set_cursor(cr_none);
 	isDying = true;
 	hp = 0;
 	speed = 0;

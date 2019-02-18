@@ -40,6 +40,7 @@ if isShowingMenus {
 } 
 
 cursor_sprite = -1;
+global.ui.grabbedItem = noone;
 
 if !isShowingMenus {
 	moveSelector.isActive = true;

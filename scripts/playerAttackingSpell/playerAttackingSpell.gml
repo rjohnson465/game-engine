@@ -18,6 +18,7 @@ if ds_map_find_value(prepFrames,"l") >= ds_map_find_value(prepFrameTotals,"l") |
 	var chargeSnd = asset_get_index("snd_magic_"+currentSpellAttunement+"_charge");
 	audio_stop_sound(chargeSnd);
 	cursor_sprite = -1;
+	global.ui.grabbedItem = noone;
 	var prepFrame = ds_map_find_value(prepFrames,"l");
 	var prepFrameTotal = ds_map_find_value(prepFrameTotals,"l");
 	var percentCharged = prepFrame / prepFrameTotal;

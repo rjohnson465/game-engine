@@ -86,7 +86,3 @@ if hasHematite || hasPhysBuff {
 	gpu_set_blendmode(bm_normal)
 }
 draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_white,owner.alpha);
-
-if owner.state == CombatantStates.Attacking {
-	show_debug_message(sprite_get_name(sprite) + " " + string(frame));
-}

@@ -42,7 +42,7 @@ if gamepad_is_connected(pad) && isActive && !isConfirming {
 		joystickInputFrame = 0;
 	}
 
-	if gamepad_button_check_pressed(pad,gp_shoulderrb) {
+	if gamepad_button_check_pressed(pad,gp_shoulderr) {
 		audio_play_sound(snd_ui_tab2,1,0);
 		var currentFilter = ds_map_find_value(filterSprites, filter);
 		var nextFilter = ds_map_find_next(filterSprites,filter);
@@ -54,7 +54,7 @@ if gamepad_is_connected(pad) && isActive && !isConfirming {
 		scrollLevel = 0;
 		selectedItem = noone;
 	}
-	if gamepad_button_check_pressed(pad,gp_shoulderlb) {
+	if gamepad_button_check_pressed(pad,gp_shoulderl) {
 		audio_play_sound(snd_ui_tab2,1,0);
 		var currentFilter = ds_map_find_value(filterSprites, filter);
 		var prevFilter = ds_map_find_previous(filterSprites,filter);
@@ -68,7 +68,7 @@ if gamepad_is_connected(pad) && isActive && !isConfirming {
 	}
 	
 	// switch to sell 
-	if gamepad_button_check_pressed(pad,gp_shoulderl) {
+	if gamepad_button_check_pressed(pad,gp_shoulderlb) {
 		audio_play_sound(snd_ui_tab1,1,0);
 		var vendorItemsObj = obj_vendor_items;
 		vendorItemsObj.isActive = true;
@@ -78,6 +78,7 @@ if gamepad_is_connected(pad) && isActive && !isConfirming {
 	if gamepad_button_check_pressed(pad,gp_face1) && selectedItem != noone && selectedItem.isSellable {
 		isConfirming = true;
 		alarm[0] = 1;
+		audio_play_sound(snd_ui_click1,1,0);
 	}
 	
 	if gamepad_button_check_pressed(pad,gp_face4) {

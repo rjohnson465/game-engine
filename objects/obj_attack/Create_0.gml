@@ -97,16 +97,17 @@ else if attackData != noone {
 	}
 }
 
-
-if isSoundLooping {
-	if !audio_is_playing(sound) {
-		audio_play_sound_on(soundEmitter,sound,isSoundLooping,1);
-	}
-} else {
-	if owner.type == CombatantTypes.Player {
-		audio_play_sound(sound,1,0);
+if (sound > 1 && audio_exists(sound)) {
+	if isSoundLooping {
+		if !audio_is_playing(sound) {
+			audio_play_sound_on(soundEmitter,sound,isSoundLooping,1);
+		}
 	} else {
-		audio_play_sound_at(sound,owner.x,owner.y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		if owner.type == CombatantTypes.Player {
+			audio_play_sound(sound,1,0);
+		} else {
+			audio_play_sound_at(sound,owner.x,owner.y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		}
 	}
 }
 

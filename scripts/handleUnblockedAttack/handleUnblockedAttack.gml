@@ -26,6 +26,11 @@ if assailant.type == CombatantTypes.Player && attackObj.isMelee {
 	if attackObj.weapon.weaponType != UNARMED {
 		// this has the bug (feature??) of making it so low-durability weapons that are buffed a lot
 		// died quicker
+		var damageAmnt = 05*actualDamage;
+		// this makes it so the max durability damage that can be done is 2, is this ok?
+		if damageAmnt > 2 {
+			damageAmnt = 2;
+		}
 		damageItem(itemHitWith,.05*actualDamage);
 	}
 }

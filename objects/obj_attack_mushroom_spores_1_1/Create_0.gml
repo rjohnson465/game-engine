@@ -2,9 +2,8 @@ event_inherited();
 spriteName = "spr_enemy_mushroom_spores";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
-//hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
 limbKey = noone;
-ds_map_add(damages,CRUSH,[1,3]);
+ds_map_add(damages,CRUSH,[4,6]);
 isRanged = false;
 staminaCost = 5;
 staggerDuration = 2;
@@ -35,5 +34,5 @@ prepPart1BelowOwner = true;
 prepPart1Num = 20;
 
 mrOffset = 200; // random projectiles within n px of target
-mrPrepDuration = 60; // how long each projectile charges
+mrPrepDuration = 30; // how long each projectile charges
 mrAttackSound = snd_enemy_mushroom_spore_crunch;

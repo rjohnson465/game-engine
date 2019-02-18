@@ -71,6 +71,14 @@
             }
         },
         {
+            "Key": "00dfa8cb-4d1d-49aa-a449-0936e1243d69",
+            "Value": {
+                "id": "8bc11e23-510d-43b3-94bb-211faae85bf4",
+                "resourcePath": "sprites\\spr_enemy_speyeder_webshot_attack_1_1\\spr_enemy_speyeder_webshot_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "00feb608-5eda-4896-afe4-aa97abfda795",
             "Value": {
                 "id": "03a3a87f-fceb-4133-aad3-d39a796870e3",
@@ -703,14 +711,6 @@
             }
         },
         {
-            "Key": "0ca0a188-0912-4276-a7d5-1d100a13d946",
-            "Value": {
-                "id": "385530b6-dfc1-4619-bca3-9b9a1ea6601a",
-                "resourcePath": "sprites\\spr_enemy_speyeder_head_recover_1_111\\spr_enemy_speyeder_head_recover_1_111.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "0ca245ce-dac5-45e8-be61-512740c4cae4",
             "Value": {
                 "id": "c047dae5-e8a0-4411-854d-ce7e254a1317",
@@ -723,6 +723,14 @@
             "Value": {
                 "id": "58ca8d60-55ae-4efa-85c9-f24ae7e6eb20",
                 "resourcePath": "sprites\\spr_item_slot\\spr_item_slot.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0d1d708e-fdbe-4b10-9da2-74541f29a72e",
+            "Value": {
+                "id": "f3123e60-4e91-4e3c-831a-840f8e67ddc5",
+                "resourcePath": "sprites\\spr_prompt_xbox_pad_u\\spr_prompt_xbox_pad_u.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4015,6 +4023,14 @@
             }
         },
         {
+            "Key": "498370e5-a9fe-4b30-a009-dc24b05bb3f5",
+            "Value": {
+                "id": "084d2eed-9cee-4b12-a18c-26ac3c65e478",
+                "resourcePath": "sprites\\spr_prompt_mk_e\\spr_prompt_mk_e.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "499764e6-2262-4231-af90-676e62f4dd8d",
             "Value": {
                 "id": "06bfab2d-8b93-486b-9d0c-b8e29cbff5bf",
@@ -4215,6 +4231,14 @@
             }
         },
         {
+            "Key": "4d1db7e2-e481-497b-9a65-c85decc06026",
+            "Value": {
+                "id": "ee6bd8a2-60ae-4ee4-9bf5-f81df5f0b767",
+                "resourcePath": "objects\\obj_attack_speyeder_webshot_1_1\\obj_attack_speyeder_webshot_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "4d423f2a-6499-4064-87ec-99192250ba03",
             "Value": {
                 "id": "9eb3b7a3-249d-4dd0-bcc5-3878d2609038",
@@ -4404,6 +4428,14 @@
                 "id": "b5f1fd73-a2cb-42d4-b562-dab403316524",
                 "resourcePath": "objects\\obj_conversation_step_parent\\obj_conversation_step_parent.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "5174b66c-fa41-4c9f-b999-e9a1fed586a1",
+            "Value": {
+                "id": "4ad9beab-0733-421b-b109-204d8d523f69",
+                "resourcePath": "sprites\\spr_prompt_xbox_pad_l\\spr_prompt_xbox_pad_l.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -6412,6 +6444,14 @@
                 "id": "7c03d1b9-04b4-45e8-9769-3d45f82df29b",
                 "resourcePath": "objects\\obj_skill_hpmax\\obj_skill_hpmax.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "78746a4f-3f97-44d6-aeaa-5beb7394244c",
+            "Value": {
+                "id": "0f640caa-2dc3-48fa-8d31-348d9878a210",
+                "resourcePath": "sprites\\spr_prompt_xbox_pad_d\\spr_prompt_xbox_pad_d.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8695,6 +8735,14 @@
             }
         },
         {
+            "Key": "a57ec166-57c0-4d31-b0ae-b159ecc2aed5",
+            "Value": {
+                "id": "0ac12632-8954-46bf-b7ed-883744ba90be",
+                "resourcePath": "sprites\\spr_prompt_xbox_pad_r\\spr_prompt_xbox_pad_r.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a5c9686a-f6a4-452f-8cc4-af4293d92ee0",
             "Value": {
                 "id": "3039eb2f-2bec-41a0-be2d-bab849e4c051",
@@ -9476,6 +9524,14 @@
                 "id": "d7b8eee7-8b32-45c3-b8ff-7959d99eae62",
                 "resourcePath": "views\\b3c23fcb-965b-4114-b33d-d2776c7be6ef.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b3e45865-4426-4256-995d-55c1ce4b3e37",
+            "Value": {
+                "id": "f23469c5-b3eb-4678-a7a2-aae7926f0a83",
+                "resourcePath": "sprites\\spr_enemy_speyeder_webshot_recover_1_1\\spr_enemy_speyeder_webshot_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -12255,6 +12311,14 @@
             }
         },
         {
+            "Key": "ec8c7ec8-c8ff-4ff9-a55e-7e292a63f4e2",
+            "Value": {
+                "id": "a1a99bc4-14c7-4bf8-97f2-e657db5b9d05",
+                "resourcePath": "sprites\\spr_enemy_speyeder_webshot_prep_1_1\\spr_enemy_speyeder_webshot_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "eca751e0-2ff7-4e6b-a791-f9e311021bdf",
             "Value": {
                 "id": "5d530be4-add4-4838-a009-cdbcc7c33e75",
@@ -12347,6 +12411,14 @@
             "Value": {
                 "id": "7138505a-41e9-4493-9904-9eedf2608b1d",
                 "resourcePath": "scripts\\fs_load_npcs\\fs_load_npcs.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "eec61a82-f578-47af-a905-89f065e91aca",
+            "Value": {
+                "id": "adafd177-e9a2-4935-a545-b7bd803df2bb",
+                "resourcePath": "scripts\\cureAllConditions\\cureAllConditions.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -12983,6 +13055,14 @@
             }
         },
         {
+            "Key": "fc7b7f20-e713-4b41-86e8-81a7b458ed4f",
+            "Value": {
+                "id": "cc0cdce5-7146-4dfc-aa3a-064984f13f8f",
+                "resourcePath": "sprites\\spr_prompt_mk_q\\spr_prompt_mk_q.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "fca30d07-7280-4a9f-a99f-f861e1270520",
             "Value": {
                 "id": "ece652b2-72a2-4c68-a414-0ebd36256033",
@@ -13300,6 +13380,7 @@
         "b4fe8e3d-9643-496d-96a0-3c44b781c731",
         "ba3523fb-3100-4c94-bc79-672a22a76c4c",
         "158a680a-26ed-43d9-818b-102fc64f3a46",
+        "eec61a82-f578-47af-a905-89f065e91aca",
         "779be7b0-ce6c-4ca8-9e17-cd5d1bba1103",
         "5151f8e7-e64d-4fc0-b6af-ffe66ffb6748",
         "4e2e27f0-4dd9-4d3b-bc4e-ad8cdadd2b44",

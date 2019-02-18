@@ -71,13 +71,6 @@ part_type_direction(magic,0,360,0,4);
 part_type_life(magic,10,15);
 particle = magic;
 
-//show_debug_message(string(items));
-//show_debug_message(string(global.droppedItems));
-
-if !items {
-	
-}
-
 if ds_list_size(items) == 0 {
 	instance_destroy(id,1);
 }

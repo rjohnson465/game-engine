@@ -50,6 +50,8 @@ if gamepad_is_connected(pad) && isBeingLooted {
 	if gamepad_button_check_pressed(pad,gp_face1) && isBeingLooted && ds_exists(items,ds_type_list) && !global.isReadingTutorial {
 		// loot item
 		lootItem(selectedItem,id);
+		// this presupposes all persistent items are only 1 item, is this OK?
+		updatePersistentElementProperty(id,"isLooted",true);
 	} 
 	
 	if gamepad_button_check_pressed(pad,gp_face2) && isBeingLooted {

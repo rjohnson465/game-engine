@@ -8,7 +8,7 @@ if selectedItem == noone {
 	selectedItem = ds_list_find_value(inv,0);
 	if selectedItem == noone exit;
 }
-audio_play_sound(snd_ui_click1,1,0);
+audio_play_sound(snd_ui_option_change,1,0);
 var closestItem = selectedItem; var closestDist = 10000;
 for (var i = 0; i < ds_list_size(inv); i++) {
 

@@ -2,6 +2,9 @@
 
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
+var pad = global.player.gamePadIndex;
+var slotHeight = sprite_get_height(spr_item_slot);
+var slotWidth = sprite_get_width(spr_item_slot);
 
 draw_set_valign(fa_center);
 // hit points
@@ -148,14 +151,32 @@ if leftHandItem.spriteName != "unarmed" {
 		draw_healthbar(10,vh-9,71,vh-6,durabilityPercent,c_black,c_maroon,c_red,0,1,0);
 	}
 }
+// left hand prompts
+if (gamepad_is_connected(pad)) {
+	draw_sprite_ext(spr_prompt_xbox_lb,1,10,vh-70, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_xbox_pad_l,1,10, vh-35, .2, .2, 0, c_white, .6);
+} else {
+	draw_sprite_ext(spr_prompt_mk_lb,1,10,vh-70, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_mk_q,1,10, vh-35, .2, .2, 0, c_white, .6);
+}
 
 // middle button (spell)
 draw_sprite_ext(spr_item_slot,1,80,vh-70,1,1,0,c_white,.5);
+
 var spell = asset_get_index("spr_item_"+global.player.currentSpell+"_"+global.player.currentSpellAttunement);
 if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
 	draw_sprite(spell,1,80,vh-70);
 } else {
 	draw_sprite_ext(spell,1,80,vh-70,1,1,0,c_gray,.75);
+}
+// spell prompt
+if (gamepad_is_connected(pad) && (rightHandItem.charges != 0 || leftHandItem.charges != 0)) {
+	draw_sprite_ext(spr_prompt_xbox_lt,1,80,vh-70, .2, .2, 0, c_white, .6);
+	// also draw prompts for how to change spell
+	//draw_sprite_ext(spr_prompt_xbox_pad_ud,1,80+(slotWidth/2)-5, vh-25, .2, .2, 0, c_white, 1);
+} else if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
+	draw_sprite_ext(spr_prompt_mk_mb,1,80,vh-70, .2, .2, 0, c_white, .6);
+	//draw_sprite_ext(spr_prompt_mk_mb,1,80+(slotWidth/2)-5, vh-25, .2, .2, 0, c_white, 1);
 }
 
 // right hand
@@ -183,6 +204,19 @@ if rightHandItem.spriteName != "unarmed" {
 if leftHandItem.isTwoHanded {
 	var rightHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
 	draw_sprite_ext(rightHandItemSprite,1,150,vh-70,1,1,1,c_black,.75);
+}
+
+// right hand prompts
+if (gamepad_is_connected(pad)) {
+	var promptWidth = sprite_get_width(spr_prompt_xbox_rb) * .2;
+	var px = (150 + slotWidth) - promptWidth;
+	draw_sprite_ext(spr_prompt_xbox_rb,1,px,vh-70, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_xbox_pad_r,1,px, vh-35, .2, .2, 0, c_white, .6);
+} else {
+	var promptWidth = sprite_get_width(spr_prompt_xbox_rb) * .2;
+	var px = (150 + slotWidth) - promptWidth;
+	draw_sprite_ext(spr_prompt_mk_rb,1,px,vh-70, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_mk_e,1,px, vh-35, .2, .2, 0, c_white, .6);
 }
 
 // draw attunements
@@ -214,11 +248,19 @@ if rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0 {
 		}
 	}
 	
+	// draw rt prompt if pad is connected
+	if gamepad_is_connected(pad) {
+		draw_sprite_ext(spr_prompt_xbox_rt,1,final_x-20, vh-108, .2, .2, 0, c_white, .6);
+	}
+	
 	// draw an outline if holding rt (in attunement swap mode)
 	if global.player.isHoldingAttunemntSwapMode {
 		var yyy = vh-108; var yyy2 = yyy + sprite_get_height(spr_attunement_fire);
 		draw_set_color(c_white);
 		draw_rectangle(init_x, vh - 108, final_x, yyy2, 1);
+		
+		// draw pad lr prompt
+		draw_sprite_ext(spr_prompt_xbox_pad_lr,1,mean(init_x,final_x)-5, vh-135, .2, .2, 0, c_white, 1);
 	}
 }
 

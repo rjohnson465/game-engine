@@ -9,7 +9,7 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_replace(rmap,ItemRarities.Fine,3);
 	ds_map_replace(rmap,ItemRarities.Masterwork,3);
 	ds_map_replace(rmap,ItemRarities.Legendary,1);
-	var item1 = maybeMakeItem(100,rmap, [obj_hand_item_foil]); //randomly generated item
+	var item1 = maybeMakeItem(100,rmap); //randomly generated item
 	var gold = makeGold(0,25);
 	ds_list_clear(droppedItems);
 	ds_list_add(droppedItems,item1);
@@ -21,8 +21,9 @@ if hp < 1 && isAlive && !isDying {
 	randomize();
 	var rand = round(random_range(3,6));
 	for (var i = 0; i < rand; i++) {
-		var spore = instance_create_depth(x+i,y+i,layer_get_depth(layer),obj_enemy_spore);
-		layer_add_instance(layer, spore);
+		var spore = instance_create_layer(x+i,y+i,layer,obj_enemy_spore);
+		//layer_add_instance(layer, spore);
+		//spore.layer = layer;
 		with spore {
 			populatePersonalGrid();
 		}

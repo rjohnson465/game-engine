@@ -5,7 +5,7 @@ if !hasSetAlarm && part_type_exists(particle) {
 		var y1 = bbox_top; var y2 = bbox_bottom;
 		var w = x2-x1; var h = y2 - y1;
 		var area = w*h;
-		//show_debug_message(sprite_get_name(sprite_index) + " " + string(image_index) + ": " + string(bbox_left) + " " + string(bbox_right));
+
 		// randomly spawn 4(??) particles somewhere in the collision mask of sprite_index
 		for (var i = 0; i < 4; i++) {
 			var xx = -50; var yy = -50;

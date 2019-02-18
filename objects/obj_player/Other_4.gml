@@ -1,3 +1,4 @@
+global.isReadingTutorial = false;
 if global.playerDoNothing exit;
 
 event_inherited();
@@ -5,7 +6,6 @@ event_inherited();
 // get player light radius, if it for some reason has become invalid
 if !instance_exists(playerLightRadius) {
 	with obj_light_radius {
-		show_debug_message(object_get_name(owner.object_index));
 		if owner == other {
 			other.playerLightRadius = id;
 		}

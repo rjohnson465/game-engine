@@ -21,7 +21,7 @@ hasHands = false; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
 // general attacks info
-meleeAggroRange = 300;
+meleeAggroRange = 250;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 5000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
@@ -44,9 +44,6 @@ xpReward = 200;
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-//meleeRangeArray=[10,30,30,30,30];
-//meleeRangeArray = [30];
-
 // ATTACKS
 global.owner = id;
 var bugBite = makeEnemyAttackObj(obj_attack_speyeder_head_1_1);
@@ -67,13 +64,14 @@ var doubleClawChain = [claw1,claw2];
 var poisonAttackChain = [poisonAttack];
 var jumpClaws = [bugBite,claw1,claw2];
 meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4, doubleClawChain, jumpClaws, poisonAttackChain];
-//meleeAttacks = [webAoeChain];
+//meleeAttacks = [];
 
 // ranged attacks info
 
 // currently chosen ranged attack
-rangedRangeArray=[];
-rangedAttacks = [];
+var webShot = makeEnemyAttackObj(obj_attack_speyeder_webshot_1_1);
+var webShotChain = [webShot];
+rangedAttacks = [webShotChain];
 
 hp = 150;
 maxHp = 150;

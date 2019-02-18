@@ -1,4 +1,3 @@
-//image_angle = facingDirection;
 
 if !hasSetAlarm && part_type_exists(particle) {
 	if layer >= global.player.layer {

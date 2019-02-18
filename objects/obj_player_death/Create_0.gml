@@ -1,3 +1,6 @@
+window_set_cursor(cr_default);
+global.ui.grabbedItem = noone;
+cursor_sprite = -1;
 draw_set_color(c_white);
 
 uni_time = shader_get_uniform(shd_greyscale,"time");
@@ -51,3 +54,4 @@ for (var i = 0; i < ds_list_size(global.player.inventory); i++) {
 with obj_enemy_parent {
 	showHp = false;
 }
+

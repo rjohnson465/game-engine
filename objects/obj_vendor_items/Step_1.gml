@@ -43,14 +43,14 @@ if gamepad_is_connected(pad) && isActive && !isConfirming {
 	}
 	
 	// switch to sell 
-	if gamepad_button_check_pressed(pad,gp_shoulderr) {
+	if gamepad_button_check_pressed(pad,gp_shoulderrb) {
 		audio_play_sound(snd_ui_tab1,1,0);
 		var playerItemsObj = obj_player_items;
 		playerItemsObj.isActive = true;
 		isActive = false;
 	}
 
-	if gamepad_button_check_pressed(pad,gp_shoulderrb) {
+	if gamepad_button_check_pressed(pad,gp_shoulderr) {
 		audio_play_sound(snd_ui_tab2,1,0);
 		var currentFilter = ds_map_find_value(filterSprites, filter);
 		var nextFilter = ds_map_find_next(filterSprites,filter);
@@ -62,7 +62,7 @@ if gamepad_is_connected(pad) && isActive && !isConfirming {
 		scrollLevel = 0;
 		selectedItem = noone;
 	}
-	if gamepad_button_check_pressed(pad,gp_shoulderlb) {
+	if gamepad_button_check_pressed(pad,gp_shoulderl) {
 		audio_play_sound(snd_ui_tab2,1,0);
 		var currentFilter = ds_map_find_value(filterSprites, filter);
 		var prevFilter = ds_map_find_previous(filterSprites,filter);
@@ -77,6 +77,7 @@ if gamepad_is_connected(pad) && isActive && !isConfirming {
 	
 	if gamepad_button_check_pressed(pad,gp_face1) {
 		isConfirming = true;
+		audio_play_sound(snd_ui_click1,1,0);
 		alarm[0] = 1;
 	}
 	

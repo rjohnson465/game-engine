@@ -3,7 +3,6 @@
 // draw with c_red overlay
 
 var tf = attackData.mrPrepDuration;
-var a = 1;
 var a = 1 - (.75/tf)*alarm[0]; // .25 - 1
 var scale = 1 - (.75/tf)*alarm[0]; // .25 - 1
 

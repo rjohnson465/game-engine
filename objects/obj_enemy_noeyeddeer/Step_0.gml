@@ -3,6 +3,7 @@
 
 // Inherit the parent event
 event_inherited();
+
 functionalSpeed = normalSpeed*slowedSpeedModifier;
 if hp < 1 exit;
 

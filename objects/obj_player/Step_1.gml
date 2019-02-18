@@ -71,7 +71,7 @@ if gamepad_is_connected(gamePadIndex) {
 	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderr) {
 		performRightHandDownAction();
 	}
-	if leftHandItem.isTwoHanded && leftHandItem.isRanged && gamepad_button_check(gamePadIndex, gp_shoulderrb) {
+	if leftHandItem.isTwoHanded && leftHandItem.isRanged && gamepad_button_check(gamePadIndex, gp_shoulderr) {
 		performRightHandDownAction();
 	}
 	if gamepad_button_check_released(gamePadIndex,gp_face2) && !global.ui.isShowingMenus && !global.ui.justClosedMenus && !global.isLooting && !isHoldingSprintButton {
@@ -82,10 +82,6 @@ if gamepad_is_connected(gamePadIndex) {
 	if gamepad_button_check(gamePadIndex,gp_shoulderlb) && !global.ui.isShowingMenus {
 		performChargeSpell();
 	}
-	/*if gamepad_button_check_released(gamePadIndex, gp_shoulderlb) && !global.ui.isShowingMenus  {
-		show_debug_message(currentUsingSpell);
-		performLeftHandReleaseAction();
-	}*/
 	
 	if gamepad_button_check_pressed(gamePadIndex,gp_padu) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
 		performCycleThroughSpells("up");
@@ -111,6 +107,7 @@ if gamepad_is_connected(gamePadIndex) {
 			if currentSpellPrepSound != noone {
 				audio_stop_sound(currentSpellPrepSound);
 			}
+			audio_play_sound(snd_ui_option_change,1,0);
 			switch currentSpellAttunement {
 				case MAGIC: {
 					currentSpellAttunement = FIRE;
@@ -138,6 +135,7 @@ if gamepad_is_connected(gamePadIndex) {
 			if currentSpellPrepSound != noone {
 				audio_stop_sound(currentSpellPrepSound);
 			}
+			audio_play_sound(snd_ui_option_change,1,0);
 			switch currentSpellAttunement {
 				case MAGIC: {
 					currentSpellAttunement = LIGHTNING;

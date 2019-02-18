@@ -61,12 +61,12 @@ switch(state) {
 		var LEFTRELEASED = mouse_check_button_pressed(mb_left);
 		if gamepad_is_connected(gamePadIndex) {
 			LEFTRELEASED = mouse_check_button_pressed(mb_left) 
-			|| gamepad_button_check_pressed(gamePadIndex,gp_shoulderlb);
+			|| gamepad_button_check_pressed(gamePadIndex,gp_shoulderl);
 		}
 		var RIGHTRELEASED = mouse_check_button_pressed(mb_right);
 		if gamepad_is_connected(gamePadIndex) {
 			RIGHTRELEASED = mouse_check_button_pressed(mb_left) 
-			|| gamepad_button_check_released(gamePadIndex,gp_shoulderrb);
+			|| gamepad_button_check_released(gamePadIndex,gp_shoulderr);
 		}
 		
 		// iterate over preparing hands 

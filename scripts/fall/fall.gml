@@ -2,6 +2,10 @@
 
 // stop any and all attacks
 
+if currentSpellPrepSound != noone {
+	audio_stop_sound(currentSpellPrepSound);
+}
+
 // stop preparing attacks
 if ds_map_size(preparingLimbs) != 0 {
 	var hand = ds_map_find_first(preparingLimbs);

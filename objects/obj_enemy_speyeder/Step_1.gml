@@ -14,7 +14,7 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_replace(tmap,ItemTypes.HandItem,0);
 	ds_map_replace(tmap,ItemTypes.Head,0);
 	ds_map_replace(tmap,ItemTypes.Other,0);*/
-	var item1 = maybeMakeItem(100,rmap, [obj_hand_item_foil]); //randomly generated item
+	var item1 = maybeMakeItem(100,rmap); //randomly generated item
 	var gold = makeGold(0,25);
 	ds_list_clear(droppedItems);
 	ds_list_add(droppedItems,item1);

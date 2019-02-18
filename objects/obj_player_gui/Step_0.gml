@@ -27,7 +27,7 @@ if gamepad_is_connected(pad) {
 		audio_play_sound(snd_ui_click1,1,0);
 	}
 	
-	if gamepad_button_check_pressed(pad,gp_shoulderl) && isShowingMenus {
+	if gamepad_button_check_pressed(pad,gp_shoulderlb) && isShowingMenus {
 		audio_play_sound(snd_ui_tab1,1,0);
 		// stop any equipping that might be going on
 		with obj_item_selector {
@@ -48,7 +48,7 @@ if gamepad_is_connected(pad) {
 		}
 	}
 	
-	if gamepad_button_check_pressed(pad,gp_shoulderr) && isShowingMenus {
+	if gamepad_button_check_pressed(pad,gp_shoulderrb) && isShowingMenus {
 		audio_play_sound(snd_ui_tab1,1,0);
 		// stop any equipping that might be going on
 		with obj_item_selector {
