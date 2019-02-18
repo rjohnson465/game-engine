@@ -13,6 +13,9 @@ if item.equipmentSlot != noone {
 var invv = global.player.inventory;
 var pos = ds_list_find_index(invv,item);
 if item.count == 1 {
+	var itemType = getItemFilterType(item);
+	var currentItemTypeCount = ds_map_find_value(global.player.inventoryCapacityMap, itemType);
+	ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount - 1);
 	ds_list_delete(invv,pos);
 } else {
 	item.count--;

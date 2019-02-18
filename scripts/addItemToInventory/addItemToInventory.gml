@@ -1,4 +1,5 @@
 /// addItemToInventory(item)
+/// returns false if the item cannot be added
 /// @param item
 
 var item = argument0;
@@ -7,6 +8,10 @@ var p = global.player;
 if item == noone || item == undefined || !instance_exists(item) exit;
 
 item.owner = p;
+
+// itemType is either Ranged, Melee, Ring, Head, Other
+var itemType = getItemFilterType(item);
+var currentItemTypeCount = ds_map_find_value(global.player.inventoryCapacityMap, itemType);
 
 if item.isStackable {
 	// check if there's another item of this object_index in inventory
@@ -22,16 +27,41 @@ if item.isStackable {
 			stack = el;
 		}
 	}
+	// just increment the stack
 	if stack != noone {
 		stack.count += item.count;
 		instance_destroy(item,true);
-	} else {
+	}
+	// no stack exists, add the item to inv
+	else {
+		if (item.object_index != obj_item_coins) {
+			
+			// make sure we're not at capacity
+			if (currentItemTypeCount < global.player.INVENTORY_MAX_CAPACITY) {
+				ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount + 1);
+			} else {
+				var fs = getInvFilterName(itemType);
+				alert("You are at capacity for " + fs + " items!", c_red);
+				return false;
+				exit;
+			}
+		}
 		ds_list_add(p.inventory,item);
 		if !item.persistent {
 			item.persistent = true;
 		}
 	}
-} else {
+}
+// item is not stackable
+else {
+	if (currentItemTypeCount < global.player.INVENTORY_MAX_CAPACITY) {
+		ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount + 1);
+	} else {
+		var fs = getInvFilterName(itemType);
+		alert("You are at capacity for " + fs + " items!", c_red);
+		return false;
+		exit;
+	}
 	ds_list_add(p.inventory,item);
 	if !item.persistent {
 		item.persistent = true;
@@ -45,7 +75,10 @@ if item.isStackable {
 	}
 }
 
-if !instance_exists(item) exit;
+if !instance_exists(item) {
+	return true;
+	exit;
+}
 
 // some checks for "firsts" tutorial messages
 var ck = ds_map_find_first(p.tutorialFirstsMap);
@@ -94,5 +127,5 @@ for (var i = 0; i < TutFirsts.length; i++) {
 	ck = ds_map_find_next(p.tutorialFirstsMap, ck);
 }
 
-
+return true;
 

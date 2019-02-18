@@ -5,7 +5,38 @@
 var item = argument[0];
 
 var gp = getGoldCount();
+var p = global.player;
 
+// also make sure you don't already have too many items of that type
+var alreadyHasStackableItem = false;
+if item.isStackable {
+	// do we already have an item of this type
+	var stack = noone;
+	for (var i = 0; i < ds_list_size(p.inventory); i++) {
+		var el = ds_list_find_value(p.inventory,i);
+		if object_is_ancestor(el.object_index,obj_gem_parent) {
+			if el.object_index == item.object_index && el.condition == item.condition {
+				stack = el;
+			}
+		}
+		else if el.object_index == item.object_index {
+			stack = el;
+		}
+	}
+	if stack != noone {
+		alreadyHasStackableItem = true;
+	}
+}
+
+var itemType = getItemFilterType(item);
+var currentItemTypeCount = ds_map_find_value(p.inventoryCapacityMap, itemType);
+if !alreadyHasStackableItem && currentItemTypeCount >= p.INVENTORY_MAX_CAPACITY {
+	var fs = getInvFilterName(itemType);
+	alert("You are at capacity for " + fs + " items!", c_red);
+	exit;
+}
+
+// ok, we can go through with the purchase
 if gp >= item.value {
 	audio_play_sound(snd_item_coins,1,0);
 	alert("Purchased " + item.name + " for " + string(item.value) + " gold",c_yellow);

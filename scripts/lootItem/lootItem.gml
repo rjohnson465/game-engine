@@ -11,12 +11,14 @@ if !ds_exists(dropItem.items,ds_type_list) exit;
 
 var itemPos = ds_list_find_index(dropItem.items,item.id);
 with item {
-	audio_play_sound(soundDrop,1,0);
-	addItemToInventory(id);
-	ds_list_delete(dropItem.items,itemPos);
-	if ds_list_size(dropItem.items) > 0 {
-		dropItem.selectedItem = ds_list_find_value(dropItem.items,0);
-	} else {
-		dropItem.alarm[0] = 3;
+	
+	if (addItemToInventory(id)) {
+		audio_play_sound(soundDrop,1,0);
+		ds_list_delete(dropItem.items,itemPos);
+		if ds_list_size(dropItem.items) > 0 {
+			dropItem.selectedItem = ds_list_find_value(dropItem.items,0);
+		} else {
+			dropItem.alarm[0] = 3;
+		}
 	}
 }

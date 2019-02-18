@@ -172,6 +172,15 @@ isHoldingAttunemntSwapMode = false;
 goldDropMultiplier = 100; // %
 // inventory -- holds all items
 inventory = ds_list_create();
+// inventory fullness map
+INVENTORY_MAX_CAPACITY = 50; // can store up to 50 of each item type
+inventoryCapacityMap = ds_map_create();
+ds_map_replace(inventoryCapacityMap, InventoryFilters.Head, 0);
+ds_map_replace(inventoryCapacityMap, InventoryFilters.Melee, 0);
+ds_map_replace(inventoryCapacityMap, InventoryFilters.Ranged, 0);
+ds_map_replace(inventoryCapacityMap, InventoryFilters.Rings, 0);
+ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
+
 if global.populateInventory {
 	addItemToInventory(makeGold(100000,200000));
 
@@ -213,7 +222,19 @@ if global.populateInventory {
 	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
 	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
 	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
+	addItemToInventory(makeGem(obj_gem_hematite,FLAWLESS));
 	addItemToInventory(makeGem(obj_gem_ruby,FLAWLESS));
+	
+	var ring = instance_create_depth(x,y,1,obj_item_ring);
+	addItemProperty(ring, ModifiableProperties.XpMultiplier, 10);
+	addItemProperty(ring, ModifiableProperties.Defenses,[PIERCE, 7]);
+	addItemProperty(ring, ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC, 100]);
+	addItemProperty(ring, ModifiableProperties.StaminaSteal,10);
+	//ds_map_replace(ring.itemProperties,ModifiableProperties.XpMultiplier,10);
+	//ds_map_replace(ring.itemProperties,ModifiableProperties.Defenses,[PIERCE,7]);
+	//ds_map_replace(ring.itemProperties,ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC,100]);
+	//ds_map_replace(ring.itemProperties,ModifiableProperties.StaminaSteal,10);
+	addItemToInventory(ring);
 	
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
 

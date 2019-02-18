@@ -8,12 +8,4 @@ if isInUse {
 	global.player.hp = global.player.maxHp;
 	global.player.stamina = global.player.maxStamina;
 	isInUse = false;
-	if count > 1 {
-		count--;
-	} else {
-		instance_destroy(id);
-		if ds_list_find_index(global.player.inventory,id) != -1 {
-			ds_list_delete(global.player.inventory,ds_list_find_index(global.player.inventory,id));
-		}
-	}
 }

@@ -50,5 +50,20 @@ if point_in_rectangle(mouse_x,mouse_y,vx+eim.topLeftX,vy+eim.topLeftY,vx+eim.bot
 	acceptableEquipmentSlots = [];
 }
 
-
+// if being used, decrement count or destroy item. update inventory capacity
+if isInUse {
+	if count > 1 {
+		count--;
+	} else {
+		
+		var itemType = getItemFilterType(id);
+		var currentItemTypeCount = ds_map_find_value(global.player.inventoryCapacityMap, itemType);
+		ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount - 1);
+		
+		instance_destroy(id);
+		if ds_list_find_index(global.player.inventory,id) != -1 {
+			ds_list_delete(global.player.inventory,ds_list_find_index(global.player.inventory,id));
+		}
+	}
+}
 

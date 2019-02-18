@@ -15,9 +15,11 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_replace(tmap,ItemTypes.Head,0);
 	ds_map_replace(tmap,ItemTypes.Other,1);
 	var item1 = maybeMakeItem(100,rmap,tmap); //randomly generated item
+	//var item2 = maybeMakeItem(100,rmap,tmap); //randomly generated item
 	var gold = makeGold(0,25);
 	ds_list_clear(droppedItems);
 	ds_list_add(droppedItems,item1);
+	//ds_list_add(droppedItems,item2);
 	ds_list_add(droppedItems,gold);
 	ds_map_destroy(rmap); rmap = -1;
 	ds_map_destroy(tmap); tmap = -1;

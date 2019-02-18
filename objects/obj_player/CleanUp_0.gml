@@ -5,3 +5,4 @@ if instance_number(object_index) > 1 exit;
 event_inherited();
 
 //audio_emitter_free(sprintSoundEmitter); sprintSoundEmitter = -1;
+ds_map_destroy(inventoryCapacityMap); inventoryCapacityMap = -1;

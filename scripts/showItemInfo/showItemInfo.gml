@@ -18,22 +18,45 @@ if item.type == ItemTypes.HandItem {
 	}
 }
 
-draw_set_color(C_HANDLES);
+// handle starts here
 var descriptionHandleX2 = topLeftX+width
 var descriptionHandleY2 = topLeftY+itemDescriptionHandleHeight;
+
+// handle itself
+draw_set_color(C_HANDLES);
 draw_rectangle(topLeftX,topLeftY,descriptionHandleX2,descriptionHandleY2,false);
+
+var modifiedWidth = width;
+var modifiedTopLeftX = topLeftX;
+if (object_index == obj_player_items || object_index == obj_inventory) {
+// ??? maybe leave some room at the start of the handle to display inventory capacity for this category
+	var currentItemTypeCount = ds_map_find_value(global.player.inventoryCapacityMap, global.inventory.filter);
+	var maxItemCount = global.player.INVENTORY_MAX_CAPACITY;
+	var itemCapacityString = string(currentItemTypeCount) + "/" + string(maxItemCount);
+	var itemCapacityX2 = topLeftX + string_width(itemCapacityString);
+	draw_set_color(c_black);
+	draw_rectangle(topLeftX, topLeftY, itemCapacityX2, descriptionHandleY2, 0);
+	draw_set_color(c_white);
+	
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_center);
+	draw_text(topLeftX, mean(topLeftY, descriptionHandleY2), itemCapacityString);
+	modifiedWidth = width - (itemCapacityX2-topLeftX);
+	modifiedTopLeftX = itemCapacityX2;
+}
+
+
 
 // draw item name in color according to item rarity
 draw_set_color(ds_map_find_value(global.itemRarityColors, item.rarity));
-
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 var s = item.name;
 var ns = 1; // name scale
-if string_width(s) > width-2 {
-	ns = (width-2)/string_width(s);
+if string_width(s) > modifiedWidth-2 {
+	ns = (modifiedWidth-2)/string_width(s);
 }
-draw_text_transformed(mean(topLeftX,topLeftX+width),mean(descriptionHandleY2+topLeftY)/2,s,ns,1,0);
+draw_text_transformed(mean(modifiedTopLeftX,modifiedTopLeftX+modifiedWidth),mean(descriptionHandleY2+topLeftY)/2,s,ns,1,0);
 
 draw_set_valign(fa_left);
 draw_set_halign(fa_left);

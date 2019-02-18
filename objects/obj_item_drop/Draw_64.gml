@@ -22,7 +22,11 @@ if isBeingLooted && ds_exists(items,ds_type_list) && ds_list_size(items) != 0 {
 	draw_rectangle(topLeftX,topLeftY,bottomRightX,topLeftY+handleHeight,0);
 	draw_set_color(c_white); draw_set_valign(fa_center); draw_set_halign(fa_center);
 	var s = !instance_exists(selectedItem) ? "Loot Items" : selectedItem.name;
-	draw_set_color(ds_map_find_value(global.itemRarityColors, selectedItem.rarity));
+	if (s != "Loot Items") {
+		draw_set_color(ds_map_find_value(global.itemRarityColors, selectedItem.rarity));
+	} else {
+		draw_set_color(c_white);
+	}
 	var ns = 1; // name scale
 	if string_width(s) > width-2 {
 		ns = (width-2)/string_width(s);
@@ -41,7 +45,7 @@ if isBeingLooted && ds_exists(items,ds_type_list) && ds_list_size(items) != 0 {
 		var index = i + (5*scrollLevel);
 		var item = ds_list_find_value(items,index);
 				
-		if !is_undefined(item) {
+		if !is_undefined(item) && instance_exists(item) {
 			item.x1 = x1;
 			item.y1 = y1;
 					

@@ -32,3 +32,9 @@ if percentCharged > .25 && RIGHTRELEASED && stamina > 0 {
 		alert(leftHandItem.name + " out of ammo", c_red);
 	}
 }
+
+if RIGHTRELEASED {
+	ds_map_replace(prepFrames,"l",-1);
+	ds_map_replace(prepFrameTotals,"l",0);
+	isReadyToFire = false;
+}
