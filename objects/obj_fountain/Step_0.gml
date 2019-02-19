@@ -45,6 +45,7 @@ if origLayer != global.player.layer exit;
 
 if distance_to_object(obj_player) < 20 && origLayer == global.player.layer && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !global.canLoot && !inUse && !global.ui.isShowingMenus && !global.canInteractWithNpc && !isInConvo {
 	if !isRunning {
+		fountainRunningSoundIndex = audio_play_sound_on(fountainRunningSoundEmitter, fountainRunningSound, 1, 1);
 		wishAtFountain(); // turn fountain on ;)
 	} else {
 		global.fadeDuration = 30;

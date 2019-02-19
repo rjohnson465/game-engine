@@ -6,7 +6,8 @@ var ambs = getAmbForRoom(room);
 if ambs != noone {
 	ambCurrent = ambs[0];
 	ambCurrent = ambCurrent[0];
-	audio_play_sound_on(ambEmitter, ambCurrent, 1, 1);
+	var mainAmbSndIndex = audio_play_sound_on(ambEmitter, ambCurrent, 1, 1);
+	ds_list_add(ambSoundIndexes, mainAmbSndIndex);
 	
 	var ambPeriodicals = ambs[1];
 	for (var i = 0; i < array_length_1d(ambPeriodicals); i++) {
@@ -22,6 +23,7 @@ if ambs != noone {
 		var emitter = audio_emitter_create();
 		ds_map_replace(ambpEmitters, snd, emitter);
 		audio_emitter_gain(emitter, 0);
-		audio_play_sound_on(emitter, snd, 1, 1);
+		var ambSndIndex = audio_play_sound_on(emitter, snd, 1, 1);
+		ds_list_add(ambSoundIndexes, ambSndIndex);
 	}
 }

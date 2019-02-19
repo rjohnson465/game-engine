@@ -34,6 +34,7 @@ audio_emitter_falloff(walkingEmitter,50,AUDIO_MAX_FALLOFF_DIST,1);
 walkingInWaterEmitter = audio_emitter_create();
 audio_emitter_gain(walkingInWaterEmitter,0);
 audio_emitter_falloff(walkingInWaterEmitter,50,AUDIO_MAX_FALLOFF_DIST,1);
+walkingInWaterSoundId = noone;
 // decide which water walk sound to play on room start (if floating a different sound is used than if walking)
 
 isAlive = true;
@@ -290,14 +291,17 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	ds_map_add(conditionLevels,global.ALL_ELEMENTS[i],0);
 }
 conditionsEmittersMap = ds_map_create();
+conditionSoundsMap = ds_map_create(); // stores unique ids for each condition sound
 for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	var el = global.ALL_ELEMENTS[i];
 	var emitter = audio_emitter_create();
-	var snd = asset_get_index("snd_magic_"+el+"_condition");
+	//var snd = asset_get_index("snd_magic_"+el+"_condition");
 	audio_emitter_gain(emitter,0);
 	audio_emitter_falloff(emitter,50,AUDIO_MAX_FALLOFF_DIST,1);
 	audio_emitter_position(emitter,x,y,depth);
-	audio_play_sound_on(emitter,snd,1,1);
+	// TODO -- DO NOT ALWAYS PLAY SOUNDS ON THESE EMITTER JESUS FUCK
+	ds_map_replace(conditionSoundsMap, el, noone);
+	// audio_play_sound_on(emitter,snd,1,1);
 	ds_map_replace(conditionsEmittersMap, el, emitter);
 }
 

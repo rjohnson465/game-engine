@@ -22,6 +22,7 @@ if isFacing && distance_to_object(obj_player) < 20 && origLayer == p.layer && in
 	if !isLit && p.rightHandItem.object_index == obj_hand_item_torch {
 		isLit = true;
 		audio_emitter_gain(soundEmitter,MAXGAIN);
+		torchSoundId = audio_play_sound_on(soundEmitter, torchSound,1,1);
 		updatePersistentElementProperty(id, "isLit", true);
 		audio_play_sound_at(snd_magic_fire_shoot,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		global.owner = id;
@@ -36,6 +37,7 @@ if isFacing && distance_to_object(obj_player) < 20 && origLayer == p.layer && in
 	else if isLit {
 		isLit = false;
 		audio_emitter_gain(soundEmitter,0);
+		audio_stop_sound(torchSound); torchSound = noone;
 		updatePersistentElementProperty(id, "isLit", false);
 		audio_play_sound_at(snd_magic_fire_hit,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		// might need to do more to make the light radius fuck off

@@ -48,10 +48,12 @@ currentMeleeAttack = noone;
 // ATTACKS
 global.owner = id;
 var spores = makeEnemyAttackObj(obj_attack_mushroom_spores_1_1);
+var charge = makeEnemyAttackObj(obj_attack_mushroom_charge_1_1);
 
 var sporesChain = [spores];
+var chargeChain = [charge];
 //meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4, doubleClawChain, jumpClaws, poisonAttackChain];
-meleeAttacks = [sporesChain];
+meleeAttacks = [sporesChain, chargeChain];
 
 // ranged attacks info
 

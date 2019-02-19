@@ -1,4 +1,4 @@
-if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked exit;
+//if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked exit;
 
 // account for any currently active conditions (slowed/frozen, burning, poisoned, electrified)
 var currentCondition = ds_map_find_first(conditionLevels);
@@ -10,14 +10,22 @@ for (var i = 0; i < size; i++) {
 	var defense = ds_map_find_value(defenses,currentCondition);
 	
 	// play condition sound, if not already
-	var snd = asset_get_index("snd_magic_"+currentCondition+"_condition");
-	var emitter = ds_map_find_value(conditionsEmittersMap, currentCondition);
-	audio_emitter_position(emitter,x,y,depth);
-	audio_emitter_gain(emitter,conditionPercent/100);
+	var sndId = ds_map_find_value(conditionSoundsMap, currentCondition);
+	if (sndId == noone && conditionLevel > 0) {
+		var emitter = ds_map_find_value(conditionsEmittersMap, currentCondition);
+		var snd = asset_get_index("snd_magic_"+currentCondition+"_condition");
+		var sndId = audio_play_sound_on(emitter,snd,1,1);
+		ds_map_replace(conditionSoundsMap, currentCondition, sndId);
+		audio_emitter_position(emitter,x,y,depth);
+		audio_emitter_gain(emitter,conditionPercent/100);
 	
-	// do not play sound if not on player layer
-	if depth < global.player.depth {
-		audio_emitter_gain(emitter,0);
+		// do not play sound if not on player layer
+		if depth < global.player.depth {
+			audio_emitter_gain(emitter,0);
+		}
+	} else if (sndId != noone && conditionLevel <= 0) {
+		audio_stop_sound(sndId);
+		ds_map_replace(conditionSoundsMap, currentCondition, noone);
 	}
 	
 	// particle effects for conditions

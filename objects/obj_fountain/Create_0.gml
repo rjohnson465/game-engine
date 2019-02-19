@@ -23,7 +23,9 @@ fountainRunningSoundEmitter = audio_emitter_create();
 audio_emitter_position(fountainRunningSoundEmitter,x,y,layer_get_depth(origLayer));
 audio_emitter_falloff(fountainRunningSoundEmitter,50,500,1);
 audio_emitter_gain(fountainRunningSoundEmitter,0);
-audio_play_sound_on(fountainRunningSoundEmitter,snd_fountain_running,1,0);
+fountainRunningSound = snd_fountain_running;
+fountainRunningSoundIndex = noone;
+//audio_play_sound_on(fountainRunningSoundEmitter,snd_fountain_running,1,0);
 
 num = random_range(10,25);
 // water particle

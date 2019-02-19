@@ -8,4 +8,4 @@ emitter = audio_emitter_create();
 audio_emitter_position(emitter,x,y,depth);
 audio_emitter_gain(emitter,gain);
 audio_emitter_falloff(emitter,refDist,maxDist,factor);
-audio_play_sound_on(emitter,snd,isLooping,1);
+soundIndex = audio_play_sound_on(emitter,snd,isLooping,1);

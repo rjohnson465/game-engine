@@ -20,6 +20,8 @@ if hp < 1 && isAlive && !isDying {
 	
 	audio_emitter_gain(walkingEmitter,0);
 	audio_emitter_gain(walkingInWaterEmitter,0);
+	audio_stop_sound(walkingSoundIndex); walkingSoundIndex = noone;
+	audio_stop_sound(walkingInWaterSoundId); walkingInWaterSoundId = noone;
 	
 	isDying = true;
 	lockOnTarget = noone;

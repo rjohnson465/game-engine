@@ -1,3 +1,4 @@
+if !instance_exists(owner) exit;
 audio_emitter_position(soundEmitter, x, y, depth);
 
 if isMelee {

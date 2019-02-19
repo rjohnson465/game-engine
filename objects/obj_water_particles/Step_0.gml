@@ -1,4 +1,4 @@
-if owner.isMoving && !isDestroying && ownerTouchingWater {
+if owner.isMoving && !isDestroying && ownerTouchingWater && owner.hp > 1 {
 	var dir = owner.movingDirection;
 	dir = (dir+180)%360;
 	var emitterGain = audio_emitter_get_gain(owner.walkingInWaterEmitter);
@@ -8,6 +8,11 @@ if owner.isMoving && !isDestroying && ownerTouchingWater {
 		audio_emitter_gain(owner.walkingInWaterEmitter,emitterGain);	
 	}
 	audio_emitter_gain(owner.walkingInWaterEmitter,1);
+	if owner.isFloating && owner.walkingInWaterSoundId == noone {
+		owner.walkingInWaterSoundId = audio_play_sound_on(owner.walkingInWaterEmitter, snd_water_floating_loop, 1, 1);
+	} else if owner.walkingInWaterSoundId == noone {
+		owner.walkingInWaterSoundId = audio_play_sound_on(owner.walkingInWaterEmitter, snd_water_walking_loop, 1, 1);
+	}
 	
 	part_type_shape(part1,pt_shape_explosion);
 	part_type_size(part1,.05,.15,0,0);
@@ -27,5 +32,9 @@ if owner.isMoving && !isDestroying && ownerTouchingWater {
 		emitterGain -= .1;
 		if emitterGain < 0 emitterGain = 0;
 		audio_emitter_gain(owner.walkingInWaterEmitter,emitterGain);	
-	}
+	} /*else {
+		audio_stop_sound(owner.walkingInWaterSoundId);
+		owner.walkingInWaterSoundId = noone;
+		audio_emitter_gain(owner.walkingInWaterEmitter,0);
+	} */
 }

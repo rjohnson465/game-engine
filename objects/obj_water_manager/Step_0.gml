@@ -19,7 +19,10 @@ with obj_combatant_parent {
 					ck = ds_map_find_next(conditionsEmittersMap, ck);
 				}
 				if condiEmi != noone {
+					var sndId = ds_map_find_value(conditionSoundsMap, FIRE);
 					audio_emitter_gain(condiEmi, 0);
+					audio_stop_sound(sndId);
+					ds_map_replace(conditionSoundsMap, FIRE, noone);
 				}
 				ds_map_replace(conditionPercentages,FIRE,0);
 			}

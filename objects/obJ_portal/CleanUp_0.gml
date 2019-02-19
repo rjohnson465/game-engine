@@ -8,3 +8,5 @@ if part_type_exists(part) {
 if audio_emitter_exists(audioEmitter) {
 	audio_emitter_free(audioEmitter); audioEmitter = -1;
 }
+
+audio_stop_sound(portalSoundIndex); portalSoundIndex = -1;

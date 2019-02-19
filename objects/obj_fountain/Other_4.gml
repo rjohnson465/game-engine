@@ -8,6 +8,8 @@ if isDoneFilling {
 if isRunning || (global.player.justRevivedAtFountain && distance_to_object(obj_player) < 100) {
 	sprite_index = asset_get_index("spr_fountain_full");
 	isDoneFilling = true;
+	audio_emitter_gain(fountainRunningSoundEmitter,1);
+	fountainRunningSoundIndex = audio_play_sound_on(fountainRunningSoundEmitter, fountainRunningSound, 1, 1);
 	var lr = noone;
 	with obj_light_radius {
 		if owner == other.id {
@@ -21,6 +23,7 @@ if isRunning || (global.player.justRevivedAtFountain && distance_to_object(obj_p
 	}
 }
 
+/*
 if isRunning {
 	audio_emitter_gain(fountainRunningSoundEmitter,1);
 }

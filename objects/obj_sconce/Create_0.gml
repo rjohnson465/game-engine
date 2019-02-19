@@ -63,7 +63,9 @@ soundEmitter = audio_emitter_create();
 audio_emitter_position(soundEmitter,x,y,layer_get_depth(layer));
 audio_emitter_falloff(soundEmitter,50,500,1);
 audio_emitter_gain(soundEmitter,0);
-audio_play_sound_on(soundEmitter,snd_magic_fire_condition,1,0);
+torchSound = snd_magic_fire_condition;
+torchSoundId = noone; 
+// audio_play_sound_on(soundEmitter,snd_magic_fire_condition,1,0);
 MAXGAIN = .1;
 
 origLayer = layer;

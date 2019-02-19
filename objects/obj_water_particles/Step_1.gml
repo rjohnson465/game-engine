@@ -32,4 +32,8 @@ with obj_water_particles {
 		doNotShutUp = true;
 	}
 }
-if !doNotShutUp && !ownerTouchingWater audio_emitter_gain(owner.walkingInWaterEmitter,0);
+if !doNotShutUp && !ownerTouchingWater {
+	audio_stop_sound(owner.walkingInWaterSoundId);
+	owner.walkingInWaterSoundId = noone;
+	audio_emitter_gain(owner.walkingInWaterEmitter,0);
+}

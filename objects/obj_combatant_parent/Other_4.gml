@@ -5,11 +5,11 @@ if place_meeting(x,y,obj_player) {
 audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
 walkingInWaterEmitter = audio_emitter_create();
 audio_emitter_gain(walkingInWaterEmitter,0);
-if isFloating {
+/*if isFloating {
 	audio_play_sound_on(walkingInWaterEmitter,snd_water_floating_loop,1,0);
 } else {
 	audio_play_sound_on(walkingInWaterEmitter,snd_water_walking_loop,1,0);
-}
+}*/
 
 // initiated here so dyingParticle exist
 sprintParticle = part_type_create();

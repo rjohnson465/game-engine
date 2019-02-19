@@ -100,4 +100,4 @@ staysOutOfEnemies = false;
 canFlinch = false;
 
 walkingSound = snd_walking_galloping;
-audio_play_sound_on(walkingEmitter,walkingSound,1,1);
+walkingSoundIndex = audio_play_sound_on(walkingEmitter,walkingSound,1,1);

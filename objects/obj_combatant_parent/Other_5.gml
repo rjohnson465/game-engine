@@ -1,3 +1,5 @@
+audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;
+audio_stop_sound(walkingInWaterSoundId); walkingInWaterSoundId = -1;
 //ds_grid_destroy(personalGrid);
 // memory leak stuff
 if type == CombatantTypes.Enemy {

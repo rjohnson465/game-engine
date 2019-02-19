@@ -1,3 +1,4 @@
+//audio_debug(true);
 if instance_number(object_index) > 1 {
 	instance_destroy(id,0);
 	exit;
@@ -170,6 +171,7 @@ ambPeriodicalsMap = ds_map_create();
 ambpFrames = ds_map_create(); // keys are snd ids
 ambpEmitters = ds_map_create();
 ambpFrameStarts = ds_map_create();
+ambSoundIndexes = ds_list_create();
 
 global.doNotDisplayTutorialMessages = true;
 alarm[3] = 5;

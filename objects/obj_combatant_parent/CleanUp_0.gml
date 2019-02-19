@@ -1,3 +1,5 @@
+audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;
+audio_stop_sound(walkingInWaterSoundId); walkingInWaterSoundId = -1;
 /*
 ds_map_destroy(knownSpells); knownSpells = -1;
 ds_map_destroy(defenses); defenses = -1;

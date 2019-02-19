@@ -17,6 +17,7 @@ for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
 	ck = ds_map_find_next(conditionsEmittersMap,ck);
 }
 ds_map_destroy(conditionsEmittersMap); conditionsEmittersMap = -1;
+ds_map_destroy(conditionSoundsMap); conditionSoundsMap = -1;
 audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
 audio_emitter_free(walkingEmitter); walkingEmitter = -1;
 
@@ -43,3 +44,5 @@ if part_system_exists(appSystem) {
 if audio_emitter_exists(attackPrepSoundEmitter) {
 	audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
 }
+
+audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;

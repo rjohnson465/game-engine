@@ -17,3 +17,4 @@ if part_type_exists(torchParticle2) {
 	part_type_destroy(torchParticle2); torchParticle2 = -1;
 }
 audio_emitter_free(torchAudioEmitter); torchAudioEmitter = -1;
+audio_stop_sound(torchSoundId); torchSoundId = -1;

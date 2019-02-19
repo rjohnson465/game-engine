@@ -3823,6 +3823,14 @@
             }
         },
         {
+            "Key": "468a471a-f987-4ca9-86fa-3c32de52db0e",
+            "Value": {
+                "id": "0c852b83-d358-4a6e-93fd-7f4dc868ff32",
+                "resourcePath": "sprites\\spr_enemy_mushroom_charge_recover_1_1\\spr_enemy_mushroom_charge_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "46d5ddb0-54a3-44fe-9bfa-7d5b4cb65b00",
             "Value": {
                 "id": "469364ad-8b12-4baa-a008-138c96d5e1c4",
@@ -8319,6 +8327,14 @@
             }
         },
         {
+            "Key": "9e47f32b-9ad8-46b6-8831-e95808416cb4",
+            "Value": {
+                "id": "4ac85705-3d50-452d-9516-461652b39ae5",
+                "resourcePath": "objects\\obj_attack_mushroom_charge_1_1\\obj_attack_mushroom_charge_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "9e5841e2-f3a3-48d6-97d9-ab19af0cba35",
             "Value": {
                 "id": "41346176-36d5-4069-9fc3-77407cbe5f3f",
@@ -10935,6 +10951,14 @@
             }
         },
         {
+            "Key": "ce279199-1069-417d-ac16-0704be362f59",
+            "Value": {
+                "id": "f75e6534-39c8-4bd0-a23d-a25a513c727e",
+                "resourcePath": "sprites\\spr_enemy_mushroom_charge_prep_1_1\\spr_enemy_mushroom_charge_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ce34f157-6b7c-4d73-990f-568d24721e23",
             "Value": {
                 "id": "05b8db66-bd6c-4396-a054-852d4e44ad23",
@@ -12260,6 +12284,14 @@
                 "id": "26cb2c37-2a76-4408-b40b-0d6dbda912ce",
                 "resourcePath": "scripts\\addSocketsAndGemsByRarity\\addSocketsAndGemsByRarity.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ea9618b0-f75d-44d3-8689-ed99301a857f",
+            "Value": {
+                "id": "9cea26f0-8b3d-40c2-a687-b47b196b35e6",
+                "resourcePath": "sprites\\spr_enemy_mushroom_charge_attack_1_1\\spr_enemy_mushroom_charge_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

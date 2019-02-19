@@ -18,7 +18,13 @@ if limbItem.baseName == "Torch" {
 		instance_destroy(torchLightRadius,1);
 		torchLightRadius = noone;
 	}
+	if (torchSoundId == noone) {
+		torchSoundId = audio_play_sound_on(torchAudioEmitter,snd_torch_loop,1,0);
+	}
 } else {
+	if (torchSoundId != noone) {
+		audio_stop_sound(torchSoundId); torchSoundId = noone;
+	}
 	fireOffsetX = noone; fireOffsetY = noone;
 	if torchLightRadius != noone || !instance_exists(torchLightRadius) {
 		if instance_exists(torchLightRadius) {
