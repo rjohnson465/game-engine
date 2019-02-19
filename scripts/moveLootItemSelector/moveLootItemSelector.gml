@@ -6,6 +6,8 @@ var dir = argument[0];
 
 if global.ui.isShowingMenus exit; // menus take priority over loot
 
+//if selectedItem == noone || !instance_exists(selectedItem) exit;
+
 if !items exit;
 if !isBeingLooted exit;
 

@@ -7,5 +7,8 @@ if status == QuestStepStatus.Completed && nextStep != undefined && nextStep != n
 		nextStep.status = QuestStepStatus.InProgress;
 		quest.currentQuestStep = nextStep;
 		quest.currentQuestStepIndex = pos+1;
+		if nextStep.isRewardStep {
+			audio_play_sound(snd_ui_quest_complete_alert,1,0);
+		}
 	}
 }

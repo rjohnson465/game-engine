@@ -1,5 +1,5 @@
 //display_set_gui_size(-1, -1);
-
+draw_set_alpha(1);
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
 var pad = global.player.gamePadIndex;

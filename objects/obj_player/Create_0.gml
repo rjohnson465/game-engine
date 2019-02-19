@@ -164,6 +164,9 @@ ds_map_add(knownSpells, "aoe", skm.skillExplosion);
 currentSpell = ds_map_find_first(knownSpells);
 currentUsingSpell = noone;
 hasAlertedNoMagicCharges = false;
+// prevents accidental double casting
+// the spell charge button must be released before casting another spell
+justCastSpell = false; 
 
 
 currentSpellAttunement = MAGIC;

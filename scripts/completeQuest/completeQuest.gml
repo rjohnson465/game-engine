@@ -5,6 +5,7 @@ var quest = argument[0];
 if !quest.currentQuestStep.isRewardStep || quest.isFinished exit;
 
 gainXp(quest.xpReward);
+audio_play_sound(snd_ui_quest_complete,1,0);
 var itemsString = "";
 for (var i = 0; i < ds_list_size(quest.rewardItems); i++) {
 	var item = ds_list_find_value(quest.rewardItems,i);	

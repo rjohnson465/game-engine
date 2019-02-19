@@ -4,6 +4,7 @@ postY = y;
 upDirectionString = noone;
 upDirectionMin = 0;
 upDirectionMax = 180;
+drawRotation = 0;
 floorUp = 0;
 floorDown = 0;
 

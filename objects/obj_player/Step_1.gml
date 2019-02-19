@@ -79,8 +79,11 @@ if gamepad_is_connected(gamePadIndex) {
 	}
 	
 	// spell casting
-	if gamepad_button_check(gamePadIndex,gp_shoulderlb) && !global.ui.isShowingMenus {
+	if gamepad_button_check(gamePadIndex,gp_shoulderlb) && !global.ui.isShowingMenus && !justCastSpell {
 		performChargeSpell();
+	}
+	if justCastSpell && gamepad_button_check_released(gamePadIndex, gp_shoulderlb) {
+		justCastSpell = false;
 	}
 	
 	if gamepad_button_check_pressed(gamePadIndex,gp_padu) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
@@ -101,7 +104,7 @@ if gamepad_is_connected(gamePadIndex) {
 		}
 	}
 	// d pad swaps attunements when RT is held down
-	else if !global.ui.isShowingMenus {
+	else if !global.ui.isShowingMenus && !global.isTrading && !global.isWishing && !global.isInteractingWithNpc {
 		isHoldingAttunemntSwapMode = true;
 		if gamepad_button_check_pressed(gamePadIndex,gp_padr) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
 			if currentSpellPrepSound != noone {

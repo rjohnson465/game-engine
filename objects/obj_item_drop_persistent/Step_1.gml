@@ -27,7 +27,7 @@ if gamepad_is_connected(pad) && isBeingLooted {
 	
 	// move selector right
 	if gamepad_button_check_pressed(pad,gp_padr) || (angleBetween(315,45,pdir) && pdir != noone && acceptingJoystickInput) {
-		moveLootItemSelector("right");
+		moveLootItemSelector("right"); 
 		joystickInputFrame = 0;
 		audio_play_sound(snd_ui_option_change,1,0);
 	}

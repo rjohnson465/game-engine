@@ -8,7 +8,9 @@
         "b5450c59-c069-4d22-904a-303e8eb32fab",
         "ac1e6a93-1ca2-41f5-86dc-c279622a76e3",
         "e8aa13cb-edd4-4ecb-8874-1313c613c8cf",
-        "51cfcc9a-ad7a-43fe-a4ea-9d0310861ddc"
+        "51cfcc9a-ad7a-43fe-a4ea-9d0310861ddc",
+        "af47ef6f-5dd5-4bd0-8cb9-8e6c303f3f8e",
+        "a64b822e-37c2-4d56-9a3a-16e2cc74ba2c"
     ],
     "filterType": "GMSound",
     "folderName": "ui",

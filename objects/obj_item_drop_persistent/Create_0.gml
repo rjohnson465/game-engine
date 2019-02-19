@@ -23,7 +23,7 @@ handleHeight = 20;
 lootTopLeftX = topLeftX;
 lootTopLeftY = topLeftY+20;
 
-selectedItem = noone;
+selectedItem = ds_list_find_value(items,0);
 
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;

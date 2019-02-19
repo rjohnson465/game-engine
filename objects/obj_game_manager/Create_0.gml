@@ -157,6 +157,7 @@ currentRoomData = noone;
 enviroParticlesController = instance_create_depth(x,y,depth,obj_environment_particles_controller);
 
 bgmEmitter = audio_emitter_create();
+bgmEmitterGain = .5;
 audio_emitter_falloff(bgmEmitter, audio_falloff_none,1,1);
 bgmPossibilities = noone;
 bgmCurrent = noone;

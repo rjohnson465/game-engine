@@ -1,3 +1,6 @@
 if room == game_menu {
 	exit;
-}performChargeSpell();
+}
+if !justCastSpell {
+	performChargeSpell();
+}

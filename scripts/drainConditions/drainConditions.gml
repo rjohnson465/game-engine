@@ -107,6 +107,14 @@ for (var i = 0; i < size; i++) {
 		ds_map_replace(conditionPercentages,currentCondition,0);
 		// set condition level to 0
 		ds_map_replace(conditionLevels,currentCondition,0);
+		// stop the emitter
+		var sndId = ds_map_find_value(conditionSoundsMap, currentCondition);
+		if (sndId != noone) {
+			var emitter = ds_map_find_value(conditionsEmittersMap, currentCondition);
+			audio_emitter_gain(emitter, 0);
+			audio_stop_sound(sndId);
+			ds_map_replace(conditionSoundsMap, currentCondition, noone);
+		}
 		switch currentCondition {
 			case FIRE: {
 				isBurning = false; 

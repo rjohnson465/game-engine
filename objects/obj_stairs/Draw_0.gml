@@ -25,7 +25,7 @@ glowAmount += delta;
 
 gpu_set_blendmode(bm_add);
 for(var c = 0;c < 360;c += 15){
-	draw_sprite_ext(spr_stairs_arrow,1,x+lengthdir_x(glowAmount,c),y+lengthdir_y(glowAmount,c),scale,ys*scale,0,c2,.15);
+	draw_sprite_ext(spr_stairs_arrow,1,x+lengthdir_x(glowAmount,c),y+lengthdir_y(glowAmount,c),scale,ys*scale,drawRotation,c2,.15);
 }
 gpu_set_blendmode(bm_normal)
-draw_sprite_ext(spr_stairs_arrow,1,x,y,scale,ys*scale,0,c2,1);
+draw_sprite_ext(spr_stairs_arrow,1,x,y,scale,ys*scale, drawRotation, c2,1);
