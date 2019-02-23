@@ -57,8 +57,10 @@ if lockOnInputReceived || lockOnInputChangeReceived {
 	}
 }
 var wallsBetweenLockOnTarget = noone;
+var doorsBetweenLockOnTarget = noone;
 if lockOnTarget {
 	wallsBetweenLockOnTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
+	doorsBetweenLockOnTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_door,true,true);
 }
 // filter out no interrupt walls
 var garbageIndices = ds_list_create();
@@ -115,7 +117,7 @@ if isLockedOn && gamepad_is_connected(gamePadIndex) {
 			var diff = abs(angle_difference(pdir,ang));
 			
 			var wallsBetweenLockOnTarget = script_execute(scr_collision_line_list_layer,x,y,el.x,el.y,obj_wall_parent,true,true);
-			if diff < closestAngleDiff && diff < 90 && wallsBetweenLockOnTarget == noone {
+			if diff < closestAngleDiff && diff < 90 && wallsBetweenLockOnTarget == noone && doorsBetweenLockOnTarget == noone {
 				lockOnTarget = el;
 			}
 			if wallsBetweenLockOnTarget != noone {

@@ -33,6 +33,9 @@ attackSound = noone;
 hitSound = noone;
 attackSoundsVocals = [];
 
+chargePrepSpeed = noone; // how fast to move back in prep for charge, if this is an attack of type Charge
+chargeSpeed = noone; // how fast to charge, if this is an attack of type Charge
+
 // must be within this number of pixels of target to begin attack
 minRange = 0;
 

@@ -43,20 +43,19 @@ if gamepad_is_connected(global.player.gamePadIndex) && (selectedConversation == 
 	selectedConversation = ds_list_find_value(conversations,0);
 }
 
-if state == CombatantStates.Moving {
+// wander, but only if near enough to player to be on screen
+if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 {
 	if distance_to_point(postX, postY) < 250 && !isInteractingWithPlayer && !isInConversation {
 		moveToNearestFreePoint(direction,normalSpeed,1);
 		facingDirection = direction;
-		//var dirX = lengthdir_x(normalSpeed,direction); var dirY = lengthdir_y(normalSpeed,direction);
-		//turnToFacePoint(10,dirX,dirY);
+
 	} else {
 		randomize();
 		var goodDir = point_direction(x,y,postX,postY);
 		direction = random_range(goodDir-20,goodDir+20);
 		moveToNearestFreePoint(direction,normalSpeed,1);
 		facingDirection = direction;
-		//var dirX = lengthdir_x(normalSpeed,direction); var dirY = lengthdir_y(normalSpeed,direction);
-		//turnToFacePoint(10,dirX,dirY);
+
 	}
 	if isInConversation || isInteractingWithPlayer {
 		state = CombatantStates.Idle;

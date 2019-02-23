@@ -57,7 +57,7 @@ if isActive && gamepad_is_connected(pad) {
 	}
 	
 	// switch to skills
-	if gamepad_button_check_pressed(pad,gp_shoulderlb) {
+	if gamepad_button_check_pressed(pad,gp_shoulderl) {
 		isActive = false;
 		global.skillManager.isActive = true;
 	}

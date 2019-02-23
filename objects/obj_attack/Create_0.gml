@@ -321,8 +321,9 @@ if (weapon != noone && weapon.weaponType == PISTOL || weapon.weaponType == MUSKE
 	part_emitter_burst(system,emitter,particle,5);
 	part_emitter_burst(system,emitter,particle2,2);
 	
-	part_type_destroy(particle);
-	part_type_destroy(particle2); particle = -1; particle2 = -1;
+	//part_type_destroy(particle);
+	//part_type_destroy(particle2); 
+	particle = noone; particle2 = noone;
 }
 
 // ranged attacks may have particles 

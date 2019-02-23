@@ -59,7 +59,7 @@ if gamepad_is_connected(pad) {
 	} 
 	
 	// switch to quests
-	if gamepad_button_check_pressed(pad,gp_shoulderrb) {
+	if gamepad_button_check_pressed(pad,gp_shoulderr) {
 		global.skillManager.isActive = false;
 		global.questLog.isActive = true;
 		if ds_list_find_value(global.player.quests,0) != undefined {

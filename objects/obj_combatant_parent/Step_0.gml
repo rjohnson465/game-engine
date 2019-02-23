@@ -45,7 +45,7 @@ switch(state) {
 				actingPostY = tempPostY;
 			}
 			
-			// if not on player layer and close to post, just stand still
+			// if not on player layer or very far from player and and close to post, just stand still
 			if (layer != global.player.layer && distance_to_point(actingPostX,actingPostY) < 10) || distance_to_object(obj_player) > 1000 {
 				lockOnTarget = noone;
 				break;

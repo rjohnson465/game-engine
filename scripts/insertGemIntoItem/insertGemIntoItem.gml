@@ -60,6 +60,11 @@ if isRemoving {
 		gem.owner = "socket";
 		gemStack.count--;
 	}
+	// if there is only one gem in the stack, update the Misc inventory capacity accordingly
+	else if gem.owner == global.player && object_index == obj_fountain_gui_nameprice {
+		var currentMiscCount = ds_map_find_value(global.player.inventoryCapacityMap, InventoryFilters.Other);
+		ds_map_replace(global.player.inventoryCapacityMap, InventoryFilters.Other, currentMiscCount - 1);
+	}
 	ds_list_add(item.socketedGems,gem);
 	gem.x = -50; gem.y = -50;
 }

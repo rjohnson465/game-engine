@@ -26,7 +26,11 @@ if ds_map_size(attackingLimbs) != 0 {
 			if attackData.type == AttackTypes.Charge {
 				var chargeDir = point_direction(x,y,chargePointX,chargePointY);
 				turnToFacePoint(turnSpeed,chargePointX,chargePointY);
-				moveToNearestFreePoint(chargeDir,2*functionalSpeed,true);
+				var chargeSpeed = attackData.chargeSpeed > 0 ? attackData.chargeSpeed : 2*functionalSpeed;
+				if isSlowed && attackData.chargeSpeed > 0 {
+					chargeSpeed = chargeSpeed * slowedSpeedModifier;
+				}
+				moveToNearestFreePoint(chargeDir,chargeSpeed,true);
 			}
 		}
 		limb = ds_map_find_next(attackingLimbs, limb);
