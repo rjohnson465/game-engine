@@ -11,6 +11,7 @@ var gy = argument[2];
 var cw = argument[3];
 var ch = argument[4];
 
+var ans = mp_grid_get_cell(grid, gx, gy);
 if mp_grid_get_cell(grid, gx, gy) == 0 {
 	return [gx, gy];
 }

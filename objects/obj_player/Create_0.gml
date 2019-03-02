@@ -309,6 +309,7 @@ if moveSprite != -1 {
 hasIssuedAmmoOut = false;
 
 quests = ds_list_create();
+questsAtRewardStepCount = 0;
 
 // holds a list of all the objects currently "vying for interaction" that are not explicitly prioritied
 // the first object that wants attention (in pos 0) will be adressed first

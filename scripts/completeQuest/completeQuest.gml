@@ -4,6 +4,9 @@ var quest = argument[0];
 
 if !quest.currentQuestStep.isRewardStep || quest.isFinished exit;
 
+// decrement how many quests the player has at the reward step (pending completion)
+global.player.questsAtRewardStepCount--;
+
 gainXp(quest.xpReward);
 audio_play_sound(snd_ui_quest_complete,1,0);
 var itemsString = "";

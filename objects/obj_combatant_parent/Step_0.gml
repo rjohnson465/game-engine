@@ -138,20 +138,10 @@ switch(state) {
 					maybeShield();
 					// CHECK 4: Maybe switch to melee / range
 					if (lockOnTarget != noone) {
-						var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,lockOnTarget.x,lockOnTarget.y,true);
-						if !isGridPathAvailable {
-							if !place_free(x,y) {
-								jumpToNearestFreePoint(true, true);
-							}
-							var ltl = lockOnTarget.bbox_left; var ltr = lockOnTarget.bbox_right;
-							var ltt = lockOnTarget.bbox_top; var ltb = lockOnTarget.bbox_bottom;
-							var try_arr = [ltl, ltt, ltr, ltt, ltl, ltb, ltr, ltb];
-							for (var i = 0; i < array_length_1d(try_arr); i+=2) {
-								var xx = try_arr[i]; var yy= try_arr[i+1];
-								isGridPathAvailable = mp_grid_path(personalGrid, gridPath, x, y, xx, yy, true);
-								if isGridPathAvailable break;
-							}
-						}
+						var isGridPathAvailable = getIsGridPathAvailable(false);
+						
+						//path_start(gridPath, functionalSpeed, path_action_stop, 1);
+						//break;
 				
 						if currentMeleeAttack > -1 && 
 							((distance_to_object(lockOnTarget) > meleeAggroRange || array_length_1d(meleeAttacks) == 0) || (!isGridPathAvailable))
@@ -159,17 +149,19 @@ switch(state) {
 							canSeeLockOnTarget() && array_length_1d(rangedAttacks) > 0 {
 							state = CombatantStates.AggroRanged; break;
 						}
-					}
+					//}
 				
 					// if we're not in range for attack, do this
-					if maybeMoveNotInAttackRange() break;
+					if maybeMoveNotInAttackRange() {
+						break;
+					}
 					// within range for attack
 					else {
 						moveInAttackRange();
 						break;
 					}
 					break;
-				}
+				} }
 				case CombatantMoveSubstates.Investigating: {
 					onAlert = true;
 					// can aggro while investigating sound
@@ -220,7 +212,6 @@ switch(state) {
 						actingPostY = tempPostY;
 					}
 					if distance_to_point(actingPostX,actingPostY) > 2 {
-						//if alarm[9] == 0 populatePersonalGrid();
 						mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 						path_start(path,functionalSpeed,path_action_stop,false);
 					
@@ -394,6 +385,7 @@ switch(state) {
 				state = CombatantStates.Idle;
 				hasCalculatedNextAttack = false;
 				attackFrequencyTotalFrames = attackData.coolDownFrames;
+				maybeMarkGridCellTempFree(x, y);
 			}
 		}
 		break;
@@ -409,6 +401,7 @@ switch(state) {
 		
 		// if waryFrame is 0, return to Move state
 		if waryFrame == 0 {
+			maybeMarkGridCellTempFree(x,y);
 			state = CombatantStates.Moving;
 		}
 		// calculate -- will we dodge during this Wary state?
@@ -488,6 +481,9 @@ switch(state) {
 			staggerFrame = 0;
 			speed = 0;
 			staggerSpeed = noone;
+			
+			// at final frame of staggering, maybe mark your spot as free in your personalGrid
+			maybeMarkGridCellTempFree(x, y);
 			
 			// possibly become wary (less chance after stagger than dodging)
 			// don't do this if the player is using ranged attacks

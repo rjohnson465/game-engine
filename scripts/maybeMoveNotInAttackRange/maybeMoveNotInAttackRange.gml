@@ -114,14 +114,16 @@ if pred && !isFlinching {
 	
 	tempTargetX = noone; tempTargetY = noone; turnSpeed = normalTurnSpeed;
 	// Movement for AI combatants not in attack range
-	if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false) {
+	/*if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false) {
 		mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false);
 		path_start(path,functionalSpeed,path_action_stop,false);
-	}
+	}*/
 	
 	// if can't find potential path directly to player, find grid path to player and potential path steps on it
-	else if layer == lockOnTarget.layer {
-		calcPathToSeenTarget();
+	//else 
+	if layer == lockOnTarget.layer && getIsGridPathAvailable() {
+		//calcPathToSeenTarget();
+		path_start(gridPath, functionalSpeed, path_action_stop, 1);
 		return true;
 	} // end canSeeLockOnTarget / chase routine
 	
@@ -147,6 +149,7 @@ if pred && !isFlinching {
 	}
 	return true;
 }
+else path_end();
 // do not enter Attack / Move In Attack Range state if we can't even see our target
 if !canSeeLockOnTarget() return true;
 if !pred return false;

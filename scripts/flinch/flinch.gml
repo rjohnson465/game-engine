@@ -57,4 +57,6 @@ if flinchFrame < totalFlinchFrames {
 	totalFlinchFrames = 0;
 	isFlinching = false;
 	flinchSpeed = 0;
+	// at final frame of flinching, maybe mark your spot as free in your personalGrid
+	maybeMarkGridCellTempFree(x, y);
 }

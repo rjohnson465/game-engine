@@ -7223,6 +7223,14 @@
             }
         },
         {
+            "Key": "86023503-c2ab-470e-8e50-277267e56a46",
+            "Value": {
+                "id": "0d2a1768-356a-443a-b32b-a834a55f1c6a",
+                "resourcePath": "scripts\\getIsGridPathAvailable\\getIsGridPathAvailable.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "8614820a-fb0a-4b61-991d-027f8ce16f41",
             "Value": {
                 "id": "31f8f3fe-a996-4d88-a94a-e30bcd982bf6",
@@ -13295,6 +13303,14 @@
             }
         },
         {
+            "Key": "ff3c9c11-ace5-4ded-86d2-738bb5d6da19",
+            "Value": {
+                "id": "34d2cf55-c225-42c4-9dff-ea01359be048",
+                "resourcePath": "scripts\\maybeMarkGridCellTempFree\\maybeMarkGridCellTempFree.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ff4d983d-ae8f-4301-8843-b1ab93d13f4d",
             "Value": {
                 "id": "d1bc09f6-30ee-4e71-8345-8beb848eb97b",
@@ -13411,6 +13427,7 @@
         "94d107f7-4e39-421d-8b0b-db37c4f2cb09",
         "dba91c5b-62b9-44ab-9d2d-4217785a2980",
         "20ca1129-9434-4052-8752-80a2302929fc",
+        "ff3c9c11-ace5-4ded-86d2-738bb5d6da19",
         "00feb608-5eda-4896-afe4-aa97abfda795",
         "3ba0e475-52bf-40db-82b9-fe6e9814970d",
         "74218bb9-e73b-41b3-8941-df309aba8980",
@@ -13478,6 +13495,7 @@
         "bc5e780e-f86c-42f3-97aa-960a42f1bbae",
         "16b805ca-830c-4dcd-8330-c29f451c3f1c",
         "3c96ca40-833d-4451-be48-e7b6d5569a98",
+        "86023503-c2ab-470e-8e50-277267e56a46",
         "85ab87d2-fc88-4cbf-919f-eecfe09947f4",
         "cd615c88-1626-485a-a27f-9b20e17a6a15",
         "665b024d-e45b-499a-b0f1-36247fa53d9e",

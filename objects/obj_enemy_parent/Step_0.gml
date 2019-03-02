@@ -34,6 +34,7 @@ with obj_combatant_parent {
 			if (!place_meeting(x,y+dy,obj_solid_environment)) {
 				y += dy;
 			}
+			maybeMarkGridCellTempFree(x, y);
 			//jumpToNearestFreePoint(1,1,functionalSpeed);
 		}
 	}

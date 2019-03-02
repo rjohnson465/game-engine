@@ -8,6 +8,10 @@ var hcells = room_width div cell_width;
 var vcells = room_height div cell_height;
 personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
 gridPath = path_add();
+// these are the x and y locations (in grid coords) of a space that has been
+// temporarily declared free (to allow for adequate pathfinding)
+gridTempFreeX = noone;
+gridTempFreeY = noone;
 
 postX = x; postY = y;
 isMoving = false;

@@ -2,6 +2,27 @@ endX = prevX; endY = prevY;
 prevX = x;
 prevY = y;
 
+// maybe reset the old free grid space
+if gridTempFreeX != noone {
+	// make sure this combatant is no longer in this cell
+	// these are the "grid coordinates" of this combatant
+	var gridX = x div cell_width;
+	var gridY = y div cell_height;
+	// gridX must be between range (gridTempFreeX, gridTempFreeX + cell_width)
+	var gridTempFreeX2 = gridTempFreeX + cell_width;
+	var isInXRange = gridX >= gridTempFreeX && gridX <= gridTempFreeX2;
+	// gridY must be between range (gridTempFreeX, gridTempFreeY + cell_height)
+	var gridTempFreeY2 = gridTempFreeY + cell_height;
+	var isInYRange = gridY >= gridTempFreeY && gridY <= gridTempFreeY2;
+	// if the combatant is no longer in either of the proper ranges, repopulate the grid
+	if (!isInXRange || !isInYRange) {
+		populatePersonalGrid();
+		// reset gridTempFree values so this check doesn't happen every step
+		gridTempFreeX = noone;
+		gridTempFreeY = noone;
+	}
+}
+
 if state != CombatantStates.Attacking attackData = noone;
 if type == CombatantTypes.Player exit;
 // death

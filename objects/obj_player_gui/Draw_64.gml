@@ -348,6 +348,16 @@ if isShowingMenus {
 			draw_set_color(c_white);
 			draw_text(x1+15,mean(yy,yy+menuTabsHeight),numSkillPoints);
 		}
+		
+		// if we have completed quests not yet cashed in, alert
+		if el == SKILLS && playerId.questsAtRewardStepCount > 0 {
+			var numQuestsAtRewardStep = playerId.questsAtRewardStepCount;
+			draw_set_color(c_purple);
+			var x3 = x1 + tabWidth - 15;
+			draw_circle(x3,mean(yy,yy+menuTabsHeight),10,0);
+			draw_set_color(c_white);
+			draw_text(x3,mean(yy,yy+menuTabsHeight),numSkillPoints);
+		}
 	}
 
 	

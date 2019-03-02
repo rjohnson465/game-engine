@@ -10,7 +10,7 @@ type = AttackTypes.Charge;
 minRange = 50;
 staggerDuration = 25;
 
-attackSound = snd_thrust_attack_1;
+attackSound = snd_dodge1;
 hitSound = snd_hit1;
 
 minRange = 65;

@@ -71,7 +71,8 @@ meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4,
 // currently chosen ranged attack
 var webShot = makeEnemyAttackObj(obj_attack_speyeder_webshot_1_1);
 var webShotChain = [webShot];
-rangedAttacks = [webShotChain];
+//rangedAttacks = [webShotChain];
+rangedAttacks = [];
 
 hp = 150;
 maxHp = 150;

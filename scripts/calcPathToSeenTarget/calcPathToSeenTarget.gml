@@ -1,22 +1,30 @@
 /// calcPathToSeenTarget()
 
 if alarm[9] != 1 exit;
-//populatePersonalGrid();
 
 
 
 var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,lockOnTarget.x,lockOnTarget.y,true);
 if !isGridPathAvailable {
 	if !place_free(x,y) {
-		jumpToNearestFreePoint(true, true);
+	//	jumpToNearestFreePoint(true, true);
 	}
+	var ttx = tempTargetX; var tty = tempTargetY; 
 	var ltl = lockOnTarget.bbox_left; var ltr = lockOnTarget.bbox_right;
 	var ltt = lockOnTarget.bbox_top; var ltb = lockOnTarget.bbox_bottom;
 	var try_arr = [ltl, ltt, ltr, ltt, ltl, ltb, ltr, ltb];
+	
+	var stl = bbox_left; var str = bbox_right;
+	var stt = bbox_top; var stb = bbox_bottom;
+	var try_arr2 = [stl, stt, str, stt, stl, stb, str, stb];
+	
 	for (var i = 0; i < array_length_1d(try_arr); i+=2) {
 		var xx = try_arr[i]; var yy= try_arr[i+1];
-		isGridPathAvailable = mp_grid_path(personalGrid, gridPath, x, y, xx, yy, true);
-		if isGridPathAvailable break;
+		for (var j = 0; j < array_length_1d(try_arr2); j+=2) {
+			var xxx = try_arr2[j]; var yyy = try_arr2[j+1]; 
+			isGridPathAvailable = mp_grid_path(personalGrid, gridPath, xxx, yyy, xx, yy, true);
+			if isGridPathAvailable break;
+		}
 	}
 }
 if isGridPathAvailable {

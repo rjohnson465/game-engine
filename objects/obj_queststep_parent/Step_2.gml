@@ -9,6 +9,8 @@ if status == QuestStepStatus.Completed && nextStep != undefined && nextStep != n
 		quest.currentQuestStepIndex = pos+1;
 		if nextStep.isRewardStep {
 			audio_play_sound(snd_ui_quest_complete_alert,1,0);
+			// increment how many quests the player has at reward step
+			global.player.questsAtRewardStepCount++;
 		}
 	}
 }

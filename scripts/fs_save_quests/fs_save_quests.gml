@@ -50,4 +50,7 @@ with obj_quest_parent {
 	ds_map_add_map(sd_quests,key,sd_quest);
 }
 
+// also remember how many quests at reward step the player has pending
+ds_map_replace(sd_quests, "questsAtRewardStepCount", global.player.questsAtRewardStepCount);
+
 return sd_quests;
