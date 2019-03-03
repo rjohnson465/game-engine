@@ -13,6 +13,32 @@ if !instance_exists(lockOnTarget) || lockOnTarget == noone {
 		if target != noone {
 			if target.layer == layer {
 				var wallsBetweenTarget = scr_collision_line_list_layer(x,y,target.x,target.y,obj_wall_parent,true,true);
+				
+				// remove nocast walls from wallsBetweenTarget (we can see over those!)
+				var wallsToRemove = ds_list_create();
+				if wallsBetweenTarget != noone {
+					for (var j = 0; j < ds_list_size(wallsBetweenTarget); j++) {
+						var w = ds_list_find_value(wallsBetweenTarget, j);
+						if (w.object_index == obj_wall_nocast || object_is_ancestor(w.object_index, obj_wall_nocast)) {
+							ds_list_add(wallsToRemove, w);
+						}
+					}
+				}
+				if ds_list_size(wallsToRemove) > 0 {
+					for (var j = 0; j < ds_list_size(wallsToRemove); j++) {
+						var w = ds_list_find_value(wallsToRemove, j);
+						var index = ds_list_find_index(wallsBetweenTarget, w);
+						if index >= 0 {
+							ds_list_delete(wallsBetweenTarget, index);
+						}
+					}
+				}
+				ds_list_destroy(wallsToRemove); wallsToRemove = -1;
+				if (wallsBetweenTarget != noone && ds_list_size(wallsBetweenTarget) == 0) {
+					ds_list_destroy(wallsBetweenTarget); 
+					wallsBetweenTarget = noone;
+				}
+				
 				if wallsBetweenTarget == noone {
 					// great, there's no walls between this target, but are we even kinda facing him?
 					var dirToTarget = point_direction(x,y,target.x,target.y);
@@ -46,8 +72,37 @@ if argument_count == 1 {
 	instance = argument[0];
 }
 var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,instance.x,instance.y,wouldBeLockOnTarget.x,wouldBeLockOnTarget.y,obj_wall_parent,true,true);
+
+// remove nocast walls from wallsBetweenTarget (we can see over those!)
+var wallsToRemove = ds_list_create();
+if wallsBetweenTarget != noone {
+	for (var j = 0; j < ds_list_size(wallsBetweenTarget); j++) {
+		var w = ds_list_find_value(wallsBetweenTarget, j);
+		if (w.object_index == obj_wall_nocast || object_is_ancestor(w.object_index, obj_wall_nocast)) {
+			ds_list_add(wallsToRemove, w);
+		}
+	}
+}
+if ds_list_size(wallsToRemove) > 0 {
+	for (var j = 0; j < ds_list_size(wallsToRemove); j++) {
+		var w = ds_list_find_value(wallsToRemove, j);
+		var index = ds_list_find_index(wallsBetweenTarget, w);
+		if index >= 0 {
+			ds_list_delete(wallsBetweenTarget, index);
+		}
+	}
+}
+ds_list_destroy(wallsToRemove); wallsToRemove = -1;
+if (wallsBetweenTarget != noone && ds_list_size(wallsBetweenTarget) == 0) {
+	ds_list_destroy(wallsBetweenTarget); 
+	wallsBetweenTarget = noone;
+}
+
 // also factor doors and enemy obstacles (if enemy)
 var doorsBetweenTarget = scr_collision_line_list_layer(instance.x,instance.y,wouldBeLockOnTarget.x, wouldBeLockOnTarget.y, obj_door,1,1);
+
+
+
 var enemyObstacles = noone;
 if type == CombatantTypes.Enemy enemyObstacles = scr_collision_line_list_layer(instance.x,instance.y,wouldBeLockOnTarget.x, wouldBeLockOnTarget.y, obj_enemy_blocker,1,1);
 if wallsBetweenTarget == noone && doorsBetweenTarget == noone && enemyObstacles == noone && layer == wouldBeLockOnTarget.layer {

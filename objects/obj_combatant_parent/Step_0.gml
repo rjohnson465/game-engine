@@ -138,30 +138,31 @@ switch(state) {
 					maybeShield();
 					// CHECK 4: Maybe switch to melee / range
 					if (lockOnTarget != noone) {
-						var isGridPathAvailable = getIsGridPathAvailable(false);
-						
-						//path_start(gridPath, functionalSpeed, path_action_stop, 1);
-						//break;
-				
+						var isGridPathAvailable = getIsGridPathAvailable(false);				
 						if currentMeleeAttack > -1 && 
 							((distance_to_object(lockOnTarget) > meleeAggroRange || array_length_1d(meleeAttacks) == 0) || (!isGridPathAvailable))
 							&& 
 							canSeeLockOnTarget() && array_length_1d(rangedAttacks) > 0 {
 							state = CombatantStates.AggroRanged; break;
 						}
-					//}
 				
-					// if we're not in range for attack, do this
-					if maybeMoveNotInAttackRange() {
+						// if we're not in range for attack, do this
+						if maybeMoveNotInAttackRange() {
+							break;
+						}
+						// within range for attack
+						else {
+							moveInAttackRange();
+							break;
+						}
 						break;
-					}
-					// within range for attack
+					} 
+					// if we have no lock on target anymore, return to post
 					else {
-						moveInAttackRange();
-						break;
+						state = CombatantStates.Moving;
+						substate = CombatantMoveSubstates.ReturningToPost;
 					}
-					break;
-				} }
+				}
 				case CombatantMoveSubstates.Investigating: {
 					onAlert = true;
 					// can aggro while investigating sound
