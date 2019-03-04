@@ -44,7 +44,7 @@ stupidityFrame = 0;
 // general attacks info
 meleeAggroRange = 300;
 rangedAggroRange = 800;
-farthestAllowedFromPost = 1500;
+farthestAllowedFromPost = 1000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
 attackFrequencyTotalFramesMelee = [20,45];
 attackFrequencyTotalFramesRanged = [45,70];

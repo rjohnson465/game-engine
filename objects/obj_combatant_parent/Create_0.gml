@@ -94,7 +94,7 @@ tempPostX = noone;
 tempPostY = noone;
 wanderDir = 0;
 
-farthestAllowedFromPost = 300;
+farthestAllowedFromPost = 1000;
 path = path_add();
 
 enum CombatantStates {

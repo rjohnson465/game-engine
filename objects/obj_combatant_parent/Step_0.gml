@@ -132,6 +132,20 @@ switch(state) {
 				
 				// precondition: we have a lockOnTarget
 				case CombatantMoveSubstates.Chasing: {
+					
+					// maybe leash back to post
+					var actingPostX = postX;
+					var actingPostY = postY;
+					if layer != postZ {
+						actingPostX = tempPostX;
+						actingPostY = tempPostY;
+					}
+					if distance_to_point(actingPostX,actingPostY) >= farthestAllowedFromPost {
+						state = CombatantStates.Moving;
+						substate = CombatantMoveSubstates.ReturningToPost;
+						break;
+					}
+					
 					// CHECK 2: WILL WE DODGE IN THIS MOVE STATE?
 					if maybeDodge() break;
 					// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
@@ -217,8 +231,11 @@ switch(state) {
 						path_start(path,functionalSpeed,path_action_stop,false);
 					
 						// can aggro while returning to post ??
-						if maybeAggro() break;
+						if (distance_to_point(actingPostX,actingPostY) < (.5*farthestAllowedFromPost) && canSeeLockOnTarget()) {
+							if maybeAggro() break;
+						}
 					} else {
+						facingDirection = postDir;
 						state = CombatantStates.Idle;
 						break;
 					}

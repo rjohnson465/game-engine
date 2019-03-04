@@ -23,7 +23,7 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 // general attacks info
 meleeAggroRange = 250;
 rangedAggroRange = 800;
-farthestAllowedFromPost = 5000;
+farthestAllowedFromPost = 1000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
 attackFrequencyTotalFramesMelee = [20,45];
 attackFrequencyTotalFramesRanged = [60,90];
