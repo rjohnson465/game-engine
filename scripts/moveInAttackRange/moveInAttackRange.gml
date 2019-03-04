@@ -37,11 +37,28 @@ if attackFrequencyFrame < 0 {
 				if audio_emitter_exists(attackPrepSoundEmitter) { 
 					audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
 				}
+				
 				attackPrepSoundEmitter = audio_emitter_create();
 				audio_emitter_falloff(attackPrepSoundEmitter, 50, AUDIO_MAX_FALLOFF_DIST, .1);
 				audio_emitter_gain(attackPrepSoundEmitter, 1);
 				audio_play_sound_on(attackPrepSoundEmitter,attackData.prepSound,0,1);
 			}
+			
+			// prep sounds vocals
+			if array_length_1d(attackData.prepSoundsVocals) > 0 {
+				randomize();
+				var rand = floor(random_range(0, array_length_1d(attackData.prepSoundsVocals)));
+				var prepSoundVocal = attackData.prepSoundsVocals[rand];
+				
+				if (!audio_emitter_exists(attackPrepSoundEmitter)) {
+					attackPrepSoundEmitter = audio_emitter_create();
+					audio_emitter_falloff(attackPrepSoundEmitter, 50, AUDIO_MAX_FALLOFF_DIST, .1);
+					audio_emitter_gain(attackPrepSoundEmitter, 1);
+				}
+				
+				audio_play_sound_on(attackPrepSoundEmitter,prepSoundVocal,0,1);
+			}
+			
 			state = CombatantStates.Attacking;
 		}
 	}

@@ -32,6 +32,7 @@ prepSound = noone;
 attackSound = noone;
 hitSound = noone;
 attackSoundsVocals = [];
+prepSoundsVocals = [];
 
 chargePrepSpeed = noone; // how fast to move back in prep for charge, if this is an attack of type Charge
 chargeSpeed = noone; // how fast to charge, if this is an attack of type Charge

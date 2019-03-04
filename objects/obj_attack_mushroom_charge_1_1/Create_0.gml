@@ -17,3 +17,8 @@ minRange = 65;
 
 chargePrepSpeed = 1;
 chargeSpeed = 10;
+
+attackSoundsVocals = [snd_enemy_mushroom_hit2];
+
+prepSound = snd_thrust_attack_1;
+prepSoundsVocals = [snd_enemy_mushroom_charge_prep];

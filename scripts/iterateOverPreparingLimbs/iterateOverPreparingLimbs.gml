@@ -55,6 +55,8 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 		if attackData.prepSound != noone {
 			if audio_emitter_exists(attackPrepSoundEmitter) {
 				audio_emitter_gain(attackPrepSoundEmitter, 0);
+			}
+			if audio_emitter_exists(attackPrepSoundEmitter) {
 				audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
 			}
 		}

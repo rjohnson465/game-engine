@@ -4447,6 +4447,14 @@
             }
         },
         {
+            "Key": "517e8502-8c4e-48c1-9b67-c5cb90a4e819",
+            "Value": {
+                "id": "f2f59ae2-0ccf-4821-a817-6a2460eb1f2f",
+                "resourcePath": "sounds\\snd_enemy_mushroom_charge_prep\\snd_enemy_mushroom_charge_prep.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "518fac23-f987-41a2-a296-4fe8a41a1220",
             "Value": {
                 "id": "323254b3-75f8-4201-b410-1d242f2be3dd",

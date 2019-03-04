@@ -11,7 +11,8 @@
         "d809ae01-7032-4274-b87d-d349bc38fa1c",
         "826801d8-5d2c-404e-bab9-a98e1fe47c50",
         "288177c9-fa1e-4dd3-aede-fbf47584d1b1",
-        "dc8a757a-d773-450b-ad1c-2c6b7bbec13a"
+        "dc8a757a-d773-450b-ad1c-2c6b7bbec13a",
+        "517e8502-8c4e-48c1-9b67-c5cb90a4e819"
     ],
     "filterType": "GMSound",
     "folderName": "mushroom",

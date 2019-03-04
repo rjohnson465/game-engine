@@ -61,7 +61,7 @@ meleeAttacks = [sporesChain, chargeChain];
 //rangedRangeArray=[];
 rangedAttacks = [sporesChain];
 
-hp = 1;
+hp = 150;
 maxHp = 150;
 hpRegen = 1;
 
