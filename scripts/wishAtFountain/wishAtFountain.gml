@@ -42,6 +42,16 @@ if performBlur {
 	
 // despawn all itemDrops
 with obj_item_drop {
+	
+	for (var i = 0; i < ds_list_size(items); i++) {
+		var item = ds_list_find_value(items, i) {
+			if (item.isMandatory) {
+				// remove mandatory item from droppedItems so it is not destroyed from mem when the drop is
+				ds_list_delete(items, i);
+			}
+		}
+	}
+	
 	instance_destroy(id,1);
 }
 // destroy any remaining itemdrop data objects

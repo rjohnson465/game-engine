@@ -65,6 +65,11 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 					visible = true;
 				}
 			}
+			with obj_solid_environment {
+				if origLayer == l && (!object_is_ancestor(object_index, obj_wall_parent)) {
+					visible = true;
+				}
+			}
 			// depth needs to be average of tiles layer and instances layer for this floor
 			var tilesLayer = layer_get_id("tiles_floor_" + string(lNum));
 			var instancesLayer = layer_get_id("instances_floor_" + string(lNum));

@@ -24,3 +24,5 @@ var meleeChain3 = [unarmedHook1,unarmedBackSlap,unarmedHook2];
 var meleeChain4 = [unarmedHook1,unarmedBackSlap,unarmedHook2,unarmedHook3];
 meleeAttacks = [meleeChain1,meleeChain2,meleeChain3];
 meleeRangeArray = [5,5,5];
+
+rangedAttacks = [];

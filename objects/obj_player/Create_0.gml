@@ -108,7 +108,7 @@ lockOnList = ds_list_create();
 lockOnListSeen = ds_list_create();
 lockOnTarget = noone;
 lockOnTargetType = obj_enemy_parent;
-LOCK_ON_DISTANCE = 800;
+LOCK_ON_DISTANCE = 1000;
 
 propertiesBaseValues = defineBasePlayerProperties();
 itemPropertyBonuses = ds_map_create();
@@ -185,8 +185,8 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Rings, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 
 if global.populateInventory {
+	/*
 	addItemToInventory(makeGold(100000,200000));
-
 
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 	longsword.persistent = true;
@@ -240,7 +240,7 @@ if global.populateInventory {
 	addItemToInventory(ring);
 	
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
-
+*/
 }
 
 lastFountain = noone;

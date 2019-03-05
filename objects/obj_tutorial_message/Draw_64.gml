@@ -1,4 +1,5 @@
 if !isCurrentInteractionObject(id) exit;
+if origLayer != global.player.layer exit;
 var isInConvo = false;
 with obj_npc_parent {
 	if isInConversation isInConvo = true;

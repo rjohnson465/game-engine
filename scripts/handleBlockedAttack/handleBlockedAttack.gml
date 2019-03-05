@@ -88,12 +88,12 @@ if (itemOrAttack.staggersAgainstBlocks && isMelee) {
 				
 // damage shield durability (1/10 of attack's damage)
 if type == CombatantTypes.Player {
-	damageItem(shield,.1*actualDamage);
+	damageItem(shield,(.1*actualDamage)/3);
 }
 				
 // damage weapons that strike shields 
 if attackObj.owner.type == CombatantTypes.Player && attackObj.isMelee {
 	if attackObj.weapon.weaponType != UNARMED {
-		damageItem(itemHitWith,.15*actualDamage);
+		damageItem(itemHitWith,(.15*actualDamage)/3);
 	}
 }

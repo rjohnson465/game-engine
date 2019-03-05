@@ -7,6 +7,8 @@ event_inherited();
 functionalSpeed = normalSpeed*slowedSpeedModifier;
 if hp < 1 exit;
 
+if distance_to_object(global.player) > 1000 exit;
+
 switch state {
 	case CombatantStates.Moving: {
 		
@@ -23,6 +25,9 @@ switch state {
 		}
 		
 		with obj_combatant_parent {
+			if other.layer != layer || distance_to_object(other) > 32 {
+				continue;
+			}
 			if place_meeting_layer(x,y,other) && object_index != obj_enemy_noeyeddeer {
 				if !moveToNearestFreePoint(other.runningDirection,other.functionalSpeed,type==CombatantTypes.Enemy,0) {
 					jumpToNearestFreePoint(type==CombatantTypes.Enemy,0);

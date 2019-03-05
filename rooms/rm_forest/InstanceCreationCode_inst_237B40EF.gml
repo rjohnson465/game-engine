@@ -1,0 +1,2 @@
+opensFrom = "l";
+spriteTurnsWhenOpen = true;

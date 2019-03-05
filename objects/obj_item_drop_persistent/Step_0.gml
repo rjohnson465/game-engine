@@ -21,7 +21,9 @@ if distance_to_object(obj_player) < 20 && layer == global.player.layer && intera
 	if instance_nearest(global.player.x,global.player.y,obj_item_drop_persistent) == id {
 		var isDestroying = false;
 		with obj_item_drop_persistent {
-			if hasSetAlarm isDestroying = true;
+			if hasSetAlarm && id == other {
+				isDestroying = true;
+			}
 		} if !isDestroying {
 			if !isBeingLooted {
 				audio_play_sound(snd_ui_click1,1,0);

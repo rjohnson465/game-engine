@@ -10,6 +10,8 @@
 // (i.e. the combatnat must always start in a free grid space, but this could be untrue if 
 // staggered or flinched into a space marked as occupied, since stagger/flinch is pixel perfect)
 
+if id == global.player exit;
+
 var xx = argument[0];
 var yy = argument[1];
 

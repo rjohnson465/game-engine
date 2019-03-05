@@ -6,7 +6,8 @@ cell_height = 32; //bbox_bottom-bbox_top;
 
 var hcells = room_width div cell_width;
 var vcells = room_height div cell_height;
-personalGrid = mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
+personalGrid = noone; //mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
+populatePersonalGrid();
 gridPath = path_add();
 // these are the x and y locations (in grid coords) of a space that has been
 // temporarily declared free (to allow for adequate pathfinding)
@@ -385,7 +386,7 @@ isBeingHit = false;
 lastAttackHitWith = noone; // either a weapon or attack_data obj
 
 sightAngleDelta = 100; // combatant can see +/- this much in his field of view
-hearingDistance = 400; // how far away some hit particles must be for enemy to investigate
+hearingDistance = 300; // how far away some hit particles must be for enemy to investigate
 investigatingFramesTotal = 200;
 investigatingFrame = 0;
 investigatingDirectionPrev = 0;
@@ -419,3 +420,6 @@ audio_emitter_gain(attackPrepSoundEmitter, 0);
 // attack prep particles stuff
 appSystem = part_system_create();
 appEmitter = part_emitter_create(appSystem);
+
+// reassess maybeAggro every 15 frames, if in idle state
+alarm[1] = 15;

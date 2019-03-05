@@ -16,7 +16,12 @@ if gridTempFreeX != noone {
 	var isInYRange = gridY >= gridTempFreeY && gridY <= gridTempFreeY2;
 	// if the combatant is no longer in either of the proper ranges, repopulate the grid
 	if (!isInXRange || !isInYRange) {
-		populatePersonalGrid();
+		//populatePersonalGrid();
+		
+		
+		// TODO -- maybe make sure there are no enemies in this grid cell at all before marking it as blocked
+		populateGrids();
+		
 		// reset gridTempFree values so this check doesn't happen every step
 		gridTempFreeX = noone;
 		gridTempFreeY = noone;
@@ -117,6 +122,25 @@ if isDying && isAlive {
 		dyingFrame = 0;
 		state = CombatantStates.Idle;
 		if type == CombatantTypes.Enemy && fallFrame == fallTotalFrames {
+			
+			if ds_list_size(droppedItemsMandatory) != 0 {
+				for (var k = 0; k < ds_list_size(droppedItemsMandatory); k++) {
+					var dim = ds_list_find_value(droppedItemsMandatory, k);
+					// only drop the mandatory item if the player does not already have it
+					if ds_list_find_index(global.player.inventory, dim) < 0 {
+						ds_list_add(droppedItems, dim);
+					}
+				}
+			}
+			
+			// maybe just replace all items with some list
+			if droppedItemsReplacement > 0 {
+				ds_list_clear(droppedItems);
+				for (var k = 0; k < ds_list_size(droppedItemsReplacement); k++) {
+					var di = ds_list_find_value(droppedItemsReplacement, k);
+					ds_list_add(droppedItems, di);
+				}
+			}
 			
 			if ds_list_size(droppedItems) > 0 {
 				

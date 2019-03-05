@@ -9,7 +9,10 @@
 
 var objIndex = argument[0];
 
-if instance_number(objIndex) > 0 {
-	return instance_nearest(x,y,objIndex);
-}
-else return instance_create_depth(x,y,depth,objIndex);
+//if instance_number(objIndex) > 0 {
+	
+	// make sure the damages are the same!!
+	// return instance_nearest(x,y,objIndex);
+//}
+//else 
+return instance_create_depth(x,y,depth,objIndex);

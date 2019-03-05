@@ -61,6 +61,7 @@ for (var i = 0; i < size; i++) {
 					ds_map_replace(conditionPercentages,ICE,0);
 					isSlowed = false;
 					isFrozen = false;
+					functionalSpeed = normalSpeed;
 				}
 				isBurning = true; 
 				lightRadiusColor = C_FIRELIGHT;
@@ -127,7 +128,9 @@ for (var i = 0; i < size; i++) {
 				break;
 			}
 			case ICE: {
-				isSlowed = false; isFrozen = false; break;
+				isSlowed = false; isFrozen = false; 
+				slowedSpeedModifier = 1;
+				break;
 			}
 			case MAGIC: {
 				isHexed = false; 

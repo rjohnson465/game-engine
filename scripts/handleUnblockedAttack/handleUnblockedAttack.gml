@@ -31,7 +31,7 @@ if assailant.type == CombatantTypes.Player && attackObj.isMelee {
 		if damageAmnt > 2 {
 			damageAmnt = 2;
 		}
-		damageItem(itemHitWith,.05*actualDamage);
+		damageItem(itemHitWith,(.05*actualDamage)/3);
 	}
 }
 

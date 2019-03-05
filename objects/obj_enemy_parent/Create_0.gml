@@ -79,6 +79,8 @@ lockOnTargetType = obj_goodguy_parent;
 //instance_create_depth(x,y,1,obj_enemy_gui);
 
 droppedItems = ds_list_create();
+droppedItemsMandatory = ds_list_create();
+droppedItemsReplacement = noone;
 
 xpReward = 100;
 

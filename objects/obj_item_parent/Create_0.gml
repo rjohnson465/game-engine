@@ -141,3 +141,5 @@ _pts = 0;
 _ptsSpent = 0;
 
 act = 1;
+
+isMandatory = false;

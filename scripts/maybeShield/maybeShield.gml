@@ -1,6 +1,6 @@
 /// maybeShield()
 
-if !willDodge {
+if !willDodge || !isShielding {
 	
 	// go through all equipped limb items and see if you find a shield -- if not, exit
 	var ck = ds_map_find_first(equippedLimbItems);

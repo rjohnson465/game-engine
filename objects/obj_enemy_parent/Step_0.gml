@@ -10,7 +10,7 @@ if state == CombatantStates.Moving && x != postX && y != postY {
 
 //if place_meeting_layer(x,y,obj_enemy_parent) {
 with obj_combatant_parent {
-	if other.hp > 1 && layer == global.player.layer {
+	if other.hp > 1 && layer == global.player.layer && distance_to_object(other) < 64 {
 		if place_meeting_layer(x,y,other) {
 			var dir;
 			var move_dis = functionalSpeed;  // change this value to your liking

@@ -179,3 +179,7 @@ alarm[3] = 5;
 
 waterManager = instance_create_depth(x,y,1,obj_water_manager);
 //roofsManager = instance_create_depth(x,y,1,obj_roofs_manager);
+
+cell_width = 32;//bbox_right-bbox_left;
+cell_height = 32; //bbox_bottom-bbox_top;
+global.grids = ds_map_create();

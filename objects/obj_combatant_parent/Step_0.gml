@@ -55,21 +55,39 @@ switch(state) {
 			var allyType = object_is_ancestor(object_index,obj_enemy_parent) ? obj_enemy_parent : obj_goodguy_parent;
 			var isNoticingEngagement = false;
 			with allyType {
-				var wallsBetweenAlly = scr_collision_line_list_layer(x,y,other.x,other.y,obj_wall_parent,true,true);
-				if layer == other.layer && lockOnTarget != noone && wallsBetweenAlly == noone {
-					// must be able to see this ally's engagement
-					var dirToAlly = point_direction(other.x,other.y,x,y);
-					if angleBetween(other.x-sightAngleDelta,other.y+sightAngleDelta,dirToAlly) {
-						isNoticingEngagement = true;
+				
+				var minRange = rangedAggroRange > 0 ? rangedAggroRange : 800;
+				
+				if layer == other.layer && lockOnTarget != noone && distance_to_object(other) < minRange {
+					var wallsBetweenAlly = scr_collision_line_list_layer(x,y,other.x,other.y,obj_wall_parent,true,true);
+					
+					if wallsBetweenAlly != noone {
+						// must be able to see this ally's engagement
+						var dirToAlly = point_direction(other.x,other.y,x,y);
+						
+						// also, that ally must be able to see their lockOnTarget
+						var canAllySeeTarget = false;
+						with (other) {
+							if canSeeLockOnTarget() {
+								canAllySeeTarget = true;
+							}
+						}
+						
+						if angleBetween(other.x-sightAngleDelta,other.y+sightAngleDelta,dirToAlly) && canAllySeeTarget {
+							isNoticingEngagement = true;
+						}
+					}
+					if wallsBetweenAlly != noone && ds_exists(wallsBetweenAlly, ds_type_list) {
+						ds_list_destroy(wallsBetweenAlly); wallsBetweenAlly = -1;
 					}
 				}
-				if wallsBetweenAlly != noone && ds_exists(wallsBetweenAlly, ds_type_list) {
-					ds_list_destroy(wallsBetweenAlly); wallsBetweenAlly = -1;
-				}
+				
 			}
-			if maybeAggro() break;
+			if alarm[1] == 1 && maybeAggro() {
+				break;
+			}
 			// just hit or sees a friend who is in trouble
-			else if isNoticingEngagement || wasJustHit {
+			 else if isNoticingEngagement || wasJustHit {
 				wasJustHit = false;
 				// first try ranged
 				if array_length_1d(rangedAttacks) > 0 {

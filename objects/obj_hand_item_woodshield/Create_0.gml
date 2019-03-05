@@ -14,8 +14,8 @@ ds_map_replace(defenses,FIRE,-100);
 baseValue = 200;
 
 act = 1;
-durabilityMax = 5;
-durability = 5;
+durabilityMax = 20;
+durability = 20;
 
 //numberOfSockets = 1;
 soundDrop = snd_item_wood;

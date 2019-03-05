@@ -5,13 +5,14 @@ with obj_hit_particles {
 	/// does not pay attention to level up particles 
 	if type == "LevelUp" continue;
 	var distToHit = point_distance(other.x,other.y,x1,y1);
+	if (distToHit > 1000) return noone;
 	// factor how many walls we're listening through
 	var wallsBetweenTarget = scr_collision_line_list_layer(other.x,other.y,x1,y1,obj_wall_parent,true,true);
 	if ds_exists(wallsBetweenTarget,ds_type_list) {
 		for (var i = 0; i < ds_list_size(wallsBetweenTarget); i++) {
 			var wall = ds_list_find_value(wallsBetweenTarget,i);
 			if !place_meeting_layer(x1,y1,wall) && i > 0 {
-				distToHit += 150;
+				distToHit += 200;
 			}
 		}
 		ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1; // mem leak

@@ -158,7 +158,7 @@ if	state != CombatantStates.Dodging &&
 	// shielding was broken earlier by an unblockable attack
 	if isBlockBroken {
 		var shield = ds_map_find_value(equippedLimbItems,"r");
-		damageItem(shield,.2*actualDamage);
+		damageItem(shield,(.2*actualDamage)/3);
 	}
 		
 	// hit a shield

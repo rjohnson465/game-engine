@@ -1,3 +1,4 @@
+populateGrids();
 // stop all looping sfx
 var loopingSfx = [
 	snd_magic_fire_charge, snd_magic_magic_charge, snd_magic_ice_charge, 

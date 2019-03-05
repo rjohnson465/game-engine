@@ -6,6 +6,7 @@ if !isActive || !ui.isShowingMenus || ui.currentMenu != INVENTORY exit;
 
 // if item equipped items, enter "Equip Mode"
 var item = getItemAtSelectorPosition(id);
+if item < 0 && isSelectorInInventory() exit;
 //if item == noone || item == undefined exit;
 switch type {
 	// if selector type and hovering over an equipped item, activate the equip selector object

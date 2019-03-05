@@ -46,7 +46,7 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 	ds_map_add(damages,global.ALL_DAMAGE_TYPES[i],[0,0]);
 }
 
-numberOfSockets = 3;
+numberOfSockets = 0;
 
 requiredMastery = 0;
 

@@ -1,7 +1,10 @@
 /// populatePersonalGrid()
 
-/// for enemies -- repopulates personalGrid with obstacles 
+var floorNum = getLayerFloorNumber(layer);
+personalGrid = ds_map_find_value(global.grids, floorNum);
 
+/// for enemies -- repopulates personalGrid with obstacles 
+/*
 mp_grid_clear_all(personalGrid);
 // only concern yourself with walls / fountains / solids / combatants in your layer
 var solids = ds_list_create();
@@ -32,14 +35,5 @@ with obj_fallzone {
 for (var i = 0; i < ds_list_size(solids); i++) {
 	mp_grid_add_instances(personalGrid,ds_list_find_value(solids,i),1);
 }
-	/*
-var combatants = script_execute(scr_get_ids_region,obj_combatant_parent,0,0,room_width,room_height);
-for (var i = 0; i < ds_list_size(combatants); i++) {
-	var ci = ds_list_find_value(combatants,i);
-	if ci != id && ci != global.player.id && ci.solid {
-		mp_grid_add_instances(personalGrid,ds_list_find_value(combatants,i),true);
-	} 
-}
-ds_list_destroy(combatants); combatants = -1;*/
 
 ds_list_destroy(solids); solids = -1;

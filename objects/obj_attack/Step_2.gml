@@ -57,7 +57,7 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 	if isMelee {
 		if owner.type == CombatantTypes.Player {
 			if weapon.weaponType != UNARMED {
-				damageItem(weapon,1);
+				damageItem(weapon,1/3);
 			}
 		}
 		owner.staggerFrame = 0;
