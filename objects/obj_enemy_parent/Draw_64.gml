@@ -60,17 +60,25 @@ if id.showHp && id.isAlive && !id.isDying && layer == global.player.layer {
 	}
 		
 	
-	/*
+	
 	// total stamina bar outline
-	var x1 = (id.x-vx)-(.5*id.sprite_width);
+	/*var x1 = (id.x-vx)-(.5*id.sprite_width);
 	var y1 = (id.y-vy)-(.5*id.sprite_height)-20;
 	var x2 = (id.x-vx)+(.5*id.sprite_width);
-	var y2 = (id.y-vy)-(.5*id.sprite_height)-15;
+	var y2 = (id.y-vy)-(.5*id.sprite_height)-15;*/
+	
+
+	var x1 = (id.x-vx)-(.5*spw);
+	var y1 = (id.y-vy)-(.5*sph)-20;
+	var x2 = (id.x-vx)+(.5*spw);
+	var y2 = (id.y-vy)-(.5*sph)-15;
+	
+	
 	draw_set_color(c_white);
 	draw_rectangle(x1,y1,x2,y2,true);
 	// current stamina
 	var percentStaminaLeft = id.stamina / id.maxStamina;
-	var x2 = x1 + (id.sprite_width * percentStaminaLeft)
+	var x2 = x1 + (spw * percentStaminaLeft)
 	if (x2 < x1) x2 = x1;
 	draw_set_color(c_green);
 	draw_rectangle(
@@ -78,7 +86,7 @@ if id.showHp && id.isAlive && !id.isDying && layer == global.player.layer {
 		y1,
 		x2,
 		y2,
-		false);*/
+		false);
 }
 
 

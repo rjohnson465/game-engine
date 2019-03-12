@@ -1,2 +1,2 @@
-// maybeAggro every 15 frames (iff in idle state)
-alarm[1] = 15;
+// maybeAggro every 30 frames (iff in idle state)
+alarm[1] = 30;

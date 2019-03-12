@@ -66,7 +66,7 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 				}
 			}
 			with obj_solid_environment {
-				if origLayer == l && (!object_is_ancestor(object_index, obj_wall_parent)) {
+				if origLayer == l && (!object_is_ancestor(object_index, obj_wall_parent) && object_index != obj_wall_parent) {
 					visible = true;
 				}
 			}

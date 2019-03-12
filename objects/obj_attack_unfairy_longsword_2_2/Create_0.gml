@@ -11,7 +11,6 @@ staminaCost = 10;
 type = AttackTypes.Charge;
 minRange = 50;
 staggerDuration = 25;
-isBlockable = false;
 turnSpeed = 10;
 
 attackSound = snd_thrust_attack_1;

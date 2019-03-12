@@ -36,6 +36,8 @@ if owner.type == CombatantTypes.Player {
 	attackNumber = owner.currentMeleeAttack != noone? owner.currentMeleeAttack : owner.currentRangedAttack;
 }
 
+if attackNumber < 0 return noone;
+
 if owner.type == CombatantTypes.Player {
 	var s = spriteString+"_"+state+"_"+string(attackNumber)
 	return asset_get_index(s);

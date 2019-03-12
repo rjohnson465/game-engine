@@ -1,0 +1,1 @@
+farthestAllowedFromPost = 700;

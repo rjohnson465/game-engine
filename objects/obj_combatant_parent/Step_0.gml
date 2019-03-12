@@ -83,7 +83,10 @@ switch(state) {
 				}
 				
 			}
-			if alarm[1] == 1 && maybeAggro() {
+			
+			var biggestAggroRange = meleeAggroRange > rangedAggroRange ? meleeAggroRange : rangedAggroRange;
+			var distToLockOnTargetType = distance_to_object(lockOnTargetType);
+			if alarm[1] == 1 && distToLockOnTargetType < biggestAggroRange &&  maybeAggro() {
 				break;
 			}
 			// just hit or sees a friend who is in trouble
@@ -196,6 +199,12 @@ switch(state) {
 					}
 				}
 				case CombatantMoveSubstates.Investigating: {
+					
+					if global.player.layer != layer {
+						substate = CombatantMoveSubstates.ReturningToPost;
+						break;
+					}
+					
 					onAlert = true;
 					// can aggro while investigating sound
 					if maybeAggro() {
@@ -248,13 +257,15 @@ switch(state) {
 						mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 						path_start(path,functionalSpeed,path_action_stop,false);
 					
+						/*var cs = canSeeLockOnTarget();
 						// can aggro while returning to post ??
 						if (distance_to_point(actingPostX,actingPostY) < (.5*farthestAllowedFromPost) && canSeeLockOnTarget()) {
 							if maybeAggro() break;
-						}
+						}*/
 					} else {
 						facingDirection = postDir;
 						state = CombatantStates.Idle;
+						lockOnTarget = noone;
 						break;
 					}
 					break;
@@ -418,10 +429,17 @@ switch(state) {
 				currentMeleeAttack = noone;
 				currentRangedAttack = noone;
 				stupidityFrame = 0;
-				state = CombatantStates.Idle;
+				//state = CombatantStates.Idle;
 				hasCalculatedNextAttack = false;
 				attackFrequencyTotalFrames = attackData.coolDownFrames;
 				maybeMarkGridCellTempFree(x, y);
+				//alarm[1] = 2; // idle state checks aggro only when alarm[1] is 1
+				if maybeAggro() {
+					break;
+				}
+				else {
+					state = CombatantStates.Idle;
+				}
 			}
 		}
 		break;
@@ -526,7 +544,13 @@ switch(state) {
 			if lastAttackHitWith != noone && instance_exists(lastAttackHitWith) && !lastAttackHitWith.isRanged {
 				if maybeBecomeWary(1.5) break;
 			}
-			state = CombatantStates.Idle;
+			if type != CombatantTypes.Player && maybeAggro() {
+				break;
+			}
+			else {
+				state = CombatantStates.Idle;
+			}
+			// state = CombatantStates.Idle;
 		}
 		break;
 	}
@@ -544,26 +568,21 @@ if jumpFrame <= jumpTotalFrames {
 }
 
 // check if we should be falling
-with obj_fallzone {
-	var d = point_in_rectangle(other.bbox_left+10,other.bbox_top+10,bbox_left,bbox_top,bbox_right,bbox_bottom);
-	var e = point_in_rectangle(other.bbox_right-10,other.bbox_bottom-10,bbox_left,bbox_top,bbox_right,bbox_bottom);
+// but you can't fall if you're on a bridge
+if !place_meeting(x,y,obj_bridge_parent) { 
+	with obj_fallzone {
+		var d = point_in_rectangle(other.bbox_left+10,other.bbox_top+10,bbox_left,bbox_top,bbox_right,bbox_bottom);
+		var e = point_in_rectangle(other.bbox_right-10,other.bbox_bottom-10,bbox_left,bbox_top,bbox_right,bbox_bottom);
 	
-	var a = point_in_rectangle(other.bbox_left,other.bbox_top,bbox_left,bbox_top,bbox_right,bbox_bottom);
-	var b = point_in_rectangle(other.bbox_right,other.bbox_bottom,bbox_left,bbox_top,bbox_right,bbox_bottom);
+		var a = point_in_rectangle(other.bbox_left,other.bbox_top,bbox_left,bbox_top,bbox_right,bbox_bottom);
+		var b = point_in_rectangle(other.bbox_right,other.bbox_bottom,bbox_left,bbox_top,bbox_right,bbox_bottom);
 	
-	if	d && e && layer == other.layer {
-		other.fallFrame = 0;
-		other.floorsFallen = 1;
-	} else if (a || b) && layer == other.layer && other.type == CombatantTypes.Enemy {
-		/*if other.state == CombatantStates.Moving && !other.isFlinching {
-			jumpToNearestFreePoint(1,1);
-			other.alarm[9] = 1;
-			if other.substate == CombatantMoveSubstates.Chasing {
-				with other {
-					maybeMoveNotInAttackRange();
-				}
-			}
-		}*/
+		if	d && e && layer == other.layer {
+			other.fallFrame = 0;
+			other.floorsFallen = 1;
+		} else if (a || b) && layer == other.layer && other.type == CombatantTypes.Enemy {
+		
+		}
 	}
 }
 

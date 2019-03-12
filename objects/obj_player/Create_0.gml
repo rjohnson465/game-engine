@@ -185,7 +185,7 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Rings, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 
 if global.populateInventory {
-	/*
+	
 	addItemToInventory(makeGold(100000,200000));
 
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
@@ -240,7 +240,7 @@ if global.populateInventory {
 	addItemToInventory(ring);
 	
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
-*/
+
 }
 
 lastFountain = noone;
@@ -323,5 +323,5 @@ instance_create_depth(x,y,1,obj_room_text);
 
 // to sprint, the B button must be held for 1/3 second
 isHoldingSprintButton = false;
-sprintCounterTotal = 5;
+sprintCounterTotal = 10;
 sprintCounter = sprintCounterTotal;

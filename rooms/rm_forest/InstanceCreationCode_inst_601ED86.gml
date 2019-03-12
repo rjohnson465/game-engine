@@ -1,3 +1,3 @@
 keyRequired = "Basement Key";
-opensFrom = "e";
+opensFrom = "r";
 spriteTurnsWhenOpen = true;

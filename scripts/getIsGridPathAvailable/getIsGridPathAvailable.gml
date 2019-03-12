@@ -31,6 +31,12 @@ var closestCellGridY = closestCellArr[1];
 var cx = closestCellGridX * cell_width;
 var cy = closestCellGridY * cell_height;
 
+var gx = x div cell_width; var gy = y div cell_height;
+if mp_grid_get_cell(personalGrid, gx, gy) == -1 {
+	var a = 3;
+}
+
+
 var isGridPathAvailable = mp_grid_path(personalGrid,p,x,y,cx,cy,true);
 
 /*

@@ -423,3 +423,6 @@ appEmitter = part_emitter_create(appSystem);
 
 // reassess maybeAggro every 15 frames, if in idle state
 alarm[1] = 15;
+
+// predicate for whether or not is fine for this combatant to overlay with allies
+canIntersectWithAllies = false;

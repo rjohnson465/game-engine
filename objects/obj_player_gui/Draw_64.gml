@@ -356,7 +356,7 @@ if isShowingMenus {
 			var x3 = x1 + tabWidth - 15;
 			draw_circle(x3,mean(yy,yy+menuTabsHeight),10,0);
 			draw_set_color(c_white);
-			draw_text(x3,mean(yy,yy+menuTabsHeight),numSkillPoints);
+			draw_text(x3,mean(yy,yy+menuTabsHeight),numQuestsAtRewardStep);
 		}
 	}
 

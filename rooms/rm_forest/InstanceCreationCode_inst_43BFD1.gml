@@ -1,0 +1,2 @@
+opensFrom = "u";
+spriteTurnsWhenOpen = true;

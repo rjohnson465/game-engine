@@ -1103,6 +1103,14 @@
             }
         },
         {
+            "Key": "12805dd4-6226-4ca2-8d1d-37e6ba5102ba",
+            "Value": {
+                "id": "6fe7bf87-77d1-42fd-ac2b-ae35b0ea8a37",
+                "resourcePath": "objects\\obj_tree_dead1\\obj_tree_dead1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "12955a72-7dd4-4a6c-8b1e-bfce1ab9d880",
             "Value": {
                 "id": "48249954-57de-4ece-a12e-9da34f6163ab",
@@ -1180,6 +1188,14 @@
                 "id": "b5032e26-c848-45cb-bf04-895f008ab993",
                 "resourcePath": "objects\\obj_environment_particles_controller\\obj_environment_particles_controller.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "13345216-51b3-49d3-a0c4-060c359075f6",
+            "Value": {
+                "id": "c049b211-3c13-4b61-bc92-e82a3f9a7211",
+                "resourcePath": "sprites\\spr_stump_rotten_falling\\spr_stump_rotten_falling.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1575,6 +1591,14 @@
             }
         },
         {
+            "Key": "19bd96d0-8c7a-4f1b-8995-67ea3c04682b",
+            "Value": {
+                "id": "9f841cd7-26be-4acc-b7c2-1343ba8b7f28",
+                "resourcePath": "objects\\obj_wood_table_square\\obj_wood_table_square.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "1a1ba540-c3c6-438d-ab13-50f75a6da0d1",
             "Value": {
                 "id": "8db1f982-be37-4dd7-b3ee-7202ea14c2f3",
@@ -1759,6 +1783,14 @@
             }
         },
         {
+            "Key": "1def7afd-d934-4c20-b492-16bdfa0436fd",
+            "Value": {
+                "id": "107e0f42-7d00-4a62-847e-8e1a4b858570",
+                "resourcePath": "sprites\\spr_wood_chair\\spr_wood_chair.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1e1cc541-5332-4836-83d2-9eeb30526b90",
             "Value": {
                 "id": "5b2dad2e-84ad-4375-8074-1eda6dba616b",
@@ -1852,6 +1884,14 @@
                 "id": "64bd8312-066d-4adf-9916-de5bc5a6ddf2",
                 "resourcePath": "scripts\\fs_load_roomdata_tempfile\\fs_load_roomdata_tempfile.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "206dc521-1191-4701-b123-7ba70fbfeaab",
+            "Value": {
+                "id": "ecc0d67b-9387-4c8d-856d-66d81fc56af9",
+                "resourcePath": "sprites\\spr_tree_dead_1\\spr_tree_dead_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2068,6 +2108,14 @@
                 "id": "9abfa4a4-e88f-4138-9b4c-b911e56c7e7d",
                 "resourcePath": "views\\240f247c-40ed-42a9-9444-9e82c1b4d513.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "2413ff4e-bae2-4d2b-bd5f-e3f10cd65003",
+            "Value": {
+                "id": "2cc262db-6fea-4f1d-9ff7-af1dba92ecba",
+                "resourcePath": "sprites\\spr_stump_rotten_standing\\spr_stump_rotten_standing.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2911,6 +2959,14 @@
             }
         },
         {
+            "Key": "3436f466-9eb6-466e-8a2f-06780b0cee9a",
+            "Value": {
+                "id": "5b1031a8-6aec-449e-bfc5-20fc318d2a96",
+                "resourcePath": "sprites\\spr_stump_rotten_fallen\\spr_stump_rotten_fallen.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "346038d2-d65e-445a-8876-13156b5ecd9c",
             "Value": {
                 "id": "766d9871-4b8e-44a7-bb37-df32d7eab345",
@@ -3156,6 +3212,14 @@
                 "id": "2227829d-8cc3-48a8-a586-44d2d9e81eca",
                 "resourcePath": "sprites\\spr_prompt_xbox_a\\spr_prompt_xbox_a.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "395d8474-8832-4b96-88aa-87da476905e3",
+            "Value": {
+                "id": "67b1da53-fe37-4e62-9e2e-9c25bd342c8f",
+                "resourcePath": "objects\\obj_wood_table_dishes\\obj_wood_table_dishes.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3803,6 +3867,14 @@
             "Value": {
                 "id": "78f91d53-7984-44d3-a206-a37de6845609",
                 "resourcePath": "sprites\\spr_enemy_speyeder_claw_prep_1_1\\spr_enemy_speyeder_claw_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4600c6f7-c3e3-47e7-8a85-ddc90cc5b2be",
+            "Value": {
+                "id": "5acd34d6-d1cb-49b6-bec7-9d090a97e66d",
+                "resourcePath": "sprites\\spr_wood_table_square\\spr_wood_table_square.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4775,6 +4847,14 @@
             }
         },
         {
+            "Key": "57d583ff-f9f1-4015-b6bf-594ac274ceb0",
+            "Value": {
+                "id": "c84a1fd1-285a-43d4-81c1-5bec101a659e",
+                "resourcePath": "objects\\obj_bridge_parent\\obj_bridge_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "57f250f1-ee1c-4bcb-b81f-74b2d4232223",
             "Value": {
                 "id": "415861e5-38e9-4c0f-a9e0-69f30e6b8e51",
@@ -4916,6 +4996,14 @@
                 "id": "e97bf1b1-48d3-4989-b5b2-8c637bcaccea",
                 "resourcePath": "sprites\\spr_player_hand_sword_2h_attack_1\\spr_player_hand_sword_2h_attack_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5c54b303-b7fb-4f10-b8ba-6681508240c6",
+            "Value": {
+                "id": "de6c430a-d03c-4673-914f-69b60adc293f",
+                "resourcePath": "objects\\obj_wood_table\\obj_wood_table.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -6599,6 +6687,14 @@
             }
         },
         {
+            "Key": "79f443dd-7a78-4fb1-a166-78c7a86677b7",
+            "Value": {
+                "id": "2362270f-32ea-4b72-a8dd-1acd25a09bd9",
+                "resourcePath": "objects\\obj_stump_rotten\\obj_stump_rotten.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "79f86caf-d322-42d3-bc39-1621a6eaaa7c",
             "Value": {
                 "id": "0f17f722-92ee-4521-bde9-a0ff37e810ed",
@@ -6867,6 +6963,14 @@
             "Value": {
                 "id": "20e8e863-b8a0-4a85-9ffa-85fbd34cc23d",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_spear\\spr_enemy_unfairy_limb_spear.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7fe693c0-87b5-493c-8eac-9f8247d6afc9",
+            "Value": {
+                "id": "13aa0abc-5b0d-42b6-a797-e5fd571c4f7f",
+                "resourcePath": "sprites\\spr_wood_table_dishes\\spr_wood_table_dishes.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -7484,6 +7588,14 @@
                 "id": "d249135b-75d2-4aef-9897-8301ef16840a",
                 "resourcePath": "sprites\\spr_player_foil_recover_3\\spr_player_foil_recover_3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8ac0e378-b79e-418e-8543-c8c7b85f3503",
+            "Value": {
+                "id": "06efd80a-a8a7-432b-acd1-b56c430de862",
+                "resourcePath": "scripts\\jumpToNearestFreeCell\\jumpToNearestFreeCell.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -8108,6 +8220,14 @@
                 "id": "7ac1efb0-7874-456f-a528-db7804f1673d",
                 "resourcePath": "views\\9757bdf1-dd22-408a-9a8b-8d1d14d6e3be.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "97b6b378-fe4f-43d9-93a8-a102f12e3ebf",
+            "Value": {
+                "id": "c1957446-d705-44f0-a9db-1ae8ff18b95b",
+                "resourcePath": "objects\\obj_wood_table_square_dishes\\obj_wood_table_square_dishes.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -10103,6 +10223,14 @@
             }
         },
         {
+            "Key": "bddff536-ddfd-41ee-9a30-44619c5218ed",
+            "Value": {
+                "id": "b1eb9e2b-9ded-4e75-a0c1-f93e8679b7b2",
+                "resourcePath": "objects\\obj_wood_table_square_dishes1\\obj_wood_table_square_dishes1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "be23831c-2d7c-47ca-a81c-628906f5ff0a",
             "Value": {
                 "id": "18585bd1-3585-474f-9891-00f241fded8a",
@@ -11463,6 +11591,14 @@
             }
         },
         {
+            "Key": "d6d79f0f-230b-4edf-878c-f6974d8460cf",
+            "Value": {
+                "id": "51767fb4-8d10-49c4-9169-d99cf8f10aed",
+                "resourcePath": "sprites\\spr_treedead1_mask\\spr_treedead1_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d71156eb-88da-49f3-9763-924764294166",
             "Value": {
                 "id": "a4191fae-eb4d-4d1d-81c6-ad0d500dc93c",
@@ -11791,6 +11927,14 @@
             }
         },
         {
+            "Key": "dd1c824f-7245-4f98-a8b0-bf67f4a81921",
+            "Value": {
+                "id": "dddf9488-96ac-46ca-a04e-851a89cb7f7b",
+                "resourcePath": "sprites\\spr_wood_table\\spr_wood_table.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "dd4d6319-b4ee-40bd-8871-8366790582c4",
             "Value": {
                 "id": "2f3ff104-d186-46fe-92d8-c9c65f29bf6a",
@@ -11964,6 +12108,14 @@
                 "id": "50050641-bcd2-47ba-92ec-059191ff2aa4",
                 "resourcePath": "objects\\obj_fountain_gui_nameprice\\obj_fountain_gui_nameprice.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "dfc62da7-5da5-432d-9784-96e9c3df48fd",
+            "Value": {
+                "id": "b38ba65c-a57e-48c2-9046-975b0ae28c43",
+                "resourcePath": "sprites\\spr_wood_table_square_dishes\\spr_wood_table_square_dishes.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -13485,6 +13637,7 @@
         "41c54b6c-c8d5-4313-aa22-d079377345bb",
         "2a001b45-8c6a-43d2-a9a5-f7cb0cbeb821",
         "020ae970-9049-4636-8526-df7f18d014a5",
+        "8ac0e378-b79e-418e-8543-c8c7b85f3503",
         "80ea5c9e-c7f8-4af0-852a-e5066729ab00",
         "e4374775-f49c-4989-8fc4-9ae3a9545331",
         "5dc1c55a-d410-4fc7-a098-b9544d713bf6",

@@ -103,7 +103,7 @@ beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
 // stagger stuff
-poise = 20;
+poise = 40;
 
 // dodge stuff
 agility = 20; // 0 - 100% chance to try a dodge

@@ -86,7 +86,7 @@ beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
 // stagger stuff
-poise = 50;
+poise = 75;
 
 ds_map_replace(defenses, FIRE, -100);
 

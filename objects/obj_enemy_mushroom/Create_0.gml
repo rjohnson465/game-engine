@@ -59,7 +59,10 @@ meleeAttacks = [sporesChain, chargeChain];
 
 // currently chosen ranged attack
 //rangedRangeArray=[];
-rangedAttacks = [sporesChain];
+var sporesRanged = makeEnemyAttackObj(obj_attack_mushroom_spores_1_1);
+sporesRanged.minRange = 600;
+var sporesChainRanged = [sporesRanged];
+rangedAttacks = [sporesChainRanged];
 
 hp = 150;
 maxHp = 150;

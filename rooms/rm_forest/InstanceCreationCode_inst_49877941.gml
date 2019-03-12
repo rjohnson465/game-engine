@@ -1,0 +1,1 @@
+droppedItemsReplacement = ds_list_create();

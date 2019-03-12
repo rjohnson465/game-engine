@@ -63,6 +63,7 @@ if stamina < 1 {
 	staggerFrame = 0;
 	staggerDuration = 25; // TODO Devin fix later
 	staggerSpeed = 1;
+	drawCombatText("Guard break!",id);
 }	
 // stagger assailant iff assailant weapon / attack staggers against blocks
 var itemOrAttack = attackData != noone ? attackData : itemHitWith;

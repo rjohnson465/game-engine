@@ -32,10 +32,14 @@ with obj_fallzone {
 	}
 }
 
+// add all solids to grid
 for (var i = 0; i < ds_list_size(solids); i++) {
-	mp_grid_add_instances(grid,ds_list_find_value(solids,i),1);
-	
-	// maybe TODO -- ensure no enemy combatant is in one of the cells marked as not free 
+	mp_grid_add_instances(grid,ds_list_find_value(solids,i),1); 
+}
+
+// now, clear any cells touched by a bridge
+with obj_bridge_parent {
+	mp_grid_clear_rectangle(grid, bbox_left, bbox_top, bbox_right, bbox_bottom);
 }
 
 ds_list_destroy(solids); solids = -1;

@@ -5,8 +5,8 @@
 if hp < 1 && isAlive && !isDying {
 	// items
 	var rmap = ds_map_create();
-	ds_map_replace(rmap,ItemRarities.Normal,10);
-	ds_map_replace(rmap,ItemRarities.Fine,2);
+	ds_map_replace(rmap,ItemRarities.Normal,90);
+	ds_map_replace(rmap,ItemRarities.Fine,9);
 	ds_map_replace(rmap,ItemRarities.Masterwork,1);
 	ds_map_replace(rmap,ItemRarities.Legendary,0);
 	/*var tmap = ds_map_create();
@@ -14,8 +14,8 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_replace(tmap,ItemTypes.HandItem,0);
 	ds_map_replace(tmap,ItemTypes.Head,0);
 	ds_map_replace(tmap,ItemTypes.Other,1);*/
-	var item1 = maybeMakeItem(50,rmap); //randomly generated item
-	var item2 = maybeMakeItem(50,rmap); //randomly generated item
+	var item1 = maybeMakeItem(25,rmap); //randomly generated item
+	var item2 = maybeMakeItem(10,rmap); //randomly generated item
 	//var item2 = maybeMakeItem(100,rmap,tmap); //randomly generated item
 	var gold = makeGold(0,25);
 	ds_list_clear(droppedItems);
