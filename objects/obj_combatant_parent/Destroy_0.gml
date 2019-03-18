@@ -1,7 +1,9 @@
 
 ds_map_destroy(knownSpells); knownSpells = -1;
 ds_map_destroy(defenses); defenses = -1;
-mp_grid_destroy(personalGrid); personalGrid = -1;
+if (personalGrid != undefined && ds_exists(personalGrid, ds_type_grid)) {
+	mp_grid_destroy(personalGrid); personalGrid = -1;
+}
 if path_exists(gridPath) {
 	path_delete(gridPath); gridPath = -1;
 }

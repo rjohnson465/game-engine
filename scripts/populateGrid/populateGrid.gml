@@ -39,7 +39,9 @@ for (var i = 0; i < ds_list_size(solids); i++) {
 
 // now, clear any cells touched by a bridge
 with obj_bridge_parent {
-	mp_grid_clear_rectangle(grid, bbox_left, bbox_top, bbox_right, bbox_bottom);
+	if origLayer == layerId {
+		mp_grid_clear_rectangle(grid, bbox_left, bbox_top, bbox_right, bbox_bottom);
+	}
 }
 
 ds_list_destroy(solids); solids = -1;

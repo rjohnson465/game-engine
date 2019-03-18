@@ -29,6 +29,16 @@ colorAlpha = owner.lightRadiusAlpha;
 spr = owner.lightRadiusSprite;
 scale = owner.lightRadiusScale;
 floorNum = real(string_copy(layer_get_name(layer),string_length(layer_get_name(layer)),1));
+_light_sprite = spr;
+_light_scale = scale;
+_light_color = color;
+_light_alpha = colorAlpha;
+_light_angle = 0;
+_light_shadows = true;
+_light_is_multiscaled = false
+_light_max_dist = max(sprite_get_width(_light_sprite),
+                      sprite_get_height(_light_sprite)) * _light_scale
+					  
 if makeLightOnCreate && ds_exists(ds_map_find_value(global._light_layers,floorNum),ds_type_map) {
 	light_create_layer(spr, scale, color, colorAlpha, 0, true);
 }

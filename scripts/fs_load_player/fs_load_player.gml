@@ -12,7 +12,18 @@ with global.player {
 	skillPoints = ds_map_find_value(sd_player,"SkillPoints");
 	
 	var tutFirstsMap = ds_map_find_value(sd_player,"TutorialFirstsMap");
-	var mapClone = ds_map_deep_clone(tutFirstsMap);
+	var mapClone = ds_map_create();
+	var ck = ds_map_find_first(tutFirstsMap);
+	for (var i = 0; i < ds_map_size(tutFirstsMap); i++) {
+		var val = ds_map_find_value(tutFirstsMap, ck);
+		var realKey = real(ck);
+		ds_map_replace(mapClone, realKey, val);
+		
+		ck = ds_map_find_next(tutFirstsMap, ck);
+	}
+	
+	//var mapClone = ds_map_deep_clone(tutFirstsMap);
+	
 	tutorialFirstsMap = mapClone;
 	
 	// reset player light radius to the persistent player light radius object

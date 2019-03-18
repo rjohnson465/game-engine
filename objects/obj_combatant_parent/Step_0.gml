@@ -569,7 +569,16 @@ if jumpFrame <= jumpTotalFrames {
 
 // check if we should be falling
 // but you can't fall if you're on a bridge
-if !place_meeting(x,y,obj_bridge_parent) { 
+var isOnBridge = false;
+with obj_bridge_parent {
+	var _pm = place_meeting(x, y, other);
+	var _layers =  origLayer == other.layer;
+	if _pm  && _layers {
+		isOnBridge = true;
+	}
+}
+
+if !isOnBridge { 
 	with obj_fallzone {
 		var d = point_in_rectangle(other.bbox_left+10,other.bbox_top+10,bbox_left,bbox_top,bbox_right,bbox_bottom);
 		var e = point_in_rectangle(other.bbox_right-10,other.bbox_bottom-10,bbox_left,bbox_top,bbox_right,bbox_bottom);

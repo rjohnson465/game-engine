@@ -47,10 +47,16 @@ else {
 	}
 	var propsMap = ds_map_find_value(data_map, "Properties");
 
+	if propsMap == undefined {
+		var a = 3;
+	}
+
+	if propsMap != undefined {
 	var ck = ds_map_find_first(propsMap);
-	for (var i = 0; i < ds_map_size(propsMap); i++) {
-		var val = ds_map_find_value(propsMap,ck);
-		ds_map_replace(el.properties, ck, val);
-		ck = ds_map_find_next(propsMap, ck);
+		for (var i = 0; i < ds_map_size(propsMap); i++) {
+			var val = ds_map_find_value(propsMap,ck);
+			ds_map_replace(el.properties, ck, val);
+			ck = ds_map_find_next(propsMap, ck);
+		}
 	}
 }

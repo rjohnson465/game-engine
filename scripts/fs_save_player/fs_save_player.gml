@@ -5,7 +5,7 @@ var sd_player = ds_map_create();
 
 with global.player {
 
-	if lastFountain == noone {
+	if lastFountainX < 0 {
 		lastFountain = instance_nearest(x,y,obj_fountain);
 		lastFountainX = lastFountain.spawnX;
 		lastFountainY = lastFountain.spawnY;

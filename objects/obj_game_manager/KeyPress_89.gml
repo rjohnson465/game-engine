@@ -1,1 +1,1 @@
-loadGame();
+/*loadGame();

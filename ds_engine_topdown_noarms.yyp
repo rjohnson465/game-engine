@@ -10103,6 +10103,14 @@
             }
         },
         {
+            "Key": "ba3830cb-3b00-420c-b4d2-d383d75ed31a",
+            "Value": {
+                "id": "c668bb2b-6bf9-45fb-8374-0ed30333a671",
+                "resourcePath": "sprites\\spr_fairylight\\spr_fairylight.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ba500101-f77d-4310-8a24-f940971a9cf3",
             "Value": {
                 "id": "d8e984ab-cf87-4a4c-a212-014072bc30a3",
@@ -13508,6 +13516,14 @@
                 "id": "320368f8-d470-4505-a95a-70bb6f8bc754",
                 "resourcePath": "sprites\\spr_skill_bowmastery\\spr_skill_bowmastery.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ff13177a-e859-40c1-ba16-81ee754e9dcb",
+            "Value": {
+                "id": "b14b7ba6-3cb7-4267-b560-a2e0792d9f99",
+                "resourcePath": "objects\\obj_fairylight\\obj_fairylight.yy",
+                "resourceType": "GMObject"
             }
         },
         {

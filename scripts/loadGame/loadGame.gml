@@ -6,6 +6,12 @@ global.populateInventory = false;
 global.ui.isShowingMenus = false;
 fs_clear_roomdata_tempfile();
 
+with obj_light_radius {
+	if owner == global.player {
+		persistent = true;
+	}
+}
+
 var p = global.player;
 p.gamePadIndex = global.gamePadIndex;
 var save_data = ds_map_secure_load(currentSaveFile);
@@ -99,8 +105,12 @@ with obj_item_drop {
 
 p.x = ds_map_find_value(pData,"LastFountainX");
 p.y = ds_map_find_value(pData,"LastFountainY");
+p.lastFountainX = p.x;
+p.lastFountainY = p.y
 p.layerToMoveTo = ds_map_find_value(pData,"LastFountainZ");
+p.lastFountainZ = p.layerToMoveTo;
 roomToGoTo = ds_map_find_value(pData,"LastFountainRoom");
+p.lastFountainRoom = roomToGoTo;
 room_goto(asset_get_index(roomToGoTo));
 audio_stop_all();
 

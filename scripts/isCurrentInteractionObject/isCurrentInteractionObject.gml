@@ -29,6 +29,13 @@ if ds_list_size(list) > 0 {
 			}
 		}
 		if !foundObj {
+			with obj_portal {
+				if key == firstKey {
+					foundObj = true;
+				}
+			}
+		}
+		if !foundObj {
 			ds_list_delete(list,0);
 		}
 	} until foundObj || ds_list_size(list) <= 0

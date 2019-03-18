@@ -19,6 +19,15 @@ if isCurrentInteractableObject && !isFallen && distance_to_object(obj_player) < 
 	audio_play_sound_at(fallingSound,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 	light_destroy_caster_layer(getLayerFloorNumber(origLayer));
 		
+			
+	global.damageType = "Dust";
+	global.x1 = x;
+	global.y1 = y;
+	global.particleDirection = 0;
+	global.hitParticlesLayer = origLayer;
+	global.victim = noone;
+	instance_create_depth(x,y,1,obj_hit_particles);
+		
 	// populateGrids();
 		
 } 
