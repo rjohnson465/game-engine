@@ -16,7 +16,9 @@ if room == game_menu {
 					joystickInputFrame++;
 				}
 				
-				if selectedOption == "" || selectedOption == noone selectedOption = "New Game";
+				if selectedOption == "" || selectedOption == noone {
+					selectedOption = "New Game";
+				}
 				
 				var h_point = gamepad_axis_value(pad, gp_axislh);
 				var v_point = gamepad_axis_value(pad, gp_axislv);
@@ -32,9 +34,11 @@ if room == game_menu {
 				if gamepad_button_check_pressed(pad, gp_padd) || gamepad_button_check_pressed(pad, gp_padu) || ((angleBetween(45,135,pdir) || angleBetween(225,315,pdir)) && pdir != noone && acceptingJoystickInput) {
 					selectedOption = selectedOption == "New Game" ? "Load Game" : "New Game";
 					joystickInputFrame = 0;
+					audio_play_sound(snd_ui_option_change,1,0);
 				}
 				
 				if gamepad_button_check_pressed(pad, gp_face1) && !instance_exists(fade) {
+					audio_play_sound(snd_ui_tab1,1,0);
 					switch selectedOption {
 						case "New Game": {
 							state = TitleScreenState.New;
@@ -48,7 +52,7 @@ if room == game_menu {
 				}
 				
 			} else {
-				selectedOption = noone;
+				// selectedOption = noone;
 			}
 			
 			for (var i = 0; i < array_length_1d(options); i++) {
@@ -63,9 +67,14 @@ if room == game_menu {
 				var x2 = xx+(.5*sw); var y2 = yy+(.5*sh);
 				
 				if mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == str {
+					if selectedOption != str {
+						audio_play_sound(snd_ui_option_change,1,0);
+						selectedOption = str;
+					}
 					draw_set_color(c_white);	
 					// option was clicked
-					if mouse_check_button_pressed(mb_left) && !instance_exists(fade) {
+					if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_pressed(mb_left) && !instance_exists(fade) {
+						audio_play_sound(snd_ui_tab1,1,0);
 						switch str {
 							case "New Game": {
 								state = TitleScreenState.New; break;
@@ -75,7 +84,7 @@ if room == game_menu {
 							}
 						}
 					}
-				}
+				} 
 				
 				draw_text(xx,yy, str);
 			}
@@ -191,6 +200,10 @@ if room == game_menu {
 			var i = 0;
 			while fileName != ""
 			{
+				// do not show the internal use temp enemydata / roomdata files
+				while (fileName == TEMP_ENEMYDATA_FILENAME || fileName == TEMP_ROOMDATA_FILENAME) {
+					fileName = file_find_next();
+				}
 				var sw = string_width(fileName); var sh = string_height(fileName);
 				var xx = vw/2; var yy = startY+(i*sh);
 				if yy > loadBoxBottomRightY-sh break;
@@ -198,7 +211,7 @@ if room == game_menu {
 				if (selectedFile == noone || selectedFile == "") && gamepad_is_connected(global.gamePadIndex) {
 					selectedFile = fileName;
 				} else if !gamepad_is_connected(global.gamePadIndex) {
-					selectedFile = noone;
+					// selectedFile = noone;
 				}
 				
 				ds_list_add(shownFiles,fileName);
@@ -206,17 +219,25 @@ if room == game_menu {
 				var x2 = xx+(.5*sw); var y2 = yy+(.5*sh);
 				
 				if fileName == selectedFile || mouseOverGuiRect(x1,y1,x2,y2) {
+					if fileName != selectedFile {
+						audio_play_sound(snd_ui_option_change,1,0);
+						selectedFile = fileName;
+					}
 					draw_set_color(c_white);
-					if mouse_check_button_pressed(mb_left) {
+					if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_pressed(mb_left) {
 						// load this game
 						currentSaveFile = fileName;
 						file_find_close();
 						global.fadeDuration = 60;
 						global.owner = id;
 						fade = instance_create_depth(x,y,-100000,obj_fade);
+						audio_play_sound(snd_shield_hit_metal,1,0);
 						//loadGame();
 					}
-				} else draw_set_color(c_ltgray);
+				} else {
+					// selectedFile = noone;
+					draw_set_color(c_ltgray);
+				}
 			    draw_text(vw/2,yy,fileName);
 			    fileName = file_find_next();
 			    i += 1;
@@ -238,11 +259,17 @@ if room == game_menu {
 				var pad = global.gamePadIndex;
 				
 				if gamepad_button_check_pressed(pad, gp_padu) {
+					audio_play_sound(snd_ui_option_change,1,0);
 					var f = file_find_first(working_directory + "*.sav",fa_directory);
 					var prev = noone;
 					while f != selectedFile {
-						prev = f;
+						if f != TEMP_ENEMYDATA_FILENAME && f != TEMP_ROOMDATA_FILENAME {
+							prev = f;
+						}
 						f = file_find_next();
+						if f == TEMP_ENEMYDATA_FILENAME || f == TEMP_ROOMDATA_FILENAME {
+							f = file_find_next();
+						}
 					}
 					if prev != noone && prev != "" {
 						selectedFile = prev;
@@ -253,6 +280,7 @@ if room == game_menu {
 				}
 				
 				if gamepad_button_check_pressed(pad, gp_padd) {
+					audio_play_sound(snd_ui_option_change,1,0);
 					var f = file_find_first(working_directory + "*.sav",fa_directory);
 					var next = noone;
 					var pos = 0;
@@ -262,7 +290,7 @@ if room == game_menu {
 					}
 					f = file_find_first(working_directory + "*.sav",fa_directory);
 					var j = 0;
-					while j <= pos {
+					while j <= pos || next == TEMP_ENEMYDATA_FILENAME || next == TEMP_ROOMDATA_FILENAME {
 						next = file_find_next();
 						j++;
 					}
@@ -282,10 +310,12 @@ if room == game_menu {
 					global.fadeDuration = 60;
 					global.owner = id;
 					fade = instance_create_depth(x,y,-100000,obj_fade);
+					audio_play_sound(snd_shield_hit_metal,1,0);
 				}
 				
 				// go back
 				if gamepad_button_check_pressed(pad, gp_face2) && !instance_exists(fade) {
+					audio_play_sound(snd_ui_tab1,1,0);
 					state = TitleScreenState.Options;
 				}
 				
@@ -301,13 +331,21 @@ if room == game_menu {
 				var x2 = xx+(.5*sw); var y2 = yy+(.5*sh);
 			
 				if (mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == str) && !instance_exists(fade) {
+					if selectedOption != str {
+						audio_play_sound(snd_ui_option_change,1,0);
+						selectedOption = str;
+					}
 					draw_set_color(c_white);
-					if mouse_check_button_pressed(mb_left) {
+					if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_pressed(mb_left) {
+						audio_play_sound(snd_ui_tab1,1,0);
 						newGameName = "";
 						cursorPos = 1;
 						state = TitleScreenState.Options;
 					}
-				} else draw_set_color(c_ltgray);
+				} else {
+					draw_set_color(c_ltgray);
+					// selectedOption = noone;
+				}
 			
 				draw_text(xx,yy,str);
 			}
@@ -351,7 +389,7 @@ if room == game_menu {
 				
 				if gamepad_button_check_pressed(pad, gp_padu) {
 					var char = string_char_at(newGameName,cursorPos); 
-					
+					audio_play_sound(snd_ui_option_change,1,0);
 					var o = ord(char);
 					o += 1;
 					char = chr(o);
@@ -365,7 +403,7 @@ if room == game_menu {
 				
 				if gamepad_button_check_pressed(pad, gp_padd) {
 					var char = string_char_at(newGameName,cursorPos); 
-					
+					audio_play_sound(snd_ui_option_change,1,0);
 					var o = ord(char);
 					o -= 1;
 					char = chr(o);
@@ -378,7 +416,7 @@ if room == game_menu {
 				}
 				
 				if gamepad_button_check_pressed(pad, gp_padr) {
-					
+					audio_play_sound(snd_ui_tab1,1,0);
 					cursorPos += 1;
 					if cursorPos > string_length(newGameName) {
 						newGameName = string_insert("a",newGameName,cursorPos);
@@ -387,12 +425,14 @@ if room == game_menu {
 				}
 				
 				if gamepad_button_check_pressed(pad, gp_padl) {
+					audio_play_sound(snd_ui_tab1,1,0);
 					cursorPos -= 1;
 					if cursorPos < 1 cursorPos = 1;
 				}
 				
 				// backspace
 				if gamepad_button_check_pressed(pad, gp_face3) {
+					audio_play_sound(snd_ui_tab2,1,0);
 					if string_length(newGameName) > 1 {
 						newGameName = string_delete(newGameName, cursorPos, 1);
 						cursorPos -= 1;
@@ -403,16 +443,18 @@ if room == game_menu {
 				draw_set_color(c_ltgray); draw_set_font(font_big); draw_set_halign(fa_center); draw_set_valign(fa_center);
 				draw_text(vw/2,450,newGameName);
 				
-				// start game with this save name
-				if gamepad_button_check_pressed(pad, gp_face1) {
+				// start game with this save name (but make sure we're not overriding internal use files)
+				if gamepad_button_check_pressed(pad, gp_face1) && newGameName != TEMP_ENEMYDATA_FILENAME && newGameName != TEMP_ROOMDATA_FILENAME {
 					global.fadeDuration = 60;
 					global.owner = id;
 					fade = instance_create_depth(x,y,-100000,obj_fade);
+					audio_play_sound(snd_shield_hit_metal,1,0);
 					//newGame();
 				}
 				
 				// return to main menu
 				if gamepad_button_check_pressed(pad, gp_face2) {
+					audio_play_sound(snd_ui_tab1,1,0);
 					newGameName = "";
 					cursorPos = 1;
 					state = TitleScreenState.Options;
@@ -438,13 +480,15 @@ if room == game_menu {
 				
 				// allow for user input
 				if(keyboard_check_pressed(vk_backspace)) {
-				      newGameName = string_delete(newGameName, cursorPos-1, 1);
-				      cursorPos-=1; 
-					  if cursorPos < 1 cursorPos = 1;
+					audio_play_sound(snd_ui_tab2,1,0);
+				    newGameName = string_delete(newGameName, cursorPos-1, 1);
+				    cursorPos-=1; 
+					if cursorPos < 1 cursorPos = 1;
 				}
 				
 				if (keyboard_string != "") {
 				      var t = keyboard_string;
+					  audio_play_sound(snd_ui_tab1,1,0);
 				      newGameName = string_insert(t, newGameName, cursorPos)
 				      cursorPos += string_length(t)
 				      keyboard_string = ""
@@ -459,7 +503,7 @@ if room == game_menu {
 						global.fadeDuration = 60;
 						global.owner = id;
 						fade = instance_create_depth(x,y,-100000,obj_fade);
-						//newGame();
+						audio_play_sound(snd_shield_hit_metal,1,0);
 					}
 				}
 				
@@ -472,8 +516,13 @@ if room == game_menu {
 				var x2 = xx+(.5*sw); var y2 = yy+(.5*sh);
 			
 				if mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == str {
+					if selectedOption != str {
+						audio_play_sound(snd_ui_option_change,1,0);
+						selectedOption = str;
+					}
 					draw_set_color(c_white);
-					if mouse_check_button_pressed(mb_left) {
+					if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_pressed(mb_left) {
+						audio_play_sound(snd_ui_tab1,1,0);
 						newGameName = "";
 						cursorPos = 1;
 						state = TitleScreenState.Options;

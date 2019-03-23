@@ -9,7 +9,7 @@ if isSpell || isSoundLooping {
 	audio_stop_sound(sound);
 }
 
-if isRanged && weapon != noone && weapon.isTwoHanded && owner == global.player {
+if isRanged && instance_exists(weapon) && weapon != noone && weapon.isTwoHanded && owner == global.player {
 	event_perform(ev_alarm,1);
 }
 

@@ -143,3 +143,12 @@ _ptsSpent = 0;
 act = 1;
 
 isMandatory = false;
+
+// there can only ever be one copy of a mandatory item in game
+if isMandatory {
+	with obj_item_parent {
+		if name == other.name {
+			instance_destroy(other,1);
+		}
+	}
+}

@@ -31,6 +31,9 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 	item._pts = ds_map_find_value(sd_item,"Pts");
 	item.acceptableEquipmentSlots = ds_map_find_value(sd_item,"AcceptableEquipmentSlots");
 	item.numberOfSockets = ds_map_find_value(sd_item,"NumberOfSockets");
+	item.durability = ds_map_find_value(sd_item,"Durability");
+	item.ammo = ds_map_find_value(sd_item,"Ammo");
+	item.charges = ds_map_find_value(sd_item,"Charges");
 	
 	
 	// insert gems

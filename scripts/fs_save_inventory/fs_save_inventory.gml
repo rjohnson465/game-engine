@@ -15,6 +15,9 @@ with obj_item_parent {
 		ds_map_replace(sd_item,"AcceptableEquipmentSlots",acceptableEquipmentSlots);
 		ds_map_replace(sd_item,"EquipmentSlot",equipmentSlot);
 		ds_map_replace(sd_item,"NumberOfSockets",numberOfSockets);
+		ds_map_replace(sd_item,"Durability",durability);
+		ds_map_replace(sd_item,"Charges",charges);
+		ds_map_replace(sd_item,"Ammo",ammo);
 		
 		// saving socketed gems
 		if ds_exists(socketedGems, ds_type_list) && ds_list_size(socketedGems) > 0 {

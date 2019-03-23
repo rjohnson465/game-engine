@@ -26,6 +26,9 @@ if id != global.player && !isFloating {
 	var turnDelta = abs(previousFacingDirection-facingDirection);
 	turningSpeedModifier = 1-(turnDelta/turnSpeed);
 	functionalSpeed = normalSpeed*slowedSpeedModifier*turningSpeedModifier;
+	if functionalSpeed < 2 {
+		functionalSpeed = 2;
+	}
 	
 	if (functionalSpeed > normalSpeed || functionalSpeed < 0) functionalSpeed = normalSpeed;
 	

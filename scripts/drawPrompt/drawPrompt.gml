@@ -53,7 +53,7 @@ if promptWidth > maxW {
 promptWidth *= stringScale;
 
 var spritesMap = ds_map_create();
-var isGamepadConnected = gamepad_is_connected(global.player.gamePadIndex);
+var isGamepadConnected = gamepad_is_connected(global.gamePadIndex);
 
 var spritesWidth = 0;
 // get sprites for inputKeyEnums

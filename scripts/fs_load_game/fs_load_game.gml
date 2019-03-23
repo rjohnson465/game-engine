@@ -44,8 +44,8 @@ fs_load_npcs(ds_map_find_value(save_data,"Npcs"));
 
 
 // eh, let player have max hp and stamina
-global.player.hp = global.player.maxHp;
-global.player.stamina = global.player.maxStamina;
+//global.player.hp = global.player.maxHp;
+//global.player.stamina = global.player.maxStamina;
 
 with obj_environment_particles_controller {
 	event_perform(ev_other,ev_room_end);

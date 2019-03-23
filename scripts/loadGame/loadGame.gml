@@ -101,16 +101,39 @@ with obj_item_drop {
 	instance_destroy(id,1);
 }
 
-// move rooms
+// move rooms + position player
 
-p.x = ds_map_find_value(pData,"LastFountainX");
-p.y = ds_map_find_value(pData,"LastFountainY");
-p.lastFountainX = p.x;
-p.lastFountainY = p.y
-p.layerToMoveTo = ds_map_find_value(pData,"LastFountainZ");
-p.lastFountainZ = p.layerToMoveTo;
-roomToGoTo = ds_map_find_value(pData,"LastFountainRoom");
-p.lastFountainRoom = roomToGoTo;
+var newX = ds_map_find_value(pData,"LastX");
+var newY = ds_map_find_value(pData,"LastY");
+var newZ = ds_map_find_value(pData,"LastZ");
+var newRoomName = ds_map_find_value(pData,"LastRoomName");
+
+
+if newX == undefined {
+	newX = ds_map_find_value(pData,"LastFountainX");
+	newY = ds_map_find_value(pData,"LastFountainY");
+	newZ = ds_map_find_value(pData,"LastFountainZ");
+	newRoomName = ds_map_find_value(pData,"LastFountainRoom");
+}
+
+// p.x = ds_map_find_value(pData,"LastFountainX");
+// p.y = ds_map_find_value(pData,"LastFountainY");
+
+// Ensure last fountain variables are configured
+p.lastFountainX = ds_map_find_value(pData,"LastFountainX");
+p.lastFountainY = ds_map_find_value(pData,"LastFountainY");
+p.lastFountainZ =ds_map_find_value(pData,"LastFountainZ");
+p.lastFountainRoom = ds_map_find_value(pData,"LastFountainRoom");
+
+// p.layerToMoveTo = ds_map_find_value(pData,"LastFountainZ");
+
+// Load in the player's last location / layer / room
+p.x = newX;
+p.y = newY;
+p.layerToMoveTo = newZ; // this is a string value, the name of the layer to move to
+roomToGoTo = newRoomName;
+//roomToGoTo = ds_map_find_value(pData,"LastFountainRoom");
+
 room_goto(asset_get_index(roomToGoTo));
 audio_stop_all();
 

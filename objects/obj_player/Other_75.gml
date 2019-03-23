@@ -7,7 +7,7 @@ case "gamepad discovered":                     // A game pad has been discovered
     gamePadIndex = async_load[? "pad_index"];       // Get the pad index value from the async_load map
     gamepad_set_axis_deadzone(gamePadIndex, 0.2);       // Set the "deadzone" for the axis
     gamepad_set_button_threshold(gamePadIndex, 0.1);    // Set the "threshold" for the triggers
-
+	global.gamePadIndex = gamePadIndex;
 	window_set_cursor(cr_none);
     break;
 case "gamepad lost":                           // Gamepad has been removed or otherwise disabled

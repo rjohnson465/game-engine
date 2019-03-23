@@ -40,7 +40,6 @@ if hp < 1 && isAlive && !isDying {
 		var rand = round(random_range(0,array_length_1d(soundsWhenDie)-1));
 		var deathSnd = soundsWhenDie[rand];
 		var deathSndName = audio_get_name(deathSnd);
-		show_debug_message("death sound is " + deathSndName);
 		audio_play_sound_at(deathSnd,x,y,depth,50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 	}
 	
@@ -126,10 +125,34 @@ if isDying && isAlive {
 			if ds_list_size(droppedItemsMandatory) != 0 {
 				for (var k = 0; k < ds_list_size(droppedItemsMandatory); k++) {
 					var dim = ds_list_find_value(droppedItemsMandatory, k);
+					dim.isMandatory = true;
+					// make sure this is the only copy of the mandatory item in game accessible to player
+					var doNotAddToDroppedItems = false;
+					with obj_item_drop {
+						for (var m = 0; m < ds_list_size(items); m++) {
+							var mim = ds_list_find_value(items, m);
+							if instance_exists(mim) && instance_exists(dim) {
+								if mim.name == dim.name && mim.id != dim.id {
+									doNotAddToDroppedItems = true;
+								}
+							}
+						}
+					}
 					// only drop the mandatory item if the player does not already have it
-					if ds_list_find_index(global.player.inventory, dim) < 0 {
+					var alreadyHasItem = false;
+					if !doNotAddToDroppedItems {
+						for (var l = 0; l < ds_list_size(global.player.inventory); l++) {
+							var invItem = ds_list_find_value(global.player.inventory, l); 
+							var iname = invItem.name;
+							if (iname == dim.name) {
+								alreadyHasItem = true;
+							}
+						}
+					}
+					if !alreadyHasItem && !doNotAddToDroppedItems {
 						ds_list_add(droppedItems, dim);
 					}
+					
 				}
 			}
 			

@@ -18,6 +18,11 @@ with global.player {
 	ds_map_replace(sd_player,"LastFountainZ",lastFountainZ); // layer name
 	ds_map_replace(sd_player,"LastFountainRoom",lastFountainRoom);
 	
+	ds_map_replace(sd_player,"LastX",x);
+	ds_map_replace(sd_player,"LastY",y);
+	ds_map_replace(sd_player,"LastZ",layer_get_name(layer));
+	ds_map_replace(sd_player,"LastRoomName",room_get_name(room));
+	
 	ds_map_replace(sd_player,"Hp",hp);
 	ds_map_replace(sd_player,"Level",level);
 	ds_map_replace(sd_player,"Xp",xp);

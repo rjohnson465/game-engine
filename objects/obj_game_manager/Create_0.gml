@@ -63,8 +63,13 @@ global.ALL_PHYSICAL_DAMAGE_TYPES = [PHYSICAL,SLASH,PIERCE,CRUSH];
 #macro PISTOL "Pistol/1H"
 
 #macro MATH_E 2.71828
-
-global.gamePadIndex = noone;
+if !variable_global_exists("gamePadIndex") {
+	global.gamePadIndex = noone;
+} else {
+	if instance_exists(global.player) {
+		global.player.gamePadIndex = global.gamePadIndex;
+	}
+}
 
 global.playerDoNothing = false;
 if room == game_menu {

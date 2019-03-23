@@ -253,6 +253,9 @@ gamePadIndex = noone;
 if !global.gameManager.isLoading {
 	layerToMoveTo = noone;
 }
+if variable_global_exists("gamePadIndex") {
+	gamePadIndex = global.gamePadIndex;
+}
 
 dyingParticleColor1 = c_white;
 dyingParticleColor2 = c_gray;
