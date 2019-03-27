@@ -3,7 +3,8 @@ if (xp + xpTemp) >= xpToNextLevel {
 	var remainingXp = (xp+xpTemp)-xpToNextLevel;
 	xp = 0; xpTemp = remainingXp;
 	level += 1;
-	xpToNextLevel = round(1000*(power(level,1.1)));
+	// xpToNextLevel = round(1000*(power(level,1.1)));
+	xpToNextLevel = round(453*(power(2,level/3.6)));
 	skillPoints++;
 	alert("Level " + string(level) + " reached!",c_lime,90);
 	audio_play_sound(snd_levelup,1,0);

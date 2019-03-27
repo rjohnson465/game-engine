@@ -32,7 +32,26 @@ if room == game_menu {
 				var acceptingJoystickInput = joystickInputFrame >= joystickInputTotalFrames;
 				
 				if gamepad_button_check_pressed(pad, gp_padd) || gamepad_button_check_pressed(pad, gp_padu) || ((angleBetween(45,135,pdir) || angleBetween(225,315,pdir)) && pdir != noone && acceptingJoystickInput) {
-					selectedOption = selectedOption == "New Game" ? "Load Game" : "New Game";
+					// selectedOption = selectedOption == "New Game" ? "Load Game" : "New Game";
+					var pos = 0;
+					for (var i = 0; i < array_length_1d(options); i++) {
+						var option = options[i];
+						if option == selectedOption {
+							pos = i;
+						}
+					}
+					var incAmount = 1;
+					if gamepad_button_check_pressed(pad, gp_padu) || angleBetween(225,315,pdir) {
+						incAmount = -1;
+					}
+					var newPos = pos + incAmount;
+					if (newPos >= array_length_1d(options)) {
+						newPos = 0;
+					}
+					if newPos < 0 {
+						newPos = array_length_1d(options) - 1;
+					}
+					selectedOption = options[newPos];
 					joystickInputFrame = 0;
 					audio_play_sound(snd_ui_option_change,1,0);
 				}
@@ -46,6 +65,11 @@ if room == game_menu {
 						}
 						case "Load Game": {
 							state = TitleScreenState.Load;
+							break;
+						}
+						case "Exit": {
+							global.gameEnding = true;
+							game_end();
 							break;
 						}
 					}
@@ -81,6 +105,11 @@ if room == game_menu {
 							}
 							case "Load Game": {
 								state = TitleScreenState.Load; break;
+							}
+							case "Exit": {
+								global.gameEnding = true;
+								game_end();
+								break;
 							}
 						}
 					}
@@ -204,43 +233,45 @@ if room == game_menu {
 				while (fileName == TEMP_ENEMYDATA_FILENAME || fileName == TEMP_ROOMDATA_FILENAME) {
 					fileName = file_find_next();
 				}
-				var sw = string_width(fileName); var sh = string_height(fileName);
-				var xx = vw/2; var yy = startY+(i*sh);
-				if yy > loadBoxBottomRightY-sh break;
+				if fileName != "" && fileName != pointer_null {
+					var sw = string_width(fileName); var sh = string_height(fileName);
+					var xx = vw/2; var yy = startY+(i*sh);
+					if yy > loadBoxBottomRightY-sh break;
 				
-				if (selectedFile == noone || selectedFile == "") && gamepad_is_connected(global.gamePadIndex) {
-					selectedFile = fileName;
-				} else if !gamepad_is_connected(global.gamePadIndex) {
-					// selectedFile = noone;
-				}
-				
-				ds_list_add(shownFiles,fileName);
-				var x1 = xx-(.5*sw); var y1 = yy-(.5*sh);
-				var x2 = xx+(.5*sw); var y2 = yy+(.5*sh);
-				
-				if fileName == selectedFile || mouseOverGuiRect(x1,y1,x2,y2) {
-					if fileName != selectedFile {
-						audio_play_sound(snd_ui_option_change,1,0);
+					if (selectedFile == noone || selectedFile == "") && gamepad_is_connected(global.gamePadIndex) {
 						selectedFile = fileName;
+					} else if !gamepad_is_connected(global.gamePadIndex) {
+						// selectedFile = noone;
 					}
-					draw_set_color(c_white);
-					if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_pressed(mb_left) {
-						// load this game
-						currentSaveFile = fileName;
-						file_find_close();
-						global.fadeDuration = 60;
-						global.owner = id;
-						fade = instance_create_depth(x,y,-100000,obj_fade);
-						audio_play_sound(snd_shield_hit_metal,1,0);
-						//loadGame();
+				
+					ds_list_add(shownFiles,fileName);
+					var x1 = xx-(.5*sw); var y1 = yy-(.5*sh);
+					var x2 = xx+(.5*sw); var y2 = yy+(.5*sh);
+				
+					if fileName == selectedFile || mouseOverGuiRect(x1,y1,x2,y2) {
+						if fileName != selectedFile {
+							audio_play_sound(snd_ui_option_change,1,0);
+							selectedFile = fileName;
+						}
+						draw_set_color(c_white);
+						if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_pressed(mb_left) {
+							// load this game
+							currentSaveFile = fileName;
+							file_find_close();
+							global.fadeDuration = 60;
+							global.owner = id;
+							fade = instance_create_depth(x,y,-100000,obj_fade);
+							audio_play_sound(snd_shield_hit_metal,1,0);
+							//loadGame();
+						}
+					} else {
+						// selectedFile = noone;
+						draw_set_color(c_ltgray);
 					}
-				} else {
-					// selectedFile = noone;
-					draw_set_color(c_ltgray);
-				}
-			    draw_text(vw/2,yy,fileName);
-			    fileName = file_find_next();
-			    i += 1;
+				    draw_text(vw/2,yy,fileName);
+				    fileName = file_find_next();
+				    i += 1;
+				} else fileName = "";
 			}
 			
 			// controllers scrolling through files

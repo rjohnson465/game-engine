@@ -393,6 +393,7 @@ investigatingDirectionPrev = 0;
 investigatingDirection = 0;
 investigationPtX = noone; investigationPtY = noone;
 isInvestigatingMoving = false;
+minAggroRange = 15; // when the player get this close, no matter what, aggro
 
 currentSpellPrepSound = noone;
 soundsWhenDodge = [snd_dodge1];

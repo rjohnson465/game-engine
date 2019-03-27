@@ -10319,6 +10319,14 @@
             }
         },
         {
+            "Key": "bf8f6c99-eabc-4fea-bc43-ce980b3379de",
+            "Value": {
+                "id": "a648ebfa-b19a-48c2-8ad5-bcb71ba2a01f",
+                "resourcePath": "objects\\obj_bgm_manager\\obj_bgm_manager.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "bfcd3510-260e-484f-a7e4-37de361b1fd5",
             "Value": {
                 "id": "dec254ca-758c-4945-b168-e765b1104972",

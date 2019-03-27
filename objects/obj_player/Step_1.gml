@@ -71,6 +71,9 @@ if gamepad_is_connected(gamePadIndex) {
 	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderr) {
 		performRightHandDownAction();
 	}
+	if gamepad_button_check(gamePadIndex, gp_shoulderr) && object_is_ancestor(rightHandItem.object_index, obj_shield_parent) {
+		performRightHandDownAction();
+	}
 	if leftHandItem.isTwoHanded && leftHandItem.isRanged && gamepad_button_check(gamePadIndex, gp_shoulderr) {
 		performRightHandDownAction();
 	}

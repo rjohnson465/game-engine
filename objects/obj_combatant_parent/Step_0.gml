@@ -102,7 +102,7 @@ switch(state) {
 				startInvestigation(); break;
 			}
 			// else, check if the player is just too goddamn close 
-			else if distance_to_object(global.player) < 15 {
+			else if distance_to_object(global.player) < minAggroRange {
 				if array_length_1d(meleeAttacks) > 0 {
 					state = CombatantStates.AggroMelee; break;
 				} else {
@@ -266,6 +266,7 @@ switch(state) {
 						facingDirection = postDir;
 						state = CombatantStates.Idle;
 						lockOnTarget = noone;
+						showHp = false;
 						break;
 					}
 					break;

@@ -1,3 +1,5 @@
+if room == game_menu exit;
+
 with obj_combatant_parent {
 	
 	var floorNum = getLayerFloorNumber(layer);

@@ -49,7 +49,8 @@ if lockOnInputReceived || lockOnInputChangeReceived {
 	// if not locked on just get the nearest enemy in the list 
 	else if (lockOnList != noone){
 		var closestInstance = scr_find_nth_closest_layer(x,y,obj_enemy_parent, 1);
-		if closestInstance != noone {
+		// var closestInstance = ds_list_find_value(lockOnList, 0);
+		if closestInstance != noone && closestInstance != undefined {
 			lockOnTarget = closestInstance;
 			isLockedOn = true;
 			ds_list_add(lockOnListSeen, closestInstance);

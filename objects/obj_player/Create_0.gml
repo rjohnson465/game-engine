@@ -108,7 +108,7 @@ lockOnList = ds_list_create();
 lockOnListSeen = ds_list_create();
 lockOnTarget = noone;
 lockOnTargetType = obj_enemy_parent;
-LOCK_ON_DISTANCE = 1000;
+LOCK_ON_DISTANCE = 5000;
 
 propertiesBaseValues = defineBasePlayerProperties();
 itemPropertyBonuses = ds_map_create();
@@ -139,10 +139,10 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 
 // level stuff
 level = 1;
-xp = 500;
+xp = 0;
 xpMultiplier = ds_map_find_value(propertiesBaseValues,ModifiableProperties.XpMultiplier); 
 xpTemp = 0;
-xpToNextLevel = 1000;
+xpToNextLevel = 500;
 skillPoints = 0;
 
 // list of enemy attack instances been hit with -- only get hit once / attack
@@ -187,15 +187,16 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 if global.populateInventory {
 	
 	addItemToInventory(makeGold(100000,200000));
-/*
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
+
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
-	longsword.persistent = true;
+	/*longsword.persistent = true;
 	longsword.numberOfSockets = 3;
 	insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
 	insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
-	insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
+	insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);*/
 	addItemToInventory(longsword);
-	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));
+	/*addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
 	var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
@@ -220,7 +221,7 @@ if global.populateInventory {
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_arquebus));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_wand));
-	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
+	
 	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
 	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));
 	addItemToInventory(makeGem(obj_gem_amethyst,FLAWLESS));

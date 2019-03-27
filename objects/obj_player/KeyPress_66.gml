@@ -2,7 +2,7 @@ if room == game_menu {
 	exit;
 }
 
-xpTemp += 100000;
+xpTemp += 100;
 /*
 isFlinching = true;
 totalFlinchFrames = 40; 

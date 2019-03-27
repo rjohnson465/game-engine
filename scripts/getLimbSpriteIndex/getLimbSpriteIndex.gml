@@ -45,6 +45,9 @@ if owner.type == CombatantTypes.Player {
 	var attackChainsArray = owner.currentMeleeAttack != noone? owner.meleeAttacks : owner.rangedAttacks;
 	var attackChainArray = attackChainsArray[attackNumber];
 	var attackNumberInChain = ds_map_find_value(map,lk);
+	if attackNumberInChain == undefined {
+		return noone;
+	}
 	var attackData = attackChainArray[attackNumberInChain-1];
 		
 	var spriteAttackNumber = attackData.spriteAttackNumber;

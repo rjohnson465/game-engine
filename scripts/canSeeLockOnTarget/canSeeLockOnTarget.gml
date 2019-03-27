@@ -104,7 +104,9 @@ var doorsBetweenTarget = scr_collision_line_list_layer(instance.x,instance.y,wou
 
 
 var enemyObstacles = noone;
-if type == CombatantTypes.Enemy enemyObstacles = scr_collision_line_list_layer(instance.x,instance.y,wouldBeLockOnTarget.x, wouldBeLockOnTarget.y, obj_enemy_blocker,1,1);
+if type == CombatantTypes.Enemy {
+	enemyObstacles = scr_collision_line_list_layer(instance.x,instance.y,wouldBeLockOnTarget.x, wouldBeLockOnTarget.y, obj_enemy_blocker,1,1);
+}
 if wallsBetweenTarget == noone && doorsBetweenTarget == noone && enemyObstacles == noone && layer == wouldBeLockOnTarget.layer {
 	return true;
 } else {

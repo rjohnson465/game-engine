@@ -39,8 +39,13 @@ if enemyObstaclesBetweenTarget != noone {
 	for (var i = 0; i < ds_list_size(enemyObstaclesBetweenTarget); i++) {
 		var el = ds_list_find_value(enemyObstaclesBetweenTarget,i);
 		// enemies, feel free to not consider your targets "obstacles" you dolts
-		if object_is_ancestor(el.object_index,obj_goodguy_parent) || object_is_ancestor(el.object_index, obj_wall_nocast_nointerrupt) {
+		
+		if object_is_ancestor(el.object_index,obj_goodguy_parent) || object_is_ancestor(el.object_index, obj_wall_nocast_nointerrupt) || el.depth > depth {
 			//ds_list_delete(enemyObstaclesBetweenTarget,i);
+			ds_list_add(garbage, el);
+		}
+		// enemies can attack through each other, ranged attacks only
+		if currentRangedAttack >= 0 && object_is_ancestor(el.object_index, obj_enemy_parent) {
 			ds_list_add(garbage, el);
 		}
 	}
@@ -113,19 +118,23 @@ if pred && !isFlinching {
 	}
 	
 	tempTargetX = noone; tempTargetY = noone; turnSpeed = normalTurnSpeed;
-	// Movement for AI combatants not in attack range
-	/*if layer == lockOnTarget.layer && mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false) {
-		mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,.5,false);
-		path_start(path,functionalSpeed,path_action_stop,false);
-	}*/
-	
-	// if can't find potential path directly to player, find grid path to player and potential path steps on it
-	//else 
+
+	// find grid path to player and potential path steps on it
 	if layer == lockOnTarget.layer && getIsGridPathAvailable() {
 		//calcPathToSeenTarget();
 		path_start(gridPath, functionalSpeed, path_action_stop, 1);
 		return true;
 	} // end canSeeLockOnTarget / chase routine
+	
+	
+	else if currentRangedAttack >= 0 {
+		var _a = distance_to_object(lockOnTarget);
+		var _b = getRangeForAttackIndex(currentRangedAttack,false);
+		if distance_to_object(lockOnTarget) <= getRangeForAttackIndex(currentRangedAttack,false) {
+			return false;
+		}
+		return true;
+	} 
 	
 	// return to post if no path to target can be found
 	else if postZ == layer {

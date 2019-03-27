@@ -4,7 +4,7 @@ if isConfirmingDestroyItem exit;
 // don't allow filter swapping if in equip mode
 var isEquipping = false;
 with obj_item_selector {
-	if type == SelectorTypes.Equip && isActive isEquipping = true;
+	// if type == SelectorTypes.Equip && isActive isEquipping = true;
 }
 // controller stuff
 if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderr) && !isEquipping  {

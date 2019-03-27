@@ -29,7 +29,9 @@ if limbItem != eqLimbItem || refreshParticles {
 	var hh = false;
 	for (var i = 0; i < limbItem.socketedGems; i++) {
 		var gem = ds_list_find_value(limbItem.socketedGems, i);
-		if gem.object_index == obj_gem_hematite hh = true;
+		if gem != undefined {
+			if gem.object_index == obj_gem_hematite hh = true;
+		}
 	}
 	hasHematite = hh;
 

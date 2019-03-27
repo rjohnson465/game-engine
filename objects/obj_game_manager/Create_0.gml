@@ -1,4 +1,4 @@
-//audio_debug(true);
+audio_debug(true);
 if instance_number(object_index) > 1 {
 	instance_destroy(id,0);
 	exit;
@@ -87,13 +87,15 @@ depth = -10000;
 global._light_layers = ds_map_create();
 global._light_color = c_black;
 
+global.gameEnding = false;
+
 enum TitleScreenState {
 	Options,
 	Load,
 	New
 }
 
-options = ["New Game", "Load Game"];
+options = ["New Game", "Load Game", "Exit"];
 
 selectedOption = noone;
 
@@ -161,12 +163,14 @@ currentRoomData = noone;
 
 enviroParticlesController = instance_create_depth(x,y,depth,obj_environment_particles_controller);
 
+/*
 bgmEmitter = audio_emitter_create();
 bgmEmitterGain = .5;
 audio_emitter_falloff(bgmEmitter, audio_falloff_none,1,1);
 bgmPossibilities = noone;
 bgmCurrent = noone;
 bgmAlarmSet = false;
+*/
 
 ambEmitter = audio_emitter_create();
 audio_emitter_falloff(ambEmitter, audio_falloff_none,1,1);
@@ -188,3 +192,5 @@ waterManager = instance_create_depth(x,y,1,obj_water_manager);
 cell_width = 32;//bbox_right-bbox_left;
 cell_height = 32; //bbox_bottom-bbox_top;
 global.grids = ds_map_create();
+
+bgmManager = instance_create_depth(x,y,1,obj_bgm_manager);

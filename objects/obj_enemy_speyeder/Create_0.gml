@@ -74,8 +74,8 @@ var webShotChain = [webShot];
 //rangedAttacks = [webShotChain];
 rangedAttacks = [];
 
-hp = 150;
-maxHp = 150;
+hp = 75;
+maxHp = 75;
 hpRegen = 1;
 
 stamina = 60;

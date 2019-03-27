@@ -1,3 +1,4 @@
+if global.gameEnding exit;
 audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;
 audio_stop_sound(walkingInWaterSoundId); walkingInWaterSoundId = -1;
 //ds_grid_destroy(personalGrid);

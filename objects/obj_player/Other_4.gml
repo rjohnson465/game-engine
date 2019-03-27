@@ -1,6 +1,18 @@
 global.isReadingTutorial = false;
 if global.playerDoNothing exit;
 
+if variable_global_exists("newGameStarted") && global.newGameStarted {
+	// hard code first fountain
+	var nearestFountain = instance_nearest(x,y,obj_fountain);
+	lastFountain = nearestFountain;
+	lastFountainX = lastFountain.spawnX;
+	lastFountainY = lastFountain.spawnY;
+	lastFountainZ = lastFountain.layerName;
+	lastFountainRoom = room;
+	
+	global.newGameStarted = false;
+}
+
 event_inherited();
 
 // get player light radius, if it for some reason has become invalid

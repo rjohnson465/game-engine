@@ -12,12 +12,14 @@ for (var i = 0; i < array_length_1d(loopingSfx); i++) {
 // create room data object
 currentRoomData = instance_create_depth(x,y,1,obj_room_data);
 
+/*
 // stop current bgm (maybe, maybe we should fade it out?) and start new bgm music
 audio_stop_sound(bgmCurrent);
 audio_emitter_free(bgmEmitter); bgmEmitter = -1;
 bgmCurrent = noone;
 bgmEmitter = audio_emitter_create();
-startBgm();
+startBgm(); 
+*/
 
 // stop current amb, start new amb
 audio_emitter_free(ambEmitter); ambEmitter = -1;

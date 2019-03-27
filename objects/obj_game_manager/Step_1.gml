@@ -1,16 +1,18 @@
 // if at any point there is no bgm playing, play some bgm
+/*
 if bgmPossibilities != noone && !audio_is_playing(bgmCurrent) && !bgmAlarmSet {
 	randomize();
 	// play a song again anywhere from 15 seconds to 1 minute later
 	var rand = random_range(15*30, 60*30);
 	alarm[2] = rand;
 	bgmAlarmSet = true;
-}
+} */
 
+/*
 if instance_number(obj_player) != 0 {
 	var p = global.player;
 	audio_emitter_position(bgmEmitter,p.x,p.y,p.depth);
-}
+} */
 
 // amb periodicals stuff
 if ds_map_size(ambPeriodicalsMap) > 0 {
