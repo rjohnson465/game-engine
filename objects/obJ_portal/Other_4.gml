@@ -1,0 +1,1 @@
+nextRoomName = getRoomName(nextRoom); // nextRoom set in instance creation code

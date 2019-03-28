@@ -1,5 +1,6 @@
 //if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked exit;
 // conditionPercentages drain every step
+if (distance_to_object(obj_player)) > 1000 && state == CombatantStates.Idle exit;
 // TODO Devin fix calculations for draining
 var currentCondition = ds_map_find_first(conditionPercentages);
 var size = ds_map_size(conditionPercentages);

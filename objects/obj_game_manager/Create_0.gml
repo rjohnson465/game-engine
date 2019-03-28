@@ -1,4 +1,4 @@
-audio_debug(true);
+// audio_debug(true);
 if instance_number(object_index) > 1 {
 	instance_destroy(id,0);
 	exit;

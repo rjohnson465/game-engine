@@ -1199,14 +1199,6 @@
             }
         },
         {
-            "Key": "133b3e1d-f7a8-4076-88a9-c6c66fb0e77e",
-            "Value": {
-                "id": "3fd91417-9f85-475e-915d-acd3a2a48e05",
-                "resourcePath": "objects\\obj_enemy_gui\\obj_enemy_gui.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "13444776-bd8b-4c90-866b-bf45a90852f9",
             "Value": {
                 "id": "518a903b-3333-4c9c-b33b-e62b17b6ac45",
@@ -2835,6 +2827,14 @@
             "Value": {
                 "id": "8f7b5bda-83a2-400a-b626-eb7267ca285a",
                 "resourcePath": "sprites\\spr_gem_ruby_normal\\spr_gem_ruby_normal.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3260ce12-7f6b-427f-bca0-ff84ca9bf17b",
+            "Value": {
+                "id": "25b41797-e7ab-4103-bfb9-42793f0749fb",
+                "resourcePath": "sprites\\spr_enemy_funfairy\\spr_enemy_funfairy.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4738,7 +4738,7 @@
             "Key": "55a5a25a-8b50-4e67-b35a-e8bc33d8ca11",
             "Value": {
                 "id": "cfd98ea9-424e-44a7-8486-eb4b6ee0ef5a",
-                "resourcePath": "rooms\\rm_forest11\\rm_forest11.yy",
+                "resourcePath": "rooms\\rm_boss_funfairy\\rm_boss_funfairy.yy",
                 "resourceType": "GMRoom"
             }
         },
@@ -5911,6 +5911,14 @@
             }
         },
         {
+            "Key": "6d6f7760-84d7-4a2e-81e3-879b5c0647b1",
+            "Value": {
+                "id": "37c3a1d3-3b3c-4b7c-b007-2c8a2dabcdb2",
+                "resourcePath": "objects\\obj_enemy_funfairy\\obj_enemy_funfairy.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6d8a8cae-2d25-4a24-a745-7921097bb852",
             "Value": {
                 "id": "36e9b1c4-9358-4612-9393-caab237950a9",
@@ -6923,6 +6931,14 @@
             "Value": {
                 "id": "e30fe5ac-216f-4004-bdd2-e830f60ac04d",
                 "resourcePath": "views\\7e5a8e29-21b1-4fb7-88be-22da439ae5c4.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "7efcab1e-fe2d-4d58-a595-828b96910bce",
+            "Value": {
+                "id": "eb736065-dadb-4efe-af9b-7200a5dfe642",
+                "resourcePath": "views\\7efcab1e-fe2d-4d58-a595-828b96910bce.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -8276,6 +8292,14 @@
                 "id": "d4b404d6-c9f0-4751-ba52-f8d94414c7fe",
                 "resourcePath": "sprites\\spr_enemy_troll_staff_recover_1_1\\spr_enemy_troll_staff_recover_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "99024520-84ad-487c-9deb-fcc9d7afb971",
+            "Value": {
+                "id": "073f7120-21d7-43a8-b259-feb319fb40fb",
+                "resourcePath": "views\\99024520-84ad-487c-9deb-fcc9d7afb971.yy",
+                "resourceType": "GMFolder"
             }
         },
         {

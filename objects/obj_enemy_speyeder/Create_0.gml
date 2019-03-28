@@ -1,4 +1,5 @@
 event_inherited();
+isShowingGrid = false;
 name = "Speyeder";
 descriptionChoices = ["Way too many eyes", "KILL IT WITH FIRE", "Wow what a great pun", "5/7 walk animation", "Debug the code? Nah. Rebug the code."];
 description = "Way too many eyes";

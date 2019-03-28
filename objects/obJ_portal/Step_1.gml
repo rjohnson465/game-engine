@@ -1,4 +1,4 @@
-if distance_to_object(obj_player) < 20 {
+if distance_to_object(obj_player) < 20 && !isUntraversable {
 	maybeAddObjectToInteractionList(id);
 } else maybeRemoveObjectFromInteractionList(id);
 
@@ -18,3 +18,22 @@ part_emitter_region(system, emitter, x1,x2,y1,y2,ps_shape_rectangle,ps_distr_gau
 var area = sprite_width * sprite_height;
 var num = (5*area) / 512;
 part_emitter_burst(system, emitter, part, num);
+
+// if there is a living boss in the room, make portal untraversable
+
+//if !isUntraversable {
+isUntraversable = false;
+with obj_enemy_parent {
+	if isBoss && hp > 0 {
+		other.isUntraversable = true;
+		with other {
+			light_set_color(c_white);
+			audio_emitter_gain(audioEmitter,0);
+		}
+	}
+}
+//} else 
+if !isUntraversable && _light_color != c_fuchsia {
+	light_set_color(c_fuchsia)
+	audio_emitter_gain(audioEmitter,1);
+}

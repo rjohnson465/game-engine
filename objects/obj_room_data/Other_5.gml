@@ -6,3 +6,10 @@ if global.gameManager.isLoading exit;
 fs_save_roomdata_tempfile();
 
 fs_save_enemydata_tempfile();
+
+// delete properties map for each persistent element only after we save to the temp file
+with obj_persistent_environment {
+	if ds_exists(properties, ds_type_map) {
+		ds_map_destroy(properties); properties = -1;
+	}
+}

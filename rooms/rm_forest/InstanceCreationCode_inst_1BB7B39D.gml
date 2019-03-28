@@ -1,3 +1,3 @@
-opensFrom = "u";
+opensFrom = "a";
 spriteTurnsWhenOpen = true;
 isOneSided = true

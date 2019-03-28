@@ -9,6 +9,12 @@ spriteString = "enemy_dummy";
 functionalSpeed = 3;
 normalSpeed = 5;
 
+isBoss = false;
+#macro BOSS_HP_X1 300
+#macro BOSS_HP_Y1 680
+#macro BOSS_HP_X2 1000
+#macro BOSS_HP_Y2 695
+
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
@@ -75,8 +81,6 @@ totalShieldingFrames = 140 - cautiousness; // how regularly can we check to shie
 
 lockOnTargetType = obj_goodguy_parent;
 
-//global.owner = id;
-//instance_create_depth(x,y,1,obj_enemy_gui);
 
 droppedItems = ds_list_create();
 droppedItemsMandatory = ds_list_create();

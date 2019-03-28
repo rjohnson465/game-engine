@@ -12,4 +12,8 @@ switch rm {
 		//return [make_color_rgb(56, 68, 89), c_gray];
 		return [c_dkgray, c_dkgray];
 	}
+	case rm_boss_funfairy: {
+		//return [make_color_rgb(56, 68, 89), c_gray];
+		return [c_dkgray, c_dkgray];
+	}
 }

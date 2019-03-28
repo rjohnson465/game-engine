@@ -59,7 +59,7 @@ if sprite == -1 exit;
 var hasHematite = false;
 for (var i = 0; i < limbItem.socketedGems; i++) {
 	var gem = ds_list_find_value(limbItem.socketedGems, i);
-	if gem.object_index == obj_gem_hematite hasHematite = true;
+	if gem != undefined && gem.object_index == obj_gem_hematite hasHematite = true;
 }
 var hasPhysBuff = false;
 var cb = ds_map_find_first(limbItem.itemPropertyModifiers);

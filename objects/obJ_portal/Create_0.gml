@@ -40,3 +40,6 @@ audio_emitter_gain(audioEmitter,1);
 portalSoundIndex = audio_play_sound_on(audioEmitter,snd_portal,1,1);
 
 key = fs_generate_key(id);
+
+// a portal can be blocked / untraversable if a boss is alive and in a room
+isUntraversable = false;

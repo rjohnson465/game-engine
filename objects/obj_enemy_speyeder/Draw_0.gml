@@ -1,12 +1,15 @@
 event_inherited();
 
+if isShowingGrid {
+	draw_set_alpha(1);
+	draw_set_color(c_aqua);
+	draw_path(path,x,y,1);
+	draw_set_color(c_lime);
+	draw_path(gridPath,x,y,1);
+	draw_set_alpha(.15);
+	mp_grid_draw(personalGrid);
+}
 /*
-draw_set_alpha(1);
-draw_set_color(c_aqua);
-draw_path(path,x,y,1);
-draw_set_color(c_lime);
-draw_path(gridPath,x,y,1);
-
 
 if ds_list_size(guessPathPts) > 0 {
 	
