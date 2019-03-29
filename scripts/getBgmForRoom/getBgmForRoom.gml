@@ -10,6 +10,10 @@ switch rm {
 		return [snd_bgm_verdant_leaves];
 		break;
 	}
+	case rm_boss_funfairy: {
+		return noone;
+		break;
+	}
 }
 
 return noone;

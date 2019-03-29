@@ -16,10 +16,6 @@ hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
 // all weapons / shields enemy can use
-/*var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
-var woodshield = instance_create_depth(x,y,1,obj_hand_item_woodshield);
-var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
-var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);*/
 
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var woodshield = makeEnemyWeapon(obj_hand_item_woodshield);

@@ -10,6 +10,8 @@ var xx = argument[0];
 var yy = argument[1];
 var obj = argument[2];
 
+if instance_number(obj) <= 0 return false;
+
 var additionalObjectsToConsider = noone;
 if argument_count == 4 {
 	additionalObjectsToConsider = argument[3];

@@ -70,7 +70,7 @@ if hp < 1 && isAlive && !isDying {
 			audio_play_sound_at(snd_iceshatter,x,y,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		} else {
 			audio_play_sound_at(snd_death_fade,x,y,depth,50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
-			show_debug_message("gonna play the death sound at depth " + string(depth) + " with name " + audio_get_name(snd_death_fade));
+			
 			global.condition = "Death";
 		}
 		instance_create_depth(x,y,1,obj_condition_particles);

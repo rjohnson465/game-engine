@@ -17,7 +17,21 @@ hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
 // all weapons / shields enemy can use
+var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
+var toyhammer = makeEnemyWeapon(obj_hand_item_toyhammer);
+ds_map_replace(handItems,"lm1",toyhammer);
+ds_map_replace(handItems,"rm1",unarmed);
+ds_map_replace(handItems,"lr1",noone);
+ds_map_replace(handItems,"rr1",noone);
+rangedRangeArray = []; rangedAttacks = [];
+ds_map_replace(equippedLimbItems,"l",toyhammer);
+ds_map_replace(equippedLimbItems,"r",unarmed);
 
+
+ds_map_replace(equippedLimbItems,"l",unarmed);
+ds_map_replace(equippedLimbItems,"r",toyhammer);
+var rightHand = makeLimb(id,"r");
+var leftHand = makeLimb(id,"l");
 
 state = CombatantStates.Idle;
 
@@ -41,15 +55,20 @@ currentMeleeAttack = noone;
 //meleeRangeArray=[15, 65, 65];
 
 // ATTACKS
-meleeAttacks = [];
+global.owner = id;
+
+var hammerSwing = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_1_1);
+
+var c0 = [hammerSwing];
+meleeAttacks = [c0];
 // ranged attacks info
 
 // currently chosen ranged attack
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 100;
-maxHp = 100;
+hp = 200;
+maxHp = 200;
 
 stamina = 60;
 maxStamina = 60;
