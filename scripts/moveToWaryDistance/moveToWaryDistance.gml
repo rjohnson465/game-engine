@@ -1,10 +1,11 @@
 // if not at wary distance, get there
+path_end();
 if (distance_to_object(lockOnTarget) < waryDistance && !hasReachedWaryDistance) || jumpFrame < jumpTotalFrames {
 	// pick direction
 	// start with opposite direction of player
 	var startDir = (facingDirection+180)%360;
 	var dir = (startDir+10)%360;
-	var sp = jumpFrame >= jumpTotalFrames ? functionalSpeed*.5 : functionalSpeed*2;
+	var sp = jumpFrame >= jumpTotalFrames ? functionalSpeed*.5 : functionalSpeed*jumpSpeedFactor;
 	var xx = x+lengthdir_x(sp,dir);
 	var yy = y+lengthdir_y(sp,dir);
 	var i = 0;

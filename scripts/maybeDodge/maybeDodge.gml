@@ -1,6 +1,6 @@
 /// @description maybeDodge()
 
-if totalDodgeFrames == -1 exit; // this combatant can't dodge
+
 
 // if we've not yet calculated if we'll dodge during this Move state, calculate that now
 // this is calculated only once per move state
@@ -92,6 +92,13 @@ if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.prep
 	var willDodgeOnThisFrame = willDodge && shouldDodgeOnThisFrame;
 				
 	if willDodgeOnThisFrame && stamina > 0 && !isFrozen {
+		if totalDodgeFrames == -1 {
+			 // this combatant can't dodge, but maybe they can become wary?
+			if state != CombatantStates.Wary {
+				return maybeBecomeWary();
+			} else return false;
+
+		}
 		facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 		hasCalculatedWillDodge = false;
 		dodgeDirection = (facingDirection+180)%360;
@@ -107,6 +114,13 @@ if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.prep
 // if within range of a ranged attack object (projectile), time dodge based on agility 
 // MAYBE if combatant can see the projectile
 else if distance_to_object(obj_attack) < 200 - agility && willDodge {
+	
+	if totalDodgeFrames == -1 {
+		/*if state != CombatantStates.Wary {
+			return maybeBecomeWary();
+		} else return false;*/
+		exit;
+	}
 	
 	// if we can't see the projectile, we still might be able to dodge it if we're agile enough
 	if !scr_is_facing(id,attackObj) {

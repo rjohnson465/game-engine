@@ -6,12 +6,12 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 423,
-    "bbox_left": 204,
-    "bbox_right": 420,
-    "bbox_top": 117,
+    "bbox_bottom": 348,
+    "bbox_left": 218,
+    "bbox_right": 341,
+    "bbox_top": 181,
     "bboxmode": 0,
-    "colkind": 1,
+    "colkind": 0,
     "coltolerance": 0,
     "edgeFiltering": false,
     "frames": [
@@ -185,7 +185,7 @@
             "isLocked": false,
             "name": "Layer 1",
             "opacity": 50,
-            "visible": true
+            "visible": false
         }
     ],
     "origin": 4,
@@ -193,7 +193,7 @@
     "playbackSpeed": 15,
     "playbackSpeedType": 0,
     "premultiplyAlpha": false,
-    "sepmasks": false,
+    "sepmasks": true,
     "swatchColours": null,
     "swfPrecision": 2.525,
     "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f",

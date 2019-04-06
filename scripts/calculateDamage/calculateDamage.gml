@@ -180,6 +180,7 @@ if	state != CombatantStates.Dodging &&
 			var duration = (95*percentOfHp)+1;
 			global.gameManager.alarm[1] = duration;
 		}
+		// this is not vocal stuff, just stuff like metal on metal, metal on flesh
 		if array_length_1d(soundsWhenHit) != 0 {
 			randomize();
 			var rand = round(random_range(0,array_length_1d(soundsWhenHit)-1));

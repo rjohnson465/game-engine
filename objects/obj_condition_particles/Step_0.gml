@@ -124,8 +124,15 @@ if conditionLevel == 0 {
 	num *= ((sw*sh) / 1024);
 	num2 *= ((sw*sh) / 1024);
 	
-	part_emitter_burst(system,emitter,particle, num);
-	if particle2 {
-		part_emitter_burst(system,emitter,particle2, num2);
+	if array_length_1d(particles) == 0 {
+		part_emitter_burst(system,emitter,particle, num);
+		if particle2 {
+			part_emitter_burst(system,emitter,particle2, num2);
+		}
+	} else {
+		for (var i = 0; i < array_length_1d(particles); i++) {
+			var part = particles[i];
+			part_emitter_burst(system,emitter,part, num);
+		}
 	}
 }

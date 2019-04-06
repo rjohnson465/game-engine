@@ -177,13 +177,12 @@ else if isBoss && isAlive {
 	var Y_OFFSET = 50;
 	with obj_enemy_parent {
 		
+		// draw each boss health bar, this allows for multiple bosses 
 		if isBoss {
 			var yOff = Y_OFFSET * index;
 			var y1 = BOSS_HP_Y1 - yOff; var y2 = BOSS_HP_Y2 - yOff;
 			
-			draw_healthbar(BOSS_HP_X1, y1, BOSS_HP_X2, y2, (hp/maxHp)*100, c_black, c_red, c_red, 0, true, true);
-			draw_set_halign(fa_center); draw_set_valign(fa_center);
-	
+			draw_healthbar(BOSS_HP_X1, y1, BOSS_HP_X2, y2, (hp/maxHp)*100, c_black, c_red, c_maroon, 0, true, true);
 	
 			var percentHpLeft = id.hp / id.maxHp;
 			var bossHpBarWidth = BOSS_HP_X2 - BOSS_HP_X1;
@@ -221,8 +220,32 @@ else if isBoss && isAlive {
 		
 				draw_set_color(c_ltgray);
 				draw_rectangle(sustainingDamageLeftX,y1,sustainingDamageRightX,y2,false);
+				
+				// draw damage above health bar
+				with sustainingDamageObj {
+					draw_set_color(c_white);
+					draw_set_font(font_damage);
+					draw_set_halign(fa_left);
+					draw_set_valign(fa_bottom);
+					var damageText = round(amount);
+					var dsw = string_width(damageText);
+					var damageTextX = BOSS_HP_X2 - dsw; var damageTextY = y1 - 2;
+					
+					var scale = 1;
+					if frame < 11 && isCriticalHit {
+						scale = ((-1/11)*frame)+2;
+					}
+					if frame > 11 {
+						draw_set_alpha(1-((frame-11)/11));
+					}
+					var c2 = isCriticalHit ? c_red : c_purple;
+					scr_draw_text_outline(damageTextX,damageTextY,damageText,c_white,c2,scale,scale,0,c_black);
+					draw_set_alpha(1);
+				}
 			}
 	
+			draw_set_font(font_main);
+			draw_set_halign(fa_center); draw_set_valign(fa_center);
 			var name = id.name;
 			scr_draw_text_outline(mean(BOSS_HP_X1, BOSS_HP_X2), mean(y1, y2), name, c_white, c_white);
 			

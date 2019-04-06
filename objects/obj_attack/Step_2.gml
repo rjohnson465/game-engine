@@ -90,7 +90,9 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		}
 	
 		instance_destroy(id,true);
-		owner.state = CombatantStates.Staggering;
+		if owner.poise < 100 {
+			owner.state = CombatantStates.Staggering;
+		}
 	}
 	
 	// make dust / spark particles, play sound, for range

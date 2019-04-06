@@ -11,6 +11,11 @@ if variable_global_exists("newGameStarted") && global.newGameStarted {
 	lastFountainRoom = room;
 	
 	global.newGameStarted = false;
+} else if lastFountainRoom == noone {
+	lastFountainRoom = lastFountain.nativeRoom;
+	lastFountainX = lastFountain.spawnX;
+	lastFountainY = lastFountain.spawnY;
+	lastFountainZ = lastFountain.layerName;
 }
 
 event_inherited();

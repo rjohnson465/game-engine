@@ -206,11 +206,15 @@ totalDodgeFrames = sprite_get_number(asset_get_index("spr_"+spriteString+"_dodge
 
 // wary / retreat / reassess stuff
 skittishness = 0; // chance to fuck off after a dodge or stagger
+// default check to go wary every 5-10 seconds in Move state
+waryCheckTotalFrames = [150,300]; 
+waryCheckFrame = 200;
 waryTotalFrames = [0,0]; // be wary for x frames before returning to normal behavior
 waryFrame = 0; // count down, not up
 waryDistanceRange = [0,0] // how far away from target to fell sort of safe
 waryDistance = 0;
 hasReachedWaryDistance = false;
+jumpSpeedFactor = 2; // most enemies jump backwards at 2*functionalSpeed
 
 // flinch stuff
 canFlinch = true;

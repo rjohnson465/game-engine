@@ -19,6 +19,8 @@ particle2 = noone;
 particle3 = noone;
 particle4 = noone;
 
+particles = [];
+
 // special: if type is an instance of obj_attack_data_parent, use its part1 for particle
 if !is_string(type) && instance_exists(type) && object_is_ancestor(type.object_index, obj_attack_data_parent) {
 	particle = type.part1;
@@ -28,16 +30,32 @@ if !is_string(type) && instance_exists(type) && object_is_ancestor(type.object_i
 	switch type {
 		case PHYSICAL: {
 			num = random_range(25,50);
-			// blood particle
-			var blood = part_type_create();
-			part_type_shape(blood, pt_shape_sphere);
-			part_type_color2(blood,victim.dyingParticleColor1,victim.dyingParticleColor2);
-			part_type_orientation(blood,0,0,0,15,1);
-			part_type_size(blood,0,0.15,0,0);
-			part_type_speed(blood,2,8,0,0);
-			part_type_direction(blood,0,360,0,4);
-			part_type_life(blood,10,15);
-			particle = blood;
+			if (!is_array(victim.dyingParticleColor1)) {
+				
+				// blood particle
+				var blood = part_type_create();
+				part_type_shape(blood, pt_shape_sphere);
+				part_type_color2(blood,victim.dyingParticleColor1,victim.dyingParticleColor2);
+				part_type_orientation(blood,0,0,0,15,1);
+				part_type_size(blood,0,0.15,0,0);
+				part_type_speed(blood,2,8,0,0);
+				part_type_direction(blood,0,360,0,4);
+				part_type_life(blood,10,15);
+				particle = blood;
+			} else {
+				for (var i = 0; i < array_length_1d(victim.dyingParticleColor1); i++) {
+					var particleColor = victim.dyingParticleColor1[i];
+					var blood = part_type_create();
+					part_type_shape(blood, pt_shape_sphere);
+					part_type_color2(blood,particleColor,particleColor);
+					part_type_orientation(blood,0,0,0,15,1);
+					part_type_size(blood,0,0.15,0,0);
+					part_type_speed(blood,2,8,0,0);
+					part_type_direction(blood,0,360,0,4);
+					part_type_life(blood,10,15);
+					particles[i] = blood;
+				}
+			}
 			break;
 		}
 		case LIGHTNING: {
@@ -177,15 +195,21 @@ if !is_string(type) && instance_exists(type) && object_is_ancestor(type.object_i
 	}
 }
 
-if particle {
-		part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
-		part_emitter_burst(system,emitter,particle,num);
-		if type == "LevelUp" {
-			part_emitter_burst(system,emitter,particle2,num);
-			part_emitter_burst(system,emitter,particle3,num);
-			part_emitter_burst(system,emitter,particle4,num);
-		}
+if part_type_exists(particle) {
+	part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
+	part_emitter_burst(system,emitter,particle,num);
+	if type == "LevelUp" {
+		part_emitter_burst(system,emitter,particle2,num);
+		part_emitter_burst(system,emitter,particle3,num);
+		part_emitter_burst(system,emitter,particle4,num);
 	}
+} else if array_length_1d(particles) > 0 {
+	for (var i = 0; i < array_length_1d(particles); i++) {
+		var part = particles[i];
+		part_emitter_region(system,emitter,x1,x1,y1,y1,0,0);
+		part_emitter_burst(system,emitter,part,num / array_length_1d(particles));
+	}
+}
 
 if type != LIGHTNING {
 	//instance_destroy(id,false);

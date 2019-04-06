@@ -2343,6 +2343,14 @@
             }
         },
         {
+            "Key": "2816ecfb-6802-4ab9-be43-6b0d4c45babf",
+            "Value": {
+                "id": "174ca7a0-e271-4a0b-ab11-9193abe54ff1",
+                "resourcePath": "sounds\\snd_enemy_funfairy_prep_2\\snd_enemy_funfairy_prep_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "284e9743-5f29-461d-b444-e1dd07ca7616",
             "Value": {
                 "id": "c9f9fec4-7227-4394-9104-9876e82c6a52",
@@ -3783,6 +3791,14 @@
             }
         },
         {
+            "Key": "4272b8fa-2dc3-41e4-b850-af3e25095b0c",
+            "Value": {
+                "id": "3992f5c8-9882-4916-b465-a8eae515557e",
+                "resourcePath": "sounds\\snd_enemy_funfairy_hit_2\\snd_enemy_funfairy_hit_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "42c886b2-6d22-4e3c-9e82-91b53d45981a",
             "Value": {
                 "id": "354dd546-ca9c-4489-837b-0b6fcf4e4132",
@@ -5087,6 +5103,14 @@
             }
         },
         {
+            "Key": "5d23a4c4-d823-488b-8b49-c716835e2063",
+            "Value": {
+                "id": "56d0e7df-0904-4544-afc8-1cddcaa6271f",
+                "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_attack_1_1_mask\\spr_enemy_funfairy_toyhammer_attack_1_1_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5d6a91cf-65d5-4524-b5fd-d0b9f36c4a27",
             "Value": {
                 "id": "aa089414-dd9d-4983-b45c-e410bf9bd27e",
@@ -5915,6 +5939,14 @@
             "Value": {
                 "id": "b87e440b-4c99-494a-a128-5d4f1a03e81d",
                 "resourcePath": "views\\6cd76182-06dc-467a-83a6-a3d5a2f47798.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6d07e332-d675-43cf-af72-bf1afbd4e482",
+            "Value": {
+                "id": "74bff3d2-d38c-4c4a-ae8c-3623cb29e94f",
+                "resourcePath": "views\\6d07e332-d675-43cf-af72-bf1afbd4e482.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -7684,6 +7716,14 @@
                 "id": "06efd80a-a8a7-432b-acd1-b56c430de862",
                 "resourcePath": "scripts\\jumpToNearestFreeCell\\jumpToNearestFreeCell.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8ac1027d-3976-4586-b599-ae8dff7f7f23",
+            "Value": {
+                "id": "379d79f6-cb9a-4b3d-9b86-20eb13c320f6",
+                "resourcePath": "sounds\\snd_enemy_funfairy_hit_1\\snd_enemy_funfairy_hit_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -10239,6 +10279,14 @@
             }
         },
         {
+            "Key": "ba7c8033-6697-4155-b1ff-fad6a6096922",
+            "Value": {
+                "id": "90055792-04a8-4f51-b4c9-675d9652f623",
+                "resourcePath": "sounds\\snd_enemy_funfairy_death\\snd_enemy_funfairy_death.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "bafc7fbc-52ba-4afd-94a8-6015a5b1eec9",
             "Value": {
                 "id": "afc3ae0d-ac0d-4093-9c74-ef01df29a09f",
@@ -12586,7 +12634,7 @@
             "Key": "e83d9784-a7d0-41a2-87a7-ce5c3788511f",
             "Value": {
                 "id": "7acd2bd0-0f02-4780-a987-b04b0561f2d3",
-                "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_attack_1_1_mask\\spr_enemy_funfairy_toyhammer_attack_1_1_mask.yy",
+                "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_attack_1_1_mask1\\spr_enemy_funfairy_toyhammer_attack_1_1_mask1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -13052,6 +13100,14 @@
                 "id": "b2e3599d-97d4-4d43-89ca-3de862b1424f",
                 "resourcePath": "scripts\\defineItemPropertyRangesForPts\\defineItemPropertyRangesForPts.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f24cceec-e5df-468b-b25c-2bf4a3a310ce",
+            "Value": {
+                "id": "5ad06822-a766-485a-b235-dbf381c92291",
+                "resourcePath": "sounds\\snd_enemy_funfairy_prep_1\\snd_enemy_funfairy_prep_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {

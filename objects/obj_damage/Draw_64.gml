@@ -1,4 +1,7 @@
 if victim.layer != global.player.layer || (!victim.showHp && victim.type != CombatantTypes.Player) exit;
+// boss enemies draw their damage above their health bar at the bottom of the screen
+if victim.type == CombatantTypes.Enemy && victim.isBoss exit;
+
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
 draw_set_color(c_white);

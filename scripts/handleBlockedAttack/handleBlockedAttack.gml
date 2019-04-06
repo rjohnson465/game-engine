@@ -68,7 +68,7 @@ if stamina < 1 {
 // stagger assailant iff assailant weapon / attack staggers against blocks
 var itemOrAttack = attackData != noone ? attackData : itemHitWith;
 var isMelee = attackObj.isMelee;
-if (itemOrAttack.staggersAgainstBlocks && isMelee) {
+if (itemOrAttack.staggersAgainstBlocks && isMelee && assailant.poise < 100) {
 	with assailant {
 		var itemIsMelee = false;
 		if itemHitWith != noone {

@@ -15,7 +15,11 @@ audio_emitter_gain(walkingInWaterEmitter,0);
 sprintParticle = part_type_create();
 part_type_sprite(sprintParticle,sprite_index,1,0,1);
 part_type_alpha2(sprintParticle,.75,.25);
-part_type_color2(sprintParticle,dyingParticleColor1,dyingParticleColor2);
+var dp1 = dyingParticleColor1;
+if is_array(dyingParticleColor1) {
+	dp1 = dyingParticleColor1[0];
+}
+part_type_color2(sprintParticle,dp1,dyingParticleColor2);
 part_type_life(sprintParticle,4,8);
 sprintParticleSystem = part_system_create();
 sprintParticleEmitter = part_emitter_create(sprintParticleSystem);

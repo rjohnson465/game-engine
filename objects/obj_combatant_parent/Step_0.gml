@@ -167,6 +167,20 @@ switch(state) {
 						break;
 					}
 					
+					// CHECK 1: WILL WE GO WARY?
+					if waryCheckFrame <= 0 {
+						var lowerBound = waryCheckTotalFrames[0];
+						var upperBound = waryCheckTotalFrames[1];
+						var rand = random_range(lowerBound, upperBound);
+						waryCheckFrame = rand;
+						// maybe become wary based on skittishness and proximity to target
+						if maybeBecomeWary() && distance_to_object(lockOnTarget) < 150 {
+							break;
+						}
+					} else {
+						waryCheckFrame--;
+					}
+					
 					// CHECK 2: WILL WE DODGE IN THIS MOVE STATE?
 					if maybeDodge() break;
 					// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
@@ -473,7 +487,8 @@ switch(state) {
 		}
 		
 		// if we've reach wary distance and the target's getting too close, return to move state
-		if distance_to_object(lockOnTarget) < .5*waryDistance && hasReachedWaryDistance {
+		var closestAllowedDist = .5*waryDistance < 200 ? .5*waryDistance : 200;
+		if distance_to_object(lockOnTarget) < closestAllowedDist && hasReachedWaryDistance {
 			hasCalculatedWillDodge = false;
 			state = CombatantStates.Moving;
 		}

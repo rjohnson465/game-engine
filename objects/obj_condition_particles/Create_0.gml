@@ -4,6 +4,7 @@ emitter = noone;
 system = noone;
 particle = noone;
 particle2 = noone;
+particles = [];
 alarm[0] = noone;
 hasSetAlarm = false;
 
@@ -123,15 +124,30 @@ switch condition {
 	}
 	case "Death": {
 		// death particle
-		var blood = part_type_create();
-		part_type_shape(blood, pt_shape_sphere);
-		part_type_color2(blood,owner.dyingParticleColor1,owner.dyingParticleColor2);
-		part_type_orientation(blood,0,0,0,15,1);
-		part_type_size(blood,0,0.15,0,0);
-		part_type_speed(blood,2,4,0,0);
-		part_type_direction(blood,0,360,0,4);
-		part_type_life(blood,10,15);
-		particle = blood;
+		if !is_array(owner.dyingParticleColor1) {
+			var blood = part_type_create();
+			part_type_shape(blood, pt_shape_sphere);
+			part_type_color2(blood,owner.dyingParticleColor1,owner.dyingParticleColor2);
+			part_type_orientation(blood,0,0,0,15,1);
+			part_type_size(blood,0,0.15,0,0);
+			part_type_speed(blood,2,4,0,0);
+			part_type_direction(blood,0,360,0,4);
+			part_type_life(blood,10,15);
+			particle = blood;
+		} else {
+			for (var i = 0; i < array_length_1d(owner.dyingParticleColor1); i++) {
+				var dyingParticleColor = owner.dyingParticleColor1[i];
+				var blood = part_type_create();
+				part_type_shape(blood, pt_shape_sphere);
+				part_type_color2(blood,dyingParticleColor,dyingParticleColor);
+				part_type_orientation(blood,0,0,0,15,1);
+				part_type_size(blood,0,0.15,0,0);
+				part_type_speed(blood,2,4,0,0);
+				part_type_direction(blood,0,360,0,4);
+				part_type_life(blood,10,15);
+				particles[i] = blood;
+			}
+		}
 		break;
 	}
 	case "IceDeath": {

@@ -190,14 +190,14 @@ if global.populateInventory {
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
-	/*longsword.persistent = true;
+	longsword.persistent = true;
 	longsword.numberOfSockets = 3;
 	insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
 	insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
-	insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);*/
+	insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 	addItemToInventory(longsword);
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));
-	/*addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_crossbow));
 	var shortbow = instance_create_depth(x,y,1,obj_hand_item_shortbow);
@@ -242,11 +242,11 @@ if global.populateInventory {
 	addItemToInventory(ring);
 	
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
-*/
+
 }
 
-lastFountain = noone;
-lastFountainRoom = noone;
+lastFountain = instance_nearest(x,y,obj_fountain);
+lastFountainRoom = noone
 lastFountainX = noone;
 lastFountainY = noone;
 lastFountainZ = noone;

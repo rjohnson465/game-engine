@@ -8,10 +8,10 @@ isFairy = true;
 isFloating = true;
 isBoss = true;
 
-functionalSpeed = 5;
-normalSpeed = 5;
-turnSpeed = 10;
-normalTurnSpeed = 10;
+functionalSpeed = 6;
+normalSpeed = 6;
+turnSpeed = 15;
+normalTurnSpeed = 15;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
@@ -43,10 +43,15 @@ aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, rol
 attackFrequencyTotalFramesMelee = [20,45];
 attackFrequencyTotalFramesRanged = [45,70];
 strafeTotalFrames = [30,60];
-waryDistanceRange=[100,120];
+waryDistanceRange=[500,600];
 waryTotalFrames=[60,90];
-skittishness = 100;
+waryCheckTotalFrames = [150,300];
+waryCheckFrame = 150;
+skittishness = 80;
 cautiousness = 50;
+jumpSpeedFactor = 4;
+
+dyingParticleColor1 = [c_red, c_orange, c_yellow, c_lime, c_blue, c_purple];
 
 // melee attacks info
 // currently chosen melee attack chain
@@ -67,8 +72,8 @@ meleeAttacks = [c0];
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 200;
-maxHp = 200;
+hp = 500;
+maxHp = 500;
 
 stamina = 60;
 maxStamina = 60;
@@ -81,13 +86,13 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 100;
 
 // dodge stuff
-agility = 0; // 0 - 100% chance to try a dodge
+agility = 100; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
 ds_map_replace(defenses,MAGIC,50);
 
-soundsWhenHitVocals = [snd_enemy_unfairy_hit1, snd_enemy_unfairy_hit2];
-soundsWhenDie = [snd_enemy_unfairy_die];
+soundsWhenHitVocals = [snd_enemy_funfairy_hit_1, snd_enemy_funfairy_hit_2];
+soundsWhenDie = [snd_enemy_funfairy_death];
 
 
 
