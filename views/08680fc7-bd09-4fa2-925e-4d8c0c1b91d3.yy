@@ -16,7 +16,8 @@
         "bc5e780e-f86c-42f3-97aa-960a42f1bbae",
         "16b805ca-830c-4dcd-8330-c29f451c3f1c",
         "3c96ca40-833d-4451-be48-e7b6d5569a98",
-        "86023503-c2ab-470e-8e50-277267e56a46"
+        "86023503-c2ab-470e-8e50-277267e56a46",
+        "1a35867c-4b05-4e5a-9529-2f7e2b0cde75"
     ],
     "filterType": "GMScript",
     "folderName": "StateMoving",

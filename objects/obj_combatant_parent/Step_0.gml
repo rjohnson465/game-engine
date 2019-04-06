@@ -30,6 +30,9 @@ drainConditions();
 // account for any currently active conditions (slowed/frozen, burning, poisoned, electrified)
 endureConditions();
 
+// no matter what state we're on, we should only ever shield for <shieldFrames> frames
+maybeStopShielding();
+
 // huge state machine
 switch(state) {
 	case CombatantStates.Idle: {
@@ -185,6 +188,7 @@ switch(state) {
 					if maybeDodge() break;
 					// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
 					maybeShield();
+					
 					// CHECK 4: Maybe switch to melee / range
 					if (lockOnTarget != noone) {
 						var isGridPathAvailable = getIsGridPathAvailable(false);				

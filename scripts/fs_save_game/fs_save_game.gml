@@ -2,7 +2,7 @@
 
 var save_data = ds_map_create();
 var filename = global.gameManager.currentSaveFile;
-if filename = noone filename = "Game";
+if filename = noone filename = "Game.sav";
 global.gameManager.currentSaveFile = filename;
 
 // save player info

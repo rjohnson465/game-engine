@@ -1631,6 +1631,14 @@
             }
         },
         {
+            "Key": "1a35867c-4b05-4e5a-9529-2f7e2b0cde75",
+            "Value": {
+                "id": "237788c7-8b29-4e7a-bef0-7a601637132a",
+                "resourcePath": "scripts\\maybeStopShielding\\maybeStopShielding.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "1a8d088c-78af-4a27-b6ef-4ed530fc1e02",
             "Value": {
                 "id": "c9f8925e-3029-4602-af25-55d9169eb76a",
@@ -13955,6 +13963,7 @@
         "16b805ca-830c-4dcd-8330-c29f451c3f1c",
         "3c96ca40-833d-4451-be48-e7b6d5569a98",
         "86023503-c2ab-470e-8e50-277267e56a46",
+        "1a35867c-4b05-4e5a-9529-2f7e2b0cde75",
         "85ab87d2-fc88-4cbf-919f-eecfe09947f4",
         "cd615c88-1626-485a-a27f-9b20e17a6a15",
         "665b024d-e45b-499a-b0f1-36247fa53d9e",

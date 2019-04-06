@@ -5,7 +5,7 @@ var filename = currentSaveFile;
 if argument_count == 1 {
 	filename = argument[0];
 }
-if filename == noone filename = "Game";
+if filename == noone filename = "Game.sav";
 currentSaveFile = filename;
 
 var a = ds_list_create();

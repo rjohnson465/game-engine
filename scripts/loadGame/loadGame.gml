@@ -1,5 +1,5 @@
 // must be called by game manager obj
-if currentSaveFile == noone currentSaveFile = "Game";
+if currentSaveFile == noone currentSaveFile = "Game.sav";
 isLoading = true;
 alarm[0] = 1;
 global.populateInventory = false;
