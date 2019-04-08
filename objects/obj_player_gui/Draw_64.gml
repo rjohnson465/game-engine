@@ -170,13 +170,11 @@ if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
 	draw_sprite_ext(spell,1,80,vh-70,1,1,0,c_gray,.75);
 }
 // spell prompt
+// TODO when right trigger is held down, display the belt item??
 if (gamepad_is_connected(pad) && (rightHandItem.charges != 0 || leftHandItem.charges != 0)) {
 	draw_sprite_ext(spr_prompt_xbox_lt,1,80,vh-70, .2, .2, 0, c_white, .6);
-	// also draw prompts for how to change spell
-	//draw_sprite_ext(spr_prompt_xbox_pad_ud,1,80+(slotWidth/2)-5, vh-25, .2, .2, 0, c_white, 1);
 } else if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
 	draw_sprite_ext(spr_prompt_mk_mb,1,80,vh-70, .2, .2, 0, c_white, .6);
-	//draw_sprite_ext(spr_prompt_mk_mb,1,80+(slotWidth/2)-5, vh-25, .2, .2, 0, c_white, 1);
 }
 
 // right hand
@@ -219,8 +217,39 @@ if (gamepad_is_connected(pad)) {
 	draw_sprite_ext(spr_prompt_mk_e,1,px, vh-35, .2, .2, 0, c_white, .6);
 }
 
+// draw belt
+var isDrawingAttunements = rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0;
+var bScale = .625; // draw items at .625 scale, so they line up with attunements
+var bSlotWidth = slotWidth * bScale;
+var finalY = vh-108-bSlotWidth;
+if !isDrawingAttunements finalY += bSlotWidth;
+var initY = finalY - (4*bSlotWidth);
+
+var initX = 12;
+var p = global.player;
+for (var i = 0; i < array_length_1d(p.beltItems); i++) {
+	var y1 = initY + (i * bSlotWidth); 
+	var item = p.beltItems[i];
+	var alpha = 0;
+	if p.isHoldingAttunemntSwapMode {
+		alpha = .75;
+		if i == p.currentBeltItemIndex {
+			alpha = 1;
+		}
+	} else {
+		alpha = .5;
+		if i == p.currentBeltItemIndex {
+			alpha = .75;
+		}
+	}
+	draw_sprite_ext(spr_item_slot, 1, initX, y1, bScale, bScale, 0, c_white, alpha);
+	if (item != undefined && item != noone && item > 0 && instance_exists(item)) {
+		drawItem(item, initX, y1, 0, bScale, alpha);
+	}
+}
+
 // draw attunements
-if rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0 {
+if isDrawingAttunements {
 	
 	var init_x = 12; // changes on each iteration
 	var final_x = init_x + (array_length_1d(global.ALL_ELEMENTS)*sprite_get_width(spr_attunement_fire));

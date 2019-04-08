@@ -25,13 +25,16 @@ fs_load_roomdata(ds_map_find_value(save_data,"RoomData"));
 /*var nextRoomLayer = "instances_floor_1";
 var p = global.player;
 p.layerToMoveTo = nextRoomLayer;*/
+
+// load inventory -- inventory must load before player for belt items
+fs_load_inventory(ds_map_find_value(save_data,"Inventory"));
+
 with obj_weapon {
 	refreshParticles = true;
 }
 fs_load_player(ds_map_find_value(save_data,"Player"));
 
-// load inventory 
-fs_load_inventory(ds_map_find_value(save_data,"Inventory"));
+
 
 // load skills 
 fs_load_skills(ds_map_find_value(save_data,"Skills"));

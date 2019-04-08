@@ -187,6 +187,7 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 if global.populateInventory {
 	
 	addItemToInventory(makeGold(100000,200000));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_health_flask));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
@@ -332,3 +333,14 @@ instance_create_depth(x,y,1,obj_room_text);
 isHoldingSprintButton = false;
 sprintCounterTotal = 10;
 sprintCounter = sprintCounterTotal;
+
+// belt items
+beltItems[0] = noone;
+beltItems[1] = noone;
+beltItems[2] = noone;
+beltItems[3] = noone;
+beltItems[4] = noone;
+currentBeltItemIndex = 0; // this is the index of item that will be used when X is pressed
+
+healingFrame = 0;
+healingTotalFrames = sprite_get_number(spr_player_heal);

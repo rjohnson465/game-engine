@@ -19,7 +19,9 @@ if limbKey == "r" {
 	}
 	if leftHand {
 		
-		if leftHandItem.isTwoHanded && owner.currentUsingSpell == noone exit;
+		if (leftHandItem.isTwoHanded || owner.state == CombatantStates.Healing) && owner.currentUsingSpell == noone {
+			exit;
+		}
 	}
 }
 
@@ -28,7 +30,11 @@ if limbKey == "l" && owner.currentUsingSpell != noone ys = -1;
 var rot = owner.facingDirection;
 //if limbItem.subType == HandItemTypes.Shield && owner.isShielding rot+=90;
 var frame = 0; var sprite = asset_get_index(spriteString);
-if owner.currentUsingSpell == noone {
+if owner.state == CombatantStates.Healing {
+	frame = owner.healingFrame;
+	sprite = spr_player_heal;
+}
+else if owner.currentUsingSpell == noone {
 	// preparing limb
 	if ds_map_find_value(owner.preparingLimbs,limbKey) >= 0 {
 		var frame = ds_map_find_value(owner.prepFrames,limbKey)

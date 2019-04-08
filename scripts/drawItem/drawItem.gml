@@ -1,8 +1,10 @@
-/// drawItem(item,x,y,*isInventoryItem)
+/// drawItem(item,x,y,*isInventoryItem, *scale, *alpha)
 /// @param item
 /// @param x
 /// @param y
 /// @param isInventoryItem*
+/// @param scale*
+/// @param alpha*
 
 var item = argument[0];
 var x1 = argument[1];
@@ -11,15 +13,39 @@ var isInventoryItem = true;
 if argument_count > 3 {
 	isInventoryItem = argument[3];
 }
+var scale = 1;
+if argument_count > 4 {
+	scale = argument[4];
+}
+var alpha = 1;
+if argument_count > 5 {
+	alpha = argument[5];
+}
+
 var inv = global.inventory;
 var slotWidth = inv.slotWidth;
 var slotHeight = inv.slotHeight;
 
 if item.object_index == obj_item_coins && ds_list_find_index(global.player.inventory,item) != -1 {
-	draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,c_dkgray,1);
+	draw_sprite_ext(spr_item_slot,1,x1,y1,scale,scale,0,c_dkgray,alpha);
 }
 
-draw_sprite(item.itemSprite,1,x1,y1);
+if item.object_index == obj_item_health_flask {
+	draw_sprite_ext(spr_item_health_flask_empty,1,x1,y1, scale, scale, 0, c_white, alpha);
+	
+	var charges = ds_map_find_value(item.customItemProperties, hfs_charges);
+	var chargesMax = ds_map_find_value(item.customItemProperties, hfs_max_charges);
+	var percentFull = charges / chargesMax;
+	var sprWidth = sprite_get_width(spr_item_health_flask_empty);
+	var sprHeight = sprite_get_height(spr_item_health_flask_empty);
+	var pyOff = (sprHeight) * (1-percentFull);
+	var newY1 = y1 + (pyOff * scale);
+	
+	draw_sprite_part_ext(spr_item_health_flask_full,1,0,pyOff,sprWidth,sprHeight,x1,newY1, scale, scale, c_white, alpha);
+}
+else {
+	draw_sprite_ext(item.itemSprite,1,x1,y1, scale, scale, 0, c_white, alpha);
+}
 // if this item is currently equipped, signify that (only for inventory items)
 if item.equipmentSlot != noone && isInventoryItem {
 	draw_set_color(c_maroon);
@@ -67,7 +93,7 @@ if item.isStackable && isInventoryItem {
 	}
 }
 // if this item is socketed, show sockets (and any gems that are in those sockets)
-if item.numberOfSockets != 0 {
+if item.numberOfSockets != 0 && isInventoryItem {
 	var socketWidth = slotWidth/3; var socketHeight = slotWidth/3;
 	for(var j = 0; j < item.numberOfSockets; j++) {
 		draw_set_color(c_white);

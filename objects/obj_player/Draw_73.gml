@@ -9,21 +9,6 @@ if state == CombatantStates.Attacking {
 	
 	// martial spell
 	if currentUsingSpell != noone {
-		/*var spellHandPrepSprite = asset_get_index("spr_player_spellprep");
-		var spellPrepHandSpriteTotalFrames = sprite_get_number(spellHandPrepSprite);
-		
-		//if isPreparingAttack && prepAnimationFrame < prepAnimationTotalFrames {
-		if ds_map_find_value(prepFrames,"r") < ds_map_find_value(prepFrameTotals,"r") {
-			var prepFrame = ds_map_find_value(prepFrames,"r");
-			var frame = (prepFrame%spellPrepHandSpriteTotalFrames)/4;
-			// right hand ?
-			draw_sprite_ext(spellHandPrepSprite,frame,x,y,1,1,facingDirection+75,c_white,1);
-			// left hand
-			draw_sprite_ext(spellHandPrepSprite,frame,x,y,1,-1,facingDirection-75,c_white,1);
-			
-			ds_map_replace(prepFrames,"r",prepFrame+1);
-			//prepAnimationFrame++;
-		}*/
 	}
 	// physical attack (ranged or melee) TODO -- consolidate with obj_combatant
 	else {
@@ -113,13 +98,3 @@ if (ds_map_size(preparingLimbs) != 0 && (currentUsingSpell != noone || (leftHand
 	}
 }
 
-/*
-// charging an attack 
-if chargeFrame > CHARGE_FRAME_THRESHOLD {
-	var x1 = x-(.75*sprite_width);
-	var y1 = y-(.5*sprite_height)-15;
-	var x2 = x+(.75*sprite_width);
-	var y2 = y-(.5*sprite_height)-5;
-	var percentDone = chargeFrame / CHARGE_FRAME_TOTAL;
-	draw_healthbar(x1,y1,x2,y2,percentDone*100,c_black,c_ltgray,c_aqua,0,true,true);
-}

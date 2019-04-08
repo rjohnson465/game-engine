@@ -12,7 +12,7 @@ if gamepad_is_connected(gamePadIndex) {
 }
 var isMoveInputReceived = UP || DOWN || LEFT || RIGHT || GAMEPADHMOVE || GAMEPADVMOVE;
 
-if isMoveInputReceived && state != CombatantStates.Attacking && state != CombatantStates.Staggering && state != CombatantStates.Dodging {
+if isMoveInputReceived && state != CombatantStates.Attacking && state != CombatantStates.Staggering && state != CombatantStates.Dodging && state != CombatantStates.Healing {
 	state = CombatantStates.Moving;
 }
 if !isMoveInputReceived && state == CombatantStates.Moving {

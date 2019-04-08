@@ -33,11 +33,36 @@ updateMovementState();
 // face mouse OR stick direction OR lockOnTarget (by default)
 updateFacingDirection();
 
+// reset healingFrame if not in healing
+if healingFrame != 0 && state != CombatantStates.Healing {
+	healingFrame = 0;
+}
+
 // state machine overrides
 switch(state) {
 	case CombatantStates.Idle: {
 		if isFlinching exit;
 		speed = 0;
+		break;
+	}
+	case CombatantStates.Healing: {
+		
+		// actual heal on 20th frame of healing animation
+		if healingFrame == 20 {
+			var flask = instance_nearest(x,y,obj_item_health_flask);
+			audio_play_sound(snd_iu_choirheal,1, 0);
+			instance_create_depth(x,y,1,obj_healthflask_particles);
+			useItem(flask);
+		}
+		
+		if healingFrame >= healingTotalFrames {
+			healingFrame = 0;
+			state = CombatantStates.Idle;
+			break;
+		}
+		
+		healingFrame++;
+		
 		break;
 	}
 	case CombatantStates.Moving: {

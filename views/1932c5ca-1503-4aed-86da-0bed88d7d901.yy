@@ -13,7 +13,8 @@
         "75d7b37c-fdca-47ba-892b-63ef4bbcb916",
         "aaf4f76e-3e03-4e56-8549-a0304dcbdbe6",
         "6d1a3b9f-bbf9-4ec4-bebf-d04cc05703e1",
-        "4770fe76-520a-4d62-9ec8-e2c18d881f24"
+        "4770fe76-520a-4d62-9ec8-e2c18d881f24",
+        "4f9e1d7e-6e19-48bb-bfa0-9b32fa273aa8"
     ],
     "filterType": "GMScript",
     "folderName": "Controls",

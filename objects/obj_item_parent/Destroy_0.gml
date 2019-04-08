@@ -15,3 +15,6 @@ if ds_exists(itemPropertyModifiers,ds_type_map) {
 if ds_exists(itemPropertyModifiersPts,ds_type_map) {
 	ds_map_destroy(itemPropertyModifiersPts); itemPropertyModifiersPts = -1;
 }
+if ds_exists(customItemProperties,ds_type_map) {
+	ds_map_destroy(customItemProperties); customItemProperties = -1;
+}

@@ -20,7 +20,9 @@ switch type {
 			//global.inventory.scrollLevel = 0;
 			// find Equip selector and activate it (in End Step event)
 		} else if item.type == ItemTypes.Other && item.isUsable {
-			useItem(item);
+			with global.player {
+				useItem(item);
+			}
 		}
 		break;
 	}

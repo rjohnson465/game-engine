@@ -39,7 +39,7 @@ isMouseInMenu =
 	mouse_y > vy + currentItemDrop.topLeftY && mouse_y < vy + currentItemDrop.bottomRightY)
 	;
 	
-if gamepad_is_connected(gamePadIndex) {
+if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 	
 	// sprint counter -- when this is less than 0, isHoldingSprintButton is true and we will sprint
 	if gamepad_button_check(gamePadIndex, gp_face2) && !global.ui.isShowingMenus && sprintCounter > 0 {
@@ -79,6 +79,13 @@ if gamepad_is_connected(gamePadIndex) {
 	}
 	if gamepad_button_check_released(gamePadIndex,gp_face2) && !global.ui.isShowingMenus && !global.ui.justClosedMenus && !global.isLooting && (!isHoldingSprintButton || !isMoving) {
 		performDodge();
+	}
+	
+	// use belt item
+	if state != CombatantStates.Dodging && state != CombatantStates.Staggering && state != CombatantStates.Attacking && !global.ui.isShowingMenus {
+		if gamepad_button_check_pressed(gamePadIndex, gp_face3) {
+			performUseBeltItem();
+		}
 	}
 	
 	// spell casting
@@ -164,6 +171,25 @@ if gamepad_is_connected(gamePadIndex) {
 					break;
 				}
 			}
+		}
+		
+		// belt item swap
+		if gamepad_button_check_pressed(gamePadIndex,gp_padu) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
+			var newBeltItemIndex = currentBeltItemIndex - 1;
+			if newBeltItemIndex < 0 {
+				newBeltItemIndex = 4;
+			}
+			currentBeltItemIndex = newBeltItemIndex;
+			audio_play_sound(snd_ui_option_change,1,0);
+		}
+		
+		if gamepad_button_check_pressed(gamePadIndex,gp_padd) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
+			var newBeltItemIndex = currentBeltItemIndex + 1;
+			if newBeltItemIndex > 4 {
+				newBeltItemIndex = 0;
+			}
+			currentBeltItemIndex = newBeltItemIndex;
+			audio_play_sound(snd_ui_option_change,1,0);
 		}
 		
 	}

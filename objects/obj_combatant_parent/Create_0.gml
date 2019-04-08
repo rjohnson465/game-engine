@@ -105,7 +105,7 @@ enum CombatantStates {
 	Dodging,
 	Staggering,
 	Moving, // for player this is based on input. for NPC combatants, this is Pursuing | ReturningToPost
-	
+	Healing,
 	// Only for Ally / Enemy AI
 	AggroMelee,
 	AggroRanged,

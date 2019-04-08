@@ -18,6 +18,18 @@ with obj_item_parent {
 		ds_map_replace(sd_item,"Durability",durability);
 		ds_map_replace(sd_item,"Charges",charges);
 		ds_map_replace(sd_item,"Ammo",ammo);
+		ds_map_replace(sd_item, "BeltItemIndex", beltItemIndex);
+		ds_map_replace(sd_item, "CanUse", canUse);
+		// some descriptions (i.e. health flask) may change based on stats, so remember them when save
+		ds_map_replace(sd_item, "Description", description);
+
+		var customItemPropertiesCopy = ds_map_deep_clone(customItemProperties);
+		ds_map_add_map(sd_item,"CustomItemProperties", customItemPropertiesCopy);
+
+		if object_index == obj_item_health_flask {
+			var a = 3;
+		}
+		
 		
 		// saving socketed gems
 		if ds_exists(socketedGems, ds_type_list) && ds_list_size(socketedGems) > 0 {

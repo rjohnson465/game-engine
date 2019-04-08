@@ -12,6 +12,15 @@ with obj_player {
 	lastFountainX = fountain.spawnX;
 	lastFountainY = fountain.spawnY;
 	lastFountainZ = fountain.layerName;
+	
+	// give at most 1 health charge
+	var healthFlask = instance_nearest(x,y,obj_item_health_flask);
+	if instance_exists(healthFlask) {
+		var chargesCount = ds_map_find_value(healthFlask.customItemProperties, hfs_charges);
+		if chargesCount == 0 {
+			ds_map_replace(healthFlask.customItemProperties, hfs_charges, 1);
+		}
+	}
 }
 
 // activate fountain

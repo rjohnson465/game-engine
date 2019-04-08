@@ -59,7 +59,7 @@ if !global.ui.isShowingMenus && !isFrozen && currentUsingSpell == noone && !isMo
 	}
 	else if
 		stamina > 0 &&
-		(state != CombatantStates.Dodging && state != CombatantStates.Staggering)
+		(state != CombatantStates.Dodging && state != CombatantStates.Staggering && state)
 		&& !isPhasing {
 			isShielding = false;
 			// if recovering left hand weapon or if left hand not in use at all

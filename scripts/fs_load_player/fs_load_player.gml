@@ -11,6 +11,7 @@ with global.player {
 	level = ds_map_find_value(sd_player,"Level");
 	skillPoints = ds_map_find_value(sd_player,"SkillPoints");
 	currentSpellAttunement = ds_map_find_value(sd_player,"Attunement");
+	currentBeltItemIndex = ds_map_find_value(sd_player,"CurrentBeltItemIndex");
 	
 	var tutFirstsMap = ds_map_find_value(sd_player,"TutorialFirstsMap");
 	var mapClone = ds_map_create();
@@ -21,6 +22,13 @@ with global.player {
 		ds_map_replace(mapClone, realKey, val);
 		
 		ck = ds_map_find_next(tutFirstsMap, ck);
+	}
+	
+	// update belt item array
+	with obj_item_parent {
+		if beltItemIndex >= 0 {
+			other.beltItems[beltItemIndex] = id;
+		}
 	}
 	
 	//var mapClone = ds_map_deep_clone(tutFirstsMap);

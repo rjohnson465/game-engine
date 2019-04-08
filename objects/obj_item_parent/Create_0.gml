@@ -39,6 +39,7 @@ description = "Sample description";
 isStackable = true;
 count = 1;
 isUsable = false;
+canUse = true; // usable items may be unusable sometimes (i.e. health flask out of charges)
 isInUse = false;
 
 isDestroyable = true;
@@ -111,6 +112,9 @@ itemProperties = ds_map_create(); // rings -- hold additional properties
 itemPropertyModifiers = ds_map_create(); // non-rings -- holds item-specific prop mods that affect base prop vals
 itemPropertyModifiersPts = ds_map_create();
 
+// any item-specifc properties that should be saved are stored here
+customItemProperties = ds_map_create();
+
 hasIssuedDurabilityWarning = false;
 hasIssuedDurabilityObituary = false;
 
@@ -152,3 +156,5 @@ if isMandatory {
 		}
 	}
 }
+
+beltItemIndex = noone;

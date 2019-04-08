@@ -34,7 +34,9 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 	item.durability = ds_map_find_value(sd_item,"Durability");
 	item.ammo = ds_map_find_value(sd_item,"Ammo");
 	item.charges = ds_map_find_value(sd_item,"Charges");
-	
+	item.beltItemIndex = ds_map_find_value(sd_item, "BeltItemIndex");
+	item.canUse = ds_map_find_value(sd_item, "CanUse");
+	item.description = ds_map_find_value(sd_item, "Description");
 	
 	// insert gems
 	var gemsList = ds_map_find_value(sd_item,"SocketedGems");
@@ -44,6 +46,19 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 			var gemCondition = ds_list_find_value(gemsList,i+1);
 			var gem = makeGem(gemObjIndex,gemCondition);
 			insertGemIntoItem(gem,item);
+		}
+	}
+	
+	
+	var customItemPropertiesMap = ds_map_find_value(sd_item, "CustomItemProperties");
+	// go through all the custom item properties and assign them to this item based on save data
+	if customItemPropertiesMap != undefined && ds_exists(customItemPropertiesMap, ds_type_map) && ds_map_size(customItemPropertiesMap) > 0 {
+		var ck = ds_map_find_first(customItemPropertiesMap);
+		
+		for (var i = 0; i < ds_map_size(customItemPropertiesMap); i++) {
+			var propVal = ds_map_find_value(customItemPropertiesMap, ck);
+			ds_map_replace(item.customItemProperties, ck, propVal);
+			ck = ds_map_find_next(customItemPropertiesMap, ck);
 		}
 	}
 	

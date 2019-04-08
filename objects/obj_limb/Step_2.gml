@@ -24,7 +24,7 @@ if leftHandItem {
 		x = owner.x;
 		y = owner.y;
 	}
-	else if leftHandItem.isTwoHanded && limbKey == "r" && owner.currentUsingSpell == noone {
+	else if (leftHandItem.isTwoHanded || owner.state == CombatantStates.Healing) && limbKey == "r" && owner.currentUsingSpell == noone {
 		x = -1000;
 		y = -1000;
 	} else {
