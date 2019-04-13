@@ -51,6 +51,11 @@ if item.equipmentSlot != noone && isInventoryItem {
 	draw_set_color(c_maroon);
 	draw_circle(x1+5,y1+5,5,false);
 }
+// if this item is currently equipped in the belt, signify that (only for inventory items)
+if item.beltItemIndex >= 0 && isInventoryItem {
+	draw_set_color(c_teal);
+	draw_circle(x1+5,y1+5,5,false);
+}
 // if this item is broken, signify that
 if item.type == ItemTypes.HandItem && isInventoryItem {
 	if item.durability <= 0 {

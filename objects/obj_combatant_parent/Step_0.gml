@@ -31,7 +31,9 @@ drainConditions();
 endureConditions();
 
 // no matter what state we're on, we should only ever shield for <shieldFrames> frames
-maybeStopShielding();
+if type != CombatantTypes.Player {
+	maybeStopShielding();
+}
 
 // huge state machine
 switch(state) {

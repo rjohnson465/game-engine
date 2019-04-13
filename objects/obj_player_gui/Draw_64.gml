@@ -221,12 +221,87 @@ if (gamepad_is_connected(pad)) {
 var isDrawingAttunements = rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0;
 var bScale = .625; // draw items at .625 scale, so they line up with attunements
 var bSlotWidth = slotWidth * bScale;
-var finalY = vh-108-bSlotWidth;
-if !isDrawingAttunements finalY += bSlotWidth;
+var p = global.player;
+
+if gamepad_is_connected(pad) {
+	// draw single belt item (the selected one) if gamepad is connected and not equipping a belt item
+		if !p.isEquippingBeltItem {
+		var shownSlotY = vh-108-bSlotWidth-5;
+		var shownSlotX = 10;
+		var item = p.beltItems[p.currentBeltItemIndex];
+		var nextItemHeight = bSlotWidth / 2;
+		var nextNextItemHeight = nextItemHeight / 2;
+		
+		// if we're not showing attunements, the shown belt slot can be a bit further down on screen
+		if !isDrawingAttunements {
+			shownSlotY += bSlotWidth;
+		}
+		var alpha = 0;
+		if p.isHoldingAttunemntSwapMode {
+			alpha = .75;
+			// show main belt item slot a bit higher up, since we'll show the next 2 belt items
+			// below it
+			shownSlotY -= nextItemHeight;
+			shownSlotY -= nextNextItemHeight;
+		} else {
+			alpha = .5;
+		}
+		draw_sprite_ext(spr_item_slot, 1, shownSlotX, shownSlotY, bScale, bScale, 0, c_white, alpha);
+		if (item != undefined && item != noone && item > 0 && instance_exists(item)) {
+			drawItem(item, shownSlotX, shownSlotY, 0, bScale, 1);
+		}
+		
+		if p.isHoldingAttunemntSwapMode {
+			// draw the next item
+			var beltSize = array_length_1d(p.beltItems);
+			var nextIndex = (p.currentBeltItemIndex + 1) mod beltSize;
+			var nextItem = p.beltItems[nextIndex];
+			draw_sprite_ext(spr_item_slot, 1, shownSlotX+(.5*bSlotWidth), shownSlotY+bSlotWidth, bScale / 2, bScale / 2, 0, c_white, alpha);
+			if (nextItem != undefined && nextItem != noone && nextItem > 0 && instance_exists(nextItem)) {
+				drawItem(nextItem, shownSlotX+(.5*bSlotWidth), shownSlotY+bSlotWidth, 0, bScale / 2, alpha);
+			}
+			
+			// draw the next next item below that
+			var nextNextIndex = (p.currentBeltItemIndex + 2) mod beltSize;
+			var nextNextItem = p.beltItems[nextNextIndex];
+			draw_sprite_ext(spr_item_slot, 1, shownSlotX+(.5*bSlotWidth)+(.5*nextItemHeight), shownSlotY+bSlotWidth+nextItemHeight+1, bScale / 4, bScale / 4, 0, c_white, alpha);
+			if (nextNextItem != undefined && nextNextItem != noone && nextNextItem > 0 && instance_exists(nextNextItem)) {
+				drawItem(nextNextItem, shownSlotX+(.5*bSlotWidth)+(.5*nextItemHeight), shownSlotY+bSlotWidth+nextItemHeight+1, 0, bScale / 4, alpha);
+			}
+			
+			// draw the previous item
+			var beltSize = array_length_1d(p.beltItems);
+			var prevIndex = ((p.currentBeltItemIndex - 1) + beltSize) mod beltSize;
+			var prevItem = p.beltItems[prevIndex];
+			draw_sprite_ext(spr_item_slot, 1, shownSlotX+(.5*bSlotWidth), shownSlotY-nextItemHeight, bScale / 2, bScale / 2, 0, c_white, alpha);
+			if (prevItem != undefined && prevItem != noone && prevItem > 0 && instance_exists(prevItem)) {
+				drawItem(prevItem, shownSlotX+(.5*bSlotWidth), shownSlotY-nextItemHeight, 0, bScale / 2, alpha);
+			}
+			
+			// draw the previousPrevious item
+			var beltSize = array_length_1d(p.beltItems);
+			var prevPrevIndex = ((p.currentBeltItemIndex - 2) + beltSize) mod beltSize;
+			var prevPrevItem = p.beltItems[prevPrevIndex];
+			draw_sprite_ext(spr_item_slot, 1, shownSlotX+(.5*bSlotWidth)+(.5*nextItemHeight), shownSlotY-nextItemHeight-nextNextItemHeight-1, bScale / 4, bScale / 4, 0, c_white, alpha);
+			if (prevPrevItem != undefined && prevPrevItem != noone && prevPrevItem > 0 && instance_exists(prevPrevItem)) {
+				drawItem(prevPrevItem, shownSlotX+(.5*bSlotWidth)+(.5*nextItemHeight), shownSlotY-nextItemHeight-nextNextItemHeight-1, 0, bScale / 4, alpha);
+			}
+			
+			// draw pad up/down prompt
+			draw_sprite_ext(spr_prompt_xbox_pad_ud,1,shownSlotX + bSlotWidth + 10, mean(shownSlotY, shownSlotY + bSlotWidth), .2, .2, 0, c_white, 1);
+		}
+		
+		
+	} else {
+		// handled in Draw GUI End event
+	}
+}
+
+/*
 var initY = finalY - (4*bSlotWidth);
 
 var initX = 12;
-var p = global.player;
+
 for (var i = 0; i < array_length_1d(p.beltItems); i++) {
 	var y1 = initY + (i * bSlotWidth); 
 	var item = p.beltItems[i];
@@ -246,7 +321,7 @@ for (var i = 0; i < array_length_1d(p.beltItems); i++) {
 	if (item != undefined && item != noone && item > 0 && instance_exists(item)) {
 		drawItem(item, initX, y1, 0, bScale, alpha);
 	}
-}
+}*/
 
 // draw attunements
 if isDrawingAttunements {

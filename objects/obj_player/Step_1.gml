@@ -15,6 +15,9 @@ if isFading || !isAlive {
 	path_end();
 	exit;
 }
+if isEquippingBeltItem && !global.ui.isShowingMenus {
+	isEquippingBeltItem = false;
+}
 if lockOnTarget == noone {
 	isLockedOn = false;
 }
@@ -96,10 +99,10 @@ if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 		justCastSpell = false;
 	}
 	
-	if gamepad_button_check_pressed(gamePadIndex,gp_padu) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
+	if gamepad_button_check_pressed(gamePadIndex,gp_padu) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing & !isHoldingAttunemntSwapMode {
 		performCycleThroughSpells("up");
 	}
-	if gamepad_button_check_pressed(gamePadIndex,gp_padd) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing {
+	if gamepad_button_check_pressed(gamePadIndex,gp_padd) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !isHoldingAttunemntSwapMode {
 		performCycleThroughSpells("down");
 	}
 	

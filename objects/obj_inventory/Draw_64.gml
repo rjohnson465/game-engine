@@ -224,7 +224,7 @@ var eq = global.player.equippedItems;
 var w = 0;
 if gamepad_is_connected(global.player.gamePadIndex) {
 	
-	if !isConfirmingDestroyItem {
+	if !isConfirmingDestroyItem && !global.player.isEquippingBeltItem {
 		var itemAtMoveSelector = getItemAtSelectorPosition(global.ui.moveSelector);
 		if itemAtMoveSelector == noone {
 			var slotObj = getSlotAtSelector(global.ui.moveSelector);
@@ -262,6 +262,9 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 			//w += drawPrompt("Unequip "+itemAtMoveSelector.name,Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 			w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		} 
+		else if selectedItem.isUsable {
+			w += drawPrompt("Equip Item To Belt",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+		}
 	
 		if selectedItem != noone && selectedItem.isDestroyable && isSelectorInInventory(global.ui.moveSelector) {
 			//w += drawPrompt("Destroy " + selectedItem.name,Input.Face4,promptsStartX+w,promptsY)+xOffset;
@@ -274,7 +277,17 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 		} else {
 			w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
 		}
-	} else {
+	} 
+	else if global.player.isEquippingBeltItem {
+		promptsStartX += 80;
+		w += drawPrompt("Equip " + selectedItem.name + " To Belt",Input.F,promptsStartX,promptsY)+xOffset;
+		var selectedBeltItem = global.player.beltItems[selectedBeltItemIndex];
+		if selectedBeltItem != noone && selectedBeltItem != undefined && instance_exists(selectedBeltItem) {
+			w += drawPrompt("Unequip " + selectedBeltItem.name + " from belt",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+		}
+		w += drawPrompt("Back",Input.Escape,promptsStartX+w,promptsY)+xOffset;
+	}
+	else if isConfirmingDestroyItem {
 		w += drawPrompt("Accept",Input.F,promptsStartX,promptsY)+xOffset;
 		w += drawPrompt("Back",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 	}

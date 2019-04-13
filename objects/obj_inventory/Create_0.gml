@@ -110,3 +110,6 @@ confirmDestroyOption = "N"; // N || Y
 
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;
+
+selectedBeltItemIndex = 0;
+justStartedBeltEquipping = false;

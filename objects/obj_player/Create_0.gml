@@ -171,6 +171,7 @@ justCastSpell = false;
 
 currentSpellAttunement = MAGIC;
 isHoldingAttunemntSwapMode = false;
+isEquippingBeltItem = false;
 
 goldDropMultiplier = 100; // %
 // inventory -- holds all items
@@ -241,7 +242,7 @@ if global.populateInventory {
 	//ds_map_replace(ring.itemProperties,ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC,100]);
 	//ds_map_replace(ring.itemProperties,ModifiableProperties.StaminaSteal,10);
 	addItemToInventory(ring);
-	
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_jalapeno));
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
 
 }

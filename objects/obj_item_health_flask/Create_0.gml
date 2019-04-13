@@ -9,6 +9,8 @@ spriteName = "health_flask";
 itemSprite = spr_item_health_flask_full;
 soundUse = snd_iu_drink_potion;
 
+isDestroyable = false;
+
 // health flask strings (hfs) macros
 #macro hfs_charges "charges"
 #macro hfs_charge_strength "chargeStrength"

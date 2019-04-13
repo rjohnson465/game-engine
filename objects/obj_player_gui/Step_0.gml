@@ -1,11 +1,11 @@
 var pad = global.player.gamePadIndex;
 if global.inventory.isConfirmingDestroyItem exit;
-
+if global.player.isEquippingBeltItem exit;
 
 
 if gamepad_is_connected(pad) {
 
-	if gamepad_button_check_released(pad, gp_face2) && !isShowingMenus {
+	if gamepad_button_check_released(pad, gp_face2) && !isShowingMenus  {
 		if justClosedMenus {
 			justClosedMenus = false;
 		}
