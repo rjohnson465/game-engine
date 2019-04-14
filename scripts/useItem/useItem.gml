@@ -19,9 +19,9 @@ if item.object_index == obj_item_health_flask && state != CombatantStates.Healin
 }
 
 with item {
-	alert("Used " + name,c_yellow);
+	// alert("Used " + name,c_yellow);
 	isInUse = true;
 	if other.state != CombatantStates.Healing {
-		audio_play_sound(soundUse,1,0);
+		// audio_play_sound(soundUse,1,0);
 	}
 }

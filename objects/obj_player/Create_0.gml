@@ -248,6 +248,13 @@ if global.populateInventory {
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_antidote));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_antidote));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_antidote));
+	addItemToInventory(makeGemPieces(obj_gempieces_ruby, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_ruby, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_aquamarine, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_aquamarine, PILE));
+	addItemToInventory(makeGemPieces(obj_gempieces_emerald, PILE));
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
 
 }

@@ -159,3 +159,5 @@ if isMandatory {
 }
 
 beltItemIndex = noone;
+
+temporaryDamages = ds_list_create();

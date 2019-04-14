@@ -14,6 +14,8 @@ if count < 1 && object_index != obj_item_coins {
 
 // if being used, decrement count or destroy item. update inventory capacity
 if isInUse {
+	audio_play_sound(soundUse,1,0);
+	alert("Used " + name,c_yellow);
 	if count > 1 && isStackable {
 		count--;
 	} else if isStackable {

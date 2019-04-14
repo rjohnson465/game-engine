@@ -135,3 +135,4 @@ if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && 
 		}
 	}
 }
+

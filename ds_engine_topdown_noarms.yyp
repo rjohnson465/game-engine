@@ -791,6 +791,14 @@
             }
         },
         {
+            "Key": "0d49a800-f0b9-45b5-91fc-61315cd1c8d6",
+            "Value": {
+                "id": "3eb0b557-db7e-4fef-9133-0d8dc2852491",
+                "resourcePath": "scripts\\makeGemPieces\\makeGemPieces.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "0d5315ae-b4e3-4a0d-bc60-0edf7b00fd74",
             "Value": {
                 "id": "84e410ad-f116-4092-ba92-d348555750e9",
@@ -975,6 +983,14 @@
             }
         },
         {
+            "Key": "10b663ce-f05c-4ff1-9679-39e69c737403",
+            "Value": {
+                "id": "1c701949-f884-42ac-ab4f-240fed62af17",
+                "resourcePath": "objects\\obj_gempieces_amethyst\\obj_gempieces_amethyst.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "10b6868c-5653-42e9-82e9-9ae79f6fe473",
             "Value": {
                 "id": "208673b4-1f3b-4e77-9527-f39e5204be66",
@@ -1082,7 +1098,7 @@
             "Key": "1162595d-a3b0-4486-a7e9-c23eb284c007",
             "Value": {
                 "id": "efaf50cd-2e39-4ff2-985a-c61b6f02448f",
-                "resourcePath": "sprites\\spr_item_gemdust_grains_ruby\\spr_item_gemdust_grains_ruby.yy",
+                "resourcePath": "sprites\\spr_item_gempieces_ruby_grains\\spr_item_gempieces_ruby_grains.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1244,6 +1260,14 @@
                 "id": "b49e16ef-a026-44a4-a615-6afde0b70351",
                 "resourcePath": "views\\13806361-e90b-421f-a8b4-dc00acfc8be2.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "13deb861-31c4-4f2e-8fc5-b5eb4a399e00",
+            "Value": {
+                "id": "5cc48532-dfde-4f97-b689-89badccc50c8",
+                "resourcePath": "scripts\\drainTemporaryDamages\\drainTemporaryDamages.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1898,7 +1922,7 @@
             "Key": "1f3885f1-9a2a-4c8a-bfce-e381ad142c58",
             "Value": {
                 "id": "9fd66831-4164-4597-87d1-c3823a90e091",
-                "resourcePath": "sprites\\spr_item_gemdust_pile_emerald\\spr_item_gemdust_pile_emerald.yy",
+                "resourcePath": "sprites\\spr_item_gempieces_emerald_pile\\spr_item_gempieces_emerald_pile.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3383,6 +3407,14 @@
             }
         },
         {
+            "Key": "39f58f38-2b18-4bdf-a50d-c569e371c2df",
+            "Value": {
+                "id": "44b076d6-3a00-4d08-ba50-073cbbd90d01",
+                "resourcePath": "objects\\obj_gempieces_parent\\obj_gempieces_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "3a46a844-2541-4295-b07a-17b5d7c76ec9",
             "Value": {
                 "id": "e23e8acd-4393-4d11-a55e-693f997c6fe0",
@@ -4570,7 +4602,7 @@
             "Key": "4e39a241-3e80-400f-a1d0-b03b032cd464",
             "Value": {
                 "id": "5dd88710-2bfe-4bb1-b453-43364e3ac97f",
-                "resourcePath": "sprites\\spr_item_gemdust_pile_lapis\\spr_item_gemdust_pile_lapis.yy",
+                "resourcePath": "sprites\\spr_item_gempieces_lapis_pile\\spr_item_gempieces_lapis_pile.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4762,7 +4794,7 @@
             "Key": "51b1e4b3-c816-4166-873c-05a25c903488",
             "Value": {
                 "id": "86649363-49d5-4f9b-8b5b-1d1ad8242b67",
-                "resourcePath": "sprites\\spr_item_gemdust_pile_aquamarine\\spr_item_gemdust_pile_aquamarine.yy",
+                "resourcePath": "sprites\\spr_item_gempieces_aquamarine_pile\\spr_item_gempieces_aquamarine_pile.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5763,6 +5795,14 @@
             "Value": {
                 "id": "f4aeb9cd-5141-4913-9874-3a9a54004243",
                 "resourcePath": "scripts\\showItemInfo\\showItemInfo.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "6607f840-aac6-4c32-9426-bfcecf00e947",
+            "Value": {
+                "id": "af99ba03-40c8-4470-a43a-b54f5b79f0ea",
+                "resourcePath": "scripts\\applyTemporaryDamageBonus\\applyTemporaryDamageBonus.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -8751,6 +8791,14 @@
             }
         },
         {
+            "Key": "9c88da99-283a-4f04-ad69-9a023046fca3",
+            "Value": {
+                "id": "339ed41d-5126-442f-9c18-97bf659b3a2b",
+                "resourcePath": "objects\\obj_gempieces_aquamarine\\obj_gempieces_aquamarine.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "9c9ec9fd-ed1c-4c6d-ba91-5424eba47aeb",
             "Value": {
                 "id": "2226b161-ef58-4143-a677-3c8fe410a328",
@@ -9506,7 +9554,7 @@
             "Key": "a9c61d41-f942-41ba-841f-2f523d3478ce",
             "Value": {
                 "id": "0f44540a-c03e-4321-8fff-2ede5201b064",
-                "resourcePath": "sprites\\spr_item_gemdust_grains_aquamarine\\spr_item_gemdust_grains_aquamarine.yy",
+                "resourcePath": "sprites\\spr_item_gempieces_aquamarine_grains\\spr_item_gempieces_aquamarine_grains.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -9746,7 +9794,7 @@
             "Key": "adaf7160-3844-4715-b176-e6050f6f5155",
             "Value": {
                 "id": "42ffc327-28b7-4686-b017-3119bbd2aa7e",
-                "resourcePath": "sprites\\spr_item_gemdust_pile_amethyst\\spr_item_gemdust_pile_amethyst.yy",
+                "resourcePath": "sprites\\spr_item_gempieces_amethyst_pile\\spr_item_gempieces_amethyst_pile.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -9970,7 +10018,7 @@
             "Key": "b17413bd-06cf-4689-9ece-7cac86bb24ea",
             "Value": {
                 "id": "397ab70c-9140-40f1-8f6d-76d408179969",
-                "resourcePath": "sprites\\spr_item_gemdust_grains_emerald\\spr_item_gemdust_grains_emerald.yy",
+                "resourcePath": "sprites\\spr_item_gempieces_emerald_grains\\spr_item_gempieces_emerald_grains.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -10970,7 +11018,7 @@
             "Key": "c3c1875a-65b8-4fbb-b753-1d5aeed64c48",
             "Value": {
                 "id": "f9f8eebe-13e1-4f6d-ab47-da0d94122c7a",
-                "resourcePath": "sprites\\spr_item_gemdust_pile_ruby\\spr_item_gemdust_pile_ruby.yy",
+                "resourcePath": "sprites\\spr_item_gempieces_ruby_pile\\spr_item_gempieces_ruby_pile.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -11778,7 +11826,7 @@
             "Key": "d172dbb9-688c-46f1-9594-9f1f46afe86f",
             "Value": {
                 "id": "cbe5af16-8261-41db-8a22-1c94a27d1c28",
-                "resourcePath": "sprites\\spr_item_gemdust_grains_amethyst\\spr_item_gemdust_grains_amethyst.yy",
+                "resourcePath": "sprites\\spr_item_gempieces_amethyst_grains\\spr_item_gempieces_amethyst_grains.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -12631,6 +12679,14 @@
             }
         },
         {
+            "Key": "e178b843-6c28-476c-924f-12463387068c",
+            "Value": {
+                "id": "c87bb1f8-0d2c-4184-9e71-e942d59d447f",
+                "resourcePath": "objects\\obj_gempieces_lapis\\obj_gempieces_lapis.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e184c8a9-8f2a-4127-88c5-ecb799c6d19a",
             "Value": {
                 "id": "6bd42a46-4cce-49ef-8d26-8c78ee7b5b85",
@@ -12642,7 +12698,7 @@
             "Key": "e1cd95bd-7ca1-4f27-80f9-6c95cf07b5cc",
             "Value": {
                 "id": "e7f6b2c4-62aa-4385-a22f-9a0aeb63df24",
-                "resourcePath": "sprites\\spr_item_gemdust_grains_lapis\\spr_item_gemdust_grains_lapis.yy",
+                "resourcePath": "sprites\\spr_item_gempieces_lapis_grains\\spr_item_gempieces_lapis_grains.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -12996,6 +13052,14 @@
                 "id": "79bc80a7-b4dc-4d4f-ad0f-aaa15b9da2e2",
                 "resourcePath": "views\\e8d13581-b420-4342-aa90-22f1f67f5c86.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e92a3453-b593-42ac-91e1-b83630dbc0a1",
+            "Value": {
+                "id": "173e5b57-6c26-4d82-af29-dd5a397feebf",
+                "resourcePath": "objects\\obj_gempieces_ruby\\obj_gempieces_ruby.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -13567,6 +13631,14 @@
             }
         },
         {
+            "Key": "f51dd378-a466-49b7-b11e-61dd8b60b475",
+            "Value": {
+                "id": "8606147d-2bad-4928-90fa-3c22f851e7ed",
+                "resourcePath": "objects\\obj_gempieces_emerald\\obj_gempieces_emerald.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "f5318c21-772a-49fc-a0d6-c74039dfe954",
             "Value": {
                 "id": "a9db8954-3ae4-4801-b2ad-934e545ab991",
@@ -13764,6 +13836,14 @@
                 "id": "8c56302a-5434-4c6b-89c5-b445b58525b6",
                 "resourcePath": "scripts\\showHideInventory\\showHideInventory.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "fa209e63-9679-4032-a8f1-6fa6b3ab28b1",
+            "Value": {
+                "id": "666868ee-ccdf-496b-bc4a-1cb9dfb17119",
+                "resourcePath": "views\\fa209e63-9679-4032-a8f1-6fa6b3ab28b1.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -14475,6 +14555,9 @@
         "debfa67e-d1dc-46dc-845e-8830a83db600",
         "62615373-bfc5-4ae2-9b59-465b2961cc34",
         "7b8e6b80-961a-43f9-8506-a6a87db51d5b",
+        "6607f840-aac6-4c32-9426-bfcecf00e947",
+        "0d49a800-f0b9-45b5-91fc-61315cd1c8d6",
+        "13deb861-31c4-4f2e-8fc5-b5eb4a399e00",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
         "8305d611-d802-438b-a7f2-7d475431cb73",
         "3a4f4e5d-aae5-4528-93d9-9d2cb6f27b93",

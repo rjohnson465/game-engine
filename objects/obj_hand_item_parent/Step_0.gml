@@ -6,3 +6,7 @@ if durability <= 0 {
 		unequipItem(id);
 	}
 }
+
+if ds_list_size(temporaryDamages) > 0 {
+	drainTemporaryDamages(id);
+}
