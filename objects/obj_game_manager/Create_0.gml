@@ -193,3 +193,5 @@ cell_height = 32; //bbox_bottom-bbox_top;
 global.grids = ds_map_create();
 
 bgmManager = instance_create_depth(x,y,1,obj_bgm_manager);
+
+isMouseOverBelt = false;

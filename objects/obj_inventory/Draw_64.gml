@@ -291,8 +291,10 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 		w += drawPrompt("Accept",Input.F,promptsStartX,promptsY)+xOffset;
 		w += drawPrompt("Back",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 	}
-} else {
-	if !isConfirmingDestroyItem {
+}
+// m/k prompts
+else {
+	if !isConfirmingDestroyItem && !global.player.isEquippingBeltItem {
 		w += drawPrompt("Drag items to equip / unequip",Input.LMB,promptsStartX+w,promptsY)+xOffset;
 		//if selectedItem != noone && selectedItem.isUsable {
 			w += drawPrompt("Use Item",Input.RMB,promptsStartX+w,promptsY)+xOffset;
@@ -306,6 +308,9 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 			w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
 		}
 		w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
+	} else if global.player.isEquippingBeltItem {
+		promptsStartX += 80;
+		w += drawPrompt("Drag item over belt slot to equip",Input.Mouse,promptsStartX,promptsY)+xOffset;
 	}
 }
 

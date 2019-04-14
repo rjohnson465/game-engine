@@ -1,10 +1,11 @@
-/// drawItem(item,x,y,*isInventoryItem, *scale, *alpha)
+/// drawItem(item,x,y,*isInventoryItem, *scale, *alpha, *showIfEquipped)
 /// @param item
 /// @param x
 /// @param y
 /// @param isInventoryItem*
 /// @param scale*
 /// @param alpha*
+/// @param showIfEquipped* denotes whether or not to put a circle near the item
 
 var item = argument[0];
 var x1 = argument[1];
@@ -21,7 +22,12 @@ var alpha = 1;
 if argument_count > 5 {
 	alpha = argument[5];
 }
+var showIfEquipped = isInventoryItem;
+if argument_count > 6 {
+	showIfEquipped = argument[6];
+}
 
+var p = global.player;
 var inv = global.inventory;
 var slotWidth = inv.slotWidth;
 var slotHeight = inv.slotHeight;
@@ -42,19 +48,25 @@ if item.object_index == obj_item_health_flask {
 	var newY1 = y1 + (pyOff * scale);
 	
 	draw_sprite_part_ext(spr_item_health_flask_full,1,0,pyOff,sprWidth,sprHeight,x1,newY1, scale, scale, c_white, alpha);
+	// draw remaining charges
+	if isInventoryItem || (p.beltItems[p.currentBeltItemIndex] == item) && charges > 0 {
+		draw_set_font(font_main);
+		draw_set_halign(fa_left); draw_set_valign(fa_top);
+		scr_draw_text_outline(x1, y1, charges, c_white, c_red);
+	}
 }
 else {
 	draw_sprite_ext(item.itemSprite,1,x1,y1, scale, scale, 0, c_white, alpha);
 }
 // if this item is currently equipped, signify that (only for inventory items)
-if item.equipmentSlot != noone && isInventoryItem {
+if item.equipmentSlot != noone && showIfEquipped {
 	draw_set_color(c_maroon);
 	draw_circle(x1+5,y1+5,5,false);
 }
 // if this item is currently equipped in the belt, signify that (only for inventory items)
-if item.beltItemIndex >= 0 && isInventoryItem {
+if item.beltItemIndex >= 0 && showIfEquipped {
 	draw_set_color(c_teal);
-	draw_circle(x1+5,y1+5,5,false);
+	draw_circle(x1+slotWidth-10,y1+5,5,false);
 }
 // if this item is broken, signify that
 if item.type == ItemTypes.HandItem && isInventoryItem {
@@ -63,8 +75,10 @@ if item.type == ItemTypes.HandItem && isInventoryItem {
 		draw_line_width_color(x1+10,y1,x1,y1+10,3,c_red,c_red);
 	}
 }
+
 // if item is stackable and has more than 1 in stack, show item count
-if item.isStackable && isInventoryItem {
+if item.isStackable && (isInventoryItem || p.beltItems[p.currentBeltItemIndex] == item) {
+	draw_set_font(font_main);
 	if item.count != 1 || item.object_index == obj_item_coins {
 		draw_set_valign(fa_top); draw_set_halign(fa_left);
 		if item.object_index == obj_item_coins {
@@ -93,7 +107,7 @@ if item.isStackable && isInventoryItem {
 			}
 			else scr_draw_text_outline(x1+1,y1+1,item.count,c_white,c_white);
 		} else {
-			scr_draw_text_outline(x1+1,y1+1,item.count,c_white,c_white);
+			scr_draw_text_outline(x1+1,y1+1,item.count,c_white,c_white, 1, 1, 0, c_black);
 		}
 	}
 }

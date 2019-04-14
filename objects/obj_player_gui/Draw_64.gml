@@ -3,6 +3,7 @@ draw_set_alpha(1);
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
 var pad = global.player.gamePadIndex;
+var p = global.player;
 var slotHeight = sprite_get_height(spr_item_slot);
 var slotWidth = sprite_get_width(spr_item_slot);
 
@@ -170,9 +171,11 @@ if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
 	draw_sprite_ext(spell,1,80,vh-70,1,1,0,c_gray,.75);
 }
 // spell prompt
-// TODO when right trigger is held down, display the belt item??
 if (gamepad_is_connected(pad) && (rightHandItem.charges != 0 || leftHandItem.charges != 0)) {
 	draw_sprite_ext(spr_prompt_xbox_lt,1,80,vh-70, .2, .2, 0, c_white, .6);
+	if !p.isHoldingAttunemntSwapMode {
+	draw_sprite_ext(spr_prompt_xbox_pad_ud,1, 100, vh-26, .2, .2, 0, c_white, .6);
+	}
 } else if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
 	draw_sprite_ext(spr_prompt_mk_mb,1,80,vh-70, .2, .2, 0, c_white, .6);
 }
@@ -221,11 +224,10 @@ if (gamepad_is_connected(pad)) {
 var isDrawingAttunements = rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0;
 var bScale = .625; // draw items at .625 scale, so they line up with attunements
 var bSlotWidth = slotWidth * bScale;
-var p = global.player;
-
+global.gameManager.isMouseOverBelt = false;
 if gamepad_is_connected(pad) {
 	// draw single belt item (the selected one) if gamepad is connected and not equipping a belt item
-		if !p.isEquippingBeltItem {
+	if !p.isEquippingBeltItem && (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) {
 		var shownSlotY = vh-108-bSlotWidth-5;
 		var shownSlotX = 10;
 		var item = p.beltItems[p.currentBeltItemIndex];
@@ -245,12 +247,15 @@ if gamepad_is_connected(pad) {
 			shownSlotY -= nextNextItemHeight;
 		} else {
 			alpha = .5;
+			// draw right trigger prompt (to enter swap item / attunement mode)
+			draw_sprite_ext(spr_prompt_xbox_rt,1,shownSlotX + bSlotWidth + 10, mean(shownSlotY, shownSlotY + bSlotWidth), .2, .2, 0, c_white, .6);
 		}
 		draw_sprite_ext(spr_item_slot, 1, shownSlotX, shownSlotY, bScale, bScale, 0, c_white, alpha);
 		if (item != undefined && item != noone && item > 0 && instance_exists(item)) {
 			drawItem(item, shownSlotX, shownSlotY, 0, bScale, 1);
 		}
-		
+	
+		// show the other 4 items, above / below the current item
 		if p.isHoldingAttunemntSwapMode {
 			// draw the next item
 			var beltSize = array_length_1d(p.beltItems);
@@ -290,38 +295,69 @@ if gamepad_is_connected(pad) {
 			// draw pad up/down prompt
 			draw_sprite_ext(spr_prompt_xbox_pad_ud,1,shownSlotX + bSlotWidth + 10, mean(shownSlotY, shownSlotY + bSlotWidth), .2, .2, 0, c_white, 1);
 		}
-		
-		
-	} else {
-		// handled in Draw GUI End event
+	}
+	else if !p.isEquippingBeltItem && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY {
+		// draw all 5 belt item slots
+		var inv = global.inventory;
+		var initX = 12; 
+		var shownSlotY = vh-108-bSlotWidth-5;
+		// if we're not showing attunements, the shown belt slot can be a bit further down on screen
+		if !isDrawingAttunements {
+			shownSlotY += bSlotWidth;
+		}
+		for (var i = 0; i < array_length_1d(p.beltItems); i++) {
+			var item = p.beltItems[i];
+			var alpha = .75;
+			draw_sprite_ext(spr_item_slot, 1, initX + (i*bSlotWidth), shownSlotY, bScale, bScale, 0, c_white, alpha);
+			if (item != undefined && item != noone && item > 0 && instance_exists(item)) {
+				drawItem(item, initX + (i*bSlotWidth), shownSlotY, 0, bScale, alpha);
+			}
+		}
+	}
+	else {
+		// this is if we're doing an belt equip event
+		// handled in Draw GUI End event, so the belt is drawn over the ui
 	}
 }
+// show belt items, mouse/keyboard
+else {
+	
+	var y1 = vh - 108;
+	if isDrawingAttunements {
+		y1 = vh - 108 - (bSlotWidth);
+	}
+	var initX = 12;
 
-/*
-var initY = finalY - (4*bSlotWidth);
-
-var initX = 12;
-
-for (var i = 0; i < array_length_1d(p.beltItems); i++) {
-	var y1 = initY + (i * bSlotWidth); 
-	var item = p.beltItems[i];
-	var alpha = 0;
-	if p.isHoldingAttunemntSwapMode {
-		alpha = .75;
-		if i == p.currentBeltItemIndex {
+	for (var i = 0; i < array_length_1d(p.beltItems); i++) {
+		var x1 = initX + (i * bSlotWidth); 
+		var item = p.beltItems[i];
+		
+		var alpha = .75;
+		if mouseOverGuiRect(x1, y1, x1 + bSlotWidth, y1 + bSlotWidth) {
+			global.gameManager.isMouseOverBelt = true;
 			alpha = 1;
+			p.currentBeltItemIndex = i;
+			
+			if mouse_check_button_pressed(mb_left) {
+				with p {
+					performUseBeltItem();
+				}
+			}
+			
+			if mouse_check_button_pressed(mb_right) {
+				unequipBeltItem(i);
+			}
 		}
-	} else {
-		alpha = .5;
-		if i == p.currentBeltItemIndex {
-			alpha = .75;
+		
+		draw_sprite_ext(spr_item_slot, 1, x1, y1, bScale, bScale, 0, c_white, alpha);
+		if (item != undefined && item != noone && item > 0 && instance_exists(item)) {
+			drawItem(item, x1, y1, 1, bScale, alpha, 0);
 		}
+		
+		draw_set_font(font_damage); draw_set_valign(fa_bottom); draw_set_halign(fa_left);
+		scr_draw_text_outline(x1, y1 + bSlotWidth, "F" + string(i+1), c_white, c_white);
 	}
-	draw_sprite_ext(spr_item_slot, 1, initX, y1, bScale, bScale, 0, c_white, alpha);
-	if (item != undefined && item != noone && item > 0 && instance_exists(item)) {
-		drawItem(item, initX, y1, 0, bScale, alpha);
-	}
-}*/
+}
 
 // draw attunements
 if isDrawingAttunements {
@@ -347,14 +383,14 @@ if isDrawingAttunements {
 		}
 		if !gamepad_is_connected(global.player.gamePadIndex) {
 			draw_set_font(font_damage);
-			draw_set_halign(fa_left);
-			script_execute(scr_draw_text_outline,x1+1,vh-107,string(i+1),c_white,c_white);
+			draw_set_halign(fa_left); draw_set_valign(fa_top);
+			script_execute(scr_draw_text_outline,x1+1,vh-110,string(i+1),c_white,c_white);
 		}
 	}
 	
 	// draw rt prompt if pad is connected
 	if gamepad_is_connected(pad) {
-		draw_sprite_ext(spr_prompt_xbox_rt,1,final_x-20, vh-108, .2, .2, 0, c_white, .6);
+		// draw_sprite_ext(spr_prompt_xbox_rt,1,final_x-20, vh-108, .2, .2, 0, c_white, .6);
 	}
 	
 	// draw an outline if holding rt (in attunement swap mode)
@@ -382,7 +418,7 @@ if isShowingMenus {
 	draw_rectangle(MENUS_TOPLEFT_X,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_TOPLEFT_Y+menusHandleHeight,false);
 	// current menu title / hotkey text
 	draw_set_color(c_white);
-	draw_set_halign(fa_center);
+	draw_set_halign(fa_center); draw_set_valign(fa_center);
 	draw_set_font(font_main);
 	var hotKey = gamepad_is_connected(global.player.gamePadIndex) ? "" : " (" + ds_map_find_value(menuHotKeys,currentMenu) + ")";
 	var s = currentMenu + hotKey;

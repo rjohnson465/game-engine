@@ -35,3 +35,5 @@ if dir == "up" {
 		}
 	}
 }
+
+audio_play_sound(snd_item_pickup,1,0);

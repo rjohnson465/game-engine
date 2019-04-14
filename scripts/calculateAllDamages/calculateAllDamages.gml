@@ -77,7 +77,22 @@ for (var i = 0; i < size; i++) {
 		}
 	}
 	// account for defense against this damageType
-	var defense = ds_map_find_value(defenses,currentDamageType);
+	var defBase = ds_map_find_value(defenses, currentDamageType);
+	var defTotal = defBase;
+	if type == CombatantTypes.Player {
+		var bonusesTotal = 0;
+		
+		for (var j = 0; j < ds_list_size(temporaryDefenses); j++) {
+			var entry = ds_list_find_value(temporaryDefenses, j);
+			var defType = entry[0];
+			if defType != currentDamageType continue;
+			var defAmount = entry[2];
+			bonusesTotal += defAmount;
+		}
+		
+		defTotal = defBase + bonusesTotal;
+	}
+	var defense = defTotal;
 	
 	// case PHYSICAL | CRUSH | SLASH | PIERCE -- damage reduction by constant value
 	if currentDamageType == PHYSICAL || currentDamageType == CRUSH || currentDamageType == PIERCE || currentDamageType == SLASH {
@@ -85,6 +100,9 @@ for (var i = 0; i < size; i++) {
 		// hexed assailants have their physical damage output reduced
 		if assailant.isHexed {
 			damageBase *= assailant.hexedDamageModifier;
+		}
+		if damageBase < 0 {
+			damageBase = 0;
 		}
 		if damageBase > 0 {
 			if !isShocked {
@@ -103,6 +121,9 @@ for (var i = 0; i < size; i++) {
 	else {
 		// positive defense will offset x% of damageBase, negative defense increase damageBase by abs(x)%
 		damageBase = defense >= 0 ? damageBase - (defense/100)*damageBase : damageBase + abs((defense/100))*damageBase;
+		if damageBase < 0 {
+			damageBase = 0;
+		}
 		if damageBase > 0 {
 			// account for charge amount (spells, mostly)
 			damageBase = round(damageBase*attackObj.percentCharged);
@@ -147,10 +168,6 @@ for (var i = 0; i < size; i++) {
 				
 	// elemental conditions applied?			
 	// roll random and compare against defense
-	
-	if currentDamageType == POISON {
-		var a = 3;
-	}
 	
 	var hitWithTorch = currentDamageType == FIRE && damageBase > 0 && attackObj.weapon != noone && attackObj.weapon.object_index == obj_hand_item_torch;
 	var nonConditioningDamageTypes = [PHYSICAL,CRUSH,PIERCE,SLASH];

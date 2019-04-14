@@ -16,23 +16,48 @@ draw_set_halign(fa_left);
 draw_set_color(c_white);
 draw_set_font(font_small);
 
+// slash defense
 draw_sprite(spr_item_info_defense_slash,1,wdCol1XPictures,startingY+(line*20));
 if ui.isShowingExplanations {
 	drawTextWidth(wdCol1XText,startingY+(line*20),"Slash defense",wdCol1Width-21);
-} else draw_text(wdCol1XText,startingY+(line*20),"vs. Slash: " + string(ds_map_find_value(p.defenses,SLASH)));
+} else {
+	var defBase = ds_map_find_value(p.defenses, SLASH);
+	var bonuseDefenses = ds_list_create();
+	var bonusesTotal = 0;
+	for (var j = 0; j < ds_list_size(p.temporaryDefenses); j++) {
+		var entry = ds_list_find_value(p.temporaryDefenses, j);
+		var defType = entry[0];
+		if defType != SLASH continue;
+		var amount = entry[2];
+		bonusesTotal += amount;
+	}
+	
+	var defTotal = defBase + bonusesTotal;
+	draw_text(wdCol1XText,startingY+(line*20),"vs. Slash: " + string(defTotal));
+	ds_list_destroy(bonuseDefenses);
+}
 line++;
+
+// crush defense
 draw_sprite(spr_item_info_defense_crush,1,wdCol1XPictures,startingY+(line*20));
 if ui.isShowingExplanations {
 	drawTextWidth(wdCol1XText,startingY+(line*20),"Crush defense",wdCol1Width-21);
-} else draw_text(wdCol1XText,startingY+(line*20),"vs. Crush: " + string(ds_map_find_value(p.defenses,CRUSH)));
+} else {
+	draw_text(wdCol1XText,startingY+(line*20),"vs. Crush: " + string(ds_map_find_value(p.defenses,CRUSH)));
+}
 line++;
+
+// pierce defense
 draw_sprite(spr_item_info_defense_pierce,1,wdCol1XPictures,startingY+(line*20));
 if ui.isShowingExplanations {
 	drawTextWidth(wdCol1XText,startingY+(line*20),"Pierce defense",wdCol1Width-21);
-} else draw_text(wdCol1XText,startingY+(line*20),"vs. Pierce: " + string(ds_map_find_value(p.defenses,PIERCE)));
+} else {
+	draw_text(wdCol1XText,startingY+(line*20),"vs. Pierce: " + string(ds_map_find_value(p.defenses,PIERCE)));
+}
 line++;
 
 line -= 3;
+// elemental resistances
 for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	var el = global.ALL_ELEMENTS[i];
 	var sprite = noone; 
@@ -61,12 +86,36 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	draw_sprite(sprite,1,basicCol2XPictures,startingY+(line*20)+(i*20));
 	if ui.isShowingExplanations {
 		drawTextWidth(wdCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) + " resistance",wdCol1Width-21);
-	} else draw_text(basicCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) +": "+ string(ds_map_find_value(p.defenses,el))+"%");
+	} else {
+		var defBase = ds_map_find_value(p.defenses, el);
+		var bonuseDefenses = ds_list_create();
+		var bonusesTotal = 0;
+		for (var j = 0; j < ds_list_size(p.temporaryDefenses); j++) {
+			var entry = ds_list_find_value(p.temporaryDefenses, j);
+			var defType = entry[0];
+			if defType != el continue;
+			var amount = entry[2];
+			bonusesTotal += amount;
+		}
+		var defTotal = defBase + bonusesTotal;
+		if defTotal > 100 {
+			defTotal = 100;
+		}
+		if bonusesTotal > 0 {
+			draw_set_color(c_lime);
+		} else {
+			draw_set_color(c_white);
+		}
+		draw_text(basicCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) +": "+ string(defTotal)+"%");
+	}
 }
 line+=3;
 
+// poise
 draw_sprite(spr_stats_poise,1,wdCol1XPictures,startingY+(line*20));
 if ui.isShowingExplanations {
 	draw_text_ext(wdCol1XText,startingY+(line*20),"Determines stagger chance and duration",20,wdCol1Width-21);
-} else draw_text(wdCol1XText,startingY+(line*20),"Poise: " + string(p.poise) + "%");
+} else {
+	draw_text(wdCol1XText,startingY+(line*20),"Poise: " + string(p.poise) + "%");
+}
 draw_set_font(font_main);

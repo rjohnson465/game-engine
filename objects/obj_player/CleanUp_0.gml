@@ -7,3 +7,6 @@ event_inherited();
 
 //audio_emitter_free(sprintSoundEmitter); sprintSoundEmitter = -1;
 ds_map_destroy(inventoryCapacityMap); inventoryCapacityMap = -1;
+if ds_exists(temporaryDefenses, ds_type_list) {
+	ds_list_destroy(temporaryDefenses); temporaryDefenses = -1;
+}

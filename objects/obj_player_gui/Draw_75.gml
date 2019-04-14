@@ -1,4 +1,5 @@
 var p = global.player;
+var pad = p.gamePadIndex;
 if !p.isEquippingBeltItem exit;
 
 var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
@@ -20,14 +21,58 @@ var shownSlotY = vh-108-bSlotWidth-5;
 if !isDrawingAttunements {
 	shownSlotY += bSlotWidth;
 }
-for (var i = 0; i < array_length_1d(p.beltItems); i++) {
-	var item = p.beltItems[i];
-	var alpha = .75;
-	if inv.selectedBeltItemIndex == i {
-		alpha = 1;
+if gamepad_is_connected(pad) {
+	for (var i = 0; i < array_length_1d(p.beltItems); i++) {
+		var item = p.beltItems[i];
+		var drawDark = false;
+		if inv.selectedBeltItemIndex == i {
+			drawDark = true;
+		}
+		draw_sprite_ext(spr_item_slot, 1, initX + (i*bSlotWidth), shownSlotY, bScale, bScale, 0, c_green, 1);
+		if drawDark {
+			draw_sprite_ext(spr_item_slot, 1, initX + (i*bSlotWidth), shownSlotY, bScale, bScale, 0, c_black, .5);
+		}
+		if (item != undefined && item != noone && item > 0 && instance_exists(item)) {
+			drawItem(item, initX + (i*bSlotWidth), shownSlotY, 0, bScale, 1);
+		}
 	}
-	draw_sprite_ext(spr_item_slot, 1, initX + (i*bSlotWidth), shownSlotY, bScale, bScale, 0, c_white, alpha);
-	if (item != undefined && item != noone && item > 0 && instance_exists(item)) {
-		drawItem(item, initX + (i*bSlotWidth), shownSlotY, 0, bScale, alpha);
+} 
+// draw equipping mode belt items, m/k
+else {
+	var y1 = vh - 108;
+	if isDrawingAttunements {
+		y1 = vh - 108 - (bSlotWidth);
+	}
+	for (var i = 0; i < array_length_1d(p.beltItems); i++) {
+		var x1 = initX + (i * bSlotWidth); 
+		var item = p.beltItems[i];
+		var drawDark = false;
+
+		// if mouse over belt item slot while belt equipping, draw that slot darker
+		if mouseOverGuiRect(x1, y1, x1+bSlotWidth, y1 + bSlotWidth) {
+			drawDark = true;
+			inv.selectedBeltItemIndex = i;
+				
+			if mouse_check_button_released(mb_left) {
+				var usableItem = global.ui.grabbedItem;
+				with inv {
+					equipBeltItem(i, usableItem);
+				}
+				p.isEquippingBeltItem = false;
+			}
+			
+			if mouse_check_button_pressed(mb_right) {
+				unequipBeltItem(i);
+			}
+			
+		}
+		
+		draw_sprite_ext(spr_item_slot, 1, initX + (i*bSlotWidth), y1, bScale, bScale, 0, c_green, 1);
+		if drawDark {
+			draw_sprite_ext(spr_item_slot, 1, initX + (i*bSlotWidth), y1, bScale, bScale, 0, c_black, .5);
+		}
+		if (item != undefined && item != noone && item > 0 && instance_exists(item)) {
+			drawItem(item, initX + (i*bSlotWidth), y1, 1, bScale, 1, 0);
+		}
 	}
 }

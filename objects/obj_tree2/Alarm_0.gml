@@ -6,6 +6,6 @@ if (origLayer != global.player.layer || distance_to_object(global.player) > 1000
 treeAlpha = 1;
 with obj_combatant_parent {
 	if other.origLayer == layer && (type == CombatantTypes.Player || (type == CombatantTypes.Enemy && showHp)) && distance_to_object(other) < 25 {
-		other.treeAlpha = .66;
+		other.treeAlpha = .5;
 	}
 }

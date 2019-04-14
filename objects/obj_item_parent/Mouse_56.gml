@@ -4,6 +4,7 @@ if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
 //if id == global.ui.grabbedItem && equipmentSlot != noone exit;
 
 // if released over another item (and not released over a slot to equip item)
+
 if id == global.ui.grabbedItem {
 	
 	// if dropped somewhere in inventory and was equipped, unequip item
@@ -34,11 +35,22 @@ if id == global.ui.grabbedItem {
 	isGrabbed = false;
 	grabFrame = 0;
 	mightGrab = false;
-	global.ui.grabbedItem = noone;
+	// USABLE ITEMS UNGRAB IS DONE IN END STEP SO THEY MAY BE ADDED TO BELT ITEMS
+	if !isUsable {
+		global.ui.grabbedItem = noone;
+	}
 	didClickStartInInventory = false;
 	cursor_sprite = -1;
 	visible = false;
 	audio_play_sound(soundDrop,1,0);
 }
 grabFrame = 0;
+
+
+
+/*
+// This is currently being handled in the closure for drawing belt items with m/k
+if global.player.isEquippingBeltItem {
+	global.player.isEquippingBeltItem = false;
+}*/
 

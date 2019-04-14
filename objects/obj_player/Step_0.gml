@@ -24,6 +24,9 @@ event_inherited();
 leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
+// drain temporary defenses
+drainTemporaryDefenses();
+
 // lock on logic
 updateLockOnTarget();
 

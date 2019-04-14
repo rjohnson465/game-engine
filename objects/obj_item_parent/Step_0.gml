@@ -50,6 +50,10 @@ if grabFrame == grabFrames {
 		audio_play_sound(soundGrab,1,0);
 	}
 	global.ui.grabbedItem = id;
+	isGrabbed = true;
+	if isUsable {
+		global.player.isEquippingBeltItem = true;
+	}
 } else {
 	window_set_cursor(cr_default);
 }

@@ -243,6 +243,11 @@ if global.populateInventory {
 	//ds_map_replace(ring.itemProperties,ModifiableProperties.StaminaSteal,10);
 	addItemToInventory(ring);
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_jalapeno));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_jalapeno));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_jalapeno));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_antidote));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_antidote));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_antidote));
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
 
 }
@@ -345,3 +350,7 @@ currentBeltItemIndex = 0; // this is the index of item that will be used when X 
 
 healingFrame = 0;
 healingTotalFrames = sprite_get_number(spr_player_heal);
+
+// temp defenses -- a list of all temporary defenses
+// each entry is an array [<defenseType>, <frames left>]
+temporaryDefenses = ds_list_create();

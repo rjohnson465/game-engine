@@ -19,7 +19,7 @@ for (var i = 0; i < array_length_1d(p.beltItems); i++) {
 }
 
 p.beltItems[index] = item;
-selectedItem.beltItemIndex = index;
+item.beltItemIndex = index;
 audio_play_sound(snd_ui_click1, 1, 0);
 
 // unequip whatever item used to be at that belt index
@@ -28,3 +28,5 @@ with obj_item_parent {
 		beltItemIndex = noone;
 	}
 }
+
+p.isEquippingBeltItem = false;

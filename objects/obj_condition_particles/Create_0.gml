@@ -91,7 +91,7 @@ switch condition {
 		part_type_direction(poison,0,360,0,4);
 		part_type_life(poison,15,20);
 		part_type_color2(poison,c_green,c_olive);
-		part_type_alpha3(poison,.75,.5,.25);
+		part_type_alpha3(poison,.5,.25,.05);
 		particle = poison;
 		break;
 	}
