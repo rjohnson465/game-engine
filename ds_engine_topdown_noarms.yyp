@@ -2303,6 +2303,14 @@
             }
         },
         {
+            "Key": "2658ef09-7334-4929-b8f3-a1ea063fec2b",
+            "Value": {
+                "id": "55d86dd5-0843-4db9-a1c6-5f0f5d35de78",
+                "resourcePath": "scripts\\maybeMakeHealthOrb\\maybeMakeHealthOrb.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2673d940-658a-4ca9-875a-126300efc725",
             "Value": {
                 "id": "f2f7f998-74df-426f-9c42-7d1e8560b8ed",
@@ -4956,6 +4964,14 @@
                 "id": "3166bf1f-9436-40af-ad94-bd7da18210d5",
                 "resourcePath": "scripts\\fs_load_player\\fs_load_player.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "555eef5e-7613-4ebe-812f-c846690dd1a8",
+            "Value": {
+                "id": "f6a08b80-2808-415e-8273-5c57ed457147",
+                "resourcePath": "objects\\obj_health_orb\\obj_health_orb.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -8191,6 +8207,14 @@
             }
         },
         {
+            "Key": "8fb61644-4437-4adc-84e1-00de50530aee",
+            "Value": {
+                "id": "3712041a-c736-4720-9294-d88d6a39608e",
+                "resourcePath": "sprites\\spr_health_orb\\spr_health_orb.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8ff10341-f96e-4865-a2d9-827c7683196c",
             "Value": {
                 "id": "447b9de3-16ab-4d4a-9b46-1f825c3715ac",
@@ -11319,6 +11343,14 @@
             }
         },
         {
+            "Key": "c88aa994-17ba-4f52-b863-228d162ed352",
+            "Value": {
+                "id": "2e8d706d-b2f5-4669-b279-b2e02f88c166",
+                "resourcePath": "sounds\\snd_healthorb\\snd_healthorb.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "c8c5ee76-57b7-4f05-ba02-fd314d93d31b",
             "Value": {
                 "id": "113d49dd-4df5-4386-81ef-923a734f8897",
@@ -12916,6 +12948,14 @@
                 "id": "56c884d8-a8be-4125-9afa-7cb8539a6a31",
                 "resourcePath": "sprites\\spr_player_arquebus_prep_1\\spr_player_arquebus_prep_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e65fbea7-fd7d-4732-a552-d36090615d05",
+            "Value": {
+                "id": "f2acd826-cd4f-47d1-a4c7-f64a181dc1c1",
+                "resourcePath": "sounds\\snd_iu_healthorb\\snd_iu_healthorb.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -14558,6 +14598,7 @@
         "6607f840-aac6-4c32-9426-bfcecf00e947",
         "0d49a800-f0b9-45b5-91fc-61315cd1c8d6",
         "13deb861-31c4-4f2e-8fc5-b5eb4a399e00",
+        "2658ef09-7334-4929-b8f3-a1ea063fec2b",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
         "8305d611-d802-438b-a7f2-7d475431cb73",
         "3a4f4e5d-aae5-4528-93d9-9d2cb6f27b93",

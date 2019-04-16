@@ -3,7 +3,7 @@
 
 // reformat description
 if description == "Sample description" {
-	description = "Apply " + string(gemWeaponBonusMin) + "-" + string(gemWeaponBonusMax) + " " + element + " damage to left hand weapon";
+	description = "Apply " + string(gemWeaponBonusMin) + "-" + string(gemWeaponBonusMax) + " " + element + " damage to left hand weapon for " + string(duration / 30) + " seconds.";
 }
 
 // Inherit the parent event

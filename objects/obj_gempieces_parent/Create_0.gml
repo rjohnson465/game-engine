@@ -16,7 +16,7 @@ condition = global.gemPiecesCondition;
 conditionString = "";
 isStackable = true;
 isUsable = true;
-duration = 90; // 30 second duration
+duration = 900; // 30 second duration
 element = PHYSICAL;
 
 gemWeaponBonusMin = 0; gemWeaponBonusMax = 0;

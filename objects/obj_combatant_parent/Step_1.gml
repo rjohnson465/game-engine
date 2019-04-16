@@ -196,7 +196,7 @@ if isDying && isAlive {
 		isDying = false;
 		updatePersistentElementProperty(id,"Hp",0);
 		updatePersistentElementProperty(id,"IsAlive",false);
-		//global.player.xpTemp += round((xpReward*(global.player.xpMultiplier/100)));
+		maybeMakeHealthOrb();
 	}
 }
 

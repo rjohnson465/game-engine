@@ -100,6 +100,8 @@ walkingSound = snd_walking_heavy;
 //soundsWhenHitVocals = [snd_enemy_mushroom_hit1, snd_enemy_mushroom_hit2, snd_enemy_mushroom_hit3, snd_enemy_mushroom_hit4];
 soundsWhenDie = [snd_enemy_troll_death1];
 
+chanceToDropHealthOrb = .25;
+
 // override grid for this big boi 
 /*
 mp_grid_destroy(personalGrid); personalGrid = -1;

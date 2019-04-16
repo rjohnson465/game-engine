@@ -53,7 +53,7 @@ if itemType == ItemTypes.HandItem || itemType == ItemTypes.Other {
 		
 	}
 
-	// TODO
+	// TODO add condition cures, gem pieces, scrolls
 	else if itemType == ItemTypes.Other {
 		// Gem or Revive Orb?
 		randomize();

@@ -431,3 +431,5 @@ alarm[1] = 15;
 
 // predicate for whether or not is fine for this combatant to overlay with allies
 canIntersectWithAllies = false;
+
+chanceToDropHealthOrb = .1; // 0 - 1 odds to drop a health orb on death
