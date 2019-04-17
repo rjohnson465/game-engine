@@ -49,7 +49,7 @@ if item.object_index == obj_item_health_flask {
 	
 	draw_sprite_part_ext(spr_item_health_flask_full,1,0,pyOff,sprWidth,sprHeight,x1,newY1, scale, scale, c_white, alpha);
 	// draw remaining charges
-	if isInventoryItem || (p.beltItems[p.currentBeltItemIndex] == item) && charges > 0 {
+	if isInventoryItem || (p.beltItems[p.currentBeltItemIndex] == item && scale >= .6) && charges > 0 {
 		draw_set_font(font_main);
 		draw_set_halign(fa_left); draw_set_valign(fa_top);
 		scr_draw_text_outline(x1, y1, charges, c_white, c_red);
@@ -77,7 +77,7 @@ if item.type == ItemTypes.HandItem && isInventoryItem {
 }
 
 // if item is stackable and has more than 1 in stack, show item count
-if item.isStackable && (isInventoryItem || p.beltItems[p.currentBeltItemIndex] == item) {
+if item.isStackable && (isInventoryItem || (p.beltItems[p.currentBeltItemIndex] == item && scale >= .6)) {
 	draw_set_font(font_main);
 	if item.count != 1 || item.object_index == obj_item_coins {
 		draw_set_valign(fa_top); draw_set_halign(fa_left);

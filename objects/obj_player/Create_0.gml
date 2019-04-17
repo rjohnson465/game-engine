@@ -185,10 +185,13 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Ranged, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Rings, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 
+var hf = instance_create_depth(x,y,1,obj_item_health_flask);
 if global.populateInventory {
 	
 	addItemToInventory(makeGold(100000,200000));
-	addItemToInventory(instance_create_depth(x,y,1,obj_item_health_flask));
+	
+	addItemToInventory(hf);
+	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
@@ -354,6 +357,7 @@ beltItems[2] = noone;
 beltItems[3] = noone;
 beltItems[4] = noone;
 currentBeltItemIndex = 0; // this is the index of item that will be used when X is pressed
+equipBeltItem(0,hf);
 
 healingFrame = 0;
 healingTotalFrames = sprite_get_number(spr_player_heal);

@@ -24,12 +24,20 @@ var invokingInstanceLayer = layer;
 var dia = (bbox_right-bbox_left);
 //var touchingInstances = scr_collision_circle_list(xx,yy,dia/2,obj,true,true);
 var touchingInstances = ds_list_create();
-with obj {
-	if distance_to_object(other) < 5 {
-	//if place_meeting(x,y,other) {
-	//if collision_ellipse(xx,yy,xx+dia/2,yy+dia/2,obj,true,true) {
-	//if collision_rectangle(xx,yy,xx+dia/2,yy+dia/2,obj,1,1) {
-		ds_list_add(touchingInstances, id);
+
+if ds_exists(obj, ds_type_list) {
+	for (var i = 0; i < ds_list_size(obj); i++) {
+		var objVal = ds_list_find_value(obj, i);
+		if distance_to_object(other) < 5 {
+			ds_list_add(touchingInstances, id);
+		}
+	}
+} else {
+	with obj {
+		// if layer != invokingInstanceLayer || (abs(abs(depth)-abs(other.depth)) > 5) continue;
+		if distance_to_object(other) < 5 {
+			ds_list_add(touchingInstances, id);
+		}
 	}
 }
 

@@ -18,22 +18,25 @@ var isEnemy = type == CombatantTypes.Enemy;
 direction = staggerDirection;
 // stagger twice as quickly early on
 var solidsToCheck = type == CombatantTypes.Enemy ? obj_enemy_obstacle_parent : obj_solid_parent;
+/*if type == CombatantTypes.Player {
+	solidsToCheck = scr_get_ids_region(obj_solid_parent, x-200, y-200, x+200, y+200);
+}*/
 if (staggerFrame > .5*staggerDuration) {	
 	var x1 = x+lengthdir_x(.5*sspeed, sDir);
 	var y1 = y+lengthdir_y(.5*sspeed, sDir);
 	do {
 		x1 = x+lengthdir_x(.5*sspeed, sDir);
 		y1 = y+lengthdir_y(.52*sspeed, sDir);
-		var _pml = place_meeting_layer(x1,y1,solidsToCheck);
-		var _pml2 = place_meeting_layer(x1,y1,obj_combatant_parent);
+		//var _pml = place_meeting_layer(x1,y1,solidsToCheck);
+		//var _pml2 = place_meeting_layer(x1,y1,obj_combatant_parent);
 		if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 			sDir = (sDir + 22.5)%360;
-			if sDir == staggerDirection {
+			/*if sDir == staggerDirection {
 				
-				var _pml = place_meeting_layer(x1,y1,solidsToCheck);
-				var _pml2 = place_meeting_layer(x1,y1,obj_combatant_parent);
-				var a = 3;
-			}
+				//var _pml = place_meeting_layer(x1,y1,solidsToCheck);
+				//var _pml2 = place_meeting_layer(x1,y1,obj_combatant_parent);
+				//var a = 3;
+			}*/
 		}
 	} until ((!place_meeting_layer(x1,y1,solidsToCheck) && !place_meeting_layer(x1,y1,obj_combatant_parent)) || sDir == staggerDirection)
 			
@@ -49,8 +52,8 @@ if (staggerFrame > .5*staggerDuration) {
 	do {
 		x1 = x+lengthdir_x(.25*sspeed, sDir);
 		y1 = y+lengthdir_y(.25*sspeed, sDir);
-		var _pml = place_meeting_layer(x1,y1,solidsToCheck);
-		var _pml2 = place_meeting_layer(x1,y1,obj_combatant_parent);
+		//var _pml = place_meeting_layer(x1,y1,solidsToCheck);
+		//var _pml2 = place_meeting_layer(x1,y1,obj_combatant_parent);
 		if place_meeting_layer(x1,y1,solidsToCheck) || place_meeting_layer(x1,y1,obj_combatant_parent) {
 			sDir = (sDir + 22.5)%360;
 		}

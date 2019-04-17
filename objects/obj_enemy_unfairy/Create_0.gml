@@ -110,5 +110,6 @@ ds_map_replace(defenses,MAGIC,20);
 soundsWhenHitVocals = [snd_enemy_unfairy_hit1, snd_enemy_unfairy_hit2];
 soundsWhenDie = [snd_enemy_unfairy_die];
 
+chanceToDropHealthOrb = 1;
 
 

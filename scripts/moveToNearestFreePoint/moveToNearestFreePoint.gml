@@ -31,6 +31,7 @@ if isEnemy objectsToAvoid = obj_enemy_obstacle_parent;
 var oldX = x;
 var oldY = y;
 
+
 if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) {
 	x = x+lengthdir_x(sp,d); 
 	y = y+lengthdir_y(sp,d);

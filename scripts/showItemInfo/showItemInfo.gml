@@ -365,7 +365,15 @@ else if item.type == ItemTypes.Other {
 		draw_text(itemDescriptionCol1XText,topLeftY+itemDescriptionHandleHeight+80,"Hats: +" + string(headValue) + percentOrNah + " " + el + defenseOrResist);
 	} else {
 		var sh = string_height(item.description);
-		draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,item.description,sh,width-5);
+		var desc = item.description;
+		if item.object_index == obj_item_health_flask {
+			desc += "\n";
+			var chargesCount = ds_map_find_value(item.customItemProperties, hfs_charges);
+			var maxChargesCount = ds_map_find_value(item.customItemProperties, hfs_max_charges);
+			var chargesString = "Current charges: " + string(chargesCount) + " / " + string(maxChargesCount);
+			desc += chargesString;
+		}
+		draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,desc,sh,width-5);
 		if item.object_index == obj_item_coins {
 			draw_text(itemDescriptionTopLeftX,itemDescriptionBottomRightY-sh,"Quantity: " + string(item.count));
 		}

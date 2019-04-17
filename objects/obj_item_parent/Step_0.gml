@@ -26,6 +26,20 @@ if isInUse {
 		var currentItemTypeCount = ds_map_find_value(global.player.inventoryCapacityMap, itemType);
 		ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount - 1);
 		
+		var p = global.player;
+		// clear this spot in the belt, if it was a beltItem
+		if beltItemIndex != noone {
+			p.beltItems[beltItemIndex] = noone;
+			// set the current belt item index to something else, if possible
+			var beltSize = array_length_1d(p.beltItems);
+			for (var i = 0; i < beltSize; i++) {
+				var index = i mod beltSize;
+				var bi = p.beltItems[i];
+				if bi != noone && bi != undefined && instance_exists(bi) {
+					p.currentBeltItemIndex = index;
+				}
+			}
+		}
 		instance_destroy(id);
 		if ds_list_find_index(global.player.inventory,id) != -1 {
 			ds_list_delete(global.player.inventory,ds_list_find_index(global.player.inventory,id));

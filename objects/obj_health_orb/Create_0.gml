@@ -5,6 +5,9 @@ if variable_global_exists("fromEnemyIndex") {
 	}
 } 
 
+soundCreate = snd_magic_magic_shoot;
+audio_play_sound_at(soundCreate, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+
 isMoving = true;
 moveDuration = 45;
 moveSpeed = 4;

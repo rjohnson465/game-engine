@@ -41,6 +41,9 @@ if !isMoving && distance_to_object(p) < 50 && layer == p.layer && !hasSetAlarm {
 			var chargesMax = ds_map_find_value(healthFlask.customItemProperties, hfs_max_charges);
 			if chargesCount != chargesMax {
 				ds_map_replace(healthFlask.customItemProperties, hfs_charges, chargesCount+1);
+				with healthFlask {
+					updateHealthFlaskDescription();
+				}
 			} 
 			// if charges are already maxed, heal player for 50 hp
 			else {

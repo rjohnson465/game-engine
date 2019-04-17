@@ -255,42 +255,59 @@ if gamepad_is_connected(pad) {
 			drawItem(item, shownSlotX, shownSlotY, 0, bScale, 1);
 		}
 	
+		// get ordered list of items (not including empty belt slots)
+		var refinedBeltItemsList = ds_list_create();
+		var refinedBeltItemsArr;
+		for (var j = 0; j < array_length_1d(p.beltItems); j++) {
+			var bi = p.beltItems[j];
+			if bi != noone && bi != undefined && instance_exists(bi) {
+				ds_list_add(refinedBeltItemsList, bi);
+				var pos = ds_list_find_index(refinedBeltItemsList, bi);
+				refinedBeltItemsArr[pos] = bi;
+			}
+			
+		}
+		ds_list_destroy(refinedBeltItemsList); refinedBeltItemsList = -1;
+		var refinedBeltSize = array_length_1d(refinedBeltItemsArr);
+		
+		
 		// show the other 4 items, above / below the current item
+		// cases
+		// if belt only has one item, do not show anything else
 		if p.isHoldingAttunemntSwapMode {
 			// draw the next item
-			var beltSize = array_length_1d(p.beltItems);
-			var nextIndex = (p.currentBeltItemIndex + 1) mod beltSize;
-			var nextItem = p.beltItems[nextIndex];
+			var nextIndex = (p.currentBeltItemIndex + 1) mod refinedBeltSize;
+			var nextItem = refinedBeltItemsArr[nextIndex];
 			draw_sprite_ext(spr_item_slot, 1, shownSlotX+(.5*bSlotWidth), shownSlotY+bSlotWidth, bScale / 2, bScale / 2, 0, c_white, alpha);
 			if (nextItem != undefined && nextItem != noone && nextItem > 0 && instance_exists(nextItem)) {
 				drawItem(nextItem, shownSlotX+(.5*bSlotWidth), shownSlotY+bSlotWidth, 0, bScale / 2, alpha);
 			}
 			
 			// draw the next next item below that
-			var nextNextIndex = (p.currentBeltItemIndex + 2) mod beltSize;
-			var nextNextItem = p.beltItems[nextNextIndex];
+			var nextNextIndex = (p.currentBeltItemIndex + 2) mod refinedBeltSize;
+			var nextNextItem = refinedBeltItemsArr[nextNextIndex];
 			draw_sprite_ext(spr_item_slot, 1, shownSlotX+(.5*bSlotWidth)+(.5*nextItemHeight), shownSlotY+bSlotWidth+nextItemHeight+1, bScale / 4, bScale / 4, 0, c_white, alpha);
 			if (nextNextItem != undefined && nextNextItem != noone && nextNextItem > 0 && instance_exists(nextNextItem)) {
 				drawItem(nextNextItem, shownSlotX+(.5*bSlotWidth)+(.5*nextItemHeight), shownSlotY+bSlotWidth+nextItemHeight+1, 0, bScale / 4, alpha);
 			}
 			
 			// draw the previous item
-			var beltSize = array_length_1d(p.beltItems);
-			var prevIndex = ((p.currentBeltItemIndex - 1) + beltSize) mod beltSize;
-			var prevItem = p.beltItems[prevIndex];
+			var prevIndex = ((p.currentBeltItemIndex - 1) + refinedBeltSize) mod refinedBeltSize;
+			var prevItem = refinedBeltItemsArr[prevIndex];
 			draw_sprite_ext(spr_item_slot, 1, shownSlotX+(.5*bSlotWidth), shownSlotY-nextItemHeight, bScale / 2, bScale / 2, 0, c_white, alpha);
 			if (prevItem != undefined && prevItem != noone && prevItem > 0 && instance_exists(prevItem)) {
 				drawItem(prevItem, shownSlotX+(.5*bSlotWidth), shownSlotY-nextItemHeight, 0, bScale / 2, alpha);
 			}
 			
 			// draw the previousPrevious item
-			var beltSize = array_length_1d(p.beltItems);
-			var prevPrevIndex = ((p.currentBeltItemIndex - 2) + beltSize) mod beltSize;
-			var prevPrevItem = p.beltItems[prevPrevIndex];
+			var prevPrevIndex = ((p.currentBeltItemIndex - 2) + refinedBeltSize) mod refinedBeltSize;
+			var prevPrevItem = refinedBeltItemsArr[prevPrevIndex];
 			draw_sprite_ext(spr_item_slot, 1, shownSlotX+(.5*bSlotWidth)+(.5*nextItemHeight), shownSlotY-nextItemHeight-nextNextItemHeight-1, bScale / 4, bScale / 4, 0, c_white, alpha);
 			if (prevPrevItem != undefined && prevPrevItem != noone && prevPrevItem > 0 && instance_exists(prevPrevItem)) {
 				drawItem(prevPrevItem, shownSlotX+(.5*bSlotWidth)+(.5*nextItemHeight), shownSlotY-nextItemHeight-nextNextItemHeight-1, 0, bScale / 4, alpha);
 			}
+			
+			
 			
 			// draw pad up/down prompt
 			draw_sprite_ext(spr_prompt_xbox_pad_ud,1,shownSlotX + bSlotWidth + 10, mean(shownSlotY, shownSlotY + bSlotWidth), .2, .2, 0, c_white, 1);

@@ -178,19 +178,33 @@ if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 		
 		// belt item swap
 		if gamepad_button_check_pressed(gamePadIndex,gp_padu) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
-			var newBeltItemIndex = currentBeltItemIndex - 1;
-			if newBeltItemIndex < 0 {
-				newBeltItemIndex = 4;
+			// only cycle through actual items in belt slots. ignore empty belt slots
+			var newBeltItem = noone;
+			var newBeltItemIndex = currentBeltItemIndex;
+			while (newBeltItem == noone) {
+				newBeltItemIndex--;
+				if newBeltItemIndex < 0 {
+					newBeltItemIndex = 4;
+				}
+				newBeltItem = beltItems[newBeltItemIndex];
 			}
+			
 			currentBeltItemIndex = newBeltItemIndex;
 			audio_play_sound(snd_ui_option_change,1,0);
 		}
 		
 		if gamepad_button_check_pressed(gamePadIndex,gp_padd) && !global.ui.isShowingMenus && !global.isLooting && !global.isWishing && !global.isInteractingWithNpc {
-			var newBeltItemIndex = currentBeltItemIndex + 1;
-			if newBeltItemIndex > 4 {
-				newBeltItemIndex = 0;
+			// only cycle through actual items in belt slots. ignore empty belt slots
+			var newBeltItem = noone;
+			var newBeltItemIndex = currentBeltItemIndex;
+			while (newBeltItem == noone) {
+				newBeltItemIndex++;
+				if newBeltItemIndex > 4 {
+					newBeltItemIndex = 0;
+				}
+				newBeltItem = beltItems[newBeltItemIndex];
 			}
+			
 			currentBeltItemIndex = newBeltItemIndex;
 			audio_play_sound(snd_ui_option_change,1,0);
 		}
