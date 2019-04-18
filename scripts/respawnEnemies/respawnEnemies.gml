@@ -1,6 +1,12 @@
-/// respawnEnemies()
+/// respawnEnemies(onlyBosses)
+/// @param onlyBosses*
 // re-spawn all enemies in all maps
 // TODO - do not respawn bosses? MAYBE?
+
+var onlyRespawnBosses = false;
+if argument_count > 0 {
+	onlyRespawnBosses = argument[0];
+}
 
 var rd = instance_nearest(x,y,obj_room_data);
 
@@ -19,6 +25,17 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 		
 		var postX = ds_map_find_value(sd_temp_enemy, "PostX");
 		var postY = ds_map_find_value(sd_temp_enemy, "PostY");
+		
+		var enemyObj = findPersistentRoomElement(obj_enemy_parent, real(postX), real(postY));
+		
+		var ib = ds_map_find_value(sd_temp_enemy, "IsBoss");
+		// if this data does not correspond with a boss in the room,
+		// and we are only supposed to respawn bosses, continue
+		if !ib && onlyRespawnBosses && enemyObj != noone {
+			continue;
+		}
+		
+		
 		var postZ = ds_map_find_value(sd_temp_enemy, "PostZ");
 		var fdStart = ds_map_find_value(sd_temp_enemy, "FacingDirectionStart");
 		var hpMax = ds_map_find_value(sd_temp_enemy, "MaxHp");
@@ -58,6 +75,9 @@ with rd {
 
 // force room restart event for all enemies
 with obj_enemy_parent {
+	if onlyRespawnBosses && !isBoss {
+		continue;
+	}
 	state = CombatantStates.Idle;
 	path_end(); 
 	lockOnTarget = noone;
@@ -67,6 +87,9 @@ with obj_enemy_parent {
 	showHp = false;
 }
 with obj_enemy_parent {
+	if onlyRespawnBosses && !isBoss {
+		continue;
+	}
 	event_perform(ev_other, ev_room_start);
 }
 

@@ -36,18 +36,18 @@ var leftHand = makeLimb(id,"l");
 state = CombatantStates.Idle;
 
 // general attacks info
-meleeAggroRange = 300;
+meleeAggroRange = 800;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 1000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
-attackFrequencyTotalFramesMelee = [20,45];
+attackFrequencyTotalFramesMelee = [30,60];
 attackFrequencyTotalFramesRanged = [45,70];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[500,600];
 waryTotalFrames=[60,90];
 waryCheckTotalFrames = [150,300];
 waryCheckFrame = 150;
-skittishness = 80;
+skittishness = 75;
 cautiousness = 50;
 jumpSpeedFactor = 4;
 
@@ -64,16 +64,21 @@ global.owner = id;
 
 var hammerSwing = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_1_1);
 
+var hammerTwirl1 = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_2_1);
+var hammerTwirl2 = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_2_2);
+
 var c0 = [hammerSwing];
-meleeAttacks = [c0];
+var c1 = [hammerTwirl1, hammerTwirl2];
+var c2 = [hammerSwing, hammerTwirl2];
+meleeAttacks = [c0, c1, c2];
 // ranged attacks info
 
 // currently chosen ranged attack
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 500;
-maxHp = 500;
+hp = 300;
+maxHp = 300;
 
 stamina = 60;
 maxStamina = 60;
@@ -94,5 +99,5 @@ ds_map_replace(defenses,MAGIC,50);
 soundsWhenHitVocals = [snd_enemy_funfairy_hit_1, snd_enemy_funfairy_hit_2];
 soundsWhenDie = [snd_enemy_funfairy_death];
 
-
-
+chanceToDropHealthOrb = 1;
+xpReward = 1000;

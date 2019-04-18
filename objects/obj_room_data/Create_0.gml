@@ -36,6 +36,7 @@ if enemiesData == noone {
 		// populated at the end of the Create Event of the base enemy class
 		ds_map_replace(map, "Hp", hp);
 		ds_map_replace(map, "MaxHp", maxHp); 
+		ds_map_replace(map, "IsBoss", isBoss);
 	}
 }
 

@@ -9,7 +9,7 @@ else if !hasSetAlarm {
 
 // fountain creates particles everywhere when wished at
 if instance_exists(owner) {
-	if owner.object_index == obj_fountain && !hasSetAlarm {
+	if (owner.object_index == obj_fountain || owner.object_index == obj_fountain_dark) && !hasSetAlarm {
 		var num = 4;
 		var conditionPercent = (frame / fadeDuration*100);
 		if conditionPercent > 90 {

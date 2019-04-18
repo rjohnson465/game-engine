@@ -18,7 +18,7 @@ if attackObj != noone && attackObj.attackData != noone {
 		percentChance = condiChance;
 	}
 }
-//percentChance = 1;
+// percentChance = 1;
 if argument_count == 5 {
 	percentChance = argument[4];
 }

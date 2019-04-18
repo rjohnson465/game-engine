@@ -4,7 +4,8 @@ spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 limbKey = "l"; // default value
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
-ds_map_add(damages,CRUSH,[15,30]);
+ds_map_add(damages,CRUSH,[20,25]);
+ds_map_add(damages,MAGIC,[1,5]);
 isRanged = false;
 staminaCost = 15;
 staggerDuration = 20;

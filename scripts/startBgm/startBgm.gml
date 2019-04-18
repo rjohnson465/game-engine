@@ -15,18 +15,27 @@ if bgmPossibilities != noone {
 */
 
 bgmPossibilities = getBgmForRoom(room);
-if bgmPossibilities  != noone {
+if bgmPossibilities != noone {
 	randomize();
 	var rand = random_range(0,array_length_1d(bgmPossibilities)-1);
 	
-	// stop old bgm
-	if bgmCurrentIndex >= 0 {
-		audio_stop_sound(bgmCurrentIndex);
+	stopBgm();
+	
+	// special: if this is a boss room, make sure the boss is alive before playing its theme
+	bossExists = false;
+	var bossAlive = true;
+	with obj_enemy_parent {
+		if isBoss {
+			other.bossExists = true;
+			if isAlive {
+				bossAlive = true;
+			}
+		}
 	}
 	
+	if (bossExists && !bossAlive) exit;
 	
 	bgmCurrent = bgmPossibilities[rand];
 	bgmCurrentIndex = audio_play_sound_on(bgmEmitter, bgmCurrent, 0, 1);
-	// audio_emitter_falloff(bgmEmitter, audio_falloff_none,1,1);
 	audio_emitter_gain(bgmEmitter, bgmEmitterGain);
 }

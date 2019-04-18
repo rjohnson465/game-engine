@@ -11,7 +11,7 @@ switch rm {
 		break;
 	}
 	case rm_boss_funfairy: {
-		return noone;
+		return [snd_bgm_funfairy];
 		break;
 	}
 }

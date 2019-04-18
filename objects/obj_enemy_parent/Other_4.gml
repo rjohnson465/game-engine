@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+ds_map_replace(persistentProperties, "IsBoss", isBoss);
 // Inherit the parent event
 event_inherited();
 populatePersonalGrid();

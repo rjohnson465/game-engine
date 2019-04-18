@@ -19,6 +19,17 @@ switch rm {
 		]
 		]; break;
 	}
+	case rm_boss_funfairy: {
+		return [
+		[snd_amb_crickets], 
+		// periodical sounds
+		[
+			[snd_amb_forest_cicada, 1200, .5, [200,345], 30, 30],
+			[snd_amb_forest_whippoorwill, 1000, .5, [150, 300], 30, 30],
+			[snd_amb_forest_owl, 900, .4, [90, 150], 15, 15]
+		]
+		]; break;
+	}
 }
 
 return noone;

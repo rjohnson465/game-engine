@@ -3,6 +3,8 @@
 
 var item = argument0;
 
+if !instance_exists(item) return [];
+
 switch item.type {
 
 	case ItemTypes.HandItem: {

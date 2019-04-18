@@ -251,6 +251,8 @@ if global.populateInventory {
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_antidote));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_antidote));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_antidote));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_icecube));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_icecube));
 	addItemToInventory(makeGemPieces(obj_gempieces_ruby, GRAINS));
 	addItemToInventory(makeGemPieces(obj_gempieces_ruby, GRAINS));
 	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));

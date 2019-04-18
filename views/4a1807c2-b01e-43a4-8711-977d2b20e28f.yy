@@ -8,7 +8,8 @@
         "23a6ca97-2e60-4705-905d-d2266184e019",
         "3f754919-cad9-4a7a-a886-c71ceb10b38c",
         "88a8a62d-c8dc-4de4-a8fd-40f04d24d576",
-        "e65fbea7-fd7d-4732-a552-d36090615d05"
+        "e65fbea7-fd7d-4732-a552-d36090615d05",
+        "26ce9306-7253-4aa0-9d53-4e29a808862e"
     ],
     "filterType": "GMSound",
     "folderName": "item use",

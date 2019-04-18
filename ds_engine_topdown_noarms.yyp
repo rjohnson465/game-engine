@@ -39,6 +39,14 @@
             }
         },
         {
+            "Key": "0022d557-e9ea-453c-ac5a-9eee0f47a4f0",
+            "Value": {
+                "id": "bf403c55-5d1d-41f0-a9c3-501564252563",
+                "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_recover_2_2\\spr_enemy_funfairy_toyhammer_recover_2_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "007b4921-09db-43c9-ad13-2c946583cbc5",
             "Value": {
                 "id": "9ecdd036-c53b-4ba5-bf11-7fb72cca2ea5",
@@ -2007,6 +2015,14 @@
             }
         },
         {
+            "Key": "20f972d3-950e-427f-8581-50bc7cd1706e",
+            "Value": {
+                "id": "e0067458-269f-4edb-b2b4-76db693570ab",
+                "resourcePath": "objects\\obj_fountain_dark\\obj_fountain_dark.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "20fe7479-9f3d-434a-b93e-e4db65294b86",
             "Value": {
                 "id": "a7a34f94-a556-453a-9ef8-93d92db5ea28",
@@ -2076,6 +2092,14 @@
                 "id": "18115002-a5cf-468d-b36f-7effa0adab0d",
                 "resourcePath": "sprites\\spr_player_warhammer_recover_3\\spr_player_warhammer_recover_3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "21bc07c7-99eb-4ab6-9b27-3938c298a938",
+            "Value": {
+                "id": "46b43998-5077-48c3-964b-7ee8a3a2b3d6",
+                "resourcePath": "objects\\obj_attack_funfairy_toyhammer_2_1\\obj_attack_funfairy_toyhammer_2_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2180,6 +2204,14 @@
                 "id": "d4acb118-81e3-4c2e-98e1-a1475d5a12f3",
                 "resourcePath": "sounds\\snd_iu_choirheal\\snd_iu_choirheal.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "23bc5189-1d98-47dc-9a7f-cc5504ce57ae",
+            "Value": {
+                "id": "ed5584b5-5c6b-42b3-ba79-cd05eb6bb95d",
+                "resourcePath": "sprites\\spr_enemy_funfairy_limb_toyhammer_prep_2_2\\spr_enemy_funfairy_limb_toyhammer_prep_2_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2340,6 +2372,14 @@
                 "id": "24698266-7aae-4775-a664-ac765f92f4df",
                 "resourcePath": "sprites\\spr_enemy_unfairy_longsword_attack_2_1\\spr_enemy_unfairy_longsword_attack_2_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "26ce9306-7253-4aa0-9d53-4e29a808862e",
+            "Value": {
+                "id": "8c1aecdb-afdd-46b5-8ba0-ac3ce67f9b31",
+                "resourcePath": "sounds\\snd_iu_icecrack\\snd_iu_icecrack.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -2972,6 +3012,14 @@
                 "id": "c610a6c4-bd34-456f-879d-0d8cc1ee3d1a",
                 "resourcePath": "sprites\\spr_player_hand_rapier_prep_4\\spr_player_hand_rapier_prep_4.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "33184764-695e-4d5c-9368-a149ffa85512",
+            "Value": {
+                "id": "9c4f561c-3fe6-4068-8cc1-5d2c8a146b22",
+                "resourcePath": "objects\\obj_item_icecube\\obj_item_icecube.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3999,6 +4047,14 @@
             }
         },
         {
+            "Key": "4506bb6f-9086-4754-a8b8-b26402675a73",
+            "Value": {
+                "id": "314d4af2-f087-493c-be6e-4e1e7198f5da",
+                "resourcePath": "sprites\\spr_enemy_funfairy_limb_toyhammer_attack_2_1\\spr_enemy_funfairy_limb_toyhammer_attack_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4516a8d4-a357-43d8-b5b1-626b4c4714a1",
             "Value": {
                 "id": "6ac188e9-07f5-4ebb-acbf-05769d3af308",
@@ -4084,6 +4140,14 @@
                 "id": "0c852b83-d358-4a6e-93fd-7f4dc868ff32",
                 "resourcePath": "sprites\\spr_enemy_mushroom_charge_recover_1_1\\spr_enemy_mushroom_charge_recover_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "46a44e57-0d66-488a-8dd2-ff3ea2246fc2",
+            "Value": {
+                "id": "be562fe9-8ede-4615-9b46-beacc824989a",
+                "resourcePath": "sounds\\snd_bgm_funfairy\\snd_bgm_funfairy.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -5487,6 +5551,14 @@
             }
         },
         {
+            "Key": "61793ba8-a032-48fa-a009-abd8337d2070",
+            "Value": {
+                "id": "0a6dbc33-97f9-4107-a150-5fec67e452d1",
+                "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_prep_2_2\\spr_enemy_funfairy_toyhammer_prep_2_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "61b92407-eb29-4c32-acbb-df489b654ee2",
             "Value": {
                 "id": "f2ac9ece-79bf-49b0-8bfc-81faa1952456",
@@ -5903,6 +5975,14 @@
             }
         },
         {
+            "Key": "675a2f88-f47b-41e9-8c9e-5830b85ecbbc",
+            "Value": {
+                "id": "72a5bbf6-1e91-4b1e-8178-43b29bdb0432",
+                "resourcePath": "sprites\\spr_enemy_funfairy_limb_toyhammer_recover_2_1\\spr_enemy_funfairy_limb_toyhammer_recover_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "678c092c-13a5-4b17-88fb-2caac54a1ba4",
             "Value": {
                 "id": "fa6de11a-c5f8-471c-bba8-47e479848ef6",
@@ -5948,6 +6028,14 @@
                 "id": "8aa99b60-858b-41c1-b263-692ae0b514db",
                 "resourcePath": "scripts\\fs_save_player\\fs_save_player.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "68d1482f-536b-4acc-a0d6-dd6acb5bc443",
+            "Value": {
+                "id": "b63e325e-d49b-45a1-8afd-547d2aac8ed5",
+                "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_attack_2_1\\spr_enemy_funfairy_toyhammer_attack_2_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7687,6 +7775,14 @@
             }
         },
         {
+            "Key": "854ed2f9-f13c-4c2f-a574-ecbc9e55aa0a",
+            "Value": {
+                "id": "ecaf2e34-d5ba-40d1-890d-de729813bd36",
+                "resourcePath": "scripts\\stopBgm\\stopBgm.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "85972997-15dd-45c7-a31a-086cb63d6dd6",
             "Value": {
                 "id": "da3f718f-85d8-4eeb-b37b-30413b826d12",
@@ -8052,6 +8148,14 @@
                 "id": "7806a3a5-f3e7-4991-bda1-1b9684a0c18a",
                 "resourcePath": "scripts\\moveSelectorInEquippedItemsHelper\\moveSelectorInEquippedItemsHelper.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8cbb432e-0be7-47ee-8de9-cb6a54f79c94",
+            "Value": {
+                "id": "9e74d702-052c-4399-8082-129752a47dba",
+                "resourcePath": "sprites\\spr_fountain_dark\\spr_fountain_dark.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -9807,6 +9911,14 @@
             }
         },
         {
+            "Key": "ad4e7593-7109-4459-a794-94c06ac3fab3",
+            "Value": {
+                "id": "26b122d7-3833-4b7a-94e8-060f0e552ba1",
+                "resourcePath": "sprites\\spr_enemy_funfairy_limb_toyhammer_prep_2_1\\spr_enemy_funfairy_limb_toyhammer_prep_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "adabcce8-2f20-481f-91f0-5e31cda0bfec",
             "Value": {
                 "id": "33bb66af-d6f9-4b16-8db8-c4d2a85475ba",
@@ -9819,6 +9931,14 @@
             "Value": {
                 "id": "42ffc327-28b7-4686-b017-3119bbd2aa7e",
                 "resourcePath": "sprites\\spr_item_gempieces_amethyst_pile\\spr_item_gempieces_amethyst_pile.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "adb826fa-b6e0-41e5-9077-adae87851590",
+            "Value": {
+                "id": "cc3760f5-e236-478d-a6ac-993f4ec87fad",
+                "resourcePath": "sprites\\spr_enemy_funfairy_limb_toyhammer_attack_2_2\\spr_enemy_funfairy_limb_toyhammer_attack_2_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -10076,6 +10196,14 @@
                 "id": "5f9502a3-4807-4781-be4c-d089c6953869",
                 "resourcePath": "sprites\\spr_ally_dummy_\\spr_ally_dummy_.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b20b5997-37cc-4546-92d2-fe7dc8479aba",
+            "Value": {
+                "id": "d1f09845-f6d2-4c6d-b3b4-770013d3f702",
+                "resourcePath": "scripts\\wishAtDarkFountain\\wishAtDarkFountain.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -10351,6 +10479,14 @@
             }
         },
         {
+            "Key": "b6b5fa79-1635-4a17-af0c-3cf4756b7594",
+            "Value": {
+                "id": "70165998-de10-46fc-a9e9-a33e1127921a",
+                "resourcePath": "sprites\\spr_enemy_funfairy_limb_toyhammer_prep_2_21\\spr_enemy_funfairy_limb_toyhammer_prep_2_21.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b703250b-f19e-42f5-bff5-23449c2dd5a4",
             "Value": {
                 "id": "f5edc372-21d0-4c1c-8358-0f23be397f4e",
@@ -10403,6 +10539,14 @@
             "Value": {
                 "id": "7827b828-c7dd-4d27-96a6-4bdbb0d2a066",
                 "resourcePath": "sprites\\spr_item_scroll_of_knowledge\\spr_item_scroll_of_knowledge.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b7ffcd22-92b1-434b-b520-5588818616a3",
+            "Value": {
+                "id": "5401adca-1d83-49b5-a2ea-d396d33814bf",
+                "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_attack_2_2\\spr_enemy_funfairy_toyhammer_attack_2_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -10971,6 +11115,14 @@
             "Value": {
                 "id": "907c916a-a3e9-4858-b731-0f8e0da94c87",
                 "resourcePath": "sprites\\shurikenoffhand\\shurikenoffhand.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c285bc05-f421-4b30-a108-0f3feaa3a89d",
+            "Value": {
+                "id": "c2a85e94-a3cf-4d33-ab13-5a76ce774adc",
+                "resourcePath": "sprites\\spr_item_icecube\\spr_item_icecube.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -12615,6 +12767,14 @@
             }
         },
         {
+            "Key": "df2ebd40-a716-4d9a-99cb-e0c901a8f011",
+            "Value": {
+                "id": "b66e7f66-f59b-42c9-a372-f09eb084bf64",
+                "resourcePath": "sprites\\spr_enemy_funfairy_limb_toyhammer_recover_2_2\\spr_enemy_funfairy_limb_toyhammer_recover_2_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "df4b0cb4-1787-41df-bdd6-839bc1702c6c",
             "Value": {
                 "id": "e326198c-79ab-44fa-9c7a-3974f9647f59",
@@ -12791,6 +12951,14 @@
             }
         },
         {
+            "Key": "e3971914-43e7-4258-aad4-ca2a90af6a7a",
+            "Value": {
+                "id": "8526a097-14d4-4dd2-9118-0858f44a80a9",
+                "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_prep_2_1\\spr_enemy_funfairy_toyhammer_prep_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e3ad353b-9f02-4db0-9c79-2f9872795211",
             "Value": {
                 "id": "faae99f4-7cc6-4eab-b784-8164d9e6c402",
@@ -12951,6 +13119,14 @@
             }
         },
         {
+            "Key": "e6570434-a9f9-4b63-a1b1-25f9abbda7f9",
+            "Value": {
+                "id": "f1943a83-27c0-49a2-b25e-df7add05a10f",
+                "resourcePath": "objects\\obj_attack_funfairy_toyhammer_2_2\\obj_attack_funfairy_toyhammer_2_2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e65fbea7-fd7d-4732-a552-d36090615d05",
             "Value": {
                 "id": "f2acd826-cd4f-47d1-a4c7-f64a181dc1c1",
@@ -13020,14 +13196,6 @@
                 "id": "888674f0-42e3-4456-89b4-9a457d9a9b3e",
                 "resourcePath": "scripts\\populateGrid\\populateGrid.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "e83d9784-a7d0-41a2-87a7-ce5c3788511f",
-            "Value": {
-                "id": "7acd2bd0-0f02-4780-a987-b04b0561f2d3",
-                "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_attack_1_1_mask1\\spr_enemy_funfairy_toyhammer_attack_1_1_mask1.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -13788,6 +13956,14 @@
                 "id": "fbd72387-ea36-4307-9051-716f9183c6df",
                 "resourcePath": "views\\f7104235-a11e-47bd-a69c-bd44b413cd5f.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f758cf83-8f74-42a0-bafa-4279a7ba9976",
+            "Value": {
+                "id": "4360e4cc-6779-4d90-9975-787494098242",
+                "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_recover_2_1\\spr_enemy_funfairy_toyhammer_recover_2_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -14608,6 +14784,7 @@
         "13deb861-31c4-4f2e-8fc5-b5eb4a399e00",
         "2658ef09-7334-4929-b8f3-a1ea063fec2b",
         "ec462f34-0172-423c-9dbb-db8ad4f99d84",
+        "b20b5997-37cc-4546-92d2-fe7dc8479aba",
         "8305d611-d802-438b-a7f2-7d475431cb73",
         "3a4f4e5d-aae5-4528-93d9-9d2cb6f27b93",
         "8da4eee5-515f-4749-8509-780e480c1519",
@@ -14664,7 +14841,8 @@
         "e12785c4-d3cf-4004-8338-7864fbc58c2e",
         "39936867-4a7d-46ab-b273-2c2975e034e4",
         "60d39b88-64b2-48f0-8526-80f7b35df608",
-        "3e307b67-6b66-4a2f-940e-13a6de55e7ab"
+        "3e307b67-6b66-4a2f-940e-13a6de55e7ab",
+        "854ed2f9-f13c-4c2f-a574-ecbc9e55aa0a"
     ],
     "tutorial": ""
 }
