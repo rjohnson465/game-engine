@@ -1,3 +1,4 @@
+shader_reset();
 if hasSetAlarm exit;
 scale = .1*cos((pi*floatingFrame)/30)+.9; // normal floating
 with lightRadius {

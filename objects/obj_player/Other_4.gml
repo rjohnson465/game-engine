@@ -52,7 +52,8 @@ if justRevivedAtFountain {
 } 
 
 // handles layer shading
-updateRoomLayers();
+global.isUpdatingRoomLayers = true;
+
 
 audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
 walkingInWaterEmitter = audio_emitter_create();

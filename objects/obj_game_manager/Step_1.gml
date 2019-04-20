@@ -1,18 +1,39 @@
-// if at any point there is no bgm playing, play some bgm
-/*
-if bgmPossibilities != noone && !audio_is_playing(bgmCurrent) && !bgmAlarmSet {
-	randomize();
-	// play a song again anywhere from 15 seconds to 1 minute later
-	var rand = random_range(15*30, 60*30);
-	alarm[2] = rand;
-	bgmAlarmSet = true;
-} */
+if global.isPopulatingGrids {
+	// must activate all instances on step 1,
+	if !hasReactivatedObjectsForGrids {
+		instance_activate_all();
+		hasReactivatedObjectsForGrids = true;
+	}
+	// then when next step happens, actually populate grids
+	else {
+		populateGrids();
+		if global.respawnEnemiesAfterGridsPopulate {
+			respawnEnemies();
+			with global.player {
+				jumpToNearestFreePoint(false, true);
+			}
+		}
+		hasReactivatedObjectsForGrids = false;
+		global.isPopulatingGrids = false;
+		global.respawnEnemiesAfterGridsPopulate = false;
+	}
+}
 
-/*
-if instance_number(obj_player) != 0 {
-	var p = global.player;
-	audio_emitter_position(bgmEmitter,p.x,p.y,p.depth);
-} */
+if global.isUpdatingRoomLayers {
+	// must activate all instances on step 1,
+	if !hasReactivatedObjectsForLayers {
+		instance_activate_all();
+		hasReactivatedObjectsForLayers = true;
+	}
+	// then when next step happens, actually update layer elements visibility
+	else {
+		updateRoomLayers();
+		hasReactivatedObjectsForLayers = false;
+		global.isUpdatingRoomLayers = false;
+	}
+}
+
+
 var p = global.player;
 audio_emitter_position(ambEmitter, p.x, p.y, p.depth);
 // amb periodicals stuff

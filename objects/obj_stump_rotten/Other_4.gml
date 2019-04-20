@@ -6,5 +6,4 @@ if isFallen {
 	global.bridgeAngle = image_angle;
 	instance_change(obj_bridge_parent, 1);
 	light_destroy_caster_layer(getLayerFloorNumber(origLayer));
-	// populateGrids();
 } 

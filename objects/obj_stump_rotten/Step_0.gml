@@ -28,6 +28,4 @@ if isCurrentInteractableObject && !isFallen && distance_to_object(obj_player) < 
 	global.victim = noone;
 	instance_create_depth(x,y,1,obj_hit_particles);
 		
-	// populateGrids();
-		
 } 

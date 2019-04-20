@@ -65,7 +65,7 @@ if fallFrame == .5*fallTotalFrames {
 	if lr != noone {
 		updateLightLayer(lr,oldLayer,layer);
 	}
-	updateRoomLayers();
+	global.isUpdatingRoomLayers = true;
 	
 	// check if we should keep falling
 	var keepFalling = false;

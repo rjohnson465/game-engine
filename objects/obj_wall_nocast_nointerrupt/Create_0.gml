@@ -1,4 +1,5 @@
 //event_inherited();
+neverDeactivate = true;
 isObstacleLayerless = false;
 origLayer = layer;
 postX = x;

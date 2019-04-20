@@ -1,3 +1,4 @@
+neverDeactivate = false;
 material = WOOD; 
 stopsAttacks = true;
 isObstacleLayerless = true;

@@ -107,8 +107,10 @@ if instance_exists(fade) {
 			else {
 				other.reviveOrbs.count--;
 				jumpToNearestFreePoint(0,1); // don't let player revive in a fallzone
-				populateGrids();
-				respawnEnemies();
+				// populateGrids();
+				global.isPopulatingGrids = true;
+				global.respawnEnemiesAfterGridsPopulate = true;
+				
 			}
 			
 			with obj_combatant_parent {

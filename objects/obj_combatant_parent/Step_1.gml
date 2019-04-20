@@ -20,7 +20,8 @@ if gridTempFreeX != noone {
 		
 		
 		// TODO -- maybe make sure there are no enemies in this grid cell at all before marking it as blocked
-		populateGrids();
+		// populateGrids();
+		global.isPopulatingGrids = true;
 		
 		// reset gridTempFree values so this check doesn't happen every step
 		gridTempFreeX = noone;

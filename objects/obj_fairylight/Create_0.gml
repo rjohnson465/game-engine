@@ -20,6 +20,7 @@ global.makeLightOnCreate = true;
 lightRadius = instance_create_depth(x,y,depth,obj_light_radius);
 
 depth = layer_get_depth(layer) + 5;
+
 system = part_system_create();
 part_system_depth(system,layer_get_depth(origLayer));
 emitter = part_emitter_create(system);
@@ -33,3 +34,6 @@ part_type_size(particle,0.1,0.25,0,0);
 part_type_speed(particle,.05,.15,0,0);
 part_type_direction(particle,0,360,0,4);
 part_type_life(particle,30,60);
+
+
+testVar = 1;

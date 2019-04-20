@@ -191,7 +191,19 @@ waterManager = instance_create_depth(x,y,1,obj_water_manager);
 cell_width = 32;//bbox_right-bbox_left;
 cell_height = 32; //bbox_bottom-bbox_top;
 global.grids = ds_map_create();
+global.isPopulatingGrids = false;
+hasReactivatedObjectsForGrids = false;
+
+global.isUpdatingRoomLayers = false;
+hasReactivatedObjectsForLayers = false;
+
+global.respawnEnemiesAfterGridsPopulate = false;
 
 bgmManager = instance_create_depth(x,y,1,obj_bgm_manager);
 
 isMouseOverBelt = false;
+
+// every 10 steps, deactivate solid enviornment objects that are far away out of the view
+deactivationSteps = 10;
+deactivationBorder = 200;
+alarm[5] = deactivationSteps;

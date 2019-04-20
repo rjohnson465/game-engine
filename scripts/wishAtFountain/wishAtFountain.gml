@@ -69,7 +69,9 @@ with obj_itemdrop_data {
 }
 	
 // respawn all enemies
-respawnEnemies();
+// respawnEnemies();
+global.isPopulatingGrids = true;
+global.respawnEnemiesAfterGridsPopulate = true;
 		
 // refill player health and stamina
 with obj_player {

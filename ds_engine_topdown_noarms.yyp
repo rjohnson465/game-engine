@@ -11111,6 +11111,14 @@
             }
         },
         {
+            "Key": "c221f288-f3f0-4dcb-97f2-cbe640de90b8",
+            "Value": {
+                "id": "e0bf431f-8da2-415c-babf-508723f057b1",
+                "resourcePath": "objects\\obj_tut_darkfountains\\obj_tut_darkfountains.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "c2414ead-97d4-4c4c-8d46-866f70747b8b",
             "Value": {
                 "id": "3da6464e-928b-4f1f-a0f0-94a7b9e06d43",

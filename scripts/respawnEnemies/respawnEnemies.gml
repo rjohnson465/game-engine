@@ -3,6 +3,10 @@
 // re-spawn all enemies in all maps
 // TODO - do not respawn bosses? MAYBE?
 
+// we need to activate all the enemy objects in the room for a moment to respawn them
+// they may later be deactivated by the deactivation loop run in game manager
+// instance_activate_object(obj_enemy_parent);
+
 var onlyRespawnBosses = false;
 if argument_count > 0 {
 	onlyRespawnBosses = argument[0];

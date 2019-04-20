@@ -2,6 +2,12 @@
 
 // whenever a room starts, 1 - num floors grids are generated in global variables stored in global.grids map
 
+// we need to activate all solid environment objects in the room for a moment
+// solid environment objects outside view may be deactivated again later in the deactivation loop game manager runs
+
+//instance_activate_object(obj_solid_environment);
+
+
 // maybe clear the old grids in memory
 var gridsMap = global.grids;
 var ck = ds_map_find_first(gridsMap);

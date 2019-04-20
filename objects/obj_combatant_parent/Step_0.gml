@@ -191,6 +191,10 @@ switch(state) {
 					// CHECK 3: WILL WE SHIELD IN THIS MOVE STATE?
 					maybeShield();
 					
+					if lockOnTarget != noone && instance_exists(lockOnTarget) && lockOnTarget.layer != layer {
+						lockOnTarget = noone;
+					}
+					
 					// CHECK 4: Maybe switch to melee / range
 					if (lockOnTarget != noone) {
 						var isGridPathAvailable = getIsGridPathAvailable(false);				
