@@ -1,3 +1,4 @@
+shader_reset();
 if owner.currentUsingSpell != noone exit;
 if limbItem.weaponType == PISTOL || limbItem.weaponType == SHURIKEN || limbItem.weaponType == MUSKET || limbItem.weaponType == CROSSBOW exit;
 

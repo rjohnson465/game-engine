@@ -1,3 +1,7 @@
+var p = global.player;
+
+audio_emitter_position(bgmEmitter, p.x, p.y, p.depth);
+
 var atLeastOneBossAlive = false;
 if bossExists {
 	with obj_enemy_parent {

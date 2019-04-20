@@ -55,7 +55,7 @@ if attackFrequencyFrame < 0 {
 					audio_emitter_falloff(attackPrepSoundEmitter, 50, AUDIO_MAX_FALLOFF_DIST, .1);
 					audio_emitter_gain(attackPrepSoundEmitter, 1);
 				}
-				
+				audio_emitter_gain(attackPrepSoundEmitter, 1);
 				audio_play_sound_on(attackPrepSoundEmitter,prepSoundVocal,0,1);
 			}
 			

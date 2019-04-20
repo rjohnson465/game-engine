@@ -36,6 +36,10 @@ if bgmPossibilities != noone {
 	if (bossExists && !bossAlive) exit;
 	
 	bgmCurrent = bgmPossibilities[rand];
-	bgmCurrentIndex = audio_play_sound_on(bgmEmitter, bgmCurrent, 0, 1);
+	var loops = false;
+	if bossExists && bossAlive {
+		loops = true;
+	}
+	bgmCurrentIndex = audio_play_sound_on(bgmEmitter, bgmCurrent, loops, 1);
 	audio_emitter_gain(bgmEmitter, bgmEmitterGain);
 }

@@ -34,6 +34,10 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 		if !ib && onlyRespawnBosses && enemyObj != noone {
 			continue;
 		}
+		// do not normally respawn bosses
+		if ib && !onlyRespawnBosses {
+			continue;
+		}
 		
 		
 		var postZ = ds_map_find_value(sd_temp_enemy, "PostZ");

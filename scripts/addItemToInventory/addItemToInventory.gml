@@ -121,6 +121,7 @@ for (var i = 0; i < TutFirsts.length; i++) {
 		}
 		if msg != "" {
 			showTutorialMessage(msg,spritesController,spritesMk,ck);
+			ds_map_replace(p.tutorialFirstsMap, ck, 1);
 		}
 	}
 	

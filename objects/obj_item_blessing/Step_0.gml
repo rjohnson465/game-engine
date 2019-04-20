@@ -6,14 +6,14 @@ event_inherited();
 
 if isInUse {
 	var p = global.player;
-	if p.isBurning {
+	if p.isHexed {
 		with p {
-			cureCondition(FIRE);
+			cureCondition(MAGIC);
 		}
 	}
 	else {
-		// grant 50% ice resistance for 30 seconds
-		ds_list_add(p.temporaryDefenses, [FIRE, 900, 50]);
+		// grant 50% magic resistance for 30 seconds
+		ds_list_add(p.temporaryDefenses, [MAGIC, 900, 50]);
 	}
 	isInUse = false;
 }

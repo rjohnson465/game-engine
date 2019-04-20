@@ -13,7 +13,8 @@ if instance_number(obj_player) != 0 {
 	var p = global.player;
 	audio_emitter_position(bgmEmitter,p.x,p.y,p.depth);
 } */
-
+var p = global.player;
+audio_emitter_position(ambEmitter, p.x, p.y, p.depth);
 // amb periodicals stuff
 if ds_map_size(ambPeriodicalsMap) > 0 {
 	// iterate over every snd in ambPeriodicals

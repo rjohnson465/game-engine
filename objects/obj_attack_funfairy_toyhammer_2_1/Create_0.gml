@@ -14,4 +14,6 @@ type = AttackTypes.Charge;
 attackSound = snd_axe2h_attack_1;
 hitSound = snd_squeaky_hit;
 
+prepSoundsVocals = [snd_enemy_funfairy_prep_2];
+
 minRange = 100;

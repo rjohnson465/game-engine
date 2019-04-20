@@ -223,6 +223,14 @@
             }
         },
         {
+            "Key": "034c92c7-7c16-4813-9fad-aa4b0b984278",
+            "Value": {
+                "id": "fed7c5d8-5868-400a-a442-c0ff61450a41",
+                "resourcePath": "sounds\\snd_iu_blessing\\snd_iu_blessing.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "0358de8a-d3ba-4dbb-9303-cd49c41925af",
             "Value": {
                 "id": "c5a72705-bf56-401c-a0db-f693cc04891e",
@@ -1139,6 +1147,14 @@
             "Value": {
                 "id": "2d214601-caed-463a-94fb-5c00bdd7ace6",
                 "resourcePath": "sprites\\spr_enemy_unfairy_longsword_attack_1_2\\spr_enemy_unfairy_longsword_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "125cb649-db6e-487f-8d9b-66a5d16e1582",
+            "Value": {
+                "id": "6632b89f-203b-4d30-9b78-57f35db6b633",
+                "resourcePath": "sprites\\spr_item_rubberducky\\spr_item_rubberducky.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3852,6 +3868,14 @@
                 "id": "a0befd4b-7862-47c3-9672-0c095a8f46e7",
                 "resourcePath": "views\\3ff2e50a-9f6e-405e-81a5-695355a74b48.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "3ff5c854-87b1-4014-b1ac-430427abf0a7",
+            "Value": {
+                "id": "c51d4155-b17d-4e00-88b5-3e7a457bc6eb",
+                "resourcePath": "objects\\obj_item_blessing\\obj_item_blessing.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -7279,6 +7303,14 @@
             }
         },
         {
+            "Key": "7ce4212e-9334-4643-b4e3-a2df9029c6c6",
+            "Value": {
+                "id": "8366738d-743a-4d1c-b81e-6d14ffcb9e2f",
+                "resourcePath": "sprites\\spr_item_blessing\\spr_item_blessing.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7d2805fd-566d-43d7-8db9-a2262a491a62",
             "Value": {
                 "id": "eafd633c-309d-4f6d-9ecc-e22ffdd08165",
@@ -8100,6 +8132,14 @@
                 "id": "1c3066c7-6dc2-46de-b68c-02b927b8b31d",
                 "resourcePath": "sprites\\spr_player_hand_sword_2h_recover_3\\spr_player_hand_sword_2h_recover_3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8b92dafc-0cdb-4824-85b5-f48200e15680",
+            "Value": {
+                "id": "f6b1c9e5-b034-4b54-a734-37dc8cea4023",
+                "resourcePath": "objects\\obj_item_rubberducky\\obj_item_rubberducky.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -9348,6 +9388,14 @@
                 "id": "02caa42d-aa42-4db5-baa4-24e09d5cb310",
                 "resourcePath": "sprites\\spr_enemy_unfairy_warhammer_attack_1_1\\spr_enemy_unfairy_warhammer_attack_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a3335f17-c8e9-470c-8ce0-2f9a49981565",
+            "Value": {
+                "id": "4e4c6b16-e1ae-404f-aa19-94df175a6036",
+                "resourcePath": "views\\a3335f17-c8e9-470c-8ce0-2f9a49981565.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -13892,6 +13940,14 @@
                 "id": "a3a836b7-111b-4155-9773-9f791af84e9c",
                 "resourcePath": "objects\\obj_tree1\\obj_tree1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "f67d7078-4ea1-4963-96dc-e538acaf6541",
+            "Value": {
+                "id": "6ab92ce7-d7ec-4cab-ad44-7fb224853925",
+                "resourcePath": "sounds\\snd_iu_quack\\snd_iu_quack.yy",
+                "resourceType": "GMSound"
             }
         },
         {
