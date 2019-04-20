@@ -54,7 +54,7 @@ emitter = part_emitter_create(system);
 // item particle
 var magic = part_type_create();
 part_type_shape(magic, pt_shape_spark);
-part_type_color2(magic,c_olive,c_orange);
+part_type_color2(magic,c_yellow,c_aqua);
 part_type_orientation(magic,0,0,0,15,1);
 part_type_size(magic,0.05,0.1,0,0);
 part_type_speed(magic,.25,1,0,0);

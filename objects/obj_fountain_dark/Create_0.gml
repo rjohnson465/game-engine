@@ -47,4 +47,7 @@ uni_radial_brightness = shader_get_uniform(shd_radial_blur,"radial_brightness");
 var_radial_brightness = 1;
 
 
+teleportX = noone;
+teleportY = noone;
+
 

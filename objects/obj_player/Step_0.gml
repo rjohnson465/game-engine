@@ -36,6 +36,10 @@ updateMovementState();
 // face mouse OR stick direction OR lockOnTarget (by default)
 updateFacingDirection();
 
+if state != CombatantStates.Attacking && ds_map_size(recoveringLimbs) != 0 {
+	ds_map_clear(recoveringLimbs);
+}
+
 // reset healingFrame if not in healing
 if healingFrame != 0 && state != CombatantStates.Healing {
 	healingFrame = 0;

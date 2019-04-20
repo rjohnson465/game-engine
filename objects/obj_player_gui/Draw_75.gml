@@ -40,9 +40,6 @@ if gamepad_is_connected(pad) {
 // draw equipping mode belt items, m/k
 else {
 	var y1 = vh - 108;
-	if isDrawingAttunements {
-		y1 = vh - 108 - (bSlotWidth);
-	}
 	for (var i = 0; i < array_length_1d(p.beltItems); i++) {
 		var x1 = initX + (i * bSlotWidth); 
 		var item = p.beltItems[i];

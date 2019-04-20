@@ -130,6 +130,7 @@ var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
 var leftHandItem2 = getItemInEquipmentSlot(EquipmentSlots.LeftHand2);
 var rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
 var rightHandItem2 = getItemInEquipmentSlot(EquipmentSlots.RightHand2);
+var isDrawingAttunements = rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0;
 
 // left hand
 var vh = view_get_hport(view_camera[0]);
@@ -155,29 +156,45 @@ if leftHandItem.spriteName != "unarmed" {
 // left hand prompts
 if (gamepad_is_connected(pad)) {
 	draw_sprite_ext(spr_prompt_xbox_lb,1,10,vh-70, .2, .2, 0, c_white, .6);
-	draw_sprite_ext(spr_prompt_xbox_pad_l,1,10, vh-35, .2, .2, 0, c_white, .6);
+	if !p.isHoldingAttunemntSwapMode {
+		draw_sprite_ext(spr_prompt_xbox_pad_l,1,10, vh-35, .2, .2, 0, c_white, .6);
+	}
 } else {
 	draw_sprite_ext(spr_prompt_mk_lb,1,10,vh-70, .2, .2, 0, c_white, .6);
 	draw_sprite_ext(spr_prompt_mk_q,1,10, vh-35, .2, .2, 0, c_white, .6);
 }
 
-// middle button (spell)
+// middle button (spell if m/k, item if controller)
 draw_sprite_ext(spr_item_slot,1,80,vh-70,1,1,0,c_white,.5);
-
-var spell = asset_get_index("spr_item_"+global.player.currentSpell+"_"+global.player.currentSpellAttunement);
-if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
-	draw_sprite(spell,1,80,vh-70);
-} else {
-	draw_sprite_ext(spell,1,80,vh-70,1,1,0,c_gray,.75);
-}
-// spell prompt
-if (gamepad_is_connected(pad) && (rightHandItem.charges != 0 || leftHandItem.charges != 0)) {
-	draw_sprite_ext(spr_prompt_xbox_lt,1,80,vh-70, .2, .2, 0, c_white, .6);
-	if !p.isHoldingAttunemntSwapMode {
-	draw_sprite_ext(spr_prompt_xbox_pad_ud,1, 100, vh-26, .2, .2, 0, c_white, .6);
+if gamepad_is_connected(pad) {
+	// draw the current belt item
+	var beltItemCurrent = p.beltItems[p.currentBeltItemIndex];
+	if beltItemCurrent != noone && beltItemCurrent != undefined && instance_exists(beltItemCurrent) {
+		drawItem(beltItemCurrent, 80, vh-70, 0, 1, 1, 0);
 	}
-} else if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
-	draw_sprite_ext(spr_prompt_mk_mb,1,80,vh-70, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_xbox_x,1,125,vh-70, .2, .2, 0, c_white, .6);
+	if !p.isHoldingAttunemntSwapMode {
+		draw_sprite_ext(spr_prompt_xbox_pad_ud,1, 100, vh-26, .2, .2, 0, c_white, .6);
+	}
+}
+// m/k middle slot
+else if isDrawingAttunements {
+
+	var spell = asset_get_index("spr_item_"+global.player.currentSpell+"_"+global.player.currentSpellAttunement);
+	if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
+		draw_sprite(spell,1,80,vh-70);
+	} else {
+		draw_sprite_ext(spell,1,80,vh-70,1,1,0,c_gray,.75);
+	}
+	// spell prompt
+	if (gamepad_is_connected(pad) && (rightHandItem.charges != 0 || leftHandItem.charges != 0)) {
+		draw_sprite_ext(spr_prompt_xbox_lt,1,80,vh-70, .2, .2, 0, c_white, .6);
+		if !p.isHoldingAttunemntSwapMode {
+			draw_sprite_ext(spr_prompt_xbox_pad_ud,1, 100, vh-26, .2, .2, 0, c_white, .6);
+		}
+	} else if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
+		draw_sprite_ext(spr_prompt_mk_mb,1,80,vh-70, .2, .2, 0, c_white, .6);
+	}
 }
 
 // right hand
@@ -212,7 +229,9 @@ if (gamepad_is_connected(pad)) {
 	var promptWidth = sprite_get_width(spr_prompt_xbox_rb) * .2;
 	var px = (150 + slotWidth) - promptWidth;
 	draw_sprite_ext(spr_prompt_xbox_rb,1,px,vh-70, .2, .2, 0, c_white, .6);
-	draw_sprite_ext(spr_prompt_xbox_pad_r,1,px, vh-35, .2, .2, 0, c_white, .6);
+	if !p.isHoldingAttunemntSwapMode {
+		draw_sprite_ext(spr_prompt_xbox_pad_r,1,px, vh-35, .2, .2, 0, c_white, .6);
+	}
 } else {
 	var promptWidth = sprite_get_width(spr_prompt_xbox_rb) * .2;
 	var px = (150 + slotWidth) - promptWidth;
@@ -220,12 +239,11 @@ if (gamepad_is_connected(pad)) {
 	draw_sprite_ext(spr_prompt_mk_e,1,px, vh-35, .2, .2, 0, c_white, .6);
 }
 
-// draw belt
-var isDrawingAttunements = rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0;
-var bScale = .625; // draw items at .625 scale, so they line up with attunements
-var bSlotWidth = slotWidth * bScale;
-global.gameManager.isMouseOverBelt = false;
+
+/*
 if gamepad_is_connected(pad) {
+	
+	
 	// draw single belt item (the selected one) if gamepad is connected and not equipping a belt item
 	if !p.isEquippingBeltItem && (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) {
 		var shownSlotY = vh-108-bSlotWidth-5;
@@ -334,15 +352,20 @@ if gamepad_is_connected(pad) {
 	else {
 		// this is if we're doing an belt equip event
 		// handled in Draw GUI End event, so the belt is drawn over the ui
-	}
-}
+	} 
+} */
 // show belt items, mouse/keyboard
-else {
+// TODO -- show this under attunements, since it is always there
+// draw belt
+
+var bScale = .625; // draw items at .625 scale, so they line up with attunements
+var bSlotWidth = slotWidth * bScale;
+global.gameManager.isMouseOverBelt = false;
+var attunementsY = gamepad_is_connected(pad) ? vh - 108 : vh - 108 - bSlotWidth;
+
+if !gamepad_is_connected(pad) {
 	
 	var y1 = vh - 108;
-	if isDrawingAttunements {
-		y1 = vh - 108 - (bSlotWidth);
-	}
 	var initX = 12;
 
 	for (var i = 0; i < array_length_1d(p.beltItems); i++) {
@@ -372,11 +395,11 @@ else {
 		}
 		
 		draw_set_font(font_damage); draw_set_valign(fa_bottom); draw_set_halign(fa_left);
-		scr_draw_text_outline(x1, y1 + bSlotWidth, "F" + string(i+1), c_white, c_white);
+		scr_draw_text_outline(x1, y1 + bSlotWidth, string(i+1), c_white, c_white);
 	}
 }
 
-// draw attunements
+// draw 
 if isDrawingAttunements {
 	
 	var init_x = 12; // changes on each iteration
@@ -389,37 +412,155 @@ if isDrawingAttunements {
 		
 		if global.player.currentSpellAttunement != el {
 			var sw = sprite_get_width(attunementSpriteIndex);
-			if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+vh-108,vx+x1+sw,vy+vh-108+sw) || global.player.isHoldingAttunemntSwapMode {
-				draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_white,1);
-				draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_gray,.75);
+			if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+attunementsY,vx+x1+sw,vy+attunementsY+sw) || global.player.isHoldingAttunemntSwapMode {
+				draw_sprite_ext(attunementSpriteIndex,1,x1,attunementsY,1,1,0,c_white,1);
+				draw_sprite_ext(attunementSpriteIndex,1,x1,attunementsY,1,1,0,c_gray,.75);
 			} else {
-				draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_gray,.75);
+				draw_sprite_ext(attunementSpriteIndex,1,x1,attunementsY,1,1,0,c_gray,.75);
 			}
 		} else {
-			draw_sprite_ext(attunementSpriteIndex,1,x1,vh-108,1,1,0,c_white,1);
+			draw_sprite_ext(attunementSpriteIndex,1,x1,attunementsY,1,1,0,c_white,1);
 		}
-		if !gamepad_is_connected(global.player.gamePadIndex) {
+		// draw attunements hotkeys, if m/k
+		if !gamepad_is_connected(pad) {
 			draw_set_font(font_damage);
 			draw_set_halign(fa_left); draw_set_valign(fa_top);
-			script_execute(scr_draw_text_outline,x1+1,vh-110,string(i+1),c_white,c_white);
+			var c2 = c_white;
+			switch i {
+				case 0: {
+					c2 = c_aqua; break;
+				}
+				case 1: {
+					c2 = c_orange; break;
+				}
+				case 2: {
+					c2 = c_silver; break;
+				}
+				case 3: {
+					c2 = c_lime; break;
+				}
+				case 4: {
+					c2 = c_fuchsia; break;
+				}
+			}
+			script_execute(scr_draw_text_outline,x1+1,attunementsY-2, "F" + string(i+1),c_white,c2);
 		}
-	}
-	
-	// draw rt prompt if pad is connected
-	if gamepad_is_connected(pad) {
-		// draw_sprite_ext(spr_prompt_xbox_rt,1,final_x-20, vh-108, .2, .2, 0, c_white, .6);
 	}
 	
 	// draw an outline if holding rt (in attunement swap mode)
 	if global.player.isHoldingAttunemntSwapMode {
 		var yyy = vh-108; var yyy2 = yyy + sprite_get_height(spr_attunement_fire);
 		draw_set_color(c_white);
-		draw_rectangle(init_x, vh - 108, final_x, yyy2, 1);
+		draw_rectangle(init_x, attunementsY, final_x, yyy2, 1);
 		
 		// draw pad lr prompt
-		draw_sprite_ext(spr_prompt_xbox_pad_lr,1,mean(init_x,final_x)-5, vh-135, .2, .2, 0, c_white, 1);
+		draw_sprite_ext(spr_prompt_xbox_pad_lr,1,mean(init_x,final_x)-5, attunementsY-35, .2, .2, 0, c_white, 1);
 	}
 }
+
+// draw the current spell
+// the current spell is on the left side of the attunement bar, a bit above
+if gamepad_is_connected(pad) && isDrawingAttunements {
+	var shownSpellY = attunementsY-bSlotWidth-5;
+	var shownSpellX = 10;
+	var spell = asset_get_index("spr_item_"+p.currentSpell+"_"+p.currentSpellAttunement);
+	var nextSpellHeight = bSlotWidth / 2;
+		
+	var alpha = 0;
+	if p.isHoldingAttunemntSwapMode {
+		alpha = 1;
+		// show main spell slot a bit higher up, since we'll show the next spells (above + below)
+		shownSpellY -= nextSpellHeight;
+	} else {
+		alpha = .75;
+		// draw right trigger prompt (to enter swap item / attunement mode)
+		draw_sprite_ext(spr_prompt_xbox_rt,1,shownSpellX + bSlotWidth + 10, mean(shownSpellY, shownSpellY + bSlotWidth), .2, .2, 0, c_white, .6);
+	}
+	draw_sprite_ext(spr_item_slot, 1, shownSpellX, shownSpellY, bScale, bScale, 0, c_white, alpha);
+	if (spell != undefined && spell != noone && spell > 0) {
+		if leftHandItem.charges != 0 || rightHandItem.charges != 0 {
+			draw_sprite_ext(spell, 1, shownSpellX, shownSpellY, bScale, bScale, 0, c_white, 1);
+		} else {
+			draw_sprite_ext(spell,1,shownSpellX,shownSpellY,bScale,bScale,0,c_gray,.75);
+		}
+		// draw lt prompt to cast this spell
+		draw_sprite_ext(spr_prompt_xbox_lt,1,shownSpellX, shownSpellY, .2, .2, 0, c_white, .6);
+		
+		if p.isHoldingAttunemntSwapMode {
+			var spellObj = ds_map_find_value(p.knownSpells, p.currentSpell);
+			var spellName = spellObj.name;
+			var c2 = c_white;
+			switch p.currentSpellAttunement {
+				case MAGIC: {
+					c2 = c_aqua; break;
+				}
+				case FIRE: {
+					c2 = c_orange; break;
+				}
+				case ICE: {
+					c2 = c_silver; break;
+				}
+				case POISON: {
+					c2 = c_lime; break;
+				}
+				case LIGHTNING: {
+					c2 = c_fuchsia; break;
+				}
+			}
+			draw_set_font(font_damage);
+			scr_draw_text_outline(shownSpellX, shownSpellY - nextSpellHeight - 20, spellName, c_white, c2);
+		}
+	}
+	
+	if p.isHoldingAttunemntSwapMode {
+		// draw the next spell
+		var maybeNext = ds_map_find_next(p.knownSpells,p.currentSpell);
+		var nextSpellName = "";
+		if is_undefined(maybeNext) {
+			nextSpellName = ds_map_find_first(p.knownSpells);
+		} else {
+			nextSpellName = maybeNext;
+		}
+		var nextSpellSpr = asset_get_index("spr_item_"+nextSpellName+"_"+p.currentSpellAttunement);
+		draw_sprite_ext(spr_item_slot, 1, shownSpellX+(.5*bSlotWidth), shownSpellY+bSlotWidth, bScale / 2, bScale / 2, 0, c_white, alpha);
+		if (nextSpellSpr != undefined && nextSpellSpr != noone && nextSpellSpr > 0) {
+			draw_sprite_ext(nextSpellSpr, 1, shownSpellX+(.5*bSlotWidth), shownSpellY+bSlotWidth, bScale / 2, bScale / 2, 0, c_white, alpha);
+		}
+		
+		// draw the prev spell
+		var maybePrev = ds_map_find_previous(p.knownSpells,p.currentSpell);
+		var prevSpellName = "";
+		if is_undefined(maybePrev) {
+			prevSpellName = ds_map_find_last(p.knownSpells);
+		} else {
+			prevSpellName = maybePrev;
+		}
+		var prevSpellSpr = asset_get_index("spr_item_"+prevSpellName+"_"+p.currentSpellAttunement);
+		draw_sprite_ext(spr_item_slot, 1, shownSpellX+(.5*bSlotWidth), shownSpellY-nextSpellHeight, bScale / 2, bScale / 2, 0, c_white, alpha);
+		if (prevSpellSpr != undefined && prevSpellSpr != noone && prevSpellSpr > 0) {
+			draw_sprite_ext(prevSpellSpr, 1, shownSpellX+(.5*bSlotWidth), shownSpellY-nextSpellHeight, bScale / 2, bScale / 2, 0, c_white, alpha);
+		}
+		
+		// draw pad up/down prompt
+		draw_sprite_ext(spr_prompt_xbox_pad_ud,1,shownSpellX + bSlotWidth + 10, mean(shownSpellY, shownSpellY + bSlotWidth)-5, .2, .2, 0, c_white, 1);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // menus
 if isShowingMenus {

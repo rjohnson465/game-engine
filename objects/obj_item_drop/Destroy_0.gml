@@ -1,7 +1,9 @@
 part_type_destroy(particle);
 part_emitter_destroy(system,emitter);
 part_system_destroy(system);
-instance_destroy(lightRadius);
+if lightRadius != noone && lightRadius != undefined && lightRadius > 0 && instance_exists(lightRadius) {
+	instance_destroy(lightRadius, 1); lightRadius = -1;
+}
 
 // destroy any items you hold still 
 if ds_exists(items,ds_type_list) {

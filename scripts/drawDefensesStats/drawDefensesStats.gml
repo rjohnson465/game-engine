@@ -112,6 +112,7 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 line+=3;
 
 // poise
+draw_set_color(c_white);
 draw_sprite(spr_stats_poise,1,wdCol1XPictures,startingY+(line*20));
 if ui.isShowingExplanations {
 	draw_text_ext(wdCol1XText,startingY+(line*20),"Determines stagger chance and duration",20,wdCol1Width-21);

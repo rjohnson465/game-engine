@@ -70,6 +70,10 @@ with obj_player {
 	lightRadiusColor = c_white;
 }
 
+// teleport player to boss start coordinates
+with global.player {
+	x = other.teleportX; y = other.teleportY;
+}
 
 // trigger a save 
 with obj_game_manager {

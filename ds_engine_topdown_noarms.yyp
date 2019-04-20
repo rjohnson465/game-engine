@@ -12911,6 +12911,14 @@
             }
         },
         {
+            "Key": "e0e7ccc8-b881-4a4e-bc5b-1c38ef0e8ed6",
+            "Value": {
+                "id": "cb5b0666-ff00-48d9-a0fc-6ef1e3283dab",
+                "resourcePath": "objects\\obj_boss_gate\\obj_boss_gate.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e10fa1bb-b433-4e17-abd0-fe402c2940d4",
             "Value": {
                 "id": "6de569a7-3624-4be3-94b6-7bd19d7f4dc6",

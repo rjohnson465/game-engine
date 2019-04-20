@@ -110,6 +110,13 @@ if instance_exists(fade) {
 				// populateGrids();
 				global.isPopulatingGrids = true;
 				global.respawnEnemiesAfterGridsPopulate = true;
+				// special -- reset boss healths
+				with obj_enemy_parent {
+					if isBoss {
+						hp = maxHp;
+						cureAllConditions();
+					}
+				}
 				
 			}
 			
