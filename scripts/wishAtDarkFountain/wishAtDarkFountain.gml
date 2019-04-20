@@ -16,10 +16,11 @@ with obj_player {
 	}
 }
 
+/*
 if performBlur {
 	alarm[0] = 30; // trigger radial blur
 	application_surface_draw_enable(false);
-}
+}*/
 	
 // wish at fountain
 audio_play_sound(snd_fountain_wish,1,0);
@@ -72,8 +73,17 @@ with obj_player {
 
 // teleport player to boss start coordinates
 with global.player {
-	x = other.teleportX; y = other.teleportY;
+	x = other.teleportX; 
+	y = other.teleportY;
 }
+
+var p = global.player;
+var l = p.layer;
+var lname = layer_get_name(l);
+var xx = p.x; 
+var yy = p.y;
+
+var a = 3;
 
 // trigger a save 
 with obj_game_manager {

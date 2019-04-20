@@ -63,12 +63,12 @@ if conditionLevel == 0 {
 		case POISON: {
 			// poison gets worse the longer it goes
 			if conditionPercent > 90 {
-				num = 1;
+				num = -2;
 			} else if conditionPercent > 50 {
-				num = 3;
+				num = -1;
 			} else if conditionPercent > 25 {
-				num = 6;
-			} else num = 9;
+				num = 1;
+			} else num = 2;
 			break;
 		}
 		case ICE: {

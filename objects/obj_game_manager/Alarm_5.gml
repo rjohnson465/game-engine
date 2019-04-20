@@ -39,4 +39,5 @@ with obj_combatant_parent {
 
 
 instance_activate_object(obj_fountain);
+instance_activate_object(obj_fountain_dark);
 alarm[5] = deactivationSteps;

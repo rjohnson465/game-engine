@@ -198,7 +198,7 @@ if global.populateInventory {
 	longsword.persistent = true;
 	longsword.numberOfSockets = 3;
 	insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
-	insertGemIntoItem(makeGem(obj_gem_aquamarine,CRACKED),longsword);
+	insertGemIntoItem(makeGem(obj_gem_emerald,CRACKED),longsword);
 	insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 	addItemToInventory(longsword);
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));

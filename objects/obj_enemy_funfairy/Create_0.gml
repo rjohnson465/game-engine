@@ -70,7 +70,7 @@ var hammerTwirl2 = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_2_2);
 var c0 = [hammerSwing];
 var c1 = [hammerTwirl1, hammerTwirl2];
 var c2 = [hammerSwing, hammerTwirl2];
-meleeAttacks = [c0, c1, c2, c1, c1];
+meleeAttacks = [c0, c1, c2];
 // ranged attacks info
 
 // currently chosen ranged attack

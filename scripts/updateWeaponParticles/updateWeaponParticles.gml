@@ -48,9 +48,26 @@ for (var i = 0; i < ds_list_size(damageTypes); i++) {
 	var damageType = ds_list_find_value(damageTypes,i);
 	var part = ds_map_find_value(wpMap,damageType);
 	weaponParticles[i] = part;
-	weaponParticlesNums[i] = -2;
 	
-	if damageType == LIGHTNING weaponParticlesNums[i] = 2;
+	// TODO -- calculate weapon particle amount based on sq px of base weapon sprite
+	// baseline -- 2700px sq (52x52) should return -1
+	
+	var numParticles = -2;
+	var baseSprite = sprite_index;
+	var sw = sprite_get_bbox_right(baseSprite) - sprite_get_bbox_left(baseSprite);
+	var sh = sprite_get_bbox_bottom(baseSprite) - sprite_get_bbox_top(baseSprite);
+	var pxSq = sw * sh;
+	numParticles = ((1/2700)*pxSq)-3;
+	
+	if numParticles == 0 {
+		numParticles = -1;
+	}
+	
+	weaponParticlesNums[i] = numParticles;
+	
+	if damageType == LIGHTNING {
+		weaponParticlesNums[i] = numParticles + 2;
+	}
 
 }
 ds_list_destroy(damageTypes); damageTypes = -1;
