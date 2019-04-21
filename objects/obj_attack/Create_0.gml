@@ -35,13 +35,18 @@ isSoundLooping = false;
 weaponParticles = [noone, noone, noone, noone, noone];
 weaponParticlesNums = [noone, noone, noone, noone, noone];
 
-// determine attack type
-if isSpell {
-	instance_change(obj_attack_spell,1); exit;
-}
+
 if owner.type != CombatantTypes.Player {
-	isRanged = owner.currentMeleeAttack == noone ? true: false;
-	isMelee = owner.currentMeleeAttack == noone ? false : true;
+	attackData = global.attackData;
+	// isRanged = owner.currentMeleeAttack == noone ? true: false;
+	// isMelee = owner.currentMeleeAttack == noone ? false : true;
+	isRanged = attackData.isRanged;
+	isMelee = !attackData.isRanged;
+	isSpell = attackData.isSpell;
+	if attackData.attackObjectIndex != noone {
+		instance_change(attackData.attackObjectIndex, 1);
+		exit;
+	}
 } else {
 	weapon = ds_map_find_value(owner.equippedLimbItems,limbKey);
 	isRanged = weapon.subType == HandItemTypes.Ranged;
@@ -57,23 +62,29 @@ weapon = ds_map_find_value(owner.equippedLimbItems,limbKey);
 if weapon == undefined weapon = noone;
 // get attack number
 if owner.type != CombatantTypes.Player {
-	isRanged = owner.currentMeleeAttack == noone ? true: false;
-	isMelee = owner.currentMeleeAttack == noone ? false : true;
+	// isRanged = owner.currentMeleeAttack == noone ? true: false;
+	// isMelee = owner.currentMeleeAttack == noone ? false : true;
 	attackNumber = owner.currentMeleeAttack == noone ? owner.currentRangedAttack : owner.currentMeleeAttack;
 	attackNumberInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
-	if isMelee {
+	/* if isMelee {
 		var attackChain = owner.meleeAttacks[attackNumber];
 		attackData = attackChain[attackNumberInChain-1];
 	} else {
 		var attackChain = owner.rangedAttacks[attackNumber];
 		attackData = attackChain[attackNumberInChain-1];
-	}
+	} */
 } else {
 	attackNumber = ds_map_find_value(owner.attackingLimbs,limbKey);
 	attackNumberInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
 		
 	isRanged = weapon.subType == HandItemTypes.Ranged;
 	isMelee = weapon.subType == HandItemTypes.Melee;
+}
+
+// determine attack type
+if isSpell {
+	instance_change(obj_attack_spell,1); 
+	exit;
 }
 
 // sounds
@@ -212,10 +223,10 @@ else {
 // ranged attacks 
 if isRanged {
 	visible = true;
-	if weapon {
-		speed = weapon.projectileSpeed;
-	} else {
+	if attackData > 0 {
 		speed = attackData.projectileSpeed;
+	} else if weapon > 0 {
+		speed = weapon.projectileSpeed;
 	}
 	direction = owner.facingDirection;
 	facingDirection = direction; // facingDirection property needed for is_facing script

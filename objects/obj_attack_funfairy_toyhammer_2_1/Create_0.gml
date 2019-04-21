@@ -17,3 +17,5 @@ hitSound = snd_squeaky_hit;
 prepSoundsVocals = [snd_enemy_funfairy_prep_2];
 
 minRange = 100;
+
+weaponRequired = obj_hand_item_toyhammer;

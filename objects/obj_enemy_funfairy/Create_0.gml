@@ -19,8 +19,11 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 // all weapons / shields enemy can use
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var toyhammer = makeEnemyWeapon(obj_hand_item_toyhammer);
+var pie = makeEnemyWeapon(obj_hand_item_pie);
 ds_map_replace(handItems,"lm1",toyhammer);
 ds_map_replace(handItems,"rm1",unarmed);
+ds_map_replace(handItems,"lm2",pie);
+ds_map_replace(handItems,"rm2",unarmed);
 ds_map_replace(handItems,"lr1",noone);
 ds_map_replace(handItems,"rr1",noone);
 rangedRangeArray = []; rangedAttacks = [];
@@ -40,7 +43,7 @@ meleeAggroRange = 800;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 1000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
-attackFrequencyTotalFramesMelee = [30,60];
+attackFrequencyTotalFramesMelee = [30,90];
 attackFrequencyTotalFramesRanged = [45,70];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[500,600];
@@ -67,10 +70,19 @@ var hammerSwing = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_1_1);
 var hammerTwirl1 = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_2_1);
 var hammerTwirl2 = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_2_2);
 
+var magicmissile = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_3_1);
+
+var pieThrow = makeEnemyAttackObj(obj_attack_funfairy_pie_1_1);
+
 var c0 = [hammerSwing];
 var c1 = [hammerTwirl1, hammerTwirl2];
 var c2 = [hammerSwing, hammerTwirl2];
-meleeAttacks = [c0, c1, c2];
+var c3 = [magicmissile];
+var c4 = [pieThrow];
+var c5 = [hammerSwing, pieThrow];
+var c6 = [pieThrow, hammerSwing];
+meleeAttacks = [c0, c1, c2, c3, c4, c5, c6];
+//meleeAttacks = [c4];
 // ranged attacks info
 
 // currently chosen ranged attack

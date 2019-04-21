@@ -15,3 +15,5 @@ attackSound = snd_axe2h_attack_1;
 hitSound = snd_squeaky_hit;
 
 minRange = 150;
+
+weaponRequired = obj_hand_item_toyhammer;

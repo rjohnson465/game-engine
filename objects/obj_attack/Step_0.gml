@@ -35,9 +35,20 @@ if !hasSetAlarm && part_type_exists(particle) {
 		var x1 = bbox_left; var x2 = bbox_right;
 		var y1 = bbox_top; var y2 = bbox_bottom;
 		part_emitter_region(system,emitter,x1,x2,y1,y2,ps_shape_ellipse,0);
-		part_emitter_burst(system,emitter,particle, 2);
+		
+		var n1 = 2;
+		if attackData != noone && attackData.part1Num != noone {
+			n1 = attackData.part1Num;
+		}
+		
+		part_emitter_burst(system,emitter,particle, n1);
+		
 		if particle2 {
-			part_emitter_burst(system,emitter,particle2, 2);
+			var n2 = 2;
+			if attackData != noone && attackData.part1Num != noone {
+				n2 = attackData.part2Num;
+			}
+			part_emitter_burst(system,emitter,particle2, n2);
 		}
 	}
 }

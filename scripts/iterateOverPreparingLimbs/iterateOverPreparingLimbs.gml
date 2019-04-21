@@ -50,6 +50,7 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 		// create attack object
 		global.owner = id; // passed as param to attackObj
 		global.limbKey = currentPreparingLimbKey;
+		global.attackData = attackData;
 		var attackObj = instance_create_depth(x,y,1,obj_attack);
 		
 		if attackData.prepSound != noone {

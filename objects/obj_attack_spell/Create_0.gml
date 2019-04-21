@@ -29,40 +29,45 @@ soundEmitter = audio_emitter_create();
 sound = noone;
 isSoundLooping = false;
 
-percentCharged = global.percentCharged;
+if owner.type == CombatantTypes.Player {
+	percentCharged = global.percentCharged;
 
-// spell logic
-isRanged = true;
-visible = true;
-isSpell = true;
-percentCharged = global.percentCharged;
+	// spell logic
+	visible = true;
+	isSpell = true;
+	percentCharged = global.percentCharged;
 	
-// spell scale dependent on percentCharged
-// 50% charged = scale of 1
-var scale = ((percentCharged*100)/100)+.5;
-image_xscale = scale; image_yscale = scale;
+	// spell scale dependent on percentCharged
+	// 50% charged = scale of 1
+	var scale = ((percentCharged*100)/100)+.5;
+	image_xscale = scale; image_yscale = scale;
 	
-var currentSpell = ds_map_find_value(owner.knownSpells,owner.currentUsingSpell);
-spell = currentSpell;
+	var currentSpell = ds_map_find_value(owner.knownSpells,owner.currentUsingSpell);
+	spell = currentSpell;
 	
-// set spell damage type based on attunement
-for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
-	var el = global.ALL_ELEMENTS[i];
-	if el == owner.currentSpellAttunement {
-		spellElement = el;
-		ds_map_replace(spell.damages,el,[spell.minDamage,spell.maxDamage]);
-	} else {
-		ds_map_replace(spell.damages,el,[0,0]);
+	// set spell damage type based on attunement
+	for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
+		var el = global.ALL_ELEMENTS[i];
+		if el == owner.currentSpellAttunement {
+			spellElement = el;
+			ds_map_replace(spell.damages,el,[spell.minDamage,spell.maxDamage]);
+		} else {
+			ds_map_replace(spell.damages,el,[0,0]);
+		}
 	}
-}
+
 	
-var attunementSpriteName = owner.currentSpellAttunement;
-if spell.spriteName != "aoe" {
-	sprite_index = asset_get_index("spr_spell_"+spell.spriteName+"_"+attunementSpriteName);
+	var attunementSpriteName = owner.currentSpellAttunement;
+	if spell.spriteName != "aoe" {
+		sprite_index = asset_get_index("spr_spell_"+spell.spriteName+"_"+attunementSpriteName);
+	} else {
+		sprite_index = asset_get_index("spr_spell_magicmissile_"+attunementSpriteName);
+	}
 } else {
-	sprite_index = asset_get_index("spr_spell_magicmissile_"+attunementSpriteName);
+	spell = global.attackData;
 }
 var totalProjectiles = spell.numberOfProjectiles;
+
 	
 speed = spell.projectileSpeed;
 // TODO get a math major -- calculate spread dynamically, not statically

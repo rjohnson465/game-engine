@@ -95,9 +95,9 @@ if	state != CombatantStates.Dodging &&
 		else {
 			attackNumber = attackObj.attackNumber;
 			attackNumberInChain = attackObj.attackNumberInChain;
-			var isRanged = attackObj.isRanged;
-			var attackChain = isRanged ? attackObj.owner.rangedAttacks[attackNumber] : attackObj.owner.meleeAttacks[attackNumber];
-			attackData = attackChain[attackNumberInChain-1];
+			// var isRanged = attackObj.isRanged;
+			// var attackChain = isRanged ? attackObj.owner.rangedAttacks[attackNumber] : attackObj.owner.meleeAttacks[attackNumber];
+			attackData = attackObj.attackData
 			//damagesMap = attackData.damages;
 			damagesMap = attackObj.attackData.damages;
 			

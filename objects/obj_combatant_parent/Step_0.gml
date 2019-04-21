@@ -337,6 +337,12 @@ switch(state) {
 				}
 			}
 			
+			// maybe switch weapons, if the attack we've chosen (attackData) specifies 
+			// a weapon we do not have equipped at the moment
+			if attackData != noone && attackData.weaponRequired != noone {
+				maybeSwitchWeapons();
+			}
+			
 			// aim when preparing attack
 			if ds_map_size(preparingLimbs) != 0 && ds_map_size(attackingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 && attackData.type != AttackTypes.AOE {
 				turnToFacePoint(attackData.turnSpeed,lockOnTarget.x,lockOnTarget.y);

@@ -8,7 +8,8 @@
         "4272b8fa-2dc3-41e4-b850-af3e25095b0c",
         "ba7c8033-6697-4155-b1ff-fad6a6096922",
         "f24cceec-e5df-468b-b25c-2bf4a3a310ce",
-        "2816ecfb-6802-4ab9-be43-6b0d4c45babf"
+        "2816ecfb-6802-4ab9-be43-6b0d4c45babf",
+        "bf8d6348-e839-4ec2-a77d-df7b186f4b7b"
     ],
     "filterType": "GMSound",
     "folderName": "funfairy",

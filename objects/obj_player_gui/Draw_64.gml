@@ -507,7 +507,7 @@ if gamepad_is_connected(pad) && isDrawingAttunements {
 					c2 = c_fuchsia; break;
 				}
 			}
-			draw_set_font(font_damage);
+			draw_set_font(font_damage); draw_set_halign(fa_left);
 			scr_draw_text_outline(shownSpellX, shownSpellY - nextSpellHeight - 20, spellName, c_white, c2);
 		}
 	}

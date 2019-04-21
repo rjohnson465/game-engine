@@ -23,6 +23,11 @@ limbKey = noone; // l | r | s | e | o | <limbKey> | noone
 
 damages = ds_map_create();
 isRanged = false;
+
+isSpell = false;
+numberOfProjectiles = 1;
+spellName = "";
+
 isBlockable = true;
 projectileSpeed = 0;
 numberOfTargets = 1;
@@ -62,5 +67,13 @@ doesNotStagger = false; // attacks normally have a chance to stagger opponents. 
 prepPart1 = noone;
 prepPart1Num = 4;
 prepPart1BelowOwner = false;
+// this is a four digit array, with top, left, right, and bottom offsets (from the attacker's origin)
+prepPartBoundingBox = noone;
+prepPartStartFrame = noone;
 
 usesWeapon = false;
+
+// if a weapon is required for this attack, the attacker must switch to this weapon before attack begins
+weaponRequired = noone;
+
+attackObjectIndex = noone;
