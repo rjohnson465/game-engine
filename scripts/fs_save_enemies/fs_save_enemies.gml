@@ -32,7 +32,13 @@ var cri = ds_map_find_first(sd_temp_enemydatas); // current room index
 for (var i = 0 ; i < ds_map_size(sd_temp_enemydatas); i++) {
 	var sd_temp_enemy_data = ds_map_find_value(sd_temp_enemydatas, cri);
 	
+	// must manually destroy mapToDelete in case it contains submaps which also must be destroyed before deletion
+	var mapToDelete = ds_map_find_value(sd_enemydatas, cri);
 	ds_map_delete(sd_enemydatas, cri);
+	if mapToDelete != undefined && ds_exists(mapToDelete, ds_type_map) {
+		ds_map_destroy(mapToDelete); mapToDelete = -1;
+	}
+	
 	var sd_temp_enemy_data_copy = ds_map_deep_clone(sd_temp_enemy_data);
 	ds_map_add_map(sd_enemydatas, cri, sd_temp_enemy_data_copy);
 	

@@ -17,7 +17,12 @@ for (var i = 0; i < ds_map_size(sd_enemydatas); i++) {
 	var sd_enemydata_copy = ds_map_deep_clone(sd_enemydata);
 	
 	// obj_room_data will use that when creating its enemiesData property
+	var mapToDelete = ds_map_find_value(sd_temp_enemydatas, crn);
 	ds_map_delete(sd_temp_enemydatas, crn);
+	if mapToDelete != undefined && ds_exists(mapToDelete, ds_type_map) {
+		ds_map_destroy(mapToDelete); mapToDelete = -1;
+	}
+	
 	ds_map_add_map(sd_temp_enemydatas, crn, sd_enemydata_copy);
 	
 }
@@ -25,6 +30,7 @@ for (var i = 0; i < ds_map_size(sd_enemydatas); i++) {
 ds_map_secure_save(sd_temp_enemydatas, TEMP_ENEMYDATA_FILENAME);
 
 // force obj_room_data create event so "enemiesData" property is reset
+// TODO this is probably a really bad idea
 with obj_room_data {
 	event_perform(ev_create,0);
 }

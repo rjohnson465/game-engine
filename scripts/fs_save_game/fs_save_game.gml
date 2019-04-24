@@ -6,28 +6,27 @@ if filename = noone filename = "Game.sav";
 global.gameManager.currentSaveFile = filename;
 
 // save player info
-var playerDataMap = fs_save_player(); // CLEAN: no memory leaks
+var playerDataMap = fs_save_player(); // CLEAN
 ds_map_add_map(save_data,"Player",playerDataMap);
 
 // save roomdata info
-var roomDataMap = fs_save_roomdata(); // CLEAN: no memory leaks
+var roomDataMap = fs_save_roomdata(); // CLEAN
 ds_map_add_map(save_data,"RoomData",roomDataMap);
 
 // save enemy info
-var enemyDataMap = fs_save_enemies(); // CLEAN: no memory leaks
+var enemyDataMap = fs_save_enemies(); // CLEAN
 ds_map_add_map(save_data,"Enemies",enemyDataMap);
 
 // save inventory items
-var inventoryDataMap = fs_save_inventory();
+var inventoryDataMap = fs_save_inventory(); // CLEAN
 ds_map_add_map(save_data,"Inventory",inventoryDataMap);
 
-
 // save skills data
-var skillsDataMap = fs_save_skills();
+var skillsDataMap = fs_save_skills(); // CLEAN
 ds_map_add_map(save_data,"Skills",skillsDataMap);
 
 // save quests data 
-var questsDataMap = fs_save_quests();
+var questsDataMap = fs_save_quests(); // CLEAN
 ds_map_add_map(save_data,"Quests",questsDataMap);
 
 // save npc data

@@ -23,21 +23,6 @@ else {
 }
 ds_map_secure_save(sd_temp_roomdata, TEMP_ROOMDATA_FILENAME);
 
-
-// debug
-/*
-var ck = ds_map_find_first(sd_roomdata_copy);
-var me = noone;
-for (var j = 0; j < ds_map_size(sd_roomdata_copy); j++) {
-	var val = ds_map_find_value(sd_roomdata_copy, ck);
-	show_debug_message("sd_roomdata_copy" + " at key " + string(ck) + ": " + string(val));
-	if ds_exists(val, ds_type_map) {
-		me = val;
-	}
-	ck = ds_map_find_next(sd_roomdata_copy, ck);
-}
-*/
-
 ds_map_destroy(sd_temp_roomdata); sd_temp_roomdata = -1;
 ds_map_destroy(sd_roomdata_copy); sd_roomdata_copy = -1;
 

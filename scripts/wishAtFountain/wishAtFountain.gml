@@ -104,10 +104,9 @@ with obj_player {
 	lightRadiusColor = c_white;
 }
 
-/*
+
 // trigger a save 
 with obj_game_manager {
-	//ds_map_replace(other.data.properties, "isDoneFilling", true);
 	updatePersistentElementProperty(other, "isDoneFilling", true);
 	fs_save_game();
 	alert("Saving " + currentSaveFile, c_yellow);

@@ -13,7 +13,9 @@ if ds_exists(save_data, ds_type_map) {
 	} 
 } 
 
-if !ds_exists(sd_roomdatas, ds_type_map) sd_roomdatas = ds_map_create();
+if !ds_exists(sd_roomdatas, ds_type_map) {
+	sd_roomdatas = ds_map_create();
+}
 
 // force a save of the temp roomdata
 var rd = instance_nearest(x, y, obj_room_data);
@@ -35,7 +37,13 @@ for (var i = 0 ; i < ds_map_size(sd_roomdatas); i++) {
 }
 for (var i = 0; i < ds_list_size(garbageKeys); i++) {
 	var rn = ds_list_find_value(garbageKeys, i);
+	
+	// must manually destroy mapToDelete in case it contains submaps which also must be destroyed before deletion
+	var mapToDelete = ds_map_find_value(sd_roomdatas, rn);
 	ds_map_delete(sd_roomdatas, rn);
+	if mapToDelete != undefined && ds_exists(mapToDelete, ds_type_map) {
+		ds_map_destroy(mapToDelete); mapToDelete = -1;
+	}
 }
 ds_list_destroy(garbageKeys); garbageKeys = -1;
 
@@ -46,7 +54,13 @@ var cri = ds_map_find_first(sd_temp_roomdatas); // current room index
 for (var i = 0 ; i < ds_map_size(sd_temp_roomdatas); i++) {
 	var sd_temp_room_data = ds_map_find_value(sd_temp_roomdatas, cri);
 	
+	// must manually destroy mapToDelete in case it contains submaps which also must be destroyed before deletion
+	var mapToDelete = ds_map_find_value(sd_roomdatas, cri);
 	ds_map_delete(sd_roomdatas, cri);
+	if mapToDelete != undefined && ds_exists(mapToDelete, ds_type_map) {
+		ds_map_destroy(mapToDelete); mapToDelete = -1;
+	}
+	
 	var sd_temp_room_data_copy = ds_map_deep_clone(sd_temp_room_data); // need to clone, sd_temp_room_data will be destroyed later
 	ds_map_add_map(sd_roomdatas, cri, sd_temp_room_data_copy);
 	

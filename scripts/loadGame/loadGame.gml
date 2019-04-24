@@ -26,8 +26,7 @@ if instance_exists(obj_player) {
 	}
 	
 	with global.player {
-		//light_destroy_layer(getLayerFloorNumber(layer), playerLightRadius);
-		//instance_destroy(playerLightRadius,1);
+
 		instance_destroy(unarmed,1);
 		
 		// prevent mem leak
@@ -81,9 +80,12 @@ if instance_exists(obj_player) {
 		audio_emitter_free(walkingInWaterEmitter); walkingInWaterEmitter = -1;
 		
 		p.layerToMoveTo = ds_map_find_value(pData,"LastFountainZ");
+		event_perform(ev_cleanup, 0);
 		event_perform(ev_create,0);
 	}
 } 
+
+/*
 // destroy all items in inventory
 with obj_item_parent {
 	var _name = object_get_name(object_index);
@@ -116,16 +118,11 @@ if newX == undefined {
 	newRoomName = ds_map_find_value(pData,"LastFountainRoom");
 }
 
-// p.x = ds_map_find_value(pData,"LastFountainX");
-// p.y = ds_map_find_value(pData,"LastFountainY");
-
 // Ensure last fountain variables are configured
 p.lastFountainX = ds_map_find_value(pData,"LastFountainX");
 p.lastFountainY = ds_map_find_value(pData,"LastFountainY");
 p.lastFountainZ =ds_map_find_value(pData,"LastFountainZ");
 p.lastFountainRoom = ds_map_find_value(pData,"LastFountainRoom");
-
-// p.layerToMoveTo = ds_map_find_value(pData,"LastFountainZ");
 
 // Load in the player's last location / layer / room
 p.x = newX;
@@ -135,7 +132,7 @@ roomToGoTo = newRoomName;
 //roomToGoTo = ds_map_find_value(pData,"LastFountainRoom");
 
 room_goto(asset_get_index(roomToGoTo));
-audio_stop_all();
+audio_stop_all(); */
 
 ds_map_destroy(save_data); save_data = -1;
 

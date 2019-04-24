@@ -90,7 +90,7 @@ with rd {
 	// prevent memory leak -- destroy oldEnemiesData
 	ds_map_destroy(oldEnemiesData); oldEnemiesData = -1;
 	
-	/*
+	
 	// reset each enemy in the room's persistentProperties to the new one
 	var ck = ds_map_find_first(newEnemiesData);
 	for (var i = 0; i < ds_map_size(newEnemiesData); i++) {
@@ -101,7 +101,7 @@ with rd {
 			}
 		}
 		ck = ds_map_find_next(newEnemiesData, ck);
-	}  */
+	}  
 	
 }
 
@@ -119,7 +119,7 @@ with obj_enemy_parent {
 	jumpFrame = 0; wasJustHit = false;
 	showHp = false;
 
-	// persistentElementUpdateProperties(id);
+	persistentElementUpdateProperties(id);
 
 }
 

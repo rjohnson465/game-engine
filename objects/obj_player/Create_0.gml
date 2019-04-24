@@ -145,9 +145,6 @@ xpTemp = 0;
 xpToNextLevel = 500;
 skillPoints = 0;
 
-// list of enemy attack instances been hit with -- only get hit once / attack
-beenHitWith = ds_list_create();
-
 poise = ds_map_find_value(propertiesBaseValues,ModifiableProperties.Poise);
 staggerDuration = 0;
 staggerFrame = 0;
@@ -155,7 +152,6 @@ staggerDirection = 0;
 staggerSpeed = noone; // optional -- used to indicate slow staggers, mainly
 
 // spells stuff
-knownSpells = ds_map_create();
 // spell instances created by obj_skills_manager
 var skm = global.skillManager;
 ds_map_add(knownSpells, "magicmissile", skm.skillMagicMissile);
@@ -190,7 +186,7 @@ var _pi = global.populateInventory;
 var _il = global.gameManager.isLoading;
 
 if global.populateInventory && !global.gameManager.isLoading && false {
-	
+	/*
 	addItemToInventory(makeGold(100000,200000));
 	
 	addItemToInventory(hf);
@@ -271,7 +267,7 @@ if global.populateInventory && !global.gameManager.isLoading && false {
 	addItemToInventory(makeGemPieces(obj_gempieces_aquamarine, PILE));
 	addItemToInventory(makeGemPieces(obj_gempieces_emerald, PILE));
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
-
+*/
 }
 
 lastFountain = instance_nearest(x,y,obj_fountain);
@@ -351,11 +347,6 @@ nonPriorityInteractionPrompts = ds_list_create();
 
 ds_map_destroy(tutorialFirstsMap); tutorialFirstsMap = -1;
 tutorialFirstsMap = defineFirstsTutorialMessages(); // redo
-
-/*
-global.roomName = getRoomName(room);
-instance_create_depth(x,y,1,obj_room_text);
-*/
 
 // to sprint, the B button must be held for 1/3 second
 isHoldingSprintButton = false;

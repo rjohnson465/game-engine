@@ -1,9 +1,13 @@
-/*/// @description Insert description here
+/// @description Insert description here
 // You can write your code in this editor
 
 // leaky af
 loadGame();
 
+
+/*with obj_fountain {
+	wishAtFountain();
+}*/
 
 // No mem leak (maps checked)
 // respawnEnemies();
@@ -22,7 +26,7 @@ for (var i = 0; i < 100000; i++) {
 		var ck = ds_map_find_first(map);
 		for (var j = 0; j < ds_map_size(map); j++) {
 			var val = ds_map_find_value(map, ck);
-			// show_debug_message("map" + string(i) + " at key " + string(j) + ": " + string(val));
+			show_debug_message("map" + string(i) + " at key " + string(j) + ": " + string(val));
 			ck = ds_map_find_next(map, ck);
 		}
 	}
