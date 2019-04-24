@@ -61,4 +61,8 @@ if !isMoving && distance_to_object(p) < 50 && layer == p.layer && !hasSetAlarm {
 			}
 		}
 	}
+} else if !isMoving {
+	// if not near the player, just stahp
+	speed = 0;
+	path_end();
 }

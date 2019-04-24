@@ -19,6 +19,7 @@ with rd {
 }
 
 var sd_temp_enemies_rooms = ds_map_secure_load(TEMP_ENEMYDATA_FILENAME);
+
 var rn = ds_map_find_first(sd_temp_enemies_rooms);
 for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 	var sd_temp_enemies_room = ds_map_find_value(sd_temp_enemies_rooms, rn);
@@ -57,7 +58,6 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 		//var enemy = findPersistentRoomElement(obj_enemy_parent,postX,postY);
 		ds_map_replace(sd_temp_enemy,"FacingDirection",fdStart);
 		ds_map_replace(sd_temp_enemy,"Hp",hpMax);
-		var enemyObjIndexName = ds_map_find_value(sd_temp_enemy, "ObjectIndexName");
 		
 		// only set an enemy to be alive if it respawns. If it does not, make sure it stays dead
 		if doesEnemyRespawn == undefined || doesEnemyRespawn > 0 {
@@ -74,14 +74,39 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 
 ds_map_secure_save(sd_temp_enemies_rooms, TEMP_ENEMYDATA_FILENAME);
 
+
 // force save for room data object
+// Something leaks a single map here
 with rd {
-	//fs_save_enemydata_tempfile();
-	fs_save_roomdata_tempfile();
-	event_perform(ev_create, 0);
+	fs_save_enemydata_tempfile();
+	
+
+	
+	var oldEnemiesData = enemiesData;
+	// replace enemiesData in room data object with updated data 
+	// load_enemydata_tempfile should return a map of maps
+	var newEnemiesData = fs_load_enemydata_tempfile(roomName);
+	enemiesData = newEnemiesData;
+	// prevent memory leak -- destroy oldEnemiesData
+	ds_map_destroy(oldEnemiesData); oldEnemiesData = -1;
+	
+	/*
+	// reset each enemy in the room's persistentProperties to the new one
+	var ck = ds_map_find_first(newEnemiesData);
+	for (var i = 0; i < ds_map_size(newEnemiesData); i++) {
+		var propsMap = ds_map_find_value(newEnemiesData, ck)
+		with obj_enemy_parent {
+			if key == ck {
+				persistentProperties = propsMap;
+			}
+		}
+		ck = ds_map_find_next(newEnemiesData, ck);
+	}  */
+	
 }
 
-// force room restart event for all enemies
+
+// force room restart event for all enemies (?)
 with obj_enemy_parent {
 	if onlyRespawnBosses && !isBoss {
 		continue;
@@ -93,12 +118,9 @@ with obj_enemy_parent {
 	facingDirection = postDir;
 	jumpFrame = 0; wasJustHit = false;
 	showHp = false;
-}
-with obj_enemy_parent {
-	if onlyRespawnBosses && !isBoss {
-		continue;
-	}
-	event_perform(ev_other, ev_room_start);
+
+	// persistentElementUpdateProperties(id);
+
 }
 
 ds_map_destroy(sd_temp_enemies_rooms); sd_temp_enemies_rooms = -1;

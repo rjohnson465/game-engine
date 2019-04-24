@@ -87,7 +87,7 @@ cautiousness = 50;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 meleeRangeArray=[];
 
-xpReward = 50;
+xpReward = 25;
 
 // ATTACKS
 

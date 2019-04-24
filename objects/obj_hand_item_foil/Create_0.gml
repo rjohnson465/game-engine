@@ -10,9 +10,6 @@ baseValue = 200;
 // for each attack in chain
 numberOfTargets = [1,1,1,5];
 
-charges = 10;
-chargesMax = 10;
-
 range = 80;
 
 ds_map_set(damages,PIERCE,[5,8,6,8,8,10,0,0]);

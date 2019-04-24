@@ -7,9 +7,6 @@ spriteName = "warhammer";
 itemSprite = spr_item_warhammer;
 baseValue = 200;
 
-charges = 10;
-chargesMax = 10;
-
 range = 60;
 
 ds_map_set(damages,SLASH,[0,0,0,0,0,0]);

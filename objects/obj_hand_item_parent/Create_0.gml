@@ -36,6 +36,9 @@ durabilityMax = 50;
 ammo = 5;
 ammoMax = 5;
 
+charges = 0;
+chargesMax = 0;
+
 // damages of each type
 // keys are the damage type
 // values are arrays with 2 elements damage range of that type

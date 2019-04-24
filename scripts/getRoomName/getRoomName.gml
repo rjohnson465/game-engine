@@ -9,6 +9,9 @@ switch ri {
 	case rm_dungeon: {
 		return "Francis' Dungeon"; break;
 	}
+	case rm_dungeon2: {
+		return "Francis' Dungeon 2"; break;
+	}
 	case rm_boss_funfairy: {
 		return "Fairy's Great-Lodge"; break;
 	}

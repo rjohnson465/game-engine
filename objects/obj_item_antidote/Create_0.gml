@@ -16,3 +16,5 @@ isUsable = true;
 soundUse = snd_iu_gulp;
 
 description = "Cures poison. If used when not poisoned, grants poison resistance for a brief period of time.";
+
+baseValue = 500;

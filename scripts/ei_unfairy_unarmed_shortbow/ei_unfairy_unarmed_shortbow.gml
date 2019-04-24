@@ -1,6 +1,6 @@
 /// ei_unfairy_unarmed_shortbow
 /// initialize this unfairy to have no weapons
-var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
+var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 ds_map_replace(handItems,"lm1",unarmed);
 ds_map_replace(handItems,"rm1",unarmed);
 ds_map_replace(equippedLimbItems,"l",unarmed);
@@ -12,8 +12,6 @@ var unarmedHook2 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
 unarmedHook2.limbKey = "o";
 var unarmedHook3 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
 unarmedHook3.limbKey = "o";
-
-//ds_map_replace(unarmedHook1.damages,MAGIC,[1,2]);
 
 var unarmedBackSlap = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_2);
 

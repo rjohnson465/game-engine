@@ -16,3 +16,5 @@ isUsable = true;
 soundUse = snd_iu_icecrack;
 
 description = "Douses flames. If used when not burning, grants fire resistance for a brief period of time.";
+
+baseValue = 500;

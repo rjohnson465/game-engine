@@ -24,8 +24,8 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 					
 		if attackData.type == AttackTypes.Charge {
 			var targetDir = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
-			chargePointX = x+lengthdir_x(200,targetDir);
-			chargePointY = y+lengthdir_y(200,targetDir);
+			chargePointX = x+lengthdir_x(1000,targetDir);
+			chargePointY = y+lengthdir_y(1000,targetDir);
 		}
 					
 		// find attack data object for this attack to get stamina cost

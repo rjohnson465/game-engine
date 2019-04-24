@@ -9,9 +9,6 @@ baseValue = 200;
 // for each attack in chain
 numberOfTargets = [5,5,2];
 
-charges = 10;
-chargesMax = 10;
-
 range = 70;
 
 ds_map_set(damages,SLASH,[18,28,22,30,0,0]);

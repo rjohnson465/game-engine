@@ -23,17 +23,26 @@ var sd_temp_enemydata = ds_map_create(); // this is what we're gonna return, and
 // if we have some data for this room already in a save file AND
 // we haven't written any temp data to for this room yet, use the save file data
 if global.gameManager.isLoading || (sd_enemydata != undefined && ds_exists(sd_enemydata,ds_type_map) && sd_temp_enemydata == undefined) {
-	//sd_temp_enemydata = sd_enemydata;
+	var old_sd_temp_enemydata_map = sd_temp_enemydata;
 	sd_temp_enemydata = ds_map_deep_clone(sd_enemydata);
+	ds_map_destroy(old_sd_temp_enemydata_map); old_sd_temp_enemydata_map = -1;
 } 
 // if theres no tempfile data written for this room yet... 
 else {
 
 	// get the temp enemy data for the specific room index
 	var sd_temp_enemydata_tocopy = ds_map_find_value(sd_temp_enemydatas, rn);
-	if sd_temp_enemydata_tocopy == undefined || !ds_exists(sd_temp_enemydata_tocopy, ds_type_map) return noone;
+	if sd_temp_enemydata_tocopy == undefined || !ds_exists(sd_temp_enemydata_tocopy, ds_type_map) {
+		// mem leaks
+		ds_map_destroy(sd_temp_enemydata); sd_temp_enemydata = -1;
+		ds_map_destroy(sd_temp_enemydatas); sd_temp_enemydatas = -1;
+		return noone;
+	}
+	
+	var old_sd_temp_enemydata_map = sd_temp_enemydata;
 	sd_temp_enemydata = ds_map_deep_clone(sd_temp_enemydata_tocopy);
 	ds_map_destroy(sd_temp_enemydata_tocopy); sd_temp_enemydata_tocopy = -1; // mem leak
+	ds_map_destroy(old_sd_temp_enemydata_map); old_sd_temp_enemydata_map = -1;
 }
 
 // prevent memory leaks

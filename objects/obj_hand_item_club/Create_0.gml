@@ -10,8 +10,6 @@ baseValue = 200;
 // for each attack in chain
 numberOfTargets = [2,2,3];
 
-charges = 10;
-chargesMax = 10;
 
 range = 45;
 

@@ -12,5 +12,9 @@ if isLooted {
 	for (var i = 0; i < ds_list_size(items); i++) {
 		var it = ds_list_find_value(items, i);
 		it.itemDropObj = id;
+		
+		// items in item persistent are created on room start so theres no need for them to persist
+		// between rooms
+		it.persistent = false;
 	}
 }

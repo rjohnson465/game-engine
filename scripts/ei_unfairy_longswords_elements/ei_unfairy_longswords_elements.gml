@@ -1,12 +1,6 @@
-/// ei_unfairy_longswords_elements
-
-/// initialize this unfairy to have 2 longswords
-var longsword1 = instance_create_depth(x,y,1,obj_hand_item_longsword);
-var longsword2 = instance_create_depth(x,y,1,obj_hand_item_longsword);
-ds_map_replace(handItems,"lm1",longsword1);
-ds_map_replace(handItems,"rm1",longsword2);
-ds_map_replace(equippedLimbItems,"l",longsword1);
-ds_map_replace(equippedLimbItems,"r",longsword2);
+/// ei_unfairy_longswords_elements(el1*, el2*)
+/// @param el1*
+/// @param el2
 
 // 2 random elements
 randomize();
@@ -14,7 +8,21 @@ var rand1 = round(random_range(0,array_length_1d(global.ALL_ELEMENTS)-1));
 var rand2 = round(random_range(0,array_length_1d(global.ALL_ELEMENTS)-1));
 var el1 = global.ALL_ELEMENTS[rand1];
 var el2 = global.ALL_ELEMENTS[rand2];
-el1 = FIRE;
+
+if argument_count > 0 {
+	el1 = argument[0];
+}
+if argument_count > 1 {
+	el2 = argument[1];
+}
+
+/// initialize this unfairy to have 2 longswords
+var longsword1 = makeEnemyWeapon(obj_hand_item_longsword, true);
+var longsword2 = makeEnemyWeapon(obj_hand_item_longsword, true);
+ds_map_replace(handItems,"lm1",longsword1);
+ds_map_replace(handItems,"rm1",longsword2);
+ds_map_replace(equippedLimbItems,"l",longsword1);
+ds_map_replace(equippedLimbItems,"r",longsword2);
 
 // for particle effects
 ds_map_replace(longsword2.damages,el1,[1,2]);
@@ -43,3 +51,5 @@ var meleeChain1 = [longswordStabFire];
 var meleeChain2 = [longswordStabPoison];
 meleeAttacks = [meleeChain0,meleeChain1,meleeChain2];
 meleeRangeArray = [15,65,65];
+
+xpReward = 100;

@@ -1,6 +1,6 @@
 /// ei_unfairy_longsword_unarmed
 
-/// initialize this unfairy to have no weapons
+
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var longsword = makeEnemyWeapon(obj_hand_item_longsword);
 ds_map_replace(handItems,"lm1",longsword);

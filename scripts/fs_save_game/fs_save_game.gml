@@ -21,6 +21,7 @@ ds_map_add_map(save_data,"Enemies",enemyDataMap);
 var inventoryDataMap = fs_save_inventory();
 ds_map_add_map(save_data,"Inventory",inventoryDataMap);
 
+
 // save skills data
 var skillsDataMap = fs_save_skills();
 ds_map_add_map(save_data,"Skills",skillsDataMap);

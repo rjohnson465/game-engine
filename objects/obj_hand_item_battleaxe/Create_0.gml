@@ -7,9 +7,6 @@ spriteName = "battleaxe";
 itemSprite = spr_item_battleaxe;
 baseValue = 200;
 
-charges = 10;
-chargesMax = 10;
-
 range = 60;
 
 ds_map_set(damages,SLASH,[20,25,22,30]);

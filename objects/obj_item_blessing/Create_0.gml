@@ -16,3 +16,5 @@ isUsable = true;
 soundUse = snd_iu_blessing;
 
 description = "Cures hexes. If used when not hexed, grants magic resistance for a brief period of time.";
+
+baseValue = 500;

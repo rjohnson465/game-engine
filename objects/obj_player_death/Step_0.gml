@@ -92,13 +92,6 @@ if instance_exists(fade) {
 				x = lastFountainX;
 				y = lastFountainY;
 				xpTemp = 0;
-				/*if lastFountain == noone {
-					var nearestFountain = instance_nearest(x,y,obj_fountain);
-					global.owner = nearestFountain;
-					global.makeLightOnCreate = true;
-					instance_create_depth(x,y,1,obj_light_radius);
-					lastFountain = nearestFountain;
-				}*/
 				
 				layerToMoveTo = lastFountainZ;
 				justRevivedAtFountain = true;

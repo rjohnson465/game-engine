@@ -13,6 +13,7 @@ enum TutFirsts {
 	Hats,
 	Rings,
 	Shields,
+	Experience,
 	length
 }
 

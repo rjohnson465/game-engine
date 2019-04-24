@@ -72,6 +72,8 @@ var hammerTwirl2 = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_2_2);
 
 var magicmissile = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_3_1);
 
+var hammerCharge = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_4_1);
+
 var pieThrow = makeEnemyAttackObj(obj_attack_funfairy_pie_1_1);
 
 var c0 = [hammerSwing];
@@ -81,8 +83,10 @@ var c3 = [magicmissile];
 var c4 = [pieThrow];
 var c5 = [hammerSwing, pieThrow];
 var c6 = [pieThrow, hammerSwing];
-meleeAttacks = [c0, c1, c2, c3, c4, c5, c6];
-//meleeAttacks = [c4];
+var c7 = [hammerCharge];
+var c8 = [hammerSwing, hammerCharge];
+meleeAttacks = [c0, c1, c2, c3, c3, c4, c5, c6, c7, c8];
+//meleeAttacks = [c7];
 // ranged attacks info
 
 // currently chosen ranged attack

@@ -11,6 +11,9 @@ if !instance_exists(npcData) || npcData == noone {
 	npcData = instance_create_depth(x,y,1,obj_npc_data);
 }
 
+// we should definitely just be storing lightweight JSON data for each
+// npc's item list, this is shit
+/*
 if npcData != noone && npcData.hasInitializedItems {
 	ds_list_clear(items);
 	for (var i = 0; i < ds_list_size(npcData.inventory); i++) {
@@ -18,15 +21,17 @@ if npcData != noone && npcData.hasInitializedItems {
 		ds_list_add(items, item);
 	}
 }
-else // ensure all items are "owned" by this npc
-if items != noone && items != undefined && ds_exists(items,ds_type_list) {
+// ensure all items are "owned" by this npc
+else if items != noone && items != undefined && ds_exists(items,ds_type_list) {
 	for (var i = 0; i < ds_list_size(items); i++) {
 		var item = ds_list_find_value(items,i);
 		item.owner = id;
 	}
-}
+} */
 
 // set conversations based on data
+// This could be a memory leak? We should update conversations by loading in 
+// data from a file. Really need JSON data for each NPC
 if npcData != noone && ds_exists(npcData.conversations, ds_type_map) {
 	var ck = ds_map_find_first(npcData.conversations); 
 	for (var i = 0; i < ds_map_size(npcData.conversations); i++) {

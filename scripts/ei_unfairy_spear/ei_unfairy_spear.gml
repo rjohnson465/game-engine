@@ -1,7 +1,7 @@
 /// ei_unfairy_spear	
 /// initialize this unfairy to have a spear and no ranged
-var unarmed = instance_create_depth(x,y,1,obj_hand_item_unarmed);
-var spear = instance_create_depth(x,y,1,obj_hand_item_spear);
+var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
+var spear = makeEnemyWeapon(obj_hand_item_spear);
 ds_map_replace(handItems,"lm1",spear);
 ds_map_replace(handItems,"rm1",unarmed);
 ds_map_replace(equippedLimbItems,"l",spear);

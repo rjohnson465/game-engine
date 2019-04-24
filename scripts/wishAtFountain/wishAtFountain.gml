@@ -82,14 +82,6 @@ with obj_player {
 	xp += xpTemp;
 	xpTemp = 0;
 		
-	// cure any and all conditions
-	/*	var currentCondition = ds_map_find_first(conditionPercentages);
-	for (var i = 0; i < ds_map_size(conditionPercentages);i++) {
-		ds_map_replace(conditionPercentages,currentCondition,0);
-		var conditionEmitter = ds_map_find_value(conditionsEmittersMap,currentCondition);
-		audio_emitter_gain(conditionEmitter,0);
-		currentCondition = ds_map_find_next(conditionPercentages, currentCondition);
-	}*/
 	cureAllConditions();
 		
 	// refill all weapon charges / durability for inventory weapons, repair all durability
@@ -112,7 +104,7 @@ with obj_player {
 	lightRadiusColor = c_white;
 }
 
-
+/*
 // trigger a save 
 with obj_game_manager {
 	//ds_map_replace(other.data.properties, "isDoneFilling", true);

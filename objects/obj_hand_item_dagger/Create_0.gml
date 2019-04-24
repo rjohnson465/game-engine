@@ -7,9 +7,6 @@ spriteName = "dagger";
 itemSprite = spr_item_dagger;
 baseValue = 200;
 
-charges = 10;
-chargesMax = 10;
-
 range = 20;
 
 ds_map_set(damages,SLASH,[4,6,4,6,5,8,8,10]);

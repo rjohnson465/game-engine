@@ -37,7 +37,7 @@ cautiousness = 50;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 meleeRangeArray=[];
 
-xpReward = 200;
+xpReward = 100;
 
 // ATTACKS
 
@@ -64,8 +64,8 @@ sporesRanged.minRange = 600;
 var sporesChainRanged = [sporesRanged];
 rangedAttacks = [sporesChainRanged];
 
-hp = 150;
-maxHp = 150;
+hp = 100;
+maxHp = 100;
 hpRegen = 1;
 
 stamina = 60;

@@ -73,7 +73,7 @@ var c1 = makeEnemyAttackObj(obj_attack_noeyeddeer_passive_charge);
 meleeAttacks = [c1]; */
 alarm[4] = 7; // create passive attack obj every 15 frames
 
-xpReward = 175;
+xpReward = 150;
 hp = 200;
 maxHp = 200;
 

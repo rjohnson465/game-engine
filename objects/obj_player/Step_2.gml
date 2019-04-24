@@ -10,6 +10,13 @@ if gamepad_button_check_released(gamePadIndex, gp_face2) {
 	isHoldingSprintButton = false;
 }
 
+// exp tut first check
+var hasHadExpTutFirstMessage = ds_map_find_value(tutorialFirstsMap, TutFirsts.Experience);
+if !hasHadExpTutFirstMessage && xpTemp > 0 {
+	showTutorialMessage("You gained experience (XP)! Fill the XP bar to level up and gain power. Fresh XP (light blue) can be lost on death -- convert it to fixed XP by wishing at fountains.",
+	noone, noone, TutFirsts.Experience, noone);
+}
+
 // death
 if hp < 1 && isAlive && !isDying {
 	window_set_cursor(cr_none);

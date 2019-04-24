@@ -31,7 +31,12 @@ if global.gameManager.isLoading || (sd_roomdata != undefined && ds_exists(sd_roo
 else {
 	// get the temp room data for the specific room index
 	var sd_temp_roomdata_tocopy = ds_map_find_value(sd_temp_roomdatas, rn);
-	if sd_temp_roomdata_tocopy == undefined || !ds_exists(sd_temp_roomdata_tocopy, ds_type_map) return noone;
+	if sd_temp_roomdata_tocopy == undefined || !ds_exists(sd_temp_roomdata_tocopy, ds_type_map) {
+		// mem leaks
+		ds_map_destroy(sd_temp_roomdata); sd_temp_roomdata = -1;
+		ds_map_destroy(sd_temp_roomdatas); sd_temp_roomdatas = -1;
+		return noone;
+	}
 	sd_temp_roomdata = ds_map_deep_clone(sd_temp_roomdata_tocopy);
 	ds_map_destroy(sd_temp_roomdata_tocopy); sd_temp_roomdata_tocopy = -1; // mem leak
 }

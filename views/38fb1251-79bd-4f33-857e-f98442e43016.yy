@@ -16,7 +16,10 @@
         "23bc5189-1d98-47dc-9a7f-cc5504ce57ae",
         "b6b5fa79-1635-4a17-af0c-3cf4756b7594",
         "b84ce656-98c1-402f-97f3-1b0bac63b908",
-        "7fb720e1-badf-4891-b512-8871c6f721ce"
+        "7fb720e1-badf-4891-b512-8871c6f721ce",
+        "0c3c5700-09d4-40e9-b46d-b31196d778c0",
+        "e1524ad4-2c8b-4787-9992-03c32388028b",
+        "7d0acb9d-c16f-4f6f-bfaa-c596b006a74d"
     ],
     "filterType": "GMSprite",
     "folderName": "toyhammer",

@@ -4,7 +4,6 @@ roomName = room_get_name(room);
 // this stores fountains, doors, chests, etc... 
 // kvp -> <key, data_obj>
 persistentElements = noone;
-
 enemiesData = noone;
 
 
@@ -92,6 +91,7 @@ for (var i = 0; i < ds_list_size(garbageKeys); i++) {
 
 ds_list_destroy(garbageKeys); garbageKeys = -1;
 
+
 // now that all the persistent elements have their data either set or created, ensure their room start event fires after
 with obj_persistent_environment {
 	event_perform(ev_other,ev_room_start);
@@ -101,3 +101,4 @@ with obj_persistent_environment {
 with obj_enemy_parent {
 	event_perform(ev_other, ev_room_start);
 }
+

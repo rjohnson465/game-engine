@@ -1,5 +1,16 @@
 audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;
 audio_stop_sound(walkingInWaterSoundId); walkingInWaterSoundId = -1;
+// sprint particles system destroy
+if part_emitter_exists(sprintParticleSystem, sprintParticleEmitter) {
+	part_emitter_destroy(sprintParticleSystem, sprintParticleEmitter);
+	sprintParticle = -1;
+}
+if part_system_exists(sprintParticleSystem) {
+	part_system_destroy(sprintParticleSystem); sprintParticleSystem = -1;
+}
+if part_type_exists(sprintParticle) {
+	part_type_destroy(sprintParticle); sprintParticle = -1;
+}
 /*
 ds_map_destroy(knownSpells); knownSpells = -1;
 ds_map_destroy(defenses); defenses = -1;

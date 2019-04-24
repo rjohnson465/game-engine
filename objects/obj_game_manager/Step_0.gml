@@ -4,11 +4,13 @@ if isLoading {
 	// wait until we're at the right room to actually load
 	if isReadyToMoveRooms && room_get_name(room) == roomToGoTo {
 		alert("Loading " + currentSaveFile, c_yellow);
-		isLoading = false;
+		
 		roomToGoTo = noone;
 		isReadyToMoveRooms = false;
 	
 		fs_load_game(currentSaveFile);
+		// end loading process after player is created?
+		isLoading = false;
 	}
 }
 
@@ -17,6 +19,7 @@ if instance_exists(fade) {
 		if fade.frame == .5*fade.fadeDuration {
 			with global.player {
 				global.playerDoNothing = false;
+				global.populateInventory = false;
 				event_perform(ev_create, 0);
 			}
 			loadGame();

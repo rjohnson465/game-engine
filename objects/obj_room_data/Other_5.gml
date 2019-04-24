@@ -4,7 +4,6 @@ if global.gameManager.isLoading exit;
 
 // only update a temporary file -- the save file will only be update on explicit save
 fs_save_roomdata_tempfile();
-
 fs_save_enemydata_tempfile();
 
 // delete properties map for each persistent element only after we save to the temp file
@@ -13,3 +12,6 @@ with obj_persistent_environment {
 		ds_map_destroy(properties); properties = -1;
 	}
 }
+
+event_perform(ev_cleanup, 0);
+

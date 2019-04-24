@@ -1,1 +1,1 @@
-ei_unfairy_longswords_elements();
+ei_unfairy_longswords_elements(MAGIC, FIRE);

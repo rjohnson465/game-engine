@@ -186,7 +186,10 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Rings, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 
 var hf = instance_create_depth(x,y,1,obj_item_health_flask);
-if global.populateInventory {
+var _pi = global.populateInventory;
+var _il = global.gameManager.isLoading;
+
+if global.populateInventory && !global.gameManager.isLoading && false {
 	
 	addItemToInventory(makeGold(100000,200000));
 	
@@ -374,3 +377,4 @@ healingTotalFrames = sprite_get_number(spr_player_heal);
 // temp defenses -- a list of all temporary defenses
 // each entry is an array [<defenseType>, <frames left>]
 temporaryDefenses = ds_list_create();
+

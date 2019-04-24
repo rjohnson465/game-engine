@@ -27,7 +27,9 @@ var p = global.player;
 p.layerToMoveTo = nextRoomLayer;*/
 
 // load inventory -- inventory must load before player for belt items
+global.doNotDisplayTutorialMessages = true;
 fs_load_inventory(ds_map_find_value(save_data,"Inventory"));
+global.doNotDisplayTutorialMessages = false;
 
 with obj_weapon {
 	refreshParticles = true;
