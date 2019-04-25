@@ -5,7 +5,7 @@ var basePlayerProperties = ds_map_create();
 
 for (var i = 0; i <= ModifiableProperties.length; i++) {
 	
-	ds_map_replace(basePlayerProperties,i,0); // never have empty base property
+	// ds_map_replace(basePlayerProperties,i,0); // never have empty base property
 	
 	switch i {
 		case ModifiableProperties.GoldDrop: {
@@ -45,8 +45,8 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 				var wt = global.ALL_DAMAGE_TYPES[j];
 				ds_map_replace(defensesMap,wt,0);
 			}
-			ds_map_replace(basePlayerProperties,i,defensesMap);
-			//ds_map_destroy(criticalsChanceMap);
+			// ds_map_replace(basePlayerProperties,i,defensesMap);
+			ds_map_add_map(basePlayerProperties, i, defensesMap);
 			break;
 		}
 		case ModifiableProperties.PhysicalDamageTypesMultiplier: {
@@ -56,7 +56,8 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 				var dt = physicalDamageTypes[j];
 				ds_map_replace(damagesMap,dt,100);
 			}
-			ds_map_replace(basePlayerProperties,i,damagesMap);
+			// ds_map_replace(basePlayerProperties,i,damagesMap);
+			ds_map_add_map(basePlayerProperties, i, damagesMap);
 			break;
 		}
 		case ModifiableProperties.ElementalDamageTypesMultiplier: {
@@ -65,7 +66,8 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 				var dt = global.ALL_ELEMENTS[j];
 				ds_map_replace(damagesMap,dt,100);
 			}
-			ds_map_replace(basePlayerProperties,i,damagesMap);
+			//ds_map_replace(basePlayerProperties,i,damagesMap);
+			ds_map_add_map(basePlayerProperties, i, damagesMap);
 			break;
 		}
 		case ModifiableProperties.CriticalsChance: {
@@ -75,7 +77,8 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 				var wt = global.ALL_WEAPON_TYPES[j];
 				ds_map_replace(criticalsChanceMap,wt,15); // default 15% chance of critical
 			}
-			ds_map_replace(basePlayerProperties,i,criticalsChanceMap);
+			// ds_map_replace(basePlayerProperties,i,criticalsChanceMap);
+			ds_map_add_map(basePlayerProperties, i, criticalsChanceMap);
 			//ds_map_destroy(criticalsChanceMap);
 			break;
 		}
@@ -86,7 +89,8 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 				var wt = global.ALL_WEAPON_TYPES[j];
 				ds_map_replace(criticalsDamageMap,wt,50); // default +50% damage on criticals
 			}
-			ds_map_replace(basePlayerProperties,i,criticalsDamageMap);
+			// ds_map_replace(basePlayerProperties,i,criticalsDamageMap);
+			ds_map_add_map(basePlayerProperties, i, criticalsDamageMap);
 			//ds_map_destroy(criticalsDamageMap);
 			break;
 		}
@@ -96,7 +100,8 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 				var wt = global.ALL_WEAPON_TYPES[j];
 				ds_map_replace(weaponDamageMap,wt,0); // default +0% damage with weaponTypes
 			}
-			ds_map_replace(basePlayerProperties,i,weaponDamageMap);
+			//ds_map_replace(basePlayerProperties,i,weaponDamageMap);
+			ds_map_add_map(basePlayerProperties, i, weaponDamageMap);
 			//ds_map_destroy(weaponDamageMap);
 			break;
 		}

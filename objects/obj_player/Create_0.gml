@@ -2,6 +2,7 @@ if instance_number(object_index) > 1 {
 	instance_destroy(id,0);
 	exit;
 }
+
 global.player = id;
 alarm[2] = 15; // ensure player isn't "stuck" every 15 frames
 if room == game_menu && global.playerDoNothing {

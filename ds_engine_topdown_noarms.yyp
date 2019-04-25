@@ -5079,6 +5079,14 @@
             }
         },
         {
+            "Key": "53f7c3c1-6971-4544-86c2-b31b65aef059",
+            "Value": {
+                "id": "51bf6577-0ac1-4cec-a279-25bfafb0f52c",
+                "resourcePath": "scripts\\debugGetMapsCount\\debugGetMapsCount.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "54123cfa-a658-44c0-8ac1-666041f5cf87",
             "Value": {
                 "id": "e43811d2-3863-4c69-a3f3-0a819a44c0c8",
@@ -12191,6 +12199,14 @@
             }
         },
         {
+            "Key": "d032c90e-2761-4ba3-b34b-28224393fbf6",
+            "Value": {
+                "id": "5fc2404d-3490-46a5-8cb0-79eb8586ac3e",
+                "resourcePath": "scripts\\freePlayerStructures\\freePlayerStructures.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d0364db3-6b8d-4a56-a76d-4dbb3e424417",
             "Value": {
                 "id": "1599ebf1-5ef6-4ba6-9155-5a56f297beec",
@@ -15170,6 +15186,8 @@
         "1154c03f-629a-4839-ae54-083d2daecbe0",
         "b16794e9-f691-4915-9639-e809b18e1bb6",
         "056b3770-9aa9-4ff8-8801-78527af52ccc",
+        "d032c90e-2761-4ba3-b34b-28224393fbf6",
+        "53f7c3c1-6971-4544-86c2-b31b65aef059",
         "d1f01d70-c3f2-4cc6-afb1-3a9c43e7f9d1",
         "8989e070-2ddb-4f9a-b995-b54144c47197",
         "505e9a0d-28c6-4953-a63b-f79abbc6f4d5",
