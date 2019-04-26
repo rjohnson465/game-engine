@@ -67,6 +67,10 @@ for (var i = 0; i < ds_list_size(damageTypes); i++) {
 	
 	if damageType == LIGHTNING {
 		weaponParticlesNums[i] = numParticles + 2;
+		
+		if numParticles + 2 > -2 && numParticles + 2 < 2 {
+			weaponParticlesNums[i] =  2;
+		}
 	}
 
 }

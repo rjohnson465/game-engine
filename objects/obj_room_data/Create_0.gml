@@ -86,11 +86,14 @@ if enemiesData != noone {
 // if the enemy is no longer alive, remove it from the map
 for (var i = 0; i < ds_list_size(garbageKeys); i++) {
 	var gkey = ds_list_find_value(garbageKeys, i);
+	var mapToDelete = ds_map_find_value(enemiesData, gkey);
 	ds_map_delete(enemiesData, gkey);
+	ds_map_destroy(mapToDelete); mapToDelete = -1;
 }
 
 ds_list_destroy(garbageKeys); garbageKeys = -1;
 
+/*
 
 // now that all the persistent elements have their data either set or created, ensure their room start event fires after
 with obj_persistent_environment {

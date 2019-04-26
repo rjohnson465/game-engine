@@ -183,14 +183,13 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Rings, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 
 var hf = instance_create_depth(x,y,1,obj_item_health_flask);
+addItemToInventory(hf);
 var _pi = global.populateInventory;
 var _il = global.gameManager.isLoading;
 
-if global.populateInventory && !global.gameManager.isLoading && false {
-	/*
-	addItemToInventory(makeGold(100000,200000));
+if global.populateInventory && !global.gameManager.isLoading {
 	
-	addItemToInventory(hf);
+	addItemToInventory(makeGold(100000,200000));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 
@@ -201,6 +200,20 @@ if global.populateInventory && !global.gameManager.isLoading && false {
 	insertGemIntoItem(makeGem(obj_gem_emerald,CRACKED),longsword);
 	insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 	addItemToInventory(longsword);
+	
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+	
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
+	
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_lumberjack_hat));
+	
+	/*
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
@@ -269,7 +282,7 @@ if global.populateInventory && !global.gameManager.isLoading && false {
 	addItemToInventory(makeGemPieces(obj_gempieces_emerald, PILE));
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
 */
-}
+} // end populate inventory
 
 lastFountain = instance_nearest(x,y,obj_fountain);
 lastFountainRoom = noone

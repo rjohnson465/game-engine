@@ -10,7 +10,8 @@ if argument_count > 2 {
 	isRemoving = argument[2];
 }
 
-gem.owner = item.owner;
+gem.owner = global.player;
+gem.persistent = true;
 
 var isEquipped = item.equipmentSlot != noone;
 var slot = noone;

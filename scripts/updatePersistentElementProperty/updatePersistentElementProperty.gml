@@ -21,5 +21,8 @@ else {
 	// update the entry in the roomdata object
 	var data_map = ds_map_find_value(rd.persistentElements, el.key);
 	var propsMap = ds_map_find_value(data_map, "Properties");
+	if propsMap == undefined {
+		var a = 3;
+	}
 	ds_map_replace(propsMap, prop, val);
 }

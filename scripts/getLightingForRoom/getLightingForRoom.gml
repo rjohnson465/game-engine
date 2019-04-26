@@ -8,6 +8,9 @@ switch rm {
 	case rm_dungeon: {
 		return [c_dkgray, c_dkgray, c_red]; break;
 	}
+	case rm_dungeon2: {
+		return [c_dkgray, c_dkgray, c_red]; break;
+	}
 	case rm_forest: {
 		//return [make_color_rgb(56, 68, 89), c_gray];
 		return [c_dkgray, c_dkgray];

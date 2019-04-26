@@ -1,3 +1,7 @@
+if global.activateAll {
+	instance_activate_all();
+}
+
 if global.isPopulatingGrids {
 	// must activate all instances on step 1,
 	if !hasReactivatedObjectsForGrids {

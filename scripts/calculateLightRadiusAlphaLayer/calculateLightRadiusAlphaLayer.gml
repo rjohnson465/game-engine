@@ -5,6 +5,8 @@ var layerNum = argument0
 
 var map = ds_map_find_value(global._light_layers,layerNum);
 
+if map == undefined return 1;
+
 var lightColor = ds_map_find_value(map,"_light_color");
 
 var luma = getLumaForColor(lightColor);

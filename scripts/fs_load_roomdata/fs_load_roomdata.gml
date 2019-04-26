@@ -17,7 +17,11 @@ for (var i = 0; i < ds_map_size(sd_roomdatas); i++) {
 	var sd_roomdata_copy = ds_map_deep_clone(sd_roomdata);
 	
 	// obj_room_data will use that when creating its persistentElements property
+	var mapToDelete = ds_map_find_value(sd_temp_roomdatas, crn);
 	ds_map_delete(sd_temp_roomdatas, crn);
+	if mapToDelete != undefined && ds_exists(mapToDelete, ds_type_map) {
+		ds_map_destroy(mapToDelete); mapToDelete = -1;
+	}
 	ds_map_add_map(sd_temp_roomdatas, crn, sd_roomdata_copy);
 	
 	crn = ds_map_find_next(sd_roomdatas, crn);
@@ -27,7 +31,34 @@ ds_map_secure_save(sd_temp_roomdatas, TEMP_ROOMDATA_FILENAME);
 
 // force obj_room_data create event so "persistentElements" property is reset
 with obj_room_data {
-	event_perform(ev_create,0);
+	// This code is leaking one additional map...
+	var oldRoomData = persistentElements;
+	// replace persistentElements in room data object with updated data s
+	// load_roomdata_tempfile should return a map of maps
+	var roomName = room_get_name(room);
+	var newRoomData = ds_map_deep_clone(ds_map_find_value(sd_temp_roomdatas, roomName));
+	persistentElements = newRoomData;
+	// prevent memory leak -- destroy oldEnemiesData
+	ds_map_destroy(oldRoomData); oldRoomData = -1;
+	
+	
+	// reset each pers ele in the room's persistentProperties to the new one
+	var ck = ds_map_find_first(newRoomData);
+	for (var i = 0; i < ds_map_size(newRoomData); i++) {
+		var propsMap = ds_map_find_value(newRoomData, ck)
+		var propsMapProps = ds_map_find_value(propsMap, "Properties");
+		with obj_persistent_environment {
+			if key == ck {
+				var oldP = properties;
+				properties = propsMapProps;
+				if oldP != undefined && ds_exists(oldP, ds_type_map) {
+					ds_map_destroy(oldP); oldP = -1;
+				}
+			}
+		}
+		ck = ds_map_find_next(newRoomData, ck);
+	}  
+	// event_perform(ev_create,0);
 }
 
 ds_map_destroy(sd_temp_roomdatas); sd_temp_roomdatas = -1;

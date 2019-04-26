@@ -18,8 +18,12 @@ for (var i = 0; i < ds_map_size(sd_npcs); i++) {
 	npcDataObj.npcName = ds_map_find_value(sd_npc,"NpcName");
 	npcDataObj.npcObjIndex = ds_map_find_value(sd_npc,"NpcObjIndex");
 	npcDataObj.npcObjIndexName = ds_map_find_value(sd_npc,"NpcObjIndexName");
+	
+	var oldConvos = npcDataObj.conversations;
 	var conversations_copy = ds_map_deep_clone(ds_map_find_value(sd_npc, "Conversations"));
 	npcDataObj.conversations = conversations_copy;
+	ds_map_destroy(oldConvos); oldConvos = -1;
+	
 	var cta = ds_map_find_value(sd_npc, "ConversationsToAdd");
 	for (var j = 0; j < ds_list_size(cta); j++) {
 		var convObjName = ds_list_find_value(cta, j);

@@ -1,5 +1,28 @@
 audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;
 audio_stop_sound(walkingInWaterSoundId); walkingInWaterSoundId = -1;
+
+if ds_exists(handItems, ds_type_map) {
+	var ck = ds_map_find_first(handItems);
+	for (var i = 0; i < ds_map_size(handItems); i++) {
+		var item = ds_map_find_value(handItems,ck);
+		instance_destroy(item, 1); item = -1;
+		ck = ds_map_find_next(handItems,ck);
+	}
+	ds_map_destroy(handItems); handItems = -1;
+}
+
+if ds_exists(equippedLimbItems, ds_type_map) {
+	var ck = ds_map_find_first(equippedLimbItems);
+	for (var i = 0; i < ds_map_size(equippedLimbItems); i++) {
+		var item = ds_map_find_value(equippedLimbItems,ck);
+		if item != undefined && instance_exists(item) {
+			instance_destroy(item, 1); item = -1;
+		}
+		ck = ds_map_find_next(equippedLimbItems,ck);
+	}
+	ds_map_destroy(equippedLimbItems); equippedLimbItems = -1;
+}
+
 // sprint particles system destroy
 if part_emitter_exists(sprintParticleSystem, sprintParticleEmitter) {
 	part_emitter_destroy(sprintParticleSystem, sprintParticleEmitter);
@@ -30,6 +53,14 @@ if path_exists(gridPath) {
 }
 if path_exists(path) {
 	path_delete(path); path = -1;
+}
+
+if ds_exists(conditionLevels, ds_type_map) {
+	ds_map_destroy(conditionLevels); conditionLevels = -1;
+}
+
+if ds_exists(conditionPercentages, ds_type_map) {
+	ds_map_destroy(conditionPercentages); conditionPercentages = -1;
 }
 
 if ds_exists(conditionsEmittersMap, ds_type_map) {

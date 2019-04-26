@@ -24,6 +24,14 @@ var rn = ds_map_find_first(sd_temp_enemies_rooms);
 for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 	var sd_temp_enemies_room = ds_map_find_value(sd_temp_enemies_rooms, rn);
 	
+	var currentRoomName = room_get_name(room)
+	
+	// bosses can only ever be respawned from their rooms
+	if onlyRespawnBosses && rn != currentRoomName {
+		rn = ds_map_find_next(sd_temp_enemies_rooms, rn);
+		continue;
+	}
+	
 	var ek = ds_map_find_first(sd_temp_enemies_room); // enemy key
 	for (var j = 0; j < ds_map_size(sd_temp_enemies_room); j++) {
 		var sd_temp_enemy = ds_map_find_value(sd_temp_enemies_room, ek);
@@ -80,12 +88,10 @@ ds_map_secure_save(sd_temp_enemies_rooms, TEMP_ENEMYDATA_FILENAME);
 with rd {
 	fs_save_enemydata_tempfile();
 	
-
-	
 	var oldEnemiesData = enemiesData;
 	// replace enemiesData in room data object with updated data 
 	// load_enemydata_tempfile should return a map of maps
-	var newEnemiesData = fs_load_enemydata_tempfile(roomName);
+	var newEnemiesData = ds_map_deep_clone(ds_map_find_value(sd_temp_enemies_rooms, room_get_name(room)));//fs_load_enemydata_tempfile(roomName);
 	enemiesData = newEnemiesData;
 	// prevent memory leak -- destroy oldEnemiesData
 	ds_map_destroy(oldEnemiesData); oldEnemiesData = -1;
@@ -97,7 +103,11 @@ with rd {
 		var propsMap = ds_map_find_value(newEnemiesData, ck)
 		with obj_enemy_parent {
 			if key == ck {
+				var oldPP = persistentProperties;
 				persistentProperties = propsMap;
+				if ds_exists(oldPP, ds_type_map) {
+					ds_map_destroy(oldPP); oldPP = -1;
+				}
 			}
 		}
 		ck = ds_map_find_next(newEnemiesData, ck);
@@ -118,8 +128,10 @@ with obj_enemy_parent {
 	facingDirection = postDir;
 	jumpFrame = 0; wasJustHit = false;
 	showHp = false;
+	
+	event_perform(ev_other, ev_room_start);
 
-	persistentElementUpdateProperties(id);
+	//persistentElementUpdateProperties(id);
 
 }
 

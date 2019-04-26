@@ -32,8 +32,11 @@ with global.player {
 	}
 	
 	//var mapClone = ds_map_deep_clone(tutFirstsMap);
-	
+	var oldTutFirstsMap = tutorialFirstsMap;
 	tutorialFirstsMap = mapClone;
+	if ds_exists(oldTutFirstsMap, ds_type_map) {
+		ds_map_destroy(oldTutFirstsMap); oldTutFirstsMap = -1;
+	}
 	
 	// reset player light radius to the persistent player light radius object
 	with obj_light_radius {

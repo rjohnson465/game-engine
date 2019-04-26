@@ -16,8 +16,11 @@ if isAlive {
 	x = -1000;
 	y = -1000;
 }
-if !isBoss {
+if true {
 	hp = ds_map_find_value(persistentProperties, "Hp");
+	if isBoss {
+		hp = maxHp;
+	}
 }
 
 

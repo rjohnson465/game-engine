@@ -10,7 +10,21 @@ isStackable = false;
 name = "Ring";
 baseName = "Ring";
 spriteName = "ring";
-itemSprite = spr_item_ring1;
+// get random item sprite, based on act
+itemSprite = noone;
+
+
+switch act {
+	case 1: {
+		var options = [spr_item_ring_1_1, spr_item_ring_1_2, spr_item_ring_1_3];
+		randomize();
+		var rand = round(random_range(0, array_length_1d(options)-1));
+		itemSprite = options[rand];
+		break;
+	}
+}
+// for saving / loading cosistently
+itemSpriteName = sprite_get_name(itemSprite);
 
 //ds_map_replace(itemProperties,ModifiableProperties.XpMultiplier,10);
 //ds_map_replace(itemProperties,ModifiableProperties.Defenses,[PIERCE,7]);

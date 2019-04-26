@@ -1,3 +1,8 @@
+if global.activateAll {
+	instance_activate_all();
+	alarm[5] = 1;
+	exit;
+}
 if global.isPopulatingGrids || global.isUpdatingRoomLayers {
 	// do not deactivate anything if we're populating grids rn
 	alarm[5] = 1;
@@ -13,7 +18,7 @@ with obj_solid_environment {
 }
 
 with obj_enemy_parent {
-	if state != CombatantStates.Moving {
+	if state != CombatantStates.Moving && !isBoss {
 		instance_deactivate_object(id);
 	}
 }
@@ -30,14 +35,10 @@ var w = vw + (2*deactivationBorder);
 var h = vh + (2*deactivationBorder);
 instance_activate_region(vx - deactivationBorder, vy - deactivationBorder, w, h, true);
 
-/*
-// may need to set / reset the personalGrid of combatants, if the combatants were not around during create event
-with obj_combatant_parent {
-	populatePersonalGrid();
-}*/
 
 
 
-instance_activate_object(obj_fountain);
+
+instance_activate_object(obj_persistent_environment);
 instance_activate_object(obj_fountain_dark);
 alarm[5] = deactivationSteps;

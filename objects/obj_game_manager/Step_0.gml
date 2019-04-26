@@ -19,7 +19,7 @@ if isLoading {
 				var ck = ds_map_find_first(map);
 				for (var j = 0; j < ds_map_size(map); j++) {
 					var val = ds_map_find_value(map, ck);
-					show_debug_message("map" + string(i) + " at key " + string(ck) + ": " + string(val));
+					//show_debug_message("map" + string(i) + " at key " + string(ck) + ": " + string(val));
 					ck = ds_map_find_next(map, ck);
 				}
 			}
@@ -48,12 +48,6 @@ if isLoading {
 		}
 		show_debug_message("Total instances: " + string(instancesCount));
 
-		with all {
-			if instancesCount > 1000 {
-				var name = object_get_name(object_index);
-				show_debug_message(name);
-			}
-		}
 
 
 		

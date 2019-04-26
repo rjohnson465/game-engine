@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+/*
 var listCount1 = ds_list_create();
 var m1 = ds_map_create();
 

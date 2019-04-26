@@ -22,6 +22,11 @@ with obj_item_parent {
 		ds_map_replace(sd_item, "CanUse", canUse);
 		// some descriptions (i.e. health flask) may change based on stats, so remember them when save
 		ds_map_replace(sd_item, "Description", description);
+		
+		// rings need to remember what their sprite is, as it is variable on create
+		if type == ItemTypes.Ring {
+			ds_map_replace(sd_item, "ItemSpriteName", itemSpriteName);
+		}
 
 		var customItemPropertiesCopy = ds_map_deep_clone(customItemProperties);
 		ds_map_add_map(sd_item,"CustomItemProperties", customItemPropertiesCopy);

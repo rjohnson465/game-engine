@@ -12,5 +12,7 @@ if type == CombatantTypes.Enemy {
 		path_delete(gridPath);
 		gridPath = -1;
 	}
-	mp_grid_destroy(personalGrid); personalGrid = -1;
+	if personalGrid != undefined && ds_exists(personalGrid, ds_type_grid) {
+		mp_grid_destroy(personalGrid); personalGrid = -1;
+	}
 }

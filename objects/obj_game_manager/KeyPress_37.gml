@@ -6,22 +6,16 @@ if ds_exists(105, ds_type_map) {
 	var a = 105;
 	var b = 3;
 }*/
+/*
+var p = global.player;
+p.layerToMoveTo = "instances_floor_1";
+alarm[9] = 2;
+global.activateAll = true;
+
+
 
 // leaky af
-loadGame();
+//loadGame();
 
-
-/*with obj_fountain {
-	wishAtFountain();
-}*/
-
-// No mem leak (maps checked)
-// respawnEnemies();
-
-// No memeory leak
-// fs_save_roomdata_tempfile();
-
-// No mem leak
-// fs_save_enemydata_tempfile();
 
 

@@ -34,5 +34,9 @@ if isLevelingUp {
 	
 	updatePlayerProperty(ModifiableProperties.HpMax,bonus,0);
 	
+	with obj_player {
+		hp = maxHp;
+	}
+	
 	isLevelingUp = false;
 }

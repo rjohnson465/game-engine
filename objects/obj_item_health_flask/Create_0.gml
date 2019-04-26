@@ -17,7 +17,7 @@ isDestroyable = false;
 #macro hfs_max_charges "maxCharges"
 
 ds_map_replace(customItemProperties, hfs_charges, 1);
-ds_map_replace(customItemProperties, hfs_max_charges, 3);
+ds_map_replace(customItemProperties, hfs_max_charges, 4);
 ds_map_replace(customItemProperties, hfs_charge_strength, 50);
 
 type = ItemTypes.Other;

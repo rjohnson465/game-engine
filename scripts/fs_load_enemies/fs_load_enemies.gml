@@ -30,10 +30,36 @@ for (var i = 0; i < ds_map_size(sd_enemydatas); i++) {
 ds_map_secure_save(sd_temp_enemydatas, TEMP_ENEMYDATA_FILENAME);
 
 // force obj_room_data create event so "enemiesData" property is reset
-// TODO this is probably a really bad idea
 with obj_room_data {
-	event_perform(ev_create,0);
-}
+	
+	var oldEnemiesData = enemiesData;
+	// replace enemiesData in room data object with updated data 
+	// load_enemydata_tempfile should return a map of maps
+	var roomName = room_get_name(room);
+	var newEnemiesData = fs_load_enemydata_tempfile(roomName);
+	enemiesData = newEnemiesData;
+	// prevent memory leak -- destroy oldEnemiesData
+	ds_map_destroy(oldEnemiesData); oldEnemiesData = -1;
+	
+	
+	// reset each enemy in the room's persistentProperties to the new one
+	var ck = ds_map_find_first(newEnemiesData);
+	for (var i = 0; i < ds_map_size(newEnemiesData); i++) {
+		var propsMap = ds_map_find_value(newEnemiesData, ck)
+		with obj_enemy_parent {
+			if key == ck {
+				var oldPP = persistentProperties;
+				persistentProperties = propsMap;
+				if ds_exists(oldPP, ds_type_map) {
+					ds_map_destroy(oldPP); oldPP = -1;
+				}
+			}
+		}
+		ck = ds_map_find_next(newEnemiesData, ck);
+	}   
+	
+	// event_perform(ev_create,0);
+} 
 
 ds_map_destroy(sd_temp_enemydatas); sd_temp_enemydatas = -1;
 

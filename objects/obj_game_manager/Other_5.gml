@@ -1,3 +1,5 @@
+
+
 if variable_global_exists("gameEnding") && global.gameEnding {
 	exit;
 }

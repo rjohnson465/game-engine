@@ -262,7 +262,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 			//w += drawPrompt("Unequip "+itemAtMoveSelector.name,Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 			w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		} 
-		else if selectedItem.isUsable {
+		else if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && selectedItem.isUsable {
 			w += drawPrompt("Equip Item To Belt",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		}
 	

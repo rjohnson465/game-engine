@@ -38,6 +38,12 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 	item.canUse = ds_map_find_value(sd_item, "CanUse");
 	item.description = ds_map_find_value(sd_item, "Description");
 	
+	// rings need to remember what their sprite is, as it is variable on create
+	if item.type == ItemTypes.Ring {
+		item.itemSpriteName = ds_map_find_value(sd_item, "ItemSpriteName");
+		item.itemSprite = asset_get_index(item.itemSpriteName);
+	}
+	
 	// insert gems
 	var gemsList = ds_map_find_value(sd_item,"SocketedGems");
 	if gemsList != undefined && ds_exists(gemsList,ds_type_list) {
