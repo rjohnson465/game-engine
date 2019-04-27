@@ -10,11 +10,6 @@ image_xscale = 1*owner.scale;
 image_yscale = 1*owner.scale;
 part_system_depth(system,layer_get_depth(owner.layer));
 
-/*
-if !(limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded)) {
-	image_yscale = -1*owner.scale;
-}*/
-
 layer = owner.layer;
 //depth = layer_get_depth(layer) - 5000;
 if owner.currentUsingSpell != noone {

@@ -15,22 +15,17 @@ if audio_emitter_exists(soundEmitter) {
 }
 
 
-if part_type_exists(particle) {
-	part_type_destroy(particle);
-}
-
-if part_type_exists(particle2) {
-	part_type_destroy(particle2);
-}
-/*
-if array_length_1d(weaponParticles) > 0 {
-	for (var i = 0; i < array_length_1d(weaponParticles); i++) {
-		var p = weaponParticles[i];
-		if part_type_exists(p) {
-			part_type_destroy(p);
-		}
+// do not destroy particles if they come from attack data (enemy attack)
+// these particles will instead be destroyed when the attack data object is destroyed (usually at room end)
+if (attackData == noone) {
+	if part_type_exists(particle) {
+		part_type_destroy(particle);
 	}
-}*/
+
+	if part_type_exists(particle2) {
+		part_type_destroy(particle2);
+	}
+}
 
 if isRanged && instance_exists(weapon) && weapon != noone && weapon.isTwoHanded && owner == global.player {
 	event_perform(ev_alarm,1);

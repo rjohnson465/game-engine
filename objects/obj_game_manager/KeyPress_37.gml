@@ -7,14 +7,13 @@ if ds_exists(105, ds_type_map) {
 	var b = 3;
 }*/
 
-/*
+global.player.hp -= 100;
 
-var a = fs_load_roomdata_tempfile(room_get_name(room));
-if a >= 0 {
-	ds_map_destroy(a); a = -1;
-}
+// fs_save_game();
+
 
 // maps
+/*
 var mapsCount = 0;
 for (var i = 0; i < 100000; i++) {
 	var map = i;
@@ -23,11 +22,11 @@ for (var i = 0; i < 100000; i++) {
 		var ck = ds_map_find_first(map);
 		for (var j = 0; j < ds_map_size(map); j++) {
 			var val = ds_map_find_value(map, ck);
-			show_debug_message("map" + string(i) + " at key " + string(ck) + ": " + string(val));
+		//	show_debug_message("map" + string(i) + " at key " + string(ck) + ": " + string(val));
 			ck = ds_map_find_next(map, ck);
 		}
 		if ds_map_size(map) == 0 {
-			show_debug_message("map " + string(i) + " exists but is empty");
+		//	show_debug_message("map " + string(i) + " exists but is empty");
 		}
 	}
 }

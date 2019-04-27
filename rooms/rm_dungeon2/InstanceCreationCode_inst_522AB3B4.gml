@@ -1,4 +1,4 @@
-nextRoom = rm_dungeon2;
+nextRoom = rm_dungeon;
 nextRoomX = x; 
 nextRoomY = y;
 nextRoomLayer = "instances_floor_1";

@@ -104,7 +104,6 @@ with obj_player {
 	lightRadiusColor = c_white;
 }
 
-
 // trigger a save 
 with obj_game_manager {
 	// updatePersistentElementProperty(other, "isDoneFilling", true);

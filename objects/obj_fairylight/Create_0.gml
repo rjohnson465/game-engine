@@ -35,5 +35,3 @@ part_type_speed(particle,.05,.15,0,0);
 part_type_direction(particle,0,360,0,4);
 part_type_life(particle,30,60);
 
-
-testVar = 1;

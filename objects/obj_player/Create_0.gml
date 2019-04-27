@@ -189,9 +189,9 @@ var _il = global.gameManager.isLoading;
 
 if global.populateInventory && !global.gameManager.isLoading {
 	
-	addItemToInventory(makeGold(100000,200000));
+	//addItemToInventory(makeGold(100000,200000));
 	
-	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
+	//addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 	longsword.persistent = true;
@@ -207,8 +207,10 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
 	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
 	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_arquebus));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hat_lumberjack_hat));

@@ -46,6 +46,8 @@ xpReward = 80;
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 // ATTACKS
+
+
 global.owner = id;
 var bugBite = makeEnemyAttackObj(obj_attack_speyeder_head_1_1);
 
@@ -64,16 +66,17 @@ var meleeChain4 = [bugBite, claw1];
 var doubleClawChain = [claw1,claw2];
 var poisonAttackChain = [poisonAttack];
 var jumpClaws = [bugBite,claw1,claw2];
-meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4, doubleClawChain, jumpClaws, poisonAttackChain];
-//meleeAttacks = [];
+//meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4, doubleClawChain, jumpClaws, poisonAttackChain];
+meleeAttacks = [webAoeChain];
 
 // ranged attacks info
 
 // currently chosen ranged attack
 var webShot = makeEnemyAttackObj(obj_attack_speyeder_webshot_1_1);
 var webShotChain = [webShot];
-//rangedAttacks = [webShotChain];
-rangedAttacks = [];
+rangedAttacks = [webShotChain];
+//rangedAttacks = [];
+
 
 hp = 75;
 maxHp = 75;

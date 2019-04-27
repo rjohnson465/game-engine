@@ -10,9 +10,11 @@ if ds_exists(105, ds_type_map) {
 // leaky af
 //loadGame();
 
+/*
 var p = global.player;
 p.layerToMoveTo = "instances_floor_1";
 room_goto(room);
+*/
 
 // debug shit
 		var mapsCount = 0;
@@ -23,7 +25,7 @@ room_goto(room);
 				var ck = ds_map_find_first(map);
 				for (var j = 0; j < ds_map_size(map); j++) {
 					var val = ds_map_find_value(map, ck);
-					show_debug_message("map" + string(i) + " at key " + string(ck) + ": " + string(val));
+					// show_debug_message("map" + string(i) + " at key " + string(ck) + ": " + string(val));
 					ck = ds_map_find_next(map, ck);
 				}
 			}
@@ -43,7 +45,7 @@ room_goto(room);
 				}
 			}
 		}
-		//show_debug_message("Total lists: " + string(listsCount));
+		show_debug_message("Total lists: " + string(listsCount));
 		
 		var audioEmittersCount = 0;
 		for (var i = 0; i < 100000; i++) {
@@ -52,7 +54,7 @@ room_goto(room);
 				audioEmittersCount++;
 			}
 		}
-		//show_debug_message("Total audio emitters: " + string(audioEmittersCount));
+		show_debug_message("Total audio emitters: " + string(audioEmittersCount));
 		
 		var particlesCount = 0;
 		for (var i = 0; i < 100000; i++) {
@@ -61,7 +63,7 @@ room_goto(room);
 				particlesCount++;
 			}
 		}
-	//	show_debug_message("Total part types: " + string(particlesCount));
+	    show_debug_message("Total part types: " + string(particlesCount));
 		
 		var partSysCount = 0;
 		for (var i = 0; i < 100000; i++) {
@@ -70,7 +72,7 @@ room_goto(room);
 				partSysCount++;
 			}
 		}
-		//show_debug_message("Total part systems: " + string(partSysCount));
+		show_debug_message("Total part systems: " + string(partSysCount));
 		
 
 		var instancesCount = 0;

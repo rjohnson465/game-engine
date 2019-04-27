@@ -5687,6 +5687,14 @@
             }
         },
         {
+            "Key": "609dcff5-63c4-43a2-bd77-d8664fb8add9",
+            "Value": {
+                "id": "c895a9e3-5a7e-438a-bfc6-e07fc167528d",
+                "resourcePath": "rooms\\rm_dungeon2\\rm_dungeon2.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "60d39b88-64b2-48f0-8526-80f7b35df608",
             "Value": {
                 "id": "90c31893-3fef-4c7c-b7a4-0e09e235e5f0",
@@ -9194,7 +9202,7 @@
             "Key": "9bfa6a86-03b4-480e-b94a-e9a819078e5c",
             "Value": {
                 "id": "328e419a-d3f7-4db8-8a01-d60f00ea5c9b",
-                "resourcePath": "rooms\\rm_dungeon2\\rm_dungeon2.yy",
+                "resourcePath": "rooms\\rm_dungeon22\\rm_dungeon22.yy",
                 "resourceType": "GMRoom"
             }
         },

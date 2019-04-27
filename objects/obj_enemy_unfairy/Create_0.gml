@@ -18,9 +18,11 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 // all weapons / shields enemy can use
 
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
+
 var woodshield = makeEnemyWeapon(obj_hand_item_woodshield);
 var longsword = makeEnemyWeapon(obj_hand_item_longsword);
 var shortbow = makeEnemyWeapon(obj_hand_item_shortbow);
+
 ds_map_add(handItems,"lm1",longsword);
 ds_map_add(handItems,"rm1",woodshield);
 ds_map_add(handItems, "lr1",shortbow);
@@ -30,6 +32,7 @@ ds_map_replace(equippedLimbItems,"l",woodshield);
 ds_map_replace(equippedLimbItems,"r",longsword);
 var rightHand = makeLimb(id,"r");
 var leftHand = makeLimb(id,"l");
+
 
 state = CombatantStates.Idle;
 
@@ -87,6 +90,7 @@ if shortbowShot == noone shortbowShot = instance_create_depth(x,y,1,obj_attack_u
 var rangedChain1 = [shortbowShot,shortbowShot];
 var rangedChain2 = [shortbowShot];
 rangedAttacks = [rangedChain1,rangedChain2];
+
 
 hp = 50;
 maxHp = 50;

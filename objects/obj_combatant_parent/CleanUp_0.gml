@@ -23,18 +23,6 @@ if ds_exists(equippedLimbItems, ds_type_map) {
 	ds_map_destroy(equippedLimbItems); equippedLimbItems = -1;
 }
 
-// sprint particles system destroy
-if part_emitter_exists(sprintParticleSystem, sprintParticleEmitter) {
-	part_emitter_destroy(sprintParticleSystem, sprintParticleEmitter);
-	sprintParticle = -1;
-}
-if part_system_exists(sprintParticleSystem) {
-	part_system_destroy(sprintParticleSystem); sprintParticleSystem = -1;
-}
-if part_type_exists(sprintParticle) {
-	part_type_destroy(sprintParticle); sprintParticle = -1;
-}
-
 if ds_exists(guessPathPts, ds_type_list) {
 	ds_list_destroy(guessPathPts); guessPathPts = -1;
 }
@@ -85,9 +73,9 @@ if audio_emitter_exists(walkingEmitter) {
 }
 
 // sprint particles system destroy
-if part_emitter_exists(sprintParticleSystem, sprintParticleEmitter) {
+if part_system_exists(sprintParticleSystem) && part_emitter_exists(sprintParticleSystem, sprintParticleEmitter) {
 	part_emitter_destroy(sprintParticleSystem, sprintParticleEmitter);
-	sprintParticle = -1;
+	sprintParticleEmitter = -1;
 }
 if part_system_exists(sprintParticleSystem) {
 	part_system_destroy(sprintParticleSystem); sprintParticleSystem = -1;

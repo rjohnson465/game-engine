@@ -36,7 +36,7 @@ if layerToMoveTo != noone {
 }
 
 if justRevivedAtFountain {
-	justRevivedAtFountain = false;
+	/*justRevivedAtFountain = false;
 	var f = instance_nearest(x,y,obj_fountain);
 	with f {
 		if !isRunning {
@@ -47,7 +47,7 @@ if justRevivedAtFountain {
 		wishAtFountain(false);
 	}
 
-	updateLightLayer(playerLightRadius,noone,layer);
+	updateLightLayer(playerLightRadius,noone,layer);*/
 
 } 
 

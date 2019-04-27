@@ -56,7 +56,7 @@ if gamepad_is_connected(p.gamePadIndex) {
 }
 
 if (ENTER || ((mouseOverFountainRevive || mouseOverOrbRevive) && mouse_check_button_released(mb_left))) && acceptingInput {
-	global.fadeDuration = 30;
+	global.fadeDuration = 6;//30;
 	global.owner = id;
 	fade = instance_create_depth(x,y,-100000,obj_fade);
 	acceptingInput = false;
@@ -165,6 +165,8 @@ if instance_exists(fade) {
 				with lastFountain {
 					wishAtFountain(false);
 				}
+				
+				
 			}
 		}
 		

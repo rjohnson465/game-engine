@@ -1,7 +1,8 @@
-if part_type_exists(particle) {
+// if "type" is an object, it is an attack data object, so don't destroy the particle
+// that part type will be destoyed when the attack data object is destroyed, probably at Room End
+if is_string(type) && part_type_exists(particle) {
 	part_type_destroy(particle); particle = -1;
 }
-
 if part_type_exists(particle2) {
 	part_type_destroy(particle2); particle2 = -1;
 }

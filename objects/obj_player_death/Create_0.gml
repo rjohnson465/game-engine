@@ -26,7 +26,7 @@ full_screen_effect = true;
 room_speed = 15;
 
 textFadeFrame = 0;
-textFadeTotalFrames = 30;
+textFadeTotalFrames = 1; // 30;
 acceptingInput = false;
 
 enum ReviveOptions {

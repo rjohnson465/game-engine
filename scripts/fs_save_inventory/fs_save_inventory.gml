@@ -4,8 +4,13 @@ var sd_inventory = ds_map_create(); // this is the only ds that should survive
 with obj_item_parent {
 	
 	if owner == global.player {
+		
+		var key = ds_list_find_index(global.player.inventory,id);
+		if key == -1 {
+			continue;
+		}
+		
 		var sd_item = ds_map_create();
-	
 		ds_map_replace(sd_item,"ObjectIndex",object_index);
 		ds_map_replace(sd_item,"ObjectName",object_get_name(object_index));
 		
@@ -27,13 +32,9 @@ with obj_item_parent {
 		if type == ItemTypes.Ring {
 			ds_map_replace(sd_item, "ItemSpriteName", itemSpriteName);
 		}
-
+		
 		var customItemPropertiesCopy = ds_map_deep_clone(customItemProperties);
 		ds_map_add_map(sd_item,"CustomItemProperties", customItemPropertiesCopy);
-
-		if object_index == obj_item_health_flask {
-			var a = 3;
-		}
 		
 		
 		// saving socketed gems
@@ -109,9 +110,10 @@ with obj_item_parent {
 				currentProp = ds_map_find_next(itemProperties,currentProp);
 			}
 			ds_map_add_list(sd_item,"ItemProperties",propsList);
-		}
+		} 
+		
 	
-		var key = ds_list_find_index(global.player.inventory,id);
+		
 		// or maybe key can just be inventory index
 		ds_map_add_map(sd_inventory,key,sd_item);
 	}

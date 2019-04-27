@@ -12,6 +12,7 @@ global.activateAll = false;
 
 
 // debug shit
+/*
 		var mapsCount = 0;
 		for (var i = 0; i < 100000; i++) {
 			var map = i;
@@ -26,6 +27,8 @@ global.activateAll = false;
 			}
 		}
 		show_debug_message("Total maps: " + string(mapsCount));
+		
+
 
 		var listsCount = 0;
 		for (var i = 0; i < 100000; i++) {
@@ -42,6 +45,7 @@ global.activateAll = false;
 		}
 		show_debug_message("Total lists: " + string(listsCount));
 		
+		
 		var audioEmittersCount = 0;
 		for (var i = 0; i < 100000; i++) {
 			var emi = i;
@@ -49,8 +53,9 @@ global.activateAll = false;
 				audioEmittersCount++;
 			}
 		}
-		//show_debug_message("Total audio emitters: " + string(audioEmittersCount));
+		show_debug_message("Total audio emitters: " + string(audioEmittersCount));
 		
+
 		var particlesCount = 0;
 		for (var i = 0; i < 100000; i++) {
 			var part = i;
@@ -70,21 +75,4 @@ global.activateAll = false;
 		show_debug_message("Total part systems: " + string(partSysCount));
 		
 
-		var instancesCount = 0;
-		with all {
-	
-			instancesCount++;
-		}
-		show_debug_message("Total instances: " + string(instancesCount));
-		
-		// audio emitters
-		var aeCount = 0;
-		for (var i = 0; i < 10000; i++) {
-			var ae = i;
-			if (audio_emitter_exists(ae)) {
-				aeCount++
-			}
-		}
-
-		show_debug_message("Total audio emitters: " + string(aeCount));
 
