@@ -199,6 +199,7 @@ hasReactivatedObjectsForLayers = false;
 
 global.respawnEnemiesAfterGridsPopulate = false;
 global.activateAll = false;
+global.isReturningToMainMenu = false;
 
 bgmManager = instance_create_depth(x,y,1,obj_bgm_manager);
 

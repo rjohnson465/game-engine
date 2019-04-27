@@ -1,3 +1,4 @@
+if room == game_menu exit;
 //display_set_gui_size(-1, -1);
 draw_set_alpha(1);
 var vx = camera_get_view_x(view_camera[0]);

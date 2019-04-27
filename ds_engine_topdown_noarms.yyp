@@ -3159,6 +3159,14 @@
             }
         },
         {
+            "Key": "33672b34-f5df-48ad-9d7f-74bdb58ef1af",
+            "Value": {
+                "id": "21717b4c-7727-4779-a796-8c3df9b32382",
+                "resourcePath": "sprites\\spr_npc_barry\\spr_npc_barry.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "336b23b2-c1c2-4b2f-a7e9-3f7646cb0949",
             "Value": {
                 "id": "e9748874-adf6-4360-82ea-db3fbd9df17a",
@@ -3890,7 +3898,7 @@
             "Key": "3f05d096-df1b-442b-a084-3e08c16b06d1",
             "Value": {
                 "id": "84c28639-5bc9-4deb-8c74-a67146de04ab",
-                "resourcePath": "sprites\\spr_francis\\spr_francis.yy",
+                "resourcePath": "sprites\\spr_npc_francis\\spr_npc_francis.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5354,7 +5362,7 @@
             "Key": "58fc3139-38ac-4992-9658-7c501195dd56",
             "Value": {
                 "id": "2e8ad7fb-3471-4fe1-b98b-ab6491a53477",
-                "resourcePath": "sprites\\spr_francis_move\\spr_francis_move.yy",
+                "resourcePath": "sprites\\spr_npc_francis_move\\spr_npc_francis_move.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -7695,6 +7703,14 @@
             }
         },
         {
+            "Key": "808a6f9c-2ed7-427a-8807-9bb8ffa31019",
+            "Value": {
+                "id": "74976f9c-5065-4342-96ad-80957d596f23",
+                "resourcePath": "views\\808a6f9c-2ed7-427a-8807-9bb8ffa31019.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "80bfbbe2-8740-495a-8131-4c267d5cf476",
             "Value": {
                 "id": "dcf4595d-8616-4b8d-bf9d-3bb0453e0abb",
@@ -8290,7 +8306,7 @@
             "Key": "8a101fd1-cfbb-4379-96ed-25cfe289ce17",
             "Value": {
                 "id": "5850bd0a-c039-417a-bd15-f23e7b13a1a7",
-                "resourcePath": "sprites\\spr_francis_hand\\spr_francis_hand.yy",
+                "resourcePath": "sprites\\spr_npc_francis_hand\\spr_npc_francis_hand.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -8980,6 +8996,14 @@
                 "id": "8d4865ad-a610-4b62-9cc6-e0fd423f0609",
                 "resourcePath": "sprites\\spr_player_torch_prep_1\\spr_player_torch_prep_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "97398c27-97da-4dfd-aebf-d65d5f917529",
+            "Value": {
+                "id": "9a6ac085-c152-4bb5-b946-6b889aa6bd71",
+                "resourcePath": "objects\\obj_npc_francis1\\obj_npc_francis1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -11475,6 +11499,14 @@
             "Value": {
                 "id": "9bf52d77-d1f7-446d-89df-6efa11e2c471",
                 "resourcePath": "sprites\\spr_player_arquebus_recover_1\\spr_player_arquebus_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c21108ad-14fd-4ec6-b3ad-94eaac3a25c2",
+            "Value": {
+                "id": "063624d6-8d84-45b2-ada7-8188a8b66f60",
+                "resourcePath": "sprites\\spr_npc_barry_move\\spr_npc_barry_move.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -14148,6 +14180,14 @@
                 "id": "898c26c5-642a-43b0-a293-349be3f472d9",
                 "resourcePath": "scripts\\modifyShieldDurability\\modifyShieldDurability.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f08cffe9-e0ea-4d30-a7f9-48b16be4fb5a",
+            "Value": {
+                "id": "1ec37bb9-d16f-44d0-814a-0473d3175483",
+                "resourcePath": "views\\f08cffe9-e0ea-4d30-a7f9-48b16be4fb5a.yy",
+                "resourceType": "GMFolder"
             }
         },
         {

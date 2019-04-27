@@ -1,7 +1,7 @@
-audio_listener_position(x, y, layer_get_depth(layer));
 if room == game_menu {
 	exit;
 }
+audio_listener_position(x, y, layer_get_depth(layer));
 var isFading = false;
 with obj_fade {
 	if instance_count > 0 {

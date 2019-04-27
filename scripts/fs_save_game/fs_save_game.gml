@@ -5,8 +5,6 @@ var filename = global.gameManager.currentSaveFile;
 if filename = noone filename = "Game.sav";
 global.gameManager.currentSaveFile = filename;
 
-/*
-
 // save player info
 var playerDataMap = fs_save_player(); // CLEAN
 ds_map_add_map(save_data,"Player",playerDataMap);
@@ -22,14 +20,11 @@ ds_map_add_map(save_data,"RoomData",roomDataMap);
 // save enemy info
 var enemyDataMap = fs_save_enemies(); // CLEAN
 ds_map_add_map(save_data,"Enemies",enemyDataMap);
-*/
 
 
 // save inventory items
 var inventoryDataMap = fs_save_inventory(); // CLEAN
 ds_map_add_map(save_data,"Inventory",inventoryDataMap);
-
-/*
 
 // save skills data
 var skillsDataMap = fs_save_skills(); // CLEAN
@@ -42,8 +37,6 @@ ds_map_add_map(save_data,"Quests",questsDataMap);
 // save npc data
 var npcsDataMap = fs_save_npcs();
 ds_map_add_map(save_data,"Npcs",npcsDataMap);
-
-*/
 
 // save to file name
 ds_map_secure_save(save_data,filename);

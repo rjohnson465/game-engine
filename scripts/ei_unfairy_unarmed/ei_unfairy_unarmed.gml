@@ -1,5 +1,5 @@
 /// ei_unfairy_unarmed
-
+name = "Unfairy Simpleton";
 /// initialize this unfairy to have no weapons
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 ds_map_replace(handItems,"lm1",unarmed);

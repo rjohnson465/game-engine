@@ -294,7 +294,7 @@ lastFountainZ = noone;
 
 gamePadIndex = noone;
 if !global.gameManager.isLoading {
-	layerToMoveTo = noone;
+	layerToMoveTo = "instances_floor_1";
 }
 if variable_global_exists("gamePadIndex") {
 	gamePadIndex = global.gamePadIndex;

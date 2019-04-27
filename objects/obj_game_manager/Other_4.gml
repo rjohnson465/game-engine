@@ -1,7 +1,10 @@
-instance_activate_all();
-global.isPopulatingGrids = true;
-alarm[5] = 10;
-populateGrids();
+if room != game_menu {
+	instance_activate_all();
+	global.isPopulatingGrids = true;
+	alarm[5] = 10;
+	populateGrids();
+}
+
 // stop all looping sfx
 var loopingSfx = [
 	snd_magic_fire_charge, snd_magic_magic_charge, snd_magic_ice_charge, 

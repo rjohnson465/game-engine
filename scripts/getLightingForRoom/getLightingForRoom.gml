@@ -5,6 +5,9 @@
 var rm = argument0;
 
 switch rm {
+	case game_menu: {
+		return [c_gray]; break;
+	}
 	case rm_dungeon: {
 		return [c_dkgray, c_dkgray, c_red]; break;
 	}

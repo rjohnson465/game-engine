@@ -1,3 +1,4 @@
+if room == game_menu exit;
 //if limbItem.weaponType == PISTOL exit; // must draw pistols on top of hands
 shader_reset();
 if !owner.isBeingHit {

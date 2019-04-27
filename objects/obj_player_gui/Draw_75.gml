@@ -1,3 +1,4 @@
+if room == game_menu exit;
 var p = global.player;
 var pad = p.gamePadIndex;
 if !p.isEquippingBeltItem exit;

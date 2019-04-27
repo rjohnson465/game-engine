@@ -49,6 +49,8 @@ floatingFrame = random_range(0,59); //0-60 "float" for fairies (grow/shrink)
 alpha = 1;
 scale = 1;
 
+spriteString = "npc_default";
+
 // light radius
 lightRadiusAlpha = .5;
 lightRadiusScale = .5;

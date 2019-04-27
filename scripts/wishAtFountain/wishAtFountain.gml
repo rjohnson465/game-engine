@@ -106,7 +106,7 @@ with obj_player {
 
 // trigger a save 
 with obj_game_manager {
-	// updatePersistentElementProperty(other, "isDoneFilling", true);
+	updatePersistentElementProperty(other, "isDoneFilling", true);
 	fs_save_game();
 	alert("Saving " + currentSaveFile, c_yellow);
 }

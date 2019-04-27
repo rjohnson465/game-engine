@@ -1,3 +1,4 @@
+if room == game_menu exit;
 if owner.state == CombatantStates.Dodging || owner.state == CombatantStates.Healing || (owner.isShielding && limbItem.subType == HandItemTypes.Shield) {
 	visible = false;
 } else visible = true;

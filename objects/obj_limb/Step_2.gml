@@ -1,3 +1,4 @@
+if room == game_menu exit;
 if owner.state == CombatantStates.Dodging {
 	visible = false;
 } else visible = true;

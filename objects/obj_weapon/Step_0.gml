@@ -1,3 +1,4 @@
+if room == game_menu exit;
 if global.isUpdatingRoomLayers exit;
 
 if !instance_exists(limb) {

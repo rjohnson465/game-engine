@@ -37,6 +37,20 @@ if global.isUpdatingRoomLayers {
 	}
 }
 
+if global.isReturningToMainMenu {
+	// must activate all instances on step 1,
+	if !hasReactivatedObjectsForLayers {
+		instance_activate_all();
+		hasReactivatedObjectsForLayers = true;
+	}
+	// then when next step happens, actually go back to menu
+	else {
+		room_goto(game_menu);
+		hasReactivatedObjectsForLayers = false;
+		global.isReturningToMainMenu = false;
+	}
+}
+
 
 var p = global.player;
 audio_emitter_position(ambEmitter, p.x, p.y, p.depth);

@@ -5,7 +5,7 @@
 event_inherited();
 
 name = "Francis";
-spriteString = "francis";
+spriteString = "npc_francis";
 
 greeting = snd_greeting_francis;
 

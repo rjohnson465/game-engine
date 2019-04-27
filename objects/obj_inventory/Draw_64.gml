@@ -252,16 +252,20 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 		if global.ui.equipSelector.isActive {
 			w += drawPrompt("Cancel Equip",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		} 
-		// if item at move selector position is equipped
+		// if item at move selector position is equipped and selector is in equipped items, prompt for unequip 
 		else if 
-			//getItemAtSelectorPosition(global.ui.moveSelector) != noone 
 			itemAtMoveSelector != noone
+			&& isSelectorInEquippedItems(global.ui.moveSelector)
 			&& ds_list_find_index(eq,itemAtMoveSelector) != -1
 			&& !object_is_ancestor(itemAtMoveSelector.object_index,obj_unarmed_parent) { 
 			
 			//w += drawPrompt("Unequip "+itemAtMoveSelector.name,Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 			w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
-		} 
+		}
+		// prompt to toggle info with X
+		else if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && isSelectorInInventory(global.ui.moveSelector) {
+			w += drawPrompt("Toggle Item Info",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+		}
 		else if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && selectedItem.isUsable {
 			w += drawPrompt("Equip Item To Belt",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		}

@@ -11,6 +11,8 @@ var topLeftX = argument0;
 var topLeftY = argument1;
 var item = argument2;
 
+var invObj = global.inventory;
+
 if item == undefined || !instance_exists(item) || item == noone exit;
 if item.type == ItemTypes.HandItem {
 	if item.subType == HandItemTypes.Melee {
@@ -62,7 +64,7 @@ draw_set_valign(fa_left);
 draw_set_halign(fa_left);
 draw_set_color(c_white);
 // all shields and weapons share many properties, so it makes sense to lump them together when showing properties
-if item.type == ItemTypes.HandItem {
+if (object_index != obj_inventory || (!invObj.isShowingItemInfo2 && object_index == obj_inventory)) && item.type == ItemTypes.HandItem  {
 					
 	// auto weapon / shield description 
 	var itemType = "";
@@ -323,6 +325,11 @@ if item.type == ItemTypes.HandItem {
 			}
 		}
 	}
+} 
+else if object_index == obj_inventory && (item.type == ItemTypes.HandItem || item.type == ItemTypes.Head) && invObj.isShowingItemInfo2 {
+	var sh = string_height(item.description);
+	var desc = item.description;
+	draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,desc,sh,width-5);
 }
 // Misc items, show item description
 else if item.type == ItemTypes.Other {

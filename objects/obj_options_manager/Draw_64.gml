@@ -37,6 +37,8 @@ switch subMenu {
 			if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_pressed(mb_left) {
 				switch str {
 					case SAVEEXIT: {
+						// all instances must be activated, so they can be destroyed / cleaned up
+						global.activateAll = true;
 						global.ui.isShowingMenus = false;
 						global.fadeDuration = 60;
 						global.owner = id;
@@ -50,6 +52,8 @@ switch subMenu {
 			if gamepad_button_check_pressed(global.gamePadIndex, gp_face1) && selectedOption != noone {
 				switch selectedOption {
 					case SAVEEXIT: {
+						// all instances must be activated, so they can be destroyed / cleaned up
+						global.activateAll = true;
 						global.ui.isShowingMenus = false;
 						global.fadeDuration = 60;
 						global.owner = id;

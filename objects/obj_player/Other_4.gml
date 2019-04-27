@@ -1,5 +1,6 @@
 global.isReadingTutorial = false;
 if global.playerDoNothing exit;
+if room == game_menu exit;
 
 if variable_global_exists("newGameStarted") && global.newGameStarted {
 	// hard code first fountain

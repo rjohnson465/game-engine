@@ -1,3 +1,4 @@
+
 //roomIndex = string(room);
 roomName = room_get_name(room);
 
@@ -5,7 +6,6 @@ roomName = room_get_name(room);
 // kvp -> <key, data_obj>
 persistentElements = noone;
 enemiesData = noone;
-
 
 // load in from temporary room data file, not save file
 persistentElements = fs_load_roomdata_tempfile(roomName);

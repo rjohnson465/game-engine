@@ -27,6 +27,8 @@ with obj_enemy_noeyeddeer {
 	instance_deactivate_object(id);
 }
 
+instance_activate_object(obj_fade);
+
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
 var vw = camera_get_view_width(view_camera[0]);
