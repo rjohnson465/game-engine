@@ -12,7 +12,6 @@ part = part_type_create();
 system = part_system_create();
 part_system_depth(system, layer_get_depth(layer)-1);
 emitter = part_emitter_create(system);
-part = part_type_create();
 part_type_shape(part, pt_shape_sphere);
 part_type_alpha2(part,.5,.2);
 part_type_color2(part,c_navy,c_aqua);
