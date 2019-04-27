@@ -19,3 +19,13 @@ with obj_persistent_environment {
 
 event_perform(ev_cleanup, 0);
 
+if ds_exists(persistentElements, ds_type_map) {
+	ds_map_destroy(persistentElements); persistentElements = -1;
+}
+if ds_exists(enemiesData, ds_type_map) {
+	ds_map_destroy(enemiesData); enemiesData = -1;
+}
+
+var a = 161;
+
+var b = 0;

@@ -10,6 +10,7 @@ if instance_exists(owner) {
 // maybe we came from a portal, if so, not all instances need to be activated anymore
 global.activateAll = false;
 
+
 // debug shit
 		var mapsCount = 0;
 		for (var i = 0; i < 100000; i++) {
@@ -57,7 +58,7 @@ global.activateAll = false;
 				particlesCount++;
 			}
 		}
-	//	show_debug_message("Total part types: " + string(particlesCount));
+	    show_debug_message("Total part types: " + string(particlesCount));
 		
 		var partSysCount = 0;
 		for (var i = 0; i < 100000; i++) {
@@ -66,7 +67,7 @@ global.activateAll = false;
 				partSysCount++;
 			}
 		}
-		//show_debug_message("Total part systems: " + string(partSysCount));
+		show_debug_message("Total part systems: " + string(partSysCount));
 		
 
 		var instancesCount = 0;
@@ -75,20 +76,15 @@ global.activateAll = false;
 			instancesCount++;
 		}
 		show_debug_message("Total instances: " + string(instancesCount));
+		
+		// audio emitters
+		var aeCount = 0;
+		for (var i = 0; i < 10000; i++) {
+			var ae = i;
+			if (audio_emitter_exists(ae)) {
+				aeCount++
+			}
+		}
 
-
-
-/*with obj_fountain {
-	wishAtFountain();
-}*/
-
-// No mem leak (maps checked)
-// respawnEnemies();
-
-// No memeory leak
-// fs_save_roomdata_tempfile();
-
-// No mem leak
-// fs_save_enemydata_tempfile();
-
+		show_debug_message("Total audio emitters: " + string(aeCount));
 

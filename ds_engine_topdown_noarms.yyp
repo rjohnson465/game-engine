@@ -799,6 +799,14 @@
             }
         },
         {
+            "Key": "0ceebe6c-ca03-41e9-ac7d-e70eb3121332",
+            "Value": {
+                "id": "e0176198-387c-40bb-9a96-a9ec0a213cac",
+                "resourcePath": "sprites\\spr_item_gempieces_emerald_chunks\\spr_item_gempieces_emerald_chunks.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0d1d708e-fdbe-4b10-9da2-74541f29a72e",
             "Value": {
                 "id": "f3123e60-4e91-4e3c-831a-840f8e67ddc5",
@@ -1332,6 +1340,14 @@
                 "id": "b49e16ef-a026-44a4-a615-6afde0b70351",
                 "resourcePath": "views\\13806361-e90b-421f-a8b4-dc00acfc8be2.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "139ed457-d31d-4719-b42e-d566b70df9e1",
+            "Value": {
+                "id": "e0ec7f89-aecb-446b-b7dd-2deaa802a383",
+                "resourcePath": "sprites\\spr_item_gempieces_lapis_chunks\\spr_item_gempieces_lapis_chunks.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2035,6 +2051,14 @@
             "Value": {
                 "id": "cd35de68-9a58-496e-af81-91ee7cc74cd5",
                 "resourcePath": "sprites\\spr_enemy_speyeder_claw_attack_1_2\\spr_enemy_speyeder_claw_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "20260906-6bbf-4321-9c13-a552a85d8a0d",
+            "Value": {
+                "id": "15b13860-ef1d-4e03-bb49-2d8f40c9e9b7",
+                "resourcePath": "sprites\\spr_item_gempieces_amethyst_shards\\spr_item_gempieces_amethyst_shards.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3487,6 +3511,14 @@
             }
         },
         {
+            "Key": "39851fb8-4168-4d83-b2d6-ca7467b93a4e",
+            "Value": {
+                "id": "69e41c5c-9513-4315-b9ba-eb4636c679f5",
+                "resourcePath": "sprites\\spr_item_gempieces_aquamarine_chunks\\spr_item_gempieces_aquamarine_chunks.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "39923840-b131-407d-9027-ca3288aff097",
             "Value": {
                 "id": "688be7ec-5c51-4e31-9dae-562cacade19c",
@@ -3580,6 +3612,14 @@
                 "id": "89a085c4-b4e1-4803-9d96-310cf307c1ec",
                 "resourcePath": "scripts\\modifyHatResistance\\modifyHatResistance.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "3ac73bd3-ac11-4ec1-a5b2-0e51cefacb5a",
+            "Value": {
+                "id": "e9d6caec-3ea4-4334-9f85-20f4ce119ae0",
+                "resourcePath": "sprites\\spr_player_wings\\spr_player_wings.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7239,6 +7279,14 @@
             }
         },
         {
+            "Key": "79babf33-b409-4e37-a67b-1bb6d49de93e",
+            "Value": {
+                "id": "9071a7a6-717d-4b51-bafd-6eac1921e250",
+                "resourcePath": "sprites\\spr_item_gempieces_amethyst_chunks\\spr_item_gempieces_amethyst_chunks.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "79f443dd-7a78-4fb1-a166-78c7a86677b7",
             "Value": {
                 "id": "2362270f-32ea-4b72-a8dd-1acd25a09bd9",
@@ -8703,6 +8751,14 @@
             }
         },
         {
+            "Key": "92fa681a-dc37-4368-80b7-1b145d698902",
+            "Value": {
+                "id": "2eaec1c9-5ba2-4a9d-864e-8c89989188ad",
+                "resourcePath": "sprites\\spr_item_gempieces_ruby_shards\\spr_item_gempieces_ruby_shards.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "93006976-c00d-45ed-a7dd-bb4257c908c7",
             "Value": {
                 "id": "5ed0dc10-2752-4aba-9852-98d07fe2655a",
@@ -9247,6 +9303,14 @@
             }
         },
         {
+            "Key": "9defe4d7-0e35-4bf2-8f19-b13642dae2af",
+            "Value": {
+                "id": "aaec338d-d646-4e25-bfa6-e91c4620580e",
+                "resourcePath": "sprites\\spr_item_gempieces_emerald_shards\\spr_item_gempieces_emerald_shards.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9e0777e2-84c9-4202-9d7f-7b4098e94e86",
             "Value": {
                 "id": "7148538a-9885-4fd4-a162-38abd66201ac",
@@ -9507,6 +9571,14 @@
             "Value": {
                 "id": "fbb9498c-d88f-4ecf-bfd3-ee1a39e8b359",
                 "resourcePath": "views\\a18a05b8-832c-4429-a35a-540e9b7f1fab.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a191bc8e-bbef-495f-af62-8719e304fa22",
+            "Value": {
+                "id": "97019eca-5241-48c6-928c-3e646a78c9fd",
+                "resourcePath": "views\\a191bc8e-bbef-495f-af62-8719e304fa22.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -10388,6 +10460,14 @@
                 "id": "995337a5-a231-4a1b-9d43-e1651e906d89",
                 "resourcePath": "sprites\\spr_player_hand_club_2h_recover_1\\spr_player_hand_club_2h_recover_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b05fc50d-c41e-490d-a836-017f83bbacf5",
+            "Value": {
+                "id": "873f8025-5979-4757-8f96-56dbddbb0b2e",
+                "resourcePath": "views\\b05fc50d-c41e-490d-a836-017f83bbacf5.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -12543,6 +12623,14 @@
             }
         },
         {
+            "Key": "d49d202e-b645-4900-b641-dcf610334601",
+            "Value": {
+                "id": "1f2b0819-d7e1-4406-87e5-2efd470dc228",
+                "resourcePath": "sprites\\spr_item_gempieces_lapis_shards\\spr_item_gempieces_lapis_shards.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d4fe3baf-9497-4d48-8c13-3f40477f31b8",
             "Value": {
                 "id": "2ddf3db1-a27d-42d6-90e9-b51f68d79ee7",
@@ -13215,6 +13303,14 @@
             }
         },
         {
+            "Key": "e0953b64-0975-4921-a2db-80b3880e6978",
+            "Value": {
+                "id": "15c0a672-0709-486f-9867-86c4d151c66f",
+                "resourcePath": "sprites\\spr_player_wings_move\\spr_player_wings_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e0e6895a-f76c-4605-bdea-66ef95918631",
             "Value": {
                 "id": "0fd3abac-90ca-44c5-ac68-8b55db5f5f2c",
@@ -13540,6 +13636,14 @@
                 "id": "ac96370c-4755-4b03-bf8d-1a05b90ab934",
                 "resourcePath": "scripts\\showHideSkills\\showHideSkills.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "e7443c78-7328-43ad-88f8-33c8454afb00",
+            "Value": {
+                "id": "ec9e09b9-f906-4d59-919d-cbdc6c8e3dcd",
+                "resourcePath": "sprites\\spr_item_gempieces_ruby_chunks\\spr_item_gempieces_ruby_chunks.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -14076,6 +14180,14 @@
                 "id": "c0cf8a9d-cf35-473d-b684-22b62b1f83df",
                 "resourcePath": "scripts\\isItemEquipped\\isItemEquipped.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f18b1231-39c7-48ab-840e-29ea3443e4e9",
+            "Value": {
+                "id": "2af134a2-798a-496d-b83a-644e05d4590b",
+                "resourcePath": "sprites\\spr_item_gempieces_aquamarine_shards\\spr_item_gempieces_aquamarine_shards.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

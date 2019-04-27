@@ -37,7 +37,13 @@ else {
 		ds_map_destroy(sd_temp_roomdatas); sd_temp_roomdatas = -1;
 		return noone;
 	}
+	var old_sd_temp_roomdata = sd_temp_roomdata;
 	sd_temp_roomdata = ds_map_deep_clone(sd_temp_roomdata_tocopy);
+	// when we reassigned sd_temp_roomdata to the returned value of ds_map_deep_clone, its old reference
+	// (a map) is overwritten. So we store it in old_sd_temp_roomdata, then destroy that old map here
+	if ds_exists(old_sd_temp_roomdata, ds_type_map) {
+		ds_map_destroy(old_sd_temp_roomdata); old_sd_temp_roomdata = -1;
+	}
 	ds_map_destroy(sd_temp_roomdata_tocopy); sd_temp_roomdata_tocopy = -1; // mem leak
 }
 

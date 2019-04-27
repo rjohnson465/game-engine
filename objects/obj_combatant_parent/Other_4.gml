@@ -12,6 +12,9 @@ audio_emitter_gain(walkingInWaterEmitter,0);
 }*/
 
 // initiated here so dyingParticle exist
+if part_type_exists(sprintParticle) {
+	part_type_destroy(sprintParticle); sprintParticle = -1;
+}
 sprintParticle = part_type_create();
 part_type_sprite(sprintParticle,sprite_index,1,0,1);
 part_type_alpha2(sprintParticle,.75,.25);
@@ -21,5 +24,9 @@ if is_array(dyingParticleColor1) {
 }
 part_type_color2(sprintParticle,dp1,dyingParticleColor2);
 part_type_life(sprintParticle,4,8);
+if (part_system_exists(sprintParticleSystem) && part_emitter_exists(sprintParticleSystem, sprintParticleEmitter)) {
+	part_emitter_destroy(sprintParticleSystem, sprintParticleEmitter); sprintParticleEmitter = -1;
+	part_system_destroy(sprintParticleSystem); sprintParticleSystem = -1;
+}
 sprintParticleSystem = part_system_create();
 sprintParticleEmitter = part_emitter_create(sprintParticleSystem);
