@@ -2,7 +2,7 @@
     "id": "97398c27-97da-4dfd-aebf-d65d5f917529",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_npc_francis1",
+    "name": "obj_npc_barry",
     "eventList": [
         {
             "id": "0885c205-5844-4a73-8f56-9cd4679bec57",

@@ -7,6 +7,8 @@ for (var i = 0; i < ds_list_size(global.droppedItems); i++) {
 	item.persistent = true;
 }
 
+// ds_list_destroy(global.droppedItems); global.droppedItems = -1;
+
 owner = global.owner;
 layer = owner.layer;
 isBeingLooted = false;

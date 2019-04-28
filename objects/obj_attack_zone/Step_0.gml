@@ -27,12 +27,15 @@ if !hasSetAlarm && part_type_exists(particle) {
 
 if owner.state == CombatantStates.Staggering && !hasSetAlarm {
 	// once the attack is done, remove the id from the list of attacks that have hit all the combatants this attack hit
-if combatantsHit {
-	for (var i = 0; i < ds_list_size(combatantsHit); i++) {
-		var combatantHitWithThisAttack = ds_list_find_value(combatantsHit,i);
-		ds_list_delete(combatantHitWithThisAttack.beenHitWith, ds_list_find_index(combatantHitWithThisAttack.beenHitWith,id));
+	if ds_exists(combatantsHit, ds_type_list) {
+		for (var i = 0; i < ds_list_size(combatantsHit); i++) {
+			var combatantHitWithThisAttack = ds_list_find_value(combatantsHit,i);
+			if instance_exists(combatantHitWithThisAttack) && object_is_ancestor(combatantHitWithThisAttack.object_index, obj_combatant_parent) {
+				ds_list_delete(combatantHitWithThisAttack.beenHitWith, ds_list_find_index(combatantHitWithThisAttack.beenHitWith,id));
+			}
 		}
 	}
+
 
 	// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
 	var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);

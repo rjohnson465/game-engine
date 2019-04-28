@@ -201,12 +201,12 @@ if global.populateInventory && !global.gameManager.isLoading {
 	insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 	addItemToInventory(longsword);
 	
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, PILE));
 	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
-	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
-	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
-	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
-	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
-	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, CHUNKS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, CHUNKS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, SHARDS));
+	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, SHARDS));
 	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
@@ -214,7 +214,9 @@ if global.populateInventory && !global.gameManager.isLoading {
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hat_lumberjack_hat));
-	
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_rubberducky));
+	addItemToInventory(makeGem(obj_gem_amethyst, CRACKED));
+	addItemToInventory(makeGem(obj_gem_amethyst, FLAWLESS));
 	/*
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));

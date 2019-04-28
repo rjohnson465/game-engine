@@ -22,7 +22,7 @@ if ui.isShowingExplanations {
 	drawTextWidth(wdCol1XText,startingY+(line*20),"Slash defense",wdCol1Width-21);
 } else {
 	var defBase = ds_map_find_value(p.defenses, SLASH);
-	var bonuseDefenses = ds_list_create();
+	var bonusesDefenses = ds_list_create();
 	var bonusesTotal = 0;
 	for (var j = 0; j < ds_list_size(p.temporaryDefenses); j++) {
 		var entry = ds_list_find_value(p.temporaryDefenses, j);
@@ -34,7 +34,7 @@ if ui.isShowingExplanations {
 	
 	var defTotal = defBase + bonusesTotal;
 	draw_text(wdCol1XText,startingY+(line*20),"vs. Slash: " + string(defTotal));
-	ds_list_destroy(bonuseDefenses);
+	ds_list_destroy(bonusesDefenses); bonusesDefenses = -1;
 }
 line++;
 
@@ -88,7 +88,7 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 		drawTextWidth(wdCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) + " resistance",wdCol1Width-21);
 	} else {
 		var defBase = ds_map_find_value(p.defenses, el);
-		var bonuseDefenses = ds_list_create();
+		var bonusesDefenses = ds_list_create();
 		var bonusesTotal = 0;
 		for (var j = 0; j < ds_list_size(p.temporaryDefenses); j++) {
 			var entry = ds_list_find_value(p.temporaryDefenses, j);
@@ -107,6 +107,7 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 			draw_set_color(c_white);
 		}
 		draw_text(basicCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) +": "+ string(defTotal)+"%");
+		ds_list_destroy(bonusesDefenses); bonusesDefenses = -1;
 	}
 }
 line+=3;

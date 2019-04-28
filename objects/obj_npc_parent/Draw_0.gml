@@ -27,7 +27,7 @@ with obj_light_radius {
 
 // draw hands
 var handSpr = asset_get_index("spr_"+spriteString+"_hand");
-if handSpr != noone {
+if handSpr >= 0 {
 
 	// right hand 
 	draw_sprite_ext(handSpr,image_index,x,y,scale,scale,facingDirection,c_white,alpha);

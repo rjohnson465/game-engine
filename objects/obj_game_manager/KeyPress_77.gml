@@ -9,6 +9,9 @@ for (var i = 0; i < 100000; i++) {
 			 show_debug_message("list" + string(i) + " at key " + string(j) + ": " + string(val));
 
 		}
+		if ds_list_size(list) == 0 {
+			show_debug_message("list" + string(i) + " exists but is empty");
+		}
 	}
 }
 show_debug_message("Total lists: " + string(listsCount));

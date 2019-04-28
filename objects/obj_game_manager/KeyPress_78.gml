@@ -17,6 +17,7 @@ room_goto(room);
 */
 
 // debug shit
+show_debug_message("///////////////////////////////// START DEBUG INFO ////////////////////////");
 		var mapsCount = 0;
 		for (var i = 0; i < 100000; i++) {
 			var map = i;
@@ -56,6 +57,15 @@ room_goto(room);
 		}
 		show_debug_message("Total audio emitters: " + string(audioEmittersCount));
 		
+		var gridsCount = 0;
+		for (var i = 0; i < 100000; i++) {
+			var g = i;
+			if ds_exists(g, ds_type_grid) {
+				gridsCount++;
+			}
+		}
+		show_debug_message("Total grids: " + string(gridsCount));
+		
 		var particlesCount = 0;
 		for (var i = 0; i < 100000; i++) {
 			var part = i;
@@ -74,13 +84,21 @@ room_goto(room);
 		}
 		show_debug_message("Total part systems: " + string(partSysCount));
 		
+		var pathsCount = 0;
+		for (var i = 0; i < 100000; i++) {
+			var p = i;
+			if path_exists(p) {
+				pathsCount++;
+			}
+		}
+		show_debug_message("Total paths: " + string(pathsCount));
 
 		var instancesCount = 0;
 		with all {
 	
 			instancesCount++;
 		}
-		//show_debug_message("Total instances: " + string(instancesCount));
+		show_debug_message("Total instances: " + string(instancesCount));
 
 		with all {
 			if instancesCount > 1000 {

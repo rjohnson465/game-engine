@@ -67,6 +67,10 @@ with obj_item_drop {
 with obj_itemdrop_data {
 	instance_destroy(id,1);
 }
+
+with obj_health_orb {
+	instance_destroy(id, 1);
+}
 	
 // respawn all enemies
 // respawnEnemies();

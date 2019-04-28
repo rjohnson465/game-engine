@@ -16,3 +16,7 @@ if part_system_exists(system) {
 if audio_emitter_exists(sndEmitter) {
 	audio_emitter_free(sndEmitter); sndEmitter = -1;
 }
+
+if instance_exists(lightRadius) {
+	instance_destroy(lightRadius); lightRadius = -1;
+}

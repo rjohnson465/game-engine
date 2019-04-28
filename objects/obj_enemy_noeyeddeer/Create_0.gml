@@ -44,34 +44,11 @@ meleeRangeArray=[];
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-//meleeRangeArray=[10,30,30,30,30];
-//meleeRangeArray = [30];
 
-// ATTACKS
-/*
-global.owner = id;
-var bugBite = makeEnemyAttackObj(obj_attack_speyeder_head_1_1);
+// create passive attack obj every 3 frames
+damageFrequency = 3;
+alarm[4] = damageFrequency; 
 
-var webAoe = makeEnemyAttackObj(obj_attack_speyeder_aoe_1_1);
-
-var claw1 = makeEnemyAttackObj(obj_attack_speyeder_claw_1_1);
-var claw2 = makeEnemyAttackObj(obj_attack_speyeder_claw_1_2);
-
-var poisonAttack = makeEnemyAttackObj(obj_attack_speyeder_poison_1_1);
-
-var webAoeChain = [webAoe];
-var meleeChain1 = [bugBite];
-var meleeChain2 = [bugBite, webAoe];
-var meleeChain3 = [claw1];
-var meleeChain4 = [bugBite, claw1];
-var doubleClawChain = [claw1,claw2];
-var poisonAttackChain = [poisonAttack];
-var jumpClaws = [bugBite,claw1,claw2];
-meleeAttacks = [webAoeChain, meleeChain1, meleeChain3, meleeChain2, meleeChain4, doubleClawChain, jumpClaws, poisonAttackChain];
-
-var c1 = makeEnemyAttackObj(obj_attack_noeyeddeer_passive_charge);
-meleeAttacks = [c1]; */
-alarm[4] = 7; // create passive attack obj every 15 frames
 
 xpReward = 150;
 hp = 200;

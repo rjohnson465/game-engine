@@ -33,6 +33,11 @@ with obj_item_parent {
 			ds_map_replace(sd_item, "ItemSpriteName", itemSpriteName);
 		}
 		
+		// Gems / pieces must remember condition
+		if object_is_ancestor(object_index, obj_gem_parent) || object_is_ancestor(object_index, obj_gempieces_parent) {
+			ds_map_replace(sd_item, "Condition", condition);
+		}
+		
 		var customItemPropertiesCopy = ds_map_deep_clone(customItemProperties);
 		ds_map_add_map(sd_item,"CustomItemProperties", customItemPropertiesCopy);
 		

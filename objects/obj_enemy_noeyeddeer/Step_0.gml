@@ -32,7 +32,9 @@ switch state {
 				if !moveToNearestFreePoint(other.runningDirection,other.functionalSpeed,type==CombatantTypes.Enemy,0) {
 					jumpToNearestFreePoint(type==CombatantTypes.Enemy,0);
 				}
-				if other.alarm[4] < 0 other.alarm[4] = 7;
+				if other.alarm[4] < 0 {
+					other.alarm[4] = damageFrequency;
+				}
 				if other.alarm[4] == 1 {
 					var damagesMap = ds_map_create();
 					ds_map_replace(damagesMap,CRUSH,[4,8]);

@@ -1,3 +1,3 @@
 if state == CombatantStates.Moving {
-	alarm[4] = 7;
+	alarm[4] = damageFrequency;
 }
