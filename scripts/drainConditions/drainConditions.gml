@@ -100,6 +100,10 @@ for (var i = 0; i < size; i++) {
 		if decrementAmount < 0 {
 			decrementAmount = .1;
 		}
+		// if this is not an elemental condition (i.e. defense boost from elixir), decrement slower
+		if !arrayIncludes(global.ALL_ELEMENTS, currentCondition) {
+			decrementAmount = .05;
+		}
 		/*if currentCondition == ICE {
 			decrementAmount *= 1.5; // devin is a psuy and wants ice to last less long
 		}*/
@@ -113,8 +117,10 @@ for (var i = 0; i < size; i++) {
 		var sndId = ds_map_find_value(conditionSoundsMap, currentCondition);
 		if (sndId != noone) {
 			var emitter = ds_map_find_value(conditionsEmittersMap, currentCondition);
-			audio_emitter_gain(emitter, 0);
-			audio_stop_sound(sndId);
+				if emitter != undefined {
+				audio_emitter_gain(emitter, 0);
+				audio_stop_sound(sndId);
+			}
 			ds_map_replace(conditionSoundsMap, currentCondition, noone);
 		}
 		switch currentCondition {

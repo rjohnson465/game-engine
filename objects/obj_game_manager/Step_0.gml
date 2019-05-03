@@ -10,6 +10,9 @@ if isLoading {
 	
 		fs_load_game(currentSaveFile);
 		
+		// recreate all global maps
+		event_perform(ev_create, 0);
+		
 		// debug shit
 		var mapsCount = 0;
 		for (var i = 0; i < 100000; i++) {

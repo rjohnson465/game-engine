@@ -56,7 +56,7 @@ if gamepad_is_connected(p.gamePadIndex) {
 }
 
 if (ENTER || ((mouseOverFountainRevive || mouseOverOrbRevive) && mouse_check_button_released(mb_left))) && acceptingInput {
-	global.fadeDuration = 6;//30;
+	global.fadeDuration = 30;
 	global.owner = id;
 	fade = instance_create_depth(x,y,-100000,obj_fade);
 	acceptingInput = false;
@@ -155,11 +155,15 @@ if instance_exists(fade) {
 		
 		
 	} 
-	if fade.frame == (.5*fade.fadeDuration + 1) {
-		if selectedOption == ReviveOptions.Fountain {
+	if fade.frame == (.5*fade.fadeDuration + 5) {
+		if p.justRevivedAtFountain {
 			with p {
 				if !instance_exists(lastFountain) {
 					lastFountain = findPersistentRoomElement(obj_fountain, lastFountainX, lastFountainY);
+				}
+				
+				if lastFountain == noone {
+					lastFountain = instance_nearest(x, y, obj_fountain);
 				}
 				
 				with lastFountain {

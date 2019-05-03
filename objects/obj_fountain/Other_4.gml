@@ -1,6 +1,9 @@
 event_inherited();
 
 isDoneFilling = ds_map_find_value(properties, "isDoneFilling");
+if isDoneFilling == undefined {
+	isDoneFilling = false;
+}
 if isDoneFilling {
 	isRunning = true;
 }

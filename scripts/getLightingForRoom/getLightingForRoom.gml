@@ -11,6 +11,10 @@ switch rm {
 	case rm_dungeon: {
 		return [c_dkgray, c_dkgray, c_red]; break;
 	}
+	case rm_factory: {
+		var c = make_color_rgb(36, 33, 58);
+		return [c, c, c]; break;
+	}
 	case rm_dungeon2: {
 		return [c_dkgray, c_dkgray, c_red]; break;
 	}

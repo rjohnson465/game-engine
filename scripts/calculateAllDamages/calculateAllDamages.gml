@@ -106,14 +106,19 @@ for (var i = 0; i < size; i++) {
 		}
 		if damageBase > 0 {
 			if !isShocked {
-				//randomize();
-				//var damageReduction = random_range(0,defense);
-				//damageBase -= damageReduction;
 				damageBase = applyDefenseToDamageBase(damageBase, defense);
 			} else {
 				// enhance damage by 25% if shocked
 				damageBase *= 1.25;
 			}
+			
+			// could maybe have boosted temp damage reduction for a physical type, if elixir has been used
+			var tempDefBoost = ds_map_find_value(conditionPercentages, currentDamageType);
+			
+			if tempDefBoost != undefined && tempDefBoost > 0 {
+				damageBase *= .75; // 25% knocked off with a tempDefBoost
+			}
+			
 			if damageBase < 0 damageBase = 0;
 		}
 	} 

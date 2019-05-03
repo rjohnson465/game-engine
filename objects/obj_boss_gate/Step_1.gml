@@ -1,7 +1,7 @@
 // if there is a living boss in the room, make portal untraversable
 isUntraversable = false;
 with obj_enemy_parent {
-	if isBoss && hp > 0 {
+	if isBoss && isAlive > 0 {
 		other.isUntraversable = true;
 		with other {
 			light_set_color(c_white);

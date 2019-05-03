@@ -15,6 +15,7 @@ var conditionPercent = ds_map_find_value(owner.conditionPercentages,condition);
 conditionPercent = conditionPercent / 100;
 var x2 = x1 + (122 * conditionPercent);
 if (x2 < x1) x2 = x1;
+var sprScale = .5;
 
 switch condition {
 	case FIRE: {
@@ -42,8 +43,26 @@ switch condition {
 		sprite = spr_attunement_magic;
 		break;
 	}
+	case PIERCE: {
+		sprite = spr_item_info_defense_pierce;
+		sprScale = 1.5;
+		draw_set_color(make_color_rgb(93,255,186));
+		break;
+	}
+	case CRUSH: {
+		sprite = spr_item_info_defense_crush;
+		sprScale = 1.5;
+		draw_set_color(c_silver);
+		break;
+	}
+	case SLASH: {
+		sprite = spr_item_info_defense_slash;
+		sprScale = 1.5;
+		draw_set_color(make_color_rgb(125,89,145));
+		break;
+	}
 }
-draw_sprite_ext(sprite,1,spriteX,spriteY,.5,.5,0,c_white,1);
+draw_sprite_ext(sprite,1,spriteX,spriteY,sprScale,sprScale,0,c_white,1);
 
 var conditionLevel = ds_map_find_value(owner.conditionLevels,condition);
 switch conditionLevel {

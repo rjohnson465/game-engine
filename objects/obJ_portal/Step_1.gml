@@ -24,7 +24,7 @@ part_emitter_burst(system, emitter, part, num);
 //if !isUntraversable {
 isUntraversable = false;
 with obj_enemy_parent {
-	if isBoss && hp > 0 {
+	if isBoss && isAlive {
 		other.isUntraversable = true;
 		with other {
 			light_set_color(c_white);

@@ -217,6 +217,14 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_rubberducky));
 	addItemToInventory(makeGem(obj_gem_amethyst, CRACKED));
 	addItemToInventory(makeGem(obj_gem_amethyst, FLAWLESS));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_spearmint_elixir));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_spearmint_elixir));
+	
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_club_soda));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_club_soda));
+	
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_razorade));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_razorade));
 	/*
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));

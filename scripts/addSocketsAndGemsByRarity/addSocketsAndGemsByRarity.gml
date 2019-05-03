@@ -21,24 +21,42 @@ switch rarity {
 		ds_map_replace(socketsNumChanceMap,1,0);
 		ds_map_replace(socketsNumChanceMap,2,0);
 		ds_map_replace(socketsNumChanceMap,3,0);
+		
+		var oldSocketsNumChanceMap = socketsNumChanceMap;
 		socketsNumChanceMap = getNormalizedWeightMap(socketsNumChanceMap);
+		ds_map_destroy(oldSocketsNumChanceMap); 
+		
+		oldSocketsNumChanceMap = socketsNumChanceMap;
 		socketsNumChanceMap = getCumulativeProbabilitiesMap(socketsNumChanceMap);
+		ds_map_destroy(oldSocketsNumChanceMap); oldSocketsNumChanceMap = -1;
 		
 		// chances of getting 0-3 gems
 		ds_map_replace(gemNumChanceMap,0,100);
 		ds_map_replace(gemNumChanceMap,1,0);
 		ds_map_replace(gemNumChanceMap,2,0);
 		ds_map_replace(gemNumChanceMap,3,0);
+		
+		var oldGemNumChanceMap = gemNumChanceMap;
 		gemNumChanceMap = getNormalizedWeightMap(gemNumChanceMap);
+		ds_map_destroy(oldGemNumChanceMap); 
+		
+		oldGemNumChanceMap = gemNumChanceMap;
 		gemNumChanceMap = getCumulativeProbabilitiesMap(gemNumChanceMap);
+		ds_map_destroy(oldGemNumChanceMap); oldGemNumChanceMap = -1;
 		
 		// chances of socketed gems' conditions -- TODO -- this should probably depend on act, not rarity
 		ds_map_replace(gemConditionChanceMap,CRACKED,100);
 		ds_map_replace(gemConditionChanceMap,NORMAL,0);
 		ds_map_replace(gemConditionChanceMap,EXQUISITE,0);
 		ds_map_replace(gemConditionChanceMap,FLAWLESS,0);
+		
+		var oldGemConditionChanceMap = gemConditionChanceMap;
 		gemConditionChanceMap = getNormalizedWeightMap(gemConditionChanceMap);
+		ds_map_destroy(oldGemConditionChanceMap);
+		
+		oldGemNumChanceMap = gemConditionChanceMap;
 		gemConditionChanceMap = getCumulativeProbabilitiesMap(gemConditionChanceMap);
+		ds_map_destroy(oldGemConditionChanceMap); oldGemConditionChanceMap = -1;
 		
 		break;
 	}
@@ -49,24 +67,41 @@ switch rarity {
 		ds_map_replace(socketsNumChanceMap,1,80);
 		ds_map_replace(socketsNumChanceMap,2,10);
 		ds_map_replace(socketsNumChanceMap,3,0);
+		var oldSocketsNumChanceMap = socketsNumChanceMap;
 		socketsNumChanceMap = getNormalizedWeightMap(socketsNumChanceMap);
+		ds_map_destroy(oldSocketsNumChanceMap); 
+		
+		oldSocketsNumChanceMap = socketsNumChanceMap;
 		socketsNumChanceMap = getCumulativeProbabilitiesMap(socketsNumChanceMap);
+		ds_map_destroy(oldSocketsNumChanceMap); oldSocketsNumChanceMap = -1;
 		
 		// chances of getting 0-3 gems
 		ds_map_replace(gemNumChanceMap,0,60);
 		ds_map_replace(gemNumChanceMap,1,30);
 		ds_map_replace(gemNumChanceMap,2,10);
 		ds_map_replace(gemNumChanceMap,3,0);
+		
+		var oldGemNumChanceMap = gemNumChanceMap;
 		gemNumChanceMap = getNormalizedWeightMap(gemNumChanceMap);
+		ds_map_destroy(oldGemNumChanceMap); 
+		
+		oldGemNumChanceMap = gemNumChanceMap;
 		gemNumChanceMap = getCumulativeProbabilitiesMap(gemNumChanceMap);
+		ds_map_destroy(oldGemNumChanceMap); oldGemNumChanceMap = -1;
 		
 		// chances of socketed gems' conditions -- TODO -- this should probably depend on act, not rarity
 		ds_map_replace(gemConditionChanceMap,CRACKED,100);
 		ds_map_replace(gemConditionChanceMap,NORMAL,0);
 		ds_map_replace(gemConditionChanceMap,EXQUISITE,0);
 		ds_map_replace(gemConditionChanceMap,FLAWLESS,0);
+		
+		var oldGemConditionChanceMap = gemConditionChanceMap;
 		gemConditionChanceMap = getNormalizedWeightMap(gemConditionChanceMap);
+		ds_map_destroy(oldGemConditionChanceMap);
+		
+		oldGemNumChanceMap = gemConditionChanceMap;
 		gemConditionChanceMap = getCumulativeProbabilitiesMap(gemConditionChanceMap);
+		ds_map_destroy(oldGemConditionChanceMap); oldGemConditionChanceMap = -1;
 		
 		break;
 	}

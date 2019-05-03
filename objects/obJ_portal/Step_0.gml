@@ -69,7 +69,7 @@ if isCurrentInteractionObject(id) && interactInputReceived && place_meeting(x,y,
 	// all instances must be activated, so they can be destroyed / cleaned up
 	global.activateAll = true;
 	
-	global.fadeDuration = 10;
+	global.fadeDuration = 60;
 	global.owner = id;
 	instance_create_depth(x,y,-100000,obj_fade);
 } 

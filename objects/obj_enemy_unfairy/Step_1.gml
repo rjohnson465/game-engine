@@ -16,14 +16,28 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_replace(tmap,ItemTypes.Other,1);*/
 	var item1 = maybeMakeItem(25,rmap); //randomly generated item
 	var item2 = maybeMakeItem(10,rmap); //randomly generated item
-	//var item2 = maybeMakeItem(100,rmap,tmap); //randomly generated item
+	var pmap = ds_map_create();
+	ds_map_add(pmap, obj_item_antidote, 5);
+	ds_map_add(pmap, obj_item_rubberducky, 5);
+	ds_map_add(pmap, obj_item_icecube, 5);
+	ds_map_add(pmap, obj_item_jalapeno, 5);
+	ds_map_add(pmap, obj_item_blessing, 5);
+	ds_map_add(pmap, obj_item_spearmint_elixir, 3);
+	ds_map_add(pmap, obj_item_club_soda, 3);
+	ds_map_add(pmap, obj_item_razorade, 3);
+	var item3 = maybeMakeItemBasic(pmap);
+	
 	var gold = makeGold(0,25);
 	ds_list_clear(droppedItems);
-	ds_list_add(droppedItems,item1, item2);
+	ds_list_add(droppedItems,item1, item2, item3);
 	//ds_list_add(droppedItems,item2);
 	ds_list_add(droppedItems,gold);
 	ds_map_destroy(rmap); rmap = -1;
 	//ds_map_destroy(tmap); tmap = -1;
+	
+	
+	
+	ds_map_destroy(pmap);
 }
 
 // Inherit the parent event

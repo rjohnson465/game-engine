@@ -26,6 +26,7 @@ with obj_player {
 // activate fountain
 if !isRunning {
 	isRunning = true;
+	isDoneFilling = false;
 	sprite_index = asset_get_index("spr_fountain_filling");	
 	audio_emitter_gain(fountainRunningSoundEmitter,1);
 	audio_play_sound(snd_fountain_turnon,1,0);

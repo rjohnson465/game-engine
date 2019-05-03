@@ -10,7 +10,7 @@ if !hasSetAlarm {
 }
 
 var p = global.player;
-if !isMoving && distance_to_object(p) < 50 && layer == p.layer && !hasSetAlarm {
+if !isMoving && distance_to_object(p) < 50 && layer == p.layer && !hasSetAlarm && p.hp > 0 {
 	if !place_meeting(x, y, p) {
 		// gravitate toward player
 		move_towards_point(p.x, p.y, 8);
