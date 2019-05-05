@@ -12,6 +12,7 @@ with global.player {
 	skillPoints = ds_map_find_value(sd_player,"SkillPoints");
 	currentSpellAttunement = ds_map_find_value(sd_player,"Attunement");
 	currentBeltItemIndex = ds_map_find_value(sd_player,"CurrentBeltItemIndex");
+	narrativeState = ds_map_find_value(sd_player,"NarrativeState");
 	
 	var tutFirstsMap = ds_map_find_value(sd_player,"TutorialFirstsMap");
 	var mapClone = ds_map_create();

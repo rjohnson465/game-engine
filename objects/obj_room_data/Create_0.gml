@@ -1,4 +1,6 @@
-
+if instance_number(obj_room_data) > 1 {
+	instance_destroy(id, 1);
+}
 //roomIndex = string(room);
 roomName = room_get_name(room);
 
@@ -93,7 +95,7 @@ for (var i = 0; i < ds_list_size(garbageKeys); i++) {
 
 ds_list_destroy(garbageKeys); garbageKeys = -1;
 
-/*
+
 
 // now that all the persistent elements have their data either set or created, ensure their room start event fires after
 with obj_persistent_environment {

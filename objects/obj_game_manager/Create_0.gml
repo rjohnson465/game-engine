@@ -1,4 +1,7 @@
 // audio_debug(true);
+
+var n = instance_number(object_index);
+
 if instance_number(object_index) > 1 {
 	instance_destroy(id,0);
 	exit;
@@ -94,6 +97,13 @@ enum TitleScreenState {
 	New
 }
 
+// all entries must be in order
+// this allows for numerical comparison (higher value enums = later in the story)
+enum NarrativeState {
+	Start,
+	LamplightFactory
+}
+
 options = ["New Game", "Load Game", "Exit"];
 
 selectedOption = noone;
@@ -162,15 +172,6 @@ currentRoomData = noone;
 
 enviroParticlesController = instance_create_depth(x,y,depth,obj_environment_particles_controller);
 
-/*
-bgmEmitter = audio_emitter_create();
-bgmEmitterGain = .5;
-audio_emitter_falloff(bgmEmitter, audio_falloff_none,1,1);
-bgmPossibilities = noone;
-bgmCurrent = noone;
-bgmAlarmSet = false;
-*/
-
 ambEmitter = audio_emitter_create();
 audio_emitter_falloff(ambEmitter, audio_falloff_none,1,1);
 ambCurrent = noone;
@@ -209,3 +210,5 @@ isMouseOverBelt = false;
 deactivationSteps = 10;
 deactivationBorder = 200;
 alarm[5] = deactivationSteps;
+
+persistent = true;

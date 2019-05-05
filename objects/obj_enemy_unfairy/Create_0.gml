@@ -20,7 +20,7 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 
 var woodshield = makeEnemyWeapon(obj_hand_item_woodshield);
-var longsword = makeEnemyWeapon(obj_hand_item_longsword);
+var longsword = makeEnemyWeapon(obj_hand_item_longsword, true);
 var shortbow = makeEnemyWeapon(obj_hand_item_shortbow);
 
 ds_map_add(handItems,"lm1",longsword);

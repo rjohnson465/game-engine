@@ -10,4 +10,3 @@ status = QuestStepStatus.Unstarted;
 description = "Francis thanks you. Claim your reward.";
 
 isRewardStep = true;
-

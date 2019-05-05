@@ -53,6 +53,9 @@ if isFinished && !isRepeatable {
 	}
 	var pos = ds_list_find_index(owner.conversations,id);
 	ds_list_delete(owner.conversations,pos);
+	
+	// also, be sure to mark, in NPC data, that the conversation is finished, and thus,
+	// should never be loaded again the next time the NPC is in a room
 	with obj_npc_data {
 		if npcName == other.ownerNpcName {
 			var c = ds_map_find_value(conversations,other.name);
@@ -60,6 +63,7 @@ if isFinished && !isRepeatable {
 				ds_map_replace(conversations,other.name,other.isFinished);
 			}
 			
+			/*
 			// if this conv was in the npc's data.conversationsToAdd, remove it from there too
 			if ds_list_size(conversationsToAdd) > 0 {
 				for (var i = 0; i < ds_list_size(conversationsToAdd); i++) {
@@ -69,7 +73,7 @@ if isFinished && !isRepeatable {
 						ds_list_delete(conversationsToAdd, i);
 					}
 				}
-			}
+			} */
 			
 		}
 	}

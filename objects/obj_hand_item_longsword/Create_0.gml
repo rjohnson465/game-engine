@@ -19,4 +19,6 @@ staminaCostArray=[10,10,25];
 
 act = 1;
 
+decription = "Use this weapon if you're completely unorignal.";
+
 //numberOfSockets = 3;

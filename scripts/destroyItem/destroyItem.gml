@@ -14,6 +14,8 @@ if item.isStackable && item.count > 1 {
 	ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount - 1);
 	var pos = ds_list_find_index(global.player.inventory,item);
 	ds_list_delete(global.player.inventory,pos);
-	instance_destroy(item,1);
+	if item != undefined && item >= 0 && instance_exists(item) {
+		instance_destroy(item, 1); item = -1;
+	}
 }
 audio_play_sound(snd_shield_hit_metal,1,0);

@@ -59,7 +59,9 @@ if gp >= item.value {
 		var pos = ds_list_find_index(items,item);
 		ds_list_delete(items,pos);
 		if (item.isStackable && item.count == 1) {
-			instance_destroy(item);
+			if item != undefined && item >= 0 && instance_exists(item) {
+				instance_destroy(item, 1); item = -1;
+			}
 		}
 	} else {
 		item.count = oldCount;

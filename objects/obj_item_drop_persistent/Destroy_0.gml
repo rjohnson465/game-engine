@@ -15,7 +15,9 @@ if instance_exists(lightRadius) {
 if ds_exists(items,ds_type_list) {
 	for (var i = 0; i < ds_list_size(items); i++) {
 		var item = ds_list_find_value(items,i);
-		instance_destroy(item,1);
+		if item != undefined && item >= 0 && instance_exists(item) {
+			instance_destroy(item, 1); item = -1;
+		}
 	}
 	ds_list_destroy(items); items = -1;
 }

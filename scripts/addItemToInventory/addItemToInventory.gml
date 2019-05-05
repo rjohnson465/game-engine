@@ -30,7 +30,9 @@ if item.isStackable {
 	// just increment the stack
 	if stack != noone {
 		stack.count += item.count;
-		instance_destroy(item,true);
+		if item != undefined && item >= 0 && instance_exists(item) {
+			instance_destroy(item, 1);
+		}
 	}
 	// no stack exists, add the item to inv
 	else {

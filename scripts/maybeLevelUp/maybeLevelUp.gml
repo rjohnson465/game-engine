@@ -3,6 +3,17 @@ if (xp + xpTemp) >= xpToNextLevel {
 	var remainingXp = (xp+xpTemp)-xpToNextLevel;
 	xp = 0; xpTemp = remainingXp;
 	level += 1;
+	
+	/*
+	with obj_npc_parent {
+		isInteractingWithPlayer = false;
+		isInConversation = false;
+		showBuySell = false;
+	}
+	global.isInteractingWithNpc = false;
+	global.isTrading = false;
+	*/
+	
 	// xpToNextLevel = round(1000*(power(level,1.1)));
 	xpToNextLevel = round(453*(power(2,level/3.6)));
 	skillPoints++;

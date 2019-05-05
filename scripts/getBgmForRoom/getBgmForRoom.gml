@@ -14,6 +14,10 @@ switch rm {
 		return [snd_bgm_funfairy];
 		break;
 	}
+	case rm_factory: {
+		return noone;
+		break;
+	}
 }
 
 return noone;

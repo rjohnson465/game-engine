@@ -13,13 +13,13 @@ if bgmPossibilities != noone {
 }
 
 */
-
+stopBgm();
 bgmPossibilities = getBgmForRoom(room);
 if bgmPossibilities != noone {
 	randomize();
 	var rand = random_range(0,array_length_1d(bgmPossibilities)-1);
 	
-	stopBgm();
+	
 	
 	// special: if this is a boss room, make sure the boss is alive before playing its theme
 	bossExists = false;

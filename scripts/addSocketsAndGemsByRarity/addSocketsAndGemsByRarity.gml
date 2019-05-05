@@ -54,7 +54,7 @@ switch rarity {
 		gemConditionChanceMap = getNormalizedWeightMap(gemConditionChanceMap);
 		ds_map_destroy(oldGemConditionChanceMap);
 		
-		oldGemNumChanceMap = gemConditionChanceMap;
+		oldGemConditionChanceMap = gemConditionChanceMap;
 		gemConditionChanceMap = getCumulativeProbabilitiesMap(gemConditionChanceMap);
 		ds_map_destroy(oldGemConditionChanceMap); oldGemConditionChanceMap = -1;
 		
@@ -99,7 +99,7 @@ switch rarity {
 		gemConditionChanceMap = getNormalizedWeightMap(gemConditionChanceMap);
 		ds_map_destroy(oldGemConditionChanceMap);
 		
-		oldGemNumChanceMap = gemConditionChanceMap;
+		oldGemConditionChanceMap = gemConditionChanceMap;
 		gemConditionChanceMap = getCumulativeProbabilitiesMap(gemConditionChanceMap);
 		ds_map_destroy(oldGemConditionChanceMap); oldGemConditionChanceMap = -1;
 		

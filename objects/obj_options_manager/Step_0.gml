@@ -5,9 +5,9 @@ if instance_exists(fade) {
 		fs_save_game(); // this SHOULD flush temp data cache
 		//game_restart();
 		with all {
-			//if object_index != obj_game_manager {
+			// if object_index != obj_game_manager {
 				instance_destroy(id,1);
-			//}
+			// }
 		}
 		// just kill everything, hard reset
 		var partSystems = ds_list_create();

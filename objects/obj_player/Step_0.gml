@@ -133,13 +133,7 @@ if distance_to_object(nearestStairs) < 200 {
 		layer = layerToChangeTo;
 		
 		updateLightLayer(playerLightRadius,oldLayer,layer);
-		
-		// reset grids for enemies on the old layer
-		/*with obj_enemy_parent {
-			if layer == oldLayer {
-				populatePersonalGrid();
-			}
-		}*/
+
 	}
 }
 

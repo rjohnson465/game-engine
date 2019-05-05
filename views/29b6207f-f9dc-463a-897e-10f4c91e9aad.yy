@@ -8,7 +8,7 @@
         "ad389817-86f0-4fa2-bfa9-17773f67dfac"
     ],
     "filterType": "GMScript",
-    "folderName": "conversations",
+    "folderName": "conversation functions",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

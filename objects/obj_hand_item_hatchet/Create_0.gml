@@ -16,4 +16,6 @@ ds_map_set(damages,CRUSH,[0,0,0,0,10,12]);
 
 act = 1;
 
+description = "Very good for chopping down trees, and other things with limbs."
+
 //numberOfSockets = 3;

@@ -209,7 +209,7 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, SHARDS));
 	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
 	
-	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_dagger));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_hatchet));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_arquebus));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
@@ -395,3 +395,4 @@ healingTotalFrames = sprite_get_number(spr_player_heal);
 // each entry is an array [<defenseType>, <frames left>]
 temporaryDefenses = ds_list_create();
 
+narrativeState = NarrativeState.Start;

@@ -21,7 +21,9 @@ if ds_exists(handItems, ds_type_map) {
 	var ck = ds_map_find_first(handItems);
 	for (var i = 0; i < ds_map_size(handItems); i++) {
 		var item = ds_map_find_value(handItems,ck);
-		instance_destroy(item, 1); item = -1;
+		if item != undefined && item >= 0 && instance_exists(item) {
+			instance_destroy(item, 1); item = -1;
+		}
 		ck = ds_map_find_next(handItems,ck);
 	}
 	ds_map_destroy(handItems); handItems = -1;
@@ -31,7 +33,9 @@ if ds_exists(equippedLimbItems, ds_type_map) {
 	var ck = ds_map_find_first(equippedLimbItems);
 	for (var i = 0; i < ds_map_size(equippedLimbItems); i++) {
 		var item = ds_map_find_value(equippedLimbItems,ck);
-		instance_destroy(item, 1); item = -1;
+		if item != undefined && item >= 0 && instance_exists(item) {
+			instance_destroy(item, 1); item = -1;
+		}
 		ck = ds_map_find_next(equippedLimbItems,ck);
 	}
 	ds_map_destroy(equippedLimbItems); equippedLimbItems = -1;

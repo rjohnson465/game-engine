@@ -263,7 +263,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 			w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		}
 		// prompt to toggle info with X
-		else if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && isSelectorInInventory(global.ui.moveSelector) {
+		else if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && selectedItem.type != ItemTypes.Other && isSelectorInInventory(global.ui.moveSelector) && !selectedItem.isUsable {
 			w += drawPrompt("Toggle Item Info",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		}
 		else if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && selectedItem.isUsable {

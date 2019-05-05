@@ -33,7 +33,7 @@ switch state {
 					jumpToNearestFreePoint(type==CombatantTypes.Enemy,0);
 				}
 				if other.alarm[4] < 0 {
-					other.alarm[4] = damageFrequency;
+					other.alarm[4] = other.damageFrequency;
 				}
 				if other.alarm[4] == 1 {
 					var damagesMap = ds_map_create();

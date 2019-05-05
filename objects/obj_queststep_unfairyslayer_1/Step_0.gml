@@ -17,7 +17,7 @@ with obj_enemy_unfairy {
 if ds_map_find_value(other.parameters,"unfairies_slain") == 3 {
 	
 	// add a "thank you" conversation to Francis' data object
-	with obj_npc_data {
+	/*with obj_npc_data {
 		if npcName == "Francis" {
 			ds_list_add(conversationsToAdd, object_get_name(obj_conv_unfairyslayer_thankyou));
 		}
@@ -26,7 +26,8 @@ if ds_map_find_value(other.parameters,"unfairies_slain") == 3 {
 	// force room start event for npcs to add conversations to
 	with obj_npc_parent {
 		event_perform(ev_other, ev_room_start);
-	}
+	} */
 	
 	status = QuestStepStatus.Completed;
+
 }

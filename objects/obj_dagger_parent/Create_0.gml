@@ -14,3 +14,5 @@ attackSounds = [snd_dagger_attack_1, snd_dagger_attack_1, snd_dagger_attack_1, s
 hitSounds = [snd_hit1, snd_hit1, snd_hit1, snd_hit1];
 
 soundDrop = snd_item_metal;
+
+description = "A small, basic dagger. In the hands of an agile combatant, it can be just as deadly as a massive sword."

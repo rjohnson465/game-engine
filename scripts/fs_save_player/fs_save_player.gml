@@ -32,6 +32,8 @@ with global.player {
 	ds_map_replace(sd_player,"Attunement",currentSpellAttunement);
 	ds_map_replace(sd_player,"CurrentBeltItemIndex",currentBeltItemIndex);
 	
+	ds_map_replace(sd_player,"NarrativeState",narrativeState);
+	
 	var tutFirstMap = ds_map_deep_clone(tutorialFirstsMap);
 	ds_map_add_map(sd_player,"TutorialFirstsMap",tutFirstMap);
 
