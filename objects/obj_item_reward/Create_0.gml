@@ -5,7 +5,7 @@ isYes = false;
 
 selectedItem = noone;
 inv = ds_list_create();
-items = ds_list_create();
+items = noone;
 isActive = false;
 
 slotWidth = sprite_get_width(spr_item_slot);
@@ -76,6 +76,6 @@ joystickInputTotalFrames = 30;
 
 // once player has chosen chosenRewardsLimit items, this instance is destroyed
 chosenRewardsCount = 0;
-chosenRewardsLimit = 2;
+chosenRewardsLimit = 1;
 
 global.isTrading = true;

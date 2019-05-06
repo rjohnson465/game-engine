@@ -45,7 +45,7 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		exit;
 	}
 
-	if object_is_ancestor(firstObj.object_index, obj_npc_parent) && isRanged {
+	if object_is_ancestor(firstObj.object_index, obj_npc_parent) {
 		instance_destroy(id); exit;
 	}
 

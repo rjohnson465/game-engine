@@ -16,22 +16,35 @@ ds_list_add(items,aqs);
 
 ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
 
+ds_list_add(conversations, instance_create_depth(x,y,1,obj_conv_wamdk_start));
 
 global.ownerNpcName = "The Elder, Barry";
 /*
 // honesty convo
-var honesty = instance_create_depth(x,y,1,obj_conversation_parent);
-honesty.name = "Honesty";
-honesty.isRepeatable = true;
-
+var urgent1 = instance_create_depth(x,y,1,obj_conversation_parent);
+urgent1.name = "Urgent 1";
 
 var honesty1 = instance_create_depth(x,y,1,obj_conversation_step_parent);
-honesty1.text = "You are a very ugly man. I'm sorry to say it so bluntly, but I believe you will never know love, or the touch of a woman.";
+honesty1.text = "Urgent Lamplight.";
 honesty1.sound = snd_conversation_francis_honesty_1;
-ds_list_add(honesty.steps,honesty1);
+ds_list_add(urgent1.steps,honesty1);
+urgent1.isUrgent = true;
+urgent1.narrativeState = NarrativeState.LamplightFactory;
 
-ds_list_add(conversations,honesty);
-*/
+ds_list_add(conversations,urgent1);
+
+var urgent2 = instance_create_depth(x,y,1,obj_conversation_parent);
+urgent2.name = "Urgent 2";
+
+var honesty2 = instance_create_depth(x,y,1,obj_conversation_step_parent);
+honesty2.text = "Urgent Start";
+honesty2.sound = snd_conversation_francis_honesty_1;
+ds_list_add(urgent2.steps,honesty2);
+urgent2.isUrgent = true;
+urgent2.narrativeState = NarrativeState.Start;
+
+ds_list_add(conversations,urgent2);
+
 /*
 // unfairy slayer quest
 var unfairySlayer = instance_create_depth(x,y,1,obj_conversation_parent);

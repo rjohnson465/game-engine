@@ -10,10 +10,6 @@ if distance_to_object(obj_player) < 20 && layer == global.player.layer && !globa
 	global.canInteractWithNpc = false;
 }
 
-if distance_to_object(obj_player) < 20 && layer == global.player.layer {
-	//turnToFacePoint(10,global.player.x,global.player.y);
-}
-
 var canLoot = false;
 with obj_item_drop {
 	if distance_to_object(obj_player) < 20 && layer == global.player.layer {
@@ -21,11 +17,45 @@ with obj_item_drop {
 	}
 }
 
-if distance_to_object(obj_player) < 20 && layer == global.player.layer && !global.isWishing && !global.canLoot && !canLoot && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && interactInputReceived && !isInConversation && !isInteractingWithPlayer {
-	isInteractingWithPlayer = true;
-	global.player.state = CombatantStates.Idle;
-	state = CombatantStates.Idle; speed = 0;
-	audio_play_sound_at(greeting,x,y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+if distance_to_object(obj_player) < 20 && layer == global.player.layer && !global.isTrading && !global.isWishing && !global.canLoot && !canLoot && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && interactInputReceived && !isInConversation && !isInteractingWithPlayer {
+	
+	// find out if we have any urgent conversations
+	// get all the urgent conversations' narrative placements,
+	// then start the one earliest in the narrative
+	var urgentConversationsNarrativeStates = ds_list_create();
+	for (var i = 0; i < ds_list_size(conversations); i++) {
+		var c = ds_list_find_value(conversations, i);
+		if c.isUrgent {
+			ds_list_add(urgentConversationsNarrativeStates, c.narrativeState);
+		}
+	}
+	if ds_list_size(urgentConversationsNarrativeStates) > 0 {
+		// sort urgent conversations by narrative point
+		ds_list_sort(urgentConversationsNarrativeStates, true);
+		var earliestNarrativeState = ds_list_find_value(urgentConversationsNarrativeStates, 0);
+		
+		// find the urgent conversation with "earliestNarrativeState"
+		// this assumes there are never 2 urgent conversations with the same narrative state 
+		var urgentConversation = noone;
+		for (var i = 0; i < ds_list_size(conversations); i++) {
+			var c = ds_list_find_value(conversations, i);
+			if c.isUrgent && c.narrativeState == earliestNarrativeState {
+				urgentConversation = c;
+			}
+		}
+		isInteractingWithPlayer = true;
+		startConversation(urgentConversation);
+	}
+	else {
+		// open conversations window, if this NPC has no "urgent" conversations
+		isInteractingWithPlayer = true;
+		global.player.state = CombatantStates.Idle;
+		state = CombatantStates.Idle; speed = 0;
+		audio_play_sound_at(greeting,x,y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+	}
+	
+	ds_list_destroy(urgentConversationsNarrativeStates); urgentConversationsNarrativeStates = -1; // mem leak
+	
 } else if distance_to_object(obj_player) > 20 {
 	isInteractingWithPlayer = false;
 	global.isInteractingWithNpc = false;
@@ -44,7 +74,7 @@ if gamepad_is_connected(global.player.gamePadIndex) && (selectedConversation == 
 }
 
 // wander, but only if near enough to player to be on screen
-if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 {
+if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 && !isInteractingWithPlayer {
 	if distance_to_point(postX, postY) < 250 && !isInteractingWithPlayer && !isInConversation {
 		moveToNearestFreePoint(direction,normalSpeed,1);
 		facingDirection = direction;

@@ -7,3 +7,5 @@ currentSound = noone;
 isFinished = false;
 isRepeatable = false;
 isActive = false;
+narrativeState = 0;
+isUrgent = false;
