@@ -3,11 +3,20 @@ if isUsable && !global.isTrading {
 	with global.player {
 		useItem(other);
 	}
-} else {
+} else if !global.isTrading {
 	alert(name + " is not usable", c_yellow);
 }
 
-if global.isTrading && isSellable {
+var isRewardSelection = false;
+if instance_number(obj_item_reward) > 0 {
+	var ir = instance_nearest(x, y, obj_item_reward);
+	isRewardSelection = true;
+	ir.selectedItem = id;
+	ir.isConfirming = true;
+	audio_play_sound(snd_ui_click1, 1, 0);
+}
+
+if global.isTrading && isSellable && !isRewardSelection {
 	var playerItemsObj = obj_player_items;
 	var vendorItemsObj = obj_vendor_items;
 	if !playerItemsObj.isConfirming && !vendorItemsObj.isConfirming {

@@ -5,6 +5,7 @@ if global.gameManager.isMouseOverBelt exit;
 
 if global.isWishing exit;
 if global.isInteractingWithNpc exit;
+if global.isTrading exit;
 
 var isFading = false;
 with obj_fade {

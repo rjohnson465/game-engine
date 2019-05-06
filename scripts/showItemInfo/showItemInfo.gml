@@ -64,7 +64,8 @@ draw_set_valign(fa_left);
 draw_set_halign(fa_left);
 draw_set_color(c_white);
 // all shields and weapons share many properties, so it makes sense to lump them together when showing properties
-if (object_index != obj_inventory || (!invObj.isShowingItemInfo2 && object_index == obj_inventory)) && item.type == ItemTypes.HandItem  {
+//if (object_index != obj_inventory || (!invObj.isShowingItemInfo2 && object_index == obj_inventory)) && item.type == ItemTypes.HandItem  {
+if item.type == ItemTypes.HandItem && !global.inventory.isShowingItemInfo2 {
 					
 	// auto weapon / shield description 
 	var itemType = "";
@@ -326,7 +327,8 @@ if (object_index != obj_inventory || (!invObj.isShowingItemInfo2 && object_index
 		}
 	}
 } 
-else if object_index == obj_inventory && (item.type == ItemTypes.HandItem || item.type == ItemTypes.Head) && invObj.isShowingItemInfo2 {
+//else if object_index == obj_inventory && (item.type == ItemTypes.HandItem || item.type == ItemTypes.Head) && invObj.isShowingItemInfo2 {
+else if global.inventory.isShowingItemInfo2 && (item.type == ItemTypes.HandItem || item.type == ItemTypes.Head) {
 	var sh = string_height(item.description);
 	var desc = item.description;
 	draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,desc,sh,width-5);

@@ -1,7 +1,7 @@
 /// performDodge
 
 if global.isWishing exit;
-
+if global.isTrading exit;
 if global.isInteractingWithNpc exit;
 
 var isFading = false;

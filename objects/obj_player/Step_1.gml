@@ -41,7 +41,9 @@ isMouseInMenu =
 	mouse_x > vx + currentItemDrop.topLeftX && mouse_x < vx + currentItemDrop.bottomRightX &&
 	mouse_y > vy + currentItemDrop.topLeftY && mouse_y < vy + currentItemDrop.bottomRightY)
 	;
-	
+
+if global.isTrading exit;
+
 if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 	
 	// sprint counter -- when this is less than 0, isHoldingSprintButton is true and we will sprint

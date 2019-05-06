@@ -2,6 +2,7 @@
 
 if global.isWishing exit;
 if global.isInteractingWithNpc exit;
+if global.isTrading exit;
 if scr_is_fading() exit;
 
 var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);

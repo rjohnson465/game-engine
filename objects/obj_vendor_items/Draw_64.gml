@@ -17,48 +17,80 @@ if isConfirming {
 	draw_set_color(c_white); draw_set_halign(fa_center); 
 	draw_text_ext(mean(x1,x2),y1+50,"Purchase " + selectedItem.name + " for " + string(selectedItem.value) + " gold?",-1,x2-x1);
 	
-	var vx = camera_get_view_x(view_camera[0]);
-	var vy = camera_get_view_y(view_camera[0]);
 	
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top);
+	// Yes button
 	var s = "Yes";
 	var sw = string_width(s); var sh = string_height(s);
-	if (point_in_rectangle(mouse_x,mouse_y,vx+x1+50,vy+y1+100,vx+x1+50+sw,vy+y1+100+sh) && !gamepad_is_connected(global.player.gamePadIndex)) ||
+	var textColor = noone;
+	var buttonColor = noone;
+	
+	var x1 = x1+50; var y1 = y1+100-5;
+	var x2 = x1+5+sw+10; var y2 = y1+sh+5;
+	if (mouseOverGuiRect(x1, y1, x2, y2) && !gamepad_is_connected(global.player.gamePadIndex)) ||
 		(isYes && gamepad_is_connected(global.player.gamePadIndex))
 	{
-		draw_set_color(c_white);
+		textColor = c_white;
+		buttonColor = c_green;
 	} else {
-		draw_set_color(c_ltgray);
+		textColor = c_ltgray;
+		buttonColor = c_olive;
+		if confirmOption != "N" {
+			confirmOption = noone;
+		}
 	}
-	draw_text(x1+50,y1+100,s);
+	
+	draw_set_color(buttonColor);
+	draw_rectangle(x1, y1, x2, y2, false);
+	draw_set_color(c_black);
+	draw_rectangle(x1, y1, x2, y2, true);
+	
+	draw_set_color(textColor);
+	draw_set_halign(fa_center); draw_set_valign(fa_center);
+	draw_text(mean(x1, x2),mean(y1, y2),s);
 	
 	// actually buy item if clicked
-	if	(point_in_rectangle(mouse_x,mouse_y,vx+x1+50,vy+y1+100,vx+x1+50+sw,vy+y1+100+sh) && !gamepad_is_connected(global.player.gamePadIndex)) && 
-		mouse_check_button_pressed(mb_left) 
-	{
-		buyItem(selectedItem);
+	if	(mouseOverGuiRect(x1, y1, x2, y2) && !gamepad_is_connected(global.player.gamePadIndex)) {
+		if confirmOption != "Y" audio_play_sound(snd_ui_option_change,1,0);
+		confirmOption = "Y";
+		if mouse_check_button_pressed(mb_left)  {
+			buyItem(selectedItem);
+		}
 	}
 	
-	draw_set_halign(fa_right);
+	// No button
 	var s = "No";
 	var sw = string_width(s); var sh = string_height(s);
-	var xx1 = x2-50; var yy1 = y1+100;
-	var xx2 = xx1-sw; var yy2 = yy1+sh;
-	if (point_in_rectangle(mouse_x,mouse_y,vx+xx2,vy+yy1,vx+xx1,vy+yy2) && !gamepad_is_connected(global.player.gamePadIndex)) ||
+	x1 = x2 + 150; 
+	x2 = x1 + sw + 10; 
+	if (mouseOverGuiRect(x1, y1, x2, y2) && !gamepad_is_connected(global.player.gamePadIndex)) ||
 		(!isYes && gamepad_is_connected(global.player.gamePadIndex))
 	{
-		draw_set_color(c_white);
+		textColor = c_white;
+		buttonColor = c_red;
 	} else {
-		draw_set_color(c_ltgray);
+		textColor = c_ltgray;
+		buttonColor = c_maroon;
+		if confirmOption != "Y" {
+			confirmOption = noone;
+		}
 	}
-	draw_text(xx1,yy1,"No");
+	draw_set_color(buttonColor);
+	draw_rectangle(x1, y1, x2, y2, false);
+	draw_set_color(c_black);
+	draw_rectangle(x1, y1, x2, y2, true);
+
+	draw_set_color(textColor);
+	draw_set_halign(fa_center); draw_set_valign(fa_center);
+	draw_text(mean(x1, x2),mean(y1, y2),s);
 	
 	// cancel confirm if "No" clicked
-	if	(point_in_rectangle(mouse_x,mouse_y,vx+xx2,vy+yy1,vx+xx1,vy+yy2) && !gamepad_is_connected(global.player.gamePadIndex)) && 
-		mouse_check_button_pressed(mb_left)
-	{
-		isConfirming = false;
-		isAcceptingConfirmInput = false;
+	if	(mouseOverGuiRect(x1, y1, x2, y2) && !gamepad_is_connected(global.player.gamePadIndex)) {
+		if confirmOption != "N" audio_play_sound(snd_ui_option_change,1,0);
+		confirmOption = "N";
+		if mouse_check_button_pressed(mb_left) {
+			audio_play_sound(snd_ui_click1, 1, 0);
+			isConfirming = false;
+			isAcceptingConfirmInput = false;
+		}
 	}
 }

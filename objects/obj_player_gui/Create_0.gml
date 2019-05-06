@@ -156,7 +156,8 @@ enum Input {
 	RB,
 	PadUD,
 	PadLR,
-	Face4 // Y
+	Face4, // Y
+	Control
 }
 
 isShowingExplanations = false;

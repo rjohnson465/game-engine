@@ -215,6 +215,7 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hat_lumberjack_hat));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_rubberducky));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
 	addItemToInventory(makeGem(obj_gem_amethyst, CRACKED));
 	addItemToInventory(makeGem(obj_gem_amethyst, FLAWLESS));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_spearmint_elixir));

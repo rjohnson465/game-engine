@@ -2,7 +2,7 @@ var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 
 if global.gameManager.isMouseOverBelt exit;
-
+if global.isTrading exit;
 var isMouseOverAttunement = false;
 with obj_attunement {
 	if position_meeting(mouse_x,mouse_y,id) {

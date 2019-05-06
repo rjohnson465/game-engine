@@ -3,6 +3,7 @@ var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(
 if !point_in_rectangle(x,y,vx-500,vy-500,vx+vw+500,vy+vh+500) exit; 
 if layer != global.player.layer {
 	layer = global.player.layer;
+
 	// Make a circle with 16 points.
 	var n = 16
 	var gap = 360 / n;

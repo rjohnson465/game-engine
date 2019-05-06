@@ -54,6 +54,7 @@ if (global.isWishing) {
 }
 
 // item selection in trading interface
+/*
 if global.isTrading {
 	audio_play_sound(soundGrab,1,0);
 	var playerItemsObj = obj_player_items;
@@ -64,7 +65,8 @@ if global.isTrading {
 	} else {
 		vendorItemsObj.selectedItem = id;
 	}
-}
+} 
+*/
 
 // select this item if in inv or equipped items
 if x1 >= global.inventory.invTopLeftX && x1 <= global.inventory.invBottomRightX 

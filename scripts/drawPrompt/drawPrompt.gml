@@ -121,6 +121,10 @@ for (var i = 0; i < array_length_1d(keys); i++) {
 			sprite = spr_prompt_xbox_y;
 			break;
 		}
+		case Input.Control: {
+			sprite = spr_prompt_mk_ctrl;
+			break;
+		}
 	}
 	
 	ds_map_replace(spritesMap,i,sprite);

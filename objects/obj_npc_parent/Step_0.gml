@@ -53,7 +53,7 @@ if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 {
 		randomize();
 		var goodDir = point_direction(x,y,postX,postY);
 		direction = random_range(goodDir-20,goodDir+20);
-		moveToNearestFreePoint(direction,normalSpeed,1);
+		moveToNearestFreePoint(abs(direction),normalSpeed,1);
 		facingDirection = direction;
 
 	}

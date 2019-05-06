@@ -1,5 +1,6 @@
 owner = global.owner;
 isConfirming = false;
+confirmOption = noone;
 isAcceptingConfirmInput = false;
 isYes = false;
 
@@ -73,3 +74,4 @@ pressedFilter = noone;
 
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;
+

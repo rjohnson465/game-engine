@@ -34,7 +34,7 @@ scr_draw_text_outline(s1x,s1y,s1,c,c);
 
 var bottomY = y2;
 // Use revive orb
-if reviveOrbs != noone {
+if reviveOrbs != noone && instance_exists(reviveOrbs) {
 	var s2 = "Use revive orb";
 
 	var y3 = y1 + 50; var y4 = y2+50;
@@ -49,7 +49,7 @@ if reviveOrbs != noone {
 	reviveWithOrbButtonCoordinates = [x1,y3,x2,y4];
 	draw_rectangle(x1,y3,x2,y4,false);
 	scr_draw_text_outline(s1x,s1y+50,s2,c_white,c_white);
-	if reviveOrbs != noone {
+	if reviveOrbs != noone && instance_exists(reviveOrbs) {
 		draw_set_font(font_small);
 		scr_draw_text_outline(s1x,s1y+75,string(reviveOrbs.count) + " orb(s) remaining",c_white,c_white);
 	} else {

@@ -18,8 +18,14 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	else if playerItemsObj.isActive {
 		if playerItemsObj.selectedItem != noone && playerItemsObj.selectedItem != undefined && instance_exists(playerItemsObj.selectedItem) && playerItemsObj.selectedItem.isSellable {
 			w += drawPrompt("Sell " + playerItemsObj.selectedItem.name, Input.F,promptsStartX+w,promptsY)+xOffset;
+		} 
+		if playerItemsObj.selectedItem != undefined && playerItemsObj.selectedItem >= 0 && instance_exists(playerItemsObj.selectedItem) && playerItemsObj.selectedItem.type != ItemTypes.Other && !playerItemsObj.selectedItem.isUsable {
+			w += drawPrompt("Toggle Item Info",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+		}
+		if global.ui.isShowingExplanations {
+			w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
 		} else {
-			//w += drawPrompt("Sell item" + playerItemsObj.selectedItem.name, Input.F)+xOffset;
+			w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
 		}
 		w+= drawPrompt("Browse " + vendorItemsObj.owner.name + "'s items",Input.LT,promptsStartX+w,promptsY)+xOffset;
 		w += drawPrompt("Exit",Input.Escape,promptsStartX+w,promptsY)+xOffset;
@@ -28,18 +34,37 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	else if vendorItemsObj.isActive {
 		if vendorItemsObj.selectedItem != noone && vendorItemsObj.selectedItem != undefined && instance_exists(vendorItemsObj.selectedItem) && vendorItemsObj.selectedItem.isSellable {
 			w += drawPrompt("Buy " + vendorItemsObj.selectedItem.name, Input.F,promptsStartX+w,promptsY)+xOffset;
-		} else {
-			//w += drawPrompt("Sell item" + playerItemsObj.selectedItem.name, Input.F)+xOffset;
+		} 
+		if vendorItemsObj.selectedItem != undefined && vendorItemsObj.selectedItem >= 0 && instance_exists(vendorItemsObj.selectedItem) && vendorItemsObj.selectedItem.type != ItemTypes.Other && !vendorItemsObj.selectedItem.isUsable {
+			w += drawPrompt("Toggle Item Info",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		}
-		w+= drawPrompt("Browse your items",Input.RT,promptsStartX+w,promptsY)+xOffset;
+		if global.ui.isShowingExplanations {
+			w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		} else {
+			w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		}
+		w+= drawPrompt("Browse Your Items",Input.RT,promptsStartX+w,promptsY)+xOffset;
 		w += drawPrompt("Exit",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 	} 
 	
 	
 } else {
-	w += drawPrompt("View item info",Input.LMB,promptsStartX+w,promptsY)+xOffset;
-	w += drawPrompt("Buy/sell item",Input.RMB,promptsStartX+w,promptsY)+xOffset;
-	//w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
+	w += drawPrompt("View Item Onfo",Input.LMB,promptsStartX+w,promptsY)+xOffset;
+	w += drawPrompt("Buy/Sell Item",Input.RMB,promptsStartX+w,promptsY)+xOffset;
+	
+	var activeItems = playerItemsObj.isActive ? playerItemsObj : vendorItemsObj;
+	
+	with activeItems {
+		if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && selectedItem.type != ItemTypes.Other && !selectedItem.isUsable {
+			w += drawPrompt("Toggle Item Info",Input.Control,promptsStartX+w,promptsY)+xOffset;
+		}
+		if global.ui.isShowingExplanations {
+			w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		} else {
+			w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
+		}
+	}
+
 }
 
 

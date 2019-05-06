@@ -99,6 +99,24 @@ if instance_exists(fade) {
 			// or used revive orb
 			else {
 				other.reviveOrbs.count--;
+				var p = global.player;
+				if other.reviveOrbs.count <= 0 {
+					with other.reviveOrbs {
+						// clear this spot in the belt, if it was a beltItem
+						if beltItemIndex != noone {
+							p.beltItems[beltItemIndex] = noone;
+							// set the current belt item index to something else, if possible
+							var beltSize = array_length_1d(p.beltItems);
+							for (var i = 0; i < beltSize; i++) {
+								var index = i mod beltSize;
+								var bi = p.beltItems[i];
+								if bi != noone && bi != undefined && instance_exists(bi) {
+									p.currentBeltItemIndex = index;
+								}
+							}
+						}
+					}
+				}
 				jumpToNearestFreePoint(0,1); // don't let player revive in a fallzone
 				// populateGrids();
 				global.isPopulatingGrids = true;

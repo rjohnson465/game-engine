@@ -3,6 +3,7 @@ owner = global.owner;
 items = global.player.inventory;
 
 isConfirming = false;
+confirmOption = noone;
 isAcceptingConfirmInput = false;
 isYes = false;
 

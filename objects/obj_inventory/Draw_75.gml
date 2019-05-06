@@ -1,7 +1,7 @@
 if isConfirmingDestroyItem {
 	draw_set_alpha(1);
 	draw_set_color(c_gray);
-	var x1 = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X)-100; var x2 = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X)+100;
+	var x1 = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X)-100+5; var x2 = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X)+100-5;
 	var y1 = mean(MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_Y)-50; var y2 = mean(MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_Y)+100;
 	draw_rectangle(x1,y1,x2,y2,0);
 	draw_set_color(C_HANDLES);
@@ -15,13 +15,34 @@ if isConfirmingDestroyItem {
 	
 	// yes and no buttons
 	draw_set_halign(fa_left);
-	if confirmDestroyOption == "Y" {
-		draw_set_color(c_white)
-	} else draw_set_color(c_ltgray);
-	var xx = x1+5; var yy = y2-string_height("s")-5;
-	var xxx = xx + string_width("Yes"); var yyy = yy + string_height("Yes");
-	draw_text(xx,yy,"Yes");
-	if mouseOverGuiRect(xx,yy,xxx,yyy) {
+	var textColor = noone;
+	var buttonColor = noone;
+	
+	var s = "Yes";
+	var x1 = x1+5; var y1 = y2-string_height("s")-5;
+	var x2 = x1 + string_width(s)+10; var y2 = y1 + string_height(s);
+	if mouseOverGuiRect(x1, y1, x2, y2) {
+		textColor = c_white;
+		buttonColor = c_green;
+	} else {
+		textColor = c_ltgray;
+		buttonColor = c_olive;
+		if confirmDestroyOption != "N" {
+			confirmDestroyOption = noone;
+		}
+	}
+	
+	draw_set_color(buttonColor);
+	draw_rectangle(x1, y1, x2, y2, false);
+	draw_set_color(c_black);
+	draw_rectangle(x1, y1, x2, y2, true);
+
+	draw_set_color(textColor);
+	draw_set_halign(fa_center); draw_set_valign(fa_center);
+	draw_text(mean(x1, x2),mean(y1, y2),s);
+
+	
+	if mouseOverGuiRect(x1,y1,x2,y2) {
 		if confirmDestroyOption != "Y" audio_play_sound(snd_ui_option_change,1,0);
 		confirmDestroyOption = "Y";
 		if mouse_check_button_pressed(mb_left) {
@@ -30,20 +51,37 @@ if isConfirmingDestroyItem {
 		}
 	}
 	
-	if confirmDestroyOption == "N" {
-		draw_set_color(c_white)
-	} else draw_set_color(c_ltgray);
-	var xx = x2-5-string_width("No"); var yy = y2-string_height("s")-5;
-	var xxx = xx + string_width("No"); var yyy = yy + string_height("No");
-	draw_text(xx,yy,"No");
-	if mouseOverGuiRect(xx,yy,xxx,yyy) {
+	// No button
+	var s = "No";
+	var x1 = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X)+100-5-15-string_width("No"); 
+	var x2 = x1 + string_width(s) + 10; 
+	if mouseOverGuiRect(x1, y1, x2, y2) {
+		textColor = c_white;
+		buttonColor = c_red;
+	} else {
+		textColor = c_ltgray;
+		buttonColor = c_maroon;
+		if confirmDestroyOption != "Y" {
+			confirmDestroyOption = noone;
+		}
+	}
+	draw_set_color(buttonColor);
+	draw_rectangle(x1, y1, x2, y2, false);
+	draw_set_color(c_black);
+	draw_rectangle(x1, y1, x2, y2, true);
+
+	draw_set_color(textColor);
+	draw_set_halign(fa_center); draw_set_valign(fa_center);
+	draw_text(mean(x1, x2),mean(y1, y2),s);
+	
+	if mouseOverGuiRect(x1,y1,x2,y2) {
 		if confirmDestroyOption != "N" audio_play_sound(snd_ui_option_change,1,0);
 		confirmDestroyOption = "N";
 		if mouse_check_button_pressed(mb_left) {
 			isConfirmingDestroyItem = false;
 			audio_play_sound(snd_ui_tab1,1,0);
 		}
-	}
+	} 
 	
 	var pad = global.gamePadIndex;
 	if gamepad_is_connected(pad) {
