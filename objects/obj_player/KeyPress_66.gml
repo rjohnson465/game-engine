@@ -1,3 +1,6 @@
+updateNarrativeState(NarrativeState.LamplightFactory);
+
+/*
 var reward = instance_create_depth(x,y,1, obj_item_reward);
 
 ds_list_add(reward.items, instance_create_depth(x,y,1,obj_hand_item_longsword));

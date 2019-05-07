@@ -51,6 +51,9 @@ if (object_index == obj_player_items || object_index == obj_inventory) {
 
 // draw item name in color according to item rarity
 draw_set_color(ds_map_find_value(global.itemRarityColors, item.rarity));
+if item.type == ItemTypes.Head && item.isSpecialHat {
+	draw_set_color(C_GOLD);
+}
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 var s = item.name;

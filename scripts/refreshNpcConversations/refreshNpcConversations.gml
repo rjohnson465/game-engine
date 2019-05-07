@@ -1,7 +1,17 @@
 /// refreshNpcConversations()
-
+global.owner = id;
+global.ownerNpcName = id;
 // get an array of all possible conversations for this NPC, based on Narrative State and other factors
 var possibleConversations = getConversationsForNpc(name);
+
+for (var i = 0; i < ds_list_size(conversations); i++) {
+	var c = ds_list_find_value(conversations, i);
+	if instance_exists(c) {
+		instance_destroy(c, 1);
+	}
+}
+ds_list_clear(conversations);
+
 if ds_exists(possibleConversations, ds_type_list) {
 	for (var i = 0; i < ds_list_size(possibleConversations); i++) {
 		var c = ds_list_find_value(possibleConversations, i);
@@ -70,6 +80,19 @@ if items != noone {
 	ds_list_add(bs.steps,bs1);
 	ds_list_add(conversations,bs);
 }
+
+// all npcs have a "Leave" convo
+var leave = instance_create_depth(x,y,1,obj_conversation_parent);
+leave.name = "Leave";
+leave.isRepeatable = true;
+
+var leave1 = instance_create_depth(x,y,1,obj_conversation_step_parent);
+leave1.text = "Goodbye";
+leave1.sound = noone;
+leave1.func = scr_conversation_leave;
+ds_list_add(leave.steps,leave1);
+
+ds_list_add(conversations,leave);
 
 // push "leave" to the last conversations index
 var leaveIndex = noone;

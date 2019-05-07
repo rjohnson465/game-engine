@@ -6,6 +6,10 @@ if fallFrame != fallTotalFrames {
 	exit;
 }
 if global.isWishing exit;
+if global.isInteractingWithNpc exit;
+with obj_npc_parent {
+	if isInteractingWithPlayer exit;
+}
 var UP = keyboard_check(ord("W"));
 var DOWN = keyboard_check(ord("S"));
 var LEFT = keyboard_check(ord("A"));

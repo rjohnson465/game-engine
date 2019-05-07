@@ -49,5 +49,7 @@ with obj_environment_particles_controller {
 	event_perform(ev_other,ev_room_end);
 } 
 
+updateNarrativeState(global.player.narrativeState);
+
 ds_map_destroy(save_data); save_data = -1;
 

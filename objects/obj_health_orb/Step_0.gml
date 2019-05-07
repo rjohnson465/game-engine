@@ -60,6 +60,13 @@ if !isMoving && distance_to_object(p) < 50 && layer == p.layer && !hasSetAlarm &
 				p.hp = p.maxHp;
 			}
 		}
+		
+		// maybe give tutorial
+		var hasHadHealthOrbMsg = ds_map_find_value(p.tutorialFirstsMap, TutFirsts.HealthOrbs);
+		if !hasHadHealthOrbMsg {
+			showTutorialMessage("You've gained a health flask charge! Wishing at a fountain will give you a single charge, but more charges can be dropped by enemies.",
+			noone, noone, TutFirsts.HealthOrbs, noone);
+		}
 	}
 } else if !isMoving {
 	// if not near the player, just stahp

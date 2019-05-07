@@ -46,7 +46,7 @@ if distance_to_object(obj_player) < 20 && layer == global.player.layer && !globa
 		isInteractingWithPlayer = true;
 		startConversation(urgentConversation);
 	}
-	else {
+	else if !isInteractingWithPlayer {
 		// open conversations window, if this NPC has no "urgent" conversations
 		isInteractingWithPlayer = true;
 		global.player.state = CombatantStates.Idle;
@@ -67,6 +67,9 @@ if isInteractingWithPlayer && !isInConversation {
 
 if isInteractingWithPlayer || isInConversation {
 	turnToFacePoint(15,global.player.x,global.player.y);
+	with global.player {
+		turnToFacePoint(15,other.x,other.y);
+	}
 }
 
 if gamepad_is_connected(global.player.gamePadIndex) && (selectedConversation == noone || !instance_exists(selectedConversation)) && ds_list_size(conversations) > 0 {

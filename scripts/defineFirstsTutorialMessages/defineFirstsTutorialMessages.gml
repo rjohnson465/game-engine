@@ -14,6 +14,8 @@ enum TutFirsts {
 	Rings,
 	Shields,
 	Experience,
+	SpecialHats,
+	HealthOrbs,
 	length
 }
 

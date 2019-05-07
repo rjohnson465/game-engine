@@ -55,6 +55,8 @@ if isFinished && !isRepeatable {
 	var pos = ds_list_find_index(owner.conversations,id);
 	ds_list_delete(owner.conversations,pos);
 	
+	owner.isInteractingWithPlayer = false;
+	
 	// also, be sure to mark, in NPC data, that the conversation is finished, and thus,
 	// should never be loaded again the next time the NPC is in a room
 	with obj_npc_data {

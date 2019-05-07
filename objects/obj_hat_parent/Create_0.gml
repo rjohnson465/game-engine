@@ -12,3 +12,7 @@ durability = 50;
 durabilityMax = 50;
 
 soundDrop = snd_item_cloth;
+
+isSpecialHat = false;
+specialHatDefenses = noone;
+specialHatProperties = noone;

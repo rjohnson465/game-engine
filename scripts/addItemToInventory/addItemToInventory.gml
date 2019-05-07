@@ -90,6 +90,13 @@ for (var i = 0; i < TutFirsts.length; i++) {
 	if !val {
 		var msg = ""; var spritesController = []; var spritesMk = []; var spritesSeps = [];
 		switch ck {
+			case TutFirsts.SpecialHats: {
+				if !object_is_ancestor(item.object_index, obj_hat_parent) || !item.isSpecialHat {
+					break;
+				}
+				msg = "You've found a unique hat! One-of-a-kind items, special hats provide various bonuses in addition to defense. Their base stats automatically scale as time goes on.";
+				break;
+			}
 			case TutFirsts.Gems: {
 				if !object_is_ancestor(item.object_index, obj_gem_parent) break;
 				msg = "Gems can be put into socketed items to enhance various item stats. Insert or remove gems from items at fountains.";

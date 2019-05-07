@@ -16,6 +16,7 @@ ds_list_add(items,aqs);
 
 ds_list_add(items,instance_create_depth(x,y,1,obj_hand_item_battleaxe));
 
+/*
 ds_list_add(conversations, instance_create_depth(x,y,1,obj_conv_wamdk_start));
 
 global.ownerNpcName = "The Elder, Barry";

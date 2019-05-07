@@ -4,23 +4,7 @@
 
 var item = argument[0];
 
-/*
-switch item.type {
-	case ItemTypes.HandItem: {
-		//if item.subType HandItemTypes.Shield {
-			updateWeaponName(item);
-			break;
-		//} else {
-		//}
-		break;
-	}
-	case ItemTypes.Ring: {
-		break;
-	}
-	case ItemTypes.Head: {
-	}
-	
-}*/
+if object_is_ancestor(item.object_index, obj_hat_parent) && item.isSpecialHat exit;
 updateItemNameBaseMods(item); // mods based on rarity
 updateItemNameGems(item);
 updateItemNameProperties(item);
