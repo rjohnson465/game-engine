@@ -54,7 +54,7 @@ if gamepad_is_connected(pad) && !isConfirming {
 	
 	// toggle item info display
 	if gamepad_button_check_pressed(pad,gp_face3) {
-		global.ui.isShowingItemInfo2 = !global.ui.isShowingItemInfo2;
+		global.inventory.isShowingItemInfo2 = !global.inventory.isShowingItemInfo2;
 		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	
@@ -71,6 +71,7 @@ if gamepad_is_connected(pad) && isConfirming && selectedItem != noone && selecte
 	if gamepad_button_check_pressed(pad,gp_face2) {
 		isConfirming = false;
 		isAcceptingConfirmInput = false;
+		audio_play_sound(snd_ui_click1,1,0);
 	}
 	
 	if	gamepad_button_check_pressed(pad,gp_padl) ||
@@ -80,7 +81,7 @@ if gamepad_is_connected(pad) && isConfirming && selectedItem != noone && selecte
 		{
 			isYes = !isYes;
 			joystickInputFrame = 0;
-			audio_play_sound(snd_ui_click1,1,0);
+			audio_play_sound(snd_ui_option_change,1,0);
 		}
 	
 	if gamepad_button_check_pressed(pad,gp_face1) {
@@ -89,6 +90,7 @@ if gamepad_is_connected(pad) && isConfirming && selectedItem != noone && selecte
 			isConfirming = false;
 		} else {
 			isConfirming = false;
+			audio_play_sound(snd_ui_click1,1,0);
 		}
 		isAcceptingConfirmInput = false;
 	}

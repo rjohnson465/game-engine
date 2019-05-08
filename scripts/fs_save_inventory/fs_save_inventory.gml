@@ -65,7 +65,7 @@ with obj_item_parent {
 				if is_array(val) {
 					var macro = val[0];
 					var v = val[1];
-					val = macro + " " + string(v);
+					val = string(macro) + " " + string(v);
 				}
 				
 				ds_list_add(propsList,currentProp);
@@ -86,7 +86,7 @@ with obj_item_parent {
 				if is_array(val) {
 					var macro = val[0];
 					var v = val[1];
-					val = macro + " " + string(v);
+					val = string(macro) + " " + string(v);
 				}
 				
 				ds_list_add(propsList,currentProp);
@@ -107,7 +107,7 @@ with obj_item_parent {
 				if is_array(val) {
 					var macro = val[0];
 					var v = val[1];
-					val = macro + " " + string(v);
+					val = string(macro) + " " + string(v);
 				}
 				
 				ds_list_add(propsList,currentProp);

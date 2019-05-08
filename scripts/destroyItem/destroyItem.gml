@@ -5,7 +5,9 @@ var item = argument[0];
 
 alert(item.name + " destroyed",c_yellow);
 
-if item.equipmentSlot != noone unequipItem(item);
+if item.equipmentSlot != noone {
+	unequipItem(item);
+}
 if item.isStackable && item.count > 1 {
 	item.count--;
 } else {

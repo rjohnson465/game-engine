@@ -1,4 +1,18 @@
-updateNarrativeState(NarrativeState.LamplightFactory);
+
+var rmap = ds_map_create();
+ds_map_replace(rmap,ItemRarities.Normal,0);
+ds_map_replace(rmap,ItemRarities.Fine,5);
+ds_map_replace(rmap,ItemRarities.Masterwork,5);
+ds_map_replace(rmap,ItemRarities.Legendary,5);
+/*var tmap = ds_map_create();
+ds_map_replace(tmap,ItemTypes.Ring,0);
+ds_map_replace(tmap,ItemTypes.HandItem,0);
+ds_map_replace(tmap,ItemTypes.Head,0);
+ds_map_replace(tmap,ItemTypes.Other,1);*/
+var item1 = maybeMakeItem(100,rmap); //randomly generated item
+addItemToInventory(item1);
+
+/*updateNarrativeState(NarrativeState.LamplightFactory);
 
 /*
 var reward = instance_create_depth(x,y,1, obj_item_reward);

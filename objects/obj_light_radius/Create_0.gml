@@ -6,6 +6,12 @@ if owner.object_index == obj_fountain || owner.object_index == obj_sconce {
 	layer = owner.origLayer;
 }
 
+with owner {
+	if variable_instance_exists(id, "origLayer") {
+		other.layer = origLayer;
+	}
+}
+
 var il = global.gameManager.isLoading;
 if il && owner.object_index == obj_player {
 

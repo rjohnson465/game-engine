@@ -115,7 +115,7 @@ if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && 
 	var xx = nx;
 	var yy = ny;
 	
-	part_system_depth(torchSystem1,owner.depth-10);
+	part_system_depth(torchSystem1,owner.depth-2);
 	part_emitter_region(torchSystem1,torchEmitter1,xx-1,xx+1,yy-1,yy+1,ps_shape_diamond,ps_distr_gaussian);
 	part_emitter_burst(torchSystem1,torchEmitter1,smoke,-3);
 	part_emitter_burst(torchSystem1,torchEmitter1,fire,6);

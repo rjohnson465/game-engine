@@ -6,8 +6,10 @@ var item = argument[0];
 // need to do this for player limb (hand) / weapon refresh
 if item.equipmentSlot == EquipmentSlots.LeftHand1 {
 	ds_map_replace(global.player.equippedLimbItems,"l",global.player.unarmed);
+	global.player.leftHandItem = global.player.unarmed;
 } else if item.equipmentSlot == EquipmentSlots.RightHand1 {
 	ds_map_replace(global.player.equippedLimbItems,"r",global.player.unarmed);
+	global.player.rightHandItem = global.player.unarmed;
 }
 			
 // remove this item from player's equipped items list

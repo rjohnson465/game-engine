@@ -82,24 +82,53 @@ if fallFrame == .5*fallTotalFrames {
 	}
 	else {
 		jumpToNearestFreePoint();
-		global.damageType = PHYSICAL;
-		global.x1 = x;
-		global.y1 = y;
-		global.particleDirection = direction;
-		global.hitParticlesLayer = layer;
-		global.victim = id;
-		instance_create_depth(0,0,1,obj_hit_particles);
-		var fallDamage = 10*floorsFallen;
-		if fallDamage > hp {
-			fallDamage = hp;
+		// take damage if you did not land on a fallbreaker
+		var fallbreaker = noone;
+		with obj_fallbreaker_parent {
+			if origLayer == other.layer && place_meeting(x, y, other) {
+				fallbreaker = id;
+			}
 		}
-		global.damageAmount = fallDamage;
-		global.victim = id;
-		global.healingSustained = 0;
-		global.isCriticalHit = false;
-		instance_create_depth(x,y,1,obj_damage);
-		hp -= fallDamage;
-		audio_play_sound(snd_crunchy_thud,1,0);
+		if !instance_exists(fallbreaker) {
+			global.damageType = PHYSICAL;
+			global.x1 = x;
+			global.y1 = y;
+			global.particleDirection = direction;
+			global.hitParticlesLayer = layer;
+			global.victim = id;
+			instance_create_depth(0,0,1,obj_hit_particles);
+			var fallDamage = 10*floorsFallen;
+			if fallDamage > hp {
+				fallDamage = hp;
+			}
+			global.damageAmount = fallDamage;
+			global.victim = id;
+			global.healingSustained = 0;
+			global.isCriticalHit = false;
+			instance_create_depth(x,y,1,obj_damage);
+			hp -= fallDamage;
+			audio_play_sound(snd_crunchy_thud,1,0);
+		} else {
+			// if fallbreaker is landed on...
+			if instance_exists(fallbreaker) {
+				with fallbreaker {
+					// emit particles below fallen combatant
+					part_system_depth(system, other.depth + 5);
+					part_emitter_region(system, emitter, other.x, other.x, other.y, other.y, ps_shape_ellipse, ps_distr_gaussian);
+					for (var i = 0; i < array_length_1d(particles); i++) {
+						var pArr = particles[i];
+						var p = pArr[0];
+						if part_type_exists(p) {
+							var pNum = pArr[1];
+							part_emitter_burst(system, emitter, p, pNum);
+						}
+					}
+				
+					// play sound
+					audio_play_sound_at(fallbreakSound, other.x, other.y, other.depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+				}
+			}
+		}
 		floorsFallen = 0;
 		tempPostX = x;
 		tempPostY = y;

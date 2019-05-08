@@ -1,3 +1,4 @@
+var pad = global.player.gamePadIndex;
 if isConfirmingDestroyItem {
 	draw_set_alpha(1);
 	draw_set_color(c_gray);
@@ -21,13 +22,13 @@ if isConfirmingDestroyItem {
 	var s = "Yes";
 	var x1 = x1+5; var y1 = y2-string_height("s")-5;
 	var x2 = x1 + string_width(s)+10; var y2 = y1 + string_height(s);
-	if mouseOverGuiRect(x1, y1, x2, y2) {
+	if mouseOverGuiRect(x1, y1, x2, y2) || confirmDestroyOption == "Y" {
 		textColor = c_white;
 		buttonColor = c_green;
 	} else {
 		textColor = c_ltgray;
 		buttonColor = c_olive;
-		if confirmDestroyOption != "N" {
+		if confirmDestroyOption != "N" && !gamepad_is_connected(pad) {
 			confirmDestroyOption = noone;
 		}
 	}
@@ -55,13 +56,13 @@ if isConfirmingDestroyItem {
 	var s = "No";
 	var x1 = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X)+100-5-15-string_width("No"); 
 	var x2 = x1 + string_width(s) + 10; 
-	if mouseOverGuiRect(x1, y1, x2, y2) {
+	if mouseOverGuiRect(x1, y1, x2, y2) || confirmDestroyOption == "N" {
 		textColor = c_white;
 		buttonColor = c_red;
 	} else {
 		textColor = c_ltgray;
 		buttonColor = c_maroon;
-		if confirmDestroyOption != "Y" {
+		if confirmDestroyOption != "Y" && !gamepad_is_connected(pad) {
 			confirmDestroyOption = noone;
 		}
 	}

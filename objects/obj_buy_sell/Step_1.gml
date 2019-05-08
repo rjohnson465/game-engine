@@ -3,7 +3,7 @@ var pad = global.player.gamePadIndex;
 if gamepad_is_connected(pad) {
 	// toggle item info display
 	if gamepad_button_check_pressed(pad,gp_face3) {
-		global.ui.isShowingItemInfo2 = !global.ui.isShowingItemInfo2;
+		global.inventory.isShowingItemInfo2 = !global.inventory.isShowingItemInfo2;
 		audio_play_sound(snd_ui_option_change,1,0);
 	}
 	
