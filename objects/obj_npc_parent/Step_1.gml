@@ -48,8 +48,13 @@ if gamepad_is_connected(pad) {
 		
 		if gamepad_button_check_pressed(pad,gp_face1) && selectedConversation {
 			startConversation(selectedConversation);
+			hasReleasedInteract = false;
 		}
 		
+	}
+	
+	if gamepad_button_check_released(pad,gp_face1) {
+		hasReleasedInteract = true;
 	}
 	
 	if gamepad_button_check_pressed(pad,gp_face2) && isInteractingWithPlayer {

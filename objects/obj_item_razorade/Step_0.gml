@@ -10,7 +10,7 @@ if isInUse {
 	ds_map_replace(global.player.conditionPercentages, condi, 100);
 	global.owner = global.player;
 	global.condition = condi;
-	global.conditionBarCount += 1;
+	// global.conditionBarCount += 1;
 	instance_create_depth(x,y,1,obj_condition_bar);
 	isInUse = false;
 }

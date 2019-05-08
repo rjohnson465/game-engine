@@ -44,21 +44,47 @@ switch condition {
 		break;
 	}
 	case PIERCE: {
-		sprite = spr_item_info_defense_pierce;
-		sprScale = 1.5;
+		sprite = spr_item_spearmint_elixir;
+		sprScale = .3125;
+		draw_set_color(c_gray);
+		draw_rectangle(spriteX, spriteY, spriteX+20, spriteY+20,0);
+		draw_set_color(c_black);
+		draw_rectangle(spriteX, spriteY, spriteX+20, spriteY+20,1);
 		draw_set_color(make_color_rgb(93,255,186));
 		break;
 	}
 	case CRUSH: {
-		sprite = spr_item_info_defense_crush;
-		sprScale = 1.5;
+		sprite = spr_item_club_soda;
+		sprScale = .3125;
+		draw_set_color(c_gray);
+		draw_rectangle(spriteX, spriteY, spriteX+20, spriteY+20,0);
+		draw_set_color(c_black);
+		draw_rectangle(spriteX, spriteY, spriteX+20, spriteY+20,1);
 		draw_set_color(c_silver);
 		break;
 	}
 	case SLASH: {
-		sprite = spr_item_info_defense_slash;
-		sprScale = 1.5;
+		sprite = spr_item_razorade;
+		sprScale = .3125;
+		draw_set_color(c_gray);
+		draw_rectangle(spriteX, spriteY, spriteX+20, spriteY+20,0);
+		draw_set_color(c_black);
+		draw_rectangle(spriteX, spriteY, spriteX+20, spriteY+20,1);
 		draw_set_color(make_color_rgb(125,89,145));
+		break;
+	}
+	default: {
+		// The default case is that the condition is named after the sprite used to display it
+		sprite = asset_get_index(condition);
+		sprScale = .3125;
+		draw_set_color(c_gray);
+		draw_rectangle(spriteX, spriteY, spriteX+20, spriteY+20,0);
+		draw_set_color(c_black);
+		draw_rectangle(spriteX, spriteY, spriteX+20, spriteY+20,1);
+		draw_set_color(c_white);
+		if sprite == "spr_item_lamplight" {
+			draw_set_color(c_aqua);
+		}
 		break;
 	}
 }

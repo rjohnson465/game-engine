@@ -3,7 +3,12 @@ if layer == global.player.layer && fallFrame >= fallTotalFrames {
 		var cpexists = script_execute(scr_collision_point,id,other.id)
 		if place_meeting_layer(x,y,other.id) || cpexists || (isRanged && distance_to_object(other.id) < 5) {
 			with other {
-				calculateDamage();
+				var wallsBetween = scr_collision_line_list_layer(x, y, other.x, other.y, obj_wall_parent, true, true);
+				if wallsBetween == noone {
+					calculateDamage();
+				} else {
+					ds_list_destroy(wallsBetween); wallsBetween = -1;
+				}
 			}
 		}
 	}

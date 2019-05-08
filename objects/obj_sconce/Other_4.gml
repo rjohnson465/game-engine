@@ -19,3 +19,7 @@ if isLit {
 		light_set_alpha(calculateLightRadiusAlphaLayer(floorNum));
 	}
 }
+
+if !isLit && torchSoundId != noone {
+	audio_stop_sound(torchSoundId);
+}

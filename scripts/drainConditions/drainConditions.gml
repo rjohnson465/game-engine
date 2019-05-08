@@ -92,21 +92,18 @@ for (var i = 0; i < size; i++) {
 	
 	// drain condition levels
 	if conditionPercent > 0 {
-		var decrementAmount = .2;
-		var defense = ds_map_find_value(defenses,currentCondition);
-		//decrementAmount += 1-abs((defense/100));
-		//decrementAmount = defense > 0 ? decrementAmount + 1-(defense/100) : decrementAmount - 1-(defense/100);
-		decrementAmount = (.0067*defense)+.2;
-		if decrementAmount < 0 {
-			decrementAmount = .1;
-		}
+		var decrementAmount = .2;		
 		// if this is not an elemental condition (i.e. defense boost from elixir), decrement slower
 		if !arrayIncludes(global.ALL_ELEMENTS, currentCondition) {
 			decrementAmount = .05;
+		} else {
+			var defense = ds_map_find_value(defenses,currentCondition);
+			decrementAmount = (.0067*defense)+.2;
+			if decrementAmount < 0 {
+				decrementAmount = .1;
+			}
 		}
-		/*if currentCondition == ICE {
-			decrementAmount *= 1.5; // devin is a psuy and wants ice to last less long
-		}*/
+
 		conditionPercent -= decrementAmount;
 		ds_map_replace(conditionPercentages,currentCondition,conditionPercent);
 	} if conditionPercent <= 0 {

@@ -5,6 +5,8 @@
 // cure any and all conditions
 var currentCondition = ds_map_find_first(conditionPercentages);
 for (var i = 0; i < ds_map_size(conditionPercentages);i++) {
+	// don't "cure" positive conditions lol
+	if !arrayIncludes(global.ALL_ELEMENTS, currentCondition) continue;
 	ds_map_replace(conditionPercentages,currentCondition,0);
 	var conditionEmitter = ds_map_find_value(conditionsEmittersMap,currentCondition);
 	if conditionEmitter != undefined {

@@ -74,7 +74,7 @@ if rand > topNum /*&& ds_map_find_value(conditionPercentages,damageType) == 0*/ 
 		if !conditionBar {
 			global.owner = global.player.id;
 			global.condition = damageType;
-			global.conditionBarCount += 1;
+			// global.conditionBarCount += 1;
 			instance_create_depth(x,y,1,obj_condition_bar);
 		}
 	}

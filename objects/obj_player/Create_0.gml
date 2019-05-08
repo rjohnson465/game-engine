@@ -212,16 +212,16 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_hatchet));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_arquebus));
 	
-	addItemToInventory(instance_create_depth(x,y,1,obj_hat_leathercap));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hat_lumberjack_hat));
-	addItemToInventory(instance_create_depth(x,y,1,obj_item_rubberducky));
-	addItemToInventory(instance_create_depth(x,y,1,obj_item_revive_orb));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_spear));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));
 	addItemToInventory(makeGem(obj_gem_amethyst, CRACKED));
 	addItemToInventory(makeGem(obj_gem_amethyst, FLAWLESS));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_spearmint_elixir));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_spearmint_elixir));
 	
-	addItemToInventory(instance_create_depth(x,y,1,obj_item_club_soda));
+	addItemToInventory(instance_create_depth(x,y,1,obj_item_jalapeno));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_club_soda));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_razorade));

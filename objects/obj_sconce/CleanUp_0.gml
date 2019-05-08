@@ -5,3 +5,7 @@ part_type_destroy(particle2); particle2 = -1;
 part_type_destroy(particle3); particle3 = -1;
 audio_emitter_free(soundEmitter); soundEmitter = -1;
 audio_stop_sound(torchSoundId); torchSoundId = -1;
+
+if instance_exists(lightRadius) {
+	instance_destroy(lightRadius); lightRadius = -1;
+}

@@ -4,6 +4,9 @@
 // Inherit the parent event
 event_inherited();
 
+
+var n = chr(241);
+
 name = "Jalapeno";
 spriteName = "jalapeno";
 itemSprite = spr_item_jalapeno;

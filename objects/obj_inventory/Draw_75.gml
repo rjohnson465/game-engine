@@ -9,7 +9,7 @@ if isConfirmingDestroyItem {
 	draw_set_color(c_black);
 	draw_rectangle(x1,y1,x2,y2,1);
 	draw_set_halign(fa_center); draw_set_color(c_white); draw_set_font(font_main); draw_set_valign(fa_center);
-	draw_text(mean(x1,x2),mean(y1,y1+ui.menusHandleHeight),"Confirm Destroy");
+	draw_text(mean(x1,x2),mean(y1,y1+ui.menusHandleHeight),"Confirm Destroy"); 
 	draw_set_valign(fa_top);
 	draw_text_ext(mean(x1,x2),mean(y1,y1+ui.menusHandleHeight)+25,"Really destroy " + selectedItem.name + "?",-1,x2-x1);
 	

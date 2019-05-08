@@ -15,9 +15,15 @@ lightRadiusScale = .2;
 lightRadiusColor = make_color_rgb(75, 208, 161);
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
+
+isNonPriorityInteractable = true;
+isLit = false;
+
+/*
 global.owner = id;
 global.makeLightOnCreate = true;
 lightRadius = instance_create_depth(x,y,depth,obj_light_radius);
+*/
 
 depth = layer_get_depth(layer) + 5;
 

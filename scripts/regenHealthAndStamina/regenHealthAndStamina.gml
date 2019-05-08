@@ -9,21 +9,37 @@ if	 stamina < maxStamina && (state == CombatantStates.Idle || state == Combatant
 	if	type != CombatantTypes.Player || (type == CombatantTypes.Player && !SHIFT)
 		|| (type == CombatantTypes.Player && state == CombatantStates.Attacking)
 	{
+		var lamplightCondi = ds_map_find_value(conditionLevels, "spr_item_lamplight");
 		// stamina regens slower if shielding
 		if isShielding {
 			stamina += (.5*staminaRegen)/30;
+			if lamplightCondi != undefined && lamplightCondi > 0 {
+				stamina += ((.5*staminaRegen) / 30);
+			}
 		}
 		else if (type == CombatantTypes.Player && state == CombatantStates.Attacking) {
 			var lhItem = ds_map_find_value(equippedLimbItems,"l");
-			if lhItem.isTwoHanded && lhItem.subType == HandItemTypes.Ranged /*&& isReadyToFire*/ {
+			if lhItem.isTwoHanded && lhItem.subType == HandItemTypes.Ranged {
 				stamina += (.5*staminaRegen)/30;
+					if lamplightCondi != undefined && lamplightCondi > 0 {
+					stamina += ((.5*staminaRegen) / 30);
+				}
 			}
 		}
-		else stamina += staminaRegen/30;
+		else {
+			stamina += staminaRegen/30;
+			if lamplightCondi != undefined && lamplightCondi > 0 {
+				stamina += ((1*staminaRegen) / 30);
+			}
+		}
 	}
 }
 if hp < maxHp {
 	hp += hpRegen/30;
+	var lamplightCondi = ds_map_find_value(conditionLevels, "spr_item_lamplight");
+	if lamplightCondi != undefined && lamplightCondi > 0 {
+		hp += hpRegen / 30;
+	}
 	// update the data for this combatant if not player
 	if type != CombatantTypes.Player {
 		updatePersistentElementProperty(id, "Hp", hp);

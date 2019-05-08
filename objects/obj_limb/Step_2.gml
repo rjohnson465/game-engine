@@ -88,7 +88,12 @@ else {
 with obj_attack {
 	if place_meeting_layer(x,y,other.id) {
 		with other.owner {
-			calculateDamage();
+			var wallsBetween = scr_collision_line_list_layer(x, y, other.x, other.y, obj_wall_parent, true, true);
+			if wallsBetween == noone {
+				calculateDamage();
+			} else {
+				ds_list_destroy(wallsBetween); wallsBetween = -1;
+			}
 		}
 	}
 }

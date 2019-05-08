@@ -1,7 +1,7 @@
 var interactInputReceived = keyboard_check_released(ord("F"));
 if gamepad_is_connected(global.player.gamePadIndex) {
 	interactInputReceived = keyboard_check_released(ord("F")) || 
-	(gamepad_button_check_pressed(global.player.gamePadIndex,gp_face1) && !global.ui.isShowingMenus)
+	(gamepad_button_check_pressed(global.player.gamePadIndex,gp_face1) && !global.ui.isShowingMenus && hasReleasedInteract)
 }
 
 if distance_to_object(obj_player) < 20 && layer == global.player.layer && !global.isWishing && !global.canLoot && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && !isInConversation {
@@ -74,7 +74,9 @@ if isInteractingWithPlayer || isInConversation {
 
 if gamepad_is_connected(global.player.gamePadIndex) && (selectedConversation == noone || !instance_exists(selectedConversation)) && ds_list_size(conversations) > 0 {
 	selectedConversation = ds_list_find_value(conversations,0);
+	
 }
+
 
 // wander, but only if near enough to player to be on screen
 if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 && !isInteractingWithPlayer {

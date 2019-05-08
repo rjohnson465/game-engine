@@ -407,6 +407,14 @@
             }
         },
         {
+            "Key": "061cd041-d508-4fa5-bb69-6cb553d78779",
+            "Value": {
+                "id": "e8e37007-dd33-4527-8e15-d390ab586356",
+                "resourcePath": "sprites\\spr_factory_controlpanel1\\spr_factory_controlpanel1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0629baf4-e0e1-400a-bdbb-de6da0513e24",
             "Value": {
                 "id": "57973bac-8b14-43e6-9d5c-ac055856d460",
@@ -3639,6 +3647,14 @@
             }
         },
         {
+            "Key": "39b08887-416a-40ec-a8b6-7e6ac1bf5c52",
+            "Value": {
+                "id": "8fb9ebb2-1ad6-4618-842c-1137e66dbb5b",
+                "resourcePath": "sprites\\spr_factory_controlpanel2\\spr_factory_controlpanel2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "39bca976-b17b-4112-9141-1a5112b868ba",
             "Value": {
                 "id": "bf403c82-b85b-492e-af51-4a652cf528a2",
@@ -4220,6 +4236,14 @@
                 "id": "39332c7a-b65b-4a3d-9ade-a2c4b435d53b",
                 "resourcePath": "scripts\\lootItem\\lootItem.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "43839242-4057-43c6-a594-44690c9f7a54",
+            "Value": {
+                "id": "101ee25d-2b15-4893-890b-f230a8a00ddc",
+                "resourcePath": "views\\43839242-4057-43c6-a594-44690c9f7a54.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -5748,6 +5772,14 @@
                 "id": "0848ab39-cc4b-455d-8693-229fc0893dac",
                 "resourcePath": "scripts\\drainConditions\\drainConditions.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5ea4acef-0a99-45d0-a989-3ffa1ca7d1d6",
+            "Value": {
+                "id": "6fd720ff-9719-4ac6-85a3-4eb651729f6c",
+                "resourcePath": "objects\\obj_item_lamplight\\obj_item_lamplight.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -8511,6 +8543,14 @@
             }
         },
         {
+            "Key": "8a650c7d-c25b-43d2-a0cb-570e03e3543f",
+            "Value": {
+                "id": "db660252-29bd-40fc-b125-a9bc239f92d4",
+                "resourcePath": "sprites\\spr_item_lamplight\\spr_item_lamplight.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8a99ae28-26c8-416d-9419-1bd943a0b999",
             "Value": {
                 "id": "ffb2ba16-519d-4073-9b90-29718ac3870a",
@@ -10207,6 +10247,14 @@
             }
         },
         {
+            "Key": "a8378f35-2b9d-4add-8fb0-2ec2e9f4d47b",
+            "Value": {
+                "id": "b4639a1b-536a-417e-8f57-aef207501746",
+                "resourcePath": "sprites\\spr_factory_lamplight_holder\\spr_factory_lamplight_holder.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a84fe00d-af99-494c-ba44-e2a248d4c952",
             "Value": {
                 "id": "0ef71b51-b789-4bcb-8132-8f66f1ecbb2e",
@@ -11751,6 +11799,14 @@
             }
         },
         {
+            "Key": "c03c5078-f959-4153-9d6f-7099f344e7a1",
+            "Value": {
+                "id": "fabbf6eb-cc51-44c1-99c6-36adb447e41a",
+                "resourcePath": "sprites\\spr_factory_controlpanel_big\\spr_factory_controlpanel_big.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c03c7825-5adf-400c-b620-9c17312533f1",
             "Value": {
                 "id": "ebe954a2-d404-4df7-8d3e-4975ed1fd5bc",
@@ -12596,6 +12652,14 @@
                 "id": "589076f1-8268-4a0b-b854-f15f1cceb0bb",
                 "resourcePath": "views\\cda7ebf0-418b-402d-be6a-f05c333d8ec7.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "cda9da68-ce0f-4ff9-8eea-9e0b21258b4a",
+            "Value": {
+                "id": "45875f07-347e-4332-ab50-ad97e0367214",
+                "resourcePath": "objects\\obj_tut_weaponswapping\\obj_tut_weaponswapping.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -14395,6 +14459,14 @@
             "Value": {
                 "id": "e59ef619-18d9-4d56-8dab-2697fb7920c4",
                 "resourcePath": "sprites\\spr_player_dagger_recover_2\\spr_player_dagger_recover_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "edc216f9-1423-4f31-81bc-7348b47d2ae7",
+            "Value": {
+                "id": "35172715-c48f-4631-9361-35b925801fbd",
+                "resourcePath": "sprites\\spr_factory_lamplight_holder_particles\\spr_factory_lamplight_holder_particles.yy",
                 "resourceType": "GMSprite"
             }
         },

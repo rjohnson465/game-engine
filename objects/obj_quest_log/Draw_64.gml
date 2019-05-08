@@ -12,12 +12,14 @@ if watchedQuest != noone && instance_exists(watchedQuest) && ds_exists(watchedQu
 	var xx = mean(xl,xr);
 	var xw = xr-xl;
 	draw_set_halign(fa_center); draw_set_valign(fa_top);
-	scr_draw_text_outline(xx,yy,watchedQuest.name,c_ltgray,c_white,1,1,0,c_black);
+	draw_set_font(font_main); draw_set_color(c_white);
+	scr_draw_text_outline_ext(xx, yy, watchedQuest.name, c_fuchsia, c_silver, 1.25, 1.25, 0, c_black, -1, xw);
+	var titleHeight = string_height_ext(watchedQuest.name, -1, xw);
 	
 	if !watchedQuest.isFinished {
-		scr_draw_text_outline_ext(xx,yy+string_height(watchedQuest.name)+15,watchedQuest.currentQuestStep.description,c_ltgray,c_white,1,1,0,c_black,-1,xw);
+		scr_draw_text_outline_ext(xx,yy+titleHeight+15,watchedQuest.currentQuestStep.description,c_ltgray,c_white,1,1,0,c_black,-1,xw);
 	} else {
-		scr_draw_text_outline_ext(xx,yy+string_height(watchedQuest.name)+15,"Quest complete!",c_ltgray,c_white,1,1,0,c_black,-1,xw);
+		scr_draw_text_outline_ext(xx,yy+titleHeight+15,"Quest complete!",c_ltgray,c_white,1,1,0,c_black,-1,xw);
 	}
 	
 }

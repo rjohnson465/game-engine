@@ -66,3 +66,5 @@ instance_create_depth(x,y,-1001,obj_npc_gui_parent);
 npcData = noone;
 
 urgentFloatingFrame = round(random_range(0,59));
+
+hasReleasedInteract = true;

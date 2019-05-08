@@ -1,3 +1,4 @@
+/*
 var isHittingSolid = false;
 with obj_solid_environment {
 	var _dist = distance_to_object(other);
@@ -36,17 +37,21 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 	with obj_enemy_parent {
 		if layer == global.player.layer && fallFrame >= fallTotalFrames {
 			if place_meeting_layer(x,y,firstObj.id) && state != CombatantStates.Dodging {
+				// check if there is a wall between the player and the enemy
+				var a = 3;
 				exit;
 			}
 		}
 	}
 
 	if object_is_ancestor(firstObj.object_index,obj_combatant_parent) {
+		var a = 3;
 		exit;
 	}
 
 	if object_is_ancestor(firstObj.object_index, obj_npc_parent) {
-		instance_destroy(id); exit;
+		// instance_destroy(id);
+		exit;
 	}
 
 	if global.player.layer == layer && (firstObj.layer != layer && abs(abs(firstObj.depth)-abs(depth)) > 5) {
@@ -66,7 +71,7 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		path_end();
 		// run to get __x and __y (collision point where attack meet this combatant)
 		if script_execute(scr_collision_point,id,firstObj.id) {
-		//script_execute(scr_collision_point,id,other.id)
+
 			global.damageType = firstObj.material == METAL ? "Block" : "Dust";
 			if owner.type == CombatantTypes.Player && weapon.weaponType == UNARMED {
 				global.damageType = "Dust";

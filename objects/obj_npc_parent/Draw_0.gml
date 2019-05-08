@@ -47,7 +47,7 @@ for (var i = 0; i < ds_list_size(conversations); i++) {
 if hasUrgentConversations {
 	urgentFloatingFrame += 1;
 	urgentFloatingFrame = urgentFloatingFrame % 60;
-	draw_set_font(font_damage);
+	draw_set_font(font_damage); draw_set_halign(fa_center); draw_set_valign(fa_center);
 	var uScale = (.1*cos((pi*urgentFloatingFrame)/30)+.9)*2; // normal floating
 	scr_draw_text_outline(x, y - (sprite_height/2), "!", c_orange, c_yellow, uScale, uScale, 0, c_red);
 }
