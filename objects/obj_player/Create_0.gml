@@ -210,7 +210,7 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_hatchet));
-	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_arquebus));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_wand));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hat_lumberjack_hat));
@@ -303,7 +303,7 @@ lastFountainX = noone;
 lastFountainY = noone;
 lastFountainZ = noone;
 
-gamePadIndex = noone;
+gamePadIndex = -1;
 if !global.gameManager.isLoading {
 	layerToMoveTo = "instances_floor_1";
 }

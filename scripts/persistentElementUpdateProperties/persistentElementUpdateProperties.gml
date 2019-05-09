@@ -57,7 +57,7 @@ else {
 	}
 
 	if propsMap != undefined {
-	var ck = ds_map_find_first(propsMap);
+		var ck = ds_map_find_first(propsMap);
 		for (var i = 0; i < ds_map_size(propsMap); i++) {
 			var val = ds_map_find_value(propsMap,ck);
 			ds_map_replace(el.properties, ck, val);

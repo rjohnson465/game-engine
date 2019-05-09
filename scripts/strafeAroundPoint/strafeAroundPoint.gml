@@ -9,6 +9,8 @@ var pointY = argument[1];
 var strafeSpeed = argument[2];
 var strafeOrbit = argument[3];
 
+isMoving = true;
+
 var angle = point_direction(pointX,pointY,x,y);
 angle = strafeDirection == "r" ? angle + strafeSpeed : angle - strafeSpeed;
 if angle >= 360 angle -= 360;

@@ -214,8 +214,8 @@ if	state != CombatantStates.Dodging &&
 				alarm[0] = 15;
 				visible = 0;
 				speed = 0;
-				x = global.x1;
-				y = global.y1;
+				//x = global.x1;
+				//y = global.y1;
 				hasSetAlarm = true;
 				audio_stop_sound(sound);
 			}

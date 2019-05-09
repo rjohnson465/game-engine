@@ -16,6 +16,8 @@ gridTempFreeY = noone;
 
 postX = x; postY = y;
 isMoving = false;
+isStrafing = false;
+isTurning = false;
 movingDirection = 0;
 
 key = fs_generate_key();

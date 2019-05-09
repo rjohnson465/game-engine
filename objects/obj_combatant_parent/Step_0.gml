@@ -41,6 +41,9 @@ switch(state) {
 		
 		// player overrides this
 		if type != CombatantTypes.Player && usesDefaultIdleState {
+			isTurning = false;
+			isMoving = false;
+			isStrafing = false;
 			speed = 0;
 			onAlert = false;
 			var actingPostX = postX;
@@ -638,7 +641,7 @@ for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
 }
 
 if walkingSound != noone {
-	if state == CombatantStates.Moving && isMoving {
+	if (state == CombatantStates.Moving && isMoving) || isTurning || isStrafing {
 		if walkingSoundIndex = noone {
 			walkingSoundIndex = audio_play_sound_on(walkingEmitter, walkingSound, 1, 1);
 		}

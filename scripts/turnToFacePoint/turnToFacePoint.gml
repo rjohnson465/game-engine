@@ -20,6 +20,9 @@ facingDirection += clamp(diff, -turnSpeed, turnSpeed);*/
 
 var pdir = point_direction(x,y,pointX,pointY);
 var dif = angle_difference(pdir, facingDirection);
+if dif > 1 {
+	isTurning = true;
+} else isTurning = false;
 facingDirection += median(-turnSpeed, dif, turnSpeed);
 facingDirection = (facingDirection+360)%360;
 if id != global.player && !isFloating {

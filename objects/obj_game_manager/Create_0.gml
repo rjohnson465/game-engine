@@ -1,4 +1,6 @@
 // audio_debug(true);
+defineItemPropertyRangesForPts();
+
 
 var n = instance_number(object_index);
 
