@@ -55,6 +55,9 @@ if hp < 1 && isAlive && !isDying {
 	alarm[8] = 2; // for death flag;
 	
 	hp = 0;
+	audio_stop_sound(walkingSoundIndex);
+	walkingSoundIndex = noone;
+	audio_emitter_gain(walkingEmitter,0);
 	
 	speed = 0;
 	ds_map_clear(preparingLimbs);

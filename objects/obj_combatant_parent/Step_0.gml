@@ -641,7 +641,7 @@ for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
 }
 
 if walkingSound != noone {
-	if (state == CombatantStates.Moving && isMoving) || isTurning || isStrafing {
+	if isAlive && ((state == CombatantStates.Moving && isMoving) || isTurning || isStrafing) {
 		if walkingSoundIndex = noone {
 			walkingSoundIndex = audio_play_sound_on(walkingEmitter, walkingSound, 1, 1);
 		}

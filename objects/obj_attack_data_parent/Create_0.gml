@@ -35,6 +35,7 @@ staggersAgainstBlocks = true;
 type = AttackTypes.Standard;
 prepSound = noone;
 attackSound = noone;
+recoverSound = noone;
 hitSound = noone;
 attackSoundsVocals = [];
 prepSoundsVocals = [];

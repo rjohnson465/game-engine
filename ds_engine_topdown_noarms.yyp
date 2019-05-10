@@ -2503,6 +2503,14 @@
             }
         },
         {
+            "Key": "25ae88c6-7d07-4958-94ed-0c3aecb359cd",
+            "Value": {
+                "id": "2eca756c-9755-4cf6-86ee-f80e771f873a",
+                "resourcePath": "sprites\\spr_enemy_robot_charge_attack_1_1\\spr_enemy_robot_charge_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "25d1ee2f-bef1-4995-b981-aaad5ac9496e",
             "Value": {
                 "id": "57b42e9e-a455-42bf-9ec6-476877a19584",
@@ -2906,7 +2914,7 @@
             "Key": "2b003860-762b-43de-9880-9a75d8f17006",
             "Value": {
                 "id": "073ec16d-3733-429a-89b4-462fb75ab50c",
-                "resourcePath": "sprites\\spr_enemy_robot_charge_attack_1_1\\spr_enemy_robot_charge_attack_1_1.yy",
+                "resourcePath": "sprites\\spr_enemy_robot_charge_attack_1_11\\spr_enemy_robot_charge_attack_1_11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4332,6 +4340,14 @@
                 "id": "2539f7d9-98ee-48d7-a627-b01ec7500e43",
                 "resourcePath": "rooms\\rm_factory\\rm_factory.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "44481247-825b-4e37-a985-bc83338b7b33",
+            "Value": {
+                "id": "87151d39-a923-43bf-a016-aead7871f660",
+                "resourcePath": "sprites\\spr_enemy_robot_charge_recover_1_1\\spr_enemy_robot_charge_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -6532,6 +6548,14 @@
                 "id": "b137b605-280d-4e30-b31d-3b05993912e8",
                 "resourcePath": "sprites\\spr_player_hand_shuriken_prep_1\\spr_player_hand_shuriken_prep_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "68a32f04-a37b-436f-98b9-56e44f3fd128",
+            "Value": {
+                "id": "4f53754b-2f06-44d8-975e-452cb62fdf6b",
+                "resourcePath": "sounds\\snd_enemy_robot_charge_recover\\snd_enemy_robot_charge_recover.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -10826,7 +10850,7 @@
             "Key": "ace6f630-9d21-4dd9-a738-94be1fc1d773",
             "Value": {
                 "id": "dcd650f1-49cc-4609-ab6b-3e164dadc196",
-                "resourcePath": "sprites\\spr_enemy_robot_charge_recover_1_1\\spr_enemy_robot_charge_recover_1_1.yy",
+                "resourcePath": "sprites\\spr_enemy_robot_charge_recover_1_111\\spr_enemy_robot_charge_recover_1_111.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -15836,6 +15860,14 @@
                 "id": "87ea76ca-58fd-4eb0-a1e6-f64916c6d576",
                 "resourcePath": "sprites\\spr_tree1_mask\\spr_tree1_mask.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ffd42278-0623-4304-b7fd-55ca4a7ff618",
+            "Value": {
+                "id": "39c5e9ab-8c74-4f72-ab70-ad15528d6fed",
+                "resourcePath": "sounds\\snd_enemy_robot_charge\\snd_enemy_robot_charge.yy",
+                "resourceType": "GMSound"
             }
         },
         {

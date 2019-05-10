@@ -22,3 +22,5 @@ attackSoundsVocals = [];
 
 prepSound = snd_thrust_attack_1;
 prepSoundsVocals = [];
+attackSound = snd_enemy_robot_charge;
+recoverSound = snd_enemy_robot_charge_recover;

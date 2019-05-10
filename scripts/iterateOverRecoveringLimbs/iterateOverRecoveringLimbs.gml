@@ -13,8 +13,9 @@ if ds_map_size(recoveringLimbs) != 0 {
 		var attacksChainArray = currentMeleeAttack != noone ? meleeAttacks : rangedAttacks;
 		var attackChainArray = attacksChainArray[currentAttack];
 		var attackInChain = ds_map_find_value(recoveringLimbs,currentRecoveringLimbKey);
+		var attackData = noone;
 		if attackInChain != undefined {
-			var attackData = attackChainArray[attackInChain-1];
+			attackData = attackChainArray[attackInChain-1];
 			var spriteAttackNumber = attackData.spriteAttackNumber;
 			var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
 		
@@ -30,6 +31,11 @@ if ds_map_size(recoveringLimbs) != 0 {
 			/*if !place_free(x,y) || distance_to_object(obj_player) < 1 {
 				jumpToNearestFreePoint(1);
 			}*/
+			
+			// maybe play recover sound
+			if attackData != noone && attackData.recoverSound != noone && audio_exists(attackData.recoverSound) {
+				audio_play_sound_at(attackData.recoverSound, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+			}
 			
 			if isRanged {
 				attackFrequencyTotalFramesRanged = attackData.coolDownFrames;
