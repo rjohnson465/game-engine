@@ -25,7 +25,6 @@ if frame < 11 && isCriticalHit {
 	scale = ((-1/11)*frame)+2;
 }
 if frame > 11 {
-	var a = 1 - ((frame-11)/11);
 	draw_set_alpha(1-((frame-11)/11));
 }
 var c2 = isCriticalHit ? c_red : c_purple;

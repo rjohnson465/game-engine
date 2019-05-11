@@ -3,11 +3,8 @@
 /// @param slot
 
 // item to equip. This function handles all idiosyncracies for various equipment slots
-
 var droppedItem = argument0;
 var slotObj = argument1;
-var equippedItems = global.player.equippedItems;
-var unarmed = global.player.unarmed;
 
 if droppedItem == noone || droppedItem == undefined exit;
 

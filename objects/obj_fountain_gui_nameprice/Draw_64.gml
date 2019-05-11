@@ -17,9 +17,6 @@ draw_set_color(c_black);
 draw_rectangle(topLeftX, topLeftY, bottomRightX, bottomRightY, 1);
 draw_line(topLeftX, topLeftY+subMenuTitleHeight, bottomRightX, topLeftY+subMenuTitleHeight);
 
-var vx = camera_get_view_x(view_camera[0]);
-var vy = camera_get_view_y(view_camera[0]);
-
 if !gamepad_is_connected(global.player.gamePadIndex) {
 	// draw back button
 	if !isBackButtonPressed {
@@ -54,7 +51,7 @@ draw_rectangle(x1-1,y1,x2,y2,1);
 draw_set_halign(fa_right);
 draw_text(x2-5,mean(y1,y2),string(namedPrice));
 var mppx = mean(x1,x2); // midpoint proposal, x
-var px1 = x1; // proposal x1
+
 
 // current funds box
 var x1 = x2+5; var x2 = x1+((width/2)-1)-5;
@@ -73,7 +70,6 @@ draw_rectangle(x1,y1,x2,y2,1);
 draw_set_halign(fa_right);
 draw_text(x2-5,mean(y1,y2),string(getGoldCount()));
 var mpfx = mean(x1,x2); // midpoint funds, x
-var fx1 = x1; // funds x1
 var pad = global.gamePadIndex;
 // Make wish / reset buttons
 var s = WISH; var sh = string_height(s); var sw = string_width(s);
@@ -223,7 +219,6 @@ draw_text(mean(x1,x2),mean(y1,y2),"Odds of success: " + string(odds) + "%" );
 // draw prompts
 var promptsStartX = MENUS_TOPLEFT_X+18;
 var promptsY = MENUS_BOTTOMRIGHT_Y+25;
-var xOffset = 20;
 var w = 0;
 if global.fountainGui.currentSubMenu == NAMEPRICE {
 	// controller prompts

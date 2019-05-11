@@ -29,7 +29,6 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 		}
 					
 		// find attack data object for this attack to get stamina cost
-		var limb = findLimb(id,currentPreparingLimbKey);
 		var attackInChain = ds_map_find_value(preparingLimbs,currentPreparingLimbKey);
 		var attackData = noone;
 		if !isRanged {

@@ -43,10 +43,3 @@ ds_map_secure_save(save_data,filename);
 
 ds_map_destroy(save_data); save_data = -1;
 
-
-var a = 1;
-
-var b = 170;
-
-var c = 3;
-

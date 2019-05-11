@@ -8,30 +8,25 @@ if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
 if id == global.ui.grabbedItem {
 	
 	// if dropped somewhere in inventory and was equipped, unequip item
-	var vx = camera_get_view_x(view_camera[0]);
-	var vy = camera_get_view_y(view_camera[0]);
-		
-	//if !isItemEquipped(id) {
+	var nearestOtherItem = instance_nearest(x,y,obj_item_parent);
+	var i = 1;
+	while nearestOtherItem == id || ds_list_find_index(global.player.inventory, nearestOtherItem) == -1 {
+		nearestOtherItem = script_execute(scr_find_nth_closest,x,y,obj_item_parent,i);
+		i++;
+	}
 	
-		var nearestOtherItem = instance_nearest(x,y,obj_item_parent);
-		var i = 1;
-		while nearestOtherItem == id || ds_list_find_index(global.player.inventory, nearestOtherItem) == -1 {
-			nearestOtherItem = script_execute(scr_find_nth_closest,x,y,obj_item_parent,i);
-			i++;
-		}
-	
-		if nearestOtherItem.object_index != obj_item_coins && nearestOtherItem.object_index != obj_hand_item_unarmed {
+	if nearestOtherItem.object_index != obj_item_coins && nearestOtherItem.object_index != obj_hand_item_unarmed {
 
-			if position_meeting(x,y,nearestOtherItem) && !position_meeting(x,y,obj_equipmentslot) {
-				var inv = global.player.inventory;
-				var otherPosition = ds_list_find_index(inv,nearestOtherItem);
-				var pos = ds_list_find_index(inv,id);
-				ds_list_set(inv,pos,nearestOtherItem);
-				ds_list_set(inv,otherPosition,id);
+		if position_meeting(x,y,nearestOtherItem) && !position_meeting(x,y,obj_equipmentslot) {
+			var inv = global.player.inventory;
+			var otherPosition = ds_list_find_index(inv,nearestOtherItem);
+			var pos = ds_list_find_index(inv,id);
+			ds_list_set(inv,pos,nearestOtherItem);
+			ds_list_set(inv,otherPosition,id);
 	
-			}
-		} 
-	//}
+		}
+	} 
+
 	isGrabbed = false;
 	grabFrame = 0;
 	mightGrab = false;

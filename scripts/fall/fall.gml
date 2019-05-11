@@ -73,7 +73,9 @@ if fallFrame == .5*fallTotalFrames {
 		var d = point_in_rectangle(other.bbox_left+10,other.bbox_top+10,bbox_left,bbox_top,bbox_right,bbox_bottom);
 		var e = point_in_rectangle(other.bbox_right-10,other.bbox_bottom-10,bbox_left,bbox_top,bbox_right,bbox_bottom);
 		if	d && e && layer == other.layer {
-			keepFalling = true;
+			if !place_meeting_layer(other.x, other.y, obj_bridge_parent) {
+				keepFalling = true;
+			}
 		}
 	}
 	if keepFalling {

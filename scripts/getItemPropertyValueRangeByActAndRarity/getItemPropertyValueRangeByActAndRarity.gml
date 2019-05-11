@@ -7,9 +7,6 @@ var prop = argument[0];
 var act = argument[1];
 var rarity = argument[2];
 
-//var tierRand = random_range(0,100);
-var range = noone;
-
 // value range varies -- from item act, rarity, and rolled tier
 
 var a1Vals = ds_map_create();

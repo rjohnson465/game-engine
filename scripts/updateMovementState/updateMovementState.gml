@@ -3,7 +3,6 @@ var UP = keyboard_check(ord("W"));
 var DOWN = keyboard_check(ord("S"));
 var LEFT = keyboard_check(ord("A"));
 var RIGHT = keyboard_check(ord("D"));
-var SHIFT = keyboard_check(vk_shift) || gamepad_button_check(gamePadIndex, gp_stickl) || global.player.isHoldingSprintButton;
 var GAMEPADHMOVE = false;
 var GAMEPADVMOVE = false;
 if gamepad_is_connected(gamePadIndex) {

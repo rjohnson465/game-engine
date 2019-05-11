@@ -33,7 +33,6 @@ ds_map_replace(equippedLimbItems,"r",longsword);
 var rightHand = makeLimb(id,"r");
 var leftHand = makeLimb(id,"l");
 
-
 state = CombatantStates.Idle;
 
 // stupidity is how many frames enemy will stay in thinking state

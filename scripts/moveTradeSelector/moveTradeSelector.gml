@@ -20,8 +20,6 @@ for (var i = 0; i < ds_list_size(inv); i++) {
 		var doSwitch = false;
 		switch dir {
 			case "up" : {
-				var a = selectedItem.y1;
-				var b = invTopLeftY;
 				if selectedItem.y1 > invTopLeftY {
 					if item.y1 < selectedItem.y1 {
 						doSwitch = true; 

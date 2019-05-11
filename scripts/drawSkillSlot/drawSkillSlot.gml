@@ -7,7 +7,7 @@ var xx = argument0;
 var yy = argument1;
 var slot = argument2;
 var skill = argument3;
-var ui = global.ui; 
+
 
 var drawDark = false;
 with obj_skill_selector {

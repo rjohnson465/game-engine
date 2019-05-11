@@ -14,9 +14,6 @@ if asset_get_index(sprString+"_move") && ((state == CombatantStates.Moving || st
 if asset_get_index(sprString+"_move") && type == CombatantTypes.Player && !global.ui.isShowingMenus {
 	// if 2h ranged preparing
 	var lhItem = ds_map_find_value(equippedLimbItems,"l");
-	var ir = lhItem.subType == HandItemTypes.Ranged;
-	var th = lhItem.isTwoHanded;
-	var ms = ds_map_size(preparingLimbs) != 0;
 	if (lhItem.subType == HandItemTypes.Ranged && lhItem.isTwoHanded && ds_map_size(preparingLimbs) != 0) 
 		|| currentUsingSpell != noone
 		{

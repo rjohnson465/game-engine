@@ -5,7 +5,6 @@
 var playerLayer = global.player.layer;
 var pLayerName = layer_get_name(playerLayer);
 var pLayerNum = real(string_char_at(pLayerName,string_length(pLayerName)));
-var pLayerDepth = layer_get_depth(playerLayer);
 
 // make invisible instance and tile layers above the player's layer
 var instanceLayersAbove = ds_list_create();
@@ -70,18 +69,9 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 					visible = true;
 				}
 			}
-			// depth needs to be average of tiles layer and instances layer for this floor
-			var tilesLayer = layer_get_id("tiles_floor_" + string(lNum));
-			var instancesLayer = layer_get_id("instances_floor_" + string(lNum));
-			var depth1 = layer_get_depth(tilesLayer);
-			var depth2 = layer_get_depth(instancesLayer);
-			var d = mean(depth1,depth2);
 			
 			global.floorNum = lNum;
 			instance_create_depth(x,y,1,obj_layer_lighting);
-			/*global.shaderInstanceLayer = instancesLayer;
-			instance_create_depth(x,y,d,obj_layer_shader);*/
-
 		}
 	}
 }

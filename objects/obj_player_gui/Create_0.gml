@@ -12,12 +12,8 @@ display_set_gui_size(view_get_wport(view_camera[0]),view_get_hport(view_camera[0
 isShowingMenus = false;
 #macro INVENTORY "Inventory & Stats"
 #macro SKILLS "Skills & Quests"
-//#macro STATS "Statistics"
 #macro OPTIONS "Options"
 
-var vw = view_get_wport(view_camera[0]);
-var tlx = (vw-1000)/2;
-var blx = tlx+1000;
 
 menusWidth = 1000;
 menusHeight = 500;
@@ -114,9 +110,6 @@ instance_create_depth(x,y,-1001,obj_options_manager);
 
 // selected equipment slot
 selectedEquipmentSlot = noone;
-
-// selected inventory slot
-selectedInventorySlot = noone;
 
 enum SelectorTypes {
 	Select,

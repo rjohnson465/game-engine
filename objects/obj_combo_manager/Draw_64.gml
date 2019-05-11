@@ -25,7 +25,6 @@ with player {
 		}
 		
 		var scale = 1;
-		var angle = 0;
 		if comboFrame <= 10 {
 			scale = (5/(comboFrame+1));
 		}

@@ -112,7 +112,7 @@ if item.isStackable && (isInventoryItem || (p.beltItems[p.currentBeltItemIndex] 
 	}
 }
 // if this item is socketed, show sockets (and any gems that are in those sockets)
-if item.numberOfSockets != 0 && isInventoryItem {
+if item.numberOfSockets != 0 /*&& isInventoryItem*/ {
 	var socketWidth = slotWidth/3; var socketHeight = slotWidth/3;
 	for(var j = 0; j < item.numberOfSockets; j++) {
 		draw_set_color(c_white);

@@ -6,10 +6,7 @@ if alarm[9] != 1 exit;
 
 var isGridPathAvailable = mp_grid_path(personalGrid,gridPath,x,y,lockOnTarget.x,lockOnTarget.y,true);
 if !isGridPathAvailable {
-	if !place_free(x,y) {
-	//	jumpToNearestFreePoint(true, true);
-	}
-	var ttx = tempTargetX; var tty = tempTargetY; 
+
 	var ltl = lockOnTarget.bbox_left; var ltr = lockOnTarget.bbox_right;
 	var ltt = lockOnTarget.bbox_top; var ltb = lockOnTarget.bbox_bottom;
 	var try_arr = [ltl, ltt, ltr, ltt, ltl, ltb, ltr, ltb];
@@ -28,24 +25,12 @@ if !isGridPathAvailable {
 	}
 }
 if isGridPathAvailable {
-	
-	/*
-	var xx = path_get_x(gridPath,.5);
-	var yy = path_get_y(gridPath,.5);
-	mp_potential_path(path,xx,yy,functionalSpeed,1,0);
-	path_start(path,functionalSpeed,path_action_stop,false);*/
-	
 	path_start(gridPath,functionalSpeed, path_action_stop, false);
-	//path_index = gridPath;
-	
 } else {
 	if !place_free(x,y) {
 		jumpToNearestFreePoint(true, true);
 	}
-	/*if place_meeting_layer(x,y,obj_fallzone) {
-		jumpToNearestFreePoint(1,1);
-		alarm[9] = 1;
-	} */
+
 	if true {
 		if mp_potential_path(path,lockOnTarget.x,lockOnTarget.y,normalSpeed,4,false) {
 			path_start(path,functionalSpeed,path_action_stop,false);
@@ -56,7 +41,3 @@ if isGridPathAvailable {
 	}
 }
 
-/*
-if mp_grid_astar(personalGrid, gridPath, x, y, lockOnTarget.x, lockOnTarget.y, 0, 0, room_width div 32, room_height div 32, 32, 32) {
-	path_start(gridPath, functionalSpeed, path_action_stop, false);
-}

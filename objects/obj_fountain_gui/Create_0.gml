@@ -28,7 +28,6 @@ subMenuWidth = (MENUS_BOTTOMRIGHT_X-MENUS_TOPLEFT_X)/3;
 subMenuTitleHeight = 30;
 
 menuButtonCoordinates = ds_map_create();
-var midW = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X); var midH = mean(MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_Y);
 menuOptions = ds_list_create();
 ds_list_add(menuOptions,INSERTGEM);
 ds_list_add(menuOptions,BREAKDOWNITEM);

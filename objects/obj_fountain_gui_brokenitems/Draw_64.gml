@@ -99,7 +99,6 @@ for (var i = 0; i < ds_list_size(inv); i++) {
 var row = 1; var col = 1;
 // row 1, col 1 = ???
 var init_x = invTopLeftX; var init_y = invTopLeftY;
-var selectedItemX = 0; var selectedItemY = 0;
 hoveredItem = noone;
 // show 20 items at a time;
 for (var i = 0; i < 20; i++) {

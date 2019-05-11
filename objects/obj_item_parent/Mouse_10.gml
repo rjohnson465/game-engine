@@ -1,10 +1,6 @@
 if global.inventory.isConfirmingDestroyItem exit;
-var _p1 = ds_list_find_index(global.player.inventory,id);
-var _p2 = !global.ui.isShowingMenus;
-var _p3 = global.ui.currentMenu != INVENTORY;
 if ds_list_find_index(global.player.inventory,id) != -1 && (!global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY) && global.fountainGui == noone && !global.isTrading exit;
 if global.fountainGui != noone {
-	var fm = global.fountainGui.currentMenu;
 	if global.fountainGui.currentMenu == FOUNTAIN exit;
 	else {
 		switch global.fountainGui.currentMenu {
@@ -41,8 +37,6 @@ if itemIsBeingLooted {
 	dropItem.selectedItem = id;
 }
 
-var vx = camera_get_view_x(view_camera[0]);
-var vy = camera_get_view_y(view_camera[0]);
 var itemIsBeingLooted = false;
 var dropItem = noone; var itemPos = -1;
 with obj_item_drop {

@@ -1,6 +1,5 @@
 owner = global.owner;
 
-
 layer = owner.layer;
 if owner.object_index == obj_fountain || owner.object_index == obj_sconce {
 	layer = owner.origLayer;

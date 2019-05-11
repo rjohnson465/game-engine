@@ -3,8 +3,6 @@ if !hasSetAlarm && part_type_exists(particle) {
 	if layer >= global.player.layer {
 		var x1 = bbox_left; var x2 = bbox_right;
 		var y1 = bbox_top; var y2 = bbox_bottom;
-		var w = x2-x1; var h = y2 - y1;
-		var area = w*h;
 
 		// randomly spawn 4(??) particles somewhere in the collision mask of sprite_index
 		for (var i = 0; i < 4; i++) {

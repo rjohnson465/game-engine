@@ -5,7 +5,6 @@ var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
 var pad = global.player.gamePadIndex;
 var p = global.player;
-var slotHeight = sprite_get_height(spr_item_slot);
 var slotWidth = sprite_get_width(spr_item_slot);
 
 draw_set_valign(fa_center);
@@ -128,17 +127,14 @@ if point_in_rectangle(mouse_x,mouse_y,
 
 // current equipped items / spells
 var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
-var leftHandItem2 = getItemInEquipmentSlot(EquipmentSlots.LeftHand2);
 var rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
-var rightHandItem2 = getItemInEquipmentSlot(EquipmentSlots.RightHand2);
 var isDrawingAttunements = rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0;
 
 // left hand
 var vh = view_get_hport(view_camera[0]);
 draw_sprite_ext(spr_item_slot,1,10,vh-70,1,1,0,c_white,.5);
 if leftHandItem.spriteName != "unarmed" {
-	var leftHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
-	draw_sprite(leftHandItemSprite,1,10,vh-70);
+	drawItem(leftHandItem, 10, vh-70, false, 1, 1, false);
 	if leftHandItem.chargesMax != 0 {
 		var chargesPercent = (leftHandItem.charges / leftHandItem.chargesMax)*100;
 		draw_healthbar(10,vh-12,71,vh-9,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);
@@ -202,8 +198,8 @@ else if isDrawingAttunements {
 draw_sprite_ext(spr_item_slot,1,150,vh-70,1,1,0,c_white,.5);
 if rightHandItem.spriteName != "unarmed" {
 	var rightHandItemSprite = asset_get_index("spr_item_"+rightHandItem.spriteName);
-	draw_sprite(rightHandItemSprite,1,150,vh-70);
-
+	// draw_sprite(rightHandItemSprite,1,150,vh-70);
+	drawItem(rightHandItem, 150, vh-70, false, 1, 1, 0);
 	if rightHandItem.chargesMax != 0 {
 		var chargesPercent = (rightHandItem.charges / rightHandItem.chargesMax)*100;
 		draw_healthbar(150,vh-12,211,vh-9,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);

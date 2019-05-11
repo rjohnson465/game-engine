@@ -17,29 +17,16 @@ if argument_count == 4 {
 	additionalObjectsToConsider = argument[3];
 }
 
-var objLayer = obj.layer;
-var invokingInstanceLayer = layer;
-
 // get all touching objects
-var dia = (bbox_right-bbox_left);
-//var touchingInstances = scr_collision_circle_list(xx,yy,dia/2,obj,true,true);
 var touchingInstances = ds_list_create();
 
-/*if ds_exists(obj, ds_type_list) {
-	for (var i = 0; i < ds_list_size(obj); i++) {
-		var objVal = ds_list_find_value(obj, i);
-		if distance_to_object(other) < 5 {
-			ds_list_add(touchingInstances, id);
-		}
+with obj {
+	// if layer != invokingInstanceLayer || (abs(abs(depth)-abs(other.depth)) > 5) continue;
+	if distance_to_object(other) < 5 {
+		ds_list_add(touchingInstances, id);
 	}
-} else { */
-	with obj {
-		// if layer != invokingInstanceLayer || (abs(abs(depth)-abs(other.depth)) > 5) continue;
-		if distance_to_object(other) < 5 {
-			ds_list_add(touchingInstances, id);
-		}
-	}
-//}
+}
+
 
 var touchingInstanceIsOnSameLayer = false;
 var touchingAdditionalObjects = false;

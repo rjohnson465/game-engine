@@ -1,10 +1,6 @@
 if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY exit;
 if !instance_exists(selectedItem) selectedItem = noone;
 if isConfirmingDestroyItem draw_set_alpha(.5);
-var leftHandItem = ds_map_find_value(global.player.equippedLimbItems,"l");
-var leftHandItem2 = ds_map_find_value(global.player.equippedLimbItems,"l2");
-var rightHandItem = ds_map_find_value(global.player.equippedLimbItems,"r");
-var rightHandItem2 = ds_map_find_value(global.player.equippedLimbItems,"r2");
 
 // tabs /filters 
 // filters background
@@ -44,15 +40,6 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	draw_sprite_ext(spr_prompt_xbox_rb,1,topLeftX+(filtersTotalWidth+filtersWidth),topLeftY,scale,scale,0,c_white,1);
 }
 filtersTotalWidth += (filtersWidth*filterOffset);
-var filterString = getInvFilterName(filter);
-
-/// filter string
-/*
-draw_set_color(c_white);
-draw_set_halign(fa_center);
-draw_set_valign(fa_center);
-draw_text(mean(topLeftX+filtersTotalWidth,topLeftX+width),mean(topLeftY,topLeftY+filtersHeight),filterString);
-*/
 
 // gold?
 var sh = sprite_get_height(spr_item_coins);
@@ -169,7 +156,6 @@ filterInvItems(inventory, filter);
 var row = 1; var col = 1;
 // row 1, col 1 = ???
 var init_x = invTopLeftX; var init_y = invTopLeftY;
-var selectedItemX = 0; var selectedItemY = 0;
 // show 20 items at a time;
 for (var i = 0; i < 20; i++) {
 	row = floor(i / 5)+1;
@@ -232,7 +218,6 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 				itemAtMoveSelector = getItemInEquipmentSlot(slotObj.slot);
 			}
 		}
-		var a = ds_list_find_index(global.player.equippedItems,getItemAtSelectorPosition(global.ui.moveSelector));
 	
 		if itemAtMoveSelector != noone && itemAtMoveSelector.isUsable {
 			w += drawPrompt("Use Item",Input.F,promptsStartX,promptsY)+xOffset;

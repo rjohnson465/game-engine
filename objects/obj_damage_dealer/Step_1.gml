@@ -41,37 +41,10 @@ with obj_sconce {
 	}
 }
 
-// todo replace with general algo?
-/*if isOnFire && !hasSetAlarm {
-	// cinder Particle
-	var cinder = part_type_create();
-	part_type_shape(cinder,pt_shape_flare);
-	part_type_size(cinder,0,.1,0,0);
-	part_type_color2(cinder,c_orange,c_red);
-	part_type_alpha3(cinder,1,.5,0); 
-	part_type_speed(cinder,1,2,0,0);
-	part_type_direction(cinder,85,95,0,0);
-	part_type_blend(cinder,1);
-	part_type_life(cinder,25,50);
-	particle = cinder;
-	
-	var arrowWidth = bbox_right - bbox_left;
-	// top left of sprite in abs coords (remember the origin is at center)
-	var tlx = x-(.5*sprite_width); var tly = y-(.5*sprite_height);
-	var xx1 = tlx + bbox_left; var xx2 = tlx + bbox_right;
-	var yy1 = tly + bbox_top; var yy2 = tly + bbox_bottom;
-	var x1 = bbox_left + lengthdir_x(1,facingDirection); var x2 = bbox_right + lengthdir_x(1,facingDirection);
-	var y1 = bbox_top + lengthdir_y(1,facingDirection); var y2 = bbox_bottom + lengthdir_y(2,facingDirection);
-	
-	part_emitter_region(system, emitter, x1,x2,y1,y2,ps_shape_line,ps_distr_linear);
-	part_emitter_burst(system, emitter, particle, 5);
-}*/
-
 // general ranged particles algorithm
 for (var i = 0; i < array_length_1d(weaponParticles); i++) {
 	var part = weaponParticles[i];
 	if part != noone && part != undefined && part_type_exists(part) {
-		var num = weaponParticlesNums[i];
 		var x1 = bbox_left + lengthdir_x(1,facingDirection); var x2 = bbox_right + lengthdir_x(1,facingDirection);
 		var y1 = bbox_top + lengthdir_y(1,facingDirection); var y2 = bbox_bottom + lengthdir_y(2,facingDirection);
 	

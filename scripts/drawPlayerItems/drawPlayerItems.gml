@@ -196,7 +196,6 @@ for (var i = 0; i < ds_list_size(inv); i++) {
 	
 var row = 1; var col = 1;
 var init_x = invTopLeftX; var init_y = invTopLeftY;
-var selectedItemX = 0; var selectedItemY = 0;
 // show 20 items at a time;
 for (var i = 0; i < 20; i++) {
 	row = floor(i / 5)+1;
@@ -220,14 +219,7 @@ for (var i = 0; i < 20; i++) {
 		drawItem(item,x1,y1);
 	} 
 }
-		
-/*
-if mouseOverGuiRect(invTopLeftX,invTopLeftY,invTopLeftX+invWidth,invTopLeftY+invHeight) && mouse_wheel_down() {
 	
-	if ds_list_find_index(inv,lastItem) == -1 {
-		scrollLevel++;
-	}
-}*/
 		
 // selected item details box
 draw_set_color(c_dkgray);
@@ -269,9 +261,3 @@ if selectedItem != noone && selectedItem != undefined && instance_exists(selecte
 	draw_triangle(x1,sideMidPoint-5,x1,sideMidPoint+5,x1+5,sideMidPoint,false);
 	draw_triangle(x1+slotWidth,sideMidPoint-5,x1+slotWidth,sideMidPoint+5,x1+slotWidth-5,sideMidPoint,false);
 }
-
-// draw prompts
-var promptsStartX = MENUS_TOPLEFT_X+18;
-var promptsY = MENUS_BOTTOMRIGHT_Y+25;
-var xOffset = 20;
-var w = 0;

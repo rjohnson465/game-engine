@@ -8,8 +8,6 @@ if argument_count == 1 {
 with inst {
 	if object_is_ancestor(object_index,obj_enemy_parent) || object_is_ancestor(object_index,obj_persistent_environment) {
 		var roomIn = object_index == obj_fountain ? asset_get_index(nativeRoom) : room;
-		var px = postX; var py = postY;
-		var proposedKey = room_get_name(roomIn)+";"+object_get_name(object_index)+";"+string(postX)+string(postY);
 		
 		// TODO make sure there are no duplicate keys??
 		

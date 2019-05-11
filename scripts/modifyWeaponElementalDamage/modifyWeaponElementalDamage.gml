@@ -7,7 +7,6 @@ var weapon = argument[0];
 var element = argument[1];
 var buff = argument[2];
 
-var adjustedBuff = 0;
 // buff elemental damage based on buff amount
 var minDamageBuff = round((buff/6));
 var maxDamageBuff = round(minDamageBuff*1.5);

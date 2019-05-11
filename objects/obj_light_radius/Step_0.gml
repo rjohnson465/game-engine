@@ -20,9 +20,3 @@ if instance_exists(owner) {
 		// updateLightLayer(id,noone, layer);
 	}
 }
-
-
-/*
-if !instance_exists(owner) {
-	instance_destroy(id);
-}

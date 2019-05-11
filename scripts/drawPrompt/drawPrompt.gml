@@ -43,7 +43,6 @@ if argument_count == 6 {
 
 draw_set_font(font_main);
 var promptWidth = string_width(msg);
-var promptHeight = string_height(msg);
 
 // do not allow prompts to be too long
 var stringScale = 1;

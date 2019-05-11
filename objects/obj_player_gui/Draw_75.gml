@@ -4,9 +4,7 @@ var pad = p.gamePadIndex;
 if !p.isEquippingBeltItem exit;
 
 var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
-var leftHandItem2 = getItemInEquipmentSlot(EquipmentSlots.LeftHand2);
 var rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
-var rightHandItem2 = getItemInEquipmentSlot(EquipmentSlots.RightHand2);
 var vh = view_get_hport(view_camera[0]);
 var slotWidth = sprite_get_width(spr_item_slot);
 

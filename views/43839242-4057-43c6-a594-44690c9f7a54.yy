@@ -12,7 +12,9 @@
         "5942ebf0-eeaf-4819-933f-e265cb624ce5",
         "b4303bfe-156e-493b-b5c4-c4743eaf33b3",
         "e1d57edf-81eb-4f4b-97c0-91fc5c46453a",
-        "31cec384-7529-49f0-9b29-189bddf3074b"
+        "31cec384-7529-49f0-9b29-189bddf3074b",
+        "ef98274c-070b-4b66-9de9-243afefcb5fd",
+        "6359443a-c3a5-408c-9bce-172e5b052ee3"
     ],
     "filterType": "GMSprite",
     "folderName": "factory",

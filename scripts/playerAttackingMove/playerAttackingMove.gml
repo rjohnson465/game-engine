@@ -32,7 +32,6 @@ if	!isFlinching && (
 	var LEFT = keyboard_check(ord("A"));
 	var RIGHT = keyboard_check(ord("D"));
 	var SHIFT = keyboard_check(vk_shift) || gamepad_button_check(gamePadIndex, gp_stickl) || isHoldingSprintButton;
-	var canMove = false;
 	var usingSpeed = SHIFT ? functionalSpeed*2 : functionalSpeed;
 	var gamePadInputReceived = false;
 	if gamepad_is_connected(gamePadIndex) {

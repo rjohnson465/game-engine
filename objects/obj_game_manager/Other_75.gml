@@ -11,7 +11,7 @@ case "gamepad discovered":                     // A game pad has been discovered
 	window_set_cursor(cr_none);
     break;
 case "gamepad lost":                           // Gamepad has been removed or otherwise disabled
-    var pad = async_load[? "pad_index"];       // Get the pad index
+    global.gamePadIndex = async_load[? "pad_index"];       // Get the pad index
 	window_set_cursor(cr_default);
 	global.gamePadIndex = noone;
     break;

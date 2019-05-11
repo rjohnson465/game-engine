@@ -7,7 +7,6 @@ var prop = argument[0];
 var pts = argument[1];
 var act = argument[2];
 
-var range = noone;
 var val = 0;
 global.a1MaxPtsVal = 40; // this might change -- its the most pts that could possibly be put into a property, at act 1 
 var a1MaxPtsVal = global.a1MaxPtsVal;

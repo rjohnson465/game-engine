@@ -40,7 +40,6 @@ if hp < 1 && isAlive && !isDying {
 		
 		var rand = round(random_range(0,array_length_1d(soundsWhenDie)-1));
 		var deathSnd = soundsWhenDie[rand];
-		var deathSndName = audio_get_name(deathSnd);
 		audio_play_sound_at(deathSnd,x,y,depth,50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 	}
 	

@@ -6,7 +6,6 @@ weaponType = weapon.weaponType;
 
 switch weaponType {
 	case BOW: {
-		sprite_index = spr_player_bow_attack_charge;
 		direction = owner.facingDirection;
 		image_angle = direction;
 		speed = 25;

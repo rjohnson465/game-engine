@@ -21,8 +21,6 @@ for (var i = 0; i < size; i++) {
 	var damageArray = ds_map_find_value(damagesMap,currentDamageType);
 	var damageMin; var damageMax;
 	// physical damage is dependent on attack number -- assuming the damage array is specified as such
-	var physicalDamages = [SLASH,CRUSH,PIERCE,PHYSICAL];
-
 	damageMin = damageArray[0];
 	damageMax = damageArray[1];
 	randomize();

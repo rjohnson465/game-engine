@@ -11,7 +11,6 @@ if dodgeFrame == 0 && array_length_1d(soundsWhenDodge) != 0 {
 }
 
 var dodgeSpeed = functionalSpeed*2;
-var dDir = dodgeDirection;
 var isEnemy = type != CombatantTypes.Player;
 // Do not dodge into fallzones on purpose (if enemy)
 if type != CombatantTypes.Player {

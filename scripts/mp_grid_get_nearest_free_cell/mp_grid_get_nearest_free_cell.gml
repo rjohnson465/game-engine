@@ -11,7 +11,6 @@ var gy = argument[2];
 var cw = argument[3];
 var ch = argument[4];
 
-var ans = mp_grid_get_cell(grid, gx, gy);
 if mp_grid_get_cell(grid, gx, gy) == 0 {
 	return [gx, gy];
 }
@@ -19,8 +18,6 @@ if mp_grid_get_cell(grid, gx, gy) == 0 {
 var px = gx * cw;
 var py = gy * ch;
 
-var o = 0; //offset
-var o2 = -1;
 var dir = 0;
 
 var foundCell = false;

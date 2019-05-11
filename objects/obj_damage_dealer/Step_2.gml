@@ -3,7 +3,6 @@ with obj_solid_environment {
 	var _dist = distance_to_object(other);
 	if _dist <= 1 && layer == other.layer {
 		isHittingSolid = true;
-		var a = 3;
 	}
 }
 
@@ -85,7 +84,6 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		}
 	
 		if owner.hasHands {
-			var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
 			ds_map_delete(owner.attackingLimbs,limbKey);
 		}
 	

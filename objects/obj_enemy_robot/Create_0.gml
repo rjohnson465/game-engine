@@ -72,7 +72,10 @@ showHp = false; // hit at all (flag for showing health bar)
 poise = 50;
 
 ds_map_replace(defenses, MAGIC, -150);
+ds_map_replace(defenses, ICE, -50);
+ds_map_replace(defenses, FIRE, -50);
 ds_map_replace(defenses, LIGHTNING, 100);
+ds_map_replace(defenses, POISON, 100);
 ds_map_replace(defenses, SLASH, 12);
 ds_map_replace(defenses, PIERCE, 15);
 ds_map_replace(defenses, CRUSH, 5);

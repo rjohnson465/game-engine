@@ -1,7 +1,7 @@
 if owner.state == CombatantStates.Dodging || (owner.isShielding && limbItem.subType == HandItemTypes.Shield) {
 	visible = false;
 } else visible = true;
-var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
+
 x = owner.x;
 y = owner.y;
 image_angle = owner.facingDirection;

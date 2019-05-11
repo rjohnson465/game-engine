@@ -47,18 +47,10 @@ ds_map_add(handItems,"rm1",staff);
 ds_map_replace(equippedLimbItems,"l",staff);
 ds_map_replace(equippedLimbItems,"r",spikedshield);
 
-var rightWep = makeLimblessWeapon(id,"r");
-var leftWep = makeLimblessWeapon(id,"l");
-//var rightHand = makeLimb(id,"r", true);
-//var leftHand = makeLimb(id,"l", true);
-
 // ATTACKS
 
 // currently chosen melee attack chain
 currentMeleeAttack = noone;
-// the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
-//meleeRangeArray=[10,30,30,30,30];
-//meleeRangeArray = [30];
 
 // ATTACKS
 global.owner = id;

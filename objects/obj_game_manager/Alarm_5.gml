@@ -19,6 +19,8 @@ with obj_solid_environment {
 
 with obj_enemy_parent {
 	if state != CombatantStates.Moving && !isBoss {
+		audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;
+		audio_emitter_gain(walkingEmitter, 0);
 		instance_deactivate_object(id);
 	}
 }
@@ -28,6 +30,7 @@ with obj_enemy_noeyeddeer {
 }
 
 instance_activate_object(obj_fade);
+instance_activate_object(obj_elevator);
 
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);

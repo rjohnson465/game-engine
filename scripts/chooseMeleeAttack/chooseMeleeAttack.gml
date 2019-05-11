@@ -55,9 +55,6 @@ for (var i = 0; i < array_length_1d(meleeRangeArray); i++) {
 }
 randomize();
 var currentMeleeAttackIndex = round(random_range(-.49,ds_list_size(properRangeAttacks)-.51));
-if currentMeleeAttackIndex == 3 {
-	var a = 3;
-}
 
 currentMeleeAttack = ds_list_find_value(properRangeAttacks,currentMeleeAttackIndex);
 onAlert = true;

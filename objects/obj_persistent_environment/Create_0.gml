@@ -6,4 +6,6 @@ data = noone;
 isNonPriorityInteractable = false;
 isCurrentInteractableObject = false;
 
-properties = ds_map_create();
+if !variable_instance_exists(id, "properties") {
+	properties = ds_map_create();
+}

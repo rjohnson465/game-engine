@@ -15,8 +15,6 @@ ds_list_add(equippedItems,item);
 item.equipmentSlot = slot;
 
 // set x1 and y1 values for newly equipped item
-var equipmentSlotObj = getEquipmentSlotObject(slot);
-
 // set equippedLimbItem if slot was LeftHand1 or RightHand1
 if slot == EquipmentSlots.LeftHand1 {
 	ds_map_replace(global.player.equippedLimbItems, "l", item);

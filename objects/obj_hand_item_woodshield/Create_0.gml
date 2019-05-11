@@ -6,10 +6,10 @@ itemSprite = spr_item_woodshield;
 
 material = WOOD;
 weight = 5;
-ds_map_replace(defenses,SLASH,100);
-ds_map_replace(defenses,PIERCE,100);
-ds_map_replace(defenses,CRUSH,100);
-ds_map_replace(defenses,PHYSICAL,100);
+ds_map_replace(defenses,SLASH,75);
+ds_map_replace(defenses,PIERCE,75);
+ds_map_replace(defenses,CRUSH,75);
+ds_map_replace(defenses,PHYSICAL,75);
 ds_map_replace(defenses,FIRE,-100);
 baseValue = 200;
 

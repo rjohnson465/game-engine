@@ -35,7 +35,6 @@ if instance_exists(obj_player) {
 
 // destroy all items in inventory
 with obj_item_parent {
-	var _name = object_get_name(object_index);
 	var _owner = owner == global.player;
 	var _is_not_ancestor = !object_is_ancestor(object_index,obj_unarmed_parent);
 	var _is_unarmed_parent = object_index != obj_unarmed_parent;

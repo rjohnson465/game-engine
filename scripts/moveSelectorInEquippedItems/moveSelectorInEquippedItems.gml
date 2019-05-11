@@ -6,8 +6,6 @@ if global.ui.currentMenu != INVENTORY exit;
 
 var dir = argument0;
 
-var eq = global.equippedItemsManager;
-var inv = global.inventory;
 
 // find equipmentSlot the selector is in
 var currentSlot = noone;
@@ -20,7 +18,6 @@ with obj_equipmentslot {
 }
 if currentSlot == noone exit;
 
-var slotToMoveTo = noone;
 switch dir {
 	case "up": {
 		var slotToMoveToKey = currentSlot.up;

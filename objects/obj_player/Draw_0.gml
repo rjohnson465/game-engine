@@ -8,7 +8,6 @@ event_inherited();
 shader_reset();
 
 // hat 
-
 if state != CombatantStates.Dodging && getItemInEquipmentSlot(EquipmentSlots.Head) != noone {
 	var hat = getItemInEquipmentSlot(EquipmentSlots.Head);
 	var hatSprite = asset_get_index("spr_player_"+hat.spriteName);
@@ -19,4 +18,4 @@ if state != CombatantStates.Dodging && getItemInEquipmentSlot(EquipmentSlots.Hea
 
 // also draw wings over hat?
 var wingsSprite = state == CombatantStates.Moving ? spr_player_wings_move : spr_player_wings;
-draw_sprite_ext(wingsSprite, image_index, x, y, 1, 1, facingDirection, c_white, 1);
+draw_sprite_ext(wingsSprite, image_index, x, y, scale, scale, facingDirection, c_white, 1);

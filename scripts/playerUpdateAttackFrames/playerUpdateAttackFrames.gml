@@ -9,7 +9,6 @@ if ds_map_size(attackingLimbs) != 0 {
 			}
 		}
 		if attackObj != noone {
-			var a = attackObj.image_index;
 			ds_map_replace(attackFrames,hand,attackObj.image_index);
 		}
 		hand = ds_map_find_next(attackingLimbs, hand);

@@ -14,11 +14,6 @@ var defenseProps = [
 	ModifiableProperties.Defenses
 ];
 
-var damageTypeProps = [
-	ModifiableProperties.PhysicalDamageTypesMultiplier,
-	ModifiableProperties.ElementalDamageTypesMultiplier,
-];
-
 randomize();
 if arrayIncludes(weaponTypeProps,prop) {
 	var macro = UNARMED; var rand = 0;
@@ -42,7 +37,6 @@ if arrayIncludes(defenseProps,prop) {
 
 if prop == ModifiableProperties.PhysicalDamageTypesMultiplier {
 	var macro = noone;
-	var physicalDamageTypes = [SLASH,CRUSH,PIERCE];
 	while macro == noone || macro == PHYSICAL || arrayIncludes(global.ALL_ELEMENTS,macro) {
 		randomize();
 		var rand = round(random_range(0,array_length_1d(global.ALL_DAMAGE_TYPES)-1));

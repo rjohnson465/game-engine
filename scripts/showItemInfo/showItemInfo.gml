@@ -11,8 +11,6 @@ var topLeftX = argument0;
 var topLeftY = argument1;
 var item = argument2;
 
-var invObj = global.inventory;
-
 if item == undefined || !instance_exists(item) || item == noone exit;
 if item.type == ItemTypes.HandItem {
 	if item.subType == HandItemTypes.Melee {

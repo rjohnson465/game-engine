@@ -84,8 +84,6 @@ if enemyObstaclesBetweenTarget != noone && ds_exists(enemyObstaclesBetweenTarget
 	ds_list_destroy(enemyObstaclesBetweenTarget); enemyObstaclesBetweenTarget = -1;
 }
 
-var shouldRecalc = alarm[9] == 0 || path_index == -1;
-
 if pred && !isFlinching {
 	/*
 	if distance_to_object(lockOnTarget) > 75 && currentMeleeAttack != noone {
@@ -128,8 +126,6 @@ if pred && !isFlinching {
 	
 	
 	else if currentRangedAttack >= 0 {
-		var _a = distance_to_object(lockOnTarget);
-		var _b = getRangeForAttackIndex(currentRangedAttack,false);
 		if distance_to_object(lockOnTarget) <= getRangeForAttackIndex(currentRangedAttack,false) {
 			return false;
 		}

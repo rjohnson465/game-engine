@@ -1,6 +1,5 @@
 event_inherited();
 
-el = global.fountain;
 
 key = fs_generate_key(el);
 postX = el.postX;

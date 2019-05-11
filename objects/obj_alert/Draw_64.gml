@@ -19,7 +19,7 @@ var frameCutoff = round(totalFrames*.6);
 
 if frame > frameCutoff {
 	var a = 1 - ((frame-frameCutoff)/frameCutoff);
-	draw_set_alpha(1-((frame-frameCutoff)/frameCutoff));
+	draw_set_alpha(a);
 }
 
 scr_draw_text_outline(x1,y1,message,color,color,1,1,0,c_black);

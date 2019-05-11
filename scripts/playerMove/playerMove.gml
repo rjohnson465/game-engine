@@ -17,7 +17,6 @@ var RIGHT = keyboard_check(ord("D"));
 var SHIFT = keyboard_check(vk_shift) || (gamepad_button_check(gamePadIndex, gp_stickl) || (isHoldingSprintButton));
 speed = 0;
 isSprinting = false;
-var canMove = false;
 var gamePadInputReceived = false;
 if gamepad_is_connected(gamePadIndex) {
 	var h_point = gamepad_axis_value(gamePadIndex, gp_axislh);

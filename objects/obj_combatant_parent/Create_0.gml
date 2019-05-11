@@ -3,9 +3,6 @@ isObstacleLayerless = false;
 // each combatant has their own grid, telling them where they can't go
 cell_width = 32;//bbox_right-bbox_left;
 cell_height = 32; //bbox_bottom-bbox_top;
-
-var hcells = room_width div cell_width;
-var vcells = room_height div cell_height;
 personalGrid = noone; //mp_grid_create(0,0,hcells,vcells,cell_width, cell_height);
 populatePersonalGrid();
 gridPath = path_add();
@@ -252,8 +249,6 @@ intelligence = 10;
 constitution = 10;
 adaptability = 10;
 
-perception = 200; // pixel radius enemies / allies will notice if other enemies / allies are engaged in combat
-
 // list of enemy attack instances been hit with -- only get hit once / attack
 beenHitWith = ds_list_create();
 
@@ -348,10 +343,6 @@ if lr == noone {
 	global.owner = id;
 	global.makeLightOnCreate = false;
 	
-	if object_index == obj_player {
-		var a = 3;
-	}
-	
 	instance_create_depth(x,y,1,obj_light_radius);
 }
 
@@ -375,8 +366,6 @@ layerToChangeTo = noone;
 stairsIndex = noone;
 climbingDir = noone;
 
-recalculatePathFrame = 15;
-recalculatePathFrameTotal = 15;
 hasSetGuessPath = false;
 
 chargePointX = noone;
@@ -384,8 +373,6 @@ chargePointY = noone;
 
 moveSprite = -1;
 moveSpriteImageSpeed = 30;
-
-damagesAttacksFactor = 1; // 1x normal damage to weapons that strike this combatant
 
 isBeingHit = false;
 
@@ -408,7 +395,6 @@ soundsWhenHitVocals = [];
 soundsWhenDie = [];
 
 randomize();
-var s = sprite_get_name(sprite_index);
 image_index = round(random_range(0,sprite_get_number(sprite_index)));
 
 RECALC_PATH_FRAMES = 7;

@@ -19,7 +19,7 @@ var meleeChain1 = [unarmedHook1,unarmedHook2,unarmedHook3];
 var meleeChain2 = [unarmedHook1,unarmedBackSlap];
 var meleeChain3 = [unarmedHook1,unarmedBackSlap,unarmedHook2];
 var meleeChain4 = [unarmedHook1,unarmedBackSlap,unarmedHook2,unarmedHook3];
-meleeAttacks = [meleeChain1,meleeChain2,meleeChain3];
+meleeAttacks = [meleeChain1,meleeChain2,meleeChain3, meleeChain4];
 meleeRangeArray = [5,5,5];
 
 hp = 15;

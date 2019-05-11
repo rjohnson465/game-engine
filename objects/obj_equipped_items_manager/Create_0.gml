@@ -65,6 +65,3 @@ leftRing2Slot = makeEquipmentSlot(EquipmentSlots.LeftRing2,leftRing2SlotX,leftRi
 
 rightRing1Slot = makeEquipmentSlot(EquipmentSlots.RightRing1,rightRing1SlotX,rightRing1SlotY);
 rightRing2Slot = makeEquipmentSlot(EquipmentSlots.RightRing2,rightRing2SlotX,rightRing2SlotY);
-
-allEquipmentSlots = [headItemSlot,leftHandItem1Slot,leftHandItem2Slot,rightHandItem1Slot,rightHandItem2Slot,
-					leftRing1Slot,leftRing2Slot,rightRing1Slot,rightRing2Slot];

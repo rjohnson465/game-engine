@@ -58,17 +58,6 @@ if array_length_1d(vrareProps) > 0 {
 
 // build the item name
 var prefixString = "";
-var prefixArr = []; var prefixArrIndex = 0;
-/*for (var i = 0; i < ds_list_size(prefixes); i++) {
-	
-	var prefix = ds_list_find_value(prefixes,i);
-	if (prefix == undefined) continue;
-	
-	if prefix != undefined {
-		prefixString += prefix;
-		prefixString += " ";
-	}
-}*/
 // build the prefix string according to the following order:
 // 1) weapon damage bonus
 // 2) crit chance bonus

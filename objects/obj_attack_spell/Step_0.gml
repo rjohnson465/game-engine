@@ -29,9 +29,7 @@ if !hasSetAlarm {
 				var ay = accelerationalStrength * sin(theta);
 				var xn = x1 + ax;
 				var yn = y1 + ay;
-				var xs = x1 + ax/10;
-				var ys = y1 + ax/10;
-				//speed = sqrt((xs*xs) + (ys*ys));
+
 				if xn < 0 {
 					direction = ((arctan(yn / xn) / pi)*180) + 180;
 				} else if xn > 0 {

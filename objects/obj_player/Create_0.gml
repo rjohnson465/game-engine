@@ -184,8 +184,7 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 
 var hf = instance_create_depth(x,y,1,obj_item_health_flask);
 addItemToInventory(hf);
-var _pi = global.populateInventory;
-var _il = global.gameManager.isLoading;
+
 
 if global.populateInventory && !global.gameManager.isLoading {
 	
@@ -196,9 +195,11 @@ if global.populateInventory && !global.gameManager.isLoading {
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 	longsword.persistent = true;
 	longsword.numberOfSockets = 3;
-	insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
-	insertGemIntoItem(makeGem(obj_gem_emerald,CRACKED),longsword);
-	insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
+	modifyWeaponElementalDamage(longsword, LIGHTNING, 1);
+	// ds_map_replace(longsword.itemPropertyModifiersPts, WeaponProperties.ElementalDamageBonus, [LIGHTNING, 5]);
+	//insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
+	//insertGemIntoItem(makeGem(obj_gem_emerald,CRACKED),longsword);
+	//insertGemIntoItem(makeGem(obj_gem_hematite,CRACKED),longsword);
 	addItemToInventory(longsword);
 	
 	addItemToInventory(makeGemPieces(obj_gempieces_amethyst, PILE));

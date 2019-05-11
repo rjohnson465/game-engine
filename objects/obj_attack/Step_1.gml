@@ -44,7 +44,6 @@ with obj_sconce {
 for (var i = 0; i < array_length_1d(weaponParticles); i++) {
 	var part = weaponParticles[i];
 	if part != noone && part != undefined && part_type_exists(part) {
-		var num = weaponParticlesNums[i];
 		var x1 = bbox_left + lengthdir_x(1,facingDirection); var x2 = bbox_right + lengthdir_x(1,facingDirection);
 		var y1 = bbox_top + lengthdir_y(1,facingDirection); var y2 = bbox_bottom + lengthdir_y(2,facingDirection);
 	
@@ -150,7 +149,6 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		}
 	
 		if owner.hasHands {
-			var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
 			ds_map_delete(owner.attackingLimbs,limbKey);
 		}
 	
