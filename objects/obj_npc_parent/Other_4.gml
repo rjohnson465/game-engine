@@ -12,3 +12,6 @@ if !instance_exists(npcData) || npcData == noone {
 }
 
 refreshNpcConversations();
+
+// update layer
+layer = layer_get_id(npcData.layerName);

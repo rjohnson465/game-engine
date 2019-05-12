@@ -18,14 +18,16 @@ elevatorScale = 1;
 
 // any elevator occupants will be moved to the next floor with the elevator
 elevatorOccupants = ds_list_create();
-
-elevatorCurrentFloor = noone;
-elevatorFloorToMoveTo = noone;
 elevatorIsMoving = false;
 
 elevatorBarrier = noone;
 
 neverDeactivate = true;
+
+elevatorCurrentFloor = getLayerFloorNumber(layer);
+elevatorFloorToMoveTo = elevatorCurrentFloor;
+
+elevatorName = noone;
 
 properties = ds_map_create();
 ds_map_add(properties, "ElevatorCurrentFloor", elevatorCurrentFloor);

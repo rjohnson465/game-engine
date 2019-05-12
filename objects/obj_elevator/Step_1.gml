@@ -35,8 +35,6 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 	// If no, keep going
 	if elevatorMoveFrame == elevatorMoveFrameTotal {
 		
-		instance_destroy(elevatorBarrier, 1); elevatorBarrier = noone;
-		
 		elevatorMoveFrame = 0;
 		elevatorScale = 1;
 		
@@ -46,10 +44,11 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 			elevatorCurrentFloor -= 1;
 		}
 		
+		// update properties object
+		updatePersistentElementProperty(id, "ElevatorCurrentFloor", elevatorCurrentFloor);
+		
 		// Play thud sound?
 		audio_play_sound_at(snd_crunchy_thud, x, y, depth, 200, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
-		audio_play_sound_at(snd_elevator_ding, x, y, depth, 200, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
-		audio_stop_sound(elevatorMoveSound); elevatorMoveSound = noone;
 		
 		// For this frame, draw at normal scale
 		draw_self();
@@ -57,6 +56,9 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 		if elevatorCurrentFloor == elevatorFloorToMoveTo {	
 			elevatorIsMoving = false;
 			ds_list_clear(elevatorOccupants);
+			audio_play_sound_at(snd_elevator_ding, x, y, depth, 200, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+			audio_stop_sound(elevatorMoveSound); elevatorMoveSound = noone;
+			instance_destroy(elevatorBarrier, 1); elevatorBarrier = noone;
 		} 
 		
 		exit;
@@ -94,6 +96,10 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 						updatePersistentElementProperty(id, "TempPostX", tempPostX);
 						updatePersistentElementProperty(id, "TempPostY", tempPostY);
 						updatePersistentElementProperty(id, "TempPostZ", layer);
+					}
+					
+					if object_is_ancestor(object_index, obj_npc_parent) {
+						npcData.layerName = layer_get_name(layer);
 					}
 				}
 			}

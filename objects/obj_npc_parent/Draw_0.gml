@@ -6,6 +6,16 @@ scale = 1;
 if isFairy || isFloating {
 	scale = .1*cos((pi*floatingFrame)/30)+.9; // normal floating
 } 
+
+with obj_elevator {
+	if elevatorIsMoving {
+		var pos = ds_list_find_index(elevatorOccupants, other);
+		if pos >= 0 {
+			other.scale = elevatorScale;
+		}
+	}
+}
+
 if state == CombatantStates.Moving {
 	updateMoveSpriteAndImageSpeed();
 	draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_white, alpha);

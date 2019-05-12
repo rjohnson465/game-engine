@@ -18,6 +18,7 @@ for (var i = 0; i < ds_map_size(sd_npcs); i++) {
 	npcDataObj.npcName = ds_map_find_value(sd_npc,"NpcName");
 	npcDataObj.npcObjIndex = ds_map_find_value(sd_npc,"NpcObjIndex");
 	npcDataObj.npcObjIndexName = ds_map_find_value(sd_npc,"NpcObjIndexName");
+	npcDataObj.layerName = ds_map_find_value(sd_npc, "LayerName");
 	
 	var oldConvos = npcDataObj.conversations;
 	var conversations_copy = ds_map_deep_clone(ds_map_find_value(sd_npc, "Conversations"));

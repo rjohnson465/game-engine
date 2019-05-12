@@ -33,6 +33,8 @@ ds_map_replace(equippedLimbItems,"r",unarmed);
 
 ds_map_replace(equippedLimbItems,"l",unarmed);
 ds_map_replace(equippedLimbItems,"r",toyhammer);
+var rightHand = makeLimb(id,"r");
+var leftHand = makeLimb(id,"l");
 
 state = CombatantStates.Idle;
 

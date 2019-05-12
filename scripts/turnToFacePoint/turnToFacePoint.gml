@@ -13,11 +13,6 @@ if argument_count == 4 {
 	tolerance = argument[3];
 }
 
-/*var goalAngle = point_direction(x,y,pointX,pointY);
-
-var diff = angle_difference(goalAngle, facingDirection); //The difference between the turret angle and direction to player
-facingDirection += clamp(diff, -turnSpeed, turnSpeed);*/
-
 var pdir = point_direction(x,y,pointX,pointY);
 var dif = angle_difference(pdir, facingDirection);
 if dif > 1 {

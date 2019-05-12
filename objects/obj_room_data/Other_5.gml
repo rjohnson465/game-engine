@@ -16,6 +16,11 @@ with obj_persistent_environment {
 		ds_map_destroy(properties); properties = -1;
 	}
 }
+with obj_persistent_environment_nonsolid {
+	if ds_exists(properties, ds_type_map) {
+		ds_map_destroy(properties); properties = -1;
+	}
+}
 
 event_perform(ev_cleanup, 0);
 
@@ -25,7 +30,3 @@ if ds_exists(persistentElements, ds_type_map) {
 if ds_exists(enemiesData, ds_type_map) {
 	ds_map_destroy(enemiesData); enemiesData = -1;
 }
-
-var a = 161;
-
-var b = 0;

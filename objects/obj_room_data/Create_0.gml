@@ -23,6 +23,14 @@ if persistentElements == noone {
 		ds_map_add_map(el_map, "Properties", properties);
 		ds_map_add_map(other.persistentElements, key, el_map);
 	}
+	with obj_persistent_environment_nonsolid {
+		var el_map = ds_map_create();
+		ds_map_replace(el_map, "ObjectIndexName", object_get_name(object_index));
+		ds_map_replace(el_map, "PostX", postX);
+		ds_map_replace(el_map, "PostY", postY);
+		ds_map_add_map(el_map, "Properties", properties);
+		ds_map_add_map(other.persistentElements, key, el_map);
+	}
 }
 
 // ditto for enemies data
@@ -99,6 +107,10 @@ ds_list_destroy(garbageKeys); garbageKeys = -1;
 
 // now that all the persistent elements have their data either set or created, ensure their room start event fires after
 with obj_persistent_environment {
+	event_perform(ev_other,ev_room_start);
+}
+
+with obj_persistent_environment_nonsolid {
 	event_perform(ev_other,ev_room_start);
 }
 

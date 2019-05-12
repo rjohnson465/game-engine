@@ -26,7 +26,9 @@ type = CombatantTypes.Ally;
 state = CombatantStates.Idle;
 
 facingDirection = 0;
+previousFacingDirection = 0;
 isSlowed = false;
+slowedSpeedModifier = 1;
 
 isFairy = true;
 isFloating = true;
@@ -43,12 +45,6 @@ lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
 
-// light radius
-/*
-global.owner = id;
-global.makeLightOnCreate = false;
-instance_create_depth(x,y,1,obj_light_radius);*/
-
 menusHandleHeight = 20;
 
 conversationsStartX = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X);
@@ -58,13 +54,10 @@ selectedConversation = noone;
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;
 
-/*
-global.npc = id;
-instance_create_depth(x,y,-1001,obj_npc_gui_parent);
-*/
-
 npcData = noone;
 
 urgentFloatingFrame = round(random_range(0,59));
 
 hasReleasedInteract = true;
+
+wanders = true;

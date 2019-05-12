@@ -28,3 +28,7 @@ if instance_exists(npc) {
 		ds_list_add(inventory, item);
 	}
 }
+
+if npc != noone && instance_exists(npc) {
+	layerName = layer_get_name(npc.layer);
+}

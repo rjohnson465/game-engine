@@ -79,7 +79,7 @@ if gamepad_is_connected(global.player.gamePadIndex) && (selectedConversation == 
 
 
 // wander, but only if near enough to player to be on screen
-if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 && !isInteractingWithPlayer {
+if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 && !isInteractingWithPlayer && wanders {
 	if distance_to_point(postX, postY) < 250 && !isInteractingWithPlayer && !isInConversation {
 		moveToNearestFreePoint(direction,normalSpeed,1);
 		facingDirection = direction;
@@ -100,6 +100,6 @@ if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 &
 	speed = 0;
 }
 
-if place_meeting_layer(x,y,obj_player) {
+if place_meeting_layer(x,y,obj_player) && wanders {
 	jumpToNearestFreePoint(true);
 }

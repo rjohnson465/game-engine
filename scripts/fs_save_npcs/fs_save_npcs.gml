@@ -8,6 +8,7 @@ with obj_npc_data {
 	ds_map_replace(sd_npc,"NpcObjIndex",npcObjIndex);
 	ds_map_replace(sd_npc,"NpcObjIndexName",npcObjIndexName);
 	ds_map_replace(sd_npc,"HasInitializedItems",hasInitializedItems);
+	ds_map_replace(sd_npc,"LayerName", layerName);
 	
 	// clone the conversations map, otherwise we're gonna destroy it at the end of fs_save
 	var conversations_clone = ds_map_deep_clone(conversations);
@@ -16,6 +17,7 @@ with obj_npc_data {
 	var cta = ds_list_create();
 	ds_list_copy(cta, conversationsToAdd);
 	ds_map_add_list(sd_npc, "ConversationsToAdd", cta);
+
 
 	ds_map_add_map(sd_npcs,npcObjIndexName,sd_npc);
 }

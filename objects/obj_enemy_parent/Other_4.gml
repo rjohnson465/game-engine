@@ -47,7 +47,9 @@ if lr != noone {
 tempPostX = ds_map_find_value(persistentProperties, "TempPostX");
 tempPostY = ds_map_find_value(persistentProperties, "TempPostY");
 tempPostZ = ds_map_find_value(persistentProperties, "TempPostZ");
-facingDirection = ds_map_find_value(persistentProperties, "FacingDirection");
+if !isBoss {
+	facingDirection = ds_map_find_value(persistentProperties, "FacingDirection");
+}
 path_end();
 state = CombatantStates.Idle;
 currentMeleeAttack = noone; currentRangedAttack = noone;
