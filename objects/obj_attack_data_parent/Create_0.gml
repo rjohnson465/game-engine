@@ -3,7 +3,8 @@ enum AttackTypes {
 	Charge,
 	AOE,
 	Zone, // breath attacks, poison clouds, whatever
-	MultiRand // multiple random projectiles at random locations
+	MultiRand, // multiple random projectiles at random locations
+	Beam, // Laserrrr
 }
 
 owner = global.owner;
@@ -35,6 +36,7 @@ staggersAgainstBlocks = true;
 type = AttackTypes.Standard;
 prepSound = noone;
 attackSound = noone;
+attackSoundLoop = noone;
 recoverSound = noone;
 hitSound = noone;
 attackSoundsVocals = [];
@@ -78,3 +80,7 @@ usesWeapon = false;
 weaponRequired = noone;
 
 attackObjectIndex = noone;
+
+isVisible = true;
+refreshCombatantsHit = 15; // hit 2 times / second
+beamMaxReach = 1000;

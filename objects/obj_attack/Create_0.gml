@@ -180,6 +180,10 @@ if attackData != noone && attackData.type == AttackTypes.Zone {
 	global.attackData = attackData;
 	instance_change(obj_attack_zone,1); exit;
 }
+if attackData != noone && attackData.type == AttackTypes.Beam {
+	global.attackData = attackData;
+	instance_change(obj_attack_beam,1); exit;
+}
 
 if isMelee && owner.isSlowed {
 	image_speed = .5; // TODO

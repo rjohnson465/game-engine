@@ -12,7 +12,7 @@ normalSpeed = 6;
 turnSpeed = 6;
 normalTurnSpeed = turnSpeed;
 
-dyingParticleColor1 = c_dkgray;
+dyingParticleColor1 = C_GOLD;
 dyingParticleColor2 = c_ltgray;
 
 canJump = false;
@@ -48,9 +48,11 @@ currentMeleeAttack = noone;
 // ATTACKS
 global.owner = id;
 var charge = makeEnemyAttackObj(obj_attack_robot_charge_1_1);
+var laserbeam = makeEnemyAttackObj(obj_attack_robot_laser_1_1);
 
 var chargeChain = [charge];
-meleeAttacks = [chargeChain];
+var laserChain = [laserbeam];
+meleeAttacks = [laserChain];
 
 // ranged attacks info
 

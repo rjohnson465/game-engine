@@ -1183,6 +1183,14 @@
             }
         },
         {
+            "Key": "111de94c-2430-4b2a-ade3-c63ccc65f728",
+            "Value": {
+                "id": "16138be0-26f7-45ba-9773-e73742daf1e7",
+                "resourcePath": "sprites\\spr_enemy_robot_laser_prep_1_1\\spr_enemy_robot_laser_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "112497b4-e208-42fd-aa74-4555ac7d8760",
             "Value": {
                 "id": "a27f72de-2b8e-4b5d-979b-27a4aae8ab54",
@@ -2959,14 +2967,6 @@
             }
         },
         {
-            "Key": "2b003860-762b-43de-9880-9a75d8f17006",
-            "Value": {
-                "id": "073ec16d-3733-429a-89b4-462fb75ab50c",
-                "resourcePath": "sprites\\spr_enemy_robot_charge_attack_1_11\\spr_enemy_robot_charge_attack_1_11.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "2bb157a7-b16b-4342-bafe-e4779a6e0902",
             "Value": {
                 "id": "29f8c58d-e347-4b89-b9d8-b776279148c4",
@@ -3132,6 +3132,14 @@
                 "id": "698224ed-ab07-4964-b9af-9050904ba420",
                 "resourcePath": "sprites\\spr_prompt_mk_backspace\\spr_prompt_mk_backspace.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2f7fdb3d-4b7b-4c0d-a77c-d1069335e0f6",
+            "Value": {
+                "id": "dc174197-e388-4813-b75c-93856866efd4",
+                "resourcePath": "objects\\obj_attack_robot_laser_1_1\\obj_attack_robot_laser_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -4396,14 +4404,6 @@
                 "id": "2539f7d9-98ee-48d7-a627-b01ec7500e43",
                 "resourcePath": "rooms\\rm_factory\\rm_factory.yy",
                 "resourceType": "GMRoom"
-            }
-        },
-        {
-            "Key": "44481247-825b-4e37-a985-bc83338b7b33",
-            "Value": {
-                "id": "87151d39-a923-43bf-a016-aead7871f660",
-                "resourcePath": "sprites\\spr_enemy_robot_charge_recover_1_1\\spr_enemy_robot_charge_recover_1_1.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -5900,6 +5900,14 @@
                 "id": "02bebf86-29af-4ad8-acf8-0624f4c6b973",
                 "resourcePath": "objects\\obj_tut_dodge\\obj_tut_dodge.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "5d8d9152-9a64-4e9d-ba55-1e1b42233a72",
+            "Value": {
+                "id": "e6e9094d-cb6f-428e-984f-53ba98646ee7",
+                "resourcePath": "scripts\\calcLineRectIntersection\\calcLineRectIntersection.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -7955,6 +7963,14 @@
             "Value": {
                 "id": "ae4c75cf-1b8b-4e6c-a6c5-51c3e0f9ddc6",
                 "resourcePath": "sprites\\spr_filter_none\\spr_filter_none.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7cd3fe54-c64c-4fca-8ab5-01f946aff8ad",
+            "Value": {
+                "id": "ad73f3e2-b2f7-4ca7-937b-536f3cd34282",
+                "resourcePath": "sprites\\spr_enemy_robot_laser_recover_1_1\\spr_enemy_robot_laser_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -10031,6 +10047,14 @@
             }
         },
         {
+            "Key": "9ed29cca-8035-43d3-b0a6-f941e2db5f59",
+            "Value": {
+                "id": "7aaad92b-61bb-45e4-8312-96b46ea2f6a9",
+                "resourcePath": "objects\\obj_attack_beam\\obj_attack_beam.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "9eea4527-9a9f-4b8e-832b-e6d230a6d546",
             "Value": {
                 "id": "655fa96a-4624-4b08-b587-29e4894ee539",
@@ -10727,6 +10751,14 @@
             }
         },
         {
+            "Key": "a9a7cc10-dcd5-49fc-9b56-03aee665142e",
+            "Value": {
+                "id": "bd806a4c-11f6-4821-924a-6dbb7aca3b5a",
+                "resourcePath": "sprites\\spr_enemy_robot_charge_recover_1_1\\spr_enemy_robot_charge_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a9c61d41-f942-41ba-841f-2f523d3478ce",
             "Value": {
                 "id": "0f44540a-c03e-4321-8fff-2ede5201b064",
@@ -10947,14 +10979,6 @@
             "Value": {
                 "id": "b8ab24c2-86bb-4e1c-96b6-296215269098",
                 "resourcePath": "sprites\\spr_player_warhammer_recover_2\\spr_player_warhammer_recover_2.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "ace6f630-9d21-4dd9-a738-94be1fc1d773",
-            "Value": {
-                "id": "dcd650f1-49cc-4609-ab6b-3e164dadc196",
-                "resourcePath": "sprites\\spr_enemy_robot_charge_recover_1_111\\spr_enemy_robot_charge_recover_1_111.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -12020,6 +12044,14 @@
                 "id": "7a0e8dca-51e5-4ace-a595-b873fd875a59",
                 "resourcePath": "views\\bd31066b-cbc7-439b-afff-41345010ef41.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "bd535a7e-2c56-42fb-98a0-a2bf778f6db9",
+            "Value": {
+                "id": "96999260-db13-49e1-a16e-a4b8133ecf22",
+                "resourcePath": "sprites\\spr_enemy_robot_laser_1_1_beam\\spr_enemy_robot_laser_1_1_beam.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -13356,6 +13388,14 @@
                 "id": "1f5b556e-cc52-425c-a2c2-7031a67e7633",
                 "resourcePath": "views\\d278fc55-3c07-4941-a94a-9403c786416a.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d280b77b-01f9-4d32-8a31-9731c940f82e",
+            "Value": {
+                "id": "4fc5a0e9-9538-49c5-8d9b-1e24be5a8971",
+                "resourcePath": "sprites\\spr_enemy_robot_laser_attack_1_1\\spr_enemy_robot_laser_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -16164,6 +16204,7 @@
         "1281fae0-8dd2-46f1-88fa-9538a42a00b4",
         "238c8b72-54a4-4746-b723-72979096d97a",
         "9a21edde-4a4c-4c84-b849-5eb2851327b5",
+        "5d8d9152-9a64-4e9d-ba55-1e1b42233a72",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "89e792c3-5306-41a1-8e55-479f0f2db5de",
         "295e5a03-8983-4afd-bdb3-14c23bed2058",
