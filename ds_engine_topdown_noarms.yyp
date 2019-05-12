@@ -5943,6 +5943,14 @@
             }
         },
         {
+            "Key": "5e26be89-e739-4317-a40a-af5f5b3798cb",
+            "Value": {
+                "id": "df6932a4-a2c7-4fc5-836a-0781fe4c7763",
+                "resourcePath": "sprites\\spr_light_square_midleft\\spr_light_square_midleft.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5e2d2c01-9169-4bdd-9f77-b1982bfeb477",
             "Value": {
                 "id": "da24ecfe-867f-42a9-bddb-cb5045fd18e4",

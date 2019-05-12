@@ -62,7 +62,7 @@ var y1 = 10;
 var x2 = 210;
 var y2 = 20;
 if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
-	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center);
+	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center); draw_set_valign(fa_center);
 	var s = string(round(global.player.hp)) + "/" + string(round(global.player.maxHp));
 	var sh = string_height(s); 	var ys = 1;
 	//if sh > (y2-y1) ys = (y2-y1)/sh;

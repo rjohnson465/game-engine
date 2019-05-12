@@ -44,8 +44,29 @@ beamFrame++;
 var xx = x + lengthdir_x(beamReach, owner.facingDirection);
 var yy = y + lengthdir_y(beamReach, owner.facingDirection);
 
-var s = scr_collision_line_first(owner.x, owner.y, xx, yy, obj_wall_parent, true, true, owner.layer); //ds_list_find_value(solids, 0);
+// find s, the closest solid object the beam is hitting (if it exists)
+var possibleSolids = scr_collision_line_list_layer(owner.x,owner.y,xx,yy,obj_solid_parent,true,true);
+var closestDist = 10000; var s = noone;
+if possibleSolids != noone {
+	for (var i = 0; i < ds_list_size(possibleSolids); i++) {
+		var el = ds_list_find_value(possibleSolids,i);
+		if object_is_ancestor(el.object_index, obj_enemy_parent) continue;
+		if !object_is_ancestor(el.object_index, obj_combatant_parent) && !el.stopsAttacks continue;
+		with owner {
+			var _dist = distance_to_object(el);
+			if _dist < closestDist {
+				closestDist = _dist;
+				s = el;
+			}
+		}
+	}
+}
+
+ds_list_destroy(possibleSolids); possibleSolids = -1;
+
+// beam ends at s, the first solid it hits
 if s >= 0 {
+	
 	var distToFirstSolid = 1000;
 	with owner {
 		distToFirstSolid = distance_to_object(s);
@@ -53,7 +74,13 @@ if s >= 0 {
 	var xx = x + lengthdir_x(distToFirstSolid, owner.facingDirection);
 	var yy = y + lengthdir_y(distToFirstSolid, owner.facingDirection);
 	
-	var intersectPts = calcLineRectIntersection(s.bbox_left, s.bbox_top, s.bbox_right, s.bbox_bottom, owner.x, owner.y, xx, yy);
+	var intersectPts = noone;
+	if !object_is_ancestor(s.object_index, obj_combatant_parent) {
+		intersectPts = calcLineRectIntersection(s.bbox_left, s.bbox_top, s.bbox_right, s.bbox_bottom, owner.x, owner.y, xx, yy);
+	} else {
+		intersectPts = ds_list_create();
+		ds_list_add(intersectPts, [s.x, s.y]);
+	}
 	if ds_list_size(intersectPts) > 0 {
 		// find the closest intersect point to owner and use that one
 		var closestDist = 10000; var cx = noone; var cy = noone;
@@ -66,13 +93,51 @@ if s >= 0 {
 			}
 		}
 		beamReach = point_distance(owner.x, owner.y, cx, cy);
+		
+		// if beam makes a light on hit and it has not yet made that light, do that now
+		if attackData.beamHitMakesLight && beamHitLight == noone {
+			global.makeLightOnCreate = true;
+			global.owner = id;
+			lightRadiusAlpha = attackData.beamHitLightAlpha;
+			lightRadiusColor = attackData.beamHitLightColor;
+			lightRadiusScale = attackData.beamHitLightScale;
+			lightRadiusSprite = spr_light_point;
+			beamHitLight = instance_create_depth(cx, cy, depth, obj_light_radius);
+		} else if beamHitLight != noone && instance_exists(beamHitLight) {
+			beamHitLight.x = cx; beamHitLight.y = cy;
+		}
+		
 	}
+}
+// otherwise, don't show the beam hit light (if applicable)
+else if beamHitLight != noone && instance_exists(beamHitLight) {
+	beamHitLight.x = -1000; beamHitLight.y = -1000;
 }
 	
 
-if beamReach <= 0 beamReach = 1;
+if beamReach <= 0 {
+	beamReach = 1;
+}
 image_xscale = beamReach;
 
+if attackData.beamHasLight {
+	_light_angle = image_angle;
+	_light_xscale = image_xscale / sprite_get_width(spr_light_square_midleft);
+	show_debug_message("image xscale " + string(image_xscale) + "; light_xscale " + string(_light_xscale));
+	// randomly waver the beam's width
+	randomize();
+	var rand = random_range(attackData.beamWidthWaverArray[0], attackData.beamWidthWaverArray[1]);
+	_light_yscale = rand;
+	
+	// maybe also randomly waver the beamHitLight, if it exists
+	if beamHitLight != noone && instance_exists(beamHitLight) {
+		with beamHitLight {
+			randomize();
+			var rand = random_range(other.attackData.beamHitLightScaleWaverArray[0], other.attackData.beamHitLightScaleWaverArray[1]);
+			_light_scale = rand;
+		}
+	}
+}
 
 if owner.state == CombatantStates.Staggering && !hasSetAlarm {
 	// once the attack is done, remove the id from the list of attacks that have hit all the combatants this attack hit
@@ -106,4 +171,11 @@ if owner.state == CombatantStates.Staggering && !hasSetAlarm {
 if hasSetAlarm {
 	var gain = alarm[0]/30;
 	image_alpha = gain;
+	_light_alpha = gain * attackData.beamLightAlpha;
+	
+	if beamHitLight != noone && instance_exists(beamHitLight) {
+		with beamHitLight {
+			_light_alpha = gain * other.attackData.beamHitLightAlpha;
+		}
+	}
 }

@@ -1,4 +1,11 @@
 if instance_exists(owner) {
+	
+	if owner.object_index == obj_attack_beam {
+	
+		var a = 3;
+	
+	}
+	
 	if object_is_ancestor(owner.object_index, obj_combatant_parent) && (owner.hp < 1 || layer != global.player.layer) {
 		x = -1000; y = -1000;
 	}
@@ -14,6 +21,9 @@ if instance_exists(owner) {
 		}
 		
 		exit;
+	}
+	else if owner.object_index == obj_attack_beam {
+		// do not set x and y here for beam attack! This is done in attack_beam step event
 	}
 	else if owner.isShowingLightRadius {
 		x = owner.x;

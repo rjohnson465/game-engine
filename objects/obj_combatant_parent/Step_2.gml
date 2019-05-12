@@ -4,9 +4,21 @@ if layer == global.player.layer && fallFrame >= fallTotalFrames {
 		if place_meeting_layer(x,y,other.id) || cpexists || (isRanged && distance_to_object(other.id) < 5) {
 			with other {
 				var wallsBetween = scr_collision_line_list_layer(x, y, other.x, other.y, obj_wall_parent, true, true);
-				if wallsBetween == noone {
+				var wallsBetweenAreSolid = false;
+				
+				if ds_exists(wallsBetween, ds_type_list) {
+					for (var i = 0; i < ds_list_size(wallsBetween); i++) {
+						var w = ds_list_find_value(wallsBetween, i);
+						if w.stopsAttacks {
+							wallsBetweenAreSolid = true;
+						}
+					}
+				}
+				
+				if wallsBetween == noone || !wallsBetweenAreSolid {
 					calculateDamage();
-				} else {
+				}
+				if ds_exists(wallsBetween, ds_type_list) {
 					ds_list_destroy(wallsBetween); wallsBetween = -1;
 				}
 			}

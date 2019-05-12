@@ -26,3 +26,7 @@ prepSound = snd_thrust_attack_1;
 prepSoundsVocals = [];
 attackSound = snd_enemy_robot_charge;
 recoverSound = snd_enemy_robot_charge_recover;
+
+beamLightColor = c_fuchsia;
+beamWidthWaverArray = [.2,1.2];
+beamHitLightColor = c_fuchsia;
