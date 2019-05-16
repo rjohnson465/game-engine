@@ -97,7 +97,6 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		if layer == global.player.layer && fallFrame >= fallTotalFrames {
 			if place_meeting_layer(x,y,firstObj.id) && state != CombatantStates.Dodging {
 				// check if there is a wall between the player and the enemy
-				var a = 3;
 				exit;
 			}
 		}
@@ -160,27 +159,45 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 	
 	// make dust / spark particles, play sound, for range
 	if isRanged && !hasSetAlarm {
-		global.damageType = firstObj.material == METAL ? "Block" : "Dust";
-		if isSpell {
-			global.damageType = spellElement;
-		}
-		global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
-		global.y1 = bbox_bottom;
-		global.particleDirection = facingDirection;
-		global.hitParticlesLayer = layer; 
-		global.victim = firstObj;
-		instance_create_depth(0,0,1,obj_hit_particles);
-		alarm[0] = 25;
-		visible = 0;
-		speed = 0;
-		hasSetAlarm = true;
-		if !isSpell {
+		
+		if attackData != noone && attackData.bouncesOffWalls {
+			// iff bounce of walls, set direction to some kinda perpindicular direction
+			randomize();
+			var rand = random_range(-45, 45);
+			direction = ((direction+180) %360) + rand;
+			facingDirection = direction;
 			var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
-			audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			
+			// only play bounce sound once every 15 frames, at maximum
+			if alarm[2] <= 0 {
+				audio_play_sound_at(snd,x,y,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+				alarm[2] = 15;
+			}
+			exit;
+			
 		} else {
-			audio_stop_sound(sound);
-			var snd = asset_get_index("snd_magic_"+owner.currentSpellAttunement+"_hit");
-			audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			global.damageType = firstObj.material == METAL ? "Block" : "Dust";
+			if isSpell {
+				global.damageType = spellElement;
+			}
+			global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
+			global.y1 = bbox_bottom;
+			global.particleDirection = facingDirection;
+			global.hitParticlesLayer = layer; 
+			global.victim = firstObj;
+			instance_create_depth(0,0,1,obj_hit_particles);
+			alarm[0] = 25;
+			visible = 0;
+			speed = 0;
+			hasSetAlarm = true;
+			if !isSpell {
+				var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
+				audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			} else {
+				audio_stop_sound(sound);
+				var snd = asset_get_index("snd_magic_"+owner.currentSpellAttunement+"_hit");
+				audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			}
 		}
 	}
 

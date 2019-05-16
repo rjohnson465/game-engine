@@ -45,6 +45,13 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 					visible = false;
 				}
 			}
+			with all {
+				if variable_instance_exists(id, "origLayer") {
+					if origLayer == l {
+						visible = false;
+					}
+				}
+			}
 		}
 		// make visible layers at or below player's layer
 		// draw layers below a little darker, use a Shader
@@ -67,6 +74,13 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 			with obj_solid_environment {
 				if origLayer == l && (!object_is_ancestor(object_index, obj_wall_parent) && object_index != obj_wall_parent) {
 					visible = true;
+				}
+			}
+			with all {
+				if variable_instance_exists(id, "origLayer") {
+					if origLayer == l && object_get_visible(object_index) {
+						visible = true;
+					}
 				}
 			}
 			

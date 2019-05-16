@@ -46,13 +46,17 @@ beamMaxReach = attackData.beamMaxReach;
 facingDirection = owner.facingDirection;
 alarm[2] = attackData.refreshCombatantsHit;
 
+/*
 if part_type_exists(attackData.part1) {
 	particle = attackData.part1;
 	part_type_direction(particle,facingDirection-45, facingDirection+45, 0, 5);
 }
 if part_type_exists(attackData.part2) {
 	particle = attackData.part2;
-}
+}*/
+beamHitParticlesArr = attackData.beamHitParticlesArr;
+part_system_depth(system, owner.depth + 5); // make particles under combatants
+
 
 audio_play_sound_at(attackData.attackSound, owner.x,owner.y,owner.depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 
@@ -60,7 +64,12 @@ sndEmitter = audio_emitter_create();
 audio_emitter_gain(sndEmitter,1);
 audio_emitter_position(sndEmitter, owner.x, owner.y, owner.depth);
 audio_emitter_falloff(sndEmitter, 50, AUDIO_MAX_FALLOFF_DIST, 1);
-audio_play_sound_on(sndEmitter, attackData.attackSoundLoop, 1, 1);
+sndEmitterSndId = audio_play_sound_on(sndEmitter, attackData.attackSoundLoop, 1, 1);
+
+beamHitSoundEmitter = audio_emitter_create();
+audio_emitter_position(beamHitSoundEmitter, owner.x, owner.y, owner.depth);
+audio_emitter_falloff(beamHitSoundEmitter, 50, AUDIO_MAX_FALLOFF_DIST, 1);
+beamHitSoundLoop = audio_play_sound_on(beamHitSoundEmitter, attackData.beamHitSoundLoop, 1, 1);
 
 if attackData != noone {
 	var vocalsSound = noone; 

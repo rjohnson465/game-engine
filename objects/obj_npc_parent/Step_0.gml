@@ -51,7 +51,13 @@ if distance_to_object(obj_player) < 20 && layer == global.player.layer && !globa
 		isInteractingWithPlayer = true;
 		global.player.state = CombatantStates.Idle;
 		state = CombatantStates.Idle; speed = 0;
-		audio_play_sound_at(greeting,x,y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		var g = greeting;
+		if is_array(g) {
+			randomize();
+			var rand = random_range(0, array_length_1d(g));
+			g = g[rand];
+		}
+		audio_play_sound_at(g,x,y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 	}
 	
 	ds_list_destroy(urgentConversationsNarrativeStates); urgentConversationsNarrativeStates = -1; // mem leak

@@ -1,5 +1,7 @@
 event_inherited();
 
+var isLitDueToCreationCode = isLit;
+
 isLit = ds_map_find_value(properties, "isLit");
 if isLit {
 	// ensure there is only ever one light radius object for a sconce
@@ -18,6 +20,8 @@ if isLit {
 		var floorNum = getLayerFloorNumber(other.origLayer);
 		light_set_alpha(calculateLightRadiusAlphaLayer(floorNum));
 	}
+} else if !isLit && isLitDueToCreationCode {
+	extinguishSconce(false);
 }
 
 if !isLit && torchSoundId != noone {

@@ -177,7 +177,7 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering && !i
 
 }
 
-if isFairy {
+if isFairy || isFloating {
 	floatingFrame += 1;
 	floatingFrame = floatingFrame % 60;
 }

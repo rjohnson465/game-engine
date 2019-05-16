@@ -7,7 +7,7 @@ event_inherited();
 name = "Rob the Robot";
 spriteString = "npc_rob";
 
-greeting = snd_greeting_francis;
+greeting = [snd_npc_rob_greeting_1, snd_npc_rob_greeting_2];
 
 items = ds_list_create();
 var rd = instance_create_depth(x,y,1,obj_item_rubberducky);

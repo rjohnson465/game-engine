@@ -93,3 +93,10 @@ beamHitLightColor = c_white;
 beamHitLightAlpha = .85;
 beamHitLightScale = .15;
 beamHitLightScaleWaverArray = [.1, .25];
+// beam hit particles are in form [[parttype, num], [parttype, num]....]
+beamHitParticlesArr = [];
+beamHitSoundLoop = noone;
+
+bouncesOffWalls = false;
+
+life = noone; // how long ranged attacks last

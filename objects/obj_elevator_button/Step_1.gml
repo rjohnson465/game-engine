@@ -5,5 +5,5 @@ if isActive {
 		isActive = false;
 	}
 } else {
-	light_set_alpha(0);
+	light_set_alpha(.25);
 }

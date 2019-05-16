@@ -3,10 +3,10 @@ draw_set_font(font_main);
 var s = "string";
 var sh = string_height(s);
 for (var i = 0; i < numFloors; i++) {
-	totalHeight += sh;
+	totalHeight += sh + 5;
 }
 
-var handleHeight = 15;
+var handleHeight = 20;
 totalHeight += handleHeight; // handle height
 totalHeight += 5; // padding
 var totalWidth = 200;
@@ -25,10 +25,32 @@ draw_rectangle(tlx, tly, tlx + totalWidth, tly + handleHeight, 0);
 draw_set_color(c_white); draw_set_halign(fa_center); draw_set_valign(fa_center);
 draw_text(mean(tlx, tlx + totalWidth), mean(tly, tly + handleHeight), "Select Floor");
 
+var pad = global.player.gamePadIndex;
+
+// maybe draw X button if controller not active
+if !gamepad_is_connected(pad) {
+	var closeButtonWidth = sprite_get_width(spr_close_button);
+	var x1 = tlx+totalWidth-closeButtonWidth; var y1 = tly;
+	var x2 = x1 + closeButtonWidth; var y2 = y1 + closeButtonWidth;
+	if mouseOverGuiRect(x1, y1, x2, y2) && mouse_check_button(mb_left) {
+		draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_black,1);	
+	} else if mouseOverGuiRect(x1, y1, x2, y2) {
+		draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_gray,1);
+	} else {
+		draw_sprite(spr_close_button,1,x1,y1);
+	}
+		
+	if mouseOverGuiRect(x1, y1, x2, y2) && mouse_check_button_released(mb_left) {
+		alarm[0] = 3;
+		hasSetAlarm = true;
+	}
+}
+
+
 // draw floors
 var yy = tly + handleHeight + 5;
 var xx = tlx + 15;
-var pad = global.player.gamePadIndex;
+
 for (var i = 0; i < numFloors; i++) {
 	var f = i+1;
 	draw_set_halign(fa_left); draw_set_valign(fa_top);

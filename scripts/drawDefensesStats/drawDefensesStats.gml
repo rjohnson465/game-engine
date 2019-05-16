@@ -106,6 +106,10 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 		} else {
 			draw_set_color(c_white);
 		}
+		// if shocked, draw resistances with red color
+		if p.isShocked && el != LIGHTNING {
+			draw_set_color(c_red);
+		}
 		draw_text(basicCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) +": "+ string(defTotal)+"%");
 		ds_list_destroy(bonusesDefenses); bonusesDefenses = -1;
 	}

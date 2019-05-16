@@ -15,5 +15,6 @@ if distance_to_object(obj_player) < 20 && origLayer == p.layer && interactInputR
 	if !isActive && !associatedElevator.elevatorIsMoving && associatedElevator.elevatorCurrentFloor != floorNum {
 		isActive = true;
 		associatedElevator.elevatorFloorToMoveTo = floorNum;
+		audio_play_sound_at(snd_elevator_button, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 	}
 } 

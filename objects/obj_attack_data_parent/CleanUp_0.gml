@@ -17,3 +17,13 @@ if part_type_exists(part2) {
 if part_type_exists(prepPart1) {
 	part_type_destroy(prepPart1); prepPart1 = -1;
 }
+
+if is_array(beamHitParticlesArr) && array_length_1d(beamHitParticlesArr) > 0 {
+	for (var i = 0; i < array_length_1d(beamHitParticlesArr); i ++) {
+		var partArr = beamHitParticlesArr[i];
+		var pt = partArr[0];
+		if part_type_exists(pt) {
+			part_type_destroy(pt); pt = -1; //mem leak
+		}
+	}
+}

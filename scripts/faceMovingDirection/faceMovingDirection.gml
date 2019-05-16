@@ -9,7 +9,18 @@ var pathNextX = path_get_x(path_index,path_position+.01);
 var pathNextY = path_get_y(path_index,path_position+.01);
 if lockOnTarget != noone && substate != CombatantMoveSubstates.ReturningToPost {
 	var wallsBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
-	if wallsBetweenTarget == noone {
+	
+	var includesActualWall = false;
+	if ds_exists(wallsBetweenTarget, ds_type_list) {
+		for (var i = 0; i < ds_list_size(wallsBetweenTarget); i++) {
+			var w = ds_list_find_value(wallsBetweenTarget, i);
+			if w.object_index != obj_wall_nocast_nointerrupt {
+				includesActualWall = true;
+			}
+		}
+	}
+	
+	if wallsBetweenTarget == noone || !includesActualWall {
 		turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 	} else {
 		//facingDirection = direction;

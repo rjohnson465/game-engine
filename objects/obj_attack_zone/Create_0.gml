@@ -55,7 +55,7 @@ sndEmitter = audio_emitter_create();
 audio_emitter_gain(sndEmitter,1);
 audio_emitter_position(sndEmitter, owner.x, owner.y, owner.depth);
 audio_emitter_falloff(sndEmitter, 50, AUDIO_MAX_FALLOFF_DIST, 1);
-audio_play_sound_on(sndEmitter, attackData.attackSoundLoop, 1, 1);
+sndEmitterSndId = audio_play_sound_on(sndEmitter, attackData.attackSoundLoop, 1, 1);
 
 if attackData != noone {
 	var vocalsSound = noone;

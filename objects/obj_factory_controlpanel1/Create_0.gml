@@ -7,4 +7,4 @@ event_inherited();
 material = METAL;
 
 depth += 1; // hands appear over flower
-stopsAttacks = false;
+stopsAttacks = true;

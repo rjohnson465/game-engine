@@ -24,8 +24,8 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 meleeAggroRange = 300;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 800;
-aggressiveness = 80; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
-attackFrequencyTotalFramesMelee = [45,60];
+aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
+attackFrequencyTotalFramesMelee = [45,75];
 attackFrequencyTotalFramesRanged = [60,90];
 strafeTotalFrames = [25,50];
 waryDistanceRange=[100,120];
@@ -52,7 +52,7 @@ var laserbeam = makeEnemyAttackObj(obj_attack_robot_laser_1_1);
 
 var chargeChain = [charge];
 var laserChain = [laserbeam];
-meleeAttacks = [laserChain];
+meleeAttacks = [laserChain, chargeChain];
 
 // ranged attacks info
 

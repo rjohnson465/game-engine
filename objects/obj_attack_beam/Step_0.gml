@@ -1,23 +1,21 @@
-image_angle = facingDirection;
-if !hasSetAlarm && part_type_exists(particle) {
+// maybe make particles at beam hit site
+if !hasSetAlarm && beamHitLight != noone && instance_exists(beamHitLight) &&
+	is_array(beamHitParticlesArr) && array_length_1d(beamHitParticlesArr) > 0 {
 	if layer >= global.player.layer {
-		var x1 = bbox_left; var x2 = bbox_right;
-		var y1 = bbox_top; var y2 = bbox_bottom;
-
-		// randomly spawn 4(??) particles somewhere in the collision mask of sprite_index
-		for (var i = 0; i < 4; i++) {
-			var xx = -50; var yy = -50;
-			var pm = false;
-			do {
-				randomize();
-				xx = random_range(x1,x2); yy = random_range(y1,y2);
-				var parti = instance_create_depth(xx,yy,1,obj_attack_zone_part);
-				var pm = place_meeting(x,y,parti);
-				instance_destroy(parti,1);
-			} until (pm)
-			//part_particles_create(system,xx,yy,particle,1);
-			part_emitter_region(system,emitter,xx,xx,yy,yy,ps_shape_ellipse,ps_distr_gaussian);
-			part_emitter_burst(system,emitter,particle, 1);
+		
+		part_emitter_region(system,emitter,beamHitLight.x,beamHitLight.x,beamHitLight.y,beamHitLight.y,ps_shape_ellipse,ps_distr_gaussian);
+		
+		for (var i = 0; i < array_length_1d(beamHitParticlesArr); i++) {
+			var partArr = beamHitParticlesArr[i];
+			var pt = partArr[0];
+			var pn = partArr[1];
+			
+			// make beam hit particles go in opposite direction of beam
+			var revAngle = (image_angle + 180) % 360;
+			part_type_direction(pt, revAngle - 45, revAngle + 45, 0, 0);
+			
+			// emit beam hit particles
+			part_emitter_burst(system,emitter,pt, pn);
 		}
 		
 	}
@@ -29,6 +27,7 @@ with owner {
 		turnToFacePoint(.25*turnSpeed, lockOnTarget.x, lockOnTarget.y);
 	}
 }
+// set beam angle to match attacker's angle
 image_angle = owner.facingDirection;
 
 
@@ -50,14 +49,39 @@ var closestDist = 10000; var s = noone;
 if possibleSolids != noone {
 	for (var i = 0; i < ds_list_size(possibleSolids); i++) {
 		var el = ds_list_find_value(possibleSolids,i);
-		if object_is_ancestor(el.object_index, obj_enemy_parent) continue;
+		// beams may not friendly-fire
+		if object_is_ancestor(el.object_index, obj_combatant_parent) && el.type == owner.type continue;
+		// beams may not hit dodging combatants or dead ones
+		if object_is_ancestor(el.object_index, obj_combatant_parent) && (el.state == CombatantStates.Dodging || el.hp <= 0) continue;
 		if !object_is_ancestor(el.object_index, obj_combatant_parent) && !el.stopsAttacks continue;
 		with owner {
-			var _dist = distance_to_object(el);
-			if _dist < closestDist {
-				closestDist = _dist;
-				s = el;
+			
+			// List of all collision points for this obj, el, the line from owner x/y to beam's end makes
+			var possibleCollisionPts = noone;
+			if object_is_ancestor(el.object_index, obj_combatant_parent) {
+				// if we're checking collision with a combatant, only use the combatant's x/y as
+				// possible collision point (this way the combatant may take damage)
+				possibleCollisionPts = ds_list_create();
+				ds_list_add(possibleCollisionPts, [el.x, el.y]);
+			} else {
+				possibleCollisionPts = calcLineRectIntersection(el.bbox_left, el.bbox_top, el.bbox_right, el.bbox_bottom, x, y, xx, yy);
 			}
+			
+			for (var j = 0; j < ds_list_size(possibleCollisionPts); j++) {
+				var ptArr = ds_list_find_value(possibleCollisionPts, j);
+				var ptX = ptArr[0];
+				var ptY = ptArr[1];
+				
+				var dist = point_distance(x, y, ptX, ptY); 
+				// if distance between owner and this beam collision point is closer than all other found so far
+				// set "s", the first solid object the beam hits, to this el
+				if dist < closestDist {
+					closestDist = dist;
+					s = el;
+				}
+			}
+			
+			ds_list_destroy(possibleCollisionPts); possibleCollisionPts = -1;
 		}
 	}
 }
@@ -113,7 +137,11 @@ if s >= 0 {
 else if beamHitLight != noone && instance_exists(beamHitLight) {
 	beamHitLight.x = -1000; beamHitLight.y = -1000;
 }
-	
+
+// position the beamHit sound emitter at the beam hit light object
+with beamHitLight {
+	audio_emitter_position(other.beamHitSoundEmitter, x, y, depth);
+}
 
 if beamReach <= 0 {
 	beamReach = 1;
@@ -123,7 +151,7 @@ image_xscale = beamReach;
 if attackData.beamHasLight {
 	_light_angle = image_angle;
 	_light_xscale = image_xscale / sprite_get_width(spr_light_square_midleft);
-	show_debug_message("image xscale " + string(image_xscale) + "; light_xscale " + string(_light_xscale));
+	// show_debug_message("image xscale " + string(image_xscale) + "; light_xscale " + string(_light_xscale));
 	// randomly waver the beam's width
 	randomize();
 	var rand = random_range(attackData.beamWidthWaverArray[0], attackData.beamWidthWaverArray[1]);
@@ -163,13 +191,13 @@ if owner.state == CombatantStates.Staggering && !hasSetAlarm {
 		
 	owner.prevAttackHand = limbKey;
 	//instance_destroy(id, true);
-	alarm[0] = 30;
+	alarm[0] = 15;
 	hasSetAlarm = true;
 	image_speed = 0;
 }
 
 if hasSetAlarm {
-	var gain = alarm[0]/30;
+	var gain = alarm[0]/15;
 	image_alpha = gain;
 	_light_alpha = gain * attackData.beamLightAlpha;
 	

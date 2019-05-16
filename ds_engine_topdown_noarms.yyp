@@ -343,6 +343,14 @@
             }
         },
         {
+            "Key": "052792ce-45cf-4b31-8f20-a3051ae459e9",
+            "Value": {
+                "id": "54b1b60b-edd8-4fd3-ab50-d86042517053",
+                "resourcePath": "sounds\\snd_elevator_button\\snd_elevator_button.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "056b3770-9aa9-4ff8-8801-78527af52ccc",
             "Value": {
                 "id": "780e31e4-b3f0-4178-b5ce-0eeef0f7708f",
@@ -636,6 +644,14 @@
                 "id": "3fae0cd5-1406-4482-8474-97d3aa94cba3",
                 "resourcePath": "objects\\obj_fountain_gui_gemmeditems\\obj_fountain_gui_gemmeditems.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "098381c0-1feb-4610-8bb1-951a43817af7",
+            "Value": {
+                "id": "361e4480-366c-49d6-b485-5fea65e7b5c5",
+                "resourcePath": "sounds\\snd_npc_rob_greeting_1\\snd_npc_rob_greeting_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -1455,6 +1471,14 @@
             }
         },
         {
+            "Key": "14a6d6ec-3540-499c-b74c-b9d28aa20558",
+            "Value": {
+                "id": "e1e9548b-59f4-40cc-8de1-7c3ab10a5d30",
+                "resourcePath": "sprites\\spr_factory_floor_1\\spr_factory_floor_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "14b327bb-f467-4f98-8944-72203e289b4e",
             "Value": {
                 "id": "f37b1919-18aa-4f5e-8973-682a25ce8941",
@@ -2143,6 +2167,14 @@
             }
         },
         {
+            "Key": "1f68a282-6a8c-43f3-bf26-a562567db653",
+            "Value": {
+                "id": "e5c1ae6c-9452-4c33-904a-c26bdb18db5a",
+                "resourcePath": "sprites\\spr_enemy_gear_throw_recover_1_1\\spr_enemy_gear_throw_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1f7e9b21-5d5e-44ad-9298-e074e64b33d9",
             "Value": {
                 "id": "190cca63-2527-4d79-bccb-e65e8394c05d",
@@ -2372,6 +2404,14 @@
                 "id": "aff7008a-a7ec-468c-932d-792b1e7c1045",
                 "resourcePath": "objects\\obj_player_gui_element_parent\\obj_player_gui_element_parent.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "221c538f-c010-4401-8085-39d6df663c8a",
+            "Value": {
+                "id": "7052af28-a569-4cd4-81fa-736747565193",
+                "resourcePath": "sprites\\spr_enemy_gear_stagger\\spr_enemy_gear_stagger.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3151,6 +3191,14 @@
             }
         },
         {
+            "Key": "2f8f2523-1a46-40c6-9a3c-5c4e69220817",
+            "Value": {
+                "id": "8fbcc0e5-b537-42fe-80bb-7fed547ad54e",
+                "resourcePath": "sounds\\snd_enemy_gear_hit_3\\snd_enemy_gear_hit_3.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "3028e6b1-5393-4a2c-b89f-ab1475ed7540",
             "Value": {
                 "id": "374861b2-cc6f-4c17-923d-02b9e0040e41",
@@ -3383,6 +3431,14 @@
             }
         },
         {
+            "Key": "33694916-360a-4aa6-8f86-9b218315abd2",
+            "Value": {
+                "id": "cb5eeeb2-ec6d-49e3-8ec8-b86977e1b574",
+                "resourcePath": "sounds\\snd_npc_rob_greeting_2\\snd_npc_rob_greeting_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "336b23b2-c1c2-4b2f-a7e9-3f7646cb0949",
             "Value": {
                 "id": "e9748874-adf6-4360-82ea-db3fbd9df17a",
@@ -3612,6 +3668,14 @@
                 "id": "998777a0-8577-4911-b67f-d288a5c73841",
                 "resourcePath": "scripts\\getItemPropertyString\\getItemPropertyString.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "3808ae7c-98a6-4b62-af51-a54afbb60fe8",
+            "Value": {
+                "id": "677bdc5e-7a41-466a-96bd-b3732a66a523",
+                "resourcePath": "views\\3808ae7c-98a6-4b62-af51-a54afbb60fe8.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -4151,6 +4215,14 @@
             }
         },
         {
+            "Key": "3f23cee8-3090-44be-8bf8-a70d3a8cef91",
+            "Value": {
+                "id": "b70481f1-a1a7-404a-b190-388389cebc10",
+                "resourcePath": "views\\3f23cee8-3090-44be-8bf8-a70d3a8cef91.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "3f38fda8-be5f-416d-89c1-931eb02d55b5",
             "Value": {
                 "id": "f22cf982-a662-413b-b7c7-049bb9f6a405",
@@ -4356,6 +4428,14 @@
                 "id": "354dd546-ca9c-4489-837b-0b6fcf4e4132",
                 "resourcePath": "sprites\\spr_player_hand_club_1h_recover_3\\spr_player_hand_club_1h_recover_3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "434fde56-0b77-4fdb-bc4f-618459539b26",
+            "Value": {
+                "id": "9a05c26d-e350-43bf-826f-7e2f903f9339",
+                "resourcePath": "sounds\\snd_enemy_gear_hit_2\\snd_enemy_gear_hit_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -4748,6 +4828,14 @@
                 "id": "9c1d650f-7d87-458d-9c2d-3a63a2070194",
                 "resourcePath": "scripts\\modifyBasePropertiesHat\\modifyBasePropertiesHat.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "48d16157-3908-4f17-9fa3-62c3a19272b7",
+            "Value": {
+                "id": "707e8c04-70c7-4863-870a-dd34c9373d74",
+                "resourcePath": "views\\48d16157-3908-4f17-9fa3-62c3a19272b7.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -5764,6 +5852,14 @@
                 "id": "daf6eeae-09f1-4456-93f6-663de47a1bd8",
                 "resourcePath": "scripts\\performSelectorUp\\performSelectorUp.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "59a73335-5124-4218-a03a-c4abecad894c",
+            "Value": {
+                "id": "f154b143-2163-4fd0-8aa6-9e817d4a704e",
+                "resourcePath": "sounds\\snd_enemy_gear_hit_4\\snd_enemy_gear_hit_4.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -7631,6 +7727,14 @@
             }
         },
         {
+            "Key": "77f0acbf-a1fa-4bf8-820d-963e615aed6d",
+            "Value": {
+                "id": "7cde8017-e549-4f81-b4c2-b33082e52c0e",
+                "resourcePath": "sprites\\spr_enemy_gear\\spr_enemy_gear.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "77f749e6-7956-4f5b-818b-e7e92a04b367",
             "Value": {
                 "id": "20620fb2-e2ba-4172-ab8f-05bc25034a94",
@@ -7876,6 +7980,14 @@
                 "id": "09357609-fc8e-4e77-8537-090b1324f3e3",
                 "resourcePath": "sprites\\spr_enemy_troll\\spr_enemy_troll.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7b116ff1-e34c-4933-83f0-627828086a82",
+            "Value": {
+                "id": "59e59a22-aec4-4d65-a028-adb600326d97",
+                "resourcePath": "sounds\\snd_enemy_gear_hit_1\\snd_enemy_gear_hit_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -9807,6 +9919,14 @@
             }
         },
         {
+            "Key": "9b1aa372-17f6-4067-932a-f6fb4cc5dd4b",
+            "Value": {
+                "id": "4178ec13-4607-43f8-acd1-bee11517bedc",
+                "resourcePath": "sounds\\snd_enemy_gear_death_2\\snd_enemy_gear_death_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "9b2ec71c-8c35-445e-a03f-1a9663a6805d",
             "Value": {
                 "id": "265eee39-8c69-484c-bf87-c0b7434742e7",
@@ -10804,6 +10924,14 @@
                 "id": "88375822-7595-4239-8bc5-eead84568b29",
                 "resourcePath": "views\\aa0c2f01-6c3e-4a87-bda7-c3afaad0cb43.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "aa0dadcd-ff89-45c0-991a-b5b909c5ec7d",
+            "Value": {
+                "id": "f10e8cd8-ff83-4571-9672-854fe4e58d0b",
+                "resourcePath": "sprites\\spr_enemy_gear_throw_prep_1_1\\spr_enemy_gear_throw_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -12711,6 +12839,14 @@
             }
         },
         {
+            "Key": "c76a5d64-c95a-4aba-b6ac-f059e97e9d3e",
+            "Value": {
+                "id": "9a75b6e1-0f3c-4f2c-94d5-5bc0e664da39",
+                "resourcePath": "views\\c76a5d64-c95a-4aba-b6ac-f059e97e9d3e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "c76b309a-e0e2-41ae-8c4f-143f49357ca7",
             "Value": {
                 "id": "96a0b4b3-d07c-4edb-bb53-effa18f7bd8d",
@@ -13543,6 +13679,14 @@
             }
         },
         {
+            "Key": "d4cb7902-2f51-421b-9204-d74c0d0cebe7",
+            "Value": {
+                "id": "f3862ae4-728b-4c9b-9cc5-9083aff4282d",
+                "resourcePath": "objects\\obj_attack_gear_throw_1_1\\obj_attack_gear_throw_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d4fe3baf-9497-4d48-8c13-3f40477f31b8",
             "Value": {
                 "id": "2ddf3db1-a27d-42d6-90e9-b51f68d79ee7",
@@ -13716,6 +13860,14 @@
                 "id": "00421f5b-b7f9-49dc-b648-02b1d7f00380",
                 "resourcePath": "sprites\\spr_player_hand_shield\\spr_player_hand_shield.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d82cb951-1287-4d8c-a028-e1930cba1277",
+            "Value": {
+                "id": "af8bf2da-f8ab-4bf4-b367-efcec37ad837",
+                "resourcePath": "sounds\\snd_enemy_gear_death_1\\snd_enemy_gear_death_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -14532,6 +14684,14 @@
                 "id": "cce347b2-44b9-475e-a81e-6664d116161b",
                 "resourcePath": "sprites\\spr_enemy_robot_charge_prep_1_1\\spr_enemy_robot_charge_prep_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e50a0d10-3a42-4f5a-9311-fa89983555c4",
+            "Value": {
+                "id": "fe2ed2ca-7b4d-428c-8685-8dffdd02ce15",
+                "resourcePath": "objects\\obj_enemy_gear\\obj_enemy_gear.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -15711,6 +15871,14 @@
             }
         },
         {
+            "Key": "fadacc94-f3f0-4b2a-a790-9249a4279c11",
+            "Value": {
+                "id": "671d5e84-bdbe-43be-aafd-51c562912b87",
+                "resourcePath": "sprites\\spr_enemy_gear_throw_attack_1_1\\spr_enemy_gear_throw_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "faec167f-3c3b-47fb-aadb-bb8ce3d12dc8",
             "Value": {
                 "id": "b0fc9aff-c84d-4e0c-bf28-41373d7cd003",
@@ -15783,6 +15951,14 @@
             }
         },
         {
+            "Key": "fb850a29-c199-4d45-97b6-4caf239aba07",
+            "Value": {
+                "id": "63ea899c-f539-40d0-a9e9-a313cbe5bdf5",
+                "resourcePath": "sprites\\spr_enemy_gear_move\\spr_enemy_gear_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "fbbb18bc-f658-419f-bb66-9d9dc596b6f5",
             "Value": {
                 "id": "d3e86b33-5d47-4a39-8d31-373f3e2b2a69",
@@ -15804,6 +15980,14 @@
                 "id": "a707c299-009d-4174-aca6-52788ae94634",
                 "resourcePath": "views\\fc5d1fcd-141a-4da0-937b-7b34aff26ca0.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "fc64731c-2fe4-4599-9422-b031c4b4f35e",
+            "Value": {
+                "id": "9141a575-453d-42df-a694-3ca263e5e295",
+                "resourcePath": "sounds\\snd_enemy_gear_prep_1\\snd_enemy_gear_prep_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {

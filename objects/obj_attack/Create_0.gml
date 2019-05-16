@@ -47,6 +47,9 @@ if owner.type != CombatantTypes.Player {
 		instance_change(attackData.attackObjectIndex, 1);
 		exit;
 	}
+	if attackData.isRanged && attackData.life != noone {
+		life = attackData.life;
+	}
 } else {
 	weapon = ds_map_find_value(owner.equippedLimbItems,limbKey);
 	isRanged = weapon.subType == HandItemTypes.Ranged;

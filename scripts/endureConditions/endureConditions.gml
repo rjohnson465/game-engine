@@ -4,7 +4,7 @@ if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked
 var currentCondition = ds_map_find_first(conditionLevels);
 var size = ds_map_size(conditionLevels);
 for (var i = 0; i < size; i++) {
-	if !arrayIncludes(global.ALL_ELEMENTS,currentCondition) exit;
+	if !arrayIncludes(global.ALL_ELEMENTS,currentCondition) continue;
 	var conditionLevel = ds_map_find_value(conditionLevels,currentCondition);
 	var conditionPercent = ds_map_find_value(conditionPercentages,currentCondition);
 	var defense = ds_map_find_value(defenses,currentCondition);

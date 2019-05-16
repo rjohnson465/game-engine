@@ -12,7 +12,7 @@ switch rm {
 		return [c_dkgray, c_dkgray, c_red]; break;
 	}
 	case rm_factory: {
-		var c = make_color_rgb(36, 33, 58);
+		var c = make_color_rgb(46, 43, 68);
 		return [c, c, c]; break;
 	}
 	case rm_dungeon2: {
