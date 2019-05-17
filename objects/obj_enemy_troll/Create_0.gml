@@ -47,6 +47,9 @@ ds_map_add(handItems,"rm1",staff);
 ds_map_replace(equippedLimbItems,"l",staff);
 ds_map_replace(equippedLimbItems,"r",spikedshield);
 
+var rightWep = makeLimblessWeapon(id,"r");
+var leftWep = makeLimblessWeapon(id,"l");
+
 // ATTACKS
 
 // currently chosen melee attack chain

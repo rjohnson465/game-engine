@@ -6935,6 +6935,14 @@
             }
         },
         {
+            "Key": "6cc518d3-89c7-41ae-93a9-26b8f5ec96e8",
+            "Value": {
+                "id": "bc8524e9-f698-46a1-bf4d-8b01ff357ba8",
+                "resourcePath": "objects\\obj_factory_cb_yellow\\obj_factory_cb_yellow.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6cc84bf8-dcf0-45c3-8d13-88d97e3b4bb4",
             "Value": {
                 "id": "614796a4-f692-4431-a793-0946a8f2a0f6",
@@ -7295,6 +7303,14 @@
             }
         },
         {
+            "Key": "717b8e41-6fbe-49c5-bf5f-1a340c85b0b8",
+            "Value": {
+                "id": "bab6dbbf-f3f4-4c09-b69c-8e806c8b42b8",
+                "resourcePath": "sprites\\spr_factory_cb_yellow_end\\spr_factory_cb_yellow_end.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "71989cbb-1e9c-4413-8041-4c741fc353b3",
             "Value": {
                 "id": "9df1bf76-f396-4bf1-b63e-cfa081d2fa56",
@@ -7603,6 +7619,14 @@
             "Value": {
                 "id": "7c30b01c-ba7c-4436-8992-94e257b4e33b",
                 "resourcePath": "sprites\\spr_player_hand_sword_1h_recover_1\\spr_player_hand_sword_1h_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "764f9b82-08df-461b-9ab7-ea5b03c8511b",
+            "Value": {
+                "id": "d5e98647-a756-4799-807c-b83e271d64cc",
+                "resourcePath": "sprites\\spr_factory_cb_yellow_mid\\spr_factory_cb_yellow_mid.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -9323,6 +9347,14 @@
             "Value": {
                 "id": "ab4ad7de-3135-4d78-b41e-16fd7f96598c",
                 "resourcePath": "sprites\\spr_player_hand_unarmed_recover_1\\spr_player_hand_unarmed_recover_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "907df723-63bc-4a48-a285-f30a5760b7c4",
+            "Value": {
+                "id": "230fd865-6965-490f-b4e8-cdb40c42d11e",
+                "resourcePath": "sprites\\spr_factory_cb_yellow_start\\spr_factory_cb_yellow_start.yy",
                 "resourceType": "GMSprite"
             }
         },

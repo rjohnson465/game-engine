@@ -168,10 +168,10 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 			facingDirection = direction;
 			var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
 			
-			// only play bounce sound once every 15 frames, at maximum
+			// only play bounce sound once every 7 frames, at maximum
 			if alarm[2] <= 0 {
 				audio_play_sound_at(snd,x,y,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
-				alarm[2] = 15;
+				alarm[2] = 7;
 			}
 			exit;
 			

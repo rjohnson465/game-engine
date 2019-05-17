@@ -1,1 +1,1 @@
-// for bouncing objects, only play bounce sound every 15 frames, at maximum
+// for bouncing objects, only play bounce sound every 7 frames, at maximum
