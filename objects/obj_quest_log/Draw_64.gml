@@ -16,7 +16,7 @@ if watchedQuest != noone && instance_exists(watchedQuest) && ds_exists(watchedQu
 	scr_draw_text_outline_ext(xx, yy, watchedQuest.name, c_fuchsia, c_silver, 1.25, 1.25, 0, c_black, -1, xw);
 	var titleHeight = string_height_ext(watchedQuest.name, -1, xw);
 	
-	if !watchedQuest.isFinished {
+	if !watchedQuest.isFinished && watchedQuest.currentQuestStep != noone {
 		scr_draw_text_outline_ext(xx,yy+titleHeight+15,watchedQuest.currentQuestStep.description,c_ltgray,c_white,1,1,0,c_black,-1,xw);
 	} else {
 		scr_draw_text_outline_ext(xx,yy+titleHeight+15,"Quest complete!",c_ltgray,c_white,1,1,0,c_black,-1,xw);
@@ -343,7 +343,7 @@ var w = 0;
 if ui.currentMenu == SKILLS && isActive {
 	// controller prompts
 	if gamepad_is_connected(pad) {
-		if selectedQuest != noone && selectedQuest.currentQuestStep.isRewardStep && !selectedQuest.isFinished {
+		if selectedQuest != noone && selectedQuest.currentQuestStep != noone && selectedQuest.currentQuestStep.isRewardStep && !selectedQuest.isFinished {
 			w += drawPrompt("Complete " + string(selectedQuest.name), Input.F,promptsStartX+w,promptsY)+xOffset;
 		}
 		if selectedQuest != noone && selectedQuest.isRepeatable && selectedQuest.isFinished {

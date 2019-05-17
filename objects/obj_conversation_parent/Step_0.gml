@@ -34,7 +34,25 @@ if isActive {
 		}
 		
 		currentSound = step.sound;
-		audio_play_sound_at(currentSound,owner.x,owner.y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		if currentSound != noone {
+			
+			var g = owner.greeting;
+			if is_array(g) {
+				for (var i = 0; i < array_length_1d(g); i++) {
+					var gr = g[i];
+					if audio_is_playing(gr) {
+						audio_stop_sound(gr);
+					}
+				}
+			} else {
+	 	
+				if audio_is_playing(owner.greeting) {
+					audio_stop_sound(owner.greeting);
+				}
+			}
+			
+			audio_play_sound_at(currentSound,owner.x,owner.y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		}
 	}
 	
 	
