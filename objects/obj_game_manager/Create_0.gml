@@ -214,3 +214,6 @@ deactivationBorder = 200;
 alarm[5] = deactivationSteps;
 
 persistent = true;
+
+selectedItemFilterAlpha = .75;
+selectedItemFilterAlphaFrame = 60;

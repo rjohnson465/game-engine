@@ -100,7 +100,7 @@ if gamepad_is_connected(pad) && isConfirming && selectedItem != noone && selecte
 		{
 			isYes = !isYes;
 			joystickInputFrame = 0;
-			audio_play_sound(snd_ui_click1,1,0);
+			audio_play_sound(snd_ui_option_change,1,0);
 		}
 	
 	if gamepad_button_check_pressed(pad,gp_face1) {

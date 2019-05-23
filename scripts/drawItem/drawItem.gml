@@ -1,11 +1,12 @@
-/// drawItem(item,x,y,*isInventoryItem, *scale, *alpha, *showIfEquipped)
+/// drawItem(item,x,y,*isInventoryItem, *scale, *alpha, *showIfEquipped, *showIfHighlighted)
 /// @param item
 /// @param x
 /// @param y
 /// @param isInventoryItem*
 /// @param scale*
 /// @param alpha*
-/// @param showIfEquipped* denotes whether or not to put a circle near the item
+/// @param showIfEquipped* denotes whether or not to draw equipped background color
+/// @param showIfHighlighted* denotes whether or not to draw the orange highlight under item, if item is highlighted
 
 var item = argument[0];
 var x1 = argument[1];
@@ -26,11 +27,37 @@ var showIfEquipped = isInventoryItem;
 if argument_count > 6 {
 	showIfEquipped = argument[6];
 }
+var showIfHighlighted = true; 
+if argument_count > 7 {
+	showIfHighlighted = argument[7];
+}
 
 var p = global.player;
 var inv = global.inventory;
 var slotWidth = inv.slotWidth;
 var slotHeight = inv.slotHeight;
+
+// if equipped, draw equipped color background
+if showIfEquipped && item.equipmentSlot != noone {
+	draw_sprite_ext(spr_item_slot, 1, x1, y1, scale, scale, 0, C_HANDLES, alpha);
+}
+
+// if highlighted, draw the highlight / selection
+if showIfHighlighted {
+	var activeSelector = global.ui.moveSelector.isActive ? global.ui.moveSelector : global.ui.equipSelector;
+	var isSelected = false; 
+	if variable_instance_exists(id, "selectedItem") {
+		isSelected = selectedItem == item;
+	}
+	var isActive2 = true;
+	if variable_instance_exists(id, "isActive") {
+		isActive2 = isActive;
+	}
+	if isSelected && isActive2 {
+		var hlc = item.equipmentSlot != noone ? c_aqua : c_orange;
+		draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,hlc,global.gameManager.selectedItemFilterAlpha);
+	}
+}
 
 if item.object_index == obj_item_coins && ds_list_find_index(global.player.inventory,item) != -1 {
 	draw_sprite_ext(spr_item_slot,1,x1,y1,scale,scale,0,c_dkgray,alpha);
@@ -58,6 +85,7 @@ if item.object_index == obj_item_health_flask {
 else {
 	draw_sprite_ext(item.itemSprite,1,x1,y1, scale, scale, 0, c_white, alpha);
 }
+/*
 // if this item is currently equipped, signify that (only for inventory items)
 if item.equipmentSlot != noone && showIfEquipped {
 	draw_set_color(c_maroon);
@@ -67,7 +95,8 @@ if item.equipmentSlot != noone && showIfEquipped {
 if item.beltItemIndex >= 0 && showIfEquipped {
 	draw_set_color(c_teal);
 	draw_circle(x1+slotWidth-10,y1+5,5,false);
-}
+} */
+
 // if this item is broken, signify that
 if item.type == ItemTypes.HandItem && isInventoryItem {
 	if item.durability <= 0 {

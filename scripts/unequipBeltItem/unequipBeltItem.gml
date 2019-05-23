@@ -11,4 +11,7 @@ if item == noone || item == undefined || !instance_exists(item) exit;
 
 p.beltItems[index] = noone;
 item.beltItemIndex = noone;
+
+
+// maybe?
 audio_play_sound(snd_ui_click1, 1, 0);

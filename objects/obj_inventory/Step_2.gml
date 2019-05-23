@@ -22,7 +22,8 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderr) && !isE
 
 }
 
-// equip belt item
+// equip belt item 
+/*
 if filter == InventoryFilters.Other && gamepad_button_check_pressed(global.player.gamePadIndex, gp_face3) {
 	if selectedItem != noone && selectedItem.isUsable {
 		// enter the 'belt item equipping' mode
@@ -31,7 +32,7 @@ if filter == InventoryFilters.Other && gamepad_button_check_pressed(global.playe
 			justStartedBeltEquipping = true;
 		}
 	}
-}
+} */
 
 if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderl) && !isEquipping {
 	audio_play_sound(snd_ui_tab2,1,0);
@@ -46,7 +47,8 @@ if gamepad_button_check_pressed(global.player.gamePadIndex,gp_shoulderl) && !isE
 }
 
 // destroy item
-if gamepad_button_check_pressed(global.player.gamePadIndex,gp_face4) {
+// TODO change to joystick click
+if gamepad_button_check_pressed(global.player.gamePadIndex,gp_stickr) {
 	if !global.player.isEquippingBeltItem && selectedItem != noone && selectedItem.isDestroyable && isSelectorInInventory(global.ui.moveSelector) {
 		isConfirmingDestroyItem = true;
 		audio_play_sound(snd_ui_tab1,1,0);

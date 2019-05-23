@@ -3,6 +3,7 @@
 if global.isWishing exit;
 if global.isTrading exit;
 if global.isInteractingWithNpc exit;
+if global.ui.isShowingMenus exit;
 
 var isFading = false;
 with obj_fade {

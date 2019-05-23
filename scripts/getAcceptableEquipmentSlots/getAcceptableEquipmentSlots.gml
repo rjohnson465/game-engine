@@ -33,5 +33,16 @@ switch item.type {
 	case ItemTypes.Head: {
 		return [EquipmentSlots.Head]; break;
 	}
+	case ItemTypes.Other: {
+		if item.isUsable {
+			return [
+				EquipmentSlots.BeltItem1,
+				EquipmentSlots.BeltItem2,
+				EquipmentSlots.BeltItem3,
+				EquipmentSlots.BeltItem4,
+				EquipmentSlots.BeltItem5,
+			];
+		}
+	}
 
 }

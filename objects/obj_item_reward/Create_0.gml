@@ -5,8 +5,8 @@ isYes = false;
 
 selectedItem = noone;
 inv = ds_list_create();
-items = noone;
-isActive = false;
+items = ds_list_create();
+isActive = true;
 
 slotWidth = sprite_get_width(spr_item_slot);
 slotHeight = sprite_get_height(spr_item_slot);

@@ -115,3 +115,4 @@ selectedBeltItemIndex = 0;
 justStartedBeltEquipping = false;
 
 isShowingItemInfo2 = false;
+

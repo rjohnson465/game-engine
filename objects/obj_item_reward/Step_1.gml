@@ -1,3 +1,4 @@
+global.isTrading = true;
 if chosenRewardsCount >= chosenRewardsLimit {
 	instance_destroy(id,1);
 }

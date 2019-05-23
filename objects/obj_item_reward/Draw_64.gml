@@ -34,7 +34,7 @@ if isConfirming {
 		buttonColor = c_green;
 	} else {
 		textColor = c_ltgray;
-		buttonColor = c_olive;
+		buttonColor = c_gray;
 		if confirmOption != "N" {
 			confirmOption = noone;
 		}
@@ -72,7 +72,7 @@ if isConfirming {
 		buttonColor = c_red;
 	} else {
 		textColor = c_ltgray;
-		buttonColor = c_maroon;
+		buttonColor = c_gray;
 		if confirmOption != "Y" {
 			confirmOption = noone;
 		}

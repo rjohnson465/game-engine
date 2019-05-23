@@ -128,6 +128,12 @@ if ds_map_size(ambPeriodicalsMap) > 0 {
 	}
 }
 
+selectedItemFilterAlpha = .5*cos((pi*selectedItemFilterAlphaFrame)/30)+.6; // fluctuate alpha for selected item filter
+selectedItemFilterAlphaFrame--;
+if selectedItemFilterAlphaFrame <= 0 {
+	selectedItemFilterAlphaFrame = 60;
+}
+
 /*
 var vx = camera_get_view_x(view_camera[0]); var vy = camera_get_view_y(view_camera[0]);
 var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(view_camera[0]);

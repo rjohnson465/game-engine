@@ -1,6 +1,8 @@
 // lock on target logic
 
 if global.isWishing exit;
+if global.ui.isShowingMenus exit;
+
 var origTarget = lockOnTarget;
 var lockOnInputReceived = keyboard_check_released(vk_control);
 var lockOnInputChangeReceived = keyboard_check_released(vk_tab);

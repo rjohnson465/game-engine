@@ -4,7 +4,9 @@ if global.fountainGui.currentSubMenu == CHOOSEITEM {
 }
 else if global.fountainGui.currentSubMenu == NAMEPRICE {
 	draw_set_alpha(.5);
+	isActive = false;
 } else {
+	isActive = true;
 	draw_set_alpha(1);
 }
 

@@ -4,7 +4,7 @@ var ei = global.player.equippedItems;
 for (var i = 0; i < ds_list_size(ei); i++) {
 	var it = ds_list_find_value(ei,i);
 	if it.equipmentSlot == slot && global.ui.isShowingMenus && global.ui.currentMenu == INVENTORY && it != global.ui.grabbedItem {
-		drawItem(it,x1,y1,0);
+		drawItem(it,x1,y1,1,1,1,0);
 	}
 }
 
@@ -25,6 +25,7 @@ if item != noone && !item != undefined && item == global.ui.grabbedItem {
 	draw_sprite_ext(item.itemSprite,1,mouse_x-vx-32,mouse_y-vy-32,xs,ys,0,c_white,1);
 }
 
+/*
 if item != noone && instance_exists(item) && !gamepad_is_connected(global.gamePadIndex) && global.equippedItemsManager.selectedItem == item && item.name != "Unarmed" {
 	drawSelector(x1,y1);
 }

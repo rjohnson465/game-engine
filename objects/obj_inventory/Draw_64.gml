@@ -152,6 +152,7 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 }
 
 filterInvItems(inventory, filter);
+
 	
 var row = 1; var col = 1;
 // row 1, col 1 = ???
@@ -169,14 +170,16 @@ for (var i = 0; i < 20; i++) {
 		item.x1 = x1;
 		item.y1 = y1;
 					
+		
+					
 		// draw slot darker if mouse over and its the nearest one to mouse
 		if position_meeting(mouse_x,mouse_y,item) {
 			draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,c_gray,.25);
-		} else if selectedItem == item {
-			draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,c_gray,.75);
-		}
+		} /*else if isSelectorInInventory(activeSelector) && selectedItem == item {
+			draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,c_orange,global.gameManager.selectedItemFilterAlpha);
+		}*/
 		else draw_sprite(spr_item_slot,1,x1,y1);
-		drawItem(item,x1,y1);
+		drawItem(item,x1,y1, 1, 1, 1, 1, 1);
 	} 
 }
 
@@ -198,9 +201,9 @@ draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBo
 // show selected inventory item info
 if selectedItem && ds_list_find_index(inv, selectedItem) != -1 {
 	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,selectedItem);
-} else if ds_list_size(inv) > 0 {
-	selectedItem = ds_list_find_value(inv, 0);
-}
+} /*else if global.equippedItemsManager.selectedItem >= 0 {
+	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,global.equippedItemsManager.selectedItem);
+}*/
 
 // instructions / prompts
 var promptsStartX = topLeftX+18;
@@ -219,45 +222,43 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 			}
 		}
 	
-		if itemAtMoveSelector != noone && itemAtMoveSelector.isUsable {
-			w += drawPrompt("Use Item",Input.F,promptsStartX,promptsY)+xOffset;
-		} else {
-			if itemAtMoveSelector != noone && itemAtMoveSelector.type == ItemTypes.Other {
-			} else if itemAtMoveSelector != noone && !isSelectorInEquippedItems(global.ui.moveSelector) {
-				//w += drawPrompt("Equip "+itemAtMoveSelector.name,Input.F,promptsStartX,promptsY)+xOffset;
-				w += drawPrompt("Equip Item",Input.F,promptsStartX,promptsY)+xOffset;
-			} else if isSelectorInEquippedItems(global.ui.moveSelector) {
-				var s = getSlotAtSelector(global.ui.moveSelector);
-				if s {
-					var slotName = s.name;
-					w += drawPrompt("Equip for "+slotName,Input.F,promptsStartX,promptsY)+xOffset;
-				}
+		 
+		if itemAtMoveSelector != noone && (itemAtMoveSelector.type == ItemTypes.Other && !itemAtMoveSelector.isUsable) {
+		} else if itemAtMoveSelector != noone && !isSelectorInEquippedItems(global.ui.moveSelector) {
+
+			w += drawPrompt("Equip Item",Input.F,promptsStartX,promptsY)+xOffset;
+		} else if isSelectorInEquippedItems(global.ui.moveSelector) {
+			var s = getSlotAtSelector(global.ui.moveSelector);
+			if s {
+				var slotName = s.name;
+				w += drawPrompt("Equip for "+slotName,Input.F,promptsStartX,promptsY)+xOffset;
 			}
 		}
+		
 		if global.ui.equipSelector.isActive {
 			w += drawPrompt("Cancel Equip",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		} 
 		// if item at move selector position is equipped and selector is in equipped items, prompt for unequip 
 		else if 
 			itemAtMoveSelector != noone
-			&& isSelectorInEquippedItems(global.ui.moveSelector)
-			&& ds_list_find_index(eq,itemAtMoveSelector) != -1
+			// && isSelectorInEquippedItems(global.ui.moveSelector)
+			&& itemAtMoveSelector.equipmentSlot != noone
 			&& !object_is_ancestor(itemAtMoveSelector.object_index,obj_unarmed_parent) { 
 			
 			//w += drawPrompt("Unequip "+itemAtMoveSelector.name,Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 			w += drawPrompt("Unequip Item",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		}
-		// prompt to toggle info with X
-		else if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && selectedItem.type != ItemTypes.Other && isSelectorInInventory(global.ui.moveSelector) && !selectedItem.isUsable {
-			w += drawPrompt("Toggle Item Info",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+		if itemAtMoveSelector != noone && itemAtMoveSelector.isUsable {
+			w += drawPrompt("Use Item",Input.Face4,promptsStartX+w,promptsY)+xOffset;
 		}
-		else if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && selectedItem.isUsable {
-			w += drawPrompt("Equip Item To Belt",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+		// prompt to toggle info with Y
+		if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && selectedItem.type != ItemTypes.Other && isSelectorInInventory(global.ui.moveSelector) && !selectedItem.isUsable {
+			w += drawPrompt("Toggle Item Info",Input.Face4,promptsStartX+w,promptsY)+xOffset;
 		}
 	
+		// Destroy item with joystick click
 		if selectedItem != noone && selectedItem.isDestroyable && isSelectorInInventory(global.ui.moveSelector) {
-			//w += drawPrompt("Destroy " + selectedItem.name,Input.Face4,promptsStartX+w,promptsY)+xOffset;
-			w += drawPrompt("Destroy Item" ,Input.Face4,promptsStartX+w,promptsY)+xOffset;
+			w += drawPrompt("Destroy Item" ,Input.DestroyInput,promptsStartX+w,promptsY)+xOffset;
 		}
 	
 		w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
@@ -283,23 +284,25 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 }
 // m/k prompts
 else {
-	if !isConfirmingDestroyItem && !global.player.isEquippingBeltItem {
-		w += drawPrompt("Drag items to equip / unequip",Input.LMB,promptsStartX+w,promptsY)+xOffset;
-		//if selectedItem != noone && selectedItem.isUsable {
-			w += drawPrompt("Use Item",Input.RMB,promptsStartX+w,promptsY)+xOffset;
-		//}
+	if !isConfirmingDestroyItem {
+		w += drawPrompt("Drag items to equip",Input.LMB,promptsStartX+w,promptsY)+xOffset;
+
+		w += drawPrompt("Use Item",Input.RMB,promptsStartX+w,promptsY)+xOffset;
 		if selectedItem != noone && selectedItem.isDestroyable {
 			w += drawPrompt("Destroy Item",Input.MMB,promptsStartX+w,promptsY)+xOffset;
 		}
+		
+		if selectedItem != noone && selectedItem.type != ItemTypes.Other {
+			w += drawPrompt("Toggle Item Info",Input.Control,promptsStartX+w,promptsY)+xOffset;
+		}
+		
+		
 		if global.ui.isShowingExplanations {
 			w += drawPrompt("Show Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
 		} else {
 			w += drawPrompt("Explain Stats",Input.Shift,promptsStartX+w,promptsY)+xOffset;
 		}
 		w += drawPrompt("Close Menu",Input.Escape,promptsStartX+w,promptsY)+xOffset;
-	} else if global.player.isEquippingBeltItem {
-		promptsStartX += 80;
-		w += drawPrompt("Drag item over belt slot to equip",Input.Mouse,promptsStartX,promptsY)+xOffset;
 	}
 }
 

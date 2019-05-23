@@ -106,12 +106,14 @@ if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 		// only cycle through actual items in belt slots. ignore empty belt slots
 		var newBeltItem = noone;
 		var newBeltItemIndex = currentBeltItemIndex;
-		while (newBeltItem == noone) {
+		var iterations = 0;
+		while (newBeltItem == noone && iterations < 10) {
 			newBeltItemIndex--;
 			if newBeltItemIndex < 0 {
 				newBeltItemIndex = 4;
 			}
 			newBeltItem = beltItems[newBeltItemIndex];
+			iterations++;
 		}
 			
 		currentBeltItemIndex = newBeltItemIndex;
@@ -122,12 +124,14 @@ if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 		// only cycle through actual items in belt slots. ignore empty belt slots
 		var newBeltItem = noone;
 		var newBeltItemIndex = currentBeltItemIndex;
-		while (newBeltItem == noone) {
+		var iterations = 0;
+		while (newBeltItem == noone && iterations < 10) {
 			newBeltItemIndex++;
 			if newBeltItemIndex > 4 {
 				newBeltItemIndex = 0;
 			}
 			newBeltItem = beltItems[newBeltItemIndex];
+			iterations++;
 		}
 			
 		currentBeltItemIndex = newBeltItemIndex;

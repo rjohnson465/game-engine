@@ -238,7 +238,7 @@ if (gamepad_is_connected(pad)) {
 
 
 // show belt items, mouse/keyboard
-// TODO -- show this under attunements, since it is always there
+// -- show this under attunements, since it is always there
 // draw belt
 
 var bScale = .625; // draw items at .625 scale, so they line up with attunements
@@ -261,13 +261,14 @@ if !gamepad_is_connected(pad) {
 			alpha = 1;
 			p.currentBeltItemIndex = i;
 			
-			if mouse_check_button_pressed(mb_left) {
+			// any mouse click will use item
+			if mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_right) {
 				with p {
 					performUseBeltItem();
 				}
 			}
 			
-			if mouse_check_button_pressed(mb_right) {
+			if mouse_check_button_pressed(mb_middle) {
 				unequipBeltItem(i);
 			}
 		}
@@ -280,7 +281,7 @@ if !gamepad_is_connected(pad) {
 		draw_set_font(font_damage); draw_set_valign(fa_bottom); draw_set_halign(fa_left);
 		scr_draw_text_outline(x1, y1 + bSlotWidth, string(i+1), c_white, c_white);
 	}
-}
+} 
 
 // draw 
 if isDrawingAttunements {

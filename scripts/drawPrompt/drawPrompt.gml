@@ -124,6 +124,10 @@ for (var i = 0; i < array_length_1d(keys); i++) {
 			sprite = spr_prompt_mk_ctrl;
 			break;
 		}
+		case Input.DestroyInput: {
+			sprite = isGamepadConnected ? spr_prompt_xbox_rs_click : spr_prompt_mk_mb;
+			break;
+		}
 	}
 	
 	ds_map_replace(spritesMap,i,sprite);

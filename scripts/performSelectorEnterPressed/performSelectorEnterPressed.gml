@@ -11,7 +11,7 @@ if item < 0 && isSelectorInInventory() exit;
 switch type {
 	// if selector type and hovering over an equipped item, activate the equip selector object
 	case SelectorTypes.Select: {
-		if isSelectorInEquippedItems() || isSelectorInInventory() && item.type != ItemTypes.Other {
+		if isSelectorInEquippedItems() || isSelectorInInventory() && (item.type != ItemTypes.Other || item.isUsable) {
 			isActive = false;
 			var item = getItemAtSelectorPosition(id);
 			if item != noone {
@@ -20,9 +20,11 @@ switch type {
 			//global.inventory.scrollLevel = 0;
 			// find Equip selector and activate it (in End Step event)
 		} else if item.type == ItemTypes.Other && item.isUsable {
-			with global.player {
+			
+			/*with global.player {
 				useItem(item);
-			}
+			}*/
+			
 		}
 		break;
 	}

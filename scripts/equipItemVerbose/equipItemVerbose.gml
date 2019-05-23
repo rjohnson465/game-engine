@@ -40,6 +40,8 @@ with slotObj {
 	
 	var headItemPredicate = droppedItem.type == ItemTypes.Head && slot == EquipmentSlots.Head;
 	
+	var beltPredicate = droppedItem.type == ItemTypes.Other && droppedItem.isUsable;
+	
 	if handItemPredicate {		
 		// if this item was equipped anywhere else, unequip it from that slot
 		if droppedItem.equipmentSlot != noone {
@@ -153,5 +155,8 @@ with slotObj {
 		}
 		
 		equipItem(droppedItem,slot);
+	} else if beltPredicate {
+		// Unequipping old belt items happens automatically, I hope?
+		equipItem(droppedItem, slot);
 	}
 }

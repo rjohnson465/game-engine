@@ -10,7 +10,7 @@ var ui = global.ui;
 
 var drawDark = false;
 with obj_item_selector {
-	if x1 == xx && y1 == yy && (isActive || type == SelectorTypes.Select) {
+	if x1 == xx && y1 == yy && (isActive /* || type == SelectorTypes.Select*/) {
 		drawDark = true;
 	} 
 }
@@ -38,6 +38,8 @@ if	(slot == EquipmentSlots.RightHand1 &&
 // if this slot holds the equipment manager's selectd item, draw dark
 
 var selectedItem = global.equippedItemsManager.selectedItem;
+var itemSelectorAt = getItemAtSelectorPosition(global.ui.moveSelector);
+if selectedItem != itemSelectorAt selectedItem = noone;
 for (var i = 0; i < ds_list_size(global.player.equippedItems); i++) {
 	var item = ds_list_find_value(global.player.equippedItems,i);
 	if item == selectedItem && item.equipmentSlot == slot {
@@ -52,7 +54,7 @@ if drawGreen && drawDark {
 else if drawGreen {
 	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_green,.75);
 } else if drawDark {
-	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_gray,.75);
+	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_orange,global.gameManager.selectedItemFilterAlpha);
 } else if drawBlack {
 	draw_sprite(spr_item_slot,1,xx,yy);
 	var twoHandedItem = getItemAtSelectorPosition(ui.moveSelector);

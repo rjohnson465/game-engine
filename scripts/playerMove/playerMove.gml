@@ -1,6 +1,7 @@
 if isFlinching || global.ui.isShowingMenus {
 	exit;
 }
+if global.isTrading exit;
 if fallFrame != fallTotalFrames {
 	isSprinting = false;
 	exit;

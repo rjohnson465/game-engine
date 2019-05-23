@@ -40,6 +40,10 @@ switch slot {
 		name = "Head";
 		break;
 	}
+	default: {
+		name = "Belt Item";
+		break;
+	}
 }
 up = global.up;
 down = global.down;

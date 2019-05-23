@@ -12,5 +12,7 @@ else if isSelectorInEquippedItems() {
 	moveSelectorInEquippedItems("left");
 	if !isSelectorInInventory {
 		eq.selectedItem = getItemAtSelectorPosition(id);
+	} else {
+		eq.selectedItem = noone;
 	}
 }

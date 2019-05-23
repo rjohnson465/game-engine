@@ -27,6 +27,13 @@ if isInUse {
 		ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount - 1);
 		
 		var p = global.player;
+		
+		// if this item was equipped, remove it from the list of equipped items
+		if equipmentSlot != noone {
+			var pos = ds_list_find_index(p.equippedItems, id);
+			ds_list_delete(p.equippedItems, pos);
+		}
+		
 		// clear this spot in the belt, if it was a beltItem
 		if beltItemIndex != noone {
 			p.beltItems[beltItemIndex] = noone;
@@ -84,7 +91,7 @@ if !global.ui.isShowingMenus || global.ui.currentMenu != INVENTORY {
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
 var eim = global.equippedItemsManager;
-if point_in_rectangle(mouse_x,mouse_y,vx+eim.topLeftX,vy+eim.topLeftY,vx+eim.bottomRightX,vy+eim.bottomRightY) {
+if true { // point_in_rectangle(mouse_x,mouse_y,vx+eim.topLeftX,vy+eim.topLeftY,vx+eim.bottomRightX,vy+eim.bottomRightY) {
 	acceptableEquipmentSlots = getAcceptableEquipmentSlots(id);
 } else {
 	acceptableEquipmentSlots = [];

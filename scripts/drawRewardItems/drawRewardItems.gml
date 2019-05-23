@@ -188,14 +188,18 @@ for (var i = 0; i < 20; i++) {
 			draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,c_gray,.75);
 		}
 		else draw_sprite(spr_item_slot,1,x1,y1);
-		drawItem(item,x1,y1);
+		drawItem(item,x1,y1, 1, 1, 1, 1, 1);
 	} 
 }
 		
 // selected item details box
 draw_set_color(c_dkgray);
 draw_rectangle(itemDescriptionTopLeftX,itemDescriptionTopLeftY,itemDescriptionBottomRightX,itemDescriptionBottomRightY,false);
-			
+
+if selectedItem <= 0 && ds_exists(items, ds_type_list) {
+	selectedItem = ds_list_find_value(items, 0);
+}
+
 // show selected inventory item info
 if selectedItem {
 	showItemInfo(itemDescriptionTopLeftX,itemDescriptionTopLeftY,selectedItem);

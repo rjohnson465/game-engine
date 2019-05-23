@@ -150,7 +150,8 @@ enum Input {
 	PadUD,
 	PadLR,
 	Face4, // Y
-	Control
+	Control,
+	DestroyInput, // Click joystick / middle mouse buttondraw
 }
 
 isShowingExplanations = false;

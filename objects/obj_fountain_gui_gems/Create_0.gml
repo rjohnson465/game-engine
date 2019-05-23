@@ -94,3 +94,5 @@ itemDescriptionColY = itemDescriptionTopLeftY+itemDescriptionHandleHeight;
 
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;
+
+isActive = false;

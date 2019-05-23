@@ -7,7 +7,7 @@ if !isSelectorAtLastInventoryColumn() && isSelectorInInventory() {
 		inv.selectedItem = getItemAtSelectorPosition(id);
 	}
 } else if isSelectorAtLastInventoryColumn() {
-	if type == SelectorTypes.Select {
+	/*if type == SelectorTypes.Select {
 		// go to lefthanditem1 slot
 		var s = noone;
 		with obj_equipmentslot {
@@ -18,7 +18,8 @@ if !isSelectorAtLastInventoryColumn() && isSelectorInInventory() {
 		if s == noone exit;
 		x1 = s.x1;
 		y1 = s.y1;
-	}
+		inv.selectedItem = noone;
+	}*/
 }
 
 else if isSelectorInEquippedItems() {

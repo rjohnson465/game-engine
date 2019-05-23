@@ -54,4 +54,31 @@ if gamepad_is_connected(pad) && global.ui.isShowingMenus && global.ui.currentMen
 		performSelectorBackspacePressed();
 	}
 	
+	// show more info / use item
+	if gamepad_button_check_pressed(pad, gp_face4) {
+		
+		var item = noone;
+		if isSelectorInInventory() {
+			item = getItemAtSelectorPosition(id);
+		} else if isSelectorInEquippedItems(id) {
+			var slotObj = getSlotAtSelector(id);
+			item = getItemInEquipmentSlot(slotObj.slot);
+		}
+		
+		// if we're in inventory (not equipped items) and press Y, show more alt item info, if applicable
+		if !isSelectorInEquippedItems(id) && type == SelectorTypes.Select {
+			// only do this if this isn't a cancel equip action and the item we're currently on is not equipped
+			var eqSel = global.ui.equipSelector;
+			if !eqSel.isActive && (item == noone || (item != noone && item.type != ItemTypes.Other)) {
+				global.inventory.isShowingItemInfo2 = !global.inventory.isShowingItemInfo2;
+				exit;
+			} else if item && item.isUsable {
+				with global.player {
+					useItem(item);
+				}
+			}
+	
+		}
+	}
+	
 }

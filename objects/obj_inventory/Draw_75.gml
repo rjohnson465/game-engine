@@ -27,7 +27,7 @@ if isConfirmingDestroyItem {
 		buttonColor = c_green;
 	} else {
 		textColor = c_ltgray;
-		buttonColor = c_olive;
+		buttonColor = c_gray;
 		if confirmDestroyOption != "N" && !gamepad_is_connected(pad) {
 			confirmDestroyOption = noone;
 		}
@@ -61,7 +61,7 @@ if isConfirmingDestroyItem {
 		buttonColor = c_red;
 	} else {
 		textColor = c_ltgray;
-		buttonColor = c_maroon;
+		buttonColor = c_gray;
 		if confirmDestroyOption != "Y" && !gamepad_is_connected(pad) {
 			confirmDestroyOption = noone;
 		}

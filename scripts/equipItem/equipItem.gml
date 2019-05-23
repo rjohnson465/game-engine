@@ -14,6 +14,41 @@ var equippedItems = global.player.equippedItems;
 ds_list_add(equippedItems,item);
 item.equipmentSlot = slot;
 
+if	slot == EquipmentSlots.BeltItem1 || 
+	slot == EquipmentSlots.BeltItem2 ||
+	slot == EquipmentSlots.BeltItem3 ||
+	slot == EquipmentSlots.BeltItem4 ||
+	slot == EquipmentSlots.BeltItem5 {
+		
+		var index = -1;
+		
+		switch (slot) {
+			case EquipmentSlots.BeltItem1: {
+				index = 0;
+				break;
+			}
+			case EquipmentSlots.BeltItem2: {
+				index = 1;
+				break;
+			}
+			case EquipmentSlots.BeltItem3: {
+				index = 2;
+				break;
+			}
+			case EquipmentSlots.BeltItem4: {
+				index = 3;
+				break;
+			}
+			case EquipmentSlots.BeltItem5: {
+				index = 4;
+				break;
+			}
+		}
+		
+		equipBeltItem(index, item);
+		exit;
+	}
+
 // set x1 and y1 values for newly equipped item
 // set equippedLimbItem if slot was LeftHand1 or RightHand1
 if slot == EquipmentSlots.LeftHand1 {

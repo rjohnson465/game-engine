@@ -50,7 +50,12 @@ enum EquipmentSlots {
 	LeftRing1,
 	LeftRing2,
 	RightRing1,
-	RightRing2
+	RightRing2,
+	BeltItem1,
+	BeltItem2,
+	BeltItem3,
+	BeltItem4,
+	BeltItem5
 }
 
 tutorialFirstsMap = defineFirstsTutorialMessages();
@@ -184,7 +189,6 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 
 var hf = instance_create_depth(x,y,1,obj_item_health_flask);
 addItemToInventory(hf);
-
 
 if global.populateInventory && !global.gameManager.isLoading {
 	
@@ -388,7 +392,8 @@ beltItems[2] = noone;
 beltItems[3] = noone;
 beltItems[4] = noone;
 currentBeltItemIndex = 0; // this is the index of item that will be used when X is pressed
-equipBeltItem(0,hf);
+equipItem(hf, EquipmentSlots.BeltItem1);
+//equipBeltItem(0,hf);
 
 healingFrame = 0;
 healingTotalFrames = sprite_get_number(spr_player_heal);

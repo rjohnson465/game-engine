@@ -19,9 +19,11 @@ if item.object_index == obj_item_health_flask && state != CombatantStates.Healin
 }
 
 with item {
-	// alert("Used " + name,c_yellow);
 	isInUse = true;
-	if other.state != CombatantStates.Healing {
-		// audio_play_sound(soundUse,1,0);
-	}
+}
+
+if item.equipmentSlot != noone {
+	var eq = global.player.equippedItems;
+	var pos = ds_list_find_index(eq, item);
+	ds_list_delete(eq, pos);
 }

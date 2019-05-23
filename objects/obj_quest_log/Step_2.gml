@@ -7,6 +7,7 @@ if isActive && gamepad_is_connected(pad) {
 	if gamepad_button_check_pressed(pad,gp_padl) {
 		isActive = false;
 		global.skillManager.isActive = true;
+		audio_play_sound(snd_ui_option_change, 1, 0);
 	}
 	
 	// scroll down quest log

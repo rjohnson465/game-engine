@@ -1,5 +1,5 @@
 /// isSelectorInInventory(*selectorId)
-/// *selectorId
+/// @param *selectorId
 
 var selectorX = 0; var selectorY = 0;
 if argument_count == 1 {

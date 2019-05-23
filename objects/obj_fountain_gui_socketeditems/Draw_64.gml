@@ -8,6 +8,9 @@ draw_line(topLeftX, topLeftY+subMenuTitleHeight, bottomRightX, topLeftY+subMenuT
 
 if global.fountainGui.currentSubMenu != CHOOSEITEM {
 	draw_set_alpha(.5);
+	isActive = false;
+} else {
+	isActive = true;
 }
 
 draw_set_color(c_white);

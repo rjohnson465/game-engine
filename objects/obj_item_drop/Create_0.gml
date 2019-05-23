@@ -50,7 +50,7 @@ hasSetAlarm = false;
 var floorNum = getLayerFloorNumber(layer);
 lightRadiusAlpha = calculateLightRadiusAlphaLayer(floorNum)*2;
 if lightRadiusAlpha < .5 lightRadiusAlpha = .5;
-lightRadiusScale = .1;
+lightRadiusScale = .25;
 lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
@@ -65,12 +65,13 @@ emitter = part_emitter_create(system);
 // item particle
 var magic = part_type_create();
 part_type_shape(magic, pt_shape_spark);
-part_type_color2(magic,c_olive,c_yellow);
+part_type_color2(magic,C_GOLD,c_white);
 part_type_orientation(magic,0,0,0,15,1);
-part_type_size(magic,0.05,0.1,0,0);
+part_type_size(magic,0.01,0.15,0,0);
 part_type_speed(magic,.25,1,0,0);
 part_type_direction(magic,0,360,0,4);
-part_type_life(magic,10,15);
+part_type_life(magic,20,30);
+part_type_alpha2(magic, 1, .1);
 particle = magic;
 
 if ds_list_size(items) == 0 {
