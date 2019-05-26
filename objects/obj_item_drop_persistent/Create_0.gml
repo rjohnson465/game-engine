@@ -67,7 +67,4 @@ isNonPriorityInteractable = true;
 isLooted = false;
 ds_map_replace(properties, "isLooted", false);
 
-/*
-if ds_list_size(items) == 0 {
-	instance_destroy(id,1);
-}
+distToPickup = 33;

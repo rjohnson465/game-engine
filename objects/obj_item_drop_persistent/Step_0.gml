@@ -16,8 +16,8 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if distance_to_object(obj_player) < 20 && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting && !isInConvo {
-	// only loot the closest item, if multiple items exist that are within 20px of player
+if distance_to_object(obj_player) < distToPickup && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting && !isInConvo {
+	// only loot the closest item, if multiple items exist that are within distToPickuppx of player
 	if instance_nearest(global.player.x,global.player.y,obj_item_drop_persistent) == id {
 		var isDestroying = false;
 		with obj_item_drop_persistent {
@@ -32,16 +32,16 @@ if distance_to_object(obj_player) < 20 && layer == global.player.layer && intera
 		}
 	}
 } 
-else if distance_to_object(obj_player) < 20 && global.player.isAlive && !global.isLooting {
+else if distance_to_object(obj_player) < distToPickup && global.player.isAlive && !global.isLooting {
 	global.canLoot = true;
 }
-else if distance_to_object(obj_player) >= 20 {
+else if distance_to_object(obj_player) >= distToPickup {
 	isBeingLooted  = false;
 	global.canLoot = false;
 }
 
 // ensure items are not anywhere on screen if not being looted
-if (!isBeingLooted && ds_exists(items,ds_type_list)) || (distance_to_object(obj_player) > 20 && ds_exists(items,ds_type_list))  {
+if (!isBeingLooted && ds_exists(items,ds_type_list)) || (distance_to_object(obj_player) > distToPickup && ds_exists(items,ds_type_list))  {
 	for (var i = 0; i < ds_list_size(items); i++) {
 		var item = ds_list_find_value(items,i);
 		item.x1 = -100;
