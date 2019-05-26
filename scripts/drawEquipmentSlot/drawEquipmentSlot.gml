@@ -21,22 +21,31 @@ if	arrayIncludes(ui.equipSelector.acceptableEquipmentSlots, slot)
 	{
 	drawGreen = true;
 }
+
+// if mouse over an acceptable equip slot, dark dark
+var slotWidth = sprite_get_width(spr_item_slot);
+if !gamepad_is_connected(global.player.gamePadIndex) && drawGreen && mouseOverGuiRect(xx, yy, xx + slotWidth, yy + slotWidth) {
+	drawDark = true;
+}
+
 var drawBlack = false; 
 if	(slot == EquipmentSlots.RightHand1 && 
 	arrayIncludes(ui.equipSelector.acceptableEquipmentSlots,EquipmentSlots.LeftHand1) &&
 	getItemAtSelectorPosition(ui.moveSelector).isTwoHanded &&
-	ui.equipSelector.x1 == getEquipmentSlotObject(EquipmentSlots.LeftHand1).x1)
+	ui.equipSelector.y1 == getEquipmentSlotObject(EquipmentSlots.LeftHand1).y1)
 	||
 	(slot == EquipmentSlots.RightHand2 && 
 	arrayIncludes(ui.equipSelector.acceptableEquipmentSlots,EquipmentSlots.LeftHand2) &&
 	getItemAtSelectorPosition(ui.moveSelector).isTwoHanded &&
-	ui.equipSelector.x1 == getEquipmentSlotObject(EquipmentSlots.LeftHand2).x1)
+	ui.equipSelector.y1 == getEquipmentSlotObject(EquipmentSlots.LeftHand2).y1)
 	{
+	
+	
+		
 	drawBlack = true;
 }
 
 // if this slot holds the equipment manager's selectd item, draw dark
-
 var selectedItem = global.equippedItemsManager.selectedItem;
 var itemSelectorAt = getItemAtSelectorPosition(global.ui.moveSelector);
 if selectedItem != itemSelectorAt selectedItem = noone;
@@ -50,17 +59,21 @@ for (var i = 0; i < ds_list_size(global.player.equippedItems); i++) {
 if drawGreen && drawDark {
 	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_green,.5);
 	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_black,.5);
+	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,C_HIGHLIGHT,global.gameManager.selectedItemFilterAlpha);
 }
 else if drawGreen {
 	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_green,.75);
 } else if drawDark {
-	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_orange,global.gameManager.selectedItemFilterAlpha);
-} else if drawBlack {
-	draw_sprite(spr_item_slot,1,xx,yy);
+	
+} else draw_sprite(spr_item_slot,1,xx,yy);
+
+
+if drawBlack {
+	// draw_sprite(spr_item_slot,1,xx,yy);
 	var twoHandedItem = getItemAtSelectorPosition(ui.moveSelector);
 	draw_sprite_ext(twoHandedItem.itemSprite,1,xx,yy,1,1,0,c_black,.5);
 }
-else draw_sprite(spr_item_slot,1,xx,yy);
+
 
 // draw slot type sprite
 if slot == EquipmentSlots.LeftHand1 || slot == EquipmentSlots.LeftHand2 {

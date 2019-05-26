@@ -48,7 +48,7 @@ draw_text_transformed(mean(x1,x2),mean(y1,y2),s,xs,xs,0);
 
 // selected item details box
 draw_set_color(c_dkgray);
-draw_rectangle(skillDescriptionTopLeftX,skillDescriptionTopLeftY,skillDescriptionBottomRightX,skillDescriptionBottomRightY,false);
+draw_rectangle(skillDescriptionTopLeftX,skillDescriptionTopLeftY,skillDescriptionBottomRightX-1,skillDescriptionBottomRightY,false);
 
 // skill description
 if skillSelector != noone {

@@ -1,10 +1,35 @@
 if room == game_menu exit;
-//display_set_gui_size(-1, -1);
 draw_set_alpha(1);
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
 var pad = global.player.gamePadIndex;
 var p = global.player;
+
+draw_set_font(font_main);
+with obj_quest_log {
+	if watchedQuest != noone && instance_exists(watchedQuest) && ds_exists(watchedQuest.questSteps,ds_type_list) {
+		// is the HUD showing (clickable shit for menus for m/k?)
+		var yy = 15;
+		if !gamepad_is_connected(pad) {
+			yy += sprite_get_height(spr_hud_inventory)+30;
+		}
+		var xl = view_get_wport(view_camera[0])-(4.5*sprite_get_width(spr_hud_inventory)); var xr = view_get_wport(view_camera[0])-15;
+		var xx = mean(xl,xr);
+		var xw = xr-xl;
+		draw_set_halign(fa_center); draw_set_valign(fa_top);
+		draw_set_font(font_main); draw_set_color(c_white);
+		scr_draw_text_outline_ext(xx, yy, watchedQuest.name, c_fuchsia, c_silver, 1.25, 1.25, 0, c_black, -1, xw);
+		var titleHeight = string_height_ext(watchedQuest.name, -1, xw);
+	
+		if !watchedQuest.isFinished && watchedQuest.currentQuestStep != noone {
+			scr_draw_text_outline_ext(xx,yy+titleHeight+15,watchedQuest.currentQuestStep.description,c_ltgray,c_white,1,1,0,c_black,-1,xw);
+		} else {
+			scr_draw_text_outline_ext(xx,yy+titleHeight+15,"Quest complete!",c_ltgray,c_white,1,1,0,c_black,-1,xw);
+		}
+	
+	}
+}
+
 var slotWidth = sprite_get_width(spr_item_slot);
 
 draw_set_valign(fa_center);

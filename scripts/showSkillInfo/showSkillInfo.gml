@@ -15,7 +15,7 @@ if !isActive && gamepad_is_connected(global.player.gamePadIndex) draw_set_alpha(
 else draw_set_alpha(1);
 
 draw_set_color(C_HANDLES);
-var descriptionHandleX2 = topLeftX+width
+var descriptionHandleX2 = topLeftX+width-1;
 var descriptionHandleY2 = topLeftY+skillDescriptionHandleHeight;
 draw_rectangle(topLeftX,topLeftY,descriptionHandleX2,descriptionHandleY2,false);
 draw_set_color(c_white);

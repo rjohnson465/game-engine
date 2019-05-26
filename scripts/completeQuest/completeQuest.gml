@@ -35,6 +35,7 @@ if itemsString != "" {
 alert(s,c_lime,150);
 
 quest.isFinished = true;
+quest.isRewardClaimed = true;
 
 with global.ui {
 	if isShowingMenus {

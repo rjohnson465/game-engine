@@ -1,7 +1,7 @@
 var interactInputReceived = keyboard_check_released(ord("F"));
 if gamepad_is_connected(global.player.gamePadIndex) {
 	interactInputReceived = keyboard_check_released(ord("F")) || 
-	(gamepad_button_check_pressed(global.player.gamePadIndex,gp_face1) && !global.ui.isShowingMenus && hasReleasedInteract)
+	(gamepad_button_check_pressed(global.player.gamePadIndex,gp_face1) && !global.ui.isShowingMenus && hasReleasedInteract && !isInConversation)
 }
 
 if distance_to_object(obj_player) < 20 && layer == global.player.layer && !global.isWishing && !global.canLoot && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && !isInConversation {

@@ -113,9 +113,11 @@ switch currentMenu {
 			var xx = midW; var yy = midH+(i*sh) + (i * paddingBetweenOptions);
 			var x1 = xx-(sw/2); var y1 = yy-(sh/2);
 			var x2 = xx+(sw/2); var y2 = yy+(sh/2) + paddingBetweenOptions;
+			var textColor = noone;
 			
 			// click on option?
-			if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_released(mb_left) && currentMenu == FOUNTAIN {
+			if mouseOverGuiRect(sx, y1, ex, y2) && mouse_check_button_released(mb_left) && currentMenu == FOUNTAIN {
+				audio_play_sound(snd_ui_click1, 1, 0);
 				switch option {
 					case INSERTGEM: {
 						startInsertGemMenu(); break;
@@ -132,17 +134,24 @@ switch currentMenu {
 				}
 			}
 			// mouse hover / select this option?
-			else if mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == option {
+			else if mouseOverGuiRect(sx, y1, ex, y2) || selectedOption == option {
 				if selectedOption != option {
 					audio_play_sound(snd_ui_option_change,1,0);
 				}
 				selectedOption = option;
-				draw_set_color(c_white);
+				textColor = c_white;
 			} else {
-				draw_set_color(c_ltgray);
+				textColor = c_ltgray;
+			}
+			
+			if selectedOption == option {
+				// draw highlight
+				draw_set_color(C_HIGHLIGHT); draw_set_alpha(global.gameManager.selectedItemFilterAlpha);
+				draw_rectangle(sx, y1, ex, y2, 0);
 			}
 			
 			// draw option
+			draw_set_color(textColor); draw_set_alpha(1);
 			draw_text(xx,yy,option);
 		}
 		

@@ -403,3 +403,7 @@ healingTotalFrames = sprite_get_number(spr_player_heal);
 temporaryDefenses = ds_list_create();
 
 narrativeState = NarrativeState.Start;
+
+// TEST
+questStartUnfairySlayer();
+questStart(obj_quest_wamdk);

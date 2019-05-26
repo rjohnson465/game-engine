@@ -44,7 +44,6 @@ if showIfEquipped && item.equipmentSlot != noone {
 
 // if highlighted, draw the highlight / selection
 if showIfHighlighted {
-	var activeSelector = global.ui.moveSelector.isActive ? global.ui.moveSelector : global.ui.equipSelector;
 	var isSelected = false; 
 	if variable_instance_exists(id, "selectedItem") {
 		isSelected = selectedItem == item;
@@ -89,17 +88,6 @@ if item.object_index == obj_item_health_flask {
 else {
 	draw_sprite_ext(item.itemSprite,1,x1,y1, scale, scale, 0, c_white, alpha);
 }
-/*
-// if this item is currently equipped, signify that (only for inventory items)
-if item.equipmentSlot != noone && showIfEquipped {
-	draw_set_color(c_maroon);
-	draw_circle(x1+5,y1+5,5,false);
-}
-// if this item is currently equipped in the belt, signify that (only for inventory items)
-if item.beltItemIndex >= 0 && showIfEquipped {
-	draw_set_color(c_teal);
-	draw_circle(x1+slotWidth-10,y1+5,5,false);
-} */
 
 // if this item is broken, signify that
 if item.type == ItemTypes.HandItem && isInventoryItem {

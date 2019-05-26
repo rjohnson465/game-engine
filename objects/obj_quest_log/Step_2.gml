@@ -13,9 +13,11 @@ if isActive && gamepad_is_connected(pad) {
 	// scroll down quest log
 	if gamepad_button_check_pressed(pad,gp_padd) && selectedQuest != noone {
 		audio_play_sound(snd_ui_option_change,1,0);
-		var qIndex = ds_list_find_index(p.quests,selectedQuest);
-		if qIndex != ds_list_size(p.quests) - 1 {
-			selectedQuest = ds_list_find_value(p.quests,qIndex+1);
+		// var qIndex = ds_list_find_index(p.quests,selectedQuest);
+		var qIndex = ds_list_find_index(displayedQuests,selectedQuest);
+		if qIndex != ds_list_size(displayedQuests) - 1 {
+			// selectedQuest = ds_list_find_value(p.quests,qIndex+1);
+			selectedQuest = ds_list_find_value(displayedQuests,qIndex+1);
 			// if this quest is not currently displayed, scroll down
 			if qIndex+1 > lastQuestIndexDisplayed {
 				scrollLevel++;
@@ -26,9 +28,11 @@ if isActive && gamepad_is_connected(pad) {
 	// scroll up quest log
 	if gamepad_button_check_pressed(pad,gp_padu) && selectedQuest != noone {
 		audio_play_sound(snd_ui_option_change,1,0);
-		var qIndex = ds_list_find_index(p.quests,selectedQuest);
+		// var qIndex = ds_list_find_index(p.quests,selectedQuest);
+		var qIndex = ds_list_find_index(displayedQuests,selectedQuest);
 		if qIndex > 0 {
-			selectedQuest = ds_list_find_value(p.quests,qIndex-1);
+			// selectedQuest = ds_list_find_value(p.quests,qIndex-1);
+			selectedQuest = ds_list_find_value(displayedQuests,qIndex-1);
 			if qIndex-1 <= (lastQuestIndexDisplayed-questsDisplayedCount) {
 				scrollLevel--;
 			}
@@ -47,6 +51,12 @@ if isActive && gamepad_is_connected(pad) {
 		repeatQuest(selectedQuest);
 	}
 	
+	// Toggle show completed quests
+	if gamepad_button_check_pressed(pad,gp_select) {
+		audio_play_sound(snd_ui_option_change, 1, 0);
+		isShowingCompletedQuests = !isShowingCompletedQuests;
+	}
+	
 	// watch quest 
 	if gamepad_button_check_released(pad,gp_face4) && selectedQuest != noone {
 		audio_play_sound(snd_ui_option_change,1,0);
@@ -61,5 +71,6 @@ if isActive && gamepad_is_connected(pad) {
 	if gamepad_button_check_pressed(pad,gp_shoulderl) {
 		isActive = false;
 		global.skillManager.isActive = true;
+		audio_play_sound(snd_ui_click1, 1, 0);
 	}
 }

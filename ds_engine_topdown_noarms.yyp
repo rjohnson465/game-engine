@@ -12823,6 +12823,14 @@
             }
         },
         {
+            "Key": "c6217a2b-1a6d-4568-9a84-96439843ffd4",
+            "Value": {
+                "id": "e046f136-1ac3-4c78-966d-6c81fd13158a",
+                "resourcePath": "sprites\\spr_quest_show_completed\\spr_quest_show_completed.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c6520d01-19d4-4fbe-99e0-9c3d517a3f9e",
             "Value": {
                 "id": "32784f34-4a25-4900-973f-556f5ac4fecb",

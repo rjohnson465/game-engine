@@ -2,8 +2,6 @@ if global.ui.currentMenu != SKILLS || !global.ui.isShowingMenus || !global.skill
 	isActive = false; exit;
 } else isActive = true;
 
-//x1 = selectedSkill.x1; y1 = selectedSkill.y1;
-
 with obj_skill_parent {
 	if x1 == other.x1 && y1 == other.y1 {
 		other.selectedSkill = id;
@@ -65,12 +63,7 @@ if gamepad_is_connected(pad) {
 		if ds_list_find_value(global.player.quests,0) != undefined {
 			global.questLog.selectedQuest = ds_list_find_value(global.player.quests,0);
 		}
+		audio_play_sound(snd_ui_click1, 1, 0);
 	}
-	
-	/*
-	// handle canceling selector event (square / x button) or unequipping hovered item
-	if gamepad_button_check_pressed(pad,gp_face3) {
-		performSelectorBackspacePressed();
-	}*/
 	
 }

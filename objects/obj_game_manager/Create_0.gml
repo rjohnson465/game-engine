@@ -26,6 +26,7 @@ global.gameManager = id;
 #macro C_DKRGRAY make_color_rgb(42,42,42)
 #macro C_FIRELIGHT make_color_rgb(255,178,102)
 #macro C_GOLD make_color_rgb(255, 215, 0)
+#macro C_HIGHLIGHT c_orange // might change later
 
 // input sprites
 #macro IS_LT spr_prompt_xbox_lb 

@@ -46,6 +46,7 @@ if	slot == EquipmentSlots.BeltItem1 ||
 		}
 		
 		equipBeltItem(index, item);
+		
 		exit;
 	}
 

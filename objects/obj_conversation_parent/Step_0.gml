@@ -60,7 +60,7 @@ if isActive {
 		isActive = false;
 		isFinished = true;
 		owner.isInConversation = false;
-
+		// alarm[0] = 3; // delay ending conv
 	}
 }
 
@@ -83,19 +83,6 @@ if isFinished && !isRepeatable {
 			if c != -1 && c != noone && c != undefined {
 				ds_map_replace(conversations,other.name,other.isFinished);
 			}
-			
-			/*
-			// if this conv was in the npc's data.conversationsToAdd, remove it from there too
-			if ds_list_size(conversationsToAdd) > 0 {
-				for (var i = 0; i < ds_list_size(conversationsToAdd); i++) {
-					var cName = ds_list_find_value(conversationsToAdd, i);
-					var convName = object_get_name(other.object_index);
-					if cName == convName {
-						ds_list_delete(conversationsToAdd, i);
-					}
-				}
-			} */
-			
 		}
 	}
 	instance_destroy(id,1);

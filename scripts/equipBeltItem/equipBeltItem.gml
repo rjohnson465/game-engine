@@ -18,22 +18,23 @@ for (var i = 0; i < array_length_1d(p.beltItems); i++) {
 	}
 }
 
-p.beltItems[index] = item;
-item.beltItemIndex = index;
-audio_play_sound(snd_ui_click1, 1, 0);
-
-// if this is the only belt item, make it the current belt item
-var currentBeltItem = p.beltItems[p.currentBeltItemIndex];
-if !instance_exists(currentBeltItem) {
-	p.currentBeltItemIndex = index;
-}
-
 // unequip whatever item used to be at that belt index
 with obj_item_parent {
 	if id != item && beltItemIndex == index {
 		unequipItem(id);
 		beltItemIndex = noone;
 	}
+}
+
+p.beltItems[index] = item;
+item.beltItemIndex = index;
+audio_play_sound(snd_ui_click1, 1, 0);
+
+
+// if this is the only belt item, make it the current belt item
+var currentBeltItem = p.beltItems[p.currentBeltItemIndex];
+if !instance_exists(currentBeltItem) {
+	p.currentBeltItemIndex = index;
 }
 
 p.isEquippingBeltItem = false;

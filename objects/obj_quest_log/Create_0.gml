@@ -18,8 +18,8 @@ aqBottomRightX = topLeftX+(width/2.5); aqBottomRightY = bottomRightY;
 // scrollbar for active quests pane
 scrollBarWidth = 14;//sprite_get_width(spr_scrollarrow);
 scrollBarTopLeftX = aqBottomRightX-scrollBarWidth;
-var sh = string_height("test");
-scrollBarTopLeftY = aqTopLeftY+sh;
+// var sh = string_height("test");
+scrollBarTopLeftY = aqTopLeftY+handlesHeight+1;
 scrollBarBottomRightX = aqBottomRightX;
 scrollBarBottomRightY = aqBottomRightY;
 scrollLevel = 0;
@@ -28,14 +28,12 @@ scrollLevel = 0;
 sqTopLeftX = aqBottomRightX; sqTopLeftY = aqTopLeftY;
 sqBottomRightX = bottomRightX; sqBottomRightY = bottomRightY;
 
-// selected quest reward pane
-//var slotHeight = 
-//rTopLeftX = sqTopLeftX; rTopLeftY = 
-
 selectedQuest = noone;
 watchedQuest = noone;
 lastQuestIndexDisplayed = 0;
 questsDisplayedCount = 0;
 
+isShowingCompletedQuests = true;
 
-
+// this is either all quests, or all non-completed quests
+displayedQuests = ds_list_create();

@@ -16,7 +16,7 @@ if instance_exists(unfairySlayerQuest) {
 		ds_list_add(conversationsList, instance_create_depth(x, y, 1, obj_conv_unfairyslayer_thankyou));
 	}
 }
-		
+
 var wamdkQuest = instance_nearest(x, y, obj_quest_wamdk);
 if !instance_exists(wamdkQuest) {
 	ds_list_add(conversationsList, instance_create_depth(x, y, 1, obj_conv_wamdk_start));

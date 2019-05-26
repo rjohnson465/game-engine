@@ -26,12 +26,12 @@ if isInteractingWithPlayer && !isInConversation && !showBuySell {
 	for (var i = 0; i < ds_list_size(conversations); i++) {
 		var c = ds_list_find_value(conversations, i);
 		var sw = string_width(c.name);
-		if sw > totalWidth {
-			totalWidth = sw;
+		if sw > totalWidth - 10 {
+			totalWidth = sw + 10;
 		}
 	}
 	
-	// conversations box is centered on NPC?
+	// conversations box is centered on NPC
 	var startX = x - (.5*totalWidth); var startY = y - (.5*totalHeight);
 	var endX = startX + totalWidth; var endY = startY + totalHeight + 10; // 10px padding
 	
@@ -76,9 +76,10 @@ if isInteractingWithPlayer && !isInConversation && !showBuySell {
 		draw_set_font(font_main); draw_set_halign(fa_center); draw_set_valign(fa_center);
 		
 		var sh = string_height(c.name); var sw = string_width(c.name);
-		var xx = conversationsStartX; var yy = conversationsStartY+(i*sh) + (i*paddingBetweenOptions); //5;
-		if mouseOverGuiRect(0+(xx-(.5*sw)),0+(yy-(.5*sh)),0+(xx+(.5*sw)),0+(yy+(.5*sh))) || (selectedConversation == c && gamepad_is_connected(global.gamePadIndex)) {
-			draw_set_color(c_white);
+		var xx = conversationsStartX; var yy = conversationsStartY+(i*sh) + (i*paddingBetweenOptions); 
+		var textColor = noone;
+		if mouseOverGuiRect(startX,yy-(.5*sh),endX,yy+(.5*sh)) || (selectedConversation == c && gamepad_is_connected(global.gamePadIndex)) {
+			textColor = c_white;
 			if selectedConversation != c {
 				audio_play_sound(snd_ui_option_change,1,0);
 			}
@@ -87,14 +88,22 @@ if isInteractingWithPlayer && !isInConversation && !showBuySell {
 				startConversation(c);
 			}
 		} else {
-			draw_set_color(c_ltgray);
+			textColor = c_ltgray;
 		}
+		
+		if selectedConversation == c {
+			// draw highlight
+			draw_set_color(C_HIGHLIGHT); draw_set_alpha(global.gameManager.selectedItemFilterAlpha);
+			draw_rectangle(startX, yy-(.5*sh), endX, yy+(.5*sh), 0);
+		}
+		
+		draw_set_color(textColor); draw_set_alpha(1);
 		draw_text(xx,yy,c.name);
 	}
 
 	// give whole thing a border
 	draw_set_color(c_black);
-	draw_rectangle(startX, startY, endX, endY, 1);
+	draw_rectangle(startX-1, startY, endX, endY, 1);
 	
 	
 	// prompts
