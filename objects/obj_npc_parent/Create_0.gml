@@ -47,8 +47,8 @@ isShowingLightRadius = true;
 
 menusHandleHeight = 20;
 
-conversationsStartX = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X);
-conversationsStartY = mean(MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_Y);
+// conversationsStartX = mean(MENUS_TOPLEFT_X,MENUS_BOTTOMRIGHT_X);
+// conversationsStartY = mean(MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_Y);
 selectedConversation = noone;
 
 joystickInputFrame = 0;

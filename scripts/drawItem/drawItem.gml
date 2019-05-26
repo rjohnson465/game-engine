@@ -53,6 +53,10 @@ if showIfHighlighted {
 	if variable_instance_exists(id, "isActive") {
 		isActive2 = isActive;
 	}
+	// in trading situations, see both player selected item and vendor selected item with highlight
+	if (object_index == obj_vendor_items || object_index == obj_player_items) {
+		isActive2 = true;
+	}
 	if isSelected && isActive2 {
 		var hlc = item.equipmentSlot != noone ? c_aqua : c_orange;
 		draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,hlc,global.gameManager.selectedItemFilterAlpha);

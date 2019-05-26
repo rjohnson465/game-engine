@@ -44,3 +44,5 @@ ds_map_replace(menuButtonCoordinates,"closeButton",closeButtonCoordinates);
 depth = -1001;
 hasSetAlarm = false;
 isAcceptingInput = true;
+
+fountain = global.fountainForFountainGui;

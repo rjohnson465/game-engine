@@ -42,6 +42,9 @@ isSprinting = false;
 dodgeFrame = 0;
 
 jumpFrame = jumpTotalFrames; // cannot jump while falling
+if fallFrame == 0 {
+	audio_play_sound_at(snd_fall, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+}
 fallFrame++;
 if fallFrame == .5*fallTotalFrames {
 	var layerName = layer_get_name(layer);

@@ -199,7 +199,7 @@ if global.populateInventory && !global.gameManager.isLoading {
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 	longsword.persistent = true;
 	longsword.numberOfSockets = 3;
-	modifyWeaponElementalDamage(longsword, LIGHTNING, 1);
+	// modifyWeaponElementalDamage(longsword, LIGHTNING, 1);
 	// ds_map_replace(longsword.itemPropertyModifiersPts, WeaponProperties.ElementalDamageBonus, [LIGHTNING, 5]);
 	//insertGemIntoItem(makeGem(obj_gem_lapis,CRACKED),longsword);
 	//insertGemIntoItem(makeGem(obj_gem_emerald,CRACKED),longsword);

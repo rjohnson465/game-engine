@@ -17,7 +17,20 @@ if type == SelectorTypes.Select && !isActive && isSelectorInInventory() && !ui.e
 	ui.equipSelector.acceptableEquipmentSlots = getAcceptableEquipmentSlots(selectedItem);
 			
 	// find first acceptable equipment slot
-	var firstSlot = getEquipmentSlotObject(ui.equipSelector.acceptableEquipmentSlots[0]);
-	ui.equipSelector.x1 = firstSlot.x1;
-	ui.equipSelector.y1 = firstSlot.y1;
+	
+	// first, check if any of the slots are free, if so, default to a free one
+	var slots = ui.equipSelector.acceptableEquipmentSlots;
+	var slot = noone;
+	for (var i = 0; i < array_length_1d(slots); i++) {
+		var s = slots[i];
+		var item = getItemInEquipmentSlot(s);
+		if (!instance_exists(item) || item.object_index == obj_hand_item_unarmed) && slot == noone {
+			slot = getEquipmentSlotObject(s);
+		}
+	}
+	if slot == noone {
+		slot = getEquipmentSlotObject(slots[0]);
+	}
+	ui.equipSelector.x1 = slot.x1;
+	ui.equipSelector.y1 = slot.y1;
 }

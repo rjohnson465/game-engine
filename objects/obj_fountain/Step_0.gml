@@ -59,6 +59,7 @@ else if fade != noone {
 	} 
 	if fade.frame == fade.fadeDuration {
 		global.isWishing = true;
+		global.fountainForFountainGui = id;
 		if !instance_exists(obj_fountain_gui) {
 			instance_create_depth(x,y,1,obj_fountain_gui);
 		}

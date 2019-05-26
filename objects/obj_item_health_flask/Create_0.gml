@@ -25,5 +25,7 @@ type = ItemTypes.Other;
 isStackable = false;
 isUsable = true;
 
+isSellable = false;
+
 // description varies based on stats
 updateHealthFlaskDescription();

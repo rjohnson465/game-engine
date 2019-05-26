@@ -11,28 +11,46 @@ if distance_to_object(obj_player) < 20 && global.player.isAlive && !global.isTra
 if isInteractingWithPlayer && !isInConversation && !showBuySell {
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
-
-	// big menu screen
-	draw_set_color(c_gray);
-	draw_set_alpha(.75);
-	draw_rectangle(MENUS_TOPLEFT_X,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_BOTTOMRIGHT_Y,0);
+	
+	// figure out how big the NPC conversation UI must be, based on conversations NPC has 
+	var conversationsNumber = ds_list_size(conversations);
+	draw_set_font(font_main); 
+	var sh = string_height("s");
+	var cHeight = sh * conversationsNumber;
+	var paddingBetweenOptions = 5;
+	var paddingHeight = (conversationsNumber - 1) * paddingBetweenOptions;
+	var totalHeight = cHeight + menusHandleHeight + paddingHeight;
+	
+	// width is 200, or the longest conversation name width
+	var totalWidth = 200;
+	for (var i = 0; i < ds_list_size(conversations); i++) {
+		var c = ds_list_find_value(conversations, i);
+		var sw = string_width(c.name);
+		if sw > totalWidth {
+			totalWidth = sw;
+		}
+	}
+	
+	// conversations box is centered on NPC?
+	var startX = x - (.5*totalWidth); var startY = y - (.5*totalHeight);
+	var endX = startX + totalWidth; var endY = startY + totalHeight + 10; // 10px padding
+	
+	// entire menu
+	draw_set_color(c_gray); draw_set_alpha(.95);
+	draw_rectangle(startX, startY, endX, endY, 0);
 	draw_set_alpha(1);
 	
-	// current menu title handle
+	// draw handle with NPC name
 	draw_set_color(C_HANDLES);
-	draw_rectangle(MENUS_TOPLEFT_X,MENUS_TOPLEFT_Y,MENUS_BOTTOMRIGHT_X,MENUS_TOPLEFT_Y+menusHandleHeight,false);
-	
+	draw_rectangle(startX, startY, endX, startY + menusHandleHeight, 0);
 	draw_set_color(c_white);
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_center);
-	draw_set_font(font_main);
-	
-	draw_text((MENUS_BOTTOMRIGHT_X+MENUS_TOPLEFT_X)/2,((MENUS_TOPLEFT_Y+menusHandleHeight)+MENUS_TOPLEFT_Y)/2,name);
+	draw_set_halign(fa_center); draw_set_valign(fa_center);
+	draw_text(mean(startX, endX), mean(startY, startY + menusHandleHeight), name);
 	
 	// close button
 	if !gamepad_is_connected(global.player.gamePadIndex) {
 		var closeButtonWidth = sprite_get_width(spr_close_button);
-		var x1 = MENUS_BOTTOMRIGHT_X-closeButtonWidth; var y1 = MENUS_TOPLEFT_Y;
+		var x1 = endX-closeButtonWidth; var y1 = startY;
 		var x2 = x1 + closeButtonWidth; var y2 = y1 + closeButtonWidth;
 		if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) && mouse_check_button(mb_left) {
 			draw_sprite_ext(spr_close_button,1,x1,y1,1,1,0,c_black,1);	
@@ -51,36 +69,37 @@ if isInteractingWithPlayer && !isInConversation && !showBuySell {
 	}	
 	
 	// draw all conversations
-	if true {
-		if !gamepad_is_connected(global.player.gamePadIndex) {
-			//selectedConversation = noone;
-		}
-		for (var i = 0; i < ds_list_size(conversations); i++) {
-			var c = ds_list_find_value(conversations,i);
-			draw_set_font(font_main); draw_set_halign(fa_center); 
+	var conversationsStartX = mean(startX, endX);
+	var conversationsStartY = startY + menusHandleHeight + (.5*sh) + 5;
+	for (var i = 0; i < ds_list_size(conversations); i++) {
+		var c = ds_list_find_value(conversations,i);
+		draw_set_font(font_main); draw_set_halign(fa_center); draw_set_valign(fa_center);
 		
-			var sh = string_height(c.name); var sw = string_width(c.name);
-			var xx = conversationsStartX; var yy = conversationsStartY+(i*sh)+5;
-			if mouseOverGuiRect(0+(xx-(.5*sw)),0+(yy-(.5*sh)),0+(xx+(.5*sw)),0+(yy+(.5*sh))) || (selectedConversation == c && gamepad_is_connected(global.gamePadIndex)) {
-				draw_set_color(c_white);
-				if selectedConversation != c {
-					audio_play_sound(snd_ui_option_change,1,0);
-				}
-				selectedConversation = c;
-				if mouse_check_button_released(mb_left) {
-					startConversation(c);
-				}
-			} else {
-				draw_set_color(c_ltgray);
+		var sh = string_height(c.name); var sw = string_width(c.name);
+		var xx = conversationsStartX; var yy = conversationsStartY+(i*sh) + (i*paddingBetweenOptions); //5;
+		if mouseOverGuiRect(0+(xx-(.5*sw)),0+(yy-(.5*sh)),0+(xx+(.5*sw)),0+(yy+(.5*sh))) || (selectedConversation == c && gamepad_is_connected(global.gamePadIndex)) {
+			draw_set_color(c_white);
+			if selectedConversation != c {
+				audio_play_sound(snd_ui_option_change,1,0);
 			}
-			draw_text(xx,yy,c.name);
+			selectedConversation = c;
+			if mouse_check_button_released(mb_left) {
+				startConversation(c);
+			}
+		} else {
+			draw_set_color(c_ltgray);
 		}
+		draw_text(xx,yy,c.name);
 	}
+
+	// give whole thing a border
+	draw_set_color(c_black);
+	draw_rectangle(startX, startY, endX, endY, 1);
 	
 	
 	// prompts
-	var promptsStartX = MENUS_TOPLEFT_X+18;
-	var promptsY = MENUS_BOTTOMRIGHT_Y+25;
+	var promptsStartX = startX+18;
+	var promptsY = endY+25;
 	var xOffset = 20;
 	var w = 0;
 	if gamepad_is_connected(global.player.gamePadIndex) {

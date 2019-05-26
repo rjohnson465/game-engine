@@ -49,7 +49,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	
 	
 } else {
-	w += drawPrompt("View Item Onfo",Input.LMB,promptsStartX+w,promptsY)+xOffset;
+	w += drawPrompt("View Item Info",Input.LMB,promptsStartX+w,promptsY)+xOffset;
 	w += drawPrompt("Buy/Sell Item",Input.RMB,promptsStartX+w,promptsY)+xOffset;
 	
 	var activeItems = playerItemsObj.isActive ? playerItemsObj : vendorItemsObj;
