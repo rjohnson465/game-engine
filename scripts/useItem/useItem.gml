@@ -23,7 +23,9 @@ with item {
 }
 
 if item.equipmentSlot != noone {
-	var eq = global.player.equippedItems;
-	var pos = ds_list_find_index(eq, item);
-	ds_list_delete(eq, pos);
+	if item.count < 1 && item.isStackable {
+		var eq = global.player.equippedItems;
+		var pos = ds_list_find_index(eq, item);
+		ds_list_delete(eq, pos);
+	}
 }

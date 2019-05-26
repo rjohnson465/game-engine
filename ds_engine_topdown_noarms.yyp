@@ -5567,6 +5567,14 @@
             }
         },
         {
+            "Key": "53f27d32-44bb-4b73-80ee-aaa87d86019c",
+            "Value": {
+                "id": "fddf7d51-54bd-478e-84a7-afb1f58e782a",
+                "resourcePath": "sprites\\spr_enemy_gear_aoe_prep_1_1\\spr_enemy_gear_aoe_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "53f7c3c1-6971-4544-86c2-b31b65aef059",
             "Value": {
                 "id": "51bf6577-0ac1-4cec-a279-25bfafb0f52c",
@@ -7135,6 +7143,14 @@
             }
         },
         {
+            "Key": "6f1eb20b-6ebb-4fd7-b994-677e95f8296e",
+            "Value": {
+                "id": "d091e314-7ea9-4b28-a8b0-7c226aa65342",
+                "resourcePath": "sprites\\spr_enemy_gear_aoe_recover_1_1\\spr_enemy_gear_aoe_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6f3d21d3-d7bc-40ff-a5f2-bf74a4287f74",
             "Value": {
                 "id": "448642ac-6366-48d8-bf4c-85ca56d21811",
@@ -8652,6 +8668,14 @@
                 "id": "754a3bef-e1cc-4798-9b6a-309be60a59f4",
                 "resourcePath": "sprites\\spr_player_hand_club_1h_attack_1\\spr_player_hand_club_1h_attack_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "84c7e5bd-7621-4fce-9697-88f259b71fbc",
+            "Value": {
+                "id": "abef5e46-50ff-48a8-a459-5bcc722ca49a",
+                "resourcePath": "objects\\obj_attack_gear_aoe_1_1\\obj_attack_gear_aoe_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -10375,6 +10399,14 @@
             }
         },
         {
+            "Key": "a0495e71-1181-43f6-948d-ba981d3e82fc",
+            "Value": {
+                "id": "ab66bcad-9cee-48df-a05d-eb4e1d88c73b",
+                "resourcePath": "sounds\\snd_sword_draw\\snd_sword_draw.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "a052da6c-4e41-4f3b-a209-fd4db954ee07",
             "Value": {
                 "id": "07ffbeb5-5d3d-449d-8fac-a245087c3f1a",
@@ -10900,6 +10932,14 @@
                 "id": "be1b3c0f-7701-4f97-a6fb-c67f4e5db3d0",
                 "resourcePath": "options\\linux\\options_linux.yy",
                 "resourceType": "GMLinuxOptions"
+            }
+        },
+        {
+            "Key": "a9523f4d-2d00-40f7-9d79-85a8c956854c",
+            "Value": {
+                "id": "1999922b-a5ee-436a-834c-5c4bc7c8b45d",
+                "resourcePath": "sprites\\spr_enemy_gear_aoe_attack_1_1\\spr_enemy_gear_aoe_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

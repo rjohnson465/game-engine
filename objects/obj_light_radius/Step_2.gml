@@ -1,11 +1,5 @@
 if instance_exists(owner) {
 	
-	if owner.object_index == obj_attack_beam {
-	
-		var a = 3;
-	
-	}
-	
 	if object_is_ancestor(owner.object_index, obj_combatant_parent) && (owner.hp < 1 || layer != global.player.layer) {
 		x = -1000; y = -1000;
 	}
@@ -16,7 +10,7 @@ if instance_exists(owner) {
 		var floorNum = getLayerFloorNumber(layer);
 		light_set_alpha(calculateLightRadiusAlphaLayer(floorNum));
 		
-		if owner.owner.state == CombatantStates.Dodging || owner.owner.currentUsingSpell != noone {
+		if owner.owner.state == CombatantStates.Dodging || owner.owner.currentUsingSpell != noone || owner.owner.state == CombatantStates.Healing {
 			x = -1000; y = -1000;
 		}
 		

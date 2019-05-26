@@ -48,10 +48,11 @@ currentMeleeAttack = noone;
 // ATTACKS
 global.owner = id;
 var throw = makeEnemyAttackObj(obj_attack_gear_throw_1_1);
-
+var aoe = makeEnemyAttackObj(obj_attack_gear_aoe_1_1);
 
 var tc = [throw];
-meleeAttacks = [tc];
+var aoec = [aoe];
+meleeAttacks = [tc, aoec];
 
 // ranged attacks info
 

@@ -39,7 +39,7 @@ if limbItem.baseName == "Torch" {
 }
 
 
-if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && owner.state != CombatantStates.Dodging {
+if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && owner.state != CombatantStates.Dodging && owner.state != CombatantStates.Healing {
 	var lr = noone;
 	with obj_light_radius {
 		if owner == other lr = id;
