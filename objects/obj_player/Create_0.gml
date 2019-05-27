@@ -300,6 +300,7 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemToInventory(makeGemPieces(obj_gempieces_emerald, PILE));
 	addItemToInventory(makeKey("Warden's Key","key",spr_item_key, "'Oh boy I hope the inmates don't find this.' - Warden Bob, last known words"));
 */
+
 } // end populate inventory
 
 lastFountain = instance_nearest(x,y,obj_fountain);
@@ -405,5 +406,7 @@ temporaryDefenses = ds_list_create();
 narrativeState = NarrativeState.Start;
 
 // TEST
-questStartUnfairySlayer();
-questStart(obj_quest_wamdk);
+// var key = makeKey("Great-Lodge F2 Key", "key", spr_item_key, "Opens the door to the Fairy's Great-Lodge, Level 2. We really should have more than one copy of this thing.");
+// addItemToInventory(key);
+// questStartUnfairySlayer();
+// questStart(obj_quest_wamdk);

@@ -13,7 +13,7 @@ status = QuestStepStatus.InProgress;
 //unfairiesSlain = 0;
 // ds_map_replace(parameters,"unfairies_slain",0);
 
-description = "Find Barry's keys.";
+description = "Find a way into the Great-Lodge.";
 
 
 

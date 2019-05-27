@@ -24,7 +24,8 @@ if isCurrentInteractableObject && !isOpen && distance_to_object(obj_player) < 20
 	} else canOpenFromThisSide = true;
 	
 	if !canOpenFromThisSide {
-		alert("Door does not open from this side", c_red); exit;
+		var s = oneSidedDoorText == noone ? "Door does not open from this side" : oneSidedDoorText;
+		alert(s, c_red); exit;
 	}
 	
 	var hasKey = false;

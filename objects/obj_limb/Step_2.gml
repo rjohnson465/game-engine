@@ -89,10 +89,27 @@ with obj_attack {
 	if place_meeting_layer(x,y,other.id) {
 		with other.owner {
 			var wallsBetween = scr_collision_line_list_layer(x, y, other.x, other.y, obj_wall_parent, true, true);
-			if wallsBetween == noone {
+			var doorsBetween = scr_collision_line_list_layer(x, y, other.x, other.y, obj_door, true, true);
+			var wallsBetweenAreSolid = false;
+				
+			if ds_exists(wallsBetween, ds_type_list) {
+				for (var i = 0; i < ds_list_size(wallsBetween); i++) {
+					var w = ds_list_find_value(wallsBetween, i);
+					if w.stopsAttacks {
+						wallsBetweenAreSolid = true;
+					}
+				}
+			}
+				
+			// disallow attacking through doors and walls
+			if (wallsBetween == noone || !wallsBetweenAreSolid) && doorsBetween == noone {
 				calculateDamage();
-			} else {
+			}
+			if ds_exists(wallsBetween, ds_type_list) {
 				ds_list_destroy(wallsBetween); wallsBetween = -1;
+			}
+			if ds_exists(doorsBetween, ds_type_list) {
+				ds_list_destroy(doorsBetween); doorsBetween = -1;
 			}
 		}
 	}

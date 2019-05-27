@@ -9,6 +9,7 @@ keyNeeded = noone; // or string name
 isOpen = false;
 material = WOOD;
 openingSound = snd_door_open;
+oneSidedDoorText = noone;
 isOneSided = false; // only opens from its "opensFrom" direction
 //light_create_caster();
 

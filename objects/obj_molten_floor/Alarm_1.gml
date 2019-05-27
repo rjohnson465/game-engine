@@ -1,0 +1,2 @@
+isCoolingDown = false;
+isActive = false;

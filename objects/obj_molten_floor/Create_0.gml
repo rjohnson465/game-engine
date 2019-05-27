@@ -29,6 +29,7 @@ origYScale = image_yscale;
 
 partSmoke = part_type_create();
 system = part_system_create();
+part_system_depth(system, layer_get_depth(origLayer));
 emitter = part_emitter_create(system);
 part_emitter_region(system, emitter, bbox_left, bbox_right, bbox_top, bbox_bottom, ps_shape_rectangle, ps_distr_gaussian);
 
@@ -63,6 +64,8 @@ part_type_direction(cinder,0,359,0,0);
 part_type_blend(cinder,1);
 part_type_life(cinder,25,50);
 partCinder = cinder;
+
+isCoolingDown = false;
 
 /*
 repeat(5) {

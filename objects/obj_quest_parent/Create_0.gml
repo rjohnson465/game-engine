@@ -12,3 +12,5 @@ isRepeatable = false;
 xpReward = 0;
 rewardItems = ds_list_create();
 persistent = true;
+
+hasSetRewardItemPermanence = false;

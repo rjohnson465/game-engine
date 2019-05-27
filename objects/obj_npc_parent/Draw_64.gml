@@ -32,7 +32,7 @@ if isInteractingWithPlayer && !isInConversation && !showBuySell {
 	}
 	
 	// conversations box is centered on NPC
-	var startX = x - (.5*totalWidth); var startY = y - (.5*totalHeight);
+	var startX = x - vx - (.5*totalWidth); var startY = y - vy - (.5*totalHeight);
 	var endX = startX + totalWidth; var endY = startY + totalHeight + 10; // 10px padding
 	
 	// entire menu

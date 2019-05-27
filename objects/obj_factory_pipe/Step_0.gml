@@ -13,6 +13,10 @@ if !isActive && soundIndex != noone {
 
 // particles 
 if isActive {
+	
+	var floorNum = getLayerFloorNumber(origLayer);
+	var pFloorNum = getLayerFloorNumber(global.player.layer);
+	if floorNum > pFloorNum exit;
 
 	// place particles under the water
 	var xo = 16; var yo = 25;

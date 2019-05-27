@@ -4,6 +4,7 @@ if layer == global.player.layer && fallFrame >= fallTotalFrames {
 		if place_meeting_layer(x,y,other.id) || cpexists || (isRanged && distance_to_object(other.id) < 5) {
 			with other {
 				var wallsBetween = scr_collision_line_list_layer(x, y, other.x, other.y, obj_wall_parent, true, true);
+				var doorsBetween = scr_collision_line_list_layer(x, y, other.x, other.y, obj_door, true, true);
 				var wallsBetweenAreSolid = false;
 				
 				if ds_exists(wallsBetween, ds_type_list) {
@@ -15,11 +16,15 @@ if layer == global.player.layer && fallFrame >= fallTotalFrames {
 					}
 				}
 				
-				if wallsBetween == noone || !wallsBetweenAreSolid {
+				// disallow attacking through doors and walls
+				if (wallsBetween == noone || !wallsBetweenAreSolid) && doorsBetween == noone {
 					calculateDamage();
 				}
 				if ds_exists(wallsBetween, ds_type_list) {
 					ds_list_destroy(wallsBetween); wallsBetween = -1;
+				}
+				if ds_exists(doorsBetween, ds_type_list) {
+					ds_list_destroy(doorsBetween); doorsBetween = -1;
 				}
 			}
 		}

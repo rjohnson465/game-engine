@@ -4,8 +4,11 @@ with obj_combatant_parent {
 	}
 }
 with obj_factory_pipe {
-	if isActive && distance_to_object(other) <1 && origLayer == other.origLayer {
-		other.isActive = false;
+	if isActive && distance_to_object(other) <1 && origLayer == other.origLayer && other.isActive && !other.isCoolingDown {
+		// other.isActive = false;
+		audio_play_sound_at(snd_douse_fire, other.x, other.y, other.depth, 100, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+		other.isCoolingDown = true;
+		other.alarm[1] = 30;
 		other.douser = id;
 	}
 }
@@ -18,7 +21,12 @@ if instance_exists(douser) && !douser.isActive {
 if !isActive {
 	light_set_alpha(0);
 	sprite_index = -1;
-} else if sprite_index == -1 {
+}
+else if isCoolingDown {
+	var alpha = (1/30) * alarm[1];
+	light_set_alpha(alpha);
+}
+else if sprite_index == -1 {
 	sprite_index = spr_block_orange;
 	image_xscale = origXScale;
 	image_yscale = origYScale;
@@ -32,10 +40,11 @@ scaleFrame = (scaleFrame + 1)%scaleTotalFrames;
 light_set_multiscale(lightScaleX*scale, lightScaleY*scale);
 
 // cinder particles
-if isActive {
-
-	var area = sprite_width * sprite_height;
-	var num = (area) / 9216;
+if isActive && !isCoolingDown {
+	// var area = sprite_width * sprite_height;
+	// var num = (area) / 9216;
+	var floorNum = getLayerFloorNumber(origLayer);
+	var pFloorNum = getLayerFloorNumber(global.player.layer);
+	if floorNum > pFloorNum exit;
 	part_emitter_burst(system, emitter, partCinder, -3);
-	
 }

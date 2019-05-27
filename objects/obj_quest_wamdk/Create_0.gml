@@ -10,6 +10,10 @@ description = "The dreaded unfairies have invaded, murdering fairies and stealin
 
 global.quest = id;
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_wamdk_1));
+ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_wamdk_2));
+ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_wamdk_3));
 
-xpReward = 1000;
-ds_list_add(rewardItems,instance_create_depth(x,y,1,obj_item_revive_orb));
+xpReward = 500;
+var rd = instance_create_depth(x,y,1,obj_item_rubberducky);
+rd.count = 3;
+ds_list_add(rewardItems,rd);
