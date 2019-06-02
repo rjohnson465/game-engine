@@ -62,6 +62,7 @@ if gamepad_is_connected(pad) {
 				var playerItemsObj = obj_player_items;
 				var vendorItemsObj = obj_vendor_items;
 				if playerItemsObj.isConfirming || vendorItemsObj.isConfirming exit;
+				audio_play_sound(snd_ui_click1, 1, 0);
 			}
 			isInteractingWithPlayer = false;
 			showBuySell = false;

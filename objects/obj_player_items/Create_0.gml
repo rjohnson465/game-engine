@@ -65,13 +65,13 @@ filtersHeight = 30;
 filtersWidth = 30;
 filter = InventoryFilters.Melee;
 filterSprites = ds_map_create();
-//ds_map_add(filterSprites,InventoryFilters.None,spr_filter_none);
 ds_map_add(filterSprites,InventoryFilters.Melee,spr_filter_melee);
 ds_map_add(filterSprites,InventoryFilters.Ranged,spr_filter_ranged);
-//ds_map_add(filterSprites,InventoryFilters.Shields,spr_filter_shields);
 ds_map_add(filterSprites,InventoryFilters.Rings,spr_filter_rings);
 ds_map_add(filterSprites,InventoryFilters.Head,spr_filter_head);
 ds_map_add(filterSprites,InventoryFilters.Other,spr_filter_other);
+ds_map_add(filterSprites,InventoryFilters.Gems,spr_filter_gems);
+ds_map_add(filterSprites,InventoryFilters.Keys,spr_filter_keys);
 
 pressedFilter = noone;
 

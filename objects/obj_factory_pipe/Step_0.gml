@@ -3,7 +3,7 @@ if valve != noone && instance_exists(valve) {
 }
 
 if isActive && soundIndex == noone {
-	soundIndex = audio_play_sound_at(soundOn, x,y,depth, 100, AUDIO_MAX_FALLOFF_DIST, 1, 1, 1);
+	soundIndex = audio_play_sound_at(soundOn, x,y,depth, 50, 150, 1, 1, 1);
 }
 
 if !isActive && soundIndex != noone {

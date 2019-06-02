@@ -90,5 +90,6 @@ ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_longsword));
 ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_club));
 ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_spear));
 ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_dagger));
+ds_list_add(items, instance_create_depth(x, y, 1, obj_item_razorade));
 s.funcParam1 = items;
 ds_list_add(steps, s);

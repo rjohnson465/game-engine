@@ -28,13 +28,14 @@ if item.isStackable {
 	}
 }
 
-var itemType = getItemFilterType(item);
+/*var itemType = getItemFilterType(item);
 var currentItemTypeCount = ds_map_find_value(p.inventoryCapacityMap, itemType);
 if !alreadyHasStackableItem && currentItemTypeCount >= p.INVENTORY_MAX_CAPACITY {
 	var fs = getInvFilterName(itemType);
 	alert("You are at capacity for " + fs + " items!", c_red);
 	exit;
 }
+*/
 
 // ok, we can go through with the purchase
 if gp >= item.value {

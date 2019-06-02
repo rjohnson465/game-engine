@@ -19,13 +19,6 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 			}
 			break;
 		}
-		/*case InventoryFilters.Shields: {
-			if el.subType != HandItemTypes.Shield || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
-				var pos = ds_list_find_index(inv,el);
-				ds_list_delete(inv,pos);
-			}
-			break;
-		}*/
 		case InventoryFilters.Ranged: {
 			if el.subType != HandItemTypes.Ranged || !object_is_ancestor(el.object_index,obj_hand_item_parent) {
 				var pos = ds_list_find_index(inv,el);
@@ -49,6 +42,20 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 		}
 		case InventoryFilters.Other: {
 			if el.type != ItemTypes.Other {
+				var pos = ds_list_find_index(inv,el);
+				ds_list_delete(inv,pos);
+			}
+			break;
+		}
+		case InventoryFilters.Keys: {
+			if el.type != ItemTypes.Key {
+				var pos = ds_list_find_index(inv,el);
+				ds_list_delete(inv,pos);
+			}
+			break;
+		}
+		case InventoryFilters.Gems: {
+			if el.type != ItemTypes.Gem {
 				var pos = ds_list_find_index(inv,el);
 				ds_list_delete(inv,pos);
 			}

@@ -98,6 +98,7 @@ draw_text(mean(topLeftX+filtersTotalWidth,topLeftX+width),mean(topLeftY,topLeftY
 */
 
 // gold?
+/*
 var sh = sprite_get_height(spr_item_coins);
 var sys = filtersHeight / sh;
 draw_set_color(c_gray);
@@ -105,6 +106,7 @@ draw_rectangle(topLeftX+filtersTotalWidth+1, topLeftY+1, topLeftX+width-1, topLe
 draw_sprite_ext(spr_item_coins,1,topLeftX+filtersTotalWidth+5,topLeftY,sys,sys,0,c_white,1);
 draw_set_color(c_white); draw_set_halign(fa_right); draw_set_valign(fa_center);
 draw_text(topLeftX+width-5, mean(topLeftY+1, topLeftY+filtersHeight-1), getGoldCount());
+*/
 
 
 	
@@ -244,7 +246,7 @@ if ds_list_size(inv) == 0 {
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_center);
 	draw_set_color(c_white);
-	draw_text(mean(itemDescriptionTopLeftX,itemDescriptionBottomRightX),mean(invTopLeftY,invBottomRightY),"No items to display with current filters");
+	draw_text(mean(itemDescriptionTopLeftX,itemDescriptionBottomRightX),mean(invTopLeftY,invBottomRightY),"No " + getFilterString(filter) + " to display");
 }
 
 // draw selector over selected item

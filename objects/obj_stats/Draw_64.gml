@@ -64,6 +64,18 @@ if ui.isShowingExplanations {
 }
 line++;
 
+// gold?
+var sprh = sprite_get_height(spr_item_coins);
+var sys = 20 / sprh;
+draw_sprite_ext(spr_item_coins,1,wdCol1XPictures,topLeftY+(line*20),sys,sys,0,c_white,1);
+draw_text(basicCol1XText, topLeftY+(line*20), "Gold: "  + string(getGoldCount()));
+line++;
+// draw_set_color(c_black);
+// draw_rectangle(goldBoxTopLeftX, goldBoxTopLeftY, goldBoxBottomRightX, goldBoxBottomRightY, 0);
+// draw_set_color(c_white); 
+// draw_set_halign(fa_right); draw_set_valign(fa_center);
+// draw_text(goldBoxBottomRightX - 5, mean(goldBoxTopLeftY, goldBoxBottomRightY), getGoldCount());
+
 // main hand weapon
 drawWeaponStats(leftHandItem,topLeftY+(line*20));
 line += 6;

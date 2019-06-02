@@ -19,8 +19,6 @@ movingDirection = 0;
 
 key = fs_generate_key();
 
-//mp_grid_add_instances(personalGrid, obj_wall_parent, false);
-
 isFairy = false;
 isFloating = false; // being a Fairy means you float; floating doesn't mean you're a fairy
 isPhasing = false;

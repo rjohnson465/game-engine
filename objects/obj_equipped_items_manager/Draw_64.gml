@@ -26,6 +26,20 @@ if headItem {
 	drawItem(headItem,headItemSlotX,headItemSlotY,1,1,1,0);
 }
 
+/*
+// show gold in this pane too???
+// gold?
+draw_text(goldTextX, goldTextY, "Gold");
+draw_set_color(c_black);
+var sh = sprite_get_height(spr_item_coins);
+var sys = 20 / sh;
+draw_rectangle(goldBoxTopLeftX, goldBoxTopLeftY, goldBoxBottomRightX, goldBoxBottomRightY, 0);
+draw_sprite_ext(spr_item_coins,1,goldBoxTopLeftX,goldBoxTopLeftY,sys,sys,0,c_white,1);
+draw_set_color(c_white); draw_set_halign(fa_right); draw_set_valign(fa_center);
+draw_text(goldBoxBottomRightX - 5, mean(goldBoxTopLeftY, goldBoxBottomRightY), getGoldCount());
+*/
+
+draw_set_halign(fa_left); draw_set_valign(fa_top);
 // Hand Items 1
 draw_text(handItems1TextX, handItems1TextY, "Weapons Set 1");
 

@@ -12,7 +12,7 @@ if count < 1 && object_index != obj_item_coins {
 	instance_destroy(id);
 }
 
-// if being used, decrement count or destroy item. update inventory capacity
+// if being used, decrement count or destroy item
 if isInUse {
 	if object_index != obj_item_health_flask {
 		audio_play_sound(soundUse,1,0);
@@ -22,9 +22,11 @@ if isInUse {
 		count--;
 	} else if isStackable {
 		
+		/*
 		var itemType = getItemFilterType(id);
 		var currentItemTypeCount = ds_map_find_value(global.player.inventoryCapacityMap, itemType);
 		ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount - 1);
+		*/
 		
 		var p = global.player;
 		

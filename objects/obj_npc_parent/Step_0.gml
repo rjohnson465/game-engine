@@ -57,7 +57,24 @@ if distance_to_object(obj_player) < 20 && layer == global.player.layer && !globa
 			var rand = random_range(0, array_length_1d(g));
 			g = g[rand];
 		}
-		audio_play_sound_at(g,x,y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		
+		// Do not play a greeting if you are already playing a greetings
+		var doNotPlayGreeting = false;
+		if is_array(greeting) {
+			for (var i = 0; i < array_length_1d(greeting); i++) {
+				var gr = greeting[i];
+				if audio_is_playing(gr) {
+					doNotPlayGreeting = true;
+				}
+			}
+		} else {
+			if audio_is_playing(greeting) {
+				doNotPlayGreeting = true;
+			}
+		}
+		if !doNotPlayGreeting {
+			audio_play_sound_at(g,x,y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		}
 	}
 	
 	ds_list_destroy(urgentConversationsNarrativeStates); urgentConversationsNarrativeStates = -1; // mem leak

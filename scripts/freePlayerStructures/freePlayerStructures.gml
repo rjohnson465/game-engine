@@ -241,9 +241,11 @@ if audio_emitter_exists(attackPrepSoundEmitter) {
 
 audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;
 
+/*
 if ds_exists(inventoryCapacityMap, ds_type_map) {
 	ds_map_destroy(inventoryCapacityMap); inventoryCapacityMap = -1;
 }
+*/
 
 if ds_exists(temporaryDefenses, ds_type_list) {
 	ds_list_destroy(temporaryDefenses); temporaryDefenses = -1;

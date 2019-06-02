@@ -1,5 +1,13 @@
 with obj_combatant_parent {
-	if other.isActive && distance_to_object(other) < 1 && layer == other.origLayer && other.alarm[7] == 1 {
+	// only damage non-player combatants if the player has shoved them into the wall
+	// this is so the auto-pathing doesnt make AI combatants kill themselves all the time
+	var doNotDamage = false;
+	if type != CombatantTypes.Player {
+		if !isFlinching && state != CombatantStates.Staggering {
+			doNotDamage = true;
+		}
+	}
+	if !doNotDamage && other.isActive && distance_to_object(other) < 1 && layer == other.origLayer && other.alarm[7] == 1 {
 		damageCombatant(other.damages, 5, (facingDirection + 180) mod 360, snd_magic_fire_hit, other);
 	}
 }
@@ -13,8 +21,14 @@ with obj_factory_pipe {
 	}
 }
 
-if instance_exists(douser) && !douser.isActive {
+if instance_exists(douser) && !douser.isActive && (!isActive || isCoolingDown) {
 	isActive = true;
+	isCoolingDown = false;
+	sprite_index = spr_block_orange;
+	image_xscale = origXScale;
+	image_yscale = origYScale;
+	light_set_alpha(.95);
+	alarm[0] = smokeSteps;
 }
 
 
@@ -25,8 +39,13 @@ if !isActive {
 else if isCoolingDown {
 	var alpha = (1/30) * alarm[1];
 	light_set_alpha(alpha);
+	if alarm[1] < 0 {
+		light_set_alpha(.95);
+	}
 }
 else if sprite_index == -1 {
+	isCoolingDown = false;
+	isActive = true;
 	sprite_index = spr_block_orange;
 	image_xscale = origXScale;
 	image_yscale = origYScale;

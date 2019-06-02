@@ -66,17 +66,3 @@ part_type_life(cinder,25,50);
 partCinder = cinder;
 
 isCoolingDown = false;
-
-/*
-repeat(5) {
-	randomize();
-	var rand = random_range(-1, 1);
-	var pt = noone;
-	if rand > 0 {
-		pt = partSmoke;
-	}
-	else {
-		pt = partSmoke2;
-	}
-	part_emitter_burst(system, emitter, pt, 1);
-}

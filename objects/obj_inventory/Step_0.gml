@@ -42,6 +42,16 @@ if mouse_check_button(mb_left) {
 					scrollLevel = 0;
 					break;
 				}
+				case InventoryFilters.Keys: {
+					pressedFilter = InventoryFilters.Keys;
+					scrollLevel = 0;
+					break;
+				}
+				case InventoryFilters.Gems: {
+					pressedFilter = InventoryFilters.Gems;
+					scrollLevel = 0;
+					break;
+				}
 				case InventoryFilters.Melee: {
 					pressedFilter = InventoryFilters.Melee;
 					scrollLevel = 0;

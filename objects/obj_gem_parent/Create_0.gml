@@ -20,7 +20,7 @@ enum GemTypes {
 
 global.ALL_GEM_CONDITIONS = [CRACKED,NORMAL,EXQUISITE,FLAWLESS];
 subType = GemTypes.Hematite;
-type = ItemTypes.Other;
+type = ItemTypes.Gem;
 condition = global.gemCondition;
 isStackable = true;
 

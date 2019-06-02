@@ -1,3 +1,23 @@
+// Draw "Your funds: "
+var sprh = sprite_get_height(spr_item_coins);
+var sys = 20 / sprh;
+var gy1 = topLeftY - 50; var gy2 = gy1 + (sprh*sys);
+var str = "Your funds: "; var strw = string_width(str);
+draw_set_valign(fa_center);
+scr_draw_text_outline(topLeftX, mean(gy1, gy2), str, c_white, c_white);
+
+// box
+var gx1 = topLeftX + strw + 10; var gx2 = gx1 + 150;
+draw_set_color(c_black);
+draw_rectangle(gx1, gy1, gx2 , gy2, 0);
+draw_set_color(c_white);
+draw_rectangle(gx1, gy1, gx2 , gy2, 1);
+
+// gold image + amount
+draw_sprite_ext(spr_item_coins,1,gx1,gy1,sys,sys,0,c_white,1);
+draw_set_halign(fa_right); 
+draw_text(gx2 - 5, mean(gy1, gy2), string(getGoldCount()));
+
 drawPlayerItems();
 
 if isConfirming {

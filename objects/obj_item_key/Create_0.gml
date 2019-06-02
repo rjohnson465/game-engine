@@ -8,7 +8,7 @@ name = global.keyName;
 spriteName = global.keySpriteName;
 itemSprite = global.keySpriteIndex;
 
-type = ItemTypes.Other;
+type = ItemTypes.Key;
 
 isStackable = false;
 isUsable = false;

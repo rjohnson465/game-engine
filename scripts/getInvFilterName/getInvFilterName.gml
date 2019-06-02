@@ -29,6 +29,14 @@ switch filter {
 		filterString = "Misc.";
 		break;
 	}
+	case InventoryFilters.Gems: {
+		filterString = "Gems";
+		break;
+	}
+	case InventoryFilters.Keys: {
+		filterString = "Keys";
+		break;
+	}
 	case InventoryFilters.None: {
 		filterString = "All";
 		break;

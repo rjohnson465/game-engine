@@ -34,7 +34,7 @@ with obj_fallzone {
 
 // add all solids to grid
 for (var i = 0; i < ds_list_size(solids); i++) {
-	mp_grid_add_instances(grid,ds_list_find_value(solids,i),1); 
+	mp_grid_add_instances(grid,ds_list_find_value(solids,i), true); 
 }
 
 // now, clear any cells touched by a bridge

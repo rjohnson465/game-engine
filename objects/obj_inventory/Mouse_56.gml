@@ -50,6 +50,16 @@ for (var i = 0; i < ds_map_size(menuButtonCoordinates); i++) {
 				audio_play_sound(snd_ui_tab2,1,0);
 				break;
 			}
+			case InventoryFilters.Keys: {
+				filter = InventoryFilters.Keys;
+				audio_play_sound(snd_ui_tab2,1,0);
+				break;
+			}
+			case InventoryFilters.Gems: {
+				filter = InventoryFilters.Gems;
+				audio_play_sound(snd_ui_tab2,1,0);
+				break;
+			}
 			case InventoryFilters.Shields: {
 				filter = InventoryFilters.Shields;
 				audio_play_sound(snd_ui_tab2,1,0);

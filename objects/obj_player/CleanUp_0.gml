@@ -4,12 +4,3 @@ if instance_number(object_index) > 1 exit;
 if global.gameEnding exit;
 
 freePlayerStructures();
-
-/*
-// Inherit the parent event
-event_inherited();
-
-ds_map_destroy(inventoryCapacityMap); inventoryCapacityMap = -1;
-if ds_exists(temporaryDefenses, ds_type_list) {
-	ds_list_destroy(temporaryDefenses); temporaryDefenses = -1;
-}

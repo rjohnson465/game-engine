@@ -1,9 +1,10 @@
+alarm[0] = smokeSteps;
 if !isActive || isCoolingDown exit;
 var floorNum = getLayerFloorNumber(origLayer);
 var pFloorNum = getLayerFloorNumber(global.player.layer);
 if floorNum > pFloorNum exit;
 
-alarm[0] = smokeSteps;
+
 randomize();
 var rand = random_range(-1, 1);
 var pt = noone;

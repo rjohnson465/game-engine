@@ -178,14 +178,17 @@ isEquippingBeltItem = false;
 goldDropMultiplier = 100; // %
 // inventory -- holds all items
 inventory = ds_list_create();
+
+/*
 // inventory fullness map
-INVENTORY_MAX_CAPACITY = 50; // can store up to 50 of each item type
+// INVENTORY_MAX_CAPACITY = 50; // can store up to 50 of each item type
 inventoryCapacityMap = ds_map_create();
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Head, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Melee, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Ranged, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Rings, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
+*/
 
 var hf = instance_create_depth(x,y,1,obj_item_health_flask);
 addItemToInventory(hf);
@@ -231,6 +234,32 @@ if global.populateInventory && !global.gameManager.isLoading {
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_razorade));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_razorade));
+	
+	var ring = instance_create_depth(x,y,1,obj_item_ring);
+	addItemProperty(ring, ModifiableProperties.XpMultiplier, 10);
+	addItemProperty(ring, ModifiableProperties.Defenses,[PIERCE, 7]);
+	addItemProperty(ring, ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC, 100]);
+	addItemProperty(ring, ModifiableProperties.StaminaSteal,10);
+	addItemToInventory(ring);
+	var ring = instance_create_depth(x,y,1,obj_item_ring);
+	addItemProperty(ring, ModifiableProperties.XpMultiplier, 10);
+	addItemProperty(ring, ModifiableProperties.Defenses,[PIERCE, 7]);
+	addItemProperty(ring, ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC, 100]);
+	addItemProperty(ring, ModifiableProperties.StaminaSteal,10);
+	addItemToInventory(ring);
+	var ring = instance_create_depth(x,y,1,obj_item_ring);
+	addItemProperty(ring, ModifiableProperties.XpMultiplier, 10);
+	addItemProperty(ring, ModifiableProperties.Defenses,[PIERCE, 7]);
+	addItemProperty(ring, ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC, 100]);
+	addItemProperty(ring, ModifiableProperties.StaminaSteal,10);
+	addItemToInventory(ring);
+	var ring = instance_create_depth(x,y,1,obj_item_ring);
+	addItemProperty(ring, ModifiableProperties.XpMultiplier, 10);
+	addItemProperty(ring, ModifiableProperties.Defenses,[PIERCE, 7]);
+	addItemProperty(ring, ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC, 100]);
+	addItemProperty(ring, ModifiableProperties.StaminaSteal,10);
+	addItemToInventory(ring);
+	
 	/*
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));

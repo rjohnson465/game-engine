@@ -26,6 +26,14 @@ headItemTextY = eit;
 headItemSlotX = eil;
 headItemSlotY = eit+sh;
 
+// gold???
+goldTextX = headItemTextX + 200;
+goldTextY = headItemTextY;
+goldBoxTopLeftX = headItemSlotX + 200;
+goldBoxTopLeftY = headItemSlotY;
+goldBoxBottomRightX = goldBoxTopLeftX + 150;
+goldBoxBottomRightY = goldBoxTopLeftY + 20;
+
 // hand items 1
 handItems1TextX = eil;
 handItems1TextY = headItemSlotY + sw;

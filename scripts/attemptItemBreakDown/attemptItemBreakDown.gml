@@ -3,6 +3,7 @@
 
 var itemsGui = instance_nearest(x,y,obj_fountain_gui_gemmeditems);
 var item = itemsGui.selectedItem;
+/*
 // first, make sure the number of free slots player has in Misc inventory category is 
 // equal to or greater than the number of gems that would come from this breakdown
 var miscCount = ds_map_find_value(global.player.inventoryCapacityMap, InventoryFilters.Other); 
@@ -10,7 +11,7 @@ var gemCount = ds_list_size(item.socketedGems);
 if global.player.INVENTORY_MAX_CAPACITY - gemCount < miscCount {
 	alert("Not enough inventory space to break down " + item.name, c_red);
 	exit;	
-}
+} */
 
 audio_play_sound(snd_fountain_repair,1,0);
 randomize();

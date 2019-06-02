@@ -97,9 +97,7 @@ if	isLockedOn && ((cancelLockOnInputReceived && !global.ui.isShowingMenus)
 	lockOnTarget = noone;
 	isLockedOn = false;
 }
-if wallsBetweenLockOnTarget != noone {
-	ds_list_destroy(wallsBetweenLockOnTarget); wallsBetweenLockOnTarget = -1;
-}
+
 
 // lockOnTarget switching with a controller
 if isLockedOn && gamepad_is_connected(gamePadIndex) {
@@ -123,9 +121,6 @@ if isLockedOn && gamepad_is_connected(gamePadIndex) {
 			if diff < closestAngleDiff && diff < 90 && wallsBetweenLockOnTarget == noone && doorsBetweenLockOnTarget == noone {
 				lockOnTarget = el;
 			}
-			if wallsBetweenLockOnTarget != noone {
-				ds_list_destroy(wallsBetweenLockOnTarget); wallsBetweenLockOnTarget = -1;
-			}
 		}
 		if possibleTargets != noone {
 			ds_list_destroy(possibleTargets); possibleTargets = -1;
@@ -140,4 +135,15 @@ if lockOnTarget != noone && instance_exists(lockOnTarget) && lockOnTarget != ori
 		var rand = round(random_range(0,array_length_1d(descriptionChoices)-1));
 		description = descriptionChoices[rand];
 	}
+}
+
+if wallsBetweenLockOnTarget != noone {
+	lockOnTarget = noone;
+	isLockedOn = false;
+	ds_list_destroy(wallsBetweenLockOnTarget); wallsBetweenLockOnTarget = -1;
+}
+
+if doorsBetweenLockOnTarget != noone {
+	lockOnTarget = noone; isLockedOn = false;
+	ds_list_destroy(doorsBetweenLockOnTarget); doorsBetweenLockOnTarget = -1;
 }

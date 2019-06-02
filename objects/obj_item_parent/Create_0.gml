@@ -14,6 +14,8 @@ enum ItemTypes {
 	HandItem,
 	Ring,
 	Head,
+	Key,
+	Gem,
 	Other
 }
 

@@ -41,6 +41,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 }
 filtersTotalWidth += (filtersWidth*filterOffset);
 
+/*
 // gold?
 var sh = sprite_get_height(spr_item_coins);
 var sys = filtersHeight / sh;
@@ -49,6 +50,7 @@ draw_rectangle(topLeftX+filtersTotalWidth+1, topLeftY+1, topLeftX+width-1, topLe
 draw_sprite_ext(spr_item_coins,1,topLeftX+filtersTotalWidth+5,topLeftY,sys,sys,0,c_white,1);
 draw_set_color(c_white); draw_set_halign(fa_right); draw_set_valign(fa_center);
 draw_text(topLeftX+width-5, mean(topLeftY+1, topLeftY+filtersHeight-1), getGoldCount());
+*/
 
 // scrolling
 draw_set_color(c_black);
@@ -152,7 +154,6 @@ for (var i = 0; i < ds_list_size(inventory); i++) {
 }
 
 filterInvItems(inventory, filter);
-
 	
 var row = 1; var col = 1;
 // row 1, col 1 = ???
@@ -187,7 +188,7 @@ if ds_list_size(inv) == 0 {
 	draw_set_font(font_main);
 	draw_set_halign(fa_center);
 	draw_set_color(c_white);
-	draw_text(mean(invTopLeftX,invBottomRightX),mean(invTopLeftY,invBottomRightY),"No items to display with current filters");
+	draw_text(mean(invTopLeftX,invBottomRightX),mean(invTopLeftY,invBottomRightY),"No " + getFilterString(filter) + " to display");
 }
 			
 // selected item details box

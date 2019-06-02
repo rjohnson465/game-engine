@@ -28,6 +28,7 @@ draw_rectangle(topLeftX,topLeftY,descriptionHandleX2,descriptionHandleY2,false);
 
 var modifiedWidth = width;
 var modifiedTopLeftX = topLeftX;
+/*
 if (object_index == obj_player_items || object_index == obj_inventory) {
 // ??? maybe leave some room at the start of the handle to display inventory capacity for this category
 	var currentItemTypeCount = ds_map_find_value(global.player.inventoryCapacityMap, global.inventory.filter);
@@ -43,7 +44,7 @@ if (object_index == obj_player_items || object_index == obj_inventory) {
 	draw_text(topLeftX, mean(topLeftY, descriptionHandleY2), itemCapacityString);
 	modifiedWidth = width - (itemCapacityX2-topLeftX);
 	modifiedTopLeftX = itemCapacityX2;
-}
+} */
 
 
 
@@ -335,7 +336,7 @@ else if global.inventory.isShowingItemInfo2 && (item.type == ItemTypes.HandItem 
 	draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,desc,sh,width-5);
 }
 // Misc items, show item description
-else if item.type == ItemTypes.Other {
+else if item.type == ItemTypes.Other || item.type == ItemTypes.Gem || item.type == ItemTypes.Key {
 	if object_is_ancestor(item.object_index,obj_gem_parent) {
 		var el = noone;
 		var damageSprite = noone; var defenseSprite = noone;
