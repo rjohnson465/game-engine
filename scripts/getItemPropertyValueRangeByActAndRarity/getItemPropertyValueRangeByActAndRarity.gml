@@ -41,8 +41,8 @@ ds_map_replace(a1Vals,
 	ModifiableProperties.Defenses,
 	[ [1,3], [2,4], [3,7], [5,10] ]);
 ds_map_replace(a1Vals,
-	ModifiableProperties.Poise,
-	[ [1,3], [2,4], [3,7], [5,10] ]);
+	ModifiableProperties.PoiseMax,
+	[ [3,5], [4,9], [10,18], [19,25] ]);
 ds_map_replace(a1Vals,
 	ModifiableProperties.OffHandDamage,
 	[ [1,5], [5,8], [8,10], [10,15] ]);

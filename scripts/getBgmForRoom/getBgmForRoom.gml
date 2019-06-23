@@ -16,8 +16,8 @@ switch rm {
 		break;
 	}
 	case rm_factory: {
-		//return noone;
-		return [snd_bgms_le, snd_bgms_vl, snd_bgms_ws];
+		return noone;
+		// return [snd_bgms_le, snd_bgms_vl, snd_bgms_ws];
 		break;
 	}
 	case rm_lighteater: {

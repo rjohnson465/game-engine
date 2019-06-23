@@ -118,11 +118,13 @@ if !isBoss {
 		draw_set_font(font_main);
 		
 		// draw poise???
-		var poiseAmount = (poiseCurrent / poiseMax) * 100; 
-		draw_healthbar(x1, y2+2, x2, y2+7, poiseAmount, c_black, C_POISE, C_POISE, 0, true, false);
-		// border
-		draw_set_color(c_white);
-		draw_rectangle(x1, y2+2, x2, y2+7, true);
+		if !cannotStagger {
+			var poiseAmount = (poiseCurrent / poiseMax) * 100; 
+			draw_healthbar(x1, y2+2, x2, y2+7, poiseAmount, c_black, C_POISE, C_POISE, 0, true, false);
+			// border
+			draw_set_color(c_white);
+			draw_rectangle(x1, y2+2, x2, y2+7, true);
+		}
 	
 		// draw conditions
 		var conditionsList = ds_list_create();

@@ -17,6 +17,7 @@ switch rm {
 	}
 	case rm_lighteater: {
 		var c = make_color_rgb(23, 21, 34);
+		// var c = c_ltgray;
 		return [c]; break;
 	}
 	case rm_dungeon2: {

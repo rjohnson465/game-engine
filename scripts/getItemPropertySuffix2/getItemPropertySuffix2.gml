@@ -8,7 +8,7 @@ switch array_length_1d(props) {
 		return noone;
 	}
 	case 1: {
-		if arrayIncludes(props,ModifiableProperties.Poise) {
+		if arrayIncludes(props,ModifiableProperties.PoiseMax) {
 			return "Cat"; break;
 		}
 		if arrayIncludes(props,ModifiableProperties.XpMultiplier) {
@@ -28,19 +28,19 @@ switch array_length_1d(props) {
 		}
 	}
 	case 2: {
-		if arrayIncludesMultiple(props, [ModifiableProperties.Poise, ModifiableProperties.XpMultiplier]) {
+		if arrayIncludesMultiple(props, [ModifiableProperties.PoiseMax, ModifiableProperties.XpMultiplier]) {
 			return "Panther"; break;
 		}
-		if arrayIncludesMultiple(props, [ModifiableProperties.Poise, ModifiableProperties.HpMax]) {
+		if arrayIncludesMultiple(props, [ModifiableProperties.PoiseMax, ModifiableProperties.HpMax]) {
 			return "Lion"; break;
 		}
-		if arrayIncludesMultiple(props, [ModifiableProperties.Poise, ModifiableProperties.StaminaMax]) {
+		if arrayIncludesMultiple(props, [ModifiableProperties.PoiseMax, ModifiableProperties.StaminaMax]) {
 			return "Cheetah"; break;
 		}
-		if arrayIncludesMultiple(props, [ModifiableProperties.Poise, ModifiableProperties.OffHandDamage]) {
+		if arrayIncludesMultiple(props, [ModifiableProperties.PoiseMax, ModifiableProperties.OffHandDamage]) {
 			return "Lynx"; break;
 		}
-		if arrayIncludesMultiple(props, [ModifiableProperties.Poise, ModifiableProperties.GoldDrop]) {
+		if arrayIncludesMultiple(props, [ModifiableProperties.PoiseMax, ModifiableProperties.GoldDrop]) {
 			return "Fox"; break;
 		}
 		

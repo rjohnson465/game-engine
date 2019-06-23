@@ -8879,6 +8879,14 @@
             }
         },
         {
+            "Key": "83d2ca2b-90b9-4bf2-a059-0be1d4bb9565",
+            "Value": {
+                "id": "22524ffd-0998-4277-9b53-abee9fa4bc42",
+                "resourcePath": "sounds\\snd_enemy_lighteater_walk\\snd_enemy_lighteater_walk.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "83d59c9c-a566-4a6b-93dc-e67b3c52c2e0",
             "Value": {
                 "id": "ff5469ea-cddd-416e-83bc-6c8fbd868b92",
@@ -11407,6 +11415,14 @@
             }
         },
         {
+            "Key": "aa1920d7-fb94-49d4-bf90-94b08d607051",
+            "Value": {
+                "id": "c1cf1c9d-7ad2-46d1-9da6-bf2364a342a2",
+                "resourcePath": "views\\aa1920d7-fb94-49d4-bf90-94b08d607051.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "aa45333e-9013-4b38-9694-6123b2c22aa7",
             "Value": {
                 "id": "15f7dfc2-1633-4c76-9f39-ef1a393ddd3e",
@@ -12999,6 +13015,14 @@
             }
         },
         {
+            "Key": "c210f5b7-8958-4b0a-872b-c27f28c6ce1c",
+            "Value": {
+                "id": "9fad03f2-7dac-4d2c-8686-08ec1543fca3",
+                "resourcePath": "sounds\\snd_enemy_lighteater_walk_strafe\\snd_enemy_lighteater_walk_strafe.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "c21108ad-14fd-4ec6-b3ad-94eaac3a25c2",
             "Value": {
                 "id": "063624d6-8d84-45b2-ada7-8188a8b66f60",
@@ -13259,6 +13283,14 @@
             "Value": {
                 "id": "c092815b-9e47-4fbe-972c-78397ba3ec36",
                 "resourcePath": "scripts\\maybeDodge\\maybeDodge.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c58a3f3e-fce7-4097-bfa7-396477f11c87",
+            "Value": {
+                "id": "5bf40171-4cae-4d3d-b4d8-1e6868102057",
+                "resourcePath": "scripts\\playProperMovingSound\\playProperMovingSound.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -16263,6 +16295,14 @@
             }
         },
         {
+            "Key": "f68faf89-131a-44ad-93a0-27fc4e1f68fb",
+            "Value": {
+                "id": "4b7a70bf-8511-4276-8ab9-6550472be121",
+                "resourcePath": "scripts\\hasHitMaxDestructables\\hasHitMaxDestructables.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f6a8f9df-dc72-44b9-ac03-f3ddc4eacfe0",
             "Value": {
                 "id": "2f7a8212-9bc7-4103-b96e-46617ec4e681",
@@ -16961,6 +17001,7 @@
         "ff3c9c11-ace5-4ded-86d2-738bb5d6da19",
         "b2952602-9b79-4af2-afdd-6d7236254c34",
         "e7fcd17b-0a9a-4d29-ba9e-6bf2df105c81",
+        "c58a3f3e-fce7-4097-bfa7-396477f11c87",
         "00feb608-5eda-4896-afe4-aa97abfda795",
         "3ba0e475-52bf-40db-82b9-fe6e9814970d",
         "74218bb9-e73b-41b3-8941-df309aba8980",
@@ -16985,6 +17026,7 @@
         "ae87fee5-f9f2-48e8-94af-b19479c267cf",
         "b4fe8e3d-9643-496d-96a0-3c44b781c731",
         "ba3523fb-3100-4c94-bc79-672a22a76c4c",
+        "f68faf89-131a-44ad-93a0-27fc4e1f68fb",
         "158a680a-26ed-43d9-818b-102fc64f3a46",
         "eec61a82-f578-47af-a905-89f065e91aca",
         "49d42644-f8a4-406d-bce9-bfa61dccebe0",

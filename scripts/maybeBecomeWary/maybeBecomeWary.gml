@@ -10,7 +10,10 @@ if type != CombatantTypes.Player {
 	randomize();
 	var rand = random_range(0,100);
 	if rand < skittishness/factor {
-		if canJump jumpFrame = 0; 
+		if canJump {
+			audio_play_sound_at(snd_dodge1, x, y, depth, 0, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+			jumpFrame = 0; 
+		}
 		waryFrame = round(random_range(waryTotalFrames[0],waryTotalFrames[1]));
 		waryDistance = round(random_range(waryDistanceRange[0],waryDistanceRange[1]));
 		hasReachedWaryDistance = false;

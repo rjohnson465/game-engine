@@ -3,6 +3,9 @@ event_inherited();
 if !hasSetAlarm {
 	if layer == global.player.layer {
 		with obj_attack {
+			// TODO
+			if hasHitMaxDestructables(owner, id) exit;
+			
 			var cpexists = script_execute(scr_collision_point,id,other.id)
 			if place_meeting_layer(x,y,other.id) || cpexists || (isRanged && distance_to_object(other.id) < 5) {
 				with other {
@@ -22,6 +25,9 @@ if !hasSetAlarm {
 					
 						// play destruction sound
 						audio_play_sound_at(destructionSound, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+						
+						// add this destructable object to the attack's destructablesHit list
+						ds_list_add(other.destructablesHit, other);
 						
 						// if ranged attack, destroy it 
 						with other {

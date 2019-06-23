@@ -50,8 +50,8 @@ switch prop {
 	case ModifiableProperties.ElementalDamageTypesMultiplier: {
 		s = "% damage"; break;
 	}
-	case ModifiableProperties.Poise: {
-		s = "% poise"; break;
+	case ModifiableProperties.PoiseMax: {
+		s = "max poise"; break;
 	}
 	case ModifiableProperties.XpMultiplier: {
 		s = "% XP gained from kills"; break;

@@ -43,7 +43,7 @@ if	state != CombatantStates.Dodging &&
 	&& attackObj.owner.id != id
 {
 		
-	if !attackObj.combatantsHit {
+	if !attackObj.combatantsHit || !ds_exists(attackObj.combatantsHit, ds_type_list) {
 		attackObj.combatantsHit = ds_list_create();
 	}
 		

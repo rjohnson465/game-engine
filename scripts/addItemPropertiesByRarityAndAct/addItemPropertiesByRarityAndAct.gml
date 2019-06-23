@@ -34,7 +34,7 @@ if addendums != noone {
 }
 
 var rarePropertiesMap = ds_map_create();
-ds_map_replace(rarePropertiesMap,ModifiableProperties.Poise,5);
+ds_map_replace(rarePropertiesMap,ModifiableProperties.PoiseMax,5);
 ds_map_replace(rarePropertiesMap,ModifiableProperties.XpMultiplier,5);
 ds_map_replace(rarePropertiesMap,ModifiableProperties.HpMax,5);
 ds_map_replace(rarePropertiesMap,ModifiableProperties.StaminaMax,5);

@@ -13,6 +13,8 @@ normalSpeed = 6;
 turnSpeed = 15;
 normalTurnSpeed = 15;
 
+cannotStagger = true;
+
 hasHands = false; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
@@ -63,7 +65,7 @@ waryCheckTotalFrames = [150,300];
 waryCheckFrame = 150;
 skittishness = 75;
 cautiousness = 50;
-jumpSpeedFactor = 4;
+jumpSpeedFactor = 2;
 
 dyingParticleColor1 = [make_color_rgb(143, 154, 136), make_color_rgb(87,96,80), make_color_rgb(100, 111, 77)];
 
@@ -126,6 +128,8 @@ ds_map_replace(defenses,SLASH,7);
 
 soundsWhenHitVocals = [];
 soundsWhenDie = [];
+
+walkingSound = snd_enemy_lighteater_walk;
 
 chanceToDropHealthOrb = 1;
 xpReward = 1500;

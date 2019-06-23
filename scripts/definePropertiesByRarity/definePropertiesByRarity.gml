@@ -12,7 +12,8 @@ global.basicItemProperties =
 
 global.rareItemProperties = 
 [
-	ModifiableProperties.Poise,
+	// ModifiableProperties.Poise,
+	ModifiableProperties.PoiseMax,
 	ModifiableProperties.XpMultiplier,
 	ModifiableProperties.HpMax,
 	ModifiableProperties.StaminaMax,

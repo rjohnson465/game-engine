@@ -9,6 +9,10 @@ if ds_exists(combatantsHit, ds_type_list) {
 	ds_list_destroy(combatantsHit); combatantsHit = -1;
 }
 
+if variable_instance_exists(id, "destructablesHit") && destructablesHit != undefined && ds_exists(destructablesHit, ds_type_list) {
+	ds_list_destroy(destructablesHit); destructablesHit = -1;
+}
+
 if audio_emitter_exists(soundEmitter) {
 	audio_emitter_gain(soundEmitter, 0);
 	audio_emitter_free(soundEmitter); soundEmitter = -1;

@@ -1,6 +1,7 @@
 // if not at wary distance, get there
 path_end();
 if (distance_to_object(lockOnTarget) < waryDistance && !hasReachedWaryDistance) || jumpFrame < jumpTotalFrames {
+	isStrafing = false;
 	// pick direction
 	// start with opposite direction of player
 	var startDir = (facingDirection+180)%360;

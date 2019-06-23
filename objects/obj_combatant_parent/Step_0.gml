@@ -145,8 +145,9 @@ switch(state) {
 			if substate == noone substate = CombatantMoveSubstates.Chasing;
 			// face the proper direction
 			faceMovingDirection();
-			// maybe return to post
-			//if substate != CombatantMoveSubstates.ReturningToPost && maybeReturnToPost() break;
+			
+			// play proper moving sound -- walk sound, strafe sound, no sound...
+			// playProperMovingSound();
 			
 			// be listening for any commotion, if you're not already in a fight
 			if substate != CombatantMoveSubstates.Chasing && canHearNearbyHit() {
@@ -210,6 +211,7 @@ switch(state) {
 				
 						// if we're not in range for attack, do this
 						if maybeMoveNotInAttackRange() {
+							isStrafing = false;
 							break;
 						}
 						// within range for attack
@@ -479,6 +481,10 @@ switch(state) {
 		break;
 	}
 	case CombatantStates.Wary: {
+	
+		// play proper moving sound -- walk sound, strafe sound, no sound...
+		// playProperMovingSound();
+	
 		if lockOnTarget == noone lockOnTarget = global.player;
 		// do not stay in wary state if lockOnTarget is out of sight
 		var wallsBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
@@ -496,7 +502,10 @@ switch(state) {
 		// if we've not yet calculated if we'll dodge during this Wary state, calculate that now
 		// this is calculated only once per Wary state
 		calculateWillDodge();
-		if maybeDodge() break; 
+		if maybeDodge() {
+			isStrafing = false;
+			break; 
+		}
 		
 		// if not at wary distance, get there
 		moveToWaryDistance();
@@ -598,8 +607,15 @@ if isFlinching {
 }
 
 // always increment jumpFrames if jumping
+if jumpFrame = 0 {
+	// play jump sound at jump start 
+	audio_play_sound_at(snd_dodge1, x, y, depth, 25, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+}
 if jumpFrame <= jumpTotalFrames {
+	audio_emitter_gain(walkingEmitter, 0);
 	jumpFrame++;
+} else {
+	audio_emitter_gain(walkingEmitter, 1);
 }
 
 // check if we should be falling
@@ -640,6 +656,9 @@ for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {
 	cc = ds_map_find_next(conditionsEmittersMap, cc);
 }
 
+playProperMovingSound();
+
+/*
 if walkingSound != noone {
 	if isAlive && ((state == CombatantStates.Moving && isMoving) || isTurning || isStrafing) {
 		if walkingSoundIndex = noone {

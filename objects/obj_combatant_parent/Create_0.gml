@@ -31,7 +31,7 @@ endY = y;
 walkingSound = noone;
 walkingSoundIndex = noone;
 walkingEmitter = audio_emitter_create();
-audio_emitter_gain(walkingEmitter, 0);
+audio_emitter_gain(walkingEmitter, 1);
 audio_emitter_falloff(walkingEmitter,50,AUDIO_MAX_FALLOFF_DIST,1);
 walkingInWaterEmitter = audio_emitter_create();
 audio_emitter_gain(walkingInWaterEmitter,0);

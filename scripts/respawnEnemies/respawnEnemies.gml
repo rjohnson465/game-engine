@@ -129,6 +129,9 @@ with obj_enemy_parent {
 	jumpFrame = 0; wasJustHit = false;
 	showHp = false;
 	
+	// reset poise
+	poiseCurrent = poiseMax;
+	
 	event_perform(ev_other, ev_room_start);
 
 	//persistentElementUpdateProperties(id);

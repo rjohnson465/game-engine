@@ -1,8 +1,14 @@
 
+var ring = instance_create_depth(x,y,1,obj_item_ring);
+addItemProperty(ring, ModifiableProperties.PoiseMax, 10);
+addItemProperty(ring, ModifiableProperties.Defenses,[PIERCE, 7]);
+addItemProperty(ring, ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC, 100]);
+addItemProperty(ring, ModifiableProperties.StaminaSteal,10);
+
+addItemToInventory(ring);
 
 
-
-xpTemp += 500;
+//xpTemp += 500;
 
 /*
 var reward = instance_create_depth(x,y,1, obj_item_reward);

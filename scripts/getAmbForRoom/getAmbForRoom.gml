@@ -40,6 +40,16 @@ switch rm {
 		]
 		]; break;
 	}
+	case rm_lighteater: {
+		return [
+		[snd_amb_factory_loop], 
+		// periodical sounds
+		[
+			[snd_amb_factory_clanging, 1200, .5, [150,300], 30, 30],
+			[snd_amb_factory_eerie, 1000, .5, [200, 400], 30, 30]
+		]
+		]; break;
+	}
 }
 
 return noone;

@@ -13,6 +13,7 @@ isRanged = false;
 isMelee = false;
 attackData = noone;
 combatantsHit = ds_list_create();
+destructablesHit = ds_list_create();
 hasSetAlarm = false;
 isOnFire = false; // for arrows that pass through torches
 additionalDamages = ds_map_create();
