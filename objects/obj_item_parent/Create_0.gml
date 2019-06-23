@@ -78,6 +78,7 @@ enum ModifiableProperties {
 	HpSteal,
 	StaminaSteal,
 	GoldDrop,
+	PoiseMax,
 	length
 }
 

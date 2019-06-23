@@ -6,4 +6,5 @@
 if bgmCurrentIndex >= 0 {
 	audio_stop_sound(bgmCurrentIndex);
 	bgmCurrentIndex = -1;
+	bgmCurrent = noone;
 }

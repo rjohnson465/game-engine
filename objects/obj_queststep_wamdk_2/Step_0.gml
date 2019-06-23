@@ -10,7 +10,8 @@ with obj_item_key {
 }
 
 if playerHasKey {
-	
+	if status != QuestStepStatus.Completed {
+		updateNarrativeState(NarrativeState.LamplightFactory);
+	}
 	status = QuestStepStatus.Completed;
-
 }

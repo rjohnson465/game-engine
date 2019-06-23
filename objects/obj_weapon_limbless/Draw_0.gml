@@ -86,4 +86,7 @@ if hasHematite || hasPhysBuff {
 	}
 	gpu_set_blendmode(bm_normal)
 }
+
+if sprite < 0 exit;
+
 draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_white,owner.alpha);

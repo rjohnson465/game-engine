@@ -93,7 +93,7 @@ meleeAttacks = [c0, c1, c2, c3, c3, c4, c5, c6, c7, c8];
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 1;
+hp = 300;
 maxHp = 300;
 
 stamina = 60;
@@ -105,6 +105,7 @@ showHp = false; // hit at all (flag for showing health bar)
 
 // stagger stuff
 poise = 100;
+cannotStagger = true;
 
 // dodge stuff
 agility = 100; // 0 - 100% chance to try a dodge

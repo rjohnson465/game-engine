@@ -14,6 +14,9 @@ unarmedHook2.limbKey = "o";
 var unarmedHook3 = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_1);
 unarmedHook3.limbKey = "o";
 
+poiseCurrent = 10;
+poiseMax = 10;
+
 //ds_map_replace(unarmedHook1.damages,MAGIC,[1,2]);
 
 var unarmedBackSlap = instance_create_depth(x,y,1,obj_attack_unfairy_unarmed_1_2);

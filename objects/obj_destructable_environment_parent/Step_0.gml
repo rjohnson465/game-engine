@@ -22,6 +22,13 @@ if !hasSetAlarm {
 					
 						// play destruction sound
 						audio_play_sound_at(destructionSound, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+						
+						// if ranged attack, destroy it 
+						with other {
+							if isRanged {
+								instance_destroy(id, 1);
+							}
+						}
 					
 						// destroy item (after 2 second delay)
 						visible = false;

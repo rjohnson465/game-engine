@@ -88,10 +88,8 @@ var x2 = 210;
 var y2 = 20;
 if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center); draw_set_valign(fa_center);
-	var s = string(round(global.player.hp)) + "/" + string(round(global.player.maxHp));
+	var s = "Health: " + string(round(global.player.hp)) + "/" + string(round(global.player.maxHp));
 	var sh = string_height(s); 	var ys = 1;
-	//if sh > (y2-y1) ys = (y2-y1)/sh;
-	//draw_text_transformed(mean(x1,x2),mean(y1,y2),s,ys,ys,0);
 	scr_draw_text_outline(mean(x1,x2),mean(y1,y2),s,c_white,c_white,ys,ys,0,c_black);
 }
 
@@ -116,11 +114,21 @@ var x2 = 210;
 var y2 = 30;
 if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center);
-	var s = string(round(global.player.stamina)) + "/" + string(round(global.player.maxStamina));
+	var s = "Stamina: " + string(round(global.player.stamina)) + "/" + string(round(global.player.maxStamina));
 	var sh = string_height(s); 	var ys = 1;
-	//if sh > (y2-y1) ys = (y2-y1)/sh;
-	//draw_text_transformed(mean(x1,x2),mean(y1,y2),s,ys,ys,0);
 	scr_draw_text_outline(mean(x1,x2),mean(y1,y2),s,c_white,c_white,ys,ys,0,c_black);
+}
+
+// poise 
+var poiseAmount = (global.player.poiseCurrent / global.player.poiseMax) * 100;
+draw_set_color(c_white);
+draw_rectangle(x1, y2, x2, y2+5, true);
+draw_healthbar(x1, y2+1, x2, y2+6, poiseAmount, c_black, C_POISE, C_POISE, 0, false, false);
+if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y2,vx+x2,vy+y2+5) {
+	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center);
+	var s = "Poise: " + string(round(global.player.poiseCurrent)) + "/" + string(round(global.player.poiseMax));
+	var sh = string_height(s); 	var ys = 1;
+	scr_draw_text_outline(mean(x1,x2),mean(y2,y2+5),s,c_white,c_white,ys,ys,0,c_black);
 }
 
 // xp bar

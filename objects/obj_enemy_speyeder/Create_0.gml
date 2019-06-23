@@ -34,6 +34,9 @@ waryTotalFrames=[60,90];
 skittishness = 100;
 cautiousness = 50;
 
+poiseCurrent = 25;
+poiseMax = 25;
+
 // melee attacks info
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 meleeRangeArray=[];

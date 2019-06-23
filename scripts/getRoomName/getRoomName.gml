@@ -18,4 +18,7 @@ switch ri {
 	case rm_factory: {
 		return "Lamplight Factory"; break;
 	}
+	case rm_lighteater: {
+		return "Foreman's Chambers"; break;
+	}
 }

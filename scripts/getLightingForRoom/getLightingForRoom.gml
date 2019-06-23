@@ -15,6 +15,10 @@ switch rm {
 		var c = make_color_rgb(46, 43, 68);
 		return [c, c, c]; break;
 	}
+	case rm_lighteater: {
+		var c = make_color_rgb(23, 21, 34);
+		return [c]; break;
+	}
 	case rm_dungeon2: {
 		return [c_dkgray, c_dkgray, c_red]; break;
 	}

@@ -48,7 +48,6 @@ if distance_to_object(obj_player) < 20 && origLayer == global.player.layer && in
 else if fade != noone {
 	if fade.frame == .5*fade.fadeDuration {
 		wishAtDarkFountain();
-		// global.player.x = teleportX; global.player.y = teleportY;
 	} 
 } else if distance_to_object(obj_player) < 20 && interactInputReceived && areActiveEnemiesNearby && !global.isWishing {
 	alert("Cannot use fountains when enemies are nearby",c_red);

@@ -14,6 +14,8 @@ normalTurnSpeed = turnSpeed;
 
 canIntersectWithAllies = true;
 
+cannotStagger = true;
+
 dyingParticleColor1 = make_color_rgb(107,96,65)
 dyingParticleColor2 = make_color_rgb(64,56,34)
 

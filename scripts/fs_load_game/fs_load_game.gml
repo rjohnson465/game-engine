@@ -51,5 +51,10 @@ with obj_environment_particles_controller {
 
 updateNarrativeState(global.player.narrativeState);
 
+// give player max poise
+with obj_player {
+	poiseCurrent = poiseMax;
+}
+
 ds_map_destroy(save_data); save_data = -1;
 

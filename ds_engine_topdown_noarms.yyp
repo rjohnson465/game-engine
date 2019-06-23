@@ -215,6 +215,14 @@
             }
         },
         {
+            "Key": "02806816-8468-4fa5-a08d-715c1edd7d3e",
+            "Value": {
+                "id": "7c3462ee-9695-4b53-9ff3-a7d718a63821",
+                "resourcePath": "views\\02806816-8468-4fa5-a08d-715c1edd7d3e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "028ccf95-8582-4ee1-b841-2359e9088020",
             "Value": {
                 "id": "9b0cb233-1dc2-47e8-906e-45596ebe133e",
@@ -604,6 +612,14 @@
                 "id": "71113852-5ad2-4ce7-9eed-136e768a24c8",
                 "resourcePath": "views\\08680fc7-bd09-4fa2-925e-4d8c0c1b91d3.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "0894a9f4-6ce4-485d-a461-e5849477328c",
+            "Value": {
+                "id": "1c951e94-e1f8-452d-a557-6c59709df5e8",
+                "resourcePath": "sprites\\spr_crate_particles\\spr_crate_particles.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1279,6 +1295,14 @@
             }
         },
         {
+            "Key": "1191ca60-ec08-4d97-9b58-d81b18b49e67",
+            "Value": {
+                "id": "75fc9ac6-ee10-4cd7-a960-70f745e9c8be",
+                "resourcePath": "sprites\\spr_crate\\spr_crate.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "11c1874f-d102-44ed-a3ad-b82c653f8d5a",
             "Value": {
                 "id": "3568f74c-d7be-4ce6-b241-63143825029c",
@@ -1807,6 +1831,14 @@
             }
         },
         {
+            "Key": "18a1c048-7b0a-4b6d-b65b-dc44f6d16655",
+            "Value": {
+                "id": "149d8ded-27c6-4d41-b9b8-8023226e294f",
+                "resourcePath": "sounds\\snd_bgms_ws\\snd_bgms_ws.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "18b0c942-8fab-46dc-9c5f-dd1bb8d8aa3b",
             "Value": {
                 "id": "8727fd80-af36-43dc-ad36-b94be700baa0",
@@ -2247,6 +2279,14 @@
             }
         },
         {
+            "Key": "1fc66d04-0bfe-40ff-abb1-11b155fe6546",
+            "Value": {
+                "id": "736104b4-3751-4fef-9092-8fcc6a7a0c20",
+                "resourcePath": "sprites\\spr_enemy_lighteater_move\\spr_enemy_lighteater_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "200513d9-f6bb-4cff-9729-b77d93789abf",
             "Value": {
                 "id": "cd35de68-9a58-496e-af81-91ee7cc74cd5",
@@ -2476,6 +2516,14 @@
                 "id": "e186fb06-d6f1-492d-a18f-b84a90cace33",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_attack_1_2\\spr_enemy_unfairy_limb_unarmed_attack_1_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "22690b50-ba95-426d-b936-8102b18035c3",
+            "Value": {
+                "id": "93ae2975-a51e-4460-80f4-17d9d44ceff2",
+                "resourcePath": "sounds\\snd_bgm_lighteater\\snd_bgm_lighteater.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -5439,6 +5487,14 @@
             }
         },
         {
+            "Key": "4fa4350b-7674-4505-823d-1c2c946058cc",
+            "Value": {
+                "id": "4c9221fd-785d-45d0-bd52-e34ed78ade3e",
+                "resourcePath": "tilesets\\ts_forest_treehouse_hole\\ts_forest_treehouse_hole.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "4fdee7f8-f2c7-4821-a5a1-3580c4d5aa71",
             "Value": {
                 "id": "f9d5b2eb-d464-4e9e-91b0-d2e88c6049d5",
@@ -5684,6 +5740,14 @@
                 "id": "76ba6f23-79ec-4066-bf6f-bb5ff2fe0cd2",
                 "resourcePath": "sprites\\spr_player_hand_sword_2h_recover_1\\spr_player_hand_sword_2h_recover_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5362c71b-794d-4c98-a470-8125a4cbfcf8",
+            "Value": {
+                "id": "4b6cb805-4257-4ba4-a51a-8e1dd155a694",
+                "resourcePath": "views\\5362c71b-794d-4c98-a470-8125a4cbfcf8.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -6052,6 +6116,14 @@
                 "id": "cf1ceeca-6cac-4c26-9cba-a76a93145499",
                 "resourcePath": "sounds\\snd_amb_factory_eerie\\snd_amb_factory_eerie.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "5ab71bca-5dcb-4ad5-90d1-b8020c340c8e",
+            "Value": {
+                "id": "780af86a-ed03-49a8-94f8-a4d6e2036b75",
+                "resourcePath": "objects\\obj_crate\\obj_crate.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -6775,6 +6847,14 @@
             }
         },
         {
+            "Key": "65f4c386-03b2-4f84-b479-3919a9b4ec7c",
+            "Value": {
+                "id": "bc35f1dd-09e6-4476-8f68-61a77863385d",
+                "resourcePath": "sounds\\snd_wood_shatter\\snd_wood_shatter.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "6607f840-aac6-4c32-9426-bfcecf00e947",
             "Value": {
                 "id": "af99ba03-40c8-4470-a43a-b54f5b79f0ea",
@@ -7268,6 +7348,14 @@
                 "id": "6864eafe-0e48-4d13-bb15-5be02354011e",
                 "resourcePath": "sprites\\spr_player_woodshield\\spr_player_woodshield.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6e809952-5b10-49e7-82a6-d368d5dafd65",
+            "Value": {
+                "id": "0640c603-6a67-4503-9393-633e4efbfd92",
+                "resourcePath": "objects\\obj_enemy_lighteater\\obj_enemy_lighteater.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -8743,6 +8831,14 @@
             }
         },
         {
+            "Key": "8330ba7b-f5e5-470f-a119-5b8b61c7b59b",
+            "Value": {
+                "id": "cf256358-eb6d-4bf6-9ca6-8e3d8c29f1eb",
+                "resourcePath": "rooms\\rm_lighteater\\rm_lighteater.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "83737759-e539-4bf3-959c-719a957c745d",
             "Value": {
                 "id": "aaf079c6-6fde-427d-9c19-474f1714e166",
@@ -10167,6 +10263,14 @@
             }
         },
         {
+            "Key": "99bbf7e2-26ce-422f-b1a4-b7816a601f3f",
+            "Value": {
+                "id": "8db2e46a-5fa0-4af8-887a-e4b819166f6f",
+                "resourcePath": "sprites\\spr_ts_forest_treehouse_hole\\spr_ts_forest_treehouse_hole.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9a21edde-4a4c-4c84-b849-5eb2851327b5",
             "Value": {
                 "id": "b81a8a53-aa40-45f3-ac5b-c78cd0921d6f",
@@ -10931,6 +11035,14 @@
             "Value": {
                 "id": "76a48c71-3852-492a-b6d1-ead749162653",
                 "resourcePath": "sprites\\spr_enemy_speyeder_claw_attack_1_2_mask\\spr_enemy_speyeder_claw_attack_1_2_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a46b2aff-6520-458f-b48b-916ab8d9ff73",
+            "Value": {
+                "id": "c5df0425-c87b-4c84-8c6b-afac6405f6e8",
+                "resourcePath": "sprites\\spr_enemy_lighteater_strafe_l\\spr_enemy_lighteater_strafe_l.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -12471,6 +12583,14 @@
             }
         },
         {
+            "Key": "ba87e6c0-7906-429e-90c4-735004247c8e",
+            "Value": {
+                "id": "6e336460-71b9-4ce8-af9b-6afbfb3d467a",
+                "resourcePath": "sounds\\snd_bgm_woodland_stream\\snd_bgm_woodland_stream.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "bafc7fbc-52ba-4afd-94a8-6015a5b1eec9",
             "Value": {
                 "id": "afc3ae0d-ac0d-4093-9c74-ef01df29a09f",
@@ -12531,6 +12651,14 @@
             "Value": {
                 "id": "c4e73722-4cf3-4235-a4a1-0a1e560ca0b5",
                 "resourcePath": "sprites\\spr_enemy_speyeder_claw_attack_1_1\\spr_enemy_speyeder_claw_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bc084c1a-c0c0-41e8-9d77-c5d15018f46d",
+            "Value": {
+                "id": "fedabff8-fd4c-45dd-9463-f724e08ffef2",
+                "resourcePath": "sprites\\spr_enemy_lighteater\\spr_enemy_lighteater.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -12732,6 +12860,14 @@
                 "id": "a648ebfa-b19a-48c2-8ad5-bcb71ba2a01f",
                 "resourcePath": "objects\\obj_bgm_manager\\obj_bgm_manager.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "bfbc3220-642a-4371-8a67-2ef5f9b463ea",
+            "Value": {
+                "id": "a0692e36-84e5-46ad-98dc-92902a996da6",
+                "resourcePath": "sounds\\snd_bgms_vl\\snd_bgms_vl.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -14775,6 +14911,14 @@
             }
         },
         {
+            "Key": "df252df0-6a96-4e88-b2fd-25429ffd1acb",
+            "Value": {
+                "id": "a5efe5ec-4865-4a5f-8cd3-87f3a9c057b4",
+                "resourcePath": "sounds\\snd_bgms_le\\snd_bgms_le.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "df2ebd40-a716-4d9a-99cb-e0c901a8f011",
             "Value": {
                 "id": "b66e7f66-f59b-42c9-a372-f09eb084bf64",
@@ -15155,6 +15299,14 @@
             "Value": {
                 "id": "8ac5691a-c87c-4c27-854b-e9038ca28179",
                 "resourcePath": "sprites\\spr_item_jalapeno\\spr_item_jalapeno.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e5405c02-5caa-43c5-ac07-4270aec983c3",
+            "Value": {
+                "id": "6511aaac-a895-4651-b28d-4d82f222ce5b",
+                "resourcePath": "sprites\\spr_enemy_lighteater_strafe_r\\spr_enemy_lighteater_strafe_r.yy",
                 "resourceType": "GMSprite"
             }
         },

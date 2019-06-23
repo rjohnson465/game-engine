@@ -7,7 +7,8 @@ var rm = argument0;
 switch rm {
 	case rm_forest: {
 		//return noone;
-		return [snd_bgm_verdant_leaves];
+		return [snd_bgm_woodland_stream, snd_bgm_verdant_leaves];
+		// return [snd_bgms_le, snd_bgm_verdant_leaves];
 		break;
 	}
 	case rm_boss_funfairy: {
@@ -15,8 +16,12 @@ switch rm {
 		break;
 	}
 	case rm_factory: {
-		return noone;
+		//return noone;
+		return [snd_bgms_le, snd_bgms_vl, snd_bgms_ws];
 		break;
+	}
+	case rm_lighteater: {
+		return [snd_bgm_lighteater];
 	}
 }
 

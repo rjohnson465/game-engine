@@ -7,6 +7,7 @@ var attackObj = argument[0];
 var assailant = argument[1];
 var actualDamage = argument[2];
 
+/*
 var percentOfHp = actualDamage / maxHp;
 // maybe stagger
 var chanceToStagger = (100-poise)/100;
@@ -17,27 +18,44 @@ if attackObj.attackData != noone sd = attackObj.attackData.staggerDuration;
 else if attackObj.isSpell sd = attackObj.spell.staggerDuration;
 else sd = attackObj.weapon.staggerDuration[attackObj.attackNumber-1];
 var sdMod = sd/100;
-chanceToStagger *= (1+sdMod);
+chanceToStagger *= (1+sdMod); */
 
-randomize();
-var rand = random_range(0,1);
-if rand < chanceToStagger && sd >= 1 {
+// determine stagger duration
+var sd = 0;
+if attackObj.attackData != noone sd = attackObj.attackData.staggerDuration;
+else if attackObj.isSpell sd = attackObj.spell.staggerDuration;
+else sd = attackObj.weapon.staggerDuration[attackObj.attackNumber-1];
+
+// subtract actualDamage from poiseCurrent
+poiseCurrent -= actualDamage;
+
+// randomize();
+// var rand = random_range(0,1);
+// if <condition met>, stagger
+//if rand < chanceToStagger && sd >= 1 {
+if poiseCurrent <= 0 && !cannotStagger {
 	if ds_map_size(preparingLimbs) != 0 {
 		drawCombatText("Interrupt!",id);
 	}
+	
+	/*
 	var modifier = ((100-poise)/100)*1.5;
 	if modifier > 1 modifier = 1;
+	*/
 	if state != CombatantStates.Staggering {
 		staggerFrame = 0;
-		staggerDuration = sd*modifier;
-
+		// staggerDuration = sd*modifier;
+		staggerDuration = sd;
 		staggerDirection = (assailant.facingDirection+360)%360;
 		path_end();
 		state = CombatantStates.Staggering;
 	} else {
-		modifier = ((100-poise)/100)*1.35;
+		
+		/*modifier = ((100-poise)/100)*1.35;
 		if modifier > 1 modifier = 1;
-		staggerDuration += sd*modifier;
+		*/
+		// staggerDuration += sd*modifier;
+		staggerDuration += sd;
 		staggerDirection = (assailant.facingDirection+360)%360;
 	}
 }
@@ -46,6 +64,7 @@ if rand < chanceToStagger && sd >= 1 {
 else {
 	path_end();
 	isFlinching = true;
-	totalFlinchFrames = 5 + (.5*(percentOfHp*100)); 
+	// totalFlinchFrames = 5 + (.5*(percentOfHp*100)); 
+	totalFlinchFrames = sd * .5;
 	flinchDirection = (assailant.facingDirection+360)%360;				
 }

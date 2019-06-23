@@ -15,6 +15,9 @@ normalTurnSpeed = turnSpeed;
 dyingParticleColor1 = make_color_rgb(79,48,86)
 dyingParticleColor2 = make_color_rgb(39,30,41)
 
+poiseCurrent = 50;
+poiseMax = 50;
+
 canJump = false;
 
 hasHands = false; // humanoid / uses hand attacks

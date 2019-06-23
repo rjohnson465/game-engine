@@ -152,6 +152,9 @@ xpToNextLevel = 500;
 skillPoints = 0;
 
 poise = ds_map_find_value(propertiesBaseValues,ModifiableProperties.Poise);
+poiseMax = ds_map_find_value(propertiesBaseValues,ModifiableProperties.PoiseMax);
+poiseCurrent = poiseMax;
+
 staggerDuration = 0;
 staggerFrame = 0;
 staggerDirection = 0;

@@ -1,7 +1,17 @@
 var sprString = "spr_"+spriteString;
-if asset_get_index(sprString+"_move") && ((state == CombatantStates.Moving || state == CombatantStates.Wary) && isMoving) {
+if asset_get_index(sprString+"_move") && ((state == CombatantStates.Moving || state == CombatantStates.Wary || state == "Eat") && isMoving) {
 	if type != CombatantTypes.Player || (!global.ui.isShowingMenus && !global.isWishing) {
-		sprString = sprString+"_move";
+		
+		// TODO: if strafing, and a strafe sprite exists, maybe use the strafe sprite
+		// check if strafe sprite exists
+		var strafeSpritesExist = asset_get_index(sprString + "_strafe_l") != -1;
+		if isStrafing && strafeSpritesExist {
+			sprString += "_strafe_" + strafeDirection;
+		} else {
+			sprString = sprString+"_move";
+		}
+		
+		
 	}
 	if object_is_ancestor(object_index, obj_combatant_parent) && isShielding {
 		var sprString2 = sprString + "_shielding";

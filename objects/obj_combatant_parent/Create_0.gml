@@ -251,6 +251,13 @@ adaptability = 10;
 beenHitWith = ds_list_create();
 
 poise = 1;
+// new poise
+poiseCurrent = 10;
+poiseMax = 10;
+poiseRegen = 2; // poise regained / sec
+cannotStagger = false;
+
+
 staggerDuration = 0;
 staggerFrame = 0;
 staggerDirection = 0;

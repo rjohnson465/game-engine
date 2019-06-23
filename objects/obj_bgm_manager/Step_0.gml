@@ -20,15 +20,22 @@ if bgmPossibilities != noone && (!audio_is_playing(bgmCurrentIndex) || bgmCurren
 		exit;
 	}
 	
+
+	// register this bgmCurrent as having been played
+	ds_list_add(playedTracks, bgmCurrent);
+	// since the song has stopped playing, we can consider out current Bgm to be noone
+	bgmCurrent = noone;
+	
 	randomize();
 	// play a song again anywhere from 15 seconds to 1 minute later
-	var rand = random_range(15*30, 60*30);
+	var rand = random_range(BGM_START_MIN*30, BGM_START_MAX*30);
 	alarm[2] = rand;
 	bgmAlarmSet = true;
 } 
 
 // if all bosses are dead in the room, stop the boss music
-if audio_is_playing(bgmCurrentIndex) && bossExists {
+// IMPORTANT: boss rooms must only have a single boss theme in their bgmPossibilities
+if audio_is_playing(bgmCurrentIndex) && (bossExists && bgmCurrent == bgmPossibilities[0]) {
 	
 	if !atLeastOneBossAlive {
 		stopBgm();

@@ -1,7 +1,7 @@
 event_inherited();
 name = "Poised";
-description = "Increases minimum poise.";
-levelMax = 10;
+description = "Increases poise, making you harder to stagger.";
+levelMax = 20;
 slot = Skills.PoiseMin;
 skillSprite = spr_skill_poise;
 

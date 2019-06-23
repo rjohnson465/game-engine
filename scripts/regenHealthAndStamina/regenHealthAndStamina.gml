@@ -48,3 +48,17 @@ if hp < maxHp {
 
 if stamina > maxStamina stamina = maxStamina;
 if hp > maxHp hp = maxHp;
+
+// regen poise too
+if poiseCurrent < poiseMax {
+	poiseCurrent += poiseRegen/30;
+	if poiseCurrent > poiseMax {
+		poiseCurrent = poiseMax;
+	}
+}
+
+if poiseCurrent < 0 {
+	poiseCurrent = 0;
+}
+
+// TODO: decrement elemental conditions buildup

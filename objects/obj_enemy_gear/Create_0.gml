@@ -17,6 +17,9 @@ dyingParticleColor2 = c_ltgray;
 
 canJump = false;
 
+poiseCurrent = 28;
+poiseMax = 28;
+
 hasHands = false; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 

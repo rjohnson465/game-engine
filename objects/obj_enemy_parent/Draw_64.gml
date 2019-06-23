@@ -114,8 +114,15 @@ if !isBoss {
 		draw_rectangle(x1,y1,x2,y2,1);
 		draw_text(middleX,15,name);
 		draw_set_font(font_small);
-		scr_draw_text_outline(middleX,y2+2,id.description, c_white, c_white);
+		scr_draw_text_outline(middleX,y2+8,id.description, c_white, c_white);
 		draw_set_font(font_main);
+		
+		// draw poise???
+		var poiseAmount = (poiseCurrent / poiseMax) * 100; 
+		draw_healthbar(x1, y2+2, x2, y2+7, poiseAmount, c_black, C_POISE, C_POISE, 0, true, false);
+		// border
+		draw_set_color(c_white);
+		draw_rectangle(x1, y2+2, x2, y2+7, true);
 	
 		// draw conditions
 		var conditionsList = ds_list_create();

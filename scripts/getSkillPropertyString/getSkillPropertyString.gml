@@ -25,6 +25,6 @@ switch prop {
 		return " % weapon damage "; break;
 	}
 	case ModifiableProperties.Poise: {
-		return " % poise"; break;
+		return " max poise"; break;
 	}
 }

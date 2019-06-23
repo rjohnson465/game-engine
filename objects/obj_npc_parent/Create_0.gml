@@ -11,6 +11,8 @@ items = noone;
 inv = noone;
 showBuySell = false;
 
+isStrafing = false;
+
 postX = x;
 postY = y;
 

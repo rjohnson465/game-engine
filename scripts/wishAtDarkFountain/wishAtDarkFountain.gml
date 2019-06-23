@@ -15,12 +15,6 @@ with obj_player {
 		}
 	}
 }
-
-/*
-if performBlur {
-	alarm[0] = 30; // trigger radial blur
-	application_surface_draw_enable(false);
-}*/
 	
 // wish at fountain
 audio_play_sound(snd_fountain_wish,1,0);
@@ -36,9 +30,12 @@ if performBlur {
 }
 
 	
-// respawn all bosses in room TODO
-// respawnEnemies();
+// respawn all bosses in room
 respawnEnemies(true);
+// restart boss music
+with obj_bgm_manager {
+	event_perform(ev_other, ev_room_start);
+}
 		
 // refill player health and stamina
 with obj_player {

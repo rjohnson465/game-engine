@@ -28,7 +28,8 @@ if isLevelingUp {
 	ds_map_replace(bonusesMap,ModifiableProperties.Poise,amount);
 	ds_map_replace(nextLevelBonusesMap,ModifiableProperties.Poise,nextAmount);
 	
-	updatePlayerProperty(ModifiableProperties.Poise,bonus,0);
+	// updatePlayerProperty(ModifiableProperties.Poise,bonus,0);
+	updatePlayerProperty(ModifiableProperties.PoiseMax,bonus,0);
 	
 	isLevelingUp = false;
 }
