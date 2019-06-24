@@ -5,5 +5,5 @@ levelMax = 20;
 slot = Skills.PoiseMin;
 skillSprite = spr_skill_poise;
 
-ds_map_replace(bonusesMap,ModifiableProperties.Poise,0);
-ds_map_replace(nextLevelBonusesMap,ModifiableProperties.Poise,3);
+ds_map_replace(bonusesMap,ModifiableProperties.PoiseMax,0);
+ds_map_replace(nextLevelBonusesMap,ModifiableProperties.PoiseMax,3);

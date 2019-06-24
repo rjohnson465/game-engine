@@ -1,12 +1,18 @@
 /// @description Insert description here
 // You can write your code in this editor
 ds_map_replace(persistentProperties, "IsBoss", isBoss);
+
 // Inherit the parent event
 event_inherited();
 populatePersonalGrid();
 
 if instance_number(obj_room_data) == 0 exit;
 persistentElementUpdateProperties(id); 
+
+if ds_map_find_value(persistentProperties, "IsBossKilledBefore") {
+	isBossKilledBefore = true;
+}
+
 isAlive = ds_map_find_value(persistentProperties, "IsAlive");
 if isAlive {
 	isShowingLightRadius = true;

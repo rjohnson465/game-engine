@@ -10,6 +10,7 @@ functionalSpeed = 3;
 normalSpeed = 5;
 
 isBoss = false;
+isBossKilledBefore = false;
 #macro BOSS_HP_X1 300
 #macro BOSS_HP_Y1 680
 #macro BOSS_HP_X2 1000

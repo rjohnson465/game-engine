@@ -90,8 +90,10 @@ if hp < 1 && isAlive && !isDying {
 	}
 	endureConditions(); drainConditions();
 	
-	var xpAmount = round(xpReward*(global.player.xpMultiplier/100));
-	gainXp(xpAmount);
+	if (isBoss && !isBossKilledBefore) || !isBoss {
+		var xpAmount = round(xpReward*(global.player.xpMultiplier/100));
+		gainXp(xpAmount);
+	}
 }
 
 if isDying && isAlive {
@@ -200,6 +202,11 @@ if isDying && isAlive {
 		updatePersistentElementProperty(id,"Hp",0);
 		updatePersistentElementProperty(id,"IsAlive",false);
 		maybeMakeHealthOrb();
+		
+		if isBoss {
+			isBossKilledBefore = true;
+			updatePersistentElementProperty(id, "IsBossKilledBefore", true);
+		}
 	}
 }
 
@@ -211,9 +218,6 @@ if !isAlive {
 		showHp = false;
 		isShowingLightRadius = false;
 		lightRadiusColor = c_white;
-				
-		//enemyData.hp = 0;
-		//enemyData.isAlive = false;
 				
 		var idd = id;
 		with obj_light_radius {

@@ -22,7 +22,7 @@ var sd_temp_enemydata = ds_map_create(); // this is what we're gonna return, and
 // if we're loading from a save file OR
 // if we have some data for this room already in a save file AND
 // we haven't written any temp data to for this room yet, use the save file data
-if global.gameManager.isLoading || (sd_enemydata != undefined && ds_exists(sd_enemydata,ds_type_map) && sd_temp_enemydata == undefined) {
+if global.gameManager.isLoading || (sd_enemydata != undefined && ds_exists(sd_enemydata,ds_type_map) && sd_temp_enemydata != undefined) {
 	var old_sd_temp_enemydata_map = sd_temp_enemydata;
 	sd_temp_enemydata = ds_map_deep_clone(sd_enemydata);
 	ds_map_destroy(old_sd_temp_enemydata_map); old_sd_temp_enemydata_map = -1;

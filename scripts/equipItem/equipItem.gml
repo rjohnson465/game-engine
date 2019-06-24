@@ -9,6 +9,14 @@ var slot = argument[1];
 
 if item.type == ItemTypes.HandItem && item.weaponType == UNARMED exit;
 
+// check if this would overburden player 
+if item.type == ItemTypes.HandItem || item.type == ItemTypes.Head {
+	if global.player.equipmentLoadCurrent + item.weight > global.player.equipmentLoadMax {
+		alert("Equipment load exceeded", c_red);
+		exit;
+	}
+}
+
 // set equipmentSlot property for item and add it to equippedItems list
 var equippedItems = global.player.equippedItems;
 ds_list_add(equippedItems,item);
@@ -73,9 +81,20 @@ if item.type == ItemTypes.Head {
 		
 		currentDefense = ds_map_find_next(item.defenses,currentDefense);
 	}
+	var hatPoise = item.poise;
+	global.player.poiseMax += hatPoise;
+	global.player.poiseCurrent = global.player.poiseMax;
 }
 
 updatePlayerPropertiesItem(item,true);
+
+// if this was a hat or hand item, increase curent equip load
+if item.type == ItemTypes.Head || item.type == ItemTypes.HandItem {
+	
+	// TODO: maybe only account for currently equipped hand items (and not backup set)
+	global.player.equipmentLoadCurrent += item.weight;
+	updateEquipLoadSpeedModifier();
+}
 
 /*
 // if this was the inventory selected item, its not anymore

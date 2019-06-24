@@ -27,3 +27,5 @@ act = 1;
 
 //numberOfSockets = 3;
 attackSounds = [snd_dagger_attack_1];
+
+weight = 1.5;

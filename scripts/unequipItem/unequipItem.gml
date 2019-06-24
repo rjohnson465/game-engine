@@ -69,6 +69,18 @@ if item.type == ItemTypes.Head {
 		ds_map_replace(defMap,currentDefense,0);
 		currentDefense = ds_map_find_next(item.defenses,currentDefense);
 	}
+	var hatPoise = item.poise;
+	global.player.poiseMax -= hatPoise;
+	global.player.poiseCurrent = global.player.poiseMax;
+}
+
+// if this was a hat or hand item, decrease current equip load
+if item.type == ItemTypes.Head || item.type == ItemTypes.HandItem {
+	
+	// TODO: maybe only account for currently equipped hand items (and not backup set)
+	
+	global.player.equipmentLoadCurrent -= item.weight;
+	updateEquipLoadSpeedModifier();
 }
 
 updatePlayerPropertiesItem(item,false);

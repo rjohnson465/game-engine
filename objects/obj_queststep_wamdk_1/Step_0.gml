@@ -8,6 +8,6 @@ with obj_door {
 	}
 }
 
-if lodgeDoor.alarm[0] > 0 || lodgeDoor.isOpen {
+if lodgeDoor != noone && lodgeDoor.alarm[0] > 0 || lodgeDoor.isOpen {
 	status = QuestStepStatus.Completed;
 }

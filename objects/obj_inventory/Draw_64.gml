@@ -41,6 +41,13 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 }
 filtersTotalWidth += (filtersWidth*filterOffset);
 
+var filterString = getInvFilterName(filter);
+
+draw_set_color(c_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_center);
+draw_text(mean(topLeftX+filtersTotalWidth,topLeftX+width),mean(topLeftY,topLeftY+filtersHeight),filterString);
+
 /*
 // gold?
 var sh = sprite_get_height(spr_item_coins);

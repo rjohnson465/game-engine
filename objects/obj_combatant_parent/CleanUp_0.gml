@@ -53,6 +53,10 @@ if ds_exists(conditionPercentages, ds_type_map) {
 	ds_map_destroy(conditionPercentages); conditionPercentages = -1;
 }
 
+if ds_exists(conditionsBuildupMap, ds_type_map) {
+	ds_map_destroy(conditionsBuildupMap); conditionsBuildupMap = -1;
+}
+
 if ds_exists(conditionsEmittersMap, ds_type_map) {
 	var ck = ds_map_find_first(conditionsEmittersMap);
 	for (var i = 0; i < ds_map_size(conditionsEmittersMap); i++) {

@@ -14,3 +14,5 @@ attackSounds = [snd_axe2h_attack_1, snd_axe2h_attack_1];
 hitSounds = [snd_hit2,snd_hit2];
 
 soundDrop = snd_item_metal;
+
+weight = 15;

@@ -17,3 +17,5 @@ staminaCostArray=[4,4,5,7];
 act = 1;
 
 //numberOfSockets = 1;
+
+weight = 3;

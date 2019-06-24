@@ -15,7 +15,7 @@ minRange = 30;
 projectileSpeed = 15;
 //damageType = "Dust";
 isVisible = false;
-refreshCombatantsHit = 15; // hit 2 times / second
+refreshCombatantsHit = 5; 
 doesNotStagger = true;
 
 // poison clouds

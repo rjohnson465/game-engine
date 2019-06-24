@@ -14,7 +14,7 @@ ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.OffHandDama
 ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.PhysicalDamageTypesMultiplier, [1,20]);
 ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.ElementalDamageTypesMultiplier, [1,20]);
 ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.Defenses, [1,10]);
-ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.Poise, [1,15]);
+ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.PoiseMax, [1,15]);
 ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.HpSteal, [1,15]);
 ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.StaminaSteal, [1,15]);
 ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.GoldDrop, [1,15]);

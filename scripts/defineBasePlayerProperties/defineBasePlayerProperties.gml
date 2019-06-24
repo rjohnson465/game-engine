@@ -29,9 +29,12 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 		case ModifiableProperties.OffHandDamage: {
 			ds_map_replace(basePlayerProperties,i,50); break;
 		}
-		case ModifiableProperties.Poise: {
-			ds_map_replace(basePlayerProperties,i,0); break;
+		case ModifiableProperties.EquipmentLoad: {
+			ds_map_replace(basePlayerProperties,i,50); break;
 		}
+		/*case ModifiableProperties.Poise: {
+			ds_map_replace(basePlayerProperties,i,0); break;
+		}*/
 		case ModifiableProperties.PoiseMax: {
 			ds_map_replace(basePlayerProperties,i,10); break;
 		}

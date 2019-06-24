@@ -16,3 +16,5 @@ numberOfSockets = 2;
 act = 1;
 
 //numberOfSockets = 1;
+
+weight = 4.5;

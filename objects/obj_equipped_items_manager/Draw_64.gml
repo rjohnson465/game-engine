@@ -17,7 +17,24 @@ var b2 = getItemInEquipmentSlot(EquipmentSlots.BeltItem2);
 var b3 = getItemInEquipmentSlot(EquipmentSlots.BeltItem3);
 var b4 = getItemInEquipmentSlot(EquipmentSlots.BeltItem4);
 var b5 = getItemInEquipmentSlot(EquipmentSlots.BeltItem5);
-			
+
+// equipment load stuff 
+var p = global.player;
+var x1 = bottomRightX - 200; var y1 = headItemSlotY;
+var x2 = bottomRightX - 15; var y2 = y1 + 20;
+var equipLoadPercent = (p.equipmentLoadCurrent / p.equipmentLoadMax) * 100;
+draw_healthbar(x1, y1, x2, y2, equipLoadPercent, c_black, c_lime, c_red, 0, true, true);
+draw_set_halign(fa_center); draw_set_valign(fa_center);
+scr_draw_text_outline(mean(x1, x2), mean(y1, y2), "Equip Load: " + string(p.equipmentLoadCurrent) + "/" + string(p.equipmentLoadMax), c_white, c_white);
+
+draw_set_halign(fa_left); draw_set_valign(fa_top);
+draw_set_color(c_white);
+draw_text(x1, y2 + 5, "Move Speed: " + string(p.functionalSpeed));
+draw_text(x1, y2 + string_height("s") + 5, "Dodge Frames: " + string(p.totalDodgeFrames));
+
+
+draw_set_halign(fa_left); draw_set_valign(fa_top);
+draw_set_color(c_white);
 // head slot
 draw_set_font(font_main);
 draw_text(headItemTextX, headItemTextY, "Hat");
@@ -25,19 +42,6 @@ drawEquipmentSlot(headItemSlotX, headItemSlotY, EquipmentSlots.Head);
 if headItem {
 	drawItem(headItem,headItemSlotX,headItemSlotY,1,1,1,0);
 }
-
-/*
-// show gold in this pane too???
-// gold?
-draw_text(goldTextX, goldTextY, "Gold");
-draw_set_color(c_black);
-var sh = sprite_get_height(spr_item_coins);
-var sys = 20 / sh;
-draw_rectangle(goldBoxTopLeftX, goldBoxTopLeftY, goldBoxBottomRightX, goldBoxBottomRightY, 0);
-draw_sprite_ext(spr_item_coins,1,goldBoxTopLeftX,goldBoxTopLeftY,sys,sys,0,c_white,1);
-draw_set_color(c_white); draw_set_halign(fa_right); draw_set_valign(fa_center);
-draw_text(goldBoxBottomRightX - 5, mean(goldBoxTopLeftY, goldBoxBottomRightY), getGoldCount());
-*/
 
 draw_set_halign(fa_left); draw_set_valign(fa_top);
 // Hand Items 1

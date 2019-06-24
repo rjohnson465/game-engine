@@ -72,13 +72,14 @@ enum ModifiableProperties {
 	PhysicalDamageTypesMultiplier, // Rarer than elemental damage types multiplier
 	ElementalDamageTypesMultiplier,
 	OffHandDamage,
-	Poise,
+	// Poise,
 	Defenses,
 	XpMultiplier,
 	HpSteal,
 	StaminaSteal,
 	GoldDrop,
 	PoiseMax,
+	EquipmentLoad,
 	length
 }
 
@@ -164,3 +165,5 @@ if isMandatory {
 beltItemIndex = noone;
 
 temporaryDamages = ds_list_create();
+
+weight = 15;

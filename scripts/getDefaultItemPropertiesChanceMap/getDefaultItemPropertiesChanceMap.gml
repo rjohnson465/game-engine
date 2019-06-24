@@ -31,7 +31,7 @@ for (var i = 0; i < ModifiableProperties.length; i++) {
 		case ModifiableProperties.ElementalDamageTypesMultiplier: {
 			ds_map_replace(map,i,5); break;
 		}
-		case ModifiableProperties.Poise: {
+		case ModifiableProperties.PoiseMax: {
 			ds_map_replace(map,i,5); break;
 		}
 		case ModifiableProperties.XpMultiplier: {

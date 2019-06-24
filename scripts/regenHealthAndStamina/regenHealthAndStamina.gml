@@ -62,3 +62,29 @@ if poiseCurrent < 0 {
 }
 
 // TODO: decrement elemental conditions buildup
+var ck = ds_map_find_first(conditionsBuildupMap);
+for (var i = 0; i < ds_map_size(conditionsBuildupMap); i++) {
+	
+	var currentBuildupAmount = ds_map_find_value(conditionsBuildupMap, ck);
+	
+	// decrement buildup amount
+	if currentBuildupAmount > 0 {
+		// 4 per second, affected by elemental resistance
+		var res = ds_map_find_value(defenses, ck);
+		var resMod = 1;
+		if res >= 0 {
+			resMod = 1 + (res / 100);
+		} else {
+			resMod = 1 - (abs(res) / 100);
+		}
+		var decrementAmount = 4 * resMod;
+		// slowest possible decrementAmount is .5 perc / sec
+		if decrementAmount <= .5 {
+			decrementAmount = .5;
+		}
+		var newBuildupAmount = currentBuildupAmount - (decrementAmount / 30);
+		ds_map_replace(conditionsBuildupMap, ck, newBuildupAmount);
+	}
+	
+	ck = ds_map_find_next(conditionsBuildupMap, ck);
+}

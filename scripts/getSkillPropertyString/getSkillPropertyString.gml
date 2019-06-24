@@ -24,7 +24,7 @@ switch prop {
 	case ModifiableProperties.OffHandDamage: {
 		return " % weapon damage "; break;
 	}
-	case ModifiableProperties.Poise: {
+	case ModifiableProperties.PoiseMax: {
 		return " max poise"; break;
 	}
 }

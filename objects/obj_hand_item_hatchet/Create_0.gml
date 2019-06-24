@@ -19,3 +19,4 @@ act = 1;
 description = "Very good for chopping down trees, and other things with limbs."
 
 //numberOfSockets = 3;
+weight = 9;

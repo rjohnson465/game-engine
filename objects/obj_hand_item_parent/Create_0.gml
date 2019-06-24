@@ -54,4 +54,4 @@ numberOfSockets = 0;
 requiredMastery = 0;
 
 
-
+weight = 7;

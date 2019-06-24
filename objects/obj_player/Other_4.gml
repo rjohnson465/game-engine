@@ -2,6 +2,8 @@ global.isReadingTutorial = false;
 if global.playerDoNothing exit;
 if room == game_menu exit;
 
+updateEquipLoadSpeedModifier();
+
 if variable_global_exists("newGameStarted") && global.newGameStarted {
 	// hard code first fountain
 	var nearestFountain = instance_nearest(x,y,obj_fountain);

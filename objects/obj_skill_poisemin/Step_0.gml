@@ -25,8 +25,8 @@ if isLevelingUp {
 	} else if level > 2 && level <=6 {
 		nextAmount = amount+2;
 	} else nextAmount = amount+1;
-	ds_map_replace(bonusesMap,ModifiableProperties.Poise,amount);
-	ds_map_replace(nextLevelBonusesMap,ModifiableProperties.Poise,nextAmount);
+	ds_map_replace(bonusesMap,ModifiableProperties.PoiseMax,amount);
+	ds_map_replace(nextLevelBonusesMap,ModifiableProperties.PoiseMax,nextAmount);
 	
 	// updatePlayerProperty(ModifiableProperties.Poise,bonus,0);
 	updatePlayerProperty(ModifiableProperties.PoiseMax,bonus,0);

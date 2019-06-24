@@ -452,6 +452,14 @@ else if item.type == ItemTypes.Head {
 		draw_set_color(c_white);
 		draw_text(itemDescriptionCol1XText,itemDescriptionColY+75,"Item Pierce Defense");
 	}
+	// poise 
+	draw_sprite(spr_stats_poise,1,itemDescriptionCol1XPictures,itemDescriptionColY+100);
+	if !global.ui.isShowingExplanations {
+		draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,"Poise: "+ string(item.poise));
+	} else {
+		draw_set_color(c_white);
+		draw_text(itemDescriptionCol1XText,itemDescriptionColY+100,"Item Poise Bonus");
+	}
 	/*// durability?
 	draw_sprite(spr_item_info_durability,1,itemDescriptionCol1XPictures,itemDescriptionColY+100);
 	if !global.ui.isShowingExplanations {
@@ -505,14 +513,32 @@ else if item.type == ItemTypes.Head {
 	}
 }
 
+var weightX = itemDescriptionCol1XPictures;
 if item.isSellable {
 	draw_set_color(c_white);
 	var w = sprite_get_width(spr_item_info_defense_crush);
+	weightX += w;
 	var xs = w/sprite_get_width(spr_item_coins);
 	draw_sprite_ext(spr_item_coins,1,itemDescriptionCol1XPictures,itemDescriptionColY+130,xs,xs,0,c_white,1);
 	if !global.ui.isShowingExplanations {
+		weightX += string_width(string(item.value));
 		draw_text(itemDescriptionCol1XText,itemDescriptionColY+130,string(item.value));
 	} else {
+		weightX += string_width("Value");
 		draw_text(itemDescriptionCol1XText,itemDescriptionColY+130,"Value");
+	}
+}
+
+// draw item weight
+if item.type == ItemTypes.Head || item.type == ItemTypes.HandItem {
+	if weightX != itemDescriptionCol1XPictures {
+		weightX += 15; // padding
+	}
+	draw_sprite(spr_item_info_weight, 1, weightX, itemDescriptionColY+130);
+	weightX += 25;
+	if !global.ui.isShowingExplanations {
+		draw_text(weightX, itemDescriptionColY + 130, string(item.weight));
+	} else {
+		draw_text(weightX, itemDescriptionColY + 130, "Weight");
 	}
 }

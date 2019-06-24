@@ -14,3 +14,5 @@ ammo = 20;
 ammoMax = 20;
 
 act = 1;
+
+weight = 3.5;

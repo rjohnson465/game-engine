@@ -15,8 +15,8 @@ normalTurnSpeed = turnSpeed;
 dyingParticleColor1 = C_GOLD;
 dyingParticleColor2 = c_ltgray;
 
-poiseCurrent = 35;
-poiseMax = 35;
+poiseCurrent = 20;
+poiseMax = 20;
 
 canJump = false;
 

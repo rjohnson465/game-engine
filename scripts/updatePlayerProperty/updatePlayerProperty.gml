@@ -103,9 +103,12 @@ switch prop {
 	case ModifiableProperties.HpMax: {
 		p.maxHp = newVal; break;
 	}
-	case ModifiableProperties.Poise: {
-		p.poise = newVal; break;
+	case ModifiableProperties.EquipmentLoad: {
+		p.equipmentLoadMax = newVal; break;
 	}
+	/*case ModifiableProperties.Poise: {
+		p.poise = newVal; break;
+	}*/
 	case ModifiableProperties.PoiseMax: {
 		p.poiseMax = newVal; break;
 	}

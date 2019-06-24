@@ -10,8 +10,13 @@ var spriteX = x2;
 var spriteY = y1-5;
 var sprite = noone;
 draw_rectangle(x1,y1,x2,y2,true);
-// current condition percent
-var conditionPercent = ds_map_find_value(owner.conditionPercentages,condition);
+// current condition percent; try buildup percent first
+var conditionPercent = ds_map_find_value(owner.conditionsBuildupMap,condition);
+
+// if no buildup percent, try condition percent
+if conditionPercent == undefined || conditionPercent <= 0 {
+	conditionPercent = ds_map_find_value(owner.conditionPercentages,condition);
+}
 conditionPercent = conditionPercent / 100;
 var x2 = x1 + (122 * conditionPercent);
 if (x2 < x1) x2 = x1;
@@ -88,20 +93,31 @@ switch condition {
 		break;
 	}
 }
-draw_sprite_ext(sprite,1,spriteX,spriteY,sprScale,sprScale,0,c_white,1);
+
+var alpha = 1;
+if ds_map_find_value(owner.conditionsBuildupMap, condition) > 0 {
+	alpha *= .5;
+}
+draw_sprite_ext(sprite,1,spriteX,spriteY,sprScale,sprScale,0,c_white,alpha);
 
 var conditionLevel = ds_map_find_value(owner.conditionLevels,condition);
+var alpha = 1;
 switch conditionLevel {
 	case 0: {
-		draw_set_alpha(.1);
+		alpha = .1;
 	}
 	case 1: {
-		draw_set_alpha(.9);
+		alpha = .9;
 	}
 	case 2: {
-		draw_set_alpha(1);
+		alpha = 1;
 	}
 }
-draw_rectangle(x1,y1,x2,y2,false);
 
+if ds_map_find_value(owner.conditionsBuildupMap, condition) > 0 {
+	alpha *= .5;
+}
+draw_set_alpha(alpha);
+draw_rectangle(x1,y1,x2,y2,false);
+draw_set_alpha(1);
 

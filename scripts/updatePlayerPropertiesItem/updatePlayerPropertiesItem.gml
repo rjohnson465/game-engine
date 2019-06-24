@@ -15,7 +15,7 @@ for (var i = 0; i < ds_map_size(props); i++) {
 		val = isEquipping ? val : val*-1;
 		updatePlayerProperty(currentProperty,val,1);
 	}
-	// TODO account for macro mapped stuff (i.e. critical chances)
+	// account for macro mapped stuff (i.e. critical chances)
 	else {
 		// val is array
 		var macro = val[0];

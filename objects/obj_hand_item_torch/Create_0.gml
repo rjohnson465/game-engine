@@ -27,3 +27,5 @@ staminaCostArray=[15];
 act = 1;
 
 attackSounds = [snd_axe2h_attack_1];
+
+weight = 2.5;

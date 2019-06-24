@@ -33,6 +33,14 @@ with obj_item_parent {
 			ds_map_replace(sd_item, "ItemSpriteName", itemSpriteName);
 		}
 		
+		// keys need to remember keySpriteName and keySpriteIndex
+		if object_index == obj_item_key {
+			ds_map_replace(sd_item, "KeyName", name); //??
+			ds_map_replace(sd_item, "KeyDescription", description);
+			ds_map_replace(sd_item, "KeySpriteName", spriteName);
+			ds_map_replace(sd_item, "KeySpriteIndexName", keySpriteIndexName);
+		}
+		
 		// Gems / pieces must remember condition
 		if object_is_ancestor(object_index, obj_gem_parent) || object_is_ancestor(object_index, obj_gempieces_parent) {
 			ds_map_replace(sd_item, "Condition", condition);

@@ -1,18 +1,28 @@
 {
-    "id": "98faa4a8-b1bc-4cff-a060-f37f1f85b72e",
+    "id": "677468fb-ef6a-4a93-8e39-2afe93e620df",
     "modelName": "GMObject",
     "mvc": "1.0",
     "name": "obj_queststep_wamdk_3",
     "eventList": [
         {
-            "id": "43a74956-1a3a-4663-8da4-c48e1abe2fd7",
+            "id": "8ce7cf9d-da04-4900-95ed-7a4c10815312",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "98faa4a8-b1bc-4cff-a060-f37f1f85b72e"
+            "m_owner": "677468fb-ef6a-4a93-8e39-2afe93e620df"
+        },
+        {
+            "id": "5d16a632-9e0f-4df2-89d4-73280ab0a9e5",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "677468fb-ef6a-4a93-8e39-2afe93e620df"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",

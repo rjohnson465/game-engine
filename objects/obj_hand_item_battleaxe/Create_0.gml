@@ -17,3 +17,5 @@ act = 1;
 //requiredMastery = 1;
 
 //numberOfSockets = 3;
+
+weight = 15;

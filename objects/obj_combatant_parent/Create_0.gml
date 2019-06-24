@@ -296,6 +296,11 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	ds_map_add(conditionPercentages,global.ALL_ELEMENTS[i],0);
 }
 
+conditionsBuildupMap = ds_map_create();
+for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
+	ds_map_add(conditionsBuildupMap,global.ALL_ELEMENTS[i],0);
+}
+
 // only 0 or 1 for most conditions, but Ice slows during level 1 and freeze during level 2
 conditionLevels = ds_map_create();
 for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
@@ -318,6 +323,8 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 
 isSlowed = false;
 slowedSpeedModifier = 1; // less than 1 when slowed
+equipLoadSpeedModifier = 1; // changes when equipment load changes, via equip / unequip
+
 isFrozen = false;
 isPoisoned = false; 
 isBurning = false;

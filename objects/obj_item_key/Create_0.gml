@@ -7,6 +7,7 @@ event_inherited();
 name = global.keyName;
 spriteName = global.keySpriteName;
 itemSprite = global.keySpriteIndex;
+keySpriteIndexName = sprite_get_name(itemSprite);
 
 type = ItemTypes.Key;
 

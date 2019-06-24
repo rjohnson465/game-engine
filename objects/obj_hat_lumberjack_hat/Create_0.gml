@@ -46,3 +46,6 @@ ds_map_replace(specialHatProperties, 1,
 		[ModifiableProperties.WeaponTypesDamage, [AXE1H, 20]],
 		[ModifiableProperties.CriticalsChance, [AXE1H, 15]]
 	]);
+
+weight = 5;
+poise = 5;

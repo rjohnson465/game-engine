@@ -19,3 +19,5 @@ ds_map_set(damages,CRUSH,[0,0,0,0,0,0,0,0]);
 act = 1;
 
 numberOfSockets = 3;
+
+weight = 4;

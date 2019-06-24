@@ -17,3 +17,5 @@ act = 1;
 
 sparksXOffset = 100;
 sparksYOffset = -15;
+
+weight = 6.5;

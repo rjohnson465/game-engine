@@ -12,6 +12,7 @@ global.quest = id;
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_wamdk_1));
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_wamdk_2));
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_wamdk_3));
+ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_wamdk_4));
 
 xpReward = 500;
 var rd = instance_create_depth(x,y,1,obj_item_rubberducky);

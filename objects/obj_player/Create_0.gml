@@ -151,9 +151,12 @@ xpTemp = 0;
 xpToNextLevel = 500;
 skillPoints = 0;
 
-poise = ds_map_find_value(propertiesBaseValues,ModifiableProperties.Poise);
+// poise = ds_map_find_value(propertiesBaseValues,ModifiableProperties.Poise);
 poiseMax = ds_map_find_value(propertiesBaseValues,ModifiableProperties.PoiseMax);
 poiseCurrent = poiseMax;
+
+equipmentLoadCurrent = 0;
+equipmentLoadMax = ds_map_find_value(propertiesBaseValues, ModifiableProperties.EquipmentLoad);
 
 staggerDuration = 0;
 staggerFrame = 0;
@@ -198,9 +201,9 @@ addItemToInventory(hf);
 
 if global.populateInventory && !global.gameManager.isLoading {
 	
-	//addItemToInventory(makeGold(100000,200000));
+	addItemToInventory(makeGold(100000,200000));
 	
-	//addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 	longsword.persistent = true;

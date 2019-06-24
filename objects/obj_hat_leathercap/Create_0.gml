@@ -13,6 +13,10 @@ ds_map_replace(defenses,SLASH,10);
 ds_map_replace(defenses,CRUSH,2);
 ds_map_replace(defenses,PIERCE,7);
 
+poise = 7;
+
 description = "A simple leather cap. Provides basic defense against slashing and stabbing, but generally useless against blunt weapons."
 
 //numberOfSockets = 1;
+
+weight = 6;

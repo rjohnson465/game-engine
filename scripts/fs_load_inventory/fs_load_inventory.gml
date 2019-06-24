@@ -23,12 +23,21 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 	var objIndex = asset_get_index(objName);
 	
 	var item = noone;
-	// gem / gem pieces handling
-	if object_is_ancestor(objIndex, obj_gem_parent) || object_is_ancestor(objIndex, obj_gempieces_parent) {
+	// gem / gem pieces / keys handling 
+	if object_is_ancestor(objIndex, obj_gem_parent) || object_is_ancestor(objIndex, obj_gempieces_parent) || objIndex == obj_item_key {
 		var gemCondi = ds_map_find_value(sd_item, "Condition");
 		if object_is_ancestor(objIndex, obj_gem_parent) {
 			item = makeGem(objIndex, gemCondi)
-		} else if object_is_ancestor(objIndex, obj_gempieces_parent) {
+		} 
+		else if object_is_ancestor(objIndex, obj_item_key) || objIndex == obj_item_key {
+			var kName = ds_map_find_value(sd_item, "KeyName");
+			var kDesc = ds_map_find_value(sd_item, "KeyDescription");
+			var ksName = ds_map_find_value(sd_item, "KeySpriteName");
+			var ksiName = ds_map_find_value(sd_item, "KeySpriteIndexName");
+			var ksi = asset_get_index(ksiName);
+			item = makeKey(kName, ksName, ksi, kDesc);
+		}
+		else if object_is_ancestor(objIndex, obj_gempieces_parent) {
 			item = makeGemPieces(objIndex, gemCondi);
 		}
 		

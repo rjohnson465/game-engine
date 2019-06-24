@@ -1,11 +1,5 @@
-
-var ring = instance_create_depth(x,y,1,obj_item_ring);
-addItemProperty(ring, ModifiableProperties.PoiseMax, 10);
-addItemProperty(ring, ModifiableProperties.Defenses,[PIERCE, 7]);
-addItemProperty(ring, ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC, 100]);
-addItemProperty(ring, ModifiableProperties.StaminaSteal,10);
-
-addItemToInventory(ring);
+var key = makeKey("Great-Lodge F2 Key", "key", spr_item_key, "Opens the door to the Fairy's Great-Lodge, Level 2. We really should have more than one copy of this thing.");
+addItemToInventory(key);
 
 
 //xpTemp += 500;

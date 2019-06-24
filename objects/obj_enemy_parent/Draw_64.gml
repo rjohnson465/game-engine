@@ -137,7 +137,7 @@ if !isBoss {
 			curEl = ds_map_find_next(conditionPercentages, curEl);
 		}
 	
-		// now draw each active condition
+		// now draw each active condition / buildup
 		var xOff = 0;
 		for (var i = 0; i < ds_list_size(conditionsList); i++) {
 			var el = ds_list_find_value(conditionsList, i);
@@ -176,8 +176,60 @@ if !isBoss {
 		
 			xOff += sw;
 		}
+		
+		// draw conditions buildups 
+		var conditionsBuildups = ds_list_create();
+		var curEl = ds_map_find_first(conditionsBuildupMap);
+		for (var i = 0; i < ds_map_size(conditionsBuildupMap); i++) {
+			var perc = ds_map_find_value(conditionsBuildupMap, curEl);
+			if perc > 0 {
+				ds_list_add(conditionsBuildups, curEl);
+			}
+			curEl = ds_map_find_next(conditionsBuildupMap, curEl);
+		}
+		
+		// buildups 
+		for (var i = 0; i < ds_list_size(conditionsBuildups); i++) {
+			var el = ds_list_find_value(conditionsBuildups, i);
+			var spr = asset_get_index("spr_attunement_"+el);
+			var perc = ds_map_find_value(conditionsBuildupMap, el);
+			var hbWidth = x2 - x1;
+			var reqCondiWidth = hbWidth / 5;
+			var scale = reqCondiWidth / sprite_get_width(spr);
+			if scale > .5 scale = .5;
+			var sw = (sprite_get_width(spr)*scale);
+			var sh = (sprite_get_height(spr)*scale);
+		
+			draw_sprite_ext(spr, 1, x1 + xOff, y2 + 25, scale, scale, 0, c_white, .5);
+			// draw amount as colored bar
+			var xx1 = x1+xOff; var xx2 = xx1 + sw;
+			var yy1 = y2 + 25 + sh; var yy2 = yy1 + 3;
+			var c = c_red;
+			switch el {
+				case MAGIC: {
+					c = c_aqua; break;
+				}
+				case FIRE: {
+					c = c_orange; break;
+				}
+				case ICE: {
+					c = c_white; break;
+				}
+				case POISON: {
+					c = c_green; break;
+				}
+				case LIGHTNING: {
+					c = c_purple; break;
+				}
+			}
+			draw_set_alpha(.75);
+			draw_healthbar(xx1,yy1,xx2,yy2,perc,c_black,c,c,0,1,1);
+		
+			xOff += sw;
+		}
 	
 		ds_list_destroy(conditionsList); conditionsList = -1;
+		ds_list_destroy(conditionsBuildups); conditionsBuildups = -1;
 	}
 }
 else if isBoss && isAlive {
@@ -309,7 +361,60 @@ else if isBoss && isAlive {
 				xOff += sw;
 			}
 	
+			// draw conditions buildups 
+			var conditionsBuildups = ds_list_create();
+			var curEl = ds_map_find_first(conditionsBuildupMap);
+			for (var i = 0; i < ds_map_size(conditionsBuildupMap); i++) {
+				var perc = ds_map_find_value(conditionsBuildupMap, curEl);
+				if perc > 0 {
+					ds_list_add(conditionsBuildups, curEl);
+				}
+				curEl = ds_map_find_next(conditionsBuildupMap, curEl);
+			}
+		
+			// buildups 
+			for (var i = 0; i < ds_list_size(conditionsBuildups); i++) {
+				var el = ds_list_find_value(conditionsBuildups, i);
+				var spr = asset_get_index("spr_attunement_"+el);
+				var perc = ds_map_find_value(conditionsBuildupMap, el);
+				var hbWidth = BOSS_HP_X2 - BOSS_HP_X1;
+				var reqCondiWidth = hbWidth / 5;
+				var scale = reqCondiWidth / sprite_get_width(spr);
+				if scale > .5 scale = .5;
+				var sw = (sprite_get_width(spr)*scale);
+				var sh = (sprite_get_height(spr)*scale);
+		
+				draw_sprite_ext(spr, 1, BOSS_HP_X1 + xOff, y2 - 50, scale, scale, 0, c_white, .5);
+				// draw amount as colored bar
+				var xx1 = BOSS_HP_X1+xOff; var xx2 = xx1 + sw;
+				var yy1 = y2 - 50 + sh; var yy2 = yy1 + 3;
+				var c = c_red;
+				switch el {
+					case MAGIC: {
+						c = c_aqua; break;
+					}
+					case FIRE: {
+						c = c_orange; break;
+					}
+					case ICE: {
+						c = c_white; break;
+					}
+					case POISON: {
+						c = c_green; break;
+					}
+					case LIGHTNING: {
+						c = c_purple; break;
+					}
+				}
+				draw_set_alpha(.75);
+				draw_healthbar(xx1,yy1,xx2,yy2,perc,c_black,c,c,0,1,1);
+				draw_set_alpha(1);
+		
+				xOff += sw;
+			}
+	
 			ds_list_destroy(conditionsList); conditionsList = -1;
+			ds_list_destroy(conditionsBuildups); conditionsBuildups = -1;
 			
 			index++;
 		}
