@@ -254,7 +254,7 @@ poise = 1;
 // new poise
 poiseCurrent = 10;
 poiseMax = 10;
-poiseRegen = 2; // poise regained / sec
+poiseRegen = 1; // poise regained / sec
 cannotStagger = false;
 
 

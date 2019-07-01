@@ -47,7 +47,7 @@ if place_meeting_layer(x,y,obj_solid_environment) {
 		global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
 		global.y1 = bbox_bottom;
 		global.particleDirection = facingDirection;
-		global.hitParticlesLayer = layer; 
+		global.hitParticlesLayer = origLayer; 
 		global.victim = firstObj;
 		instance_create_depth(0,0,1,obj_hit_particles); // dust particles
 		// aoe particles

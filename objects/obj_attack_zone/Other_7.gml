@@ -21,6 +21,8 @@ ds_map_delete(owner.attackingLimbs,limbKey);
 		
 owner.prevAttackHand = limbKey;
 //instance_destroy(id, true);
-alarm[0] = 30;
-hasSetAlarm = true;
-image_speed = 0;
+if !hasSetAlarm {
+	alarm[0] = 30;
+	hasSetAlarm = true;
+	image_speed = 0;
+}

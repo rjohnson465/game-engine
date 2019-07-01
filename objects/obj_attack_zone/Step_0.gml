@@ -17,7 +17,12 @@ if !hasSetAlarm && part_type_exists(particle) {
 			} until (pm)
 			//part_particles_create(system,xx,yy,particle,1);
 			part_emitter_region(system,emitter,xx,xx,yy,yy,ps_shape_ellipse,ps_distr_gaussian);
-			part_emitter_burst(system,emitter,particle, 1);
+			
+			var num = 1;
+			if attackData.zonePartNum != noone {
+				num = attackData.zonePartNum;
+			}
+			part_emitter_burst(system,emitter,particle, num);
 		}
 		
 	}

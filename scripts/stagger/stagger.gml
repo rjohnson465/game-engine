@@ -4,6 +4,11 @@ if audio_emitter_exists(attackPrepSoundEmitter) {
 	audio_emitter_gain(attackPrepSoundEmitter, 0);
 	audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
 }
+
+if staggerFrame == 1 {
+	// reset poise at the start of a stagger
+	poiseCurrent = poiseMax;
+}
 		
 if staggerDuration > 30 staggerDuration = 30; // never stagger more than a full second
 		

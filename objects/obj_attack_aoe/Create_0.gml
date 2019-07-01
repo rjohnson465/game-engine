@@ -1,7 +1,8 @@
 owner = global.owner;
 life = 60;
-depth = 1;
 layer = owner.layer;
+origLayer = layer;
+depth = layer_get_depth(layer) - 1; // draw over owner
 x = owner.x;
 y = owner.y;
 image_angle = owner.facingDirection;
@@ -37,8 +38,14 @@ visible = true;
 var s = attackData.spriteName+"_"+string(attackData.spriteAttackNumber)+"_"+string(attackData.spriteAttackNumberInChain)+"_projectile";
 sprite_index = asset_get_index(s);
 
-var spread = 360 / attackData.numberOfProjectiles;
-direction = ((spread*global.projectileNumber) + owner.facingDirection) mod 360;
+if attackData.aoeProjectilesDirectionOffsetArray == noone || !is_array(attackData.aoeProjectilesDirectionOffsetArray) {
+	var spread = attackData.spreadTotal / attackData.numberOfProjectiles;
+	direction = (((spread*global.projectileNumber) + owner.facingDirection) + attackData.aoeStartOffset); // mod attackData.spreadTotal;
+}
+// if aoeProjectilesDirectionOffsetArray is supplied, use that for direction
+else {
+	direction = owner.facingDirection + attackData.aoeProjectilesDirectionOffsetArray[global.projectileNumber];
+}
 facingDirection = direction;
 speed = attackData.projectileSpeed;
 

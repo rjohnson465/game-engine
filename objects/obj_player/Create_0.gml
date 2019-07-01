@@ -154,6 +154,7 @@ skillPoints = 0;
 // poise = ds_map_find_value(propertiesBaseValues,ModifiableProperties.Poise);
 poiseMax = ds_map_find_value(propertiesBaseValues,ModifiableProperties.PoiseMax);
 poiseCurrent = poiseMax;
+poiseRegen = 1;
 
 equipmentLoadCurrent = 0;
 equipmentLoadMax = ds_map_find_value(propertiesBaseValues, ModifiableProperties.EquipmentLoad);

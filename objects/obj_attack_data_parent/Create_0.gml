@@ -76,6 +76,15 @@ prepPartStartFrame = noone;
 
 usesWeapon = false;
 
+// For AOE attacks -- how many degrees all attacks span
+spreadTotal = 360; 
+aoeStartOffset = 0; // how many degrees different from facingDirection AOE attack spread starts
+
+// optional array for AOE attacks
+// tells what the direction for each numbered projectile should be, relative to owner.facingDirection
+// if this is supplied, aoeStartOffset is ignored
+aoeProjectilesDirectionOffsetArray = noone;
+
 // if a weapon is required for this attack, the attacker must switch to this weapon before attack begins
 weaponRequired = noone;
 
@@ -100,3 +109,5 @@ beamHitSoundLoop = noone;
 bouncesOffWalls = false;
 
 life = noone; // how long ranged attacks last
+
+zonePartNum = noone; // specify to say how many zone particles to spawn per frame, for zone attacks

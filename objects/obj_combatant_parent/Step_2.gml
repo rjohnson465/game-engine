@@ -60,7 +60,7 @@ if	type != CombatantTypes.Player && attackData != noone && attackData.prepPart1 
 	if attackData.prepPart1BelowOwner {
 		part_system_depth(appSystem, layer_get_depth(layer)+1);
 	} else {
-		part_system_depth(appSystem, layer_get_depth(layer)-1);
+		part_system_depth(appSystem, layer_get_depth(layer) - 1);
 	}
 	
 	var bbl = bbox_left; var bbr = bbox_right;

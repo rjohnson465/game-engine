@@ -583,9 +583,6 @@ switch(state) {
 			// at final frame of staggering, maybe mark your spot as free in your personalGrid
 			maybeMarkGridCellTempFree(x, y);
 			
-			// reset poise at the end of a stagger
-			poiseCurrent = poiseMax;
-			
 			// possibly become wary (less chance after stagger than dodging)
 			// don't do this if the player is using ranged attacks
 			if lastAttackHitWith != noone && instance_exists(lastAttackHitWith) && !lastAttackHitWith.isRanged {

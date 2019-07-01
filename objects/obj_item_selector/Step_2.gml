@@ -13,6 +13,7 @@ if type == SelectorTypes.Select && !isActive && isSelectorInEquippedItems() && !
 if type == SelectorTypes.Select && !isActive && isSelectorInInventory() && !ui.equipSelector.isActive {
 	ui.equipSelector.isActive = true;
 	var selectedItem = getItemAtSelectorPosition(id);
+	if selectedItem.type == ItemTypes.Key exit; // one cannot 'use' a key
 	// get acceptable slots the equip selector can move in
 	ui.equipSelector.acceptableEquipmentSlots = getAcceptableEquipmentSlots(selectedItem);
 			

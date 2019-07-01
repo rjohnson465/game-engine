@@ -123,7 +123,8 @@ if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 var poiseAmount = (global.player.poiseCurrent / global.player.poiseMax) * 100;
 draw_set_color(c_white);
 draw_rectangle(x1, y2, x2, y2+5, true);
-draw_healthbar(x1, y2+1, x2, y2+6, poiseAmount, c_black, C_POISE, C_POISE, 0, false, false);
+var poiseColor = global.player.state == CombatantStates.Staggering ? c_gray : C_POISE;
+draw_healthbar(x1, y2+1, x2, y2+6, poiseAmount, c_black, poiseColor, poiseColor, 0, false, false);
 if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y2,vx+x2,vy+y2+5) {
 	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center);
 	var s = "Poise: " + string(round(global.player.poiseCurrent)) + "/" + string(round(global.player.poiseMax));

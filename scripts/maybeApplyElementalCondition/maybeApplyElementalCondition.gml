@@ -59,7 +59,8 @@ if condiPercentageCurrent == 0 {
 }
 
 // else, add to the condition percentage  (maybe? is this fair?)
-else {
+// Should not do this for cold / slowed, thats BS its easy to get stuck then
+else if damageType != ICE {
 	// condition percent is 25 to 100, based on percentOfHp the damage is
 	// 0%hp hits give 25% condition bar. 20%hp hits give 100% of condition bar.
 	var percentOfHp = (damageAmount/maxHp)*100;

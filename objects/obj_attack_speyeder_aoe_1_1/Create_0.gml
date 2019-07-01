@@ -12,6 +12,13 @@ limbKey = noone;
 type = AttackTypes.AOE;
 minRange = 30;
 numberOfProjectiles = 8;
+
+/*
+numberOfProjectiles = 3; // TEST
+spreadTotal = 180; // TEST
+aoeStartOffset = -90; // TEST
+*/
+
 projectileSpeed = 15;
 damageType = "Dust";
 

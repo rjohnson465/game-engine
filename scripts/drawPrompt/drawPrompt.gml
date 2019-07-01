@@ -20,6 +20,24 @@ var vh = camera_get_view_height(view_camera[0]);
 var xx = vw/2;
 var yy = vh - 50;
 
+// for each boss in the room, draw the prompt a bit higher
+// to accomodate boss health bar
+// (of course, this is only if this a lower screen prompt)
+var bossCount = 0;
+var atLeastOneBossAlive = false;
+with obj_enemy_parent {
+	if isBoss {
+		if hp > 0 {
+			atLeastOneBossAlive = true;
+		}
+		bossCount++;
+	}
+}
+		
+if atLeastOneBossAlive {
+	yy -= bossCount*50;
+}
+
 if argument_count == 3 {
 	xx = argument[2];
 }
@@ -162,6 +180,7 @@ for (var i = 0 ; i < array_length_1d(keys); i++) {
 	var sh = sprite_get_height(sprite)*.35;
 	// center bottom screen
 	if argument_count < 3 {
+		
 		draw_sprite_ext(sprite,1,xx-(.5*promptWidth)+spritesWidth,yy-(.5*sh),.35,.35,0,c_white,1);
 	} else {
 		draw_sprite_ext(sprite,1,xx+spritesWidth,yy,.35,.35,0,c_white,1);

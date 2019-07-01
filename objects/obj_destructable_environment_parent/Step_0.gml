@@ -27,7 +27,9 @@ if !hasSetAlarm {
 						audio_play_sound_at(destructionSound, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 						
 						// add this destructable object to the attack's destructablesHit list
-						ds_list_add(other.destructablesHit, other);
+						if variable_instance_exists(other, "destructablesHit") && ds_exists(other.destructablesHit, ds_type_list) {
+							ds_list_add(other.destructablesHit, other);
+						}
 						
 						// if ranged attack, destroy it 
 						with other {

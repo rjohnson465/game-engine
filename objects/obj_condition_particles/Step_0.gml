@@ -119,10 +119,14 @@ if conditionLevel == 0 {
 	}
 	
 	// scale num for sprite size
-	var sw = sprite_get_bbox_right(owner.sprite_index) - sprite_get_bbox_left(owner.sprite_index);
+	/*var sw = sprite_get_bbox_right(owner.sprite_index) - sprite_get_bbox_left(owner.sprite_index);
 	var sh = sprite_get_bbox_bottom(owner.sprite_index) - sprite_get_bbox_top(owner.sprite_index);
 	num *= ((sw*sh) / 1024);
 	num2 *= ((sw*sh) / 1024);
+	
+	// test
+	num *= ((sw*sh) / 1600);
+	num2 *= ((sw*sh) / 1600); */
 	
 	if array_length_1d(particles) == 0 {
 		part_emitter_burst(system,emitter,particle, num);

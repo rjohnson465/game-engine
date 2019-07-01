@@ -8,10 +8,10 @@ isFairy = false;
 isFloating = false;
 isBoss = true;
 
-functionalSpeed = 6;
-normalSpeed = 6;
-turnSpeed = 15;
-normalTurnSpeed = 15;
+functionalSpeed = 7;
+normalSpeed = 7;
+turnSpeed = 10;
+normalTurnSpeed = 10;
 
 cannotStagger = true;
 
@@ -25,29 +25,31 @@ lamplightsEatenCount = 0; // special; will drop this many lamplights on death
 alarm[2] = -4;
 HUNGER_FRAME_MIN = 60; // 20 seconds
 HUNGER_FRAME_MAX = 120; // 40 seconds
+
+// if lighteaters takes this much damage while eating, he staggers out of eat phase
+stopEatingDamageMax = 9;
+stopEatingDamage = 0;
+stopEatingDamageAttacksList = ds_list_create();
+
 lamplightToEat = noone;
-lamplightEatFrame = 15;
+LAMPLIGHT_EAT_FRAME_MAX = 90;
+LAMPLIGHT_TOTAL_HEAL_AMOUNT = 50;
+lamplightEatFrame = LAMPLIGHT_EAT_FRAME_MAX;
 
-// all weapons / shields enemy can use
-/*
-var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
-var toyhammer = makeEnemyWeapon(obj_hand_item_toyhammer);
-var pie = makeEnemyWeapon(obj_hand_item_pie);
-ds_map_replace(handItems,"lm1",toyhammer);
-ds_map_replace(handItems,"rm1",unarmed);
-ds_map_replace(handItems,"lm2",pie);
-ds_map_replace(handItems,"rm2",unarmed);
-ds_map_replace(handItems,"lr1",noone);
-ds_map_replace(handItems,"rr1",noone);
-rangedRangeArray = []; rangedAttacks = [];
-ds_map_replace(equippedLimbItems,"l",toyhammer);
-ds_map_replace(equippedLimbItems,"r",unarmed);
+partSystemLighteater = part_system_create();
+part_system_depth(partSystemLighteater, depth);
+partEmiLighteater = part_emitter_create(partSystemLighteater);
+partLamplightHeal = noone;
+var magic = part_type_create();
+part_type_shape(magic, pt_shape_sphere);
+part_type_color2(magic,c_aqua,c_ltgray);
+part_type_orientation(magic,0,0,0,15,1);
+part_type_size(magic,0,0.08,0,0);
+part_type_speed(magic,2,8,0,0);
+part_type_direction(magic,0,360,0,4);
+part_type_life(magic,10,15);
+partLamplightHeal = magic;
 
-
-ds_map_replace(equippedLimbItems,"l",unarmed);
-ds_map_replace(equippedLimbItems,"r",toyhammer);
-var rightHand = makeLimb(id,"r");
-var leftHand = makeLimb(id,"l"); */
 
 state = CombatantStates.Idle;
 
@@ -55,8 +57,8 @@ state = CombatantStates.Idle;
 meleeAggroRange = 800;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 1000;
-aggressiveness = 0; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
-attackFrequencyTotalFramesMelee = [30,90];
+aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
+attackFrequencyTotalFramesMelee = [75,110];
 attackFrequencyTotalFramesRanged = [45,70];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[500,600];
@@ -77,40 +79,37 @@ currentMeleeAttack = noone;
 
 // ATTACKS
 global.owner = id;
+var breath = makeEnemyAttackObj(obj_attack_lighteater_breath_1_1);
+var cs1 = makeEnemyAttackObj(obj_attack_lighteater_claw_1_1);
+var cs2 = makeEnemyAttackObj(obj_attack_lighteater_claw_1_2);
 
-meleeAttacks = [];
-var hammerSwing = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_1_1);
+var cjab = makeEnemyAttackObj(obj_attack_lighteater_claw_2_1);
+var csweep = makeEnemyAttackObj(obj_attack_lighteater_claw_2_2);
 
-var hammerTwirl1 = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_2_1);
-var hammerTwirl2 = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_2_2);
+var tailshot = makeEnemyAttackObj(obj_attack_lighteater_tail_1_1);
 
-var magicmissile = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_3_1);
+var c_jab = [cjab];
+var c_js = [cjab, csweep];
 
-var hammerCharge = makeEnemyAttackObj(obj_attack_funfairy_toyhammer_4_1);
+var c_ts = [tailshot];
 
-var pieThrow = makeEnemyAttackObj(obj_attack_funfairy_pie_1_1);
+var c_breath = [breath];
+var c_claw2 = [cs1, cs2];
+var c_claw = [cs1];
+meleeAttacks = [c_js, c_js, c_jab, c_claw, c_claw2, c_claw2, c_breath];
 
-var c0 = [hammerSwing];
-var c1 = [hammerTwirl1, hammerTwirl2];
-var c2 = [hammerSwing, hammerTwirl2];
-var c3 = [magicmissile];
-var c4 = [pieThrow];
-var c5 = [hammerSwing, pieThrow];
-var c6 = [pieThrow, hammerSwing];
-var c7 = [hammerCharge];
-var c8 = [hammerSwing, hammerCharge];
-meleeAttacks = [c0, c1, c2, c3, c3, c4, c5, c6, c7, c8];
+meleeAttacks = [c_ts];
 // ranged attacks info
 
 // currently chosen ranged attack
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 25;
-maxHp = 25;
+hp = 100;
+maxHp = 100;
 
-stamina = 60;
-maxStamina = 60;
+stamina = 6000;
+maxStamina = 6000;
 staminaRegen = 10;
 
 beenHit = false; // hit during an attack animation

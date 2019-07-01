@@ -23,6 +23,14 @@ if hp < 1 && isAlive && !isDying {
 	ds_list_add(droppedItems,item1, item2, item3);
 	//ds_list_add(droppedItems,item2);
 	ds_list_add(droppedItems,gold);
+	
+	// special: drops however many lamplights he ate during the fight (if any)
+	if lamplightsEatenCount > 0 {
+		var lampLights = instance_create_depth(x,y,1,obj_item_lamplight);
+		lampLights.count = lamplightsEatenCount;
+		ds_list_add(droppedItems, lampLights);
+	}
+	
 	ds_map_destroy(rmap); rmap = -1;
 	ds_map_destroy(rmap2); rmap2 = -1;
 	//ds_map_destroy(tmap); tmap = -1;

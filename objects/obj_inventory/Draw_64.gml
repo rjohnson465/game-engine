@@ -232,7 +232,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	
 		 
 		if itemAtMoveSelector != noone && (itemAtMoveSelector.type == ItemTypes.Other && !itemAtMoveSelector.isUsable) {
-		} else if itemAtMoveSelector != noone && !isSelectorInEquippedItems(global.ui.moveSelector) {
+		} else if itemAtMoveSelector != noone && itemAtMoveSelector.type != ItemTypes.Key && !isSelectorInEquippedItems(global.ui.moveSelector) {
 
 			w += drawPrompt("Equip Item",Input.F,promptsStartX,promptsY)+xOffset;
 		} else if isSelectorInEquippedItems(global.ui.moveSelector) {
