@@ -8,5 +8,7 @@ if interactInputReceived && hasSetAlarm {
 	instance_destroy(id,1);
 	global.isReadingTutorial = false;
 	audio_play_sound(snd_ui_tab2,1,0);
+	global.player.currentInteractableObject = noone;
+	global.player.interactableResetFrame = 5;
 	exit;
 }

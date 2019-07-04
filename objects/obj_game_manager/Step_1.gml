@@ -12,10 +12,14 @@ if global.isPopulatingGrids {
 	else {
 		populateGrids();
 		if global.respawnEnemiesAfterGridsPopulate {
-			respawnEnemies();
+			respawnEnemies(global.respawnOnlyBosses);
 			with global.player {
 				jumpToNearestFreePoint(false, true);
 			}
+			
+			// trigger a save
+			fs_save_game();
+			alert("Saving " + currentSaveFile, c_yellow);
 		}
 		hasReactivatedObjectsForGrids = false;
 		global.isPopulatingGrids = false;

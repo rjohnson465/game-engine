@@ -5,16 +5,6 @@
     "name": "obj_boss_gate",
     "eventList": [
         {
-            "id": "7a1cea40-cb5e-4c71-80e8-bc919265a88a",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "e0e7ccc8-b881-4a4e-bc5b-1c38ef0e8ed6"
-        },
-        {
             "id": "817743ee-5497-4615-9d0b-722bf37bfea7",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -22,16 +12,6 @@
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "e0e7ccc8-b881-4a4e-bc5b-1c38ef0e8ed6"
-        },
-        {
-            "id": "d7919c21-e53b-4e40-af4e-026053b37526",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 64,
-            "eventtype": 8,
             "m_owner": "e0e7ccc8-b881-4a4e-bc5b-1c38ef0e8ed6"
         },
         {

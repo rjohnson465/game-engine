@@ -1,15 +1,19 @@
-if !isCurrentInteractionObject(id) exit;
+// if !isCurrentInteractionObject(id) exit;
 if origLayer != global.player.layer exit;
+
 var isInConvo = false;
 with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if !isActive && distance_to_object(obj_player) < 20 && !global.isReadingTutorial && global.player.isAlive && !global.canLoot && !global.isLooting && !global.isWishing && !global.ui.isShowingMenus && !global.canInteractWithNpc && !isInConvo {
+if	!isActive 
+	// && distance_to_object(obj_player) < 20 
+	&& global.player.currentInteractableObject == id 
+	&& !global.isReadingTutorial && global.player.isAlive && !global.isLooting && !global.isWishing && !global.ui.isShowingMenus && !isInConvo {
 	drawPrompt("Read message",Input.F);
 }
 
-if isActive && global.player.isAlive && !global.canLoot && !global.isWishing && !global.ui.isShowingMenus && !global.canInteractWithNpc && !isInConvo {
+if isActive && global.player.isAlive && !global.canLoot && !global.isWishing && !global.ui.isShowingMenus && !isInConvo {
 
 	var xx = view_get_wport(view_camera[0]) / 2;
 	var yy = view_get_hport(view_camera[0]) - 150;

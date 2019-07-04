@@ -15,6 +15,9 @@ for (var i = 0; i < ds_list_size(associatedPipes); i++) {
 	}
 }
 
-if canTurnValve && isCurrentInteractableObject && distance_to_object(obj_player) < 20 && global.player.isAlive && origLayer == global.player.layer && !isInConvo && !global.canLoot && !global.canInteractWithNpc && !global.isInteractingWithNpc {
+if	canTurnValve && 
+	// isCurrentInteractableObject && 
+	global.player.currentInteractableObject == id &&
+	distance_to_object(obj_player) < 20 && global.player.isAlive && origLayer == global.player.layer && !isInConvo && !global.isInteractingWithNpc {
 	drawPrompt("Turn Valve",Input.F);
 }

@@ -14,3 +14,5 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 handSpriteString = "spr_player_hand_shield";
 
 soundDrop = snd_item_metal;
+
+stability = 5; // how much stamina damage is absorbed

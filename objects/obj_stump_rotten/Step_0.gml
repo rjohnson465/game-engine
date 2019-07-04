@@ -12,8 +12,14 @@ with obj_npc_parent {
 if global.isReadingTutorial exit;
 var p = global.player;
 
-if isCurrentInteractableObject && !isFallen && distance_to_object(obj_player) < 20 && origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
+if !isFallen {
+	maybeAddOrRemoveFromInteractablesList(20);
+}
+
+if	global.player.currentInteractableObject == id 
+	&& origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
 	isFallen = true;
+	removeFromInteractablesList();
 	updatePersistentElementProperty(id,"isFallen",true);
 	sprite_index = spr_stump_rotten_falling;
 	audio_play_sound_at(fallingSound,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);

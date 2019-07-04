@@ -3,6 +3,7 @@ if layer >= global.player.layer {
 	part_emitter_region(system,emitter,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system,emitter,particle, 2);
 }
+
 if global.isReadingTutorial exit;
 global.isLooting = false;
 var interactInputReceived = keyboard_check_pressed(ord("F"));
@@ -16,7 +17,11 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if distance_to_object(obj_player) < distToPickup && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting && !isInConvo {
+maybeAddOrRemoveFromInteractablesList(distToPickup);
+
+if  // distance_to_object(obj_player) < distToPickup && 
+	global.player.currentInteractableObject == id &&
+	layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting && !isInConvo {
 	// only loot the closest item, if multiple items exist that are within distToPickuppx of player
 	if instance_nearest(global.player.x,global.player.y,obj_item_drop_persistent) == id {
 		var isDestroying = false;
@@ -55,6 +60,8 @@ if (!isBeingLooted && ds_exists(items,ds_type_list)) || (distance_to_object(obj_
 if (!ds_exists(items,ds_type_list) || ds_list_size(items) == 0) && !hasSetAlarm {
 	alarm[0]=3;
 	hasSetAlarm = true;
+	removeFromInteractablesList();
+	global.player.interactableResetFrame = 5;
 }
 
 if global.ui.isShowingMenus isBeingLooted = false;

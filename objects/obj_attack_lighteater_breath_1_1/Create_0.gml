@@ -33,4 +33,4 @@ attackSound = snd_magic_poison_shoot;
 attackSoundsVocals = [snd_enemy_lighteater_attack_1];
 attackSoundLoop = snd_magic_poison_loop;
 
-zonePartNum = 4;
+zonePartNum = 7;

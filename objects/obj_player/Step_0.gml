@@ -149,3 +149,6 @@ if isSprinting {
 	}
 }
 
+if interactableResetFrame > 0 {
+	interactableResetFrame--;
+}

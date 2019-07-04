@@ -33,7 +33,7 @@ stopEatingDamageAttacksList = ds_list_create();
 
 lamplightToEat = noone;
 LAMPLIGHT_EAT_FRAME_MAX = 90;
-LAMPLIGHT_TOTAL_HEAL_AMOUNT = 50;
+LAMPLIGHT_TOTAL_HEAL_AMOUNT = 100;
 lamplightEatFrame = LAMPLIGHT_EAT_FRAME_MAX;
 
 partSystemLighteater = part_system_create();
@@ -80,6 +80,8 @@ currentMeleeAttack = noone;
 // ATTACKS
 global.owner = id;
 var breath = makeEnemyAttackObj(obj_attack_lighteater_breath_1_1);
+var aoe = makeEnemyAttackObj(obj_attack_lighteater_aoe_1_1);
+
 var cs1 = makeEnemyAttackObj(obj_attack_lighteater_claw_1_1);
 var cs2 = makeEnemyAttackObj(obj_attack_lighteater_claw_1_2);
 
@@ -87,26 +89,29 @@ var cjab = makeEnemyAttackObj(obj_attack_lighteater_claw_2_1);
 var csweep = makeEnemyAttackObj(obj_attack_lighteater_claw_2_2);
 
 var tailshot = makeEnemyAttackObj(obj_attack_lighteater_tail_1_1);
+var tailstab = makeEnemyAttackObj(obj_attack_lighteater_tail_2_1);
 
 var c_jab = [cjab];
 var c_js = [cjab, csweep];
 
 var c_ts = [tailshot];
+var c_tailstab = [tailstab];
 
 var c_breath = [breath];
+var c_aoe = [aoe];
 var c_claw2 = [cs1, cs2];
 var c_claw = [cs1];
-meleeAttacks = [c_js, c_js, c_jab, c_claw, c_claw2, c_claw2, c_breath];
+meleeAttacks = [c_js, c_js, c_jab, c_claw, c_claw2, c_claw2, c_breath, c_tailstab, c_aoe, c_ts];
 
-meleeAttacks = [c_ts];
+// meleeAttacks = [c_tailstab];
 // ranged attacks info
 
 // currently chosen ranged attack
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 100;
-maxHp = 100;
+hp = 400;
+maxHp = 400;
 
 stamina = 6000;
 maxStamina = 6000;

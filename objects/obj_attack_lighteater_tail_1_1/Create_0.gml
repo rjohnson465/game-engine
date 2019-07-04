@@ -6,7 +6,7 @@ limbKey = noone;
 ds_map_replace(damages,PIERCE,[10,12]);
 //isRanged = true;
 staminaCost = 5;
-staggerDuration = 5;
+staggerDuration = 10;
 limbKey = noone;
 type = AttackTypes.AOE;
 minRange = 200;

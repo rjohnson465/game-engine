@@ -18,9 +18,15 @@ with obj_npc_parent {
 }
 
 var angleToSconce = point_direction(p.x,p.y,x,y);
-var isFacing = angleBetween(p.facingDirection-45,p.facingDirection+45,angleToSconce);
+var isFacing = angleBetween(p.facingDirection-90,p.facingDirection+90,angleToSconce);
 
-if isFacing && distance_to_object(obj_player) < 20 && origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
+maybeAddOrRemoveFromInteractablesList(20);
+
+if !isFacing {
+	removeFromInteractablesList();
+}
+
+if isFacing && p.currentInteractableObject == id && origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
 	var hasLamplight = false;
 	var lampLightObj = noone;
 	with obj_item_lamplight {

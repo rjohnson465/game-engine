@@ -12,33 +12,33 @@ if	 stamina < maxStamina && (state == CombatantStates.Idle || state == Combatant
 		var lamplightCondi = ds_map_find_value(conditionLevels, "spr_item_lamplight");
 		// stamina regens slower if shielding
 		if isShielding {
-			stamina += (.5*staminaRegen)/30;
+			stamina += (.5*staminaRegen)/room_speed;
 			if lamplightCondi != undefined && lamplightCondi > 0 {
-				stamina += ((.5*staminaRegen) / 30);
+				stamina += ((.5*staminaRegen) / room_speed);
 			}
 		}
 		else if (type == CombatantTypes.Player && state == CombatantStates.Attacking) {
 			var lhItem = ds_map_find_value(equippedLimbItems,"l");
 			if lhItem.isTwoHanded && lhItem.subType == HandItemTypes.Ranged {
-				stamina += (.5*staminaRegen)/30;
+				stamina += (.5*staminaRegen)/room_speed;
 					if lamplightCondi != undefined && lamplightCondi > 0 {
-					stamina += ((.5*staminaRegen) / 30);
+					stamina += ((.5*staminaRegen) / room_speed);
 				}
 			}
 		}
 		else {
-			stamina += staminaRegen/30;
+			stamina += staminaRegen/room_speed;
 			if lamplightCondi != undefined && lamplightCondi > 0 {
-				stamina += ((1*staminaRegen) / 30);
+				stamina += ((1*staminaRegen) / room_speed);
 			}
 		}
 	}
 }
 if hp < maxHp {
-	hp += hpRegen/30;
+	hp += hpRegen/room_speed;
 	var lamplightCondi = ds_map_find_value(conditionLevels, "spr_item_lamplight");
 	if lamplightCondi != undefined && lamplightCondi > 0 {
-		hp += hpRegen / 30;
+		hp += hpRegen / room_speed;
 	}
 	// update the data for this combatant if not player
 	if type != CombatantTypes.Player {
@@ -51,7 +51,8 @@ if hp > maxHp hp = maxHp;
 
 // regen poise too
 if poiseCurrent < poiseMax {
-	poiseCurrent += poiseRegen/30;
+	var pRegenAmount = isShielding ? ((poiseRegen/room_speed)/2) : poiseRegen/room_speed;
+	poiseCurrent += pRegenAmount;
 	if poiseCurrent > poiseMax {
 		poiseCurrent = poiseMax;
 	}

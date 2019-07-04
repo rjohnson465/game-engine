@@ -65,5 +65,5 @@ if isActive && !isCoolingDown {
 	var floorNum = getLayerFloorNumber(origLayer);
 	var pFloorNum = getLayerFloorNumber(global.player.layer);
 	if floorNum > pFloorNum exit;
-	part_emitter_burst(system, emitter, partCinder, -3);
+	part_emitter_burst(system, emitter, partCinder, 1);
 }

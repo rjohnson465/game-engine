@@ -23,7 +23,11 @@ with obj_item_drop {
 	}
 }
 
-if distance_to_object(obj_player) < 20 && layer == global.player.layer && !global.isTrading && !global.isWishing && !global.canLoot && !canLoot && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && interactInputReceived && !isInConversation && !isInteractingWithPlayer {
+maybeAddOrRemoveFromInteractablesList(20);
+
+if	// distance_to_object(obj_player) < 20 
+	global.player.currentInteractableObject == id &&
+	layer == global.player.layer && !global.isTrading && !global.isWishing && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && interactInputReceived && !isInConversation && !isInteractingWithPlayer {
 	
 	// find out if we have any urgent conversations
 	// get all the urgent conversations' narrative placements,

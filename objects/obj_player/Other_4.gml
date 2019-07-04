@@ -2,6 +2,8 @@ global.isReadingTutorial = false;
 if global.playerDoNothing exit;
 if room == game_menu exit;
 
+ds_list_clear(interactableObjects); currentInteractableObject = noone;
+
 updateEquipLoadSpeedModifier();
 
 if variable_global_exists("newGameStarted") && global.newGameStarted {

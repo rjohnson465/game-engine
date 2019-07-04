@@ -1,7 +1,8 @@
 event_inherited();
 var p = global.player;
 if p.rightHandItem.object_index != obj_hand_item_torch && !isLit {
-	maybeRemoveObjectFromInteractionList(id);
+	// maybeRemoveObjectFromInteractionList(id);
+	removeFromInteractablesList();
 	exit;
 }
 var interactInputReceived = keyboard_check_released(ord("F"));
@@ -15,10 +16,19 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-var angleToSconce = point_direction(p.x,p.y,x,y);
-var isFacing = angleBetween(p.facingDirection-45,p.facingDirection+45,angleToSconce);
+maybeAddOrRemoveFromInteractablesList(20);
 
-if isFacing && distance_to_object(obj_player) < 20 && origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
+var angleToSconce = point_direction(p.x,p.y,x,y);
+var isFacing = angleBetween(p.facingDirection-90,p.facingDirection+90,angleToSconce);
+
+if !isFacing {
+	removeFromInteractablesList();
+}
+
+if	isFacing && 
+	// distance_to_object(obj_player) < 20 && 
+	p.currentInteractableObject == id &&
+	origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
 	if !isLit && p.rightHandItem.object_index == obj_hand_item_torch {
 		lightSconce();
 	}

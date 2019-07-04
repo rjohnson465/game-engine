@@ -11,6 +11,9 @@ if instance_exists(lightRadius) {
 	instance_destroy(lightRadius); lightRadius = -1;
 }
 
+removeFromInteractablesList();
+global.player.interactableResetFrame = 5;
+
 // destroy any items you hold still 
 if ds_exists(items,ds_type_list) {
 	for (var i = 0; i < ds_list_size(items); i++) {

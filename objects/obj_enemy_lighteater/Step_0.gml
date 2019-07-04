@@ -25,7 +25,7 @@ if state == "Eat" {
 		if ds_list_size(litLamplights) == 0 {
 			lamplightToEat = noone;
 			state = CombatantStates.AggroMelee;
-			lamplightEatFrame = 0;
+			lamplightEatFrame = LAMPLIGHT_EAT_FRAME_MAX;
 			stopEatingDamage = 0;
 			ds_list_clear(stopEatingDamageAttacksList);
 		} else {
@@ -120,7 +120,7 @@ if state == "Eat" {
 				ds_list_clear(stopEatingDamageAttacksList); 
 				stopEatingDamage = 0;
 				
-				lamplightEatFrame = 0;
+				lamplightEatFrame = LAMPLIGHT_EAT_FRAME_MAX;
 				
 				// eat the light (maybe after some animation???)
 				with lamplightToEat {

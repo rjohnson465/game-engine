@@ -5,7 +5,10 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if distance_to_object(obj_player) < 20 && origLayer == global.player.layer && global.player.isAlive && !global.canLoot && !global.isWishing && !global.ui.isShowingMenus && !global.canInteractWithNpc && !isInConvo {
+if 
+	// distance_to_object(obj_player) < 20 && 
+	global.player.currentInteractableObject == id &&
+	origLayer == global.player.layer && global.player.isAlive && !global.isWishing && !global.ui.isShowingMenus && !isInConvo {
 	if !isRunning {
 		drawPrompt("Fill Fountain",Input.F);
 	}

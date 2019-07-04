@@ -16,7 +16,11 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if distance_to_object(obj_player) < 20 && layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting && !isInConvo {
+maybeAddOrRemoveFromInteractablesList(20);
+
+if	// distance_to_object(obj_player) < 20 && 
+	global.player.currentInteractableObject == id &&
+	layer == global.player.layer && interactInputReceived && global.player.isAlive && !global.isLooting && !isInConvo {
 	// only loot the closest item, if multiple items exist that are within 20px of player
 	if instance_nearest(global.player.x,global.player.y,obj_item_drop) == id {
 		var isDestroying = false;
@@ -64,6 +68,8 @@ if !ds_exists(items, ds_type_list) {
 if (!ds_exists(items,ds_type_list) || ds_list_size(items) == 0) && !hasSetAlarm {
 	alarm[0]=3;
 	hasSetAlarm = true;
+	removeFromInteractablesList();
+	global.player.interactableResetFrame = 5;
 }
 
 if global.ui.isShowingMenus isBeingLooted = false;

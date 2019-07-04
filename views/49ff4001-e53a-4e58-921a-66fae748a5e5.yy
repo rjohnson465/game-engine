@@ -9,7 +9,9 @@
         "505e9a0d-28c6-4953-a63b-f79abbc6f4d5",
         "beebd79e-9090-4794-9f97-c662ca334ad7",
         "03bc6ae8-0773-4981-9541-961e79a91b56",
-        "c65f786c-a6de-4f9e-9f79-60c6649fbfd8"
+        "c65f786c-a6de-4f9e-9f79-60c6649fbfd8",
+        "b60b8aaa-812f-4c4f-b7b0-3bfbb1917706",
+        "3290e987-c843-4bb4-a33d-fc94b780b969"
     ],
     "filterType": "GMScript",
     "folderName": "Environment",

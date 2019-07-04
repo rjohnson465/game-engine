@@ -19,6 +19,10 @@ with item {
 			dropItem.selectedItem = ds_list_find_value(dropItem.items,0);
 		} else {
 			dropItem.alarm[0] = 3;
+			with dropItem {
+				removeFromInteractablesList();
+				global.player.interactableResetFrame = 5;
+			}
 		}
 	}
 }

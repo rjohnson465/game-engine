@@ -4,7 +4,9 @@ with obj_item_drop {
 		canLoot = true;
 	}
 }
-if distance_to_object(obj_player) < 20 && global.player.isAlive && !global.isTrading && !global.canLoot && !canLoot && !global.isLooting && !global.isWishing && !global.ui.isShowingMenus &&!isInteractingWithPlayer && !isInConversation && layer == global.player.layer {
+if	// distance_to_object(obj_player) < 20 && 
+	global.player.currentInteractableObject == id &&
+	global.player.isAlive && !global.isTrading && !global.isLooting && !global.isWishing && !global.ui.isShowingMenus &&!isInteractingWithPlayer && !isInConversation && layer == global.player.layer {
 	drawPrompt("Talk with " + name, Input.F);
 }
 

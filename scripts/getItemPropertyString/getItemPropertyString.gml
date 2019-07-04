@@ -51,7 +51,7 @@ switch prop {
 		s = "% damage"; break;
 	}
 	case ModifiableProperties.PoiseMax: {
-		s = "max poise"; break;
+		s = " max poise"; break;
 	}
 	case ModifiableProperties.XpMultiplier: {
 		s = "% XP gained from kills"; break;

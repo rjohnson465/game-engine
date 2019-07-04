@@ -76,6 +76,7 @@ with obj_health_orb {
 // respawn all enemies
 // respawnEnemies();
 global.isPopulatingGrids = true;
+global.respawnOnlyBosses = false;
 global.respawnEnemiesAfterGridsPopulate = true;
 		
 // refill player health and stamina
@@ -109,8 +110,12 @@ with obj_player {
 	lightRadiusColor = c_white;
 }
 
-// trigger a save 
-with obj_game_manager {
+// trigger a save, only after all enemies are respawned (done in game manager, since 
+// enemy respawning is done in the next step (must activate all enemy instances this step))
+
+
+updatePersistentElementProperty(id, "isDoneFilling", true);
+/*with obj_game_manager {
 	updatePersistentElementProperty(other, "isDoneFilling", true);
 	fs_save_game();
 	alert("Saving " + currentSaveFile, c_yellow);

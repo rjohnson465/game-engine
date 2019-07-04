@@ -39,7 +39,11 @@ with obj_npc_parent {
 
 if origLayer != global.player.layer exit;
 
-if distance_to_object(obj_player) < 20 && origLayer == global.player.layer && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !global.canLoot && !inUse && !global.ui.isShowingMenus && !global.canInteractWithNpc && !isInConvo {
+maybeAddOrRemoveFromInteractablesList(20);
+
+if	// distance_to_object(obj_player) < 20 && 
+	global.player.currentInteractableObject == id &&
+	origLayer == global.player.layer && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !inUse && !global.ui.isShowingMenus && !isInConvo {
 	// begin revive dead enemies
 	global.fadeDuration = 30;
 	global.owner = id;

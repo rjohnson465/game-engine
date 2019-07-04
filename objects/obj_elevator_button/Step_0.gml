@@ -11,10 +11,17 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if distance_to_object(obj_player) < 20 && origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
+if associatedElevator != noone && !associatedElevator.elevatorIsMoving && associatedElevator.elevatorCurrentFloor != floorNum {
+	maybeAddOrRemoveFromInteractablesList(20);
+}
+
+if	// distance_to_object(obj_player) < 20 && 
+	p.currentInteractableObject == id &&
+	origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
 	if !isActive && !associatedElevator.elevatorIsMoving && associatedElevator.elevatorCurrentFloor != floorNum {
 		isActive = true;
 		associatedElevator.elevatorFloorToMoveTo = floorNum;
+		removeFromInteractablesList();
 		audio_play_sound_at(snd_elevator_button, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 	}
 } 

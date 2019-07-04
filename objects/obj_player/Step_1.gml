@@ -86,6 +86,11 @@ if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 		performDodge();
 	}
 	
+	// toggle interact
+	if gamepad_button_check_pressed(gamePadIndex,gp_face4) && !global.ui.isShowingMenus && !global.ui.justClosedMenus && !global.isLooting && (!isHoldingSprintButton || !isMoving) {
+		performToggleInteractable();
+	}
+	
 	// use belt item
 	if state != CombatantStates.Dodging && state != CombatantStates.Staggering && state != CombatantStates.Attacking && !global.ui.isShowingMenus {
 		if gamepad_button_check_pressed(gamePadIndex, gp_face3) {

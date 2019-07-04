@@ -16,12 +16,23 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
+/*
 var isNearFountain = false;
 with obj_fountain {
 	if distance_to_object(obj_player) < 20 isNearFountain = true;
-}
+}*/
 
-if isCurrentInteractionObject(id) && interactInputReceived && place_meeting(x,y,obj_player) && fade == noone && global.player.isAlive && !global.canLoot && !global.isLooting && !global.canInteractWithNpc && !global.isInteractingWithNpc && !isInConvo && !isNearFountain {
+maybeAddOrRemoveFromInteractablesList(1);
+
+if	// isCurrentInteractionObject(id) && 
+	global.player.currentInteractableObject == id &&
+	interactInputReceived && fade == noone && global.player.isAlive && 
+	!global.isLooting && 
+	!global.isInteractingWithNpc && 
+	!isInConvo 
+	// && 
+	// !isNearFountain 
+	{
 
 	with obj_player {
 		// stop preparing attacks

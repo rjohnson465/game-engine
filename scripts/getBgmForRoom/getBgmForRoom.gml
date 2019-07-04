@@ -20,7 +20,7 @@ switch rm {
 		// return [snd_bgms_le, snd_bgms_vl, snd_bgms_ws];
 		break;
 	}
-	case rm_lighteater: {
+	case rm_boss_lighteater: {
 		return [snd_bgm_lighteater];
 	}
 }

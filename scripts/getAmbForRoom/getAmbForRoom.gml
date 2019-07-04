@@ -40,7 +40,7 @@ switch rm {
 		]
 		]; break;
 	}
-	case rm_lighteater: {
+	case rm_boss_lighteater: {
 		return [
 		[snd_amb_factory_loop], 
 		// periodical sounds

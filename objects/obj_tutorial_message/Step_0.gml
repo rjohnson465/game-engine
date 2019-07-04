@@ -11,9 +11,13 @@ if isActive && (interactInputReceived || distance_to_object(obj_player) > 20) {
 	exit;
 }
 
+maybeAddOrRemoveFromInteractablesList(20);
+
 if global.isLooting || global.isInteractingWithNpc || global.isWishing || global.isTrading || global.isReadingTutorial exit;
 
-if isCurrentInteractionObject(id) && distance_to_object(obj_player) < 20 && origLayer == global.player.layer && interactInputReceived {
+if	// isCurrentInteractionObject(id) && distance_to_object(obj_player) < 20 && 
+	global.player.currentInteractableObject == id && 
+	origLayer == global.player.layer && interactInputReceived {
 	if !isActive {
 		audio_play_sound(snd_ui_tab2,1,0);
 	}

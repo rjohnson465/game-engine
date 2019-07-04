@@ -34,7 +34,8 @@ if true {
 
 layer = ds_map_find_value(persistentProperties, "CurrentZ");
 if layer == -1 {
-	var pz = ds_map_find_value(persistentProperties, "PostZ");
+	//var pz = ds_map_find_value(persistentProperties, "PostZ");
+	var pz = postZ;
 	layer = pz;
 }
 

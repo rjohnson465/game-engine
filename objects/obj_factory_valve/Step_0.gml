@@ -22,7 +22,12 @@ for (var i = 0; i < ds_list_size(associatedPipes); i++) {
 	}
 }
 
-if canTurnValve && distance_to_object(obj_player) < 20 && origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
+maybeAddOrRemoveFromInteractablesList(20);
+
+if	canTurnValve && 
+	// distance_to_object(obj_player) < 20 
+	p.currentInteractableObject == id 
+	&& origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
 	isActive = !isActive;
 	updatePersistentElementProperty(id, "IsActive", isActive);
 	

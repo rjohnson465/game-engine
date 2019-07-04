@@ -86,7 +86,7 @@ ds_map_secure_save(sd_temp_enemies_rooms, TEMP_ENEMYDATA_FILENAME);
 // force save for room data object
 // Something leaks a single map here
 with rd {
-	fs_save_enemydata_tempfile();
+	// fs_save_enemydata_tempfile();
 	
 	var oldEnemiesData = enemiesData;
 	// replace enemiesData in room data object with updated data 
@@ -113,6 +113,8 @@ with rd {
 		ck = ds_map_find_next(newEnemiesData, ck);
 	}  
 	
+	// ???
+	fs_save_enemydata_tempfile();
 }
 
 

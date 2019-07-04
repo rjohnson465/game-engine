@@ -33,7 +33,7 @@ poiseCurrent -= actualDamage;
 // var rand = random_range(0,1);
 // if <condition met>, stagger
 //if rand < chanceToStagger && sd >= 1 {
-if poiseCurrent <= 0 && !cannotStagger {
+if (poiseCurrent <= 0 && !isShielding) && !cannotStagger {
 	if ds_map_size(preparingLimbs) != 0 {
 		drawCombatText("Interrupt!",id);
 	}

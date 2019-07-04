@@ -19,7 +19,7 @@ scale = 1;
 scaleFrame = 0;
 scaleTotalFrames = 120;
 
-light_create_layer_multiscale(spr_light_square, lightScaleX, lightScaleY, C_FIRELIGHT, .95, 0, true);
+light_create_layer_multiscale(spr_light_square, lightScaleX, lightScaleY, c_orange, .95, 0, true);
 
 douser = noone; // if a pipe is dousing the flame, its "douser"
 isActive = true;

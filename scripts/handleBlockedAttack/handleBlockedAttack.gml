@@ -33,8 +33,13 @@ audio_play_sound_at(snd,__x,__y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 //var shield = ds_map_find_value(equippedLimbItems,"r");
 					
 // remove the same percentage of stamina as it would have removed health
-var percentageOfHealth = actualDamage / maxHp;
-stamina -= maxStamina*(percentageOfHealth*1.5);
+// var percentageOfHealth = actualDamage / maxHp;
+// stamina -= maxStamina*(percentageOfHealth*1.5);
+
+// NEW: Remove some stamina, based on strength of the hit and the shield's stability rating
+var staminaDamage = applyDefenseToDamageBase((actualDamage*1.5), shield.stability);
+stamina -= staminaDamage;
+
 // shields are only ever held in left hand
 				
 // damage needs to be refactored, as shields have their own defenses per element
@@ -61,15 +66,15 @@ if stamina < 1 {
 	path_end();
 	state = CombatantStates.Staggering;
 	staggerFrame = 0;
-	staggerDuration = 25; // TODO Devin fix later
+	staggerDuration = 45; // TODO Devin fix later
 	staggerSpeed = 1;
-	// poiseCurrent = 0;
+	poiseCurrent = 0;
 	drawCombatText("Guard break!",id);
 }	
 // stagger assailant iff assailant weapon / attack staggers against blocks
 var itemOrAttack = attackData != noone ? attackData : itemHitWith;
 var isMelee = attackObj.isMelee;
-if (itemOrAttack.staggersAgainstBlocks && isMelee && assailant.poise < 100) {
+if (itemOrAttack.staggersAgainstBlocks && isMelee && !assailant.cannotStagger) {
 	with assailant {
 		var itemIsMelee = false;
 		if itemHitWith != noone {

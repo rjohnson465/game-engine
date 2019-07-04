@@ -197,6 +197,55 @@ if argument_count < 3 {
 	scr_draw_text_outline(xx+spritesWidth,yy+(sh*.5)+2,msg,msgColor,msgColor,stringScale,1,0,c_black);
 }
 
+// if invoking instance is an interactable object and there are many interactables possible, draw toggle prompt
+var p = global.player;
+if	!global.isLooting &&
+	!global.isWishing &&
+	!global.isInteractingWithNpc &&
+	!global.isTrading &&
+	!global.isReadingTutorial &&
+	ds_list_find_index(p.interactableObjects, id) != -1 {
+	if ds_list_size(p.interactableObjects) > 1 {
+		
+		var tLeftX = xx - (.5*promptWidth);
+		var tSprite = isGamepadConnected ? spr_prompt_xbox_y : spr_prompt_mk_r;
+		var tSpriteWidth = sprite_get_width(tSprite);
+		var tSpriteWidthAdjusted = tSpriteWidth * .35 * .95;
+		var tString = "Toggle";
+		var tStringWidth = string_width(tString);
+		var tStringWidthAdjusted = tStringWidth * .95;
+		promptWidth = tStringWidthAdjusted + tSpriteWidthAdjusted;
+		
+		// xx = tLeftX + .5*promptWidth;	
+		xx = view_get_wport(view_camera[0]) / 2;
+		
+		yy -= (sh*.5) + 15;
+		sh = sh * .35;
+		yy -= .5*sh;
+		
+		// rectangle
+		draw_set_alpha(.5);
+		draw_set_color(c_black);
+		draw_rectangle(xx-(.5*promptWidth)-2,yy-(.5*sh)-7,xx+(.5*promptWidth)+2,yy+(.5*sh)+7,0);
+		draw_set_alpha(1);
+		draw_set_color(c_white);
+		draw_rectangle(xx-(.5*promptWidth)-2,yy-(.5*sh)-7,xx+(.5*promptWidth)+2,yy+(.5*sh)+7,1);
+		
+		
+		
+		// toggle sprite
+		var sprScale = .35*.75;
+		draw_sprite_ext(tSprite,1,xx-(.5*promptWidth)-0,yy-sh,sprScale,sprScale,0,c_white,1);
+		
+		
+		// toggle text
+		draw_set_color(c_white);
+		draw_set_halign(fa_center);
+		scr_draw_text_outline(xx+10, yy, tString, c_white, c_white, .95, .95, 0, c_black);
+		
+	}
+}
+
 ds_map_destroy(spritesMap); spritesMap = -1; // memory leaks 
 return promptWidth+10; // 10px padding
 

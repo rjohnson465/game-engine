@@ -99,7 +99,7 @@ if item.type == ItemTypes.HandItem && !global.inventory.isShowingItemInfo2 {
 	}
 	
 	// draw mastery requirement
-	if !object_is_ancestor(item.object_index, obj_shield_parent) && item.object_index != obj_unarmed_parent && item.requiredMastery != 0 {
+	if !object_is_ancestor(item.object_index, obj_shield_parent) && item.object_index != obj_unarmed_parent /*&& item.requiredMastery != 0*/ {
 		draw_sprite(spr_item_info_required_mastery,1,itemDescriptionCol1XText+adsw+5, itemDescriptionColY+5);
 		var sprw = sprite_get_width(spr_item_info_required_mastery);
 		
@@ -262,16 +262,26 @@ if item.type == ItemTypes.HandItem && !global.inventory.isShowingItemInfo2 {
 		
 		draw_set_color(c_white);
 		
+		// stability
+		var stabilityStr = string(item.stability);
+		draw_sprite(spr_item_info_defense_stability, 1, itemDescriptionCol1XPictures, itemDescriptionColY + 30);
+		if !global.ui.isShowingExplanations {
+			draw_text(itemDescriptionCol1XText, itemDescriptionColY + 30, stabilityStr);
+		} else {
+			draw_text(itemDescriptionCol1XText, itemDescriptionColY + 30, "Stability");
+		}
+		
+		// physical block percentage
 		var physBlockPercentage = ds_map_find_value(item.defenses,PHYSICAL);
 		if physBlockPercentage > 100 physBlockPercentage = 100;
-		draw_sprite(spr_item_info_defense_physical,1,itemDescriptionCol1XPictures,itemDescriptionColY+50);
+		draw_sprite(spr_item_info_defense_physical,1,itemDescriptionCol1XPictures,itemDescriptionColY+55);
 		if !global.ui.isShowingExplanations {
 			var physBuff = ds_map_find_value(item.itemPropertyModifiersPts, ShieldProperties.PhysicalBlockBonus);
 			draw_set_color(getPropertyColorForBuffAmount(physBuff));
-			draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,string(physBlockPercentage) + "%");
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+55,string(physBlockPercentage) + "%");
 		} else {
 			draw_set_color(c_white);
-			draw_text(itemDescriptionCol1XText,itemDescriptionColY+50,"Phys. absorption");
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+55,"Phys. absorption");
 		}
 		
 		var shieldDamgeTypes = [MAGIC,FIRE,ICE,POISON,LIGHTNING];

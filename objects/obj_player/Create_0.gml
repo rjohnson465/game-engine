@@ -414,6 +414,10 @@ questsAtRewardStepCount = 0;
 // the first object that wants attention (in pos 0) will be adressed first
 nonPriorityInteractionPrompts = ds_list_create(); 
 
+interactableObjects = ds_list_create();
+currentInteractableObject = noone;
+interactableResetFrame = 0;
+
 ds_map_destroy(tutorialFirstsMap); tutorialFirstsMap = -1;
 tutorialFirstsMap = defineFirstsTutorialMessages(); // redo
 

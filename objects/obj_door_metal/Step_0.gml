@@ -12,7 +12,13 @@ with obj_npc_parent {
 if global.isReadingTutorial exit;
 var p = global.player;
 
-if isCurrentInteractableObject && !isOpen && distance_to_object(obj_player) < 20 && layer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
+if !isOpen {
+	maybeAddOrRemoveFromInteractablesList(20);
+}
+
+if	// isCurrentInteractableObject && 
+	global.player.currentInteractableObject == id &&
+	!isOpen  && layer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
 	
 	var canOpenFromThisSide = false;
 	// check if the player is on the proper side of the door
@@ -46,6 +52,7 @@ if isCurrentInteractableObject && !isOpen && distance_to_object(obj_player) < 20
 	
 	if canOpen {
 		isOpen = true;
+		removeFromInteractablesList();
 		updatePersistentElementProperty(id,"isOpen",true);
 		sprite_index = noone;
 		alarm[0] = 30;

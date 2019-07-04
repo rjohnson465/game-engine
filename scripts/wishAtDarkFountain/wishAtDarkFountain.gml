@@ -31,7 +31,12 @@ if performBlur {
 
 	
 // respawn all bosses in room
-respawnEnemies(true);
+// respawnEnemies(true);
+global.isPopulatingGrids = true;
+global.respawnOnlyBosses = true;
+global.respawnEnemiesAfterGridsPopulate = true;
+
+
 // restart boss music
 with obj_bgm_manager {
 	event_perform(ev_other, ev_room_start);
@@ -80,6 +85,9 @@ var lname = layer_get_name(l);
 var xx = p.x; 
 var yy = p.y;
 
+updatePersistentElementProperty(id, "isDoneFilling", true);
+
+/*
 var a = 3;
 
 // trigger a save 

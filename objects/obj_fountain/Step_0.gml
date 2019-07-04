@@ -41,9 +41,13 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
+maybeAddOrRemoveFromInteractablesList(20);
+
 if origLayer != global.player.layer exit;
 
-if distance_to_object(obj_player) < 20 && origLayer == global.player.layer && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !global.canLoot && !inUse && !global.ui.isShowingMenus && !global.canInteractWithNpc && !isInConvo {
+if	// distance_to_object(obj_player) < 20 && 
+	global.player.currentInteractableObject == id &&
+	origLayer == global.player.layer && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !inUse && !global.ui.isShowingMenus && !isInConvo {
 	if !isRunning {
 		fountainRunningSoundIndex = audio_play_sound_on(fountainRunningSoundEmitter, fountainRunningSound, 1, 1);
 		wishAtFountain(); // turn fountain on ;)

@@ -6,7 +6,7 @@ limbKey = noone;
 ds_map_replace(damages,CRUSH,[8,10]);
 isRanged = false;
 staminaCost = 5;
-staggerDuration = 5;
+staggerDuration = 15;
 limbKey = noone;
 type = AttackTypes.Standard;
 minRange = 60;

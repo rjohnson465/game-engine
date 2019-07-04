@@ -78,6 +78,10 @@ if ds_exists(nonPriorityInteractionPrompts, ds_type_list) {
 	ds_list_destroy(nonPriorityInteractionPrompts); nonPriorityInteractionPrompts = -1;
 }
 
+if ds_exists(interactableObjects, ds_type_list) {
+	ds_list_destroy(interactableObjects); interactableObjects = -1;
+}
+
 if (personalGrid != undefined && ds_exists(personalGrid, ds_type_grid)) {
 	mp_grid_destroy(personalGrid); personalGrid = -1;
 }

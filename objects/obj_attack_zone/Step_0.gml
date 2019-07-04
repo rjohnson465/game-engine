@@ -4,8 +4,13 @@ if !hasSetAlarm && part_type_exists(particle) {
 		var x1 = bbox_left; var x2 = bbox_right;
 		var y1 = bbox_top; var y2 = bbox_bottom;
 
-		// randomly spawn 4(??) particles somewhere in the collision mask of sprite_index
-		for (var i = 0; i < 4; i++) {
+		var num = 4;
+		if attackData.zonePartNum != noone {
+			num = attackData.zonePartNum;
+		}
+
+		// randomly spawn num particles somewhere in the collision mask of sprite_index
+		for (var i = 0; i < num; i++) {
 			var xx = -50; var yy = -50;
 			var pm = false;
 			do {
@@ -18,11 +23,7 @@ if !hasSetAlarm && part_type_exists(particle) {
 			//part_particles_create(system,xx,yy,particle,1);
 			part_emitter_region(system,emitter,xx,xx,yy,yy,ps_shape_ellipse,ps_distr_gaussian);
 			
-			var num = 1;
-			if attackData.zonePartNum != noone {
-				num = attackData.zonePartNum;
-			}
-			part_emitter_burst(system,emitter,particle, num);
+			part_emitter_burst(system,emitter,particle, 1);
 		}
 		
 	}
