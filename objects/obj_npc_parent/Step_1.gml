@@ -58,6 +58,7 @@ if gamepad_is_connected(pad) {
 	}
 	
 	if gamepad_button_check_pressed(pad,gp_face2) && isInteractingWithPlayer {
+			if isInConversation exit;
 			if global.isTrading {
 				var playerItemsObj = obj_player_items;
 				var vendorItemsObj = obj_vendor_items;

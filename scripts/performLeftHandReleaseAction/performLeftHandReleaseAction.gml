@@ -11,6 +11,12 @@ with obj_attunement {
 	}
 }
 
+with obj_npc_parent {
+	if isInConversation {
+		exit;
+	}
+}
+
 var isMouseOverHud = false;
 with obj_hud_parent {
 	if position_meeting(mouse_x,mouse_y,id) {

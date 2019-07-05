@@ -1,4 +1,6 @@
-isInteractingWithPlayer = false;
-showBuySell = false;
-global.isInteractingWithNpc = false;
-global.isTrading = false;
+if !isInConversationv {
+	isInteractingWithPlayer = false;
+	showBuySell = false;
+	global.isInteractingWithNpc = false;
+	global.isTrading = false;
+}

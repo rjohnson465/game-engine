@@ -13,6 +13,12 @@ with obj_fade {
 }
 if isFading exit;
 
+with obj_npc_parent {
+	if isInConversation {
+		exit;
+	}
+}
+
 var dir = argument0;
 
 if dir == "up" {

@@ -9,6 +9,8 @@ spriteString = "npc_barry";
 
 greeting = snd_greeting_francis;
 
+faceSprite = spr_face_barry;
+
 items = ds_list_create();
 var aqs = makeGem(obj_gem_aquamarine,CRACKED);
 aqs.count = 3;

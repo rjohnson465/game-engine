@@ -5,6 +5,12 @@ if global.isTrading exit;
 if global.isInteractingWithNpc exit;
 if global.ui.isShowingMenus exit;
 
+with obj_npc_parent {
+	if isInConversation {
+		exit;
+	}
+}
+
 var isFading = false;
 with obj_fade {
 	if instance_count > 0 {

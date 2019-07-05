@@ -1,5 +1,5 @@
 event_inherited();
-name = "Mushroom";
+name = "Toadstool";
 descriptionChoices = ["Devin pls pun"];
 description = "Devin pls pun";
 spriteName = "mushroom";

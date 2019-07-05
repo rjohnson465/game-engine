@@ -7,6 +7,12 @@ if global.isWishing exit;
 if global.isInteractingWithNpc exit;
 if global.isTrading exit;
 
+with obj_npc_parent {
+	if isInConversation {
+		exit;
+	}
+}
+
 var isFading = false;
 with obj_fade {
 	if instance_count > 0 {

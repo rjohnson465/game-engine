@@ -242,6 +242,7 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_razorade));
 	addItemToInventory(instance_create_depth(x,y,1,obj_item_razorade));
 	
+	/*
 	var ring = instance_create_depth(x,y,1,obj_item_ring);
 	addItemProperty(ring, ModifiableProperties.XpMultiplier, 10);
 	addItemProperty(ring, ModifiableProperties.Defenses,[PIERCE, 7]);
@@ -259,13 +260,8 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemProperty(ring, ModifiableProperties.Defenses,[PIERCE, 7]);
 	addItemProperty(ring, ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC, 100]);
 	addItemProperty(ring, ModifiableProperties.StaminaSteal,10);
-	addItemToInventory(ring);
-	var ring = instance_create_depth(x,y,1,obj_item_ring);
-	addItemProperty(ring, ModifiableProperties.XpMultiplier, 10);
-	addItemProperty(ring, ModifiableProperties.Defenses,[PIERCE, 7]);
-	addItemProperty(ring, ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC, 100]);
-	addItemProperty(ring, ModifiableProperties.StaminaSteal,10);
-	addItemToInventory(ring);
+	addItemToInventory(ring); */
+	
 	
 	/*
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_warhammer));
@@ -444,6 +440,10 @@ healingTotalFrames = sprite_get_number(spr_player_heal);
 temporaryDefenses = ds_list_create();
 
 narrativeState = NarrativeState.Start;
+
+faceSprite = spr_face_gary;
+
+name = "Gary";
 
 // TEST
 // var key = makeKey("Great-Lodge F2 Key", "key", spr_item_key, "Opens the door to the Fairy's Great-Lodge, Level 2. We really should have more than one copy of this thing.");

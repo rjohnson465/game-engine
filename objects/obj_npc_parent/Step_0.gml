@@ -8,12 +8,6 @@ if distance_to_object(obj_player) < 20 && layer == global.player.layer && !globa
 	global.canInteractWithNpc = true;
 } else {
 	global.canInteractWithNpc = false;
-	/*
-	global.isInteractingWithNpc = false;
-	global.isTrading = false;
-	isInteractingWithPlayer = false;
-	isInConversation = false;
-	*/
 }
 
 var canLoot = false;
@@ -90,12 +84,7 @@ if	// distance_to_object(obj_player) < 20
 	ds_list_destroy(urgentConversationsNarrativeStates); urgentConversationsNarrativeStates = -1; // mem leak
 	
 } 
-// ????
-/*
-else if distance_to_object(obj_player) > 20 && isInteractingWithPlayer {
-	isInteractingWithPlayer = false;
-	global.isInteractingWithNpc = false;
-} */
+
 
 if isInteractingWithPlayer && !isInConversation {
 	global.isInteractingWithNpc = true;

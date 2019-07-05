@@ -5,6 +5,12 @@ if global.isInteractingWithNpc exit;
 if global.isTrading exit;
 if scr_is_fading() exit;
 
+with obj_npc_parent {
+	if isInConversation {
+		exit;
+	}
+}
+
 var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
 var rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
 var leftHandItem2 = getItemInEquipmentSlot(EquipmentSlots.LeftHand2);

@@ -110,7 +110,17 @@ switch prop {
 		p.poise = newVal; break;
 	}*/
 	case ModifiableProperties.PoiseMax: {
-		p.poiseMax = newVal; break;
+		// account for hat poise
+		
+		var hat = getItemInEquipmentSlot(EquipmentSlots.Head);
+		var hatPoise = 0;
+		if hat != noone {
+			hatPoise = hat.poise;
+		}
+		
+		p.poiseMax = newVal + hatPoise; 
+		p.poiseCurrent = p.poiseMax;
+		break;
 	}
 	case ModifiableProperties.HpSteal: {
 		p.hpSteal = newVal; break;

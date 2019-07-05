@@ -5,6 +5,12 @@
 
 if global.isWishing || global.isLooting || global.isInteractingWithNpc || global.isReadingTutorial exit;
 
+with obj_npc_parent {
+	if isInConversation {
+		exit;
+	}
+}
+
 if ds_list_size(interactableObjects) == 0 {
 	currentInteractableObject = noone; exit;
 }

@@ -7,7 +7,7 @@ if selectedConversation {
 		(selectedConversation.isFinished && selectedConversation.isRepeatable)
 	{
 		isInConversation = true;
-		global.isInteractingWithNpc = false;
+		// global.isInteractingWithNpc = false;
 		selectedConversation.currentStep = noone;
 		selectedConversation.isActive = true;
 		isFinished = false;

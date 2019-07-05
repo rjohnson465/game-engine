@@ -12,8 +12,6 @@ if state != CombatantStates.Dodging && getItemInEquipmentSlot(EquipmentSlots.Hea
 	var hat = getItemInEquipmentSlot(EquipmentSlots.Head);
 	var hatSprite = asset_get_index("spr_player_"+hat.spriteName);
 	draw_sprite_ext(hatSprite,1,x,y,scale,scale,facingDirection,c_white,alpha);
-	
-	
 }
 
 // also draw wings over hat?

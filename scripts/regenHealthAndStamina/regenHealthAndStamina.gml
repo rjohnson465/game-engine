@@ -62,6 +62,10 @@ if poiseCurrent < 0 {
 	poiseCurrent = 0;
 }
 
+if poiseCurrent > poiseMax {
+	poiseCurrent = poiseMax;
+}
+
 // TODO: decrement elemental conditions buildup
 var ck = ds_map_find_first(conditionsBuildupMap);
 for (var i = 0; i < ds_map_size(conditionsBuildupMap); i++) {

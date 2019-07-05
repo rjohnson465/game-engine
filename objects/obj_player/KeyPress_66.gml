@@ -1,10 +1,18 @@
+
+
 var key = makeKey("Great-Lodge F2 Key", "key", spr_item_key, "Opens the door to the Fairy's Great-Lodge, Level 2. We really should have more than one copy of this thing.");
 addItemToInventory(key);
+
 
 
 //xpTemp += 500;
 
 /*
+
+var ring = instance_create_depth(x,y,1,obj_item_ring);
+addItemProperty(ring, ModifiableProperties.PoiseMax, 3);
+addItemToInventory(ring);
+
 var reward = instance_create_depth(x,y,1, obj_item_reward);
 ds_list_add(reward.items, instance_create_depth(x,y,1,obj_hand_item_longsword));
 ds_list_add(reward.items, instance_create_depth(x,y,1,obj_hand_item_hatchet));

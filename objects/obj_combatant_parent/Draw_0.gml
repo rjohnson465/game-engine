@@ -188,4 +188,9 @@ with obj_light_radius {
 	}
 }
 
+// hat 
+if type != CombatantTypes.Player && state != CombatantStates.Dodging && hatSpriteIndex != noone {
+	draw_sprite_ext(hatSpriteIndex,1,x,y,scale,scale,facingDirection,c_white,alpha);
+}
+
 shader_reset();

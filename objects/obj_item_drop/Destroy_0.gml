@@ -12,9 +12,10 @@ if lightRadius != noone && lightRadius != undefined && lightRadius > 0 && instan
 	instance_destroy(lightRadius, 1); lightRadius = -1;
 }
 
-removeFromInteractablesList();
-global.player.interactableResetFrame = 5;
-
+if instance_exists(global.player) {
+	removeFromInteractablesList();
+	global.player.interactableResetFrame = 5;
+}
 // destroy any items you hold still 
 if ds_exists(items,ds_type_list) {
 	for (var i = 0; i < ds_list_size(items); i++) {

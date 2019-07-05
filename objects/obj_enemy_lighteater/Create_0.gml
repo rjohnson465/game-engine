@@ -27,7 +27,7 @@ HUNGER_FRAME_MIN = 60; // 20 seconds
 HUNGER_FRAME_MAX = 120; // 40 seconds
 
 // if lighteaters takes this much damage while eating, he staggers out of eat phase
-stopEatingDamageMax = 9;
+stopEatingDamageMax = 20;
 stopEatingDamage = 0;
 stopEatingDamageAttacksList = ds_list_create();
 
@@ -110,8 +110,8 @@ meleeAttacks = [c_js, c_js, c_jab, c_claw, c_claw2, c_claw2, c_breath, c_tailsta
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 400;
-maxHp = 400;
+hp = 450;
+maxHp = 450;
 
 stamina = 6000;
 maxStamina = 6000;

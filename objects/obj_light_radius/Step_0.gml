@@ -20,3 +20,7 @@ if instance_exists(owner) {
 		// updateLightLayer(id,noone, layer);
 	}
 }
+
+else {
+	instance_destroy(id, 1);
+}

@@ -12,6 +12,12 @@ with obj_fade {
 }
 if isFading exit;
 
+with obj_npc_parent {
+	if isInConversation {
+		exit;
+	}
+}
+
 var leftHandItem = ds_map_find_value(equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 

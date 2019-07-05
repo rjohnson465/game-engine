@@ -35,6 +35,7 @@ if isActive && global.player.isAlive && !global.canLoot && !global.isWishing && 
 		}
 	}
 	if spriteHeight != 0 spriteHeight += 5; // padding
+	draw_set_font(font_main); 
 	
 	var sh = string_height_ext(message,-1,view_get_wport(view_camera[0])/2);
 	var sw = string_width_ext(message,-1,view_get_wport(view_camera[0])/2);

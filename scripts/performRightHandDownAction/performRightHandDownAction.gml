@@ -14,6 +14,12 @@ with obj_fade {
 if hp <= 0 exit;
 if isFading exit;
 
+with obj_npc_parent {
+	if isInConversation {
+		exit;
+	}
+}
+
 if !isMouseInMenu && !isFrozen && !global.ui.isShowingMenus {
 
 	// if using a 2h ranged weapon, holding right allows for aiming

@@ -199,7 +199,11 @@ if argument_count < 3 {
 
 // if invoking instance is an interactable object and there are many interactables possible, draw toggle prompt
 var p = global.player;
-if	!global.isLooting &&
+if	
+	instance_exists(p) &&
+	variable_instance_exists(p, "interactableObjects") &&
+	ds_exists(p.interactableObjects, ds_type_list) &&
+	!global.isLooting &&
 	!global.isWishing &&
 	!global.isInteractingWithNpc &&
 	!global.isTrading &&

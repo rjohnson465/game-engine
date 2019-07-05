@@ -92,7 +92,7 @@ if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 	}
 	
 	// use belt item
-	if state != CombatantStates.Dodging && state != CombatantStates.Staggering && state != CombatantStates.Attacking && !global.ui.isShowingMenus {
+	if state != CombatantStates.Dodging && state != CombatantStates.Staggering && state != CombatantStates.Attacking && !global.ui.isShowingMenus && !global.isInteractingWithNpc && !global.isLooting {
 		if gamepad_button_check_pressed(gamePadIndex, gp_face3) {
 			performUseBeltItem();
 		}
