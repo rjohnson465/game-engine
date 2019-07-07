@@ -142,7 +142,7 @@ if currentBuildup >= 100 {
 	*/
 	
 	// conditionPercentage is 75?
-	ds_map_replace(conditionPercentages, damageType, 75);
+	ds_map_replace(conditionPercentages, damageType, 100);
 }
 
 /*

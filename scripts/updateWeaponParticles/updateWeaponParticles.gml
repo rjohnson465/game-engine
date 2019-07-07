@@ -58,6 +58,7 @@ for (var i = 0; i < ds_list_size(damageTypes); i++) {
 	var sh = sprite_get_bbox_bottom(baseSprite) - sprite_get_bbox_top(baseSprite);
 	var pxSq = sw * sh;
 	numParticles = ((1/2700)*pxSq)-3;
+	numParticles = round(numParticles);
 	
 	if numParticles == 0 {
 		numParticles = -1;

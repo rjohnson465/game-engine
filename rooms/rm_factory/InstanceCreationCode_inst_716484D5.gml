@@ -1,1 +1,1 @@
-ei_unfairy_unarmed();
+ei_unfairy_dagger();

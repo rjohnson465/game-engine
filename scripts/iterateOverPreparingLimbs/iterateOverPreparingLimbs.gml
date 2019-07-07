@@ -15,12 +15,15 @@ if attackNumberInChain == noone {
 }
 
 var currentPreparingLimbKey = ds_map_find_first(preparingLimbs); // limbKey
+if attackData.limbKey == "l" || attackData.limbKey == "r" || attackData.limbKey == noone {
+	currentPreparingLimbKey = attackData.limbKey;
+}
 for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 	var prepFrame = ds_map_find_value(prepFrames,currentPreparingLimbKey);
 	var totalPrepFrames = ds_map_find_value(prepFrameTotals,currentPreparingLimbKey);
 	
 	// stop preparing, begin attacking
-	if prepFrame >= totalPrepFrames-1 {
+	if prepFrame >= 0 && totalPrepFrames > 0 && prepFrame >= totalPrepFrames-1 {
 					
 		if attackData.type == AttackTypes.Charge {
 			var targetDir = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);

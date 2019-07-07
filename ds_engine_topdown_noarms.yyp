@@ -31,6 +31,14 @@
     },
     "resources": [
         {
+            "Key": "0000639b-d833-45b1-a12c-9028c9f0fdb2",
+            "Value": {
+                "id": "481c7be3-e446-4126-8a7b-8de61b693cd6",
+                "resourcePath": "views\\0000639b-d833-45b1-a12c-9028c9f0fdb2.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "001a30b2-134d-44d6-b6c3-193a0474da80",
             "Value": {
                 "id": "616bf77c-d417-46ed-94f9-811a35241ee9",
@@ -108,6 +116,14 @@
                 "id": "64ede9f9-2211-4545-938d-0134d494f9d4",
                 "resourcePath": "objects\\obj_factory_pipe\\obj_factory_pipe.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "015985fb-3aee-4ded-82be-13c5a184547d",
+            "Value": {
+                "id": "ed49c314-b989-4e50-9929-0068d44e937c",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_attack_1_3\\spr_enemy_unfairy_dagger_attack_1_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -263,6 +279,14 @@
             }
         },
         {
+            "Key": "0316ebc3-e0c4-4a87-b513-5f0b568c6f37",
+            "Value": {
+                "id": "fc9aa29c-deb6-4b9b-a044-7da19d7881a9",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_prep_1_4\\spr_enemy_unfairy_dagger_prep_1_4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "034c92c7-7c16-4813-9fad-aa4b0b984278",
             "Value": {
                 "id": "fed7c5d8-5868-400a-a442-c0ff61450a41",
@@ -356,6 +380,14 @@
                 "id": "2e571d32-8a12-405e-8d6b-3f52f177d818",
                 "resourcePath": "views\\04793c79-71ec-4c66-9d1a-e470ede0c96a.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "0499273a-0abb-4cc2-87f6-86a56cea2e98",
+            "Value": {
+                "id": "0b8509e0-b521-42bc-9495-c8fb72881fa1",
+                "resourcePath": "sprites\\spr_enemy_unfairy_pistol_recover_1_1\\spr_enemy_unfairy_pistol_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -695,6 +727,14 @@
             }
         },
         {
+            "Key": "091d4918-86a7-42f8-9f94-a47a18746825",
+            "Value": {
+                "id": "a713ee96-a29c-40b8-b11d-a42d59fa3516",
+                "resourcePath": "objects\\obj_attack_unfairy_dagger_1_2r\\obj_attack_unfairy_dagger_1_2r.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "09441758-01d3-435f-b673-bc781be8f0de",
             "Value": {
                 "id": "3fae0cd5-1406-4482-8474-97d3aa94cba3",
@@ -871,6 +911,14 @@
             }
         },
         {
+            "Key": "0c1e50fd-4dc3-4b71-841e-328419c8a72e",
+            "Value": {
+                "id": "0846b58b-61dc-4eb0-b72d-692ec46bd5b4",
+                "resourcePath": "views\\0c1e50fd-4dc3-4b71-841e-328419c8a72e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "0c219689-8aff-48df-af31-5466c39f7240",
             "Value": {
                 "id": "47d5b82e-2ef7-4b23-8b2e-91a1a79cef4d",
@@ -931,6 +979,14 @@
             "Value": {
                 "id": "e0176198-387c-40bb-9a96-a9ec0a213cac",
                 "resourcePath": "sprites\\spr_item_gempieces_emerald_chunks\\spr_item_gempieces_emerald_chunks.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0cf33889-bea0-46bc-a18c-6932efea0037",
+            "Value": {
+                "id": "8b12a673-2252-48f6-b8ca-eb1b3fd6d906",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_pistol_prep_1_1\\spr_enemy_unfairy_limb_pistol_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1187,6 +1243,14 @@
             "Value": {
                 "id": "a9158807-909e-4680-a9f8-cdb463815442",
                 "resourcePath": "sprites\\spr_player_dagger_attack_3\\spr_player_dagger_attack_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "10ac2840-db9d-44db-905d-89319b027160",
+            "Value": {
+                "id": "4b2423e6-75db-45c8-9f16-3318f76efafe",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_recover_1_4\\spr_enemy_unfairy_dagger_recover_1_4.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1611,6 +1675,14 @@
             "Value": {
                 "id": "dc4afda6-06be-49f1-8bf3-3faf7393b81d",
                 "resourcePath": "sprites\\spr_player_hand_rapier_prep_3\\spr_player_hand_rapier_prep_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "152aebc3-4d1d-445f-8ebe-163060d4308e",
+            "Value": {
+                "id": "2ce2398a-8499-48ad-a808-5515ac40d1b6",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_prep_1_2\\spr_enemy_unfairy_limb_dagger_prep_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2071,6 +2143,14 @@
             }
         },
         {
+            "Key": "1ba29a4e-c40b-4fa6-b45b-0eb4fecf7f23",
+            "Value": {
+                "id": "cd192c68-7829-486f-b023-2eb41f6fb9b1",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_attack_1_3\\spr_enemy_unfairy_limb_dagger_attack_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1bda8aa3-5473-46d4-8dd7-5d417b70c1c9",
             "Value": {
                 "id": "eee7923c-7e88-43e8-88c2-7b1180ad325d",
@@ -2463,6 +2543,14 @@
             }
         },
         {
+            "Key": "21377ea9-c881-447a-856b-2e40e34e944b",
+            "Value": {
+                "id": "55be08f1-8725-4f01-b1c8-01b70e386363",
+                "resourcePath": "objects\\obj_attack_unfairy_pistol_1_1l\\obj_attack_unfairy_pistol_1_1l.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "2169cab8-d610-44a5-af9c-277f0707a879",
             "Value": {
                 "id": "d1e4ebcc-7245-4714-94a5-ef9a5f12135d",
@@ -2724,6 +2812,14 @@
                 "id": "0dc8d24c-c857-47cd-94da-95f4e4d7e512",
                 "resourcePath": "views\\24c1fd49-02b3-40f6-ab6e-8cee7ffca309.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "24e2d1cc-5b4a-4da3-a8c4-93715bb3e722",
+            "Value": {
+                "id": "04b79b45-d732-46b8-b883-486eeb24c251",
+                "resourcePath": "sprites\\spr_enemy_unfairy_pistol_attack_1_1\\spr_enemy_unfairy_pistol_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3011,6 +3107,14 @@
             "Value": {
                 "id": "a517e65f-e6ed-4a00-a628-644eef81d4cc",
                 "resourcePath": "objects\\obj_enemy_bug\\obj_enemy_bug.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "29412bc9-6cea-41c8-a2b5-416b9950f1da",
+            "Value": {
+                "id": "5d2c2210-d5d7-48ca-8ac9-5590c0575487",
+                "resourcePath": "objects\\obj_attack_unfairy_dagger_1_1\\obj_attack_unfairy_dagger_1_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -3351,11 +3455,27 @@
             }
         },
         {
+            "Key": "2e4796ec-e548-49aa-a48c-af9d4aa33d0b",
+            "Value": {
+                "id": "c47fc0b2-8385-4937-b280-b0b54799ae05",
+                "resourcePath": "objects\\obj_attack_unfairy_dagger_1_3r\\obj_attack_unfairy_dagger_1_3r.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "2e52e9bb-af5d-43d8-a6db-e886d6935298",
             "Value": {
                 "id": "f484758c-f6e9-4ef1-b7d4-17a9236bde3e",
                 "resourcePath": "sprites\\spr_enemy_spore_stagger\\spr_enemy_spore_stagger.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2ea0a475-4ea5-4a2b-a04e-3147750b2548",
+            "Value": {
+                "id": "0ecdcebb-89ea-4ce9-a270-575c5fa14dfa",
+                "resourcePath": "views\\2ea0a475-4ea5-4a2b-a04e-3147750b2548.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -3388,6 +3508,14 @@
                 "id": "8fbcc0e5-b537-42fe-80bb-7fed547ad54e",
                 "resourcePath": "sounds\\snd_enemy_gear_hit_3\\snd_enemy_gear_hit_3.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "2f93f64b-9d4e-4223-b0df-7f2374d88272",
+            "Value": {
+                "id": "996328d9-94f8-4a8e-9e93-deea2fcb1dd6",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_attack_1_2\\spr_enemy_unfairy_dagger_attack_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3783,6 +3911,14 @@
             }
         },
         {
+            "Key": "34f0f16f-3b2c-4115-8e86-ded70c15b0c9",
+            "Value": {
+                "id": "d69238dd-e092-4ee4-82f5-4265793d42ff",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_pistol\\spr_enemy_unfairy_limb_pistol.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "34fec2cb-8501-4452-9960-023d7ca708db",
             "Value": {
                 "id": "74e71852-ef5e-4979-95db-52bc4ed0deab",
@@ -3855,6 +3991,14 @@
             }
         },
         {
+            "Key": "3625fbf2-8d70-4550-9d9f-75a1a2c87f3f",
+            "Value": {
+                "id": "70d37a3e-8229-4203-85f8-92179a51c479",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_attack_1_4\\spr_enemy_unfairy_dagger_attack_1_4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "366ba9cd-aa4e-49d1-9f44-28270833e64a",
             "Value": {
                 "id": "672aa689-3aef-4d6f-b73d-e64a72773019",
@@ -3867,6 +4011,14 @@
             "Value": {
                 "id": "8b0b4278-df4d-45e2-a9b9-baf56b7d6ed1",
                 "resourcePath": "sprites\\spr_enemy_unfairy_shortbow_prep_1_1\\spr_enemy_unfairy_shortbow_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "370ba5d3-cd2e-4626-83b4-7562bddd09a0",
+            "Value": {
+                "id": "f3c4f34b-1d3f-4e75-bc42-14ddbb42debb",
+                "resourcePath": "sprites\\spr_enemy_unfairy_pistol_prep_1_1\\spr_enemy_unfairy_pistol_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4343,6 +4495,14 @@
             }
         },
         {
+            "Key": "3cfe5f19-693e-4b77-8e16-a8325612e176",
+            "Value": {
+                "id": "7900dc76-538a-4043-ab14-0be35f535a24",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_recover_1_1\\spr_enemy_unfairy_dagger_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3d0d0271-37e2-4a2b-8a4a-1da81e53b142",
             "Value": {
                 "id": "8e74df80-18bf-4dd8-aa2f-d078b6dfe97d",
@@ -4756,6 +4916,14 @@
                 "id": "101ee25d-2b15-4893-890b-f230a8a00ddc",
                 "resourcePath": "views\\43839242-4057-43c6-a594-44690c9f7a54.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "439c5bb8-5f9f-42b9-9254-2c48f17d3c6e",
+            "Value": {
+                "id": "370b0f44-42c6-4e92-9aff-eb1a0664d54e",
+                "resourcePath": "scripts\\ei_unfairy_dagger\\ei_unfairy_dagger.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5519,6 +5687,14 @@
             }
         },
         {
+            "Key": "4d9eafe7-6883-41d7-a3fe-0338387c9ae5",
+            "Value": {
+                "id": "6a1d7da1-7d0f-44ba-88d5-988a2217f836",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_recover_1_1\\spr_enemy_unfairy_limb_dagger_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4da31d89-8331-4dcb-ad9d-86274ff9c0a5",
             "Value": {
                 "id": "41981ada-34b0-4b03-8adc-edcd3d5fe819",
@@ -5740,6 +5916,14 @@
                 "id": "b5f6b4d7-bab1-4d2c-80ad-0ddc206a4f62",
                 "resourcePath": "scripts\\modifyWeaponElementalDamage\\modifyWeaponElementalDamage.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "50842cdb-9027-4034-ace0-65a59250bceb",
+            "Value": {
+                "id": "e65d4d35-ec3e-4c9f-8a03-615eecd9b72d",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger\\spr_enemy_unfairy_dagger.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -6023,6 +6207,14 @@
             }
         },
         {
+            "Key": "55626381-0e73-499f-887f-abbb55a15594",
+            "Value": {
+                "id": "6a2d3faf-cf16-4d32-b4e3-63731e1ea834",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_prep_1_3\\spr_enemy_unfairy_dagger_prep_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "558ef868-3e37-4ed7-8294-6a5de4aab97a",
             "Value": {
                 "id": "101b87c2-3a88-4a0f-8d20-64a678c841cc",
@@ -6115,6 +6307,14 @@
             "Value": {
                 "id": "3b1933e9-05da-4101-a961-9c1a31d851a3",
                 "resourcePath": "views\\56966e27-d929-433e-98da-107618bd7a9f.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "56bdbc2f-663b-44f7-b60f-ed3928cb9b28",
+            "Value": {
+                "id": "c7b5f27e-41e4-4309-9bbf-b90a78bb7dfd",
+                "resourcePath": "views\\56bdbc2f-663b-44f7-b60f-ed3928cb9b28.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -6415,6 +6615,14 @@
             }
         },
         {
+            "Key": "5d3d5e52-ab5b-46a3-a4aa-536532ff45a2",
+            "Value": {
+                "id": "cdd6797a-49b3-4ebf-a301-5e947c0a3d02",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_attack_1_1\\spr_enemy_unfairy_limb_dagger_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5d6a91cf-65d5-4524-b5fd-d0b9f36c4a27",
             "Value": {
                 "id": "aa089414-dd9d-4983-b45c-e410bf9bd27e",
@@ -6620,6 +6828,14 @@
                 "id": "917b5ef3-1977-4813-a562-729105b48a02",
                 "resourcePath": "sprites\\spr_item_lumberjack_hat\\spr_item_lumberjack_hat.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "60047a1c-192c-4ac3-aed3-3d0e4a2a6571",
+            "Value": {
+                "id": "9397d4b9-314b-40da-8db8-5e04f439b283",
+                "resourcePath": "objects\\obj_attack_unfairy_pistol_1_1r\\obj_attack_unfairy_pistol_1_1r.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -7311,6 +7527,14 @@
             }
         },
         {
+            "Key": "69d2c6b3-99f7-4ac0-9776-6dbd532256c9",
+            "Value": {
+                "id": "156c8184-1c1b-45b5-8716-58574d195a46",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_pistol_attack_1_1\\spr_enemy_unfairy_limb_pistol_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6a10012e-dc00-4d2d-98f5-e8208f646a58",
             "Value": {
                 "id": "315be0a8-9de6-4c2a-be56-c63aa7de646e",
@@ -7380,6 +7604,14 @@
                 "id": "5a9854b0-b7ec-43fe-a012-746b368de000",
                 "resourcePath": "sounds\\snd_wallhit\\snd_wallhit.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "6beecb49-53bf-494c-b6df-0237fbc87d5d",
+            "Value": {
+                "id": "5543495a-562c-467b-be94-15d4fddfe163",
+                "resourcePath": "objects\\obj_attack_unfairy_dagger_1_2\\obj_attack_unfairy_dagger_1_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -8983,6 +9215,14 @@
             }
         },
         {
+            "Key": "82148066-0eb7-4f5e-b6b3-c9dfa9347189",
+            "Value": {
+                "id": "9d5e5523-85e6-4a33-b917-246e28abe811",
+                "resourcePath": "objects\\obj_attack_unfairy_dagger_1_3\\obj_attack_unfairy_dagger_1_3.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "824df558-ff22-4c1c-aa28-cdbc6d6f72c0",
             "Value": {
                 "id": "561b8d4d-e26b-40d3-905e-1197bef4fbec",
@@ -9551,6 +9791,14 @@
             }
         },
         {
+            "Key": "89e8b2e6-a91e-42b4-9728-61f8adfecf1c",
+            "Value": {
+                "id": "533a291d-ee79-4edd-81d0-a6f964f5ccd6",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_attack_1_4\\spr_enemy_unfairy_limb_dagger_attack_1_4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "89e9e784-220b-4a1e-ae41-18b9d19b9864",
             "Value": {
                 "id": "d1ec78eb-e184-411b-9abb-4c567deae219",
@@ -9895,6 +10143,14 @@
             }
         },
         {
+            "Key": "8eec9b81-90b3-44fe-ae5e-536fb506d8fe",
+            "Value": {
+                "id": "35231ac9-c7ce-497d-834f-5b9dcad987b2",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_prep_1_1\\spr_enemy_unfairy_limb_dagger_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8efa3a2c-feae-48e9-9832-70e9612dba32",
             "Value": {
                 "id": "883dd8c4-7848-404a-8846-c155acd97ec7",
@@ -10087,6 +10343,14 @@
             }
         },
         {
+            "Key": "9289e792-004e-48cc-a231-0e1f02d93c54",
+            "Value": {
+                "id": "9cb3419e-5c7d-4601-b02d-3af61884689b",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_attack_1_1\\spr_enemy_unfairy_dagger_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "929ada99-0962-4236-a7d7-1fb21a8e70bb",
             "Value": {
                 "id": "3bcf3888-ba64-4fdf-88b0-d32bdd42e1fe",
@@ -10252,6 +10516,14 @@
                 "id": "997d653a-691e-4248-9195-2872554a6eb8",
                 "resourcePath": "sprites\\spr_factory_wingbag_8\\spr_factory_wingbag_8.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "95534a6b-3f3c-4660-9dce-39b95c5eff37",
+            "Value": {
+                "id": "a5ff1174-6722-4e79-bffd-dc9f6d35785e",
+                "resourcePath": "objects\\obj_attack_unfairy_dagger_1_1r\\obj_attack_unfairy_dagger_1_1r.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -11239,6 +11511,14 @@
             }
         },
         {
+            "Key": "a225d569-6368-4f71-9cf8-b3d9908493d3",
+            "Value": {
+                "id": "f9757612-c59f-4964-9953-c268e799841b",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_pistol_recover_1_1\\spr_enemy_unfairy_limb_pistol_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a235e9cd-994e-4ee8-b192-968253c786e5",
             "Value": {
                 "id": "ca71987a-3086-4ce5-a8d0-e8aca23744f1",
@@ -11383,11 +11663,27 @@
             }
         },
         {
+            "Key": "a4da3858-6083-481c-a3a7-9e1b74aaf400",
+            "Value": {
+                "id": "19e96929-e2b8-4420-a499-ec91643e54b8",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_recover_1_2\\spr_enemy_unfairy_dagger_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a4f8b464-23f9-4148-95a0-c1f6c6ac1152",
             "Value": {
                 "id": "272b41fa-88a5-495b-bb45-641bb306734d",
                 "resourcePath": "objects\\obj_skill_club_mastery\\obj_skill_club_mastery.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "a50608f7-da16-40ca-8c13-bb27e17edbc7",
+            "Value": {
+                "id": "964f77ae-480d-4f41-8abb-02aaf5f30b1a",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_recover_1_4\\spr_enemy_unfairy_limb_dagger_recover_1_4.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -11491,6 +11787,14 @@
             "Value": {
                 "id": "3b9a28ac-0df7-4199-9d04-1cf319ec64ac",
                 "resourcePath": "sprites\\spr_prompt_mk_r\\spr_prompt_mk_r.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a7241d45-b484-487f-83cc-3e7d7b3f90c0",
+            "Value": {
+                "id": "7e956bce-ae66-494c-ba3c-c9e9d16c0958",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_prep_1_3\\spr_enemy_unfairy_limb_dagger_prep_1_3.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -12023,6 +12327,14 @@
             }
         },
         {
+            "Key": "add79785-352b-48a4-82ed-62a5915410ec",
+            "Value": {
+                "id": "8af83144-5eb3-4ccb-9161-2680a560bb46",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger\\spr_enemy_unfairy_limb_dagger.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ae1f7a83-6ffe-45c2-ba9b-cfd50b43c8d2",
             "Value": {
                 "id": "afecb702-d371-467a-9904-1daa5c4f56c2",
@@ -12100,6 +12412,14 @@
                 "id": "31e25c41-09a3-407b-8212-659337b0f2e2",
                 "resourcePath": "views\\aeb7f3ee-2620-4a11-a264-ac4a189157cf.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "af090260-ec86-4824-88fc-f391108e4b5a",
+            "Value": {
+                "id": "71ad08fb-ce0e-4a8e-bfb3-539fc9be1f64",
+                "resourcePath": "objects\\obj_attack_unfairy_dagger_1_4r\\obj_attack_unfairy_dagger_1_4r.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -12599,6 +12919,14 @@
             }
         },
         {
+            "Key": "b5d5dc40-5593-4d5c-aaae-b5e8be39c05f",
+            "Value": {
+                "id": "f74123ca-802f-45ba-8277-ec0771ceb3c3",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_recover_1_3\\spr_enemy_unfairy_limb_dagger_recover_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b5de912c-c2f1-44a5-ac90-a4e79c66784e",
             "Value": {
                 "id": "6592e813-cadb-4922-8461-3cb2f2bd1cc1",
@@ -12999,6 +13327,14 @@
             }
         },
         {
+            "Key": "bb281d6f-913a-454b-9541-b1580aa1f634",
+            "Value": {
+                "id": "06bcee53-cbc2-4cbd-9af4-b4d87740e710",
+                "resourcePath": "views\\bb281d6f-913a-454b-9541-b1580aa1f634.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "bb522331-acc1-42f3-94cb-139223b61539",
             "Value": {
                 "id": "cbff13ae-6d3d-4416-86a8-9aa79a7693f2",
@@ -13228,6 +13564,14 @@
                 "id": "2dd0dbef-44b0-4d1b-9f2b-a43a44d33f7a",
                 "resourcePath": "scripts\\maybeAddObjectToInteractionList\\maybeAddObjectToInteractionList.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "bef99fd9-cc03-4703-bbed-bf0107437eac",
+            "Value": {
+                "id": "2c751548-aeb3-4118-94e5-86ae3ab4b890",
+                "resourcePath": "sprites\\spr_enemy_unfairy_pistol\\spr_enemy_unfairy_pistol.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -13764,6 +14108,14 @@
                 "id": "a6606357-3118-489d-9eb3-c05181e07a6f",
                 "resourcePath": "sounds\\snd_amb_frogs\\snd_amb_frogs.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "c660a756-f62c-4189-b6be-4b0b63b08897",
+            "Value": {
+                "id": "b3e8c421-0f7f-4329-aac5-76d614884d84",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_recover_1_3\\spr_enemy_unfairy_dagger_recover_1_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -15007,6 +15359,14 @@
             }
         },
         {
+            "Key": "d9c0bb67-60d2-4313-9c64-7a16d42cad1c",
+            "Value": {
+                "id": "d1e79ab0-7421-4238-80f6-5751e85f2710",
+                "resourcePath": "views\\d9c0bb67-60d2-4313-9c64-7a16d42cad1c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "d9cb0c53-3363-4b47-bc4c-333f3a5a4f68",
             "Value": {
                 "id": "77daa652-c0cf-4a2a-b610-a8113e0a09a8",
@@ -15572,6 +15932,14 @@
                 "id": "6bd42a46-4cce-49ef-8d26-8c78ee7b5b85",
                 "resourcePath": "sprites\\spr_prompt_mk_lb\\spr_prompt_mk_lb.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e1c35a72-be17-4c38-8b0d-4b406b5ddb2f",
+            "Value": {
+                "id": "99d7fb97-42c7-48ef-b3b7-729b68e0020c",
+                "resourcePath": "objects\\obj_attack_unfairy_dagger_1_4\\obj_attack_unfairy_dagger_1_4.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -16447,6 +16815,14 @@
             }
         },
         {
+            "Key": "f08f266f-e8da-4be7-899d-5fbb27b21478",
+            "Value": {
+                "id": "803cdb3f-1d8b-4495-ab37-18d9deaa5017",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_prep_1_2\\spr_enemy_unfairy_dagger_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f0a2a907-746d-42ab-ba29-83dc1f153123",
             "Value": {
                 "id": "0e868d0b-525b-4661-92a6-2c5183c0d2d3",
@@ -16516,6 +16892,14 @@
                 "id": "d974d206-fbe9-4fe1-b45d-ff38dd5feefd",
                 "resourcePath": "scripts\\ei_unfairy_unarmed_shortbow\\ei_unfairy_unarmed_shortbow.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f21c1efc-c5fb-4776-b57d-9aa4f34bc835",
+            "Value": {
+                "id": "7d26299e-3556-49be-9272-472760b55594",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_recover_1_2\\spr_enemy_unfairy_limb_dagger_recover_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -16612,6 +16996,14 @@
                 "id": "4a76541f-4ccf-4116-bcc0-52e756a4e32f",
                 "resourcePath": "scripts\\getItemPropertySuffix2\\getItemPropertySuffix2.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f3fdd969-d224-4af5-ac1e-538d791ff0e4",
+            "Value": {
+                "id": "26ff6df2-9215-43cf-a1ac-7c3733b4f838",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_prep_1_4\\spr_enemy_unfairy_limb_dagger_prep_1_4.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -16899,6 +17291,14 @@
             "Value": {
                 "id": "86193bfd-4398-4ee7-8aa7-d936ef9dbbdf",
                 "resourcePath": "sprites\\spr_factory_wingbag_2\\spr_factory_wingbag_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f8ca8966-ad38-4881-83b7-decdf461cdc0",
+            "Value": {
+                "id": "6eb8cdbd-b4b5-4612-83d0-7734ec052ac4",
+                "resourcePath": "sprites\\spr_enemy_unfairy_dagger_prep_1_1\\spr_enemy_unfairy_dagger_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -17255,6 +17655,14 @@
             }
         },
         {
+            "Key": "fdf371d1-f248-496c-93a3-c1fc654cba29",
+            "Value": {
+                "id": "1980cf49-f13d-435b-8a0b-2dbd4c52a9b7",
+                "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_attack_1_2\\spr_enemy_unfairy_limb_dagger_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "fdfbdfd6-c76b-4a69-ad55-f803fb399ad3",
             "Value": {
                 "id": "84f87f24-ee8d-411b-8173-7d6d859c6cb2",
@@ -17589,6 +17997,7 @@
         "f0a2a907-746d-42ab-ba29-83dc1f153123",
         "162d825c-d475-45d4-acb3-4d7a620bb36e",
         "97350287-ea2b-405f-b4ff-82453814a722",
+        "439c5bb8-5f9f-42b9-9254-2c48f17d3c6e",
         "6e85e585-2ec9-4d94-ad4f-4a02080b5aa7",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",

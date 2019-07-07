@@ -4,7 +4,7 @@
 // Inherit the parent event
 event_inherited();
 
-name = "Jalapeno";
+name = "Chili Pepper";
 spriteName = "jalapeno";
 itemSprite = spr_item_jalapeno;
 

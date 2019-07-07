@@ -349,7 +349,7 @@ switch(state) {
 			}
 			
 			// aim when preparing attack
-			if ds_map_size(preparingLimbs) != 0 && ds_map_size(attackingLimbs) == 0 && ds_map_size(recoveringLimbs) == 0 && attackData.type != AttackTypes.AOE {
+			if ds_map_size(preparingLimbs) != 0 && ds_map_size(attackingLimbs) == 0 /*&& ds_map_size(recoveringLimbs) == 0*/ && attackData.type != AttackTypes.AOE {
 				turnToFacePoint(attackData.turnSpeed,lockOnTarget.x,lockOnTarget.y);
 			}
 			
@@ -396,7 +396,7 @@ switch(state) {
 						var a = meleeAttacks[attackNumber];
 					} else var a = rangedAttacks[attackNumber];
 					attackData = a[attackNumberInChain - 1];
-					if hasHands && !isRanged {
+					if hasHands /*&& !isRanged*/ {
 						
 						var limbKeyInData = attackData.limbKey;
 						switch limbKeyInData {
@@ -423,10 +423,13 @@ switch(state) {
 							}
 						}
 					}
+					/* 
+					// ?????
 					// ranged is always 2h and always "in" the left hand
 					if hasHands && isRanged {
 						lk = "l";
 					}
+					*/
 					
 					var spriteAttackNumber = attackData.spriteAttackNumber;
 					var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;

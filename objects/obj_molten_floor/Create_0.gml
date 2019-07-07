@@ -11,7 +11,7 @@ stopsAttacks = false;
 alarm[7] = 5; // damage combatant every 5 frames
 
 damages = ds_map_create();
-ds_map_replace(damages, FIRE, [10,10]);
+ds_map_replace(damages, FIRE, [4,5]);
 
 lightScaleX = image_xscale / 2;
 lightScaleY = image_yscale / 2;

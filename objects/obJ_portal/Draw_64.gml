@@ -1,4 +1,4 @@
-if !isCurrentInteractionObject(id) exit;
+// if !isCurrentInteractionObject(id) exit;
 if isUntraversable exit;
 var isInConvo = false;
 with obj_npc_parent {
