@@ -9,8 +9,8 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_replace(rmap,ItemRarities.Fine,4);
 	ds_map_replace(rmap,ItemRarities.Masterwork,2);
 	ds_map_replace(rmap,ItemRarities.Legendary,0);
-	var item1 = maybeMakeItem(85,rmap); //randomly generated item
-	var gold = makeGold(0,25);
+	var item1 = maybeMakeItem(15,rmap); //randomly generated item
+	var gold = makeGold(5,35);
 	ds_list_clear(droppedItems);
 	ds_list_add(droppedItems,item1);
 	ds_list_add(droppedItems,gold);

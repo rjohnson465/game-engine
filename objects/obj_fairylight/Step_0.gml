@@ -40,6 +40,7 @@ if isFacing && p.currentInteractableObject == id && origLayer == p.layer && inte
 		if lampLightObj.count > 1 {
 			lampLightObj.count--;
 		} else {
+			unequipItem(lampLightObj);
 			if ds_list_find_index(global.player.inventory,lampLightObj) != -1 {
 				ds_list_delete(global.player.inventory,ds_list_find_index(global.player.inventory,lampLightObj));
 			}

@@ -11,7 +11,8 @@
         "54946c10-2442-49fe-8b04-e19f435f8847",
         "4f7a0e7b-c961-4af9-8b1f-76f9b257fa92",
         "d0ac7618-9d9f-4a6d-a6b1-b4065b99cb53",
-        "c587e2c9-e56e-4181-a211-6f901befcd24"
+        "c587e2c9-e56e-4181-a211-6f901befcd24",
+        "248646d4-1d61-449e-ad8a-ec12fd9efa63"
     ],
     "filterType": "GMSound",
     "folderName": "lighteater",

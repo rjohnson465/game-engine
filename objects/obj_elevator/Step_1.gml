@@ -80,6 +80,9 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 				with occupant {
 					var oldLayer = layer;
 					layer = nextLayer;
+					if occupant != global.player && variable_instance_exists(occupant, "origLayer") {
+						origLayer = layer;
+					}
 					var lr = noone;
 					with obj_light_radius {
 						if owner == other {

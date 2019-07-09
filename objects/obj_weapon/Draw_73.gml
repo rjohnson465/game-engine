@@ -1,6 +1,6 @@
 if room == game_menu exit;
 shader_reset();
-if limbItem.weaponType != PISTOL && limbItem.weaponType != SHURIKEN && limbItem.weaponType != MUSKET && limbItem.weaponType != CROSSBOW exit;
+if owner.type != CombatantTypes.Player || (limbItem.weaponType != PISTOL && limbItem.weaponType != SHURIKEN && limbItem.weaponType != MUSKET && limbItem.weaponType != CROSSBOW) exit;
 var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
 var rightHandItem = ds_map_find_value(owner.equippedLimbItems,"r");
 if limbKey == "r" && rightHandItem.weaponType == THROWN && rightHandItem.ammo == 0 {

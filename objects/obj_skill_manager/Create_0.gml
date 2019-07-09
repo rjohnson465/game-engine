@@ -9,6 +9,7 @@ enum Skills {
 	StaminaMax,
 	OffHandDamage,
 	PoiseMin,
+	EquipLoad,
 	BladeMastery,
 	AxeMastery,
 	ClubMastery,
@@ -97,7 +98,9 @@ remainingPointsY = magicMissileMasteryY+skillHeight+skillHeight;
 skillHpMax = makeSkillObj(obj_skill_hpmax,healthMaxX,healthMaxY);
 skillStaminaMax = makeSkillObj(obj_skill_staminamax,staminaMaxX,staminaMaxY);
 skillAmbidextrous = makeSkillObj(obj_skill_offhanddamage,offHandMasteryX,offHandMasteryY);
-skillPoise = makeSkillObj(obj_skill_poisemin,poiseMinX,poiseMinY);
+
+// skillPoise = makeSkillObj(obj_skill_poisemin,poiseMinX,poiseMinY);
+skillEquipLoad = makeSkillObj(obj_skill_equipload,poiseMinX,poiseMinY);
 
 // Melee
 skillBladeMastery = makeSkillObj(obj_skill_blade_mastery,bladeMasteryX,bladeMasteryY);

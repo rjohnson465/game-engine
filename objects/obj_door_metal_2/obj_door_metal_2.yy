@@ -2,7 +2,7 @@
     "id": "f117d2cf-cb39-4a2d-a44e-ed4577fb0675",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_door_metal",
+    "name": "obj_door_metal_2",
     "eventList": [
         {
             "id": "2de30c37-de9a-4ef3-bc83-c2f612b5ef31",
@@ -83,6 +83,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "a00ff5df-007f-4338-b7ca-df050bd864bd",
+    "spriteId": "c80d7f1d-2500-44f2-a55b-c8221d33052f",
     "visible": true
 }

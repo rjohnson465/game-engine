@@ -27,4 +27,7 @@ switch prop {
 	case ModifiableProperties.PoiseMax: {
 		return " max poise"; break;
 	}
+	case ModifiableProperties.EquipmentLoad: {
+		return " max equipment load"; break;
+	}
 }

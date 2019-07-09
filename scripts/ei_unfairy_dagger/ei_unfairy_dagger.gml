@@ -29,7 +29,7 @@ var meleeChain3 = [d11, d11r, d12];
 var meleeChain4 = [d11, d12];
 
 meleeAttacks = [meleeChain2, meleeChain1, meleeChain3, meleeChain4];
-meleeAttacks = [];
+// meleeAttacks = [];
 
 attackFrequencyTotalFramesMelee = [45,70];
 
@@ -40,6 +40,9 @@ var r1 = [p11l];
 
 var r2 = [p11l, p11r];
 
-rangedAttacks = [r2];
+rangedAttacks = [r1, r2];
 
-rangedAggroRange = 1000;
+agility = 100;
+skittishness = 85;
+
+// rangedAggroRange = 1000;

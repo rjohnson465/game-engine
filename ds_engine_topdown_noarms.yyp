@@ -2647,6 +2647,14 @@
             }
         },
         {
+            "Key": "22056b52-5c7a-4bff-af38-0007aa183788",
+            "Value": {
+                "id": "77d82c84-2312-495d-a244-2b7555779d71",
+                "resourcePath": "sprites\\spr_skill_steroids\\spr_skill_steroids.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "221be4e0-07fe-4954-a0d3-a5656c5ed6d6",
             "Value": {
                 "id": "aff7008a-a7ec-468c-932d-792b1e7c1045",
@@ -2668,6 +2676,14 @@
                 "id": "a947b4f3-41a2-4802-bef7-3234856a2e49",
                 "resourcePath": "sprites\\spr_prompt_mk_ctrl\\spr_prompt_mk_ctrl.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "22395a49-5c5c-437b-999d-f415805ab29b",
+            "Value": {
+                "id": "a1bb49da-778c-42cb-8a94-8c7ca99848d4",
+                "resourcePath": "objects\\obj_enemy_lighteater_larva\\obj_enemy_lighteater_larva.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2796,6 +2812,14 @@
                 "id": "55937ff5-7cf1-4fab-b990-a0b989e2e184",
                 "resourcePath": "sprites\\spr_skill_blademastery\\spr_skill_blademastery.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "248646d4-1d61-449e-ad8a-ec12fd9efa63",
+            "Value": {
+                "id": "fe030bd8-1b75-435b-ac35-0ccd6a8387e4",
+                "resourcePath": "sounds\\snd_enemy_lighteater_death\\snd_enemy_lighteater_death.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -3175,6 +3199,14 @@
             }
         },
         {
+            "Key": "29a7dcb7-3ef4-4994-ba15-3bb9ce7ae008",
+            "Value": {
+                "id": "a6511ae8-56e4-4487-b57e-d67e0fd8e803",
+                "resourcePath": "sprites\\spr_enemy_lighteater_larva_lunge_prep_1_1\\spr_enemy_lighteater_larva_lunge_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "29b11835-fd05-4cf0-b145-8a11f853b500",
             "Value": {
                 "id": "8c37294b-bf40-4d61-a39a-4ffca3c651f9",
@@ -3220,6 +3252,14 @@
                 "id": "ec4af3da-1b17-4f93-846b-4a7246ad41e4",
                 "resourcePath": "scripts\\fall\\fall.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "2a0e29ef-84a3-499f-a1a2-207034bc00eb",
+            "Value": {
+                "id": "173b5149-41aa-4fa7-8376-dab9f0ba8f2c",
+                "resourcePath": "views\\2a0e29ef-84a3-499f-a1a2-207034bc00eb.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -5167,6 +5207,14 @@
             }
         },
         {
+            "Key": "46eff703-01c5-497e-b55e-e34c7f150f00",
+            "Value": {
+                "id": "499f846a-5943-4e63-b5eb-62e9549882e1",
+                "resourcePath": "objects\\obj_skill_equipload\\obj_skill_equipload.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "4713dd4a-f6d4-4ed6-a6a5-067442f4edd1",
             "Value": {
                 "id": "02641905-eda2-46be-b8c2-28a0a08005e6",
@@ -6283,6 +6331,14 @@
             "Value": {
                 "id": "a027ab47-37a2-42b9-9c55-3fad45f0164e",
                 "resourcePath": "views\\5632dfcf-084f-4452-a790-e869c1aea2f7.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "563f20ed-28db-481c-a2be-1b6bbdbf1943",
+            "Value": {
+                "id": "37264067-6c06-44cb-a720-09a7451ab970",
+                "resourcePath": "views\\563f20ed-28db-481c-a2be-1b6bbdbf1943.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -8063,6 +8119,14 @@
             }
         },
         {
+            "Key": "71b868f8-6886-48b6-a4f7-9e43a0e5e182",
+            "Value": {
+                "id": "d5394b44-3ad9-4b4f-a2fa-de476c756b4b",
+                "resourcePath": "sprites\\spr_enemy_lighteater_larva_lunge_recover_1_1\\spr_enemy_lighteater_larva_lunge_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "71ba1293-330c-4459-8c37-980cd5fc2012",
             "Value": {
                 "id": "ecc7946d-4331-45c4-a015-dcb1be19942a",
@@ -9647,6 +9711,14 @@
             }
         },
         {
+            "Key": "881aae96-2cb0-47fc-87e8-89e181b47f91",
+            "Value": {
+                "id": "a730a186-89d2-443c-89bc-5a49aaab4cba",
+                "resourcePath": "sprites\\spr_enemy_lighteater_larva_lunge_attack_1_1\\spr_enemy_lighteater_larva_lunge_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "881f7022-4a3b-4242-ba7f-3a8bb4be9085",
             "Value": {
                 "id": "95ec1b50-5687-43db-9276-cf8db2e7a401",
@@ -9948,6 +10020,14 @@
                 "id": "9391ef2d-57b8-499f-b894-72dc77d532e6",
                 "resourcePath": "scripts\\modifyHatDefense\\modifyHatDefense.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8bc1cf39-40e5-48ca-a265-4341e494e06f",
+            "Value": {
+                "id": "b27b5228-7aba-426d-8456-766951000471",
+                "resourcePath": "objects\\obj_attack_lighteater_larva_lunge_1_1\\obj_attack_lighteater_larva_lunge_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -10796,6 +10876,14 @@
                 "id": "64005beb-e386-4e45-b218-01ac6c1ad1e2",
                 "resourcePath": "objects\\obj_queststep_wamdk_4\\obj_queststep_wamdk_4.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "98fb0135-89a9-49ac-87aa-61a9289b5fcc",
+            "Value": {
+                "id": "2b4fd33b-a58a-4557-bdee-dbbc84b2e6cf",
+                "resourcePath": "sprites\\spr_enemy_lighteater_larva_move\\spr_enemy_lighteater_larva_move.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -14231,6 +14319,14 @@
             }
         },
         {
+            "Key": "c80d7f1d-2500-44f2-a55b-c8221d33052f",
+            "Value": {
+                "id": "f5c90125-71f9-41f8-b01e-73ae0ad5e5f3",
+                "resourcePath": "sprites\\spr_door_metal_2\\spr_door_metal_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c81cd172-d028-4797-a74f-eb0bb7caa4dd",
             "Value": {
                 "id": "b175e4f7-65e8-4f97-a8a8-501bcd7c48a7",
@@ -14999,6 +15095,14 @@
             }
         },
         {
+            "Key": "d3ad3ec5-d1b2-4efd-8867-4a74761f907d",
+            "Value": {
+                "id": "e9591563-a201-48df-90c5-61b5b0ba6469",
+                "resourcePath": "sprites\\spr_enemy_lighteater_larva_stagger\\spr_enemy_lighteater_larva_stagger.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d3b1a8f1-ce3c-4fa7-b6f0-0d939dc0e1a0",
             "Value": {
                 "id": "665aee90-405f-4405-819c-9bdf32fb58f7",
@@ -15076,6 +15180,14 @@
                 "id": "f3862ae4-728b-4c9b-9cc5-9083aff4282d",
                 "resourcePath": "objects\\obj_attack_gear_throw_1_1\\obj_attack_gear_throw_1_1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d4eab504-7f74-4f63-adf2-80176b746542",
+            "Value": {
+                "id": "4bbe2aaa-aaea-40c2-a8ad-3be5160ca85e",
+                "resourcePath": "sprites\\spr_enemy_lighteater_larva\\spr_enemy_lighteater_larva.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -16858,7 +16970,7 @@
             "Key": "f117d2cf-cb39-4a2d-a44e-ed4577fb0675",
             "Value": {
                 "id": "08969a74-68a2-4efd-8ac8-63f5ff7eca30",
-                "resourcePath": "objects\\obj_door_metal\\obj_door_metal.yy",
+                "resourcePath": "objects\\obj_door_metal_2\\obj_door_metal_2.yy",
                 "resourceType": "GMObject"
             }
         },

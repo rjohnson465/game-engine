@@ -1,3 +1,4 @@
+/*
 if isNonPriorityInteractable {
 	if distance_to_object(obj_player) < 20 {
 		maybeAddObjectToInteractionList(id);

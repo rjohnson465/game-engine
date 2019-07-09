@@ -91,7 +91,7 @@ if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.prep
 	}
 	var willDodgeOnThisFrame = willDodge && shouldDodgeOnThisFrame;
 				
-	if willDodgeOnThisFrame && stamina > 0 && !isFrozen {
+	if willDodgeOnThisFrame && !isFrozen {
 		if totalDodgeFrames == -1 {
 			 // this combatant can't dodge, but maybe they can become wary?
 			if state != CombatantStates.Wary {

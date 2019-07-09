@@ -21,6 +21,7 @@ if instance_exists(owner) {
 	}
 }
 
+/*
 else {
 	instance_destroy(id, 1);
 }

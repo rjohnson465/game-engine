@@ -21,8 +21,13 @@ if state == CombatantStates.Attacking {
 				var attackInChain = ds_map_find_value(preparingLimbs,hand);
 				//var hand = ds_list_find_value(preparingLimbs,i); // l or r
 				var prepHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
-			
+				
+				
 				var prepSprite = asset_get_index("spr_"+spriteString+prepHandItemSprite+"_prep_"+string(attackInChain));
+				
+				var sprSpeed = sprite_get_speed(prepSprite);
+				var frameInc = sprSpeed / room_speed;
+				
 				var frame = ds_map_find_value(prepFrames,hand);
 				if hand == "r" {
 					//draw_sprite_ext(prepSprite,frame,x,y,1,1,facingDirection,c_white,1);
@@ -33,11 +38,12 @@ if state == CombatantStates.Attacking {
 				if isSlowed {
 					var percentSpeed = functionalSpeed / normalSpeed;
 					var currentVal = ds_map_find_value(prepFrames,hand);
-					ds_map_replace(prepFrames,hand,currentVal+percentSpeed);
+					frameInc *= percentSpeed;
+					ds_map_replace(prepFrames,hand,currentVal+frameInc);
 
 				} else {
 					var currentVal = ds_map_find_value(prepFrames,hand);
-					ds_map_replace(prepFrames,hand,currentVal+1);
+					ds_map_replace(prepFrames,hand,currentVal+frameInc);
 				}
 				
 				hand = ds_map_find_next(preparingLimbs, hand);

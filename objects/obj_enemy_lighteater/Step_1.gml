@@ -18,6 +18,7 @@ if hp < 1 && isAlive && !isDying {
 	var item2 = maybeMakeItem(75,rmap2); //randomly generated item
 	var item3 = maybeMakeItem(75,rmap2); //randomly generated item
 	//var item2 = maybeMakeItem(100,rmap,tmap); //randomly generated item
+
 	var gold = makeGold(300,500);
 	ds_list_clear(droppedItems);
 	ds_list_add(droppedItems,item1, item2, item3);
@@ -33,6 +34,7 @@ if hp < 1 && isAlive && !isDying {
 	
 	ds_map_destroy(rmap); rmap = -1;
 	ds_map_destroy(rmap2); rmap2 = -1;
+	lamplightsEatenCount = 0;
 	//ds_map_destroy(tmap); tmap = -1;
 }
 

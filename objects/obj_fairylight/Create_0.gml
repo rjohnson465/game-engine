@@ -11,7 +11,7 @@ stopsAttacks = false;
 
 lightRadius = noone;
 lightRadiusAlpha = .1;
-lightRadiusScale = .2;
+lightRadiusScale = .5;
 lightRadiusColor = make_color_rgb(75, 208, 161);
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;

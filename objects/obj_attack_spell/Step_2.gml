@@ -34,7 +34,13 @@
 	}
 
 	if object_is_ancestor(firstObj.object_index, obj_npc_parent) && isRanged {
-		instance_destroy(id); exit;
+		instance_destroy(id); 
+		with obj_light_radius {
+			if owner == other {
+				instance_destroy(id);
+			}
+		}
+		exit;
 	}
 
 	if global.player.layer == layer && (firstObj.layer != layer && abs(abs(firstObj.depth)-abs(depth)) > 5) {

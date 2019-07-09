@@ -9,13 +9,8 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_replace(rmap,ItemRarities.Fine,9);
 	ds_map_replace(rmap,ItemRarities.Masterwork,1);
 	ds_map_replace(rmap,ItemRarities.Legendary,0);
-	/*var tmap = ds_map_create();
-	ds_map_replace(tmap,ItemTypes.Ring,0);
-	ds_map_replace(tmap,ItemTypes.HandItem,0);
-	ds_map_replace(tmap,ItemTypes.Head,0);
-	ds_map_replace(tmap,ItemTypes.Other,1);*/
-	var item1 = maybeMakeItem(25,rmap); //randomly generated item
-	var item2 = maybeMakeItem(10,rmap); //randomly generated item
+	var item1 = maybeMakeItem(10,rmap); //randomly generated item
+	var item2 = maybeMakeItem(1,rmap); //randomly generated item
 	var pmap = ds_map_create();
 	ds_map_add(pmap, obj_item_antidote, 5);
 	ds_map_add(pmap, obj_item_rubberducky, 5);
@@ -25,7 +20,7 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_add(pmap, obj_item_spearmint_elixir, 3);
 	ds_map_add(pmap, obj_item_club_soda, 3);
 	ds_map_add(pmap, obj_item_razorade, 3);
-	var item3 = maybeMakeItemBasic(pmap);
+	var item3 = maybeMakeItemBasic(pmap, .1);
 	
 	var gold = makeGold(0,25);
 	ds_list_clear(droppedItems);

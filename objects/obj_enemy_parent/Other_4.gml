@@ -22,14 +22,23 @@ if isAlive {
 	x = -1000;
 	y = -1000;
 }
-if true {
-	hp = ds_map_find_value(persistentProperties, "Hp");
-	if isBoss && isAlive {
-		hp = maxHp;
-		x = postX;
-		y = postY;
+
+hp = ds_map_find_value(persistentProperties, "Hp");
+if isBoss && isAlive {
+	hp = maxHp;
+	x = postX;
+	y = postY;
+	
+	with obj_enemy_parent {
+		if isBoss {
+			hp = maxHp;
+			x = postX;
+			y = postY;
+			isAlive = true;
+		}
 	}
 }
+
 
 
 layer = ds_map_find_value(persistentProperties, "CurrentZ");

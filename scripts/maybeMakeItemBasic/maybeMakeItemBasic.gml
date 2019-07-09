@@ -1,5 +1,5 @@
 /// maybeMakeItemBasic(itemsAndProbsMap, *chanceToDrop) 
-/// @param itemsAndProbsArray
+/// @param itemsAndProbsMap
 /// @param chanceToDrop*
 
 var itemsAndProbsMap = argument[0];
@@ -15,7 +15,10 @@ if argument_count > 1 {
 // see if we even will drop
 randomize();
 var rand = random_range(0,1);
-if rand > chanceToDrop exit;
+if rand > chanceToDrop {
+	return noone;
+	exit;
+}
 
 var oldItemsAndProbsMap = itemsAndProbsMap;
 itemsAndProbsMap = getNormalizedWeightMap(itemsAndProbsMap);

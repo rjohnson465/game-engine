@@ -65,9 +65,9 @@ waryDistanceRange=[500,600];
 waryTotalFrames=[60,90];
 waryCheckTotalFrames = [150,300];
 waryCheckFrame = 150;
-skittishness = 75;
-cautiousness = 50;
-jumpSpeedFactor = 2;
+skittishness = 90;
+
+jumpSpeedFactor = 3;
 
 dyingParticleColor1 = [make_color_rgb(143, 154, 136), make_color_rgb(87,96,80), make_color_rgb(100, 111, 77)];
 
@@ -130,8 +130,8 @@ totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_d
 ds_map_replace(defenses,PIERCE,10);
 ds_map_replace(defenses,SLASH,7);
 
-soundsWhenHitVocals = [];
-soundsWhenDie = [];
+soundsWhenHitVocals = [snd_enemy_speyeder_hit_1, snd_enemy_speyeder_hit_2];
+soundsWhenDie = [snd_enemy_lighteater_death];
 
 walkingSound = snd_enemy_lighteater_walk;
 

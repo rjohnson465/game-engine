@@ -79,10 +79,11 @@ global.isPopulatingGrids = true;
 global.respawnOnlyBosses = false;
 global.respawnEnemiesAfterGridsPopulate = true;
 		
-// refill player health and stamina
+// refill player health and stamina and poise
 with obj_player {
 	hp = maxHp;
 	stamina = maxStamina;
+	poiseCurrent = poiseMax;
 		
 	// convert temp xp to real xp
 	xp += xpTemp;
