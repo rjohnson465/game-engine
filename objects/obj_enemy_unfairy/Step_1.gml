@@ -32,7 +32,7 @@ if hp < 1 && isAlive && !isDying {
 	
 	
 	
-	ds_map_destroy(pmap);
+	ds_map_destroy(pmap); pmap = -1;
 }
 
 // Inherit the parent event

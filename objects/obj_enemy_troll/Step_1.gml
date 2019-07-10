@@ -20,7 +20,6 @@ if hp < 1 && isAlive && !isDying {
 	ds_list_add(droppedItems,item1);
 	ds_list_add(droppedItems,gold);
 	ds_map_destroy(rmap); rmap = -1;
-	//ds_map_destroy(tmap);
 }
 
 // Inherit the parent event

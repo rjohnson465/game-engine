@@ -4,7 +4,7 @@
 // Inherit the parent event
 event_inherited();
 
-name = "Rob the Robot";
+name = "Robort";
 spriteString = "npc_rob";
 
 greeting = [snd_npc_rob_greeting_1, snd_npc_rob_greeting_2];
@@ -17,3 +17,5 @@ ds_list_add(items,rd);
 wanders = false;
 isFairy = false;
 isFloating = false;
+
+faceSprite = spr_face_robort;

@@ -11,3 +11,6 @@ quest.currentQuestStep = ds_list_find_value(quest.questSteps,0);
 quest.currentQuestStepIndex = 0;
 ds_list_add(global.player.quests,quest);
 alert(quest.name + " added to Quest Log",c_yellow);
+
+// is this the right sound?
+audio_play_sound(snd_ui_quest_complete_alert, 1, 0);

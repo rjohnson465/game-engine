@@ -24,7 +24,7 @@ switch rarity {
 		
 		var oldSocketsNumChanceMap = socketsNumChanceMap;
 		socketsNumChanceMap = getNormalizedWeightMap(socketsNumChanceMap);
-		ds_map_destroy(oldSocketsNumChanceMap); 
+		ds_map_destroy(oldSocketsNumChanceMap); oldSocketsNumChanceMap = -1;
 		
 		oldSocketsNumChanceMap = socketsNumChanceMap;
 		socketsNumChanceMap = getCumulativeProbabilitiesMap(socketsNumChanceMap);
@@ -38,7 +38,7 @@ switch rarity {
 		
 		var oldGemNumChanceMap = gemNumChanceMap;
 		gemNumChanceMap = getNormalizedWeightMap(gemNumChanceMap);
-		ds_map_destroy(oldGemNumChanceMap); 
+		ds_map_destroy(oldGemNumChanceMap); oldGemNumChanceMap = -1;
 		
 		oldGemNumChanceMap = gemNumChanceMap;
 		gemNumChanceMap = getCumulativeProbabilitiesMap(gemNumChanceMap);
@@ -52,7 +52,7 @@ switch rarity {
 		
 		var oldGemConditionChanceMap = gemConditionChanceMap;
 		gemConditionChanceMap = getNormalizedWeightMap(gemConditionChanceMap);
-		ds_map_destroy(oldGemConditionChanceMap);
+		ds_map_destroy(oldGemConditionChanceMap); oldGemConditionChanceMap = -1;
 		
 		oldGemConditionChanceMap = gemConditionChanceMap;
 		gemConditionChanceMap = getCumulativeProbabilitiesMap(gemConditionChanceMap);
@@ -69,7 +69,7 @@ switch rarity {
 		ds_map_replace(socketsNumChanceMap,3,0);
 		var oldSocketsNumChanceMap = socketsNumChanceMap;
 		socketsNumChanceMap = getNormalizedWeightMap(socketsNumChanceMap);
-		ds_map_destroy(oldSocketsNumChanceMap); 
+		ds_map_destroy(oldSocketsNumChanceMap); oldSocketsNumChanceMap = -1;
 		
 		oldSocketsNumChanceMap = socketsNumChanceMap;
 		socketsNumChanceMap = getCumulativeProbabilitiesMap(socketsNumChanceMap);
@@ -83,7 +83,7 @@ switch rarity {
 		
 		var oldGemNumChanceMap = gemNumChanceMap;
 		gemNumChanceMap = getNormalizedWeightMap(gemNumChanceMap);
-		ds_map_destroy(oldGemNumChanceMap); 
+		ds_map_destroy(oldGemNumChanceMap); oldGemNumChanceMap = -1;
 		
 		oldGemNumChanceMap = gemNumChanceMap;
 		gemNumChanceMap = getCumulativeProbabilitiesMap(gemNumChanceMap);
@@ -97,7 +97,7 @@ switch rarity {
 		
 		var oldGemConditionChanceMap = gemConditionChanceMap;
 		gemConditionChanceMap = getNormalizedWeightMap(gemConditionChanceMap);
-		ds_map_destroy(oldGemConditionChanceMap);
+		ds_map_destroy(oldGemConditionChanceMap); oldGemConditionChanceMap = -1;
 		
 		oldGemConditionChanceMap = gemConditionChanceMap;
 		gemConditionChanceMap = getCumulativeProbabilitiesMap(gemConditionChanceMap);

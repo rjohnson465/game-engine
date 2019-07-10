@@ -17,7 +17,7 @@ if instance_exists(fade) {
 				ds_map_destroy(s);
 			}
 			if ds_exists(s, ds_type_list) && s != partSystems {
-				ds_list_destroy(s);
+				ds_list_destroy(s); 
 			}
 			if part_type_exists(s) {
 				part_type_destroy(s);

@@ -14,7 +14,7 @@ switch npcName {
 		getConversationsForBarry(conversationsList);
 		break;
 	}
-	case "Rob the Robot": {
+	case "Robort": {
 		getConversationsForRob(conversationsList);
 		break;
 	}
