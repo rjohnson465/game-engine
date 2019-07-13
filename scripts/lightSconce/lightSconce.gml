@@ -6,6 +6,8 @@ if argument_count > 0 {
 	soundToPlay = argument[0];
 }
 
+if lightRadius != noone exit;
+
 /// MUST BE CALLED BY SCONCE OBJECT!!!
 // (or get cheeky and use the lamplight obj lol)
 

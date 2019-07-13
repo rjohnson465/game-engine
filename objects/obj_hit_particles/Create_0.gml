@@ -89,6 +89,7 @@ if !is_string(type) && instance_exists(type) && object_is_ancestor(type.object_i
 		case "Block": {
 			var spark = part_type_create();
 			part_type_shape(spark, pt_shape_spark);
+			part_type_alpha2(spark, 1, .25);
 			part_type_color2(spark,c_yellow,c_white);
 			part_type_orientation(spark,0,0,0,15,1);
 			part_type_size(spark,0,0.15,0,0);
@@ -99,9 +100,13 @@ if !is_string(type) && instance_exists(type) && object_is_ancestor(type.object_i
 				minDir = 360+minDir;
 			}
 			var maxDir = (particleDirection + 45)%360;
-			part_type_direction(spark,minDir,maxDir,0,4);
-			part_type_life(spark,5,15);
+			var minDirReal = min(minDir, maxDir);
+			var maxDirReal = min(minDir, maxDir);
+			var fd = victim.facingDirection;
+			part_type_direction(spark,fd - 45, fd + 45,0,4);
+			part_type_life(spark,10,25);
 			particle = spark;
+			num = 35;
 			break;
 		}
 		case "Dust": {

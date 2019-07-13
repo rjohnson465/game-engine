@@ -22,6 +22,10 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_add(pmap, obj_item_razorade, 3);
 	var item3 = maybeMakeItemBasic(pmap, .1);
 	
+	var pmap2 = ds_map_create();
+	ds_map_add(pmap2, obj_item_scroll_of_knowledge, 5);
+	var scroll = maybeMakeItemBasic(pmap2, 1);
+	
 	var gold = makeGold(0,25);
 	ds_list_clear(droppedItems);
 	ds_list_add(droppedItems,item1, item2, item3);
@@ -33,6 +37,7 @@ if hp < 1 && isAlive && !isDying {
 	
 	
 	ds_map_destroy(pmap); pmap = -1;
+	ds_map_destroy(pmap2); pmap2 = -1;
 }
 
 // Inherit the parent event

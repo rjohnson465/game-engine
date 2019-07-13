@@ -2,6 +2,7 @@ owner = global.owner;
 life = 600;
 depth = 1;
 layer = owner.layer;
+origLayer = layer;
 x = owner.x;
 y = owner.y;
 image_angle = owner.facingDirection;
@@ -46,7 +47,7 @@ if part_type_exists(attackData.part1) {
 	part_type_direction(particle,facingDirection-45, facingDirection+45, 0, 5);
 }
 if part_type_exists(attackData.part2) {
-	particle = attackData.part2;
+	particle2 = attackData.part2;
 }
 
 audio_play_sound_at(attackData.attackSound, owner.x,owner.y,owner.depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);

@@ -53,7 +53,7 @@ if bgmPossibilities != noone {
 	// decide which song to start, if a new one should start at all
 	// the the new playlist for this room contains the currently playing song, do not start a new song,
 	// just keep playing the old one
-	if arrayIncludes(bgmPossibilities, bgmCurrent) {
+	if !bgmAlarmSet && arrayIncludes(bgmPossibilities, bgmCurrent) {
 		exit;
 	}
 	// if not, pick a new one randomly

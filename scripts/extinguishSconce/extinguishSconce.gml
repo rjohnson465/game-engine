@@ -20,3 +20,4 @@ if soundToPlay > 0 {
 // might need to do more to make the light radius fuck off
 instance_destroy(lightRadius,1);
 light_destroy_layer(getLayerFloorNumber(origLayer),lightRadius);
+lightRadius = noone;

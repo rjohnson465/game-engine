@@ -17,15 +17,20 @@ if hp < 1 && isAlive && !isDying {
 	var item1 = maybeMakeItem(100,rmap); //randomly generated item
 	var item2 = maybeMakeItem(75,rmap2); //randomly generated item
 	var item3 = maybeMakeItem(75,rmap2); //randomly generated item
+	
+	var pmap2 = ds_map_create();
+	ds_map_add(pmap2, obj_item_scroll_of_knowledge, 5);
+	var scroll = maybeMakeItemBasic(pmap2, .75);
+	
 	//var item2 = maybeMakeItem(100,rmap,tmap); //randomly generated item
 	var gold = makeGold(300,500);
 	ds_list_clear(droppedItems);
-	ds_list_add(droppedItems,item1, item2, item3);
+	ds_list_add(droppedItems,item1, item2, item3, scroll);
 	//ds_list_add(droppedItems,item2);
 	ds_list_add(droppedItems,gold);
 	ds_map_destroy(rmap); rmap = -1;
 	ds_map_destroy(rmap2); rmap2 = -1;
-	//ds_map_destroy(tmap); tmap = -1;
+	ds_map_destroy(pmap2); pmap2 = -1;
 }
 
 // Inherit the parent event

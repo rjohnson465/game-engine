@@ -19,6 +19,6 @@ var gs21 = makeEnemyAttackObj(obj_attack_unfairy_greatsword_2_1);
 var c1 = [gs11];
 var c2 = [gs11, gs12];
 var c3 = [gs21];
-meleeAttacks = [c2];
+meleeAttacks = [c1, c2, c3];
 
 attackFrequencyTotalFramesMelee = [45,60];

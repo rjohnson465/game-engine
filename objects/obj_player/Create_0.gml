@@ -205,6 +205,8 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemToInventory(makeGold(100000,200000));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_buckler ));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_kiteshield ));
 
 	var longsword = instance_create_depth(x,y,1,obj_hand_item_longsword);
 	longsword.persistent = true;
