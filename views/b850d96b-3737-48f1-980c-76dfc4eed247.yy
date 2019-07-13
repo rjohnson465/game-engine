@@ -14,7 +14,8 @@
         "1b5b3b7e-ea8c-4a4e-818e-1f40cf836f67",
         "94cc6a88-5e63-4e9b-882c-ffd7cf4fab83",
         "808a6f9c-2ed7-427a-8807-9bb8ffa31019",
-        "58fcf369-f355-4a2f-8d49-8bd3d723ff7f"
+        "58fcf369-f355-4a2f-8d49-8bd3d723ff7f",
+        "37545232-1f8e-4840-a1f6-cfa74e4cd8d4"
     ],
     "filterType": "GMObject",
     "folderName": "npcs",

@@ -18,6 +18,10 @@ switch npcName {
 		getConversationsForRob(conversationsList);
 		break;
 	}
+	case "Terri the Toaster": {
+		getConversationsForTerri(conversationsList);
+		break;
+	}
 }
 
 return conversationsList;

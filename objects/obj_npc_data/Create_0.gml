@@ -17,7 +17,7 @@ conversationsToAdd = ds_list_create();
 inventory = ds_list_create();
 
 hasInitializedItems = false;
-if instance_exists(npc) {
+if instance_exists(npc) && ds_exists(npc.items, ds_type_list) {
 	for (var i = 0; i < ds_list_size(npc.conversations); i++) {
 		var c = ds_list_find_value(npc.conversations,i);
 		ds_map_replace(conversations,c.name,c.isFinished);

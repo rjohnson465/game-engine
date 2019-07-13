@@ -230,7 +230,11 @@ if global.populateInventory && !global.gameManager.isLoading {
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_wand));
 	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_greatsword));
-	addItemToInventory(instance_create_depth(x,y,1,obj_hat_lumberjack_hat));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_plated_cap));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_ringed_coif));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_bike_helmet));
+	addItemToInventory(instance_create_depth(x,y,1,obj_hat_construction_hat));
+	
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_spear));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_torch));
 	addItemToInventory(makeGem(obj_gem_amethyst, CRACKED));

@@ -11,7 +11,7 @@ global.rangedWeaponsAct1 = [
 	];
 global.shieldsAct1 = [obj_hand_item_woodshield, obj_hand_item_buckler, obj_hand_item_kiteshield];
 
-global.hatsAct1 = [obj_hat_leathercap];
+global.hatsAct1 = [obj_hat_leathercap, obj_hat_plated_cap, obj_hat_bike_helmet, obj_hat_ringed_coif];
 
 global.meleeWeaponsByAct = ds_map_create();
 global.shieldsByAct = ds_map_create();

@@ -102,7 +102,10 @@ if !is_string(type) && instance_exists(type) && object_is_ancestor(type.object_i
 			var maxDir = (particleDirection + 45)%360;
 			var minDirReal = min(minDir, maxDir);
 			var maxDirReal = min(minDir, maxDir);
-			var fd = victim.facingDirection;
+			var fd = particleDirection;
+			if instance_exists(victim) && variable_instance_exists(victim, "facingDirection") {
+				fd = victim.facingDirection;
+			}
 			part_type_direction(spark,fd - 45, fd + 45,0,4);
 			part_type_life(spark,10,25);
 			particle = spark;

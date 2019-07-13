@@ -11,7 +11,9 @@
         "b7c3ed14-ac3d-45d1-b7aa-340bad7a6a85",
         "629edc7b-0a9b-440e-9f41-75b56699447a",
         "8fb61644-4437-4adc-84e1-00de50530aee",
-        "8a650c7d-c25b-43d2-a0cb-570e03e3543f"
+        "8a650c7d-c25b-43d2-a0cb-570e03e3543f",
+        "593280aa-fcf9-4bf3-b235-d6a6fccc4e0e",
+        "6f6bc1f8-a312-44c8-bdae-16a8ceff6146"
     ],
     "filterType": "GMSprite",
     "folderName": "consumables",

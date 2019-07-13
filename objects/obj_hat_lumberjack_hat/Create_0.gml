@@ -17,13 +17,13 @@ ds_map_replace(defenses,PIERCE,0);*/
 ds_map_replace(itemProperties, ModifiableProperties.WeaponTypesDamage, [AXE1H, 5]);
 ds_map_replace(itemProperties, ModifiableProperties.CriticalsChance, [AXE1H, 15]);
 
-description = "A plaid hat worn by the very attractive and muscular lumberjacks of Everdusk Grove. Increases damage and criticals chance with one handed axes."
+description = "A plaid hat worn by the now extinct, very attractive and muscular lumberjacks of Everdusk Grove. Increases damage and criticals chance with one handed axes."
 
 isSpecialHat = true;
 
 specialHatDefenses = ds_map_create();
-ds_map_replace(specialHatDefenses, 1, [[SLASH, 12],[CRUSH, 4],[PIERCE, 0]]);
-ds_map_replace(specialHatDefenses, 2, [[SLASH, 22],[CRUSH, 14],[PIERCE, 5]]);
+ds_map_replace(specialHatDefenses, 1, [[SLASH, 12],[CRUSH, 4],[PIERCE, 0], [FIRE, -25]]);
+ds_map_replace(specialHatDefenses, 2, [[SLASH, 22],[CRUSH, 14],[PIERCE, 5], [FIRE, -25]]);
 
 specialHatProperties = ds_map_create();
 ds_map_replace(specialHatProperties, 1, 
