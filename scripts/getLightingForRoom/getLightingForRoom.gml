@@ -15,6 +15,10 @@ switch rm {
 		var c = make_color_rgb(46, 43, 68);
 		return [c, c, c]; break;
 	}
+	case rm_boss_ravebot: {
+		var c = make_color_rgb(46, 43, 68);
+		return [c]; break;
+	}
 	case rm_boss_lighteater: {
 		var c = make_color_rgb(23, 21, 34);
 		// var c = c_ltgray;

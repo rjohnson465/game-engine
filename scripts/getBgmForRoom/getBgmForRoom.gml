@@ -15,6 +15,10 @@ switch rm {
 		return [snd_bgm_funfairy];
 		break;
 	}
+	case rm_boss_ravebot: {
+		return [snd_bgm_ravebot];
+		break;
+	}
 	case rm_factory: {
 		return noone;
 		// return [snd_bgms_le, snd_bgms_vl, snd_bgms_ws];

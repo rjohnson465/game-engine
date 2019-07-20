@@ -86,7 +86,9 @@ if possibleSolids != noone {
 	}
 }
 
-ds_list_destroy(possibleSolids); possibleSolids = -1;
+if ds_exists(possibleSolids, ds_type_list) {
+	ds_list_destroy(possibleSolids); possibleSolids = -1;
+}
 
 // beam ends at s, the first solid it hits
 if s >= 0 {

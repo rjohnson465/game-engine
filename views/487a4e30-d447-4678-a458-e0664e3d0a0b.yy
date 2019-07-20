@@ -24,7 +24,8 @@
         "7ffa19bd-0cb9-437d-b46b-abefbb83f672",
         "b454b5a3-b985-49f4-bfd9-739e96bd9c28",
         "984543ff-48aa-4a70-ae7b-91025061a639",
-        "9af82f48-8bed-49f0-8017-586fdc8d47f0"
+        "9af82f48-8bed-49f0-8017-586fdc8d47f0",
+        "f4c36278-6ad0-4c6d-a90d-ed62d39899d8"
     ],
     "filterType": "GMSound",
     "folderName": "attacks",

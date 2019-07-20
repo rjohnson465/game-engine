@@ -1,0 +1,1 @@
+light_destroy_layer(1, id);

@@ -246,6 +246,11 @@ else if isBoss && isAlive {
 			
 			draw_healthbar(BOSS_HP_X1, y1, BOSS_HP_X2, y2, (hp/maxHp)*100, c_black, c_red, c_maroon, 0, true, true);
 	
+			// maybe draw poise
+			if !cannotStagger {
+				draw_healthbar(BOSS_HP_X1, y2, BOSS_HP_X2, y2+5, (poiseCurrent/poiseMax)*100, c_black, C_POISE, C_POISE, 0, true, true);
+			}
+	
 			var percentHpLeft = id.hp / id.maxHp;
 			var bossHpBarWidth = BOSS_HP_X2 - BOSS_HP_X1;
 			var currentHpRightX = BOSS_HP_X1 + (bossHpBarWidth * percentHpLeft);
