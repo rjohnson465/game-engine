@@ -112,7 +112,7 @@ rangedAttacks = [];
 
 hp = 250;
 maxHp = 250;
-hpRegen = 2;
+hpRegen = .66;
 
 stamina = 60;
 maxStamina = 60;

@@ -1,4 +1,7 @@
-if !instance_exists(owner) exit;
+if !instance_exists(owner) {
+	instance_destroy(id, 1);
+	exit;
+}
 audio_emitter_position(soundEmitter, x, y, depth);
 
 if isMelee {

@@ -84,6 +84,10 @@ if macro == noone {
 	base = ds_map_find_value(p.propertiesBaseValues,prop);
 } else {
 	var mapToSearch = ds_map_find_value(p.propertiesBaseValues,prop);
+	if !ds_exists(mapToSearch, ds_type_map) {
+		show_debug_message("Error in updatePlayerProperty: Trying to update prop " + string(prop) + " with macro " + string(macro));
+		exit;
+	}
 	base = ds_map_find_value(mapToSearch,macro);
 }
 	

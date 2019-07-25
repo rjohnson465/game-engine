@@ -1,0 +1,2 @@
+opensFrom = "r";
+isOneSided = true;
