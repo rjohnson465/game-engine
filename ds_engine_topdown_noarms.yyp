@@ -13231,6 +13231,14 @@
             }
         },
         {
+            "Key": "ab8df27b-f22e-46de-a454-d4505b2e3c6f",
+            "Value": {
+                "id": "afef5939-38a6-4702-9d40-a5d32fcd5b6e",
+                "resourcePath": "sprites\\spr_factory_floor_2\\spr_factory_floor_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ab9ac9f5-8f0b-474b-b86b-a525f3941457",
             "Value": {
                 "id": "d73e7db5-07a8-4efd-8c7f-816d26c88ae2",
@@ -13959,6 +13967,14 @@
             }
         },
         {
+            "Key": "b4733ed7-14ba-46fe-b2cc-7ecdb7e8a26b",
+            "Value": {
+                "id": "5ed560f8-b8b1-493f-9950-eddb588c18c6",
+                "resourcePath": "sprites\\spr_factory_floor_3\\spr_factory_floor_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b4748389-844d-4261-a712-5dbfe99a81ba",
             "Value": {
                 "id": "3c53795b-7e65-4e0a-b5c2-c1adfbb7e072",
@@ -14195,6 +14211,14 @@
             "Value": {
                 "id": "415d53b3-5046-4e76-afed-9ae7f80326ff",
                 "resourcePath": "sprites\\spr_player_hand_axe_1h_prep_2\\spr_player_hand_axe_1h_prep_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b789271f-376b-47fe-8e99-78d3f4bc8298",
+            "Value": {
+                "id": "58498868-cc5c-4913-b5aa-9d61db1d2667",
+                "resourcePath": "sprites\\spr_factory_floor_0\\spr_factory_floor_0.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -15468,6 +15492,14 @@
                 "id": "d23baac4-b617-457e-8773-db0d421eba7c",
                 "resourcePath": "objects\\obj_wall_nocast\\obj_wall_nocast.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c71fb6e8-8a37-49c0-97ad-049a437ae774",
+            "Value": {
+                "id": "7cf770ff-bb16-47a5-b66b-7578009e3c27",
+                "resourcePath": "sprites\\spr_factory_floor_4\\spr_factory_floor_4.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

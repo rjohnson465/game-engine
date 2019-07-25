@@ -27,7 +27,7 @@ greeting = noone;
 type = CombatantTypes.Ally;
 state = CombatantStates.Idle;
 
-facingDirection = 0;
+facingDirection = image_angle;
 previousFacingDirection = 0;
 isSlowed = false;
 slowedSpeedModifier = 1;
