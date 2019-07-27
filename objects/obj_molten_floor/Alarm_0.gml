@@ -1,5 +1,6 @@
 alarm[0] = smokeSteps;
 if !isActive || isCoolingDown exit;
+if layer != global.player.layer exit;
 var floorNum = getLayerFloorNumber(origLayer);
 var pFloorNum = getLayerFloorNumber(global.player.layer);
 if floorNum > pFloorNum exit;

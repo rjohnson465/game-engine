@@ -59,11 +59,11 @@ scaleFrame = (scaleFrame + 1)%scaleTotalFrames;
 light_set_multiscale(lightScaleX*scale, lightScaleY*scale);
 
 // cinder particles
-if isActive && !isCoolingDown {
+if isActive && !isCoolingDown && layer == global.player.layer {
 	// var area = sprite_width * sprite_height;
 	// var num = (area) / 9216;
 	var floorNum = getLayerFloorNumber(origLayer);
 	var pFloorNum = getLayerFloorNumber(global.player.layer);
-	if floorNum > pFloorNum exit;
+	if floorNum != pFloorNum exit;
 	part_emitter_burst(system, emitter, partCinder, 1);
 }

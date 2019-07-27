@@ -1,6 +1,6 @@
 
 {
-    "name": "rm_factory2",
+    "name": "rm_factory3",
     "id": "44158ba0-19d9-4e3d-978e-daaa8116479e",
     "creationCodeFile": "RoomCreationCode.gml",
     "inheritCode": false,

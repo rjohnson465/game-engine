@@ -1,5 +1,5 @@
 if room == game_menu exit;
-shader_reset();
+// shader_reset();
 if owner.currentUsingSpell != noone exit;
 if owner.type == CombatantTypes.Player && limbItem.weaponType == PISTOL || limbItem.weaponType == SHURIKEN || limbItem.weaponType == MUSKET || limbItem.weaponType == CROSSBOW exit;
 

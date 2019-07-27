@@ -2,6 +2,15 @@ if valve != noone && instance_exists(valve) {
 	isActive = valve.isActive;
 }
 
+/*
+if !isActive {
+	part_system_automatic_update(system, false);
+} else {
+	part_system_automatic_update(system, true;)
+} */
+
+
+
 if isActive && soundIndex == noone {
 	soundIndex = audio_play_sound_at(soundOn, x,y,depth, 50, 150, 1, 1, 1);
 }

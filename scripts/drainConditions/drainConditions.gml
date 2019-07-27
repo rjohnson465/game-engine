@@ -1,4 +1,8 @@
-//if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked exit;
+if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked {
+	if layer != global.player.layer {
+		exit;
+	}
+}
 // conditionPercentages drain every step
 if type != CombatantTypes.Player && (distance_to_object(obj_player)) > 1000 && state == CombatantStates.Idle exit;
 // TODO Devin fix calculations for draining

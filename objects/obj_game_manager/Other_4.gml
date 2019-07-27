@@ -31,3 +31,12 @@ for (var i = 0; i < ds_map_size(ambpEmitters); i++) {
 ds_map_clear(ambpEmitters);
 ambCurrent = noone;
 startAmb();
+
+
+
+/*
+for (var i = 0; i < 10000; i++) {
+	if part_system_exists(i) {
+		part_system_automatic_update(i, false);
+	}
+}

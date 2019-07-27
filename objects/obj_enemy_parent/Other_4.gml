@@ -1,5 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
+
+attackFrequencyTotalFramesMeleeDefault = attackFrequencyTotalFramesMelee;
+attackFrequencyTotalFramesRangedDefault = attackFrequencyTotalFramesRanged;
+
 ds_map_replace(persistentProperties, "IsBoss", isBoss);
 
 // Inherit the parent event

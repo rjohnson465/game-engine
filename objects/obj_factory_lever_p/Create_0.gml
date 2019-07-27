@@ -7,6 +7,8 @@ isActive = false;
 associatedBeltKeys = noone;
 associatedBelts = ds_list_create();
 
+onlyDrawLightOnPlayerLayer = true;
+
 light_create_layer(spr_light_point, .3, c_fuchsia, .4, 0, 1);
 
 isNonPriorityInteractable = true;

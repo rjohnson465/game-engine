@@ -29,7 +29,7 @@ var meleeChain3 = [d11, d11r, d12];
 var meleeChain4 = [d11, d12];
 
 meleeAttacks = [meleeChain2, meleeChain1, meleeChain3, meleeChain4];
-// meleeAttacks = [];
+//meleeAttacks = [];
 
 attackFrequencyTotalFramesMelee = [45,70];
 

@@ -11,6 +11,8 @@ Important note: The object calling this function should have a lower depth than 
 */
 
 
+
+
 var layerNum = argument5;
 
 var map = ds_map_find_value(global._light_layers,layerNum);
@@ -50,6 +52,17 @@ if _light_time >= _light_max_time
         var _light = ds_list_find_value(_lights, i)
 		
 		if instance_exists(_light) {
+			
+			var doNotDraw = false;
+			with _light {
+				if variable_instance_exists(id, "onlyDrawLightOnPlayerLayer") && onlyDrawLightOnPlayerLayer {
+					if layer != global.player.layer {
+						doNotDraw = true;
+					}
+				}
+			}
+			
+			if doNotDraw continue;
 
 			// don't draw lights outside the view
 			var vx = camera_get_view_x(view_camera[0]); var vy = camera_get_view_y(view_camera[0]);

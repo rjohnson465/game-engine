@@ -122,7 +122,7 @@ if (sound > 1 && audio_exists(sound)) {
 		if owner.type == CombatantTypes.Player {
 			audio_play_sound(sound,1,0);
 		} else {
-			audio_play_sound_at(sound,owner.x,owner.y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			audio_play_sound_at(sound,owner.x,owner.y,layer_get_depth(owner.layer),100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		}
 	}
 }

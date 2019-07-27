@@ -17,6 +17,18 @@ with obj_solid_environment {
 	}
 }
 
+with obj_portal {
+	instance_deactivate_object(id);
+}
+
+with obj_factory_redlight {
+	instance_deactivate_object(id);
+}
+
+with obj_factory_redlight {
+	instance_deactivate_object(id);
+}
+
 with obj_enemy_parent {
 	if state != CombatantStates.Moving && !isBoss {
 		audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;
@@ -44,7 +56,11 @@ var h = vh + (2*deactivationBorder);
 instance_activate_region(vx - deactivationBorder, vy - deactivationBorder, w, h, true);
 
 
-
+with obj_factory_redlight {
+	if layer != global.player.layer {
+		instance_deactivate_object(id);
+	}
+}
 
 
 instance_activate_object(obj_persistent_environment);

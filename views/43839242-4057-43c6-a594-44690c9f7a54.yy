@@ -30,7 +30,10 @@
         "74d64c74-8f75-4b3a-953a-9247097beb9e",
         "b93e06f2-3b8a-487f-ae00-3b1e8b2dce98",
         "65efb97e-ee44-4f11-9a5a-15ac72eef8b1",
-        "28830a24-7d8f-4c9a-bfb9-bdc02eadec89"
+        "28830a24-7d8f-4c9a-bfb9-bdc02eadec89",
+        "64eb0c65-37a3-458f-90e9-a44787b6e340",
+        "c6aa124e-5413-40c1-873e-e2fe3661cf0b",
+        "2accf50a-aea8-44d8-98a4-20f68c9674ad"
     ],
     "filterType": "GMSprite",
     "folderName": "factory",

@@ -172,7 +172,7 @@ if	state != CombatantStates.Dodging &&
 		handleBlockedAttack(attackObj,assailant,damagesTaken,actualDamage,isCriticalHit,itemHitWith,attackData);
 	}
 	// hit
-	if !isShielding || !scr_is_facing(assailant,id) {		
+	else if !isShielding || !scr_is_facing(assailant,id) {		
 		if gamepad_is_connected(global.gamePadIndex) && type == CombatantTypes.Player {
 			gamepad_set_vibration(global.gamePadIndex,1,1);
 			// duration of vibration is: 20% hp is 20 frames, 0% hp is 1 frame

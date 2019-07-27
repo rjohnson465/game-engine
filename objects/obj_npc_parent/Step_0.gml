@@ -77,7 +77,7 @@ if	// distance_to_object(obj_player) < 20
 			}
 		}
 		if !doNotPlayGreeting {
-			audio_play_sound_at(g,x,y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			audio_play_sound_at(g,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		}
 	}
 	

@@ -51,7 +51,7 @@ if isActive {
 				}
 			}
 			
-			audio_play_sound_at(currentSound,owner.x,owner.y,0,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			audio_play_sound_at(currentSound,owner.x,owner.y,global.player.depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		}
 	}
 	

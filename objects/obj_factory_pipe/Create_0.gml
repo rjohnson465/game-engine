@@ -18,9 +18,12 @@ soundOn = snd_fountain_running;
 
 pKey = noone;
 
+
 system = part_system_create();
-emitter = part_emitter_create(system);
 part_system_depth(system, depth + 1);
+
+emitter = part_emitter_create(system);
+
 // water particle
 var water = part_type_create();
 part_type_shape(water, pt_shape_sphere);

@@ -66,7 +66,7 @@ if stamina < 1 {
 	path_end();
 	state = CombatantStates.Staggering;
 	staggerFrame = 0;
-	staggerDuration = 45; // TODO Devin fix later
+	staggerDuration = 120; // TODO Devin fix later
 	staggerSpeed = 1;
 	poiseCurrent = 0;
 	drawCombatText("Guard break!",id);

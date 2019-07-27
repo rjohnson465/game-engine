@@ -37,10 +37,18 @@ if ds_map_size(recoveringLimbs) != 0 {
 				audio_play_sound_at(attackData.recoverSound, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 			}
 			
-			if isRanged {
-				attackFrequencyTotalFramesRanged = attackData.coolDownFrames;
+			if attackData.coolDownFrames != noone && is_array(attackData.coolDownFrames) {
+				if isRanged {
+					attackFrequencyTotalFramesRanged = attackData.coolDownFrames;
+				} else {
+					attackFrequencyTotalFramesMelee = attackData.coolDownFrames;
+				}
 			} else {
-				attackFrequencyTotalFramesMelee = attackData.coolDownFrames;
+				if isRanged {
+					attackFrequencyTotalFramesRanged = attackFrequencyTotalFramesRangedDefault;
+				} else {
+					attackFrequencyTotalFramesMelee = attackFrequencyTotalFramesMeleeDefault;
+				}
 			}
 			
 			var recoverSprite = asset_get_index(attackData.spriteName+"_recover_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));

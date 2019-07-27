@@ -183,7 +183,9 @@ aggressiveness = 0;
 // If an enemy or ally has a chosen attack and they are in range of their lockOnTarget,
 // every attackFrequencyTotalFrames they check to see if they enter the Attack state
 attackFrequencyTotalFramesMelee = [0,0];
+attackFrequencyTotalFramesMeleeDefault = [0,0];
 attackFrequencyTotalFramesRanged = [0,0];
+attackFrequencyTotalFramesRangedDefault = [0,0];
 attackFrequencyFrame = -1;
 // will strafe for x frames before checking if should strafe again
 strafeTotalFrames = [0,0];
