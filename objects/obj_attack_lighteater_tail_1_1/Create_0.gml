@@ -3,13 +3,13 @@ spriteName = "spr_enemy_lighteater_tail";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 limbKey = noone;
-ds_map_replace(damages,PIERCE,[10,12]);
+ds_map_replace(damages,PIERCE,[15,20]);
 //isRanged = true;
 staminaCost = 5;
 staggerDuration = 10;
 limbKey = noone;
 type = AttackTypes.AOE;
-minRange = 200;
+minRange = 100;
 
 
 numberOfProjectiles = 3; // TEST

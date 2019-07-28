@@ -15,7 +15,11 @@ if hp < 1 && isAlive && !isDying {
 	// ds_list_add(droppedItems,item1);
 	ds_list_add(droppedItems,gold);
 	ds_map_destroy(rmap); rmap = -1; 
-	
+	// only drop health and xp if killed by player
+	if !showHp {
+		xpReward = 0;
+		chanceToDropHealthOrb = 0;
+	}
 }
 
 // Inherit the parent event

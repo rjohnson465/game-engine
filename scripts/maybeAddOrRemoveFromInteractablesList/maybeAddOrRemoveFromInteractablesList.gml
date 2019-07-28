@@ -5,6 +5,14 @@
 var p = global.player;
 
 var l = variable_instance_exists(id, "origLayer") ? origLayer : layer;
+
+if object_is_ancestor(object_index, obj_npc_parent) {
+	l = layer;
+}
+
+var lName = layer_get_name(l);
+var pLayerName = layer_get_name(p.layer);
+
 if l != p.layer exit;
 
 // no interaction allowed in certain states

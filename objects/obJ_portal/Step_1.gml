@@ -36,6 +36,11 @@ with obj_enemy_parent {
 		}
 	}
 }
+with obj_npc_parent {
+	if isInConversation {
+		other.isUntraversable = true;
+	}
+}
 //} else 
 if !isUntraversable && _light_color != c_fuchsia {
 	light_set_color(c_fuchsia)

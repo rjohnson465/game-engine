@@ -1,7 +1,8 @@
 //layerToMoveTo = "instances_floor_2";
 
-// layerToMoveTo = "instances_floor_4";
+layerToMoveTo = "instances_floor_2";
 
+/*
 
 questStart(obj_quest_llf);
 

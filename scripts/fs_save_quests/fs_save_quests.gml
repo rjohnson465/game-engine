@@ -19,22 +19,11 @@ with obj_quest_parent {
 				cv = ds_map_find_next(parameters,cv);
 			}
 			ds_map_add_map(sd_quest,string(i)+"Parameters",paramsMap);
+			ds_map_add(sd_quest, string(i)+"Status", qs.status);
+			ds_map_add(sd_quest, string(i)+"Description", qs.description);
 		}
 	}
-	
-	/*
-	with currentQuestStep {
-		var cv = ds_map_find_first(parameters);
-		var paramsMap = ds_map_create();
-		for (var i = 0; i < ds_map_size(parameters); i++) {
-			var val = ds_map_find_value(parameters,cv);
-			ds_map_add(paramsMap,cv,val);
-			
-			cv = ds_map_find_next(parameters,cv);
-		}
-		ds_map_add_map(sd_quest,"Parameters",paramsMap);
-	}*/
-	
+
 	if global.questLog.watchedQuest == id {
 		ds_map_replace(sd_quest,"IsWatchedQuest",1);
 	} else ds_map_replace(sd_quest,"IsWatchedQuest",0);
@@ -44,6 +33,7 @@ with obj_quest_parent {
 	} else ds_map_replace(sd_quest,"IsSelectedQuest",0);
 	
 	ds_map_replace(sd_quest,"IsFinished",isFinished);
+	ds_map_replace(sd_quest,"IsRewardClaimed",isRewardClaimed);
 	
 	var key = object_get_name(object_index);
 

@@ -23,6 +23,7 @@ for (var j = 0; j < ds_map_size(sd_quests); j++) {
 			currentQuestStep = ds_list_find_value(questSteps,currentQuestStepIndex);
 			currentQuestStep.status = QuestStepStatus.InProgress; 
 			isFinished = ds_map_find_value(sd_quest,"IsFinished");
+			isRewardClaimed = ds_map_find_value(sd_quest,"IsRewardClaimed"); 
 		
 		
 			// update ALL quest step parameters based on save file data
@@ -42,6 +43,10 @@ for (var j = 0; j < ds_map_size(sd_quests); j++) {
 				with qs {
 					event_perform(ev_step, ev_step_begin);
 				}
+				var qsStatus = ds_map_find_value(sd_quest, string(i)+"Status");
+				var qsDescription = ds_map_find_value(sd_quest, string(i)+"Description");
+				qs.status = qsStatus;
+				qs.description = qsDescription;
 			}
 	
 		}

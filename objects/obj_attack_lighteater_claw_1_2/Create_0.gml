@@ -3,7 +3,7 @@ spriteName = "spr_enemy_lighteater_claw";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 2;
 limbKey = noone;
-ds_map_replace(damages,CRUSH,[22,25]);
+ds_map_replace(damages,CRUSH,[27,40]);
 isRanged = false;
 staminaCost = 5;
 staggerDuration = 15;

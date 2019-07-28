@@ -3439,6 +3439,14 @@
             }
         },
         {
+            "Key": "287fe5bf-7416-4f3e-b569-a5df14ed51bf",
+            "Value": {
+                "id": "8dadc655-368e-44fa-84ce-1a5df77addd1",
+                "resourcePath": "sounds\\snd_conv_terri_toastmaker_complete_terri_1\\snd_conv_terri_toastmaker_complete_terri_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "288177c9-fa1e-4dd3-aede-fbf47584d1b1",
             "Value": {
                 "id": "776e6ce0-5b10-4442-b9b5-2ea48fc4b022",
@@ -5015,6 +5023,14 @@
             }
         },
         {
+            "Key": "3bf41316-326c-4051-b211-7b8db37b5801",
+            "Value": {
+                "id": "5179fc10-f6c4-45b8-a99c-812cc4810045",
+                "resourcePath": "sounds\\snd_amb_winter_wind\\snd_amb_winter_wind.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "3c0ade12-e0b5-49a9-a7e3-128f54669e10",
             "Value": {
                 "id": "41f418e1-3979-4b40-a1a9-f8cc5596bf0b",
@@ -5452,6 +5468,14 @@
                 "id": "54527e6f-525e-4814-84c0-c39df9e621cf",
                 "resourcePath": "sprites\\spr_attunement_poison\\spr_attunement_poison.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "413e6264-dcf7-44e3-99b5-7d22984e213f",
+            "Value": {
+                "id": "f81af1ee-3d6a-495c-9529-e36777fc455d",
+                "resourcePath": "scripts\\scr_terri_take_bread\\scr_terri_take_bread.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -7063,6 +7087,14 @@
             }
         },
         {
+            "Key": "56249a36-ed1a-43fe-aa0c-51223d52bfc9",
+            "Value": {
+                "id": "28df2268-cd93-4f71-875f-d01cde568fe9",
+                "resourcePath": "views\\56249a36-ed1a-43fe-aa0c-51223d52bfc9.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "562d1ead-de18-4faa-b774-c2f7050d0b68",
             "Value": {
                 "id": "b366f1e0-1107-4519-90f0-37f27bcdff6a",
@@ -7315,6 +7347,14 @@
             "Value": {
                 "id": "52cc8610-61a1-4e80-8a27-31e0d3d8f352",
                 "resourcePath": "objects\\obj_attack_speyeder_poison_1_1\\obj_attack_speyeder_poison_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "599812ff-0d1e-44b0-a563-6d7e3acf7003",
+            "Value": {
+                "id": "28e986d1-fdf0-44af-b436-b7e0492c1e5a",
+                "resourcePath": "objects\\obj_snd_winter_wind\\obj_snd_winter_wind.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -7772,6 +7812,14 @@
                 "id": "90c31893-3fef-4c7c-b7a4-0e09e235e5f0",
                 "resourcePath": "scripts\\startAmb\\startAmb.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "60de3f84-af7a-44bd-a906-2cd60c45caf1",
+            "Value": {
+                "id": "b65edf9c-1da4-4d39-96a4-29d15e5bb192",
+                "resourcePath": "sounds\\snd_conv_terri_toastmaker_complete_terri_2\\snd_conv_terri_toastmaker_complete_terri_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -11135,6 +11183,14 @@
             }
         },
         {
+            "Key": "8c9b35bf-b3ab-40cd-a44d-c2f3976e1203",
+            "Value": {
+                "id": "9c2c580b-b850-4e1b-b51c-02054c95ef03",
+                "resourcePath": "views\\8c9b35bf-b3ab-40cd-a44d-c2f3976e1203.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "8ca404ab-285a-4da0-9506-1dad0ef525e7",
             "Value": {
                 "id": "7806a3a5-f3e7-4991-bda1-1b9684a0c18a",
@@ -11812,6 +11868,14 @@
                 "id": "0ebbe1ce-6f80-4f3a-84f5-6a19415e88b7",
                 "resourcePath": "views\\96a46e22-f64e-4eca-8de6-4d8cd5b68bbd.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "96b48fca-44e5-4a3f-97de-4abc95e2991f",
+            "Value": {
+                "id": "26043417-49a2-4dfd-a989-6d37eb63691f",
+                "resourcePath": "scripts\\scr_conv_terri_toastmaker_complete\\scr_conv_terri_toastmaker_complete.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -18279,6 +18343,14 @@
             }
         },
         {
+            "Key": "e793773e-6865-49aa-b909-bc69e8a42348",
+            "Value": {
+                "id": "2ec9485b-1571-4bee-b533-4a94cb1afaa9",
+                "resourcePath": "scripts\\scr_evl_toastmaker_bread\\scr_evl_toastmaker_bread.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e7af924f-a585-437b-89d6-19824149f23d",
             "Value": {
                 "id": "8b806c55-8a97-42b6-84f1-52b291f21c81",
@@ -19159,6 +19231,14 @@
             }
         },
         {
+            "Key": "f526caec-0927-4ddd-b4b6-5aa9f355fc27",
+            "Value": {
+                "id": "e63f5a6a-2419-4271-b5a6-3fb74e30aee6",
+                "resourcePath": "views\\f526caec-0927-4ddd-b4b6-5aa9f355fc27.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "f5318c21-772a-49fc-a0d6-c74039dfe954",
             "Value": {
                 "id": "a9db8954-3ae4-4801-b2ad-934e545ab991",
@@ -19935,6 +20015,14 @@
             }
         },
         {
+            "Key": "ff55a266-f519-4f93-986d-34b5b128086a",
+            "Value": {
+                "id": "e6e5f2c9-09f2-46fb-9cfb-4415275567da",
+                "resourcePath": "objects\\obj_queststep_toastmaker_2\\obj_queststep_toastmaker_2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ff74f21d-6279-424f-94ec-78aed1483971",
             "Value": {
                 "id": "afff03c6-fa6b-4c15-bb79-62770fc35ac3",
@@ -20382,6 +20470,8 @@
         "06d243a5-7900-4303-846e-c602272fb9e1",
         "f9f8124d-d4bb-468d-82da-910f46602e26",
         "94fb616b-8323-480f-b08f-fc59840384b0",
+        "96b48fca-44e5-4a3f-97de-4abc95e2991f",
+        "413e6264-dcf7-44e3-99b5-7d22984e213f",
         "83f14d01-8472-4e9a-af5a-bd89bf8773eb",
         "8a551bbd-943c-4029-ad2d-8798c6dc0ee1",
         "e2b4cbd5-7d8e-4282-bec6-34436a468be3",
@@ -20396,6 +20486,7 @@
         "5ac4393e-1755-4d5c-bce3-8d483037c83c",
         "d8646d95-78e8-4f98-8200-968090241449",
         "ed85dda2-b08d-42ac-a868-69018b446e9b",
+        "e793773e-6865-49aa-b909-bc69e8a42348",
         "a3657cb7-e5e9-46c3-9a90-92ab687b10ee",
         "29637b3d-cad2-43be-8798-f52be753b041",
         "814faa60-6f32-4021-9f72-ef6bd758b08c",

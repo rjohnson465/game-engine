@@ -1,2 +1,2 @@
-teleportX = 350;
-teleportY = 500;
+teleportX = 1720;
+teleportY = 666;

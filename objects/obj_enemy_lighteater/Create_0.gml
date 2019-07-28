@@ -23,11 +23,11 @@ lamplightsEatenCount = 0; // special; will drop this many lamplights on death
 // if health is below 50%, every 20-40 seconds, the lighteater will try to heal himself
 // by going to a light and consuming it, if any light source exists
 alarm[2] = -4;
-HUNGER_FRAME_MIN = 300; // 10 seconds
-HUNGER_FRAME_MAX = 600; // 20 seconds
+HUNGER_FRAME_MIN = 150; // 5 seconds
+HUNGER_FRAME_MAX = 300; // 10 seconds
 
 // if lighteaters takes this much damage while eating, he staggers out of eat phase
-stopEatingDamageMax = 20;
+stopEatingDamageMax = 40;
 stopEatingDamage = 0;
 stopEatingDamageAttacksList = ds_list_create();
 
@@ -110,8 +110,8 @@ meleeAttacks = [c_js, c_js, c_jab, c_claw, c_claw2, c_claw2, c_breath, c_tailsta
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 450;
-maxHp = 450;
+hp = 45;
+maxHp = 45;
 
 stamina = 6000;
 maxStamina = 6000;

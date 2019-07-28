@@ -15,5 +15,5 @@ if room == rm_boss_lighteater {
 	
 	updateNarrativeState(NarrativeState.WinterWonderground);
 	
-	global.playerDoNothing = false;
+	global.isInteractingWithNpc = false;
 }

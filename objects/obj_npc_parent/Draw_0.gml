@@ -1,5 +1,5 @@
 updateIsMoving();
-//prepareLayerShader();
+shader_reset();
 alpha = 1;
 scale = 1;
 // fairies float
@@ -61,6 +61,3 @@ if hasUrgentConversations {
 	var uScale = (.1*cos((pi*urgentFloatingFrame)/30)+.9)*2; // normal floating
 	scr_draw_text_outline(x, y - (sprite_height/2), "!", c_orange, c_yellow, uScale, uScale, 0, c_red);
 }
-
-
-shader_reset();

@@ -9,4 +9,5 @@ for (var i = 0; i < ds_list_size(global.player.inventory); i++) {
 	}
 }
 
+audio_play_sound(snd_item_cloth, 1, 0);
 alert("Rob takes the 3 wires from you", c_yellow);

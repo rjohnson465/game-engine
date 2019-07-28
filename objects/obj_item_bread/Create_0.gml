@@ -5,7 +5,7 @@
 event_inherited();
 itemSprite = spr_item_bread;
 name = "Bread";
-description = "A slice of bread. This could fill a toaster right up. Yum.";
+description = "A slice of bread. This could fill a toaster right up. Let's get this bread.";
 
 type = ItemTypes.Other;
 

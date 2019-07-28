@@ -6,6 +6,9 @@ event_inherited();
 
 status = QuestStepStatus.InProgress;
 
-description = "Find 2 pieces of bread.";
+eventListeners = ds_map_create();
+ds_map_add(eventListeners, EV_ITEM_PICKEDUP, scr_evl_toastmaker_bread);
 
+description = "0/4 bread found";
 
+hasDoneInitialCheck = false;
