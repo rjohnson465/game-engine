@@ -1,7 +1,7 @@
 event_inherited();
 name = "Raver";
 descriptionChoices = ["It's lit bro"];
-description = "One bad cog and it all goes kablooey";
+description = "It's lit bro";
 spriteName = "ravebot_minion";
 spriteString = "enemy_ravebot_minion";
 isFairy = false;
@@ -66,7 +66,7 @@ rangedAttacks = [];
 
 hp = 15;
 maxHp = 15;
-hpRegen = 1;
+hpRegen = -1;
 
 stamina = 60;
 maxStamina = 60;

@@ -21,7 +21,18 @@ if state == "Eat" {
 		
 		var px = x + xo; var py = y + yo;
 		
-		if px > 50 && py > 50 && px < room_width - 50 && py < room_height - 50 {
+		// ensure minion is in acceptable place on dance floor
+		while px < 350 || py < 290 || py > 1150 {
+			randomize();
+			var xo = random_range(-250, 250);
+			randomize();
+			var yo = random_range(-250, 250);
+		
+			var px = x + xo; var py = y + yo;
+		}
+		
+		// if px > 50 && py > 50 && px < room_width - 50 && py < room_height - 50 {
+		if true {
 			var rbm = instance_create_layer(px, py, layer, obj_enemy_ravebot_minion);
 			with rbm {
 				jumpToNearestFreePoint(true, true);

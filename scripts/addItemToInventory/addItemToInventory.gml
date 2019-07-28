@@ -9,6 +9,8 @@ if item == noone || item == undefined || !instance_exists(item) exit;
 
 item.owner = p;
 
+raiseEvent(EV_ITEM_PICKEDUP, [item]);
+
 // itemType is either Ranged, Melee, Ring, Head, Other
 /* var itemType = getItemFilterType(item);
 var currentItemTypeCount = ds_map_find_value(global.player.inventoryCapacityMap, itemType);

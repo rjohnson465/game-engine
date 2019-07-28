@@ -208,6 +208,13 @@ global.isReturningToMainMenu = false;
 
 bgmManager = instance_create_depth(x,y,1,obj_bgm_manager);
 
+// events
+#macro EV_ENEMY_KILLED "EnemyKilled"
+#macro EV_ITEM_PICKEDUP "ItemPickedUp"
+#macro EV_QUEST_COMPLETED "QuestCompleted"
+
+// eventManager = instance_create_depth(x, y, 1, obj_event_manager);
+
 isMouseOverBelt = false;
 
 // every 10 steps, deactivate solid enviornment objects that are far away out of the view

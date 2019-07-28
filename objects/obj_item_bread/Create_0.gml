@@ -9,7 +9,7 @@ description = "A slice of bread. This could fill a toaster right up. Yum.";
 
 type = ItemTypes.Other;
 
-isStackable = false;
+isStackable = true;
 isSellable = false;
 isDestroyable = false;
 

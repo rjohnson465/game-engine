@@ -4,3 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
+status = QuestStepStatus.Unstarted;
+
+description = "Investigate Floor 4";

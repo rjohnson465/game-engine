@@ -2239,6 +2239,14 @@
             }
         },
         {
+            "Key": "19d3ac30-6100-4e74-9de1-d3f8d95b280f",
+            "Value": {
+                "id": "7c11e7e5-6a03-4cc9-bafe-b25c68a33ab3",
+                "resourcePath": "scripts\\scr_conv_rob_elevator_fixed\\scr_conv_rob_elevator_fixed.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "1a0218eb-bb34-4597-bb68-4817079808f8",
             "Value": {
                 "id": "dfbbf197-7561-42b6-9f19-734784163d27",
@@ -7251,6 +7259,14 @@
             "Value": {
                 "id": "451bf017-1659-408f-883e-0f6f875facbb",
                 "resourcePath": "scripts\\defineBasePlayerProperties\\defineBasePlayerProperties.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5ac4393e-1755-4d5c-bce3-8d483037c83c",
+            "Value": {
+                "id": "b5919d11-b94a-498e-9298-059398bdc048",
+                "resourcePath": "scripts\\raiseEvent\\raiseEvent.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -12703,6 +12719,14 @@
             }
         },
         {
+            "Key": "a418bbd0-3d0f-4392-98c6-64e73f67ae77",
+            "Value": {
+                "id": "72904c21-0987-4e0c-8790-9dc123a980b1",
+                "resourcePath": "views\\a418bbd0-3d0f-4392-98c6-64e73f67ae77.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "a42962a7-7b56-4ba8-b6b0-6c6d845c0ab1",
             "Value": {
                 "id": "101933f5-eca8-43ae-bc78-845e04fe02b7",
@@ -13580,6 +13604,14 @@
                 "id": "31e25c41-09a3-407b-8212-659337b0f2e2",
                 "resourcePath": "views\\aeb7f3ee-2620-4a11-a264-ac4a189157cf.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "aed5710c-8b51-486d-8a29-54098d360b6d",
+            "Value": {
+                "id": "eda8c411-e312-46f6-b0c3-6f724dfea4ff",
+                "resourcePath": "objects\\obj_queststep_llf_2\\obj_queststep_llf_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -15084,6 +15116,14 @@
                 "id": "e0bf431f-8da2-415c-babf-508723f057b1",
                 "resourcePath": "objects\\obj_tut_darkfountains\\obj_tut_darkfountains.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c2249fac-5971-4f78-ac4e-2012d07d54da",
+            "Value": {
+                "id": "5dddcb67-fb8b-4308-8c5d-f1d128893a07",
+                "resourcePath": "sounds\\snd_conv_rob_elevatorfix_rob_1\\snd_conv_rob_elevatorfix_rob_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -16791,6 +16831,14 @@
             }
         },
         {
+            "Key": "d8646d95-78e8-4f98-8200-968090241449",
+            "Value": {
+                "id": "a81c8807-b726-40e4-b4b5-40d47d9eb3f8",
+                "resourcePath": "scripts\\scr_evl_wires\\scr_evl_wires.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d88c736b-6419-414d-9e04-5a194ce15ab2",
             "Value": {
                 "id": "54bea21c-dc6b-40cf-b4db-7239805ffcd6",
@@ -17452,6 +17500,14 @@
                 "id": "cb5b0666-ff00-48d9-a0fc-6ef1e3283dab",
                 "resourcePath": "objects\\obj_boss_gate\\obj_boss_gate.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "e0ec0c19-f1b8-4eef-8662-37aec30edefc",
+            "Value": {
+                "id": "7ddbc3c5-ab73-4bcb-b5f9-4821c054a9af",
+                "resourcePath": "views\\e0ec0c19-f1b8-4eef-8662-37aec30edefc.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -19631,6 +19687,14 @@
             }
         },
         {
+            "Key": "ffdca858-9eb4-4a78-a7e2-d688badcaf78",
+            "Value": {
+                "id": "3035d4d7-0582-4eda-9dc7-86342ca4831c",
+                "resourcePath": "sounds\\snd_conv_rob_elevatorfix_rob_2\\snd_conv_rob_elevatorfix_rob_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "ffee2955-d569-4a0f-a814-0e5b3b636ebc",
             "Value": {
                 "id": "e6773ecb-0f23-4850-a52d-a4aaaeac44b4",
@@ -20001,21 +20065,22 @@
         "df4e9e31-2941-4ec1-b828-dfd71503577b",
         "fd773d2f-8348-41c3-b96d-a0fee6f1633c",
         "90b218a9-cc5f-4b66-9b8a-7356529b8ad5",
+        "256a12c8-5c1c-4bc0-9218-e995ef83aedd",
         "b8428840-0ae9-4a6d-bf67-daff758eae12",
         "8ed7d836-05e9-48d0-b675-e69fcf24cf03",
         "31a42509-81de-4ecd-86e4-2858be3bf03e",
+        "ebf11b8b-b72c-4a2c-b814-e38c12eb7dd8",
         "156414c0-f7f2-4190-bc6e-6e45204cdc7b",
         "e2b7b019-fa6f-48ac-b250-15cebd0045b3",
         "04bd5705-79a8-440d-834a-8d7df1a27050",
         "ce694de8-928f-4f2b-9924-59b45ba40bf6",
+        "19d3ac30-6100-4e74-9de1-d3f8d95b280f",
         "235959e5-d9a2-44c7-abe2-1f7057e7e393",
+        "06d243a5-7900-4303-846e-c602272fb9e1",
         "f9f8124d-d4bb-468d-82da-910f46602e26",
         "94fb616b-8323-480f-b08f-fc59840384b0",
         "e2b4cbd5-7d8e-4282-bec6-34436a468be3",
         "ca986da5-bdf7-4910-9e12-f22ef5025956",
-        "256a12c8-5c1c-4bc0-9218-e995ef83aedd",
-        "ebf11b8b-b72c-4a2c-b814-e38c12eb7dd8",
-        "06d243a5-7900-4303-846e-c602272fb9e1",
         "f5318c21-772a-49fc-a0d6-c74039dfe954",
         "bffabf1c-9bb0-497e-a7fe-1d7fa9d66a86",
         "303f321e-2f3e-4b50-8bc5-391542a9c166",
@@ -20023,6 +20088,8 @@
         "4922a3d3-9ebb-49cf-bcca-f3c6e1508d4c",
         "fb3e3452-c371-4c31-92ce-4a79702a5f22",
         "a0cbd295-ba60-494c-b2d2-b8216b3668f0",
+        "5ac4393e-1755-4d5c-bce3-8d483037c83c",
+        "d8646d95-78e8-4f98-8200-968090241449",
         "a3657cb7-e5e9-46c3-9a90-92ab687b10ee",
         "29637b3d-cad2-43be-8798-f52be753b041",
         "814faa60-6f32-4021-9f72-ef6bd758b08c",

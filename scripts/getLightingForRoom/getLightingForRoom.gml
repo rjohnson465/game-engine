@@ -13,12 +13,13 @@ switch rm {
 	}
 	case rm_factory: {
 		var c = make_color_rgb(46, 43, 68);
-		return [c, c, c]; break;
+		return [c, c, c, c]; break;
 	}
+	/*
 	case rm_factory2: {
 		var c = make_color_rgb(46, 43, 68);
 		return [c, c, c]; break;
-	}
+	}*/
 	case rm_boss_ravebot: {
 		var c = make_color_rgb(46, 43, 68);
 		return [c]; break;

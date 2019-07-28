@@ -215,6 +215,8 @@ if !isAlive {
 	speed = 0;
 	if type == CombatantTypes.Enemy {
 		
+		raiseEvent(EV_ENEMY_KILLED, [id]);
+		
 		showHp = false;
 		isShowingLightRadius = false;
 		lightRadiusColor = c_white;

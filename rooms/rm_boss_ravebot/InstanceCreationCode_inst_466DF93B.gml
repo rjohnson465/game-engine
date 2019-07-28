@@ -1,5 +1,5 @@
 nextRoom = rm_factory;
-nextRoomX = 285; 
-nextRoomY = 185;
-nextRoomLayer = "instances_floor_1";
+nextRoomX = 180; 
+nextRoomY = 2145;
+nextRoomLayer = "instances_floor_2";
 nextRoomName = getRoomName(nextRoom);

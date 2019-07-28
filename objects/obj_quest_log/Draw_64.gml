@@ -227,7 +227,8 @@ if selectedQuest != noone && ds_exists(selectedQuest.questSteps,ds_type_list) {
 	for (var i = 0; i < ds_list_size(selectedQuest.questSteps); i++) {
 		var step = ds_list_find_value(selectedQuest.questSteps,i);
 		//var sh = string_height("test");
-		var s = step.description; var sh = string_height_ext(s,-1,maxW);
+		var s = step.description; 
+		var sh = string_height_ext(s,-1,maxW);
 		if step.status != QuestStepStatus.Unstarted {
 			cumY += sh+10;
 			
@@ -297,6 +298,11 @@ if selectedQuest != noone && ds_exists(selectedQuest.questSteps,ds_type_list) {
 				draw_set_color(c_lime);
 				draw_text_ext(xx,yy,s,-1,maxW);
 			}
+		}
+		// maybe add more space to the next step if this step contained a newline character
+		var spos = string_pos("\n", s);
+		if spos != 0 {
+			cumY += string_height("s");
 		}
 	}
 	

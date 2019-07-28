@@ -5,7 +5,7 @@
 
 var str = argument[0];
 var c = argument[1];
-var length = 60;
+var length = 120;
 if argument_count == 3 {
 	length = argument[2];
 }

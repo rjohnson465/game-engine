@@ -16,6 +16,6 @@ with obj_enemy_unfairy {
 
 if ds_map_find_value(other.parameters,"unfairies_slain") == 0 { // 3 {
 	
-	status = QuestStepStatus.Completed;
+	 
 
 }

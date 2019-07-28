@@ -1,1 +1,1 @@
-associatedPipeKeys = ["p25", "p26"];
+associatedPipeKeys = ["p2toast1", "p2toast2"];

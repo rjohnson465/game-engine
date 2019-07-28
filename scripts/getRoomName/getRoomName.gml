@@ -15,6 +15,9 @@ switch ri {
 	case rm_boss_funfairy: {
 		return "Fairy's Great-Lodge"; break;
 	}
+	case rm_boss_ravebot: {
+		return "Mess Hall"; break;
+	}
 	case rm_factory: {
 		return "Lamplight Factory"; break;
 	}

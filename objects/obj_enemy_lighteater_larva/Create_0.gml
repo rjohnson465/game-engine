@@ -40,7 +40,7 @@ poiseMax = 15;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 meleeRangeArray=[];
 
-xpReward = 18;
+xpReward = 12;
 
 // ATTACKS
 
@@ -61,8 +61,8 @@ meleeAttacks = [c1];
 rangedAttacks = [];
 
 
-hp = 35;
-maxHp = 35;
+hp = 20;
+maxHp = 20;
 hpRegen = 1;
 
 stamina = 60;
