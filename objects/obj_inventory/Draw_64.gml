@@ -232,9 +232,12 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	
 		 
 		if itemAtMoveSelector != noone && (itemAtMoveSelector.type == ItemTypes.Other && !itemAtMoveSelector.isUsable) {
-		} else if itemAtMoveSelector != noone && itemAtMoveSelector.type != ItemTypes.Key && !isSelectorInEquippedItems(global.ui.moveSelector) {
-
-			w += drawPrompt("Equip Item",Input.F,promptsStartX,promptsY)+xOffset;
+		} else if itemAtMoveSelector != noone && (itemAtMoveSelector.type != ItemTypes.Key && itemAtMoveSelector.type != ItemTypes.Gem) && !isSelectorInEquippedItems(global.ui.moveSelector) {
+			if (itemAtMoveSelector.type == ItemTypes.Other && !itemAtMoveSelector.isUsable) {
+				// can't equip unusable "other" items (i.e. quest items)
+			} else  {
+				w += drawPrompt("Equip Item",Input.F,promptsStartX,promptsY)+xOffset;
+			}
 		} else if isSelectorInEquippedItems(global.ui.moveSelector) {
 			var s = getSlotAtSelector(global.ui.moveSelector);
 			if s {

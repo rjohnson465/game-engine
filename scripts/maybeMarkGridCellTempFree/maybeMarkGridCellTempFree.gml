@@ -11,6 +11,7 @@
 // staggered or flinched into a space marked as occupied, since stagger/flinch is pixel perfect)
 
 if id == global.player exit;
+if personalGrid == undefined || personalGrid == noone exit;
 
 var xx = argument[0];
 var yy = argument[1];

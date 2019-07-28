@@ -28,7 +28,13 @@ var lightForLayers = getLightingForRoom(room);
 
 for (var i = 0; i < array_length_1d(lightForLayers); i++) {
 	var lNum = i+1;
-	color = lightForLayers[lNum-1];
+	var arrOneIndex = lNum;
+	
+	if room == rm_factory {
+		lNum = i;
+	}
+	
+	color = lightForLayers[arrOneIndex-1];
 	var w = camera_get_view_width(view_camera[0]);
 	var h = camera_get_view_height(view_camera[1]);
 	light_init_layer(w, h, w, color, 0.35, 40, lNum)

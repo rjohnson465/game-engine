@@ -2,7 +2,7 @@ var totalHeight = 0;
 draw_set_font(font_main);
 var s = "string";
 var sh = string_height(s);
-for (var i = 0; i < numFloors; i++) {
+for (var i = startFloor - 1; i < numFloors; i++) {
 	totalHeight += sh + 5;
 }
 
@@ -55,7 +55,7 @@ if !gamepad_is_connected(pad) {
 var yy = tly + handleHeight + 5;
 var xx = tlx + 15;
 
-for (var i = 0; i < numFloors; i++) {
+for (var i = (startFloor - 1); i < numFloors; i++) {
 	var f = i+1;
 	draw_set_halign(fa_center); draw_set_valign(fa_top);
 	var s = "Floor " + string(f);

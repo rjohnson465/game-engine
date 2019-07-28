@@ -24,7 +24,8 @@ if room == rm_boss_lighteater {
 	var c = scr_conv_tony_intro();
 	startConversation(c);
 	
-	var grid = ds_map_find_value(global.grids, 4);
-	mp_grid_path(grid, path, x, y, global.player.x, global.player.y, true);
-	path_start(path, 6, path_action_stop, false);
+	// var grid = ds_map_find_value(global.grids, 4);
+	// mp_grid_path(grid, path, x, y, global.player.x, global.player.y, true);
+	mp_potential_path(path, global.player.x, global.player.y, 6, 4, 0);
+	path_start(path, 6, path_action_stop, true);
 }

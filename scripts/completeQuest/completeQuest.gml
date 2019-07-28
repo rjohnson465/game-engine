@@ -43,3 +43,5 @@ with global.ui {
 		showHideSkills();
 	}
 }
+
+raiseEvent(EV_QUEST_COMPLETED, [quest]);

@@ -22,7 +22,7 @@ if gamepad_is_connected(pad) {
 	if gamepad_button_check_pressed(pad,gp_padu) || (angleBetween(45,135,pdir) && pdir != noone  && acceptingJoystickInput) {
 		audio_play_sound(snd_ui_option_change, 1, 0);
 		selectedFloor -= 1;
-		if selectedFloor <= 0 {
+		if selectedFloor < startFloor {
 			selectedFloor = numFloors;
 		}
 		joystickInputFrame = 0;
@@ -33,7 +33,7 @@ if gamepad_is_connected(pad) {
 		audio_play_sound(snd_ui_option_change, 1, 0);
 		selectedFloor += 1;
 		if selectedFloor > numFloors {
-			selectedFloor = 1;
+			selectedFloor = startFloor;
 		}
 		joystickInputFrame = 0;
 	}

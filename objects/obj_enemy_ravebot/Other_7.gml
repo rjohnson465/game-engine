@@ -1,3 +1,8 @@
+if !isAlive exit;
+
+if x < 0 exit;
+if y < 0 exit;
+
 if state == "Eat" {
 	// summon minions succesfully
 	if sprite_index != spr_enemy_ravebot_summon {

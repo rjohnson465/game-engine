@@ -4,9 +4,14 @@
 // Inherit the parent event
 event_inherited();
 
+eventListeners = ds_map_create();
+ds_map_add(eventListeners, EV_ITEM_PICKEDUP, scr_evl_llfcomplete);
+
 questGiver = obj_npc_barry;
 name = "Investigate the Lamplight Factory";
 description = "I've tracked the unfairy invaders to our sacred Lamplight Factory. I must investigate and see what I can find.";
+
+
 
 global.quest = id;
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_llf_1));

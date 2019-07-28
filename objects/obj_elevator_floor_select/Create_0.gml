@@ -2,6 +2,8 @@ associatedElevator = instance_nearest(x, y, obj_elevator);
 
 numFloors = global.elevatorSelectNumFloors;
 
+startFloor = global.elevatorStartFloor;
+
 selectedFloor = 1;
 
 joystickInputFrame = 0;

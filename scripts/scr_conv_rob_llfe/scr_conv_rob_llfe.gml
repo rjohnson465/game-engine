@@ -35,6 +35,7 @@ var c = instance_create_depth(x,y,1,obj_conversation_step_parent);
 c.text = "Ah yes, a moustached unfairy just used a wire like this to go to Floor 0.";
 c.sound = snd_conv_rob_llfe_rob_3;
 c.speaker = obj_npc_rob;
+c.func = scr_rob_take_strangewire;
 ds_list_add(c1.steps,c);
 
 var c = instance_create_depth(x,y,1,obj_conversation_step_parent);
@@ -58,7 +59,7 @@ ds_list_add(c1.steps,c);
 var c = instance_create_depth(x,y,1,obj_conversation_step_parent);
 c.text = "As long as you’ve got the wire, yes. Honestly, I’m mostly just hear to look pretty.";
 c.sound = snd_conv_rob_llfe_rob_45;
-c.speaker = obj_npc_rob;
+c.speaker = obj_npc_rob; 
 ds_list_add(c1.steps,c);
 
 var c = instance_create_depth(x,y,1,obj_conversation_step_parent);

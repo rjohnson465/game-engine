@@ -53,7 +53,7 @@ if fallFrame == .5*fallTotalFrames {
 	var lowerLayer = layer_get_id("instances_floor_"+string(lowerLayerNum));
 	
 	// lower layer doesn't exit? we fallin to our deaths brotha
-	if lowerLayer < 0 {
+	if lowerLayer < 0 || lowerLayerNum < 1 {
 		hp = 0;
 		audio_play_sound_at(snd_crunchy_thud,x,y,layer_get_depth(layer),50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		exit;

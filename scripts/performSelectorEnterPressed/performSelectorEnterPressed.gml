@@ -11,7 +11,7 @@ if item < 0 && isSelectorInInventory() exit;
 switch type {
 	// if selector type and hovering over an equipped item, activate the equip selector object
 	case SelectorTypes.Select: {
-		if isSelectorInEquippedItems() || isSelectorInInventory() && (item.type != ItemTypes.Other || item.isUsable) {
+		if isSelectorInEquippedItems() || isSelectorInInventory() && ((item.type != ItemTypes.Other && item.type != ItemTypes.Key && item.type != ItemTypes.Gem) || item.isUsable) {
 			isActive = false;
 			var item = getItemAtSelectorPosition(id);
 			if item != noone {
