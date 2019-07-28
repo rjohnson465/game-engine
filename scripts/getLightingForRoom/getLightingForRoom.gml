@@ -27,7 +27,7 @@ switch rm {
 	case rm_boss_lighteater: {
 		var c = make_color_rgb(23, 21, 34);
 		// var c = c_ltgray;
-		return [c]; break;
+		return [c, c, c, c]; break;
 	}
 	case rm_dungeon2: {
 		return [c_dkgray, c_dkgray, c_red]; break;

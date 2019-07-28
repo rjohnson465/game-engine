@@ -10,7 +10,8 @@
         "b88834de-cd5e-4f59-b8fc-87c0e895172c",
         "068f1e52-c544-4014-94ca-014b5dbf91ce",
         "e0aa1910-5716-4a92-bc44-49bdefa2f9cb",
-        "e0ec0c19-f1b8-4eef-8662-37aec30edefc"
+        "e0ec0c19-f1b8-4eef-8662-37aec30edefc",
+        "24ddcfc5-6188-4043-8f1e-4deb223e0c50"
     ],
     "filterType": "GMSound",
     "folderName": "rob",

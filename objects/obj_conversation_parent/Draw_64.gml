@@ -60,5 +60,7 @@ if isActive && currentStep != noone {
 	draw_text_ext(xx,yy,step.text,-1,view_get_wport(view_camera[0])/2);
 	
 	// draw the skip prompt
-	drawPrompt("Skip", Input.F);
+	if canBeSkipped {
+		drawPrompt("Skip", Input.F);
+	}
 }

@@ -1,9 +1,17 @@
-/// destroyItem(item)
+/// destroyItem(item, doAlert*)
 /// @param item
+/// @param doAlert*
 
 var item = argument[0];
 
-alert(item.name + " destroyed",c_yellow);
+var doAlert = true;
+if argument_count > 1 {
+	doAlert = argument[1];
+}
+
+if doAlert {
+	alert(item.name + " destroyed",c_yellow);
+}
 
 if item.equipmentSlot != noone {
 	unequipItem(item);
@@ -22,4 +30,7 @@ if item.isStackable && item.count > 1 {
 		instance_destroy(item, 1); item = -1;
 	}
 }
-audio_play_sound(snd_shield_hit_metal,1,0);
+
+if doAlert {
+	audio_play_sound(snd_shield_hit_metal,1,0);
+}

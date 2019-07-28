@@ -5,6 +5,7 @@ with obj_item_drop {
 	}
 }
 if	// distance_to_object(obj_player) < 20 && 
+	isInteractable &&
 	global.player.currentInteractableObject == id &&
 	global.player.isAlive && !global.isTrading && !global.isLooting && !global.isWishing && !global.ui.isShowingMenus &&!isInteractingWithPlayer && !isInConversation && layer == global.player.layer {
 	drawPrompt("Talk with " + name, Input.F);

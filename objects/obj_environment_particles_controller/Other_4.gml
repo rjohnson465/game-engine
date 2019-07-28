@@ -45,6 +45,7 @@ switch room {
 		makeEnvironmentParticles(dust,noone,"instances_floor_1",-1,noone, 100);
 		makeEnvironmentParticles(dust,noone,"instances_floor_2",-1,noone, 100);
 		makeEnvironmentParticles(dust,noone,"instances_floor_3",-1,noone, 100);
+		makeEnvironmentParticles(dust,noone,"instances_floor_4",-1,noone, 100);
 		break;
 	}
 	case rm_forest: {

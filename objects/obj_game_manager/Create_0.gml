@@ -105,7 +105,8 @@ enum TitleScreenState {
 // this allows for numerical comparison (higher value enums = later in the story)
 enum NarrativeState {
 	Start,
-	LamplightFactory
+	LamplightFactory,
+	WinterWonderground
 }
 
 options = ["New Game", "Load Game", "Exit"];

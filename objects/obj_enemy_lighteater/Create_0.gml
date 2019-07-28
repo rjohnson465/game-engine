@@ -110,8 +110,8 @@ meleeAttacks = [c_aoe, c_breath];
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 450;
-maxHp = 450;
+hp = 45;
+maxHp = 45;
 
 stamina = 6000;
 maxStamina = 6000;
@@ -137,3 +137,6 @@ walkingSound = snd_enemy_lighteater_walk;
 
 chanceToDropHealthOrb = 1;
 xpReward = 1500;
+
+doTriggerTonyIntro = false;
+doSpawnTony = false;

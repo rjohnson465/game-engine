@@ -15,3 +15,5 @@ persistent = true;
 
 // key/value --> <goal_name><value>
 parameters = ds_map_create(); 
+
+canClaimRewardFromQuestLog = true;

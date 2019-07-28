@@ -17,6 +17,11 @@ if instance_exists(llfQuestStep1) && llfQuestStep1.status == QuestStepStatus.Com
 	ds_list_add(conversationsList, scr_conv_rob_elevator_fixed());
 }
 
+var llfQuestStep2 = instance_nearest(x, y, obj_queststep_llf_2);
+if instance_exists(llfQuestStep2) && llfQuestStep2.status == QuestStepStatus.Completed {
+	ds_list_add(conversationsList, scr_conv_rob_llfe());
+}
+
 ds_list_add(conversationsList, scr_conv_rob_lamplights());
 ds_list_add(conversationsList, scr_conv_rob_factory());
 ds_list_add(conversationsList, scr_conv_rob_otherrobots());

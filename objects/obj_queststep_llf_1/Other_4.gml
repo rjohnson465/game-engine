@@ -1,6 +1,6 @@
 // this is for loading 
+var wc = ds_map_find_value(parameters, "wiresCount");
 if status != QuestStepStatus.Completed {
-	var wc = ds_map_find_value(parameters, "wiresCount");
 	description = "Find the 3 elevator wires for Robort to fix the elevator.\n Found " + string(wc) + "/3 wires.";
 } else {
 	description = "Find the 3 elevator wires for Robort to fix the elevator.\n Found 3/3 wires.";

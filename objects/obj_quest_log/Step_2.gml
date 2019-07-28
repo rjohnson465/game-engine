@@ -41,7 +41,7 @@ if isActive && gamepad_is_connected(pad) {
 	
 	// complete quest
 	if gamepad_button_check_released(pad,gp_face1) && selectedQuest != noone {
-		if selectedQuest.currentQuestStep.isRewardStep && !selectedQuest.isFinished {
+		if selectedQuest.currentQuestStep.isRewardStep && selectedQuest.currentQuestStep.canClaimRewardFromQuestLog && !selectedQuest.isFinished {
 			completeQuest(selectedQuest);
 		}
 	}

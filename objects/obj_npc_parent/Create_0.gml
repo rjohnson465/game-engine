@@ -63,3 +63,5 @@ urgentFloatingFrame = round(random_range(0,59));
 hasReleasedInteract = true;
 
 wanders = true;
+
+isInteractable = true;

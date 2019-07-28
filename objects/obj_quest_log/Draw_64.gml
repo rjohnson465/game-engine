@@ -229,10 +229,13 @@ if selectedQuest != noone && ds_exists(selectedQuest.questSteps,ds_type_list) {
 		//var sh = string_height("test");
 		var s = step.description; 
 		var sh = string_height_ext(s,-1,maxW);
+		
+		cumY += sh+10;
+		
 		if step.status != QuestStepStatus.Unstarted {
-			cumY += sh+10;
 			
-			if !step.isRewardStep {
+			
+			if !step.isRewardStep || !step.canClaimRewardFromQuestLog {
 				// get quest step color
 				if step.status == QuestStepStatus.InProgress {
 					draw_set_color(c_yellow);
@@ -286,7 +289,8 @@ if selectedQuest != noone && ds_exists(selectedQuest.questSteps,ds_type_list) {
 				
 			}
 			// selected quest is complete
-			else {
+			// else
+			/*if selectedQuest.isFinished {
 				draw_set_halign(fa_center); draw_set_valign(fa_center);
 				var s = "Quest complete!"; var sh = string_height_ext(s,-1,maxW); var sw = string_width_ext(s,-1,maxW);
 				
@@ -297,13 +301,27 @@ if selectedQuest != noone && ds_exists(selectedQuest.questSteps,ds_type_list) {
 				
 				draw_set_color(c_lime);
 				draw_text_ext(xx,yy,s,-1,maxW);
-			}
+			}*/
 		}
 		// maybe add more space to the next step if this step contained a newline character
 		var spos = string_pos("\n", s);
 		if spos != 0 {
 			cumY += string_height("s");
 		}
+	}
+	
+	if selectedQuest.isFinished {
+		draw_set_halign(fa_center); draw_set_valign(fa_center);
+		cumY += sh + 10;
+		var s = "Quest complete!"; var sh = string_height_ext(s,-1,maxW); var sw = string_width_ext(s,-1,maxW);
+				
+		// draw reward step as a button
+		/*var xx = mean(sqTopLeftX,sqBottomRightX); var yy = cumY;
+		var x1 = xx-(.5*sw)-2; var y1 = yy-(.5*sh)-2;
+		var x2 = xx+(.5*sw)+2; var y2 = yy+(.5*sh)+2;*/
+				
+		draw_set_color(c_lime);
+		draw_text_ext(mean(sqTopLeftX,sqBottomRightX),cumY,s,-1,maxW);
 	}
 	
 	// if quest is repeated, say so at the bottom
@@ -433,7 +451,7 @@ var w = 0;
 if ui.currentMenu == SKILLS && isActive {
 	// controller prompts
 	if gamepad_is_connected(pad) {
-		if selectedQuest != noone && selectedQuest.currentQuestStep != noone && selectedQuest.currentQuestStep.isRewardStep && !selectedQuest.isFinished {
+		if selectedQuest != noone && selectedQuest.currentQuestStep != noone && selectedQuest.currentQuestStep.canClaimRewardFromQuestLog && selectedQuest.currentQuestStep.isRewardStep && !selectedQuest.isFinished {
 			w += drawPrompt("Complete " + string(selectedQuest.name), Input.F,promptsStartX+w,promptsY)+xOffset;
 		}
 		if selectedQuest != noone && selectedQuest.isRepeatable && selectedQuest.isFinished {

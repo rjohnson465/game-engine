@@ -4,6 +4,7 @@ var quest = argument[0];
 
 if !quest.currentQuestStep.isRewardStep || quest.isFinished exit;
 
+quest.currentQuestStep.status = QuestStepStatus.Completed;
 // decrement how many quests the player has at the reward step (pending completion)
 global.player.questsAtRewardStepCount--;
 

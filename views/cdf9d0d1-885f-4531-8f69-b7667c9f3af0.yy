@@ -7,7 +7,8 @@
         "3fefb089-3c21-4be2-b546-97ec9491fa00",
         "f08cffe9-e0ea-4d30-a7f9-48b16be4fb5a",
         "fc5d1fcd-141a-4da0-937b-7b34aff26ca0",
-        "474f134b-2a3b-4952-861d-a0e572efd301"
+        "474f134b-2a3b-4952-861d-a0e572efd301",
+        "281e27a3-5a16-4cba-bd4a-36edc523550a"
     ],
     "filterType": "GMSprite",
     "folderName": "npcs",

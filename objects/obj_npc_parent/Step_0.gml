@@ -19,9 +19,22 @@ with obj_item_drop {
 
 maybeAddOrRemoveFromInteractablesList(20);
 
-if	// distance_to_object(obj_player) < 20 
+
+var _ici = global.player.currentInteractableObject == id;
+var _layersEqual = layer == global.player.layer;
+
+if	isInteractable &&
 	global.player.currentInteractableObject == id &&
-	layer == global.player.layer && !global.isTrading && !global.isWishing && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && interactInputReceived && !isInConversation && !isInteractingWithPlayer {
+	layer == global.player.layer && 
+	!global.isTrading && 
+	!global.isWishing && 
+	!global.isLooting && 
+	global.player.isAlive && 
+	!global.ui.isShowingMenus && 
+	interactInputReceived &&
+	!isInConversation && 
+	!isInteractingWithPlayer 
+	{
 	
 	// find out if we have any urgent conversations
 	// get all the urgent conversations' narrative placements,

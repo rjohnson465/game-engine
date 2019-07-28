@@ -11,5 +11,9 @@ description = "I've tracked the unfairy invaders to our sacred Lamplight Factory
 global.quest = id;
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_llf_1));
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_llf_2));
+ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_llf_3));
 
 xpReward = 800;
+var cp = instance_create_depth(x,y,1,obj_item_jalapeno);
+cp.count = 3;
+ds_list_add(rewardItems,cp);

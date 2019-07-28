@@ -12,7 +12,8 @@
         "8e8a098f-9b54-4bcb-a0c7-fd07cae0eca0",
         "439c5bb8-5f9f-42b9-9254-2c48f17d3c6e",
         "6e85e585-2ec9-4d94-ad4f-4a02080b5aa7",
-        "992fd0c9-3315-4afd-a70a-8d316aa2bbd4"
+        "513c7042-c2ea-4083-9c6c-e0db7bb2cf03",
+        "ae418868-4e08-4a40-b86f-360c7d1d6755"
     ],
     "filterType": "GMScript",
     "folderName": "unfairies",
