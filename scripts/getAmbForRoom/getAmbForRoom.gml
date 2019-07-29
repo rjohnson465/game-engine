@@ -40,12 +40,21 @@ switch rm {
 		]
 		]; break;
 	}
-	case rm_boss_lighteater: {
+	case rm_boss_ravebot: {
 		return [
 		[snd_amb_factory_loop], 
 		// periodical sounds
 		[
 			[snd_amb_factory_clanging, 1200, .5, [150,300], 30, 30],
+			[snd_amb_factory_eerie, 1000, .5, [200, 400], 30, 30]
+		]
+		]; break;
+	}
+	case rm_boss_lighteater: {
+		return [
+		[snd_amb_factory_loop], 
+		// periodical sounds
+		[
 			[snd_amb_factory_eerie, 1000, .5, [200, 400], 30, 30]
 		]
 		]; break;

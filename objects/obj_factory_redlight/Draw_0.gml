@@ -1,3 +1,4 @@
+shader_reset();
 var xx = x - lengthdir_x(16, image_angle);
 var yy = y - lengthdir_y(16, image_angle);
 

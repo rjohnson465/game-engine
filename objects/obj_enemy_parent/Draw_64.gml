@@ -61,7 +61,7 @@ if !isBoss {
 		}
 	
 	
-
+/*
 		var x1 = (id.x-vx)-(.5*spw);
 		var y1 = (id.y-vy)-(.5*sph)-20;
 		var x2 = (id.x-vx)+(.5*spw);
@@ -80,7 +80,7 @@ if !isBoss {
 			y1,
 			x2,
 			y2,
-			false);
+			false);*/
 	}
 
 

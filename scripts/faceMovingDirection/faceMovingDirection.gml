@@ -23,12 +23,13 @@ if lockOnTarget != noone && substate != CombatantMoveSubstates.ReturningToPost {
 	if wallsBetweenTarget == noone || !includesActualWall {
 		turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 	} else {
-		//facingDirection = direction;
+		// facingDirection = direction;
 		turnToFacePoint(turnSpeed,pathNextX,pathNextY);
 	}
 	if wallsBetweenTarget != noone {
 		ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 	}
 } else {
-	turnToFacePoint(turnSpeed,pathNextX,pathNextY);
+	// turnToFacePoint(turnSpeed,pathNextX,pathNextY);
+	facingDirection = direction; ///???
 }

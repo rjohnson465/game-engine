@@ -7,6 +7,6 @@ var pLayerName = layer_get_name(pLayer);
 var pFloorNum = real(string_copy(pLayerName,string_length(pLayerName),1));
 if floorNum <= pFloorNum {
 	isActive = true;
-	light_draw_layer(vx,vy, 1, true, .4, floorNum)
+	light_draw_layer(vx,vy, 1, true, 1, floorNum);
 } else isActive = false;
 

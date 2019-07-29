@@ -50,6 +50,16 @@ if listIndex == -1 && p.currentInteractableObject == id {
 	}
 }
 
+// if for some reason this interactable object doesnt exist anymore,
+// remove it from the list and set p.currentInteractableObject to noone
+if !instance_exists(p.currentInteractableObject) {
+	var pos = ds_list_find_index(p.interactableObjects, p.currentInteractableObject);
+	if pos >= 0 {
+		ds_list_delete(p.interactableObjects, pos);
+		p.currentInteractableObject = noone;
+	}
+}
+
 // maybe update current interaction object
 if p.currentInteractableObject == noone && ds_list_size(p.interactableObjects) > 0 && p.interactableResetFrame <= 0 {
 	p.currentInteractableObject = ds_list_find_value(p.interactableObjects, 0);

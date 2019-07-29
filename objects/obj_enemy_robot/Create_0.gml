@@ -62,8 +62,8 @@ meleeAttacks = [laserChain, chargeChain];
 // currently chosen ranged attack
 rangedAttacks = [];
 
-hp = 50;
-maxHp = 50;
+hp = 70;
+maxHp = 70;
 hpRegen = 2;
 
 stamina = 60;
@@ -95,5 +95,7 @@ soundsWhenDie = [snd_enemy_robot_death_1, snd_enemy_robot_death_2, snd_enemy_rob
 chanceToDropHealthOrb = .3;
 
 walkingSound = snd_robot_move;
+
+chanceToDropHealthOrb = .1;
 
 soundsWhenHit = [snd_metalhit1, snd_metalhit2]; // array of potential "hit" sounds (not "ahhs" or dialogue, just like metal in flesh, metal on metal...)

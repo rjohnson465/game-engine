@@ -83,3 +83,5 @@ totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_d
 
 soundsWhenHitVocals = [snd_enemy_speyeder_hit_1, snd_enemy_speyeder_hit_2];
 soundsWhenDie = [snd_enemy_speyeder_death];
+
+chanceToDropHealthOrb = .05;

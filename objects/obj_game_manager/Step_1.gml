@@ -27,7 +27,12 @@ if global.isPopulatingGrids {
 	}
 }
 
+/*
 if global.isUpdatingRoomLayers {
+	
+	// ????
+	updateRoomLayers();
+	
 	// must activate all instances on step 1,
 	if !hasReactivatedObjectsForLayers {
 		instance_activate_all();
@@ -39,7 +44,8 @@ if global.isUpdatingRoomLayers {
 		hasReactivatedObjectsForLayers = false;
 		global.isUpdatingRoomLayers = false;
 	}
-}
+} */
+
 
 if global.isReturningToMainMenu {
 	// must activate all instances on step 1,

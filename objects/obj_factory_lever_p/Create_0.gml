@@ -18,3 +18,6 @@ key = fs_generate_key();
 
 sprOn = spr_factory_lever_p_on;
 sprOff = spr_factory_lever_p_off;
+
+randomize();
+floatingFrame = random_range(0, 29);

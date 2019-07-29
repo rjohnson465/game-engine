@@ -232,7 +232,7 @@ if false {
 // maybe play the element hit sound
 if arrayIncludes(global.ALL_ELEMENTS, damageType) {
 	randomize(); var rand2 = random_range(0,1);
-	if rand2 < .75 || spell != noone {
+	if rand2 < 1 || spell != noone {
 		var hitSnd = asset_get_index("snd_magic_"+damageType+"_hit");
 		audio_play_sound_at(hitSnd,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 	}

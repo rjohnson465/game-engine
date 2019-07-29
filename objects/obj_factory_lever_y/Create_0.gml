@@ -9,7 +9,7 @@ associatedBelts = ds_list_create();
 
 onlyDrawLightOnPlayerLayer = true;
 
-light_create_layer(spr_light_point, .3, c_yellow, .4, 0, 1);
+light_create_layer(spr_light_point, .3, c_yellow, .5, 0, 1);
 
 isNonPriorityInteractable = true;
 isCurrentInteractableObject = false;
@@ -18,3 +18,6 @@ key = fs_generate_key();
 
 sprOn = spr_factory_lever_y_on;
 sprOff = spr_factory_lever_y_off;
+
+randomize();
+floatingFrame = random_range(0, 29);

@@ -9,12 +9,11 @@ spriteString = "npc_terri";
 
 greeting = [snd_npc_terri_greeting_1, snd_npc_terri_greeting_2];
 
-/*
 items = ds_list_create();
-var rd = instance_create_depth(x,y,1,obj_item_rubberducky);
-rd.count = 3;
-ds_list_add(items,rd);
-*/
+var toast = instance_create_depth(x,y,1,obj_item_toast);
+toast.count = 30;
+toast.value = 1000;
+ds_list_add(items,toast);
 
 wanders = false;
 isFairy = false;

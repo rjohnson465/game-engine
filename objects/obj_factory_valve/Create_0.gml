@@ -18,3 +18,7 @@ isNonPriorityInteractable = true;
 isCurrentInteractableObject = false;
 
 key = fs_generate_key();
+
+randomize();
+floatingFrame = random_range(0, 29);
+scale = .3;

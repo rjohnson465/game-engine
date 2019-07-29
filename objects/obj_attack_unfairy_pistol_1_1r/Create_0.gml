@@ -3,7 +3,7 @@ spriteName = "spr_enemy_unfairy_pistol";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 limbKey = "r";
-ds_map_add(damages,PIERCE,[8,15]);
+ds_map_add(damages,PIERCE,[12,15]);
 isRanged = true;
 staminaCost = 5;
 projectileSpeed = 15;

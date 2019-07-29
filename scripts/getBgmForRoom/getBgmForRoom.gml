@@ -20,8 +20,8 @@ switch rm {
 		break;
 	}
 	case rm_factory: {
-		return noone;
-		// return [snd_bgms_le, snd_bgms_vl, snd_bgms_ws];
+		// return noone;
+		return [snd_bgm_lamplight_blasphemy];
 		break;
 	}
 	case rm_boss_lighteater: {

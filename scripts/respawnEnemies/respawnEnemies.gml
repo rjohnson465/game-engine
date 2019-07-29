@@ -128,7 +128,8 @@ with obj_enemy_parent {
 	lockOnTarget = noone;
 	onAlert = false;
 	facingDirection = postDir;
-	jumpFrame = 0; wasJustHit = false;
+	jumpFrame = jumpTotalFrames;
+	wasJustHit = false;
 	showHp = false;
 	
 	// reset poise

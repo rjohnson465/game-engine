@@ -3,7 +3,7 @@
 
 // always decide drops on death
 if hp < 1 && isAlive && !isDying {
-	// items
+	/*// items
 	var rmap = ds_map_create();
 	ds_map_replace(rmap,ItemRarities.Normal,10);
 	ds_map_replace(rmap,ItemRarities.Fine,4);
@@ -15,6 +15,25 @@ if hp < 1 && isAlive && !isDying {
 	ds_list_add(droppedItems,item1);
 	ds_list_add(droppedItems,gold);
 	ds_map_destroy(rmap); rmap = -1;
+	*/
+	// items
+	var rmap = ds_map_create();
+	ds_map_replace(rmap,ItemRarities.Normal,90);
+	ds_map_replace(rmap,ItemRarities.Fine,9);
+	ds_map_replace(rmap,ItemRarities.Masterwork,1);
+	ds_map_replace(rmap,ItemRarities.Legendary,0);
+	var rmap2 = ds_map_create();
+	ds_map_replace(rmap2,ItemRarities.Normal,35);
+	ds_map_replace(rmap2,ItemRarities.Fine,65);
+	ds_map_replace(rmap2,ItemRarities.Masterwork,5);
+	ds_map_replace(rmap2,ItemRarities.Legendary,0);
+	var item1 = maybeMakeItem(100,rmap); //randomly generated item
+	var item2 = maybeMakeItem(100,rmap2); //randomly generated item
+
+	var gold = makeGold(100,250);
+	ds_list_clear(droppedItems);
+	ds_list_add(droppedItems,item1, item2);
+	ds_list_add(droppedItems,gold);
 	
 }
 

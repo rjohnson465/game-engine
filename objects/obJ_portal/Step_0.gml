@@ -16,12 +16,6 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-/*
-var isNearFountain = false;
-with obj_fountain {
-	if distance_to_object(obj_player) < 20 isNearFountain = true;
-}*/
-
 maybeAddOrRemoveFromInteractablesList(1);
 
 if	// isCurrentInteractionObject(id) && 

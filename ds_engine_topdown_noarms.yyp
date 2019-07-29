@@ -5695,6 +5695,14 @@
             }
         },
         {
+            "Key": "459aedba-7cee-49d4-806e-d6d49bd49422",
+            "Value": {
+                "id": "95fb845a-b38c-4d62-8040-28904c8b18ef",
+                "resourcePath": "sounds\\snd_bgm_lamplight_blasphemy\\snd_bgm_lamplight_blasphemy.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "459f8509-c010-4594-a1fc-9f14caac5be7",
             "Value": {
                 "id": "19f4ba2a-696a-4751-b014-d8034ac0d8ff",

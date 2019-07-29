@@ -8,6 +8,8 @@ name = "Toast";
 spriteName = "toast";
 itemSprite = spr_item_toast;
 
+isSellable = false;
+
 type = ItemTypes.Other;
 
 isStackable = true;

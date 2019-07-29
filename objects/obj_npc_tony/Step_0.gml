@@ -4,6 +4,7 @@
 // Inherit the parent event
 event_inherited();
 
+
 if room == rm_boss_lighteater {
 	
 	if y < 75 {

@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "spr_enemy_unfairy_dagger";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 4;
-ds_map_add(damages,SLASH,[7,10]);
+ds_map_add(damages,SLASH,[12,12]);
 isRanged = false;
 staminaCost = 10;
 staggerDuration = 5;

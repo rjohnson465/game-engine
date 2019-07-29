@@ -78,6 +78,7 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 			for (var i = 0; i < ds_list_size(elevatorOccupants); i++) {
 				var occupant = ds_list_find_value(elevatorOccupants, i); 
 				with occupant {
+					
 					var oldLayer = layer;
 					layer = nextLayer;
 					if occupant != global.player && variable_instance_exists(occupant, "origLayer") {
@@ -108,10 +109,24 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 			}
 		}
 		
-		// update what is visibile to the player 
-		global.isUpdatingRoomLayers = true;
-		// this elevator may now be covering a previously untraversable fallzone
-		global.isPopulatingGrids = true; 
+		// if occupants include player, update whats visible 
+		if ds_list_find_index(elevatorOccupants, global.player) > -1 {
+			// update what is visibile to the player 
+			global.isUpdatingRoomLayers = true;
+			// this elevator may now be covering a previously untraversable fallzone
+			global.isPopulatingGrids = true; 
+		}
+		
+		// if the occupants are at or below player layer, they are visible 
+		for (var i = 0; i < ds_list_size(elevatorOccupants); i++) {
+			var pFloorNum = getLayerFloorNumber(global.player.layer);
+			var occupant = ds_list_find_value(elevatorOccupants, i);
+			var oFloorNum = getLayerFloorNumber(occupant.layer);
+			if oFloorNum <= pFloorNum {
+				occupant.visible = true;
+			}
+		}
+		
 	}
 	
 	elevatorMoveFrame += 1;

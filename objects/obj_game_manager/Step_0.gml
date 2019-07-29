@@ -1,3 +1,23 @@
+if global.isUpdatingRoomLayers {
+	
+	// ????
+	updateRoomLayers();
+	
+	// must activate all instances on step 1,
+	if !hasReactivatedObjectsForLayers {
+		instance_activate_all();
+		hasReactivatedObjectsForLayers = true;
+	}
+	// then when next step happens, actually update layer elements visibility
+	else {
+		updateRoomLayers();
+		hasReactivatedObjectsForLayers = false;
+		global.isUpdatingRoomLayers = false;
+	}
+} 
+
+
+
 if gamepad_is_connected(global.gamePadIndex) window_set_cursor(cr_none);
 else window_set_cursor(cr_default);
 if isLoading {

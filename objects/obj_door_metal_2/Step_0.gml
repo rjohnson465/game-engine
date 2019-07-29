@@ -12,9 +12,10 @@ with obj_npc_parent {
 if global.isReadingTutorial exit;
 var p = global.player;
 
+/*
 if !isOpen {
 	maybeAddOrRemoveFromInteractablesList(20);
-}
+}*/
 
 if	// isCurrentInteractableObject && 
 	global.player.currentInteractableObject == id &&

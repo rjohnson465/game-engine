@@ -17,12 +17,10 @@ if hp < 1 && isAlive && !isDying {
 	var item1 = maybeMakeItem(100,rmap); //randomly generated item
 	var item2 = maybeMakeItem(75,rmap2); //randomly generated item
 	var item3 = maybeMakeItem(75,rmap2); //randomly generated item
-	//var item2 = maybeMakeItem(100,rmap,tmap); //randomly generated item
 
 	var gold = makeGold(300,500);
 	ds_list_clear(droppedItems);
 	ds_list_add(droppedItems,item1, item2, item3);
-	//ds_list_add(droppedItems,item2);
 	ds_list_add(droppedItems,gold);
 	
 	// special: drops however many lamplights he ate during the fight (if any)
@@ -43,13 +41,14 @@ if hp < 1 && isAlive && !isDying {
 }
 
 
-
+/*
 if doTriggerTonyIntro {
 	doTriggerTonyIntro = false;
 	doSpawnTony = true;
 	global.isInteractingWithNpc = true;
 	alarm[0] = 75;
 }
+*/
 
 // Inherit the parent event
 event_inherited();

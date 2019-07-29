@@ -3,7 +3,7 @@ spriteName = "spr_enemy_robot_charge";
 limbKey = noone; 
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
-ds_map_add(damages,SLASH,[8,14]);
+ds_map_add(damages,SLASH,[15, 20]);
 isRanged = false;
 staminaCost = 10;
 type = AttackTypes.Charge;

@@ -124,6 +124,7 @@ switch(state) {
 	}
 }
 
+
 // walking up / down stairs change layers, set solids for enemies on this layer (done in updateRoomLayers)
 var nearestStairs = instance_nearest(x,y,obj_stairs);
 if distance_to_object(nearestStairs) < 200 {
@@ -131,11 +132,13 @@ if distance_to_object(nearestStairs) < 200 {
 		
 		var oldLayer = layer;
 		layer = layerToChangeTo;
+		global.isUpdatingRoomLayers = true;
+		climbingDir = noone;
 		
 		updateLightLayer(playerLightRadius,oldLayer,layer);
 
 	}
-}
+} 
 
 maybeLevelUp();
 

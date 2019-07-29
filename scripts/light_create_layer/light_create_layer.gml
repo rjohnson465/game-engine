@@ -20,40 +20,9 @@ _light_is_multiscaled = false
 _light_max_dist = max(sprite_get_width(_light_sprite),
                       sprite_get_height(_light_sprite)) * _light_scale
 					  
-var layerName = layer_get_name(layer);
+var lay = variable_instance_exists(id, "origLayer") ? origLayer : layer;
+var layerName = layer_get_name(lay);
 var layerNum = real(string_char_at(layerName,string_length(layerName)));
-
-// do not add if this light is already in the light_layers map anywhere
-// this is pretty much just so the player light radius isnt made again every time you die
-/*
-if persistent {
-	var ck = ds_map_find_first(global._light_layers);
-	for (var i = 0; i < ds_map_size(global._light_layers); i++) {
-		
-		var layerMap = ds_map_find_value(global._light_layers, ck);
-		var lightsList = ds_map_find_value(layerMap, "_lights");
-		
-		var index = noone;
-		// see if this lights list contains a lightobj whose owner is lightObj.owner, if so delet this cousin
-		for (var i = 0; i < ds_list_size(lightsList); i++) {
-			var _light = ds_list_find_value(lightsList, i);
-			if (_light.object_index == obj_light_radius) {
-				var own = _light.owner;
-				if own == owner {
-					index = i;
-				}
-			}
-		}
-		
-		//var index = ds_list_find_index(lightsList, lightObj);
-		if (index != noone && index >= 0) {
-			//ds_list_delete(lightsList, index);
-			return;
-		}
-			
-		ck = ds_map_find_next(global._light_layers, ck);
-	}
-}*/
 
 
 var layerMap = ds_map_find_value(global._light_layers,layerNum);
@@ -62,4 +31,3 @@ var lightsList = ds_map_find_value(layerMap,"_lights");
 if ds_list_find_index(lightsList,id) == -1 {
 	ds_list_add(lightsList,id);
 }
-//ds_list_add(global._lights, id)

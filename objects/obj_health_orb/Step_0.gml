@@ -4,12 +4,15 @@ if isMoving {
 	audio_emitter_position(sndEmitter, x, y, depth);
 }
 
-if !hasSetAlarm {
+var p = global.player;
+
+/*
+if !hasSetAlarm && layer == p.layer {
 	part_emitter_region(system, emitter, bbox_left, bbox_right, bbox_top, bbox_bottom, ps_shape_ellipse, ps_distr_gaussian);
 	part_emitter_burst(system, emitter, particle, 5);
-}
+}*/
 
-var p = global.player;
+
 if !isMoving && distance_to_object(p) < 50 && layer == p.layer && !hasSetAlarm && p.hp > 0 {
 	if !place_meeting(x, y, p) {
 		// gravitate toward player

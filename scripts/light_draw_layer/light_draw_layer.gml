@@ -56,7 +56,8 @@ if _light_time >= _light_max_time
 			var doNotDraw = false;
 			with _light {
 				if variable_instance_exists(id, "onlyDrawLightOnPlayerLayer") && onlyDrawLightOnPlayerLayer {
-					if layer != global.player.layer {
+					var lay = variable_instance_exists(id, "origLayer") ? origLayer : layer;
+					if lay != global.player.layer {
 						doNotDraw = true;
 					}
 				}

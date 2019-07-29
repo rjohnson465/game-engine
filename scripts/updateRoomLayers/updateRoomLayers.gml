@@ -11,11 +11,12 @@ var instanceLayersAbove = ds_list_create();
 var tileLayersAbove = ds_list_create();
 
 var layers = layer_get_all();
-// reset all layer shader objects
+// reset all layer shader objects (???)
+/*
 with obj_layer_shader {
 	surface_free(surface_canvas_1);
 	instance_destroy(id,false);
-}
+}*/
 for (var i = 0; i < array_length_1d(layers); i++) {
 	var l = layers[i];
 	var lName = layer_get_name(l);
@@ -85,7 +86,11 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 			}
 			
 			global.floorNum = lNum;
-			instance_create_depth(x,y,1,obj_layer_lighting);
+			var layerLightingObj = instance_create_depth(x,y,1,obj_layer_lighting);
+			/*with layerLightingObj {
+				event_perform(ev_draw, 0);
+			}*/
+			
 		}
 	}
 }

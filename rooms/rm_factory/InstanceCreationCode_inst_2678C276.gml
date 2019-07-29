@@ -1,9 +1,32 @@
 //layerToMoveTo = "instances_floor_2";
 
-layerToMoveTo = "instances_floor_2";
+level = 4;
+xpToNextLevel = round(453*(power(2,level/3.6)));
+
+var hpSkill = instance_nearest(x,y,obj_skill_hpmax);
+repeat(3) {
+	levelUpSkill(hpSkill);
+}
+var swordSkill = instance_nearest(x, y, obj_skill_blade_mastery);
+levelUpSkill(swordSkill);
+
+var ls = instance_create_depth(x, y, depth, obj_hand_item_longsword);
+ls.numberOfSockets = 2;
+insertGemIntoItem(makeGem(obj_gem_hematite, CRACKED), ls);
+addItemToInventory(ls);
+equipItem(ls, EquipmentSlots.LeftHand1);
+var ws = instance_create_depth(x, y, depth, obj_hand_item_woodshield);
+addItemToInventory(ws);
+equipItem(ws, EquipmentSlots.RightHand1);
+var bh = instance_create_depth(x, y, depth, obj_hat_bike_helmet);
+addItemToInventory(bh);
+equipItem(bh, EquipmentSlots.Head);
+
+
+layerToMoveTo = "instances_floor_4";
+
 
 /*
-
 questStart(obj_quest_llf);
 
 

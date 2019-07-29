@@ -110,8 +110,8 @@ meleeAttacks = [lbChain, laserChain, chargeChain, dance1Chain, dance2Chain, char
 // currently chosen ranged attack
 rangedAttacks = [];
 
-hp = 250;
-maxHp = 250;
+hp = 275;
+maxHp = 275;
 hpRegen = .66;
 
 stamina = 60;
@@ -129,9 +129,9 @@ ds_map_replace(defenses, ICE, -50);
 ds_map_replace(defenses, FIRE, -50);
 ds_map_replace(defenses, LIGHTNING, 100);
 ds_map_replace(defenses, POISON, 100);
-ds_map_replace(defenses, SLASH, 12);
-ds_map_replace(defenses, PIERCE, 15);
-ds_map_replace(defenses, CRUSH, 5);
+ds_map_replace(defenses, SLASH, 25);
+ds_map_replace(defenses, PIERCE, 35);
+ds_map_replace(defenses, CRUSH, 20);
 
 // dodge stuff
 agility = 0; // 0 - 100% chance to try a dodge

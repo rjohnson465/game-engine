@@ -4,7 +4,7 @@ limbKey = noone;
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 
-ds_map_add(damages,LIGHTNING,[1,4]);
+ds_map_add(damages,LIGHTNING,[3,4]);
 
 isRanged = false;
 staminaCost = 10;
