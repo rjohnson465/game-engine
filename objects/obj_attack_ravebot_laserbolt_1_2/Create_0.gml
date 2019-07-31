@@ -4,7 +4,7 @@ spriteAttackNumber = 1;
 spriteAttackNumberInChain = 2;
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
 limbKey = noone;
-ds_map_replace(damages,LIGHTNING,[5,6]);
+ds_map_replace(damages,LIGHTNING,[12,15]);
 turnSpeed = 10;
 isRanged = true;
 projectileSpeed = 10;

@@ -4,8 +4,8 @@ spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
 limbKey = noone;
-ds_map_replace(damages,POISON,[4,8]);
-ds_map_replace(damages,FIRE,[1,2]);
+ds_map_replace(damages,POISON,[2,5]);
+ds_map_replace(damages,FIRE,[1,1]);
 isRanged = false;
 staminaCost = 5;
 staggerDuration = 2;
@@ -15,7 +15,7 @@ minRange = 80;
 projectileSpeed = 15;
 //damageType = "Dust";
 isVisible = false;
-refreshCombatantsHit = 5; 
+refreshCombatantsHit = 6; 
 // doesNotStagger = true;
 
 // poison clouds

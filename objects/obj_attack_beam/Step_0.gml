@@ -44,7 +44,7 @@ var xx = x + lengthdir_x(beamReach, owner.facingDirection);
 var yy = y + lengthdir_y(beamReach, owner.facingDirection);
 
 // find s, the closest solid object the beam is hitting (if it exists)
-var possibleSolids = scr_collision_line_list_layer(owner.x,owner.y,xx,yy,obj_solid_parent,true,true);
+var possibleSolids = scr_collision_line_list_layer(owner.x,owner.y,xx,yy,obj_solid_parent,true,true, true);
 var closestDist = 10000; var s = noone;
 if possibleSolids != noone {
 	for (var i = 0; i < ds_list_size(possibleSolids); i++) {

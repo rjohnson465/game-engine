@@ -3,7 +3,7 @@ spriteName = "spr_enemy_ravebot_charge";
 limbKey = noone; 
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
-ds_map_add(damages,SLASH,[18,25]);
+ds_map_add(damages,SLASH,[22,25]);
 isRanged = false;
 staminaCost = 10;
 type = AttackTypes.Charge;

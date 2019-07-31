@@ -14,13 +14,13 @@ normalTurnSpeed = turnSpeed;
 
 dyingParticleColor1 = [make_color_rgb(163,255,109), make_color_rgb(255,122,228), make_color_rgb(109,255,210), make_color_rgb(0,75,255) ];
 
-poiseCurrent = 45;
-poiseMax = 45;
+poiseCurrent = 75;
+poiseMax = 75;
 
 sightAngleDelta = 360;
 
-// try summon every 10-20 seconds
-SUMMON_FREQ_MIN = 300; SUMMON_FREQ_MAX = 600;
+// try summon every 5-10 seconds
+SUMMON_FREQ_MIN = 150; SUMMON_FREQ_MAX = 300;
 summonFrequencyFramesRange = [SUMMON_FREQ_MIN, SUMMON_FREQ_MAX];
 randomize();
 summonFrame = random_range(300, SUMMON_FREQ_MAX);
@@ -60,7 +60,7 @@ meleeAggroRange = 300;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 800;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
-attackFrequencyTotalFramesMelee = [45,75];
+attackFrequencyTotalFramesMelee = [35,40];
 attackFrequencyTotalFramesRanged = [60,90];
 strafeTotalFrames = [25,50];
 waryDistanceRange=[100,120];

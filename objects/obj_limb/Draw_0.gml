@@ -58,7 +58,7 @@ else if owner.currentUsingSpell == noone {
 	var sprite = asset_get_index("spr_player_hand_spellprep");
 }
 
-if sprite == -1 {
+if sprite < 0 {
 	shader_reset();
 	exit;
 }

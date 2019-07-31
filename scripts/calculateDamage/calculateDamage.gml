@@ -4,6 +4,7 @@
 
 if hp <= 0 exit;
 if isInvulnerable exit;
+if isFalling exit;
 var isFading = false;
 with obj_fade {
 	if instance_count > 0 {
@@ -56,6 +57,7 @@ if	state != CombatantStates.Dodging &&
 	}
 	
 	var assailant = attackObj.owner;
+	if assailant.isFalling exit;
 	var damage = 0;
 	var damagesMap = noone;
 	var spell = noone;

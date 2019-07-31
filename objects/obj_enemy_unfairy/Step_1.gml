@@ -24,11 +24,11 @@ if hp < 1 && isAlive && !isDying {
 	
 	var pmap2 = ds_map_create();
 	ds_map_add(pmap2, obj_item_scroll_of_knowledge, 5);
-	var scroll = maybeMakeItemBasic(pmap2, 1);
+	var scroll = maybeMakeItemBasic(pmap2, .05);
 	
 	var gold = makeGold(0,25);
 	ds_list_clear(droppedItems);
-	ds_list_add(droppedItems,item1, item2, item3);
+	ds_list_add(droppedItems,item1, item2, item3, scroll);
 	//ds_list_add(droppedItems,item2);
 	ds_list_add(droppedItems,gold);
 	ds_map_destroy(rmap); rmap = -1;

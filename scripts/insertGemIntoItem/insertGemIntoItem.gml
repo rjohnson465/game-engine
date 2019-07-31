@@ -59,6 +59,7 @@ if isRemoving {
 		gem = makeGem(gemStack.object_index, gemStack.condition);
 		gem.count = 1;
 		gem.owner = "socket";
+		gem.persistent = true;
 		gemStack.count--;
 	}
 	/*

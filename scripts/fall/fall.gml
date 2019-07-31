@@ -2,6 +2,10 @@
 
 // stop any and all attacks
 
+if object_index == global.player {
+	currentInteractableObject = noone;
+}
+
 if currentSpellPrepSound != noone {
 	audio_stop_sound(currentSpellPrepSound);
 }
@@ -86,6 +90,7 @@ if fallFrame == .5*fallTotalFrames {
 		floorsFallen++;
 	}
 	else {
+		isFalling = false;
 		jumpToNearestFreePoint();
 		// take damage if you did not land on a fallbreaker
 		var fallbreaker = noone;

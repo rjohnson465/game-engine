@@ -62,3 +62,5 @@ lightRadius = instance_create_depth(x,y,depth,obj_light_radius);
 destructionSound = snd_glass_shatter;
 
 fadeLightFrame = 11;
+
+hasDroppedItem = false;

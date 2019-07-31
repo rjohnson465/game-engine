@@ -155,7 +155,10 @@ for (var i = 0; i < ds_map_size(rarityMap); i++) {
 
 item.rarity = rarityType;
 
-if item.type == ItemTypes.Other item.rarity = ItemRarities.Normal;
+// Gems, consumables, keys, etc... cannot be anything other than normal rarity...
+if item.type == ItemTypes.Other || item.type == ItemTypes.Gem || item.type == ItemTypes.Key {
+	item.rarity = ItemRarities.Normal;
+}
 
 // modify base item properties based on rarity
 if item.rarity != ItemRarities.Normal {

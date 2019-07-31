@@ -18,5 +18,8 @@ if state == "Growing" {
 		jumpToNearestFreePoint(true, true);
 	}
 } else {
+	image_xscale = 1;
+		image_yscale = 1;
+		image_alpha = 1;
 	event_inherited();
 }

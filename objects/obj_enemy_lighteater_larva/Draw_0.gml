@@ -1,4 +1,18 @@
 event_inherited();
+
+/*
+if isMoving {
+	/*draw_set_alpha(1);
+	draw_set_color(c_aqua);
+	draw_path(path,x,y,1);
+	draw_set_color(c_lime);
+	draw_path(gridPath,x,y,1); 
+	
+	if path_index >= 0 {
+		draw_path(path_index, x, y, 1);
+	}
+}
+
 /*
 if isShowingGrid {
 	draw_set_alpha(1);

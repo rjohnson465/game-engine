@@ -92,10 +92,8 @@ totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_d
 soundsWhenHitVocals = [snd_enemy_robot_hit_1, snd_enemy_robot_hit_2, snd_enemy_robot_hit_3];
 soundsWhenDie = [snd_enemy_robot_death_1, snd_enemy_robot_death_2, snd_enemy_robot_death_3, snd_enemy_robot_death_4, snd_enemy_robot_death_5];
 
-chanceToDropHealthOrb = .3;
-
 walkingSound = snd_robot_move;
 
-chanceToDropHealthOrb = .1;
+chanceToDropHealthOrb = .3;
 
 soundsWhenHit = [snd_metalhit1, snd_metalhit2]; // array of potential "hit" sounds (not "ahhs" or dialogue, just like metal in flesh, metal on metal...)

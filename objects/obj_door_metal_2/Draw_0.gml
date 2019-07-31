@@ -10,6 +10,8 @@ if !isOpen {
 			} else {
 				draw_sprite_ext(openSprite,1,x,y,xscale,yscale,angle-90,c_white,1);
 			}
+		} else {
+			draw_sprite_ext(openSprite,1,x,y,xscale,yscale,angle-90,c_white,1);
 		}
 	} else /*if opensFrom == "r" || opensFrom == "b"*/ {
 		
@@ -20,6 +22,8 @@ if !isOpen {
 			} else {
 				draw_sprite_ext(openSprite,1,x,y,xscale,yscale,angle+90,c_white,1);
 			}
+		} else {
+			draw_sprite_ext(openSprite,1,x,y,xscale,yscale,angle+90,c_white,1);
 		}
 	}
 }

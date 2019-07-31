@@ -7,7 +7,7 @@ event_inherited();
 //quest = obj_quest_unfairyslayer;
 status = QuestStepStatus.Unstarted;
 
-description = "Find Barry's Key";
+description = "Investigate the Great-Lodge";
 
 
 

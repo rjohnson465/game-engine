@@ -41,14 +41,14 @@ if hp < 1 && isAlive && !isDying {
 }
 
 
-/*
+
 if doTriggerTonyIntro {
 	doTriggerTonyIntro = false;
 	doSpawnTony = true;
 	global.isInteractingWithNpc = true;
 	alarm[0] = 75;
 }
-*/
+
 
 // Inherit the parent event
 event_inherited();

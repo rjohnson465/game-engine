@@ -6,6 +6,9 @@
 
 var quest = argument[0];
 var msg = "Quest update: " + quest.name + "\n" + quest.currentQuestStep.description + " completed!";
+
+audio_play_sound(snd_item_paper, 1, 0);
+
 if argument_count > 1 {
 	msg = argument[1];
 }

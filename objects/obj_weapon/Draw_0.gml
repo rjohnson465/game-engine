@@ -16,7 +16,7 @@ if limbKey == "l" && leftHandItem.weaponType == THROWN && leftHandItem.ammo == 0
 
 //prepareLayerShader();
 
-if sprite_index == -1 exit;
+if sprite_index < 0 exit;
 
 if limbKey == "r" {
 	var leftHand = noone;

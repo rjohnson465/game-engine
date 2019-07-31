@@ -8,7 +8,7 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_replace(rmap,obj_item_lamplight,1);
 
 	var ll = maybeMakeItemBasic(rmap, .05);
-	var gold = makeGold(0,5);
+	var gold = makeGold(0,0);
 	ds_list_clear(droppedItems);
 	ds_list_add(droppedItems,ll);
 	ds_list_add(droppedItems,gold);

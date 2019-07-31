@@ -25,7 +25,7 @@ part_type_orientation(p1,0,360,10,15,1);
 part_type_blend(p1,0);
 part_type_life(p1,15,30);
 
-particles = [[dust, 15], [p1, 9]];
+particles = [[dust, 100], [p1, 50]];
 
 fallbreakSound = snd_pillowhit;
 

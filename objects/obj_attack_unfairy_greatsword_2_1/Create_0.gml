@@ -4,7 +4,7 @@ spriteName = "spr_enemy_unfairy_greatsword";
 limbKey = "l"; // default value
 spriteAttackNumber = 2;
 spriteAttackNumberInChain = 1;
-ds_map_add(damages,PIERCE,[15,25]);
+ds_map_add(damages,PIERCE,[35,40]);
 isRanged = false;
 staminaCost = 10;
 type = AttackTypes.Charge;

@@ -1,5 +1,8 @@
+maybeApplyElementalCondition(FIRE, 500, noone, noone);
+maybeApplyElementalCondition(FIRE, 500, noone, noone);
 
 
+/*
 var key = makeKey("Great-Lodge F2 Key", "key", spr_item_key, "Opens the door to the Fairy's Great-Lodge, Level 2. We really should have more than one copy of this thing.");
 addItemToInventory(key);
 

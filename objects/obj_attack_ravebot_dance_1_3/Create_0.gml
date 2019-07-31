@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "spr_enemy_ravebot_dance";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 3;
-ds_map_add(damages,SLASH,[6,10]);
+ds_map_add(damages,SLASH,[18,20]);
 isRanged = false;
 staminaCost = 10;
 staggerDuration = 5;

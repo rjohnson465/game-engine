@@ -1,3 +1,4 @@
+if status == QuestStepStatus.Completed exit;
 // this is for loading 
 var wc = ds_map_find_value(parameters, "wiresCount");
 if status != QuestStepStatus.Completed {

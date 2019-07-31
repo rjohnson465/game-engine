@@ -1,1 +1,1 @@
-ds_list_add(items, makeGold(45,45));
+ds_list_add(items, makeGem(obj_gem_hematite, CRACKED));

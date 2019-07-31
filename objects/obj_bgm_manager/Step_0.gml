@@ -43,7 +43,7 @@ if audio_is_playing(bgmCurrentIndex) && (bossExists && bgmCurrent == bgmPossibil
 }
 
 
-if !audio_is_playing(bgmCurrent) && alarm[2] < 0 {
+if bgmCurrent >= 0 && !audio_is_playing(bgmCurrent) && alarm[2] < 0 {
 	randomize();
 	// play a song again anywhere from 15 seconds to 1 minute later
 	var rand = random_range(BGM_START_MIN*30, BGM_START_MAX*30);

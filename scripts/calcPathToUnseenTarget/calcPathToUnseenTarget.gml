@@ -2,7 +2,7 @@
 
 if alarm[9] != 1 && path_position < .9 exit;
 
-turnSpeed = 100; // TODO check with speyeder if turning no longer fucks up guess path
+// turnSpeed = 100; // TODO check with speyeder if turning no longer fucks up guess path
 while ds_list_size(guessPathPts) > 4 {
 	ds_list_delete(guessPathPts,0);
 }

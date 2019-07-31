@@ -16,6 +16,7 @@ p.layerToMoveTo = "instances_floor_1";
 room_goto(room);
 */
 
+/*
 // debug shit
 show_debug_message("///////////////////////////////// START DEBUG INFO ////////////////////////");
 		var mapsCount = 0;

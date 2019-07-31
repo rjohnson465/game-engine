@@ -641,6 +641,7 @@ if !isOnBridge && place_meeting(x, y, obj_fallzone) {
 		var b = point_in_rectangle(other.bbox_right,other.bbox_bottom,bbox_left,bbox_top,bbox_right,bbox_bottom);
 	
 		if	d && e && layer == other.layer {
+			isFalling = true;
 			other.fallFrame = 0;
 			other.floorsFallen = 1;
 		} else if (a || b) && layer == other.layer && other.type == CombatantTypes.Enemy {

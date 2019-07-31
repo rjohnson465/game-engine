@@ -1,4 +1,8 @@
-//layerToMoveTo = "instances_floor_2";
+// layerToMoveTo = "instances_floor_3";
+
+var in = instance_number(obj_fade);
+show_debug_message(in);
+if in > 0 exit;
 
 level = 4;
 xpToNextLevel = round(453*(power(2,level/3.6)));
@@ -10,7 +14,7 @@ repeat(3) {
 var swordSkill = instance_nearest(x, y, obj_skill_blade_mastery);
 levelUpSkill(swordSkill);
 
-var ls = instance_create_depth(x, y, depth, obj_hand_item_longsword);
+var ls = instance_create_depth(x, y, depth, obj_hand_item_hatchet);
 ls.numberOfSockets = 2;
 insertGemIntoItem(makeGem(obj_gem_hematite, CRACKED), ls);
 addItemToInventory(ls);
@@ -23,10 +27,17 @@ addItemToInventory(bh);
 equipItem(bh, EquipmentSlots.Head);
 
 
-layerToMoveTo = "instances_floor_4";
 
+
+// layerToMoveTo = "instances_floor_4";
 
 /*
+maybeApplyElementalCondition(MAGIC, 500, noone, noone);
+maybeApplyElementalCondition(MAGIC, 500, noone, noone);
+*/
+
+/*
+
 questStart(obj_quest_llf);
 
 

@@ -58,7 +58,7 @@ if isActive && gamepad_is_connected(pad) {
 	}
 	
 	// watch quest 
-	if gamepad_button_check_released(pad,gp_face4) && selectedQuest != noone {
+	if gamepad_button_check_pressed(pad,gp_face4) && selectedQuest != noone {
 		audio_play_sound(snd_ui_option_change,1,0);
 		if watchedQuest != selectedQuest {
 			watchedQuest = selectedQuest;

@@ -7,6 +7,8 @@
 
 var pathNextX = path_get_x(path_index,path_position+.01);
 var pathNextY = path_get_y(path_index,path_position+.01);
+
+
 if lockOnTarget != noone && substate != CombatantMoveSubstates.ReturningToPost {
 	var wallsBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 	
@@ -23,13 +25,30 @@ if lockOnTarget != noone && substate != CombatantMoveSubstates.ReturningToPost {
 	if wallsBetweenTarget == noone || !includesActualWall {
 		turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);
 	} else {
-		// facingDirection = direction;
-		turnToFacePoint(turnSpeed,pathNextX,pathNextY);
+		
+		if path_position < .9 {
+			
+			
+			var tx = x + lengthdir_x(5, direction);
+			var ty = y + lengthdir_y(5, direction);
+			 turnToFacePoint(turnSpeed,tx,ty); 
+			 
+			
+			/*
+			functionalSpeed = normalSpeed*slowedSpeedModifier;
+			facingDirection = direction;
+			*/
+		}
+		// 
+		 
+		// turnToFacePoint(turnSpeed,pathNextX,pathNextY);
 	}
 	if wallsBetweenTarget != noone {
 		ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 	}
 } else {
 	// turnToFacePoint(turnSpeed,pathNextX,pathNextY);
+	
+	functionalSpeed = normalSpeed*slowedSpeedModifier;
 	facingDirection = direction; ///???
 }

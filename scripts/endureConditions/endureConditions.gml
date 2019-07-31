@@ -23,10 +23,7 @@ for (var i = 0; i < size; i++) {
 		if depth < global.player.depth {
 			audio_emitter_gain(emitter,0);
 		}
-	} /*else if (sndId != noone && conditionLevel <= 0) {
-		audio_stop_sound(sndId);
-		ds_map_replace(conditionSoundsMap, currentCondition, noone);
-	}*/
+	} 
 	
 	// particle effects for conditions
 	if conditionLevel > 0 && currentCondition != PHYSICAL {

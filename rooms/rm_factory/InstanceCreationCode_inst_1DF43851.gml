@@ -1,4 +1,4 @@
 ei_unfairy_greatsword();
-ei_unfairy_add_leathercap();
+ei_unfairy_add_ringedcoif();
 
 hearingDistance = 0;

@@ -14183,6 +14183,14 @@
             }
         },
         {
+            "Key": "b2690e39-8a9b-4329-8dee-1ad7091b6dc2",
+            "Value": {
+                "id": "e252023d-dedf-4eb7-9852-d56687e66e09",
+                "resourcePath": "sprites\\spr_part_leaf\\spr_part_leaf.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b26c136c-3b04-4898-98b3-4c142b9476f1",
             "Value": {
                 "id": "684bd1fe-a77f-4829-8e8c-d569426f1f42",

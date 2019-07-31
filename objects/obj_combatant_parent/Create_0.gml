@@ -42,7 +42,7 @@ walkingInWaterSoundId = noone;
 isAlive = true;
 
 _light_sprite = spr_light_point;
-lightRadiusAlpha = .5;
+lightRadiusAlpha = .1;
 lightRadiusScale = .5;
 normalLightRadiusScale = lightRadiusScale;
 lightRadiusColor = c_white;
@@ -60,6 +60,7 @@ jumpTotalFrames = 12;
 canJump = true;
 
 // "falling" -- draw sprite from 1-.5, set layer to next lower layer, then from .5 to 1
+isFalling = false;
 fallFrame = 32;
 fallTotalFrames = 32;
 fallScaleFactor = 1;

@@ -85,8 +85,18 @@ switch room {
 		part_type_speed(dust,.3,1,0,0);
 		part_type_direction(dust,0,360,0,4);
 		part_type_life(dust,250,500);
-		makeEnvironmentParticles(dust,noone,"instances_floor_1",1,noone);
-		makeEnvironmentParticles(dust,noone,"instances_floor_2",1,noone);
+		
+		var leaf = part_type_create();
+		part_type_sprite(leaf, spr_part_leaf, true, false, true);
+		part_type_alpha2(leaf,.7,0);
+		part_type_color2(leaf,c_white,c_olive);
+		part_type_orientation(leaf,0,0,1,1,1);
+		part_type_size(leaf,.3,.6,0,.03);
+		part_type_speed(leaf,.3,1,0,0);
+		part_type_direction(leaf,0,360,0,0);
+		part_type_life(leaf,250,500);
+		makeEnvironmentParticles(dust,leaf,"instances_floor_1",1,-2);
+		makeEnvironmentParticles(dust,leaf,"instances_floor_2",1,-2);
 		break;
 	}
 	case rm_boss_funfairy: {

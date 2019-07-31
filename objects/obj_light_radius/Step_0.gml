@@ -1,16 +1,17 @@
 if instance_exists(owner) {
 	if color != owner.lightRadiusColor {
-		global.owner = owner;
+		
+		/*global.owner = owner;
 		global.makeLightOnCreate = true;
 		var newLr = instance_create_depth(x,y,1,obj_light_radius);
 		if owner == global.player {
 			owner.playerLightRadius = newLr;
 			newLr.persistent = true;
 		}
-		instance_destroy(id,false);
+		instance_destroy(id,false);*/
 		
 		
-		//light_set_color(owner.lightRadiusColor);
+		light_set_color(owner.lightRadiusColor);
 	}
 	if owner.object_index == obj_fountain || owner.object_index == obj_sconce {
 		layer = owner.origLayer;
@@ -19,9 +20,4 @@ if instance_exists(owner) {
 		layer = owner.layer;
 		// updateLightLayer(id,noone, layer);
 	}
-}
-
-/*
-else {
-	instance_destroy(id, 1);
 }
