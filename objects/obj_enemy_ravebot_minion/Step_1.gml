@@ -19,7 +19,9 @@ if hp < 1 && isAlive && !isDying {
 		xpReward = 0;
 		chanceToDropHealthOrb = 0;
 	}
+	
 }
 
 // Inherit the parent event
 event_inherited();
+

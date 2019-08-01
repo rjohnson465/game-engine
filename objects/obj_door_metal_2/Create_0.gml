@@ -4,7 +4,7 @@ xscale = image_xscale; yscale = image_yscale;
 opensFrom = "l" // l | r | a | b | e
 closedSprite = sprite_index; // this can be changed
 openSprite = sprite_index;
-spriteTurnsWhenOpen = true;
+spriteTurnsWhenOpen = false;
 keyNeeded = noone; // or string name
 isOpen = false;
 material = METAL;

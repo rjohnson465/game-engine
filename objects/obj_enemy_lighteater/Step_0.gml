@@ -15,6 +15,7 @@ if hp < (maxHp/2) && alarm[2] == -4 {
 if state == "Eat" {
 	if lamplightToEat == noone {
 		path_end();
+		hasCalculatedPathToLamplight = false;
 		// if there are no lit lamplights in the room, leave this state
 		var litLamplights = ds_list_create();
 		with obj_fairylight {
@@ -39,6 +40,7 @@ if state == "Eat" {
 		// we have chosen a lamplight to eat
 		if distance_to_object(lamplightToEat) < 10 {
 			path_end(); speed = 0;
+			hasCalculatedPathToLamplight = false;
 			// turn to the light
 			turnToFacePoint(turnSpeed, lamplightToEat.x, lamplightToEat.y);
 			
@@ -139,11 +141,15 @@ if state == "Eat" {
 				lamplightEatFrame = LAMPLIGHT_EAT_FRAME_MAX;
 				lamplightsEatenCount++;
 			}
-		} else {
+		} else 
+			//if !hasCalculatedPathToLamplight 
+		{
 			// go to the light
-			mp_potential_path(path, lamplightToEat.x, lamplightToEat.y, functionalSpeed, 4, false);
+			 mp_potential_path(path, lamplightToEat.x, lamplightToEat.y, 6, 5, false);
+			// var gpe = mp_grid_path(personalGrid, gridPath, x, y, lamplightToEat.x, lamplightToEat.y, true);
 			path_start(path, functionalSpeed, path_action_stop, false);
 			turnToFacePoint(turnSpeed, lamplightToEat.x, lamplightToEat.y);
+			hasCalculatedPathToLamplight = true;
 			//faceMovingDirection();
 		}
 	}

@@ -36,6 +36,13 @@ if !hasSetAlarm {
 							if isRanged {
 								instance_destroy(id, 1);
 							}
+							
+							var atk = id;
+							with obj_light_radius {
+								if owner == atk {
+									instance_destroy(id, 1);
+								}
+							}
 						}
 					
 						// destroy item (after 2 second delay)

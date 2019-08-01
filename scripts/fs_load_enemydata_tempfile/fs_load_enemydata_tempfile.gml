@@ -33,10 +33,13 @@ else {
 	// get the temp enemy data for the specific room index
 	var sd_temp_enemydata_tocopy = ds_map_find_value(sd_temp_enemydatas, rn);
 	if sd_temp_enemydata_tocopy == undefined || !ds_exists(sd_temp_enemydata_tocopy, ds_type_map) {
-		// mem leaks
-		ds_map_destroy(sd_temp_enemydata); sd_temp_enemydata = -1;
-		ds_map_destroy(sd_temp_enemydatas); sd_temp_enemydatas = -1;
-		return noone;
+		sd_temp_enemydata_tocopy = sd_enemydata;
+		if sd_temp_enemydata_tocopy == undefined || !ds_exists(sd_temp_enemydata_tocopy, ds_type_map) {
+			// mem leaks
+			ds_map_destroy(sd_temp_enemydata); sd_temp_enemydata = -1;
+			ds_map_destroy(sd_temp_enemydatas); sd_temp_enemydatas = -1;
+			return noone;
+		}
 	}
 	
 	var old_sd_temp_enemydata_map = sd_temp_enemydata;

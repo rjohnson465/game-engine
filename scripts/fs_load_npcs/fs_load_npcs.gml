@@ -32,7 +32,7 @@ for (var i = 0; i < ds_map_size(sd_npcs); i++) {
 	}
 	
 	with obj_npc_parent {
-		if name == cv {
+		if name == npcDataObj.npcName {
 			npcData = npcDataObj;
 		}
 		event_perform(ev_other,ev_room_start);

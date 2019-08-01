@@ -1,5 +1,5 @@
-maybeApplyElementalCondition(FIRE, 500, noone, noone);
-maybeApplyElementalCondition(FIRE, 500, noone, noone);
+maybeApplyElementalCondition(POISON, 500, noone, noone);
+maybeApplyElementalCondition(POISON, 500, noone, noone);
 
 
 /*

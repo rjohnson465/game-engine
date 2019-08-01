@@ -19,8 +19,8 @@ poiseMax = 75;
 
 sightAngleDelta = 360;
 
-// try summon every 5-10 seconds
-SUMMON_FREQ_MIN = 150; SUMMON_FREQ_MAX = 300;
+// try summon every 10-15 seconds
+SUMMON_FREQ_MIN = 300; SUMMON_FREQ_MAX = 450;
 summonFrequencyFramesRange = [SUMMON_FREQ_MIN, SUMMON_FREQ_MAX];
 randomize();
 summonFrame = random_range(300, SUMMON_FREQ_MAX);

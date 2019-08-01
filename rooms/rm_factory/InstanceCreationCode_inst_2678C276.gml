@@ -1,4 +1,4 @@
-// layerToMoveTo = "instances_floor_3";
+ layerToMoveTo = "instances_floor_2";
 
 var in = instance_number(obj_fade);
 show_debug_message(in);
@@ -36,7 +36,7 @@ maybeApplyElementalCondition(MAGIC, 500, noone, noone);
 maybeApplyElementalCondition(MAGIC, 500, noone, noone);
 */
 
-/*
+
 
 questStart(obj_quest_llf);
 

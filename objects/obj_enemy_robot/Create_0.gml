@@ -1,7 +1,7 @@
 event_inherited();
 name = "Robot";
-descriptionChoices = ["C3P0's Cranky Friend", "This is NOT the droid you're looking for", "Still more empathetic than my ex-wife"];
-description = "C3P0's Cranky Friend";
+descriptionChoices = ["This is NOT the droid you're looking for", "Still more empathetic than my ex-wife"];
+description = "This is NOT the droid you're looking for";
 spriteName = "robot";
 spriteString = "enemy_robot";
 isFairy = false;

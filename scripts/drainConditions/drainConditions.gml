@@ -109,6 +109,12 @@ for (var i = 0; i < size; i++) {
 		conditionPercent -= decrementAmount;
 		ds_map_replace(conditionPercentages,currentCondition,conditionPercent);
 	} if conditionPercent <= 0 {
+		
+		var lr = noone;
+		if id == global.player {
+			lr = global.player.playerLightRadius;
+		}
+		
 		ds_map_replace(conditionPercentages,currentCondition,0);
 		// set condition level to 0
 		ds_map_replace(conditionLevels,currentCondition,0);
@@ -123,13 +129,21 @@ for (var i = 0; i < size; i++) {
 			ds_map_replace(conditionSoundsMap, currentCondition, noone);
 		}
 		switch currentCondition {
+			
 			case FIRE: {
 				isBurning = false; 
 				burnDamage = 0; 
-				if lightRadiusColor != c_white {
-					lightRadiusColor = c_white;
+				if lightRadiusColor == C_FIRELIGHT {
+					
+					if lr >= 0 {
+						with lr {
+							light_set_color(c_white);
+						}
+					} else {
+						lightRadiusColor = c_white;
+						lightRadiusSprite = spr_light_point;
+					}
 					lightRadiusScale = normalLightRadiusScale;
-					lightRadiusSprite = spr_light_point;
 				}
 				break;
 			}
@@ -147,10 +161,17 @@ for (var i = 0; i < size; i++) {
 				break;
 			}
 			case POISON: {
+				if id == global.player {
+					var a = 3;
+				}
 				isPoisoned = false; 
 				poisonDamage = 0; 
 				if lightRadiusColor == c_lime {
-					lightRadiusColor = c_white;
+					if lr >= 0 {
+						with lr {
+							light_set_color(c_white);
+						}
+					} 
 					lightRadiusSprite = spr_light_point;
 				}
 				break;

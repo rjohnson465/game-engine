@@ -1,6 +1,14 @@
 event_inherited();
 
-summonFrame -= 1;
+var isAnyMinionAlive = false;
+with obj_enemy_ravebot_minion {
+	if isAlive {
+		isAnyMinionAlive = true;
+	}
+}
+if !isAnyMinionAlive {
+	summonFrame -= 1;
+}
 
 if summonFrame <= 0 && state != "Eat" {
 	// if there are already minions do not summon

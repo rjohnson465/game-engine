@@ -10,3 +10,10 @@ if room == rm_boss_lighteater {
 		lightSconce(noone);
 	}
 }
+
+
+/*
+// for better pathfinding....
+with obj_fairylight {
+	solid = false;
+}

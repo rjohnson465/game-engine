@@ -40,7 +40,10 @@ if hp < 1 && isAlive && !isDying {
 	}
 }
 
+// Inherit the parent event
+event_inherited();
 
+/*
 
 if doTriggerTonyIntro {
 	doTriggerTonyIntro = false;
@@ -48,7 +51,3 @@ if doTriggerTonyIntro {
 	global.isInteractingWithNpc = true;
 	alarm[0] = 75;
 }
-
-
-// Inherit the parent event
-event_inherited();

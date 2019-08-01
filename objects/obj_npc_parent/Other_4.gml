@@ -1,8 +1,11 @@
 // if there exists an npc_data object for this npc, redo items list based on items in memory
 // with "owner" set to this npc
-with obj_npc_data {
-	if npcName == other.name {
-		other.npcData = id;
+
+if npcData == noone || !instance_exists(npcData) {
+	with obj_npc_data {
+		if npcName == other.name {
+			other.npcData = id;
+		}
 	}
 }
 
