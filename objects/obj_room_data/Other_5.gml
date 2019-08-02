@@ -12,12 +12,12 @@ fs_save_enemydata_tempfile();
 
 // delete properties map for each persistent element only after we save to the temp file
 with obj_persistent_environment {
-	if !is_nan(properties) && ds_exists(properties, ds_type_map) {
+	if properties != undefined && !is_nan(properties) && ds_exists(properties, ds_type_map) {
 		ds_map_destroy(properties); properties = -1;
 	}
 }
 with obj_persistent_environment_nonsolid {
-	if !is_nan(properties) && ds_exists(properties, ds_type_map) {
+	if properties != undefined && !is_nan(properties) && ds_exists(properties, ds_type_map) {
 		ds_map_destroy(properties); properties = -1;
 	}
 }

@@ -15,6 +15,23 @@ Important note: The object calling this function should have a lower depth than 
 
 var layerNum = argument5;
 
+/*
+if variable_global_exists("doPrintLightSources") {
+	var ck = ds_map_find_first(global._light_layers);
+	for (var i = 0; i < ds_map_size(global._light_layers); i++) {
+		
+		var list = ds_map_find_value(global._light_layers, ck);
+		for (var j = 0; j < ds_list_size(list); j++) {
+			var lightSource = ds_list_find_value(list, j);
+			var objName = object_get_name(lightSource.object_index);
+			show_debug_message("Floor " + string(ck) + ": " + string(objName));
+		}
+		
+		ck = ds_map_find_next(global._light_layers, ck);
+	}
+	global.doPrintLightSources = false;
+} */
+
 var map = ds_map_find_value(global._light_layers,layerNum);
 var _light_time = ds_map_find_value(map,"_light_time");
 var _light_max_time = ds_map_find_value(map,"_light_max_time");

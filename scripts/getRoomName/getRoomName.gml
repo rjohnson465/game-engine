@@ -24,4 +24,7 @@ switch ri {
 	case rm_boss_lighteater: {
 		return "Foreman's Chambers"; break;
 	}
+	case rm_winter: {
+		return "Winter Wonderground"; break;
+	}
 }

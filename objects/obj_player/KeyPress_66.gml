@@ -1,3 +1,6 @@
+/*
+global.doPrintLightSources = true;
+/*
 maybeApplyElementalCondition(POISON, 500, noone, noone);
 maybeApplyElementalCondition(POISON, 500, noone, noone);
 

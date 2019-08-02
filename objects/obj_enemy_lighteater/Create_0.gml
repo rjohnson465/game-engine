@@ -110,8 +110,8 @@ meleeAttacks = [c_js, c_js, c_jab, c_claw, c_claw2, c_claw2, c_breath, c_tailsta
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 1;
-maxHp = 1;
+hp = 450;
+maxHp = 450;
 
 stamina = 6000;
 maxStamina = 6000;

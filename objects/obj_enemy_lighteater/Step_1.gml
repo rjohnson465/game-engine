@@ -33,7 +33,6 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_destroy(rmap); rmap = -1;
 	ds_map_destroy(rmap2); rmap2 = -1;
 	lamplightsEatenCount = 0;
-	//ds_map_destroy(tmap); tmap = -1;
 	
 	if !isBossKilledBefore {
 		doTriggerTonyIntro = true;
@@ -43,7 +42,7 @@ if hp < 1 && isAlive && !isDying {
 // Inherit the parent event
 event_inherited();
 
-/*
+
 
 if doTriggerTonyIntro {
 	doTriggerTonyIntro = false;
