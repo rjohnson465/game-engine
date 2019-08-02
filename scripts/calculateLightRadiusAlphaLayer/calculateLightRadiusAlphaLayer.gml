@@ -16,5 +16,9 @@ var luma = getLumaForColor(lightColor);
 var lightRadiusAlpha = ((-1/128)*luma) + 1 + .35;
 if lightRadiusAlpha > 1 lightRadiusAlpha = 1;
 
+if room == rm_winter {
+	lightRadiusAlpha = .5;
+}
+
 
 return lightRadiusAlpha;

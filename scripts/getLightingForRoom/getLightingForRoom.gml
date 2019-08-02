@@ -8,6 +8,10 @@ switch rm {
 	case game_menu: {
 		return [c_gray]; break;
 	}
+	case rm_winter: {
+		var c = make_color_rgb(35, 44, 70)
+		return [c, c];
+	}
 	case rm_dungeon: {
 		return [c_dkgray, c_dkgray, c_red]; break;
 	}

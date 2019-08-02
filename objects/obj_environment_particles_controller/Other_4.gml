@@ -99,6 +99,28 @@ switch room {
 		makeEnvironmentParticles(dust,leaf,"instances_floor_2",1,-2);
 		break;
 	}
+	case rm_winter: {
+		var snowflake1 = part_type_create();
+		part_type_shape(snowflake1, pt_shape_snow);
+		part_type_alpha2(snowflake1,.8,0);
+		part_type_color2(snowflake1,c_silver,c_white);
+		part_type_orientation(snowflake1,0,0,0,15,1);
+		part_type_size(snowflake1,0,0.15,0,.01);
+		part_type_speed(snowflake1,4,8,0,0);
+		part_type_direction(snowflake1,0,360,4,10);
+		part_type_life(snowflake1,150,200);
+		
+		var snowflake2 = part_type_create();
+		part_type_shape(snowflake2, pt_shape_snow);
+		part_type_alpha2(snowflake2,.8,0);
+		part_type_color2(snowflake2,c_silver,c_white);
+		part_type_orientation(snowflake2,0,0,0,15,1);
+		part_type_size(snowflake2,0,0.15,0,.01);
+		part_type_speed(snowflake2,4,8,0,0);
+		part_type_direction(snowflake2,0,360,-4,10);
+		part_type_life(snowflake2,150,200);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",1,1, 250, 250);
+	}
 	case rm_boss_funfairy: {
 		var dust = part_type_create();
 		part_type_shape(dust, pt_shape_sphere);

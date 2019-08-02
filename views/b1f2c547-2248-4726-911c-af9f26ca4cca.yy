@@ -16,7 +16,8 @@
         "8a84dd42-edd1-4e48-9bde-cff87c65c815",
         "d9d286e5-8915-4d8f-930c-dc7dfd671711",
         "0e9ee59c-a445-4a6e-a6a2-9110df48c9ab",
-        "43839242-4057-43c6-a594-44690c9f7a54"
+        "43839242-4057-43c6-a594-44690c9f7a54",
+        "f3d20472-f9bb-4494-8ec5-3593a4000d77"
     ],
     "filterType": "GMSprite",
     "folderName": "physical",

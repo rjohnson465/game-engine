@@ -59,6 +59,15 @@ switch rm {
 		]
 		]; break;
 	}
+	case rm_winter: {
+		return [
+		[snd_amb_winter_wind], 
+		// periodical sounds
+		[
+			[snd_amb_ww_sleighbells, 1000, .5, [200, 400], 30, 30]
+		]
+		]; break;
+	}
 }
 
 return noone;

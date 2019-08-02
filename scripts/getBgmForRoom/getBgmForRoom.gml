@@ -27,6 +27,9 @@ switch rm {
 	case rm_boss_lighteater: {
 		return [snd_bgm_lighteater];
 	}
+	case rm_winter: {
+		return noone;
+	}
 }
 
 return noone;
