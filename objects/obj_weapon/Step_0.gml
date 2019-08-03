@@ -44,10 +44,13 @@ if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && 
 	with obj_light_radius {
 		if owner == other lr = id;
 	}
+	
+	
+	/*
 	if lr != noone {
 		// update torch light layer
 		updateLightLayer2(lr);
-	}
+	} */
 	
 	audio_emitter_gain(torchAudioEmitter,.4);
 	// destroy torch parts, emitters, and systems to avoid mem leak

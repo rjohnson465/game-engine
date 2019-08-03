@@ -1,5 +1,13 @@
-/*
-global.doPrintLightSources = true;
+var rmap = ds_map_create();
+ds_map_replace(rmap,ItemRarities.Normal,0);
+ds_map_replace(rmap,ItemRarities.Fine,0);
+ds_map_replace(rmap,ItemRarities.Masterwork,5);
+ds_map_replace(rmap,ItemRarities.Legendary,5);
+
+var item1 = maybeMakeItem(100,rmap); //randomly generated item
+addItemToInventory(item1);
+
+
 /*
 maybeApplyElementalCondition(POISON, 500, noone, noone);
 maybeApplyElementalCondition(POISON, 500, noone, noone);

@@ -11,15 +11,22 @@ var instanceLayersAbove = ds_list_create();
 var tileLayersAbove = ds_list_create();
 
 var layers = layer_get_all();
-// reset all layer shader objects (???)
-/*
-with obj_layer_shader {
-	surface_free(surface_canvas_1);
-	instance_destroy(id,false);
-}*/
+
+for (var j = 0; j < array_length_1d(layers); j++) {
+				var lay = layers[j];
+				var layName = layer_get_name(lay);
+				show_debug_message(layName + "\n");
+			}
+
+
 for (var i = 0; i < array_length_1d(layers); i++) {
 	var l = layers[i];
 	var lName = layer_get_name(l);
+	if lName == "Background" break;
+	var roomName = room_get_name(room);
+	var l = layer_get_id(lName);
+	var le = layer_exists(l);
+	
 	if string_pos("_floor_",lName) {
 		var lNum = real(string_char_at(lName,string_length(lName)));
 		
@@ -150,6 +157,19 @@ with obj_environment_particles {
 			part_emitter_region(system2,emitter2,vx-1000,vx+2000,vy-2000,vy+2000,ps_shape_rectangle,ps_distr_linear); 
 			part_emitter_stream(system2,emitter2,particle2,num2); 
 			repeat(initNum2) {part_system_update(system2);} 
+		}
+	}
+}
+
+// update the light radius layer of the player's torch, if they are wielding one
+
+
+with obj_weapon {
+	if owner == global.player && limbKey == "r" {
+		with obj_light_radius {
+			if owner == other {
+				updateLightLayer2(id);
+			}
 		}
 	}
 }

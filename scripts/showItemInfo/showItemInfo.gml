@@ -317,7 +317,7 @@ if item.type == ItemTypes.HandItem && !global.inventory.isShowingItemInfo2 {
 			draw_sprite(sprite,1,itemDescriptionCol2XPictures,itemDescriptionColY+((i+1)*25));
 			if !global.ui.isShowingExplanations {
 				var elBuff = ds_map_find_value(item.itemPropertyModifiersPts, ShieldProperties.ElementalBlockBonus);
-				if elBuff != undefined {
+				if elBuff != undefined && is_array(elBuff) {
 					var el = elBuff[0];
 					if el == defenseType {
 						draw_set_color(getPropertyColorForBuffAmount(elBuff[1]));

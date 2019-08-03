@@ -8,6 +8,7 @@ with obj_layer_lighting {
 }
 
 isActive = false;
+var gll = global._light_layers;
 var lightLayerMap = ds_map_find_value(global._light_layers,floorNum);
 lightColor = ds_map_find_value(lightLayerMap, "_light_color");
 

@@ -9719,6 +9719,14 @@
             }
         },
         {
+            "Key": "78605ab9-f65c-4e11-984a-1384c4089938",
+            "Value": {
+                "id": "fe786a1c-4eef-4359-9254-083a9aed0287",
+                "resourcePath": "sprites\\spr_ww_pinecone\\spr_ww_pinecone.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "78746a4f-3f97-44d6-aeaa-5beb7394244c",
             "Value": {
                 "id": "0f640caa-2dc3-48fa-8d31-348d9878a210",
@@ -11207,6 +11215,14 @@
             }
         },
         {
+            "Key": "8b63054f-1c03-4a15-b452-241a53457d44",
+            "Value": {
+                "id": "e9cca33b-1f05-4bc0-af15-3249d9e5ecfb",
+                "resourcePath": "views\\8b63054f-1c03-4a15-b452-241a53457d44.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "8b708cb9-8cc0-4ef2-89ff-e04b89b20608",
             "Value": {
                 "id": "6ccc44f2-2406-4788-a52c-11661f23273c",
@@ -11220,6 +11236,14 @@
                 "id": "a907e7cb-104c-4475-aba1-117f630b3a83",
                 "resourcePath": "scripts\\fs_save_enemies\\fs_save_enemies.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8b87cbd2-da4c-4f9d-8c7b-0b3c05cd0b4a",
+            "Value": {
+                "id": "cd681c23-daa5-4653-af67-c313a23ed583",
+                "resourcePath": "sounds\\snd_bgm_endless_tundra\\snd_bgm_endless_tundra.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -13204,6 +13228,14 @@
                 "id": "3039eb2f-2bec-41a0-be2d-bab849e4c051",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_longsword_attack_1_2\\spr_enemy_unfairy_limb_longsword_attack_1_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a5e2f036-08e1-453b-843f-839127eac2de",
+            "Value": {
+                "id": "d4d20dbc-9cfb-4580-a2a9-05fccc8a499c",
+                "resourcePath": "views\\a5e2f036-08e1-453b-843f-839127eac2de.yy",
+                "resourceType": "GMFolder"
             }
         },
         {

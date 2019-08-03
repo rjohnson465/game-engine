@@ -13,7 +13,17 @@ var loFloorNum = real(string_copy(lightObjLayerName,string_length(lightObjLayerN
 var deletedRef = false;
 var ck = ds_map_find_first(global._light_layers);
 for (var i = 0; i < ds_map_size(global._light_layers); i++) {
-	var map = ds_map_find_value(global._light_layers,i+1);
+	
+	var floorIndex = i;
+	// factory has 0-indexed floors
+	if room == rm_factory {
+		floorIndex -= 1;
+	}
+	
+	var map = ds_map_find_value(global._light_layers,floorIndex+1);
+	
+	
+	
 	var lightsList = ds_map_find_value(map, "_lights");
 	
 	// iterate through all lights on this layer
@@ -21,7 +31,7 @@ for (var i = 0; i < ds_map_size(global._light_layers); i++) {
 		var light = ds_list_find_value(lightsList, j);
 		if light == lightObj {
 			// if the lightObj is in the proper list, exit
-			if i+1 == loFloorNum exit;
+			if floorIndex+1 == loFloorNum exit;
 			else {
 				ds_list_delete(lightsList,j);
 				deletedRef = true; break;
