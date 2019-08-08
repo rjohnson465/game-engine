@@ -35,6 +35,11 @@ if leftHandItem {
 }
 image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
+
+if !owner.visible {
+	visible = false;
+}
+
 image_xscale = 1*owner.scale;
 image_yscale = 1*owner.scale;
 if !(limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded && owner.currentUsingSpell == noone)) {

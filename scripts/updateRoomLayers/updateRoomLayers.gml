@@ -49,12 +49,13 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 				}
 			}
 			with obj_solid_environment {
-				if origLayer == l {
+				if !object_is_ancestor(object_index, obj_npc_parent) && origLayer == l {
+					
 					visible = false;
 				}
 			}
 			with all {
-				if variable_instance_exists(id, "origLayer") {
+				if !object_is_ancestor(object_index, obj_npc_parent) && variable_instance_exists(id, "origLayer") {
 					if origLayer == l {
 						visible = false;
 					}

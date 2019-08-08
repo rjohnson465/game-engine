@@ -62,8 +62,8 @@ with obj_factory_redlight {
 	}
 }
 
-
-// instance_activate_object(obj_persistent_environment);
+/// idk????
+instance_activate_object(obj_persistent_environment);
 
 instance_activate_object(obj_fountain_dark);
 alarm[5] = deactivationSteps;

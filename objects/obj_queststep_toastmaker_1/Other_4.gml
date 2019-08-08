@@ -2,6 +2,10 @@ if status == QuestStepStatus.Completed exit;
 
 // this is for loading 
 var bc = ds_map_find_value(parameters, "breadCount");
+if bc == undefined {
+	bc = 0;
+	ds_map_replace(parameters, "breadCount", bc);
+}
 if status != QuestStepStatus.Completed {
 	description = string(bc) + "/4 bread found";
 } else {

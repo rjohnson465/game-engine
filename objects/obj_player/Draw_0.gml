@@ -17,3 +17,10 @@ if state != CombatantStates.Dodging && getItemInEquipmentSlot(EquipmentSlots.Hea
 // also draw wings over hat?
 var wingsSprite = state == CombatantStates.Moving ? spr_player_wings_move : spr_player_wings;
 draw_sprite_ext(wingsSprite, image_index, x, y, scale, scale, facingDirection, c_white, 1);
+
+
+/*
+if path_index >= 0 {
+	draw_set_color(c_lime);
+	draw_path(path_index, x, y, 1);
+}

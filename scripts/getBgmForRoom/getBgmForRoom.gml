@@ -28,7 +28,7 @@ switch rm {
 		return [snd_bgm_lighteater];
 	}
 	case rm_winter: {
-		return [snd_bgm_endless_tundra];
+		return [snd_bgm_endless_tundra, snd_bgm_wonderground];
 	}
 }
 

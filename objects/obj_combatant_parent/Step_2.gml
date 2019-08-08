@@ -40,6 +40,13 @@ if part_type_exists(sprintParticle) && isSprinting {
 	part_emitter_burst(sprintParticleSystem,sprintParticleEmitter,sprintParticle,-1);
 }
 
+// snow tunnel particles
+if type == CombatantTypes.Player && room == rm_winter && path_index >= 0 && global.isTrading  {
+	var icePart = ds_map_find_value(global.weaponParticlesMap, ICE);
+	part_emitter_region(sprintParticleSystem, sprintParticleEmitter, x-1, x+1, y-1, y+1,ps_shape_ellipse,ps_distr_gaussian);
+	part_emitter_burst(sprintParticleSystem,sprintParticleEmitter,icePart,12);
+}
+
 var pDepth = global.player.depth;
 
 if	type != CombatantTypes.Player && attackData != noone && attackData.prepPart1 != noone 

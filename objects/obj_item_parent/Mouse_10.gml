@@ -70,8 +70,9 @@ if instance_number(obj_item_reward) > 0 {
 // item selection in trading interface
 if global.isTrading && !isSelectingReward {
 	//audio_play_sound(soundGrab,1,0);
-	var playerItemsObj = obj_player_items;
-	var vendorItemsObj = obj_vendor_items;
+	var playerItemsObj = instance_nearest(x, y, obj_player_items);
+	var vendorItemsObj = instance_nearest(x, y, obj_vendor_items);;
+	if !instance_exists(playerItemsObj) || !instance_exists(vendorItemsObj) exit;
 	if playerItemsObj.isConfirming || vendorItemsObj.isConfirming exit;
 	// if item in inventory, it's the selectedItem of obj_player_items
 	if ds_list_find_index(global.player.inventory,id) != -1 {

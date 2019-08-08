@@ -7,6 +7,9 @@ x = limb.x;
 y = limb.y;
 image_angle = owner.facingDirection;
 image_alpha = owner.alpha;
+if !owner.visible {
+	visible = false;
+}
 image_xscale = 1*owner.scale;
 image_yscale = 1*owner.scale;
 part_system_depth(system,layer_get_depth(owner.layer));

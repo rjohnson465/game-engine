@@ -1,4 +1,9 @@
-if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked exit;
+if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked {
+	if lightRadiusColor != c_white {
+		lightRadiusColor = c_white;
+	}
+	exit;
+}
 
 // account for any currently active conditions (slowed/frozen, burning, poisoned, electrified)
 var currentCondition = ds_map_find_first(conditionLevels);

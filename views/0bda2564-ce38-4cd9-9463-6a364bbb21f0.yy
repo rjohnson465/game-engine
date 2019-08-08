@@ -15,7 +15,8 @@
         "052792ce-45cf-4b31-8f20-a3051ae459e9",
         "18b2695f-7cc1-49b6-9896-2db88b5ec916",
         "30cc84c8-2516-4581-8418-e7daaed7d069",
-        "65f4c386-03b2-4f84-b479-3919a9b4ec7c"
+        "65f4c386-03b2-4f84-b479-3919a9b4ec7c",
+        "4f21834a-3f5a-4653-9ea7-e6794ee09890"
     ],
     "filterType": "GMSound",
     "folderName": "environment",

@@ -219,7 +219,8 @@ bgmManager = instance_create_depth(x,y,1,obj_bgm_manager);
 isMouseOverBelt = false;
 
 // every x steps, deactivate solid enviornment objects that are far away out of the view
-deactivationSteps = 15;
+#macro DEACTIVATION_STEPS_DEFAULT 15;
+deactivationSteps = DEACTIVATION_STEPS_DEFAULT;
 deactivationBorder = 200;
 alarm[5] = deactivationSteps;
 
