@@ -12,5 +12,6 @@ hitSound = snd_hit1;
 
 turnSpeed = 20;
 type = AttackTypes.Charge;
+staggersAgainstBlocks = false;
 
 minRange = 65;

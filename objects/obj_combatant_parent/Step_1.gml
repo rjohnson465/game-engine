@@ -177,7 +177,7 @@ if isDying && isAlive {
 				var j = 0;
 				for (var i = 0; i < size; i++) {
 					var it = ds_list_find_value(droppedItems,j);
-					if it == noone || it == undefined {
+					if it == noone || it == undefined || !instance_exists(it) {
 						ds_list_delete(droppedItems,j);
 						j--;
 					}

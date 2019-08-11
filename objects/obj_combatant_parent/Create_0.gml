@@ -194,6 +194,7 @@ strafeFrame = -1;
 isStrafing = false;
 strafeAngle = 0;
 strafeDirection = "l"; // l or r
+canStrafe = true;
 
 // dodge stuff
 dodgeDirection = noone;

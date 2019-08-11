@@ -21,7 +21,9 @@ var yy = lengthdir_y(strafeOrbit,angle) + pointY;
 if !place_meeting_layer(xx,yy,obj_enemy_obstacle_parent) && !place_meeting_layer(xx,yy,obj_fallzone) {
 	x = xx;
 	y = yy;
-	turnToFacePoint(turnSpeed,pointX,pointY);
+	if canStrafe {
+		turnToFacePoint(turnSpeed,pointX,pointY);
+	} 
 	//strafingCombatant.facingDirection = point_direction(x,y,pointX,pointY);
 } else {
 	strafeDirection = strafeDirection == "l" ? "r" : "l";

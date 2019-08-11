@@ -13,6 +13,8 @@ staggerDuration = 25;
 attackSound = snd_dodge1;
 hitSound = snd_hit1;
 
+staggersAgainstBlocks = false;
+
 minRange = 65;
 
 chargePrepSpeed = 1;

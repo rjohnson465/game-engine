@@ -583,6 +583,14 @@
             }
         },
         {
+            "Key": "0693e73a-07ca-446a-ba36-78a730635bd4",
+            "Value": {
+                "id": "0595159b-fc44-4781-832a-aad3f1716f5a",
+                "resourcePath": "views\\0693e73a-07ca-446a-ba36-78a730635bd4.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "06b4832f-96df-47a1-a57f-43b60eb86623",
             "Value": {
                 "id": "c61e41e8-5652-4789-838c-72e458be0726",
@@ -1367,6 +1375,14 @@
             }
         },
         {
+            "Key": "1041b170-7ec4-4224-986a-fc75757db803",
+            "Value": {
+                "id": "4ff3677a-86fd-4a59-a4f6-c075249b8d4d",
+                "resourcePath": "sounds\\snd_enemy_wolf_growl_3\\snd_enemy_wolf_growl_3.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "1047e239-8bc2-442f-ad45-fc611e66d458",
             "Value": {
                 "id": "9817a820-c6b6-4b30-a6e4-98eeb5a3b412",
@@ -1851,6 +1867,14 @@
             "Value": {
                 "id": "e1e9548b-59f4-40cc-8de1-7c3ab10a5d30",
                 "resourcePath": "sprites\\spr_factory_floor_1\\spr_factory_floor_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "14a9c385-59f1-44fa-bdfc-90e932f7dc54",
+            "Value": {
+                "id": "9f83e584-4251-415e-aac8-c273f34cd21d",
+                "resourcePath": "sprites\\spr_enemy_wolf_stagger\\spr_enemy_wolf_stagger.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2863,6 +2887,14 @@
             }
         },
         {
+            "Key": "213150d3-28f1-45d0-86e0-9302778f8c0e",
+            "Value": {
+                "id": "aefa9f19-19fc-42b0-81d8-aa8cd75b73d8",
+                "resourcePath": "objects\\obj_attack_wolf_lunge_1_1\\obj_attack_wolf_lunge_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "21377ea9-c881-447a-856b-2e40e34e944b",
             "Value": {
                 "id": "55be08f1-8725-4f01-b1c8-01b70e386363",
@@ -2900,6 +2932,14 @@
                 "id": "c59943ca-298c-498f-a25c-45d88f2eb483",
                 "resourcePath": "sprites\\spr_skill_spearmastery\\spr_skill_spearmastery.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "217ca888-c2f7-4690-8535-44e9ae5f643d",
+            "Value": {
+                "id": "16d1f04a-995a-426f-8cda-d951e8173ad6",
+                "resourcePath": "views\\217ca888-c2f7-4690-8535-44e9ae5f643d.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -3671,6 +3711,14 @@
             }
         },
         {
+            "Key": "2a8d8b43-9fe3-43d8-a482-ed59a19b8199",
+            "Value": {
+                "id": "1af20c5e-35de-4f9a-883e-7e8363bf5008",
+                "resourcePath": "sounds\\snd_enemy_wolf_growl_2\\snd_enemy_wolf_growl_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "2a9249ec-c635-44bb-9c90-5356a4253d0e",
             "Value": {
                 "id": "ce0a37a0-d1e1-41c7-8ad7-7cc4ed4cdda8",
@@ -3972,6 +4020,14 @@
                 "id": "1109e3b1-06b6-4462-a54d-e217dafce631",
                 "resourcePath": "sprites\\spr_enemy_ravebot_laserbolt_recover_1_2\\spr_enemy_ravebot_laserbolt_recover_1_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2ebebfca-fe15-4761-b597-2fd74231449e",
+            "Value": {
+                "id": "fd29fee6-3bad-4f9b-9dfd-419ec80e596f",
+                "resourcePath": "sounds\\snd_enemy_wolf_growl_1\\snd_enemy_wolf_growl_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -4519,6 +4575,14 @@
             }
         },
         {
+            "Key": "35db173b-a259-438d-9808-d76cbcb36943",
+            "Value": {
+                "id": "b736b937-a2f4-4907-9816-f45081b2a7a2",
+                "resourcePath": "views\\35db173b-a259-438d-9808-d76cbcb36943.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "36181d34-36b3-47e9-be49-b6d1290f5adf",
             "Value": {
                 "id": "3379a162-5a4d-4ec3-87f6-374265c3c382",
@@ -4612,6 +4676,14 @@
                 "id": "34c5c22d-1f32-47ee-837c-326ec07aabfc",
                 "resourcePath": "views\\37545232-1f8e-4840-a1f6-cfa74e4cd8d4.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "377af4d1-17d1-4575-91b0-9d843eff4e48",
+            "Value": {
+                "id": "ea43ff24-bb24-4f12-9ed7-c8c32d23dbd8",
+                "resourcePath": "sounds\\snd_enemy_wolf_hit_2\\snd_enemy_wolf_hit_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -5839,6 +5911,14 @@
             }
         },
         {
+            "Key": "467f7f7d-d61c-47d8-a143-9d72ef42e283",
+            "Value": {
+                "id": "b9989b00-e8c1-44bd-92cd-16e149aace36",
+                "resourcePath": "objects\\obj_enemy_wolf\\obj_enemy_wolf.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "468a471a-f987-4ca9-86fa-3c32de52db0e",
             "Value": {
                 "id": "0c852b83-d358-4a6e-93fd-7f4dc868ff32",
@@ -6719,6 +6799,14 @@
             }
         },
         {
+            "Key": "501db411-f07a-435d-9905-b113486fa605",
+            "Value": {
+                "id": "ab96736d-5c65-4ac0-97ce-5236b466223e",
+                "resourcePath": "sounds\\snd_enemy_wolf_die_1\\snd_enemy_wolf_die_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "50205fb8-2f5d-4cee-8b34-09515a034b7e",
             "Value": {
                 "id": "8db72400-95b6-4c95-887b-55dffff4d643",
@@ -7156,6 +7244,14 @@
                 "id": "cfd98ea9-424e-44a7-8486-eb4b6ee0ef5a",
                 "resourcePath": "rooms\\rm_boss_funfairy\\rm_boss_funfairy.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "55d3f373-80ad-4889-b856-b4b2bcbce998",
+            "Value": {
+                "id": "14339a43-66d0-4ebc-9edd-6bfa32e6d9eb",
+                "resourcePath": "views\\55d3f373-80ad-4889-b856-b4b2bcbce998.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -8319,6 +8415,14 @@
             }
         },
         {
+            "Key": "658cd00e-f5b4-4306-8809-c85717386c65",
+            "Value": {
+                "id": "d9f7b55d-9c62-4045-bff9-311a814701c4",
+                "resourcePath": "views\\658cd00e-f5b4-4306-8809-c85717386c65.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "65b185f4-4258-4448-a221-3e50549229f5",
             "Value": {
                 "id": "1d4b863d-9b9c-441e-a4b4-4acd6dd9a03e",
@@ -8839,6 +8943,14 @@
             }
         },
         {
+            "Key": "6d00a1fc-15d0-4b3f-bd5f-b760d9821b72",
+            "Value": {
+                "id": "14964e32-2973-42d5-a9ed-81a3eeecb163",
+                "resourcePath": "views\\6d00a1fc-15d0-4b3f-bd5f-b760d9821b72.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "6d07e332-d675-43cf-af72-bf1afbd4e482",
             "Value": {
                 "id": "74bff3d2-d38c-4c4a-ae8c-3623cb29e94f",
@@ -8980,6 +9092,14 @@
                 "id": "c67bc71c-1fac-478a-8ff6-1149a9ffb8a2",
                 "resourcePath": "sprites\\spr_player\\spr_player.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6ecf75db-4873-4da4-81c4-596ff6bc66e5",
+            "Value": {
+                "id": "696044fc-076f-4aff-bff2-da7804373d96",
+                "resourcePath": "views\\6ecf75db-4873-4da4-81c4-596ff6bc66e5.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -10244,6 +10364,14 @@
                 "id": "e30fe5ac-216f-4004-bdd2-e830f60ac04d",
                 "resourcePath": "views\\7e5a8e29-21b1-4fb7-88be-22da439ae5c4.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "7e6c2c4f-8d83-47cd-b75b-de311230b3be",
+            "Value": {
+                "id": "cb769e95-600c-46d3-ab06-6e672cdac480",
+                "resourcePath": "sounds\\snd_enemy_wolf_hit_1\\snd_enemy_wolf_hit_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -11719,6 +11847,14 @@
             }
         },
         {
+            "Key": "90faaf95-9607-4656-b986-6419364fd660",
+            "Value": {
+                "id": "68cb4163-bd72-45c9-ba99-15fc3ee5952c",
+                "resourcePath": "views\\90faaf95-9607-4656-b986-6419364fd660.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "9127a6c8-5019-4b21-90f4-207e9e428d5d",
             "Value": {
                 "id": "3bee0bae-f662-4f88-8633-887898825a28",
@@ -11740,6 +11876,14 @@
                 "id": "082da45a-5bcf-4c9e-b673-4bf41dc41d24",
                 "resourcePath": "objects\\obj_item_bread\\obj_item_bread.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "916add28-9423-4231-827e-e927f4b5502f",
+            "Value": {
+                "id": "c99ff8bb-d8d5-4425-a79f-f252861242f4",
+                "resourcePath": "sounds\\snd_enemy_wolf_die_2\\snd_enemy_wolf_die_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -11844,6 +11988,14 @@
                 "id": "c463a8e8-7a2b-4cc3-a085-58ecfa0a154b",
                 "resourcePath": "objects\\obj_enemy_parent\\obj_enemy_parent.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "92b86a0f-89b5-4331-bfe5-944325399a47",
+            "Value": {
+                "id": "63632547-3293-4097-9f04-ce187257ae1a",
+                "resourcePath": "sounds\\snd_amb_wolf_howl\\snd_amb_wolf_howl.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -11988,6 +12140,14 @@
                 "id": "dbf96241-0a6a-417b-826a-ffc0ac04244b",
                 "resourcePath": "views\\95002745-a764-4999-aa4a-71ea01418cc4.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "951be6e9-01f0-46e7-96c8-38b33a1d30af",
+            "Value": {
+                "id": "7501fe1b-28f7-47f6-af48-fc07c63b9591",
+                "resourcePath": "sounds\\snd_enemy_wolf_hit_3\\snd_enemy_wolf_hit_3.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -12399,6 +12559,14 @@
             }
         },
         {
+            "Key": "9a2587b4-3041-41ca-ad13-1de2ef922da9",
+            "Value": {
+                "id": "ab07b3c6-ba91-4760-9d1e-6a6fc187607f",
+                "resourcePath": "views\\9a2587b4-3041-41ca-ad13-1de2ef922da9.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "9a2832e0-5c8b-4f20-a6ce-0dc94b2fa05d",
             "Value": {
                 "id": "11527db0-2506-4102-856d-67103bc87dbb",
@@ -12651,6 +12819,14 @@
             "Value": {
                 "id": "3d291cf7-44d0-4980-bb61-b1c4e3050dec",
                 "resourcePath": "sprites\\spr_gem_ruby_exquisite\\spr_gem_ruby_exquisite.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9d7f25b7-70f7-49fc-b55d-97e917bf6cd1",
+            "Value": {
+                "id": "cf435151-5a25-4dc7-bb14-81761b815a67",
+                "resourcePath": "sprites\\spr_enemy_wolf_lunge_recover_1_1\\spr_enemy_wolf_lunge_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -13188,6 +13364,14 @@
                 "id": "365ea99c-0651-4353-baca-29cf37be114d",
                 "resourcePath": "scripts\\fs_generate_key\\fs_generate_key.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a37ac650-ba51-45be-92b4-c9bd0d24b17d",
+            "Value": {
+                "id": "c6db87cc-7f9c-41a4-a406-a7fb996dd4ea",
+                "resourcePath": "sprites\\spr_enemy_wolf_move\\spr_enemy_wolf_move.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -13892,6 +14076,14 @@
                 "id": "ba0fcc80-ab0a-4f26-aa14-4655e2523a00",
                 "resourcePath": "scripts\\proceedFromChooseGem\\proceedFromChooseGem.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "abed6a56-c8f0-4006-a308-caba2f77be69",
+            "Value": {
+                "id": "70d7049e-90e6-45df-95ea-2d0208054d62",
+                "resourcePath": "views\\abed6a56-c8f0-4006-a308-caba2f77be69.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -15271,6 +15463,14 @@
             }
         },
         {
+            "Key": "bb3b9d02-cdac-433c-a958-84e8660cd036",
+            "Value": {
+                "id": "00b6c01e-3a65-4425-b775-806a57483516",
+                "resourcePath": "views\\bb3b9d02-cdac-433c-a958-84e8660cd036.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "bb522331-acc1-42f3-94cb-139223b61539",
             "Value": {
                 "id": "cbff13ae-6d3d-4416-86a8-9aa79a7693f2",
@@ -15979,6 +16179,14 @@
             "Value": {
                 "id": "8ff6d4d1-38a3-42c1-882c-adeb4868c11b",
                 "resourcePath": "sprites\\spr_enemy_lighteater_claw_recover_2_1\\spr_enemy_lighteater_claw_recover_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c4be294d-4dca-4fb1-b9d0-4b97dbfe0269",
+            "Value": {
+                "id": "182c461b-a3f6-4ef6-b509-42b0b33493ad",
+                "resourcePath": "sprites\\spr_enemy_wolf_lunge_prep_1_1\\spr_enemy_wolf_lunge_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -19823,6 +20031,14 @@
             }
         },
         {
+            "Key": "f7a481a9-0b51-4f81-b09d-bc92cb6fe296",
+            "Value": {
+                "id": "3fd40320-f61f-4419-8b49-9af2b996b219",
+                "resourcePath": "sprites\\spr_enemy_wolf_lunge_attack_1_1\\spr_enemy_wolf_lunge_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f7e80ac6-7107-4a91-b291-8e3e108c92d3",
             "Value": {
                 "id": "dd8a2f29-31b8-46ce-855d-c92718a528c7",
@@ -19948,6 +20164,14 @@
                 "id": "eb769bd7-257b-4c11-912c-44ba9cd437f8",
                 "resourcePath": "scripts\\scr_conv_terri_factoryrobots\\scr_conv_terri_factoryrobots.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "fa0f840c-4080-4f32-8c56-526f05be0352",
+            "Value": {
+                "id": "46d1289f-3126-407c-8512-0222fc8f2c65",
+                "resourcePath": "sprites\\spr_enemy_wolf\\spr_enemy_wolf.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

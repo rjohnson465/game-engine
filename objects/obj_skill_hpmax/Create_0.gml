@@ -1,5 +1,5 @@
 event_inherited();
-name = "Whatever it TAKES, Goddammit";
+name = "Healthy";
 description = "Increases max HP.";
 levelMax = 99;
 slot = Skills.HealthMax;

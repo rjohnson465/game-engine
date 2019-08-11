@@ -3,6 +3,7 @@
 
 room_goto(room);
 
+/*
 // debug shit
 		var mapsCount = 0;
 		for (var i = 0; i < 100000; i++) {

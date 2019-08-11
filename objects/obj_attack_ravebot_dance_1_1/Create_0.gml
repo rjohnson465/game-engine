@@ -6,6 +6,7 @@ ds_map_add(damages,SLASH,[8,12]);
 isRanged = false;
 staminaCost = 10;
 staggerDuration = 5;
+staggersAgainstBlocks = false;
 
 attackSound = snd_sword1h_attack_1;
 hitSound = snd_hit1;

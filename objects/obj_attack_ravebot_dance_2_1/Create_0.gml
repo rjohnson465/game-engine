@@ -10,6 +10,8 @@ staggerDuration = 5;
 attackSound = snd_sword1h_attack_1;
 hitSound = snd_hit1;
 
+
+staggersAgainstBlocks = false;
 turnSpeed = 20;
 type = AttackTypes.Charge;
 

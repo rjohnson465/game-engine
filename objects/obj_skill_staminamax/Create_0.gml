@@ -1,5 +1,5 @@
 event_inherited();
-name = "I Said She Doesn't Have the Stamina";
+name = "Endurance";
 description = "Increases max stamina.";
 levelMax = 99;
 skillSprite = spr_skill_staminamax;

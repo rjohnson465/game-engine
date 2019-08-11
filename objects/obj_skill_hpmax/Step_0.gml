@@ -10,10 +10,10 @@ if isLevelingUp {
 	var bonus = 0;
 	if level <= 10 {
 		amount = 10*level;
-		bonus = 10;
+		bonus = 5;
 	} else if level > 10 && level <= 20 {
 		amount = 100+((level-10)*5);
-		bonus = 5;
+		bonus = 3;
 	} else if level > 20 && level <= 45 {
 		amount = 150+((level-20)*2);
 		bonus = 2;
@@ -23,9 +23,9 @@ if isLevelingUp {
 	}
 	
 	if level <= 9 {
-		nextAmount = amount + 10;
-	} else if level <= 19 {
 		nextAmount = amount + 5;
+	} else if level <= 19 {
+		nextAmount = amount + 3;
 	} else if level <= 44 {
 		nextAmount = amount + 2;
 	} else nextAmount = amount + 1;

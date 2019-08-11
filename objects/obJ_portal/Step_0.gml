@@ -19,6 +19,7 @@ with obj_npc_parent {
 maybeAddOrRemoveFromInteractablesList(1);
 
 if	// isCurrentInteractionObject(id) && 
+	!isUntraversable &&
 	global.player.currentInteractableObject == id &&
 	interactInputReceived && fade == noone && global.player.isAlive && 
 	!global.isLooting && 

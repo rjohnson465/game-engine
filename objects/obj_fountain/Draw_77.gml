@@ -20,9 +20,23 @@ shader_set(shd_radial_blur);
 	
 	// stretched width
 	var stw = vw*(sh/vh);
-
+	
+	var dw = display_get_width();
+	var dh = display_get_height();
+	
 	// view point x
 	var vpx = (sw/2)-(stw/2);
+	
+	if window_get_fullscreen() {
+		stw = vw*(dh/vh);
+		vpx = (dw / 2) - (stw/2);
+		sh = dh;
+	}
+	
+	
+	
+
+	
 	
 	draw_surface_stretched(application_surface,vpx,0,stw,sh);
     //if full_screen_effect draw_surface(surf,0,0);
