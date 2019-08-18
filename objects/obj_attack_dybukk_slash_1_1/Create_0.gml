@@ -18,3 +18,4 @@ staggersAgainstBlocks = false;
 
 attackSound = snd_axe2h_attack_1;
 prepSound = snd_thrust_attack_1;
+attackSoundsVocals = [snd_enemy_dybukk_scream_1];

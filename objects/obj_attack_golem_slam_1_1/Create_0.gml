@@ -19,3 +19,6 @@ prepSound = snd_thrust_attack_1;
 
 attackSoundMid = snd_crunchy_thud;
 attackSoundMidFrame = 5;
+
+attackSoundsVocals = [snd_enemy_golem_attack_1];
+prepSoundsVocals = [snd_enemy_golem_prep_1];

@@ -1,11 +1,13 @@
- layerToMoveTo = "instances_floor_2";
+
 
 var in = instance_number(obj_fade);
 show_debug_message(in);
 if in > 0 exit;
 
+ layerToMoveTo = "instances_floor_2";
+
 level = 4;
-xpToNextLevel = round(453*(power(2,level/3.6)));
+xpToNextLevel = getXpToNextLevel();
 
 var hpSkill = instance_nearest(x,y,obj_skill_hpmax);
 repeat(3) {

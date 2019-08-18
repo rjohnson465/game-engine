@@ -96,8 +96,8 @@ totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_d
 ds_map_replace(defenses,MAGIC,40);
 ds_map_replace(defenses,ICE,90);
 
-soundsWhenHitVocals = [snd_enemy_unfairy_hit1, snd_enemy_unfairy_hit2];
-soundsWhenDie = [snd_enemy_unfairy_die];
+soundsWhenHitVocals = [snd_enemy_krampuself_hit_1, snd_enemy_krampuself_hit_2];
+soundsWhenDie = [snd_enemy_krampuself_die_1];
 
 xpReward = 50;
 

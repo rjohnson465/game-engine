@@ -14,6 +14,31 @@ if gamepad_is_connected(gamePadIndex) {
 if lockOnInputReceived || lockOnInputChangeReceived {
 	// always refresh lockOnList (enemies could have left radius or entered
 	lockOnList = scr_collision_circle_list_layer(x,y,LOCK_ON_DISTANCE,obj_enemy_parent, true, true);
+	
+	if lockOnList != noone {
+		// disinclude enemies that are non-hostile and off-screen
+		var targetsToRemove = ds_list_create();
+		var vx = camera_get_view_x(view_camera[0]); var vy = camera_get_view_y(view_camera[0]);
+		var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(view_camera[0]);
+		var vx2 = vx + vw; var vy2 = vy + vh;
+		for (var i = 0; i < ds_list_size(lockOnList); i++) {
+			var possibleTarget = ds_list_find_value(lockOnList, i);
+			if !point_in_rectangle(possibleTarget.x, possibleTarget.y, vx, vy, vx2, vy2) {
+				if possibleTarget.state == CombatantStates.Idle {
+					ds_list_add(targetsToRemove, possibleTarget);
+				}
+			}
+		}
+		
+		for (var i = 0; i < ds_list_size(targetsToRemove); i++) {
+			var targToRemove = ds_list_find_value(targetsToRemove, i);
+			var pos = ds_list_find_index(lockOnList, targToRemove);
+			ds_list_delete(lockOnList, pos);
+		}
+		
+		ds_list_destroy(targetsToRemove); targetsToRemove = -1; // mem leak
+	}
+	
 	if (lockOnList == noone) {
 		lockOnTarget = noone;
 		isLockedOn = false;
@@ -50,8 +75,19 @@ if lockOnInputReceived || lockOnInputChangeReceived {
 	}
 	// if not locked on just get the nearest enemy in the list 
 	else if (lockOnList != noone){
-		var closestInstance = scr_find_nth_closest_layer(x,y,obj_enemy_parent, 1);
-		// var closestInstance = ds_list_find_value(lockOnList, 0);
+		
+		// var closestInstance = scr_find_nth_closest_layer(x,y,obj_enemy_parent, 1);
+		var closestInstance = noone;
+		var closestDist = 10000;
+		for (var i = 0; i < ds_list_size(lockOnList); i++) {
+			var targ = ds_list_find_value(lockOnList, i);
+			var dist = distance_to_object(targ);
+			if dist < closestDist {
+				closestDist = dist;
+				closestInstance = targ;
+			}
+		}
+		
 		if closestInstance != noone && closestInstance != undefined {
 			lockOnTarget = closestInstance;
 			isLockedOn = true;

@@ -88,7 +88,7 @@ ds_map_replace(defenses, MAGIC, -50);
 agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
-soundsWhenHitVocals = [];
-soundsWhenDie = [];
+soundsWhenHitVocals = [snd_enemy_dybukk_scream_2, snd_enemy_dybukk_scream_3];
+soundsWhenDie = [snd_enemy_dybukk_die_1, snd_enemy_dybukk_die_2];
 
 chanceToDropHealthOrb = .15;

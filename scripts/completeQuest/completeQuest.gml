@@ -1,6 +1,11 @@
-/// completeQuest(quest)
+/// completeQuest(quest, gainXp*)
 /// @param quest
+/// @param gainXp* optional boolean flag to get quest xp reward, used in testing
 var quest = argument[0];
+var doGainXp = true;
+if argument_count > 1 {
+	doGainXp = argument[1];
+}
 
 if !quest.currentQuestStep.isRewardStep || quest.isFinished exit;
 
@@ -8,7 +13,9 @@ quest.currentQuestStep.status = QuestStepStatus.Completed;
 // decrement how many quests the player has at the reward step (pending completion)
 global.player.questsAtRewardStepCount--;
 
-gainXp(quest.xpReward);
+if doGainXp {
+	gainXp(quest.xpReward);
+}
 audio_play_sound(snd_ui_quest_complete,1,0);
 var itemsString = "";
 for (var i = 0; i < ds_list_size(quest.rewardItems); i++) {

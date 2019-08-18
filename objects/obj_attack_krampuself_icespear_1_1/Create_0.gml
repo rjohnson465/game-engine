@@ -12,3 +12,5 @@ staggerDuration = 10;
 attackSound = snd_thrust_attack_1;
 hitSound = snd_hit1;
 minRange = 80;
+
+attackSoundsVocals = [snd_enemy_krampuself_snarl_1, snd_enemy_krampuself_snarl_2];
