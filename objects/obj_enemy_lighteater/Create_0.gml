@@ -58,7 +58,7 @@ meleeAggroRange = 800;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 1000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
-attackFrequencyTotalFramesMelee = [45,75];
+attackFrequencyTotalFramesMelee = [37,60];
 attackFrequencyTotalFramesRanged = [45,70];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[500,600];
@@ -110,8 +110,8 @@ meleeAttacks = [c_js, c_js, c_jab, c_claw, c_claw2, c_claw2, c_breath, c_tailsta
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 4.50;
-maxHp = 4.50;
+hp = 450;
+maxHp = 450;
 
 stamina = 6000;
 maxStamina = 6000;

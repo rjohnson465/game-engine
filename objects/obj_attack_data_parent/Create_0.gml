@@ -74,6 +74,10 @@ prepPart1BelowOwner = false;
 prepPartBoundingBox = noone;
 prepPartStartFrame = noone;
 
+// if there is a sound that should play mid attack, specify the sound and the frame here
+attackSoundMid = noone;
+attackSoundMidFrame = noone;
+
 usesWeapon = false;
 
 // For AOE attacks -- how many degrees all attacks span

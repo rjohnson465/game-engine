@@ -119,7 +119,9 @@ switch room {
 		part_type_speed(snowflake2,4,8,0,0);
 		part_type_direction(snowflake2,0,360,-4,10);
 		part_type_life(snowflake2,150,200);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",1,1, 250, 250);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",10,10, 1, 1);
+		
+		break;
 	}
 	case rm_boss_funfairy: {
 		var dust = part_type_create();

@@ -17,7 +17,9 @@ var lightRadiusAlpha = ((-1/128)*luma) + 1 + .35;
 if lightRadiusAlpha > 1 lightRadiusAlpha = 1;
 
 if room == rm_winter {
-	lightRadiusAlpha = .5;
+	if lightRadiusAlpha > .3 {
+		lightRadiusAlpha = .3;
+	}
 }
 
 

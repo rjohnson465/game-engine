@@ -112,7 +112,25 @@ switch condition {
 		// smoke particle
 		var smoke = part_type_create();
 		part_type_shape(smoke, pt_shape_smoke);
-		part_type_color2(smoke,owner.dyingParticleColor1,owner.dyingParticleColor2);
+		
+		var c1 = noone; var c2 = noone;
+		if is_array(owner.dyingParticleColor1) {
+			if array_length_1d(owner.dyingParticleColor1) == 0 {
+				c1 = c_white; c2 = c_silver;
+			}
+			else if array_length_1d(owner.dyingParticleColor1) == 1 {
+				c1 = owner.dyingParticleColor1[0];
+				c2 = owner.dyingParticleColor1[0]; 
+			}
+			else {
+				c1 = owner.dyingParticleColor1[0];
+				c2 = owner.dyingParticleColor1[1]; 	
+			}
+		} else {
+			c1 = owner.dyingParticleColor1; c2 = owner.dyingParticleColor2;
+		}
+		
+		part_type_color2(smoke,c1,c2);
 		part_type_orientation(smoke,0,0,0,15,1);
 		part_type_size(smoke,0.15,0.45,0,0);
 		part_type_speed(smoke,2,4,0,0);

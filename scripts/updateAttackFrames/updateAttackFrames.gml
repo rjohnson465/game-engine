@@ -23,6 +23,14 @@ if ds_map_size(attackingLimbs) != 0 {
 		}
 		if attackObj != noone {
 			ds_map_replace(attackFrames,limb,attackObj.image_index);
+			
+			// maybe play a mid-attack sound
+			if attackData.attackSoundMid != noone && attackData.attackSoundMidFrame != noone {
+				if attackObj.image_index == attackData.attackSoundMidFrame {
+					audio_play_sound_at(attackData.attackSoundMid, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+				}
+			}
+			
 			if attackData.type == AttackTypes.Charge {
 				var chargeDir = point_direction(x,y,chargePointX,chargePointY);
 				turnToFacePoint(turnSpeed,chargePointX,chargePointY);

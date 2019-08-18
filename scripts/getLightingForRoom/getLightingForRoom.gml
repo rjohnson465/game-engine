@@ -9,7 +9,7 @@ switch rm {
 		return [c_gray]; break;
 	}
 	case rm_winter: {
-		var c = make_color_rgb(35, 44, 70)
+		var c = make_color_rgb(52, 66, 105)
 		return [c, c];
 	}
 	case rm_dungeon: {

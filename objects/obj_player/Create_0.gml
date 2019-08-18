@@ -197,8 +197,12 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Rings, 0);
 ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 */
 
-var hf = instance_create_depth(x,y,1,obj_item_health_flask);
-addItemToInventory(hf);
+var hf = noone;
+var hfCount = instance_number(obj_item_health_flask);
+if instance_number(obj_item_health_flask) == 0 {
+	hf = instance_create_depth(x,y,1,obj_item_health_flask);
+	addItemToInventory(hf);
+}
 
 if global.populateInventory && !global.gameManager.isLoading {
 	
@@ -431,14 +435,16 @@ sprintCounterTotal = 10;
 sprintCounter = sprintCounterTotal;
 
 // belt items
-beltItems[0] = noone;
-beltItems[1] = noone;
-beltItems[2] = noone;
-beltItems[3] = noone;
-beltItems[4] = noone;
-currentBeltItemIndex = 0; // this is the index of item that will be used when X is pressed
-equipItem(hf, EquipmentSlots.BeltItem1);
-//equipBeltItem(0,hf);
+if hf != noone {
+	beltItems[0] = noone;
+	beltItems[1] = noone;
+	beltItems[2] = noone;
+	beltItems[3] = noone;
+	beltItems[4] = noone;
+	currentBeltItemIndex = 0; // this is the index of item that will be used when X is pressed
+	equipItem(hf, EquipmentSlots.BeltItem1);
+	//equipBeltItem(0,hf);
+}
 
 healingFrame = 0;
 healingTotalFrames = sprite_get_number(spr_player_heal);

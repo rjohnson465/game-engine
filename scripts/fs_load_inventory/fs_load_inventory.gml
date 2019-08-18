@@ -131,7 +131,7 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 		if propsList != undefined && ds_exists(propsList,ds_type_list) && ds_list_size(propsList) > 0 {
 			for (var i = 0; i < ds_list_size(propsList); i += 2) {
 				var prop = ds_list_find_value(propsList,i);
-				var val = ds_list_find_value(propsList2,i+1);
+				var val = ds_list_find_value(propsList,i+1);
 				// props with macros are saved as formatted string "MACRO <val>"
 				if is_string(val) {
 					var index = string_pos(" ",val);

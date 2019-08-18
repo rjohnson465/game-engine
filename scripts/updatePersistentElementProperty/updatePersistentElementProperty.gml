@@ -8,7 +8,6 @@ var prop = argument1;
 var val = argument2;
 
 var rd = instance_nearest(x,y,obj_room_data);
-//if rd == noone || rd.persistentElements == noone || rd.enemiesData == noone exit;
 
 // enemy... 
 if object_is_ancestor(el.object_index, obj_enemy_parent) {

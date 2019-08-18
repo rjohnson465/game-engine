@@ -152,12 +152,18 @@ with obj_environment_particles {
 		if part_type_exists(particle1) {
 			part_emitter_region(system1,emitter1,vx-1000,vx+2000,vy-2000,vy+2000,ps_shape_rectangle,ps_distr_linear); 
 			part_emitter_stream(system1,emitter1,particle1,num1); 
-			repeat(initNum1) {part_system_update(system1);} 
+			repeat(initNum1) {
+				// part_system_update(system1);
+				part_emitter_burst(system1, emitter1, particle1, num1);
+			} 
 		}
 		if part_type_exists(particle2) {
 			part_emitter_region(system2,emitter2,vx-1000,vx+2000,vy-2000,vy+2000,ps_shape_rectangle,ps_distr_linear); 
 			part_emitter_stream(system2,emitter2,particle2,num2); 
-			repeat(initNum2) {part_system_update(system2);} 
+			repeat(initNum2) {
+				part_emitter_burst(system2, emitter2, particle2, num2);
+				// part_system_update(system2);
+			} 
 		}
 	}
 }
