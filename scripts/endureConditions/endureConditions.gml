@@ -65,14 +65,14 @@ for (var i = 0; i < size; i++) {
 				// slowed
 				if conditionLevel == 1 {
 					if conditionPercent > 0 && conditionPercent < 25 {
-						slowedSpeedModifier = .7;
+						slowedSpeedModifier = .9;
 					} else if conditionPercent > 25 && conditionPercent < 50 {
-						slowedSpeedModifier = .5;
-					} else slowedSpeedModifier = .25;
+						slowedSpeedModifier = .75;
+					} else slowedSpeedModifier = .5;
 				}
 				// frozen
 				else if conditionLevel == 2 {
-					slowedSpeedModifier = 0;
+					slowedSpeedModifier = .5;
 				}
 				break;
 			}

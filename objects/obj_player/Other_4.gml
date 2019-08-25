@@ -15,6 +15,24 @@ if variable_global_exists("newGameStarted") && global.newGameStarted {
 	lastFountainZ = lastFountain.layerName;
 	lastFountainRoom = room;
 	
+	var hf = noone;
+	var hfCount = instance_number(obj_item_health_flask);
+	if instance_number(obj_item_health_flask) == 0 {
+		hf = instance_create_depth(x,y,1,obj_item_health_flask);
+		addItemToInventory(hf);
+	}
+	// belt items
+	if hf != noone {
+		beltItems[0] = noone;
+		beltItems[1] = noone;
+		beltItems[2] = noone;
+		beltItems[3] = noone;
+		beltItems[4] = noone;
+		currentBeltItemIndex = 0; // this is the index of item that will be used when X is pressed
+		equipItem(hf, EquipmentSlots.BeltItem1);
+		//equipBeltItem(0,hf);
+	}
+	
 	global.newGameStarted = false;
 } else if lastFountainRoom == noone {
 	lastFountainRoom = lastFountain.nativeRoom;

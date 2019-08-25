@@ -2,6 +2,9 @@
 /// @param quest
 /// @param gainXp* optional boolean flag to get quest xp reward, used in testing
 var quest = argument[0];
+
+if !instance_exists(quest) exit;
+
 var doGainXp = true;
 if argument_count > 1 {
 	doGainXp = argument[1];

@@ -7,6 +7,7 @@ with obj_combatant_parent {
 			doNotDamage = true;
 		}
 	}
+	if other.isCoolingDown doNotDamage = true;
 	if !doNotDamage && other.isActive && distance_to_object(other) < 1 && layer == other.origLayer && other.alarm[7] == 1 {
 		damageCombatant(other.damages, 5, (facingDirection + 180) mod 360, snd_magic_fire_hit, other);
 	}

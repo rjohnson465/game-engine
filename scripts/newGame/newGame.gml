@@ -18,6 +18,7 @@ with global.player {
 	}
 	global.roomName = getRoomName(rm_forest);
 	instance_create_depth(x,y,1,obj_room_text);
+	
 }
 global.newGameStarted = true;
 room_goto(rm_forest);

@@ -60,6 +60,7 @@ if !instance_exists(lockOnTarget) || lockOnTarget == noone {
 }
 if !instance_exists(wouldBeLockOnTarget) wouldBeLockOnTarget = noone;
 if wouldBeLockOnTarget == noone return false;
+if wouldBeLockOnTarget.visible == false return false;
 if wouldBeLockOnTarget.layer != layer return false; // can't see boyos on layers that arent yours
 
 var instance = id;

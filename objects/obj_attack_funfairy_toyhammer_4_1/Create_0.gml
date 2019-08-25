@@ -19,3 +19,5 @@ minRange = 200;
 chargeSpeed = 17;
 
 weaponRequired = obj_hand_item_toyhammer;
+
+staggersAgainstBlocks = false;

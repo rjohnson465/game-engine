@@ -13,7 +13,10 @@ if !instance_exists(llfQuest) {
 
 // add "Good you fixed the elevator" recognition conversation (nonrepeatable) if all wires in inventory
 var llfQuestStep1 = instance_nearest(x, y, obj_queststep_llf_1);
-if instance_exists(llfQuestStep1) && llfQuestStep1.status == QuestStepStatus.Completed && !llfQuest.isFinished {
+var llfQuestStep2 = instance_nearest(x, y, obj_queststep_llf_2);
+if	instance_exists(llfQuestStep1) && llfQuestStep1.status == QuestStepStatus.Completed 
+	&& instance_exists(llfQuestStep2) && llfQuestStep2.status != QuestStepStatus.Completed
+	&& !llfQuest.isFinished {
 	ds_list_add(conversationsList, scr_conv_rob_elevator_fixed());
 }
 

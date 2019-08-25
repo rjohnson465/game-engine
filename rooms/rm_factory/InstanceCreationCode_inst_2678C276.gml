@@ -4,7 +4,7 @@ var in = instance_number(obj_fade);
 show_debug_message(in);
 if in > 0 exit;
 
- layerToMoveTo = "instances_floor_2";
+layerToMoveTo = "instances_floor_4";
 
 level = 4;
 xpToNextLevel = getXpToNextLevel();
@@ -29,22 +29,8 @@ addItemToInventory(bh);
 equipItem(bh, EquipmentSlots.Head);
 
 
-
-
-// layerToMoveTo = "instances_floor_4";
-
-/*
-maybeApplyElementalCondition(MAGIC, 500, noone, noone);
-maybeApplyElementalCondition(MAGIC, 500, noone, noone);
-*/
-
-
-
 questStart(obj_quest_llf);
-
-
 var q = instance_nearest(x,y, obj_quest_llf);
-
 
 var q1 = ds_list_find_value(q.questSteps, 0);
 q1.status = QuestStepStatus.Completed;
@@ -53,6 +39,9 @@ q1.status = QuestStepStatus.Completed;
 var q2 = ds_list_find_value(q.questSteps, 1);
 q2.status = QuestStepStatus.Completed;
 
-/*
+
 var q3 = ds_list_find_value(q.questSteps, 2);
-q3.status = QuestStepStatus.Completed;
+q3.status = QuestStepStatus.InProgress;
+q.currentQuestStep = q3;
+q.currentQuestStepIndex = 2;
+addItemToInventory(instance_create_depth(x,y,1,obj_item_wire_rg));

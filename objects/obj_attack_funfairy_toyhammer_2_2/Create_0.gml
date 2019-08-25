@@ -17,3 +17,5 @@ hitSound = snd_squeaky_hit;
 minRange = 150;
 
 weaponRequired = obj_hand_item_toyhammer;
+
+staggersAgainstBlocks = false;

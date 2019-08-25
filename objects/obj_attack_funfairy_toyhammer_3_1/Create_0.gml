@@ -40,3 +40,5 @@ prepPartBoundingBox = [75, 0, 76, 1];
 prepPartStartFrame = 5;
 
 weaponRequired = obj_hand_item_toyhammer;
+
+staggersAgainstBlocks = false;

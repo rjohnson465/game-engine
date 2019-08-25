@@ -10,7 +10,7 @@
         "a4cdf389-0833-455d-8c7d-867b57aea632"
     ],
     "filterType": "GMSprite",
-    "folderName": "spear",
+    "folderName": "icespear",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

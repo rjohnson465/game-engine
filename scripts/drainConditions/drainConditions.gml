@@ -155,8 +155,14 @@ for (var i = 0; i < size; i++) {
 			case MAGIC: {
 				isHexed = false; 
 				hexedDamageModifier = 1;
-				if lightRadiusColor == c_aqua {
+				
+				if lr >= 0 {
+					with lr {
+						light_set_color(c_white);
+					}
+				} else {
 					lightRadiusColor = c_white;
+					lightRadiusSprite = spr_light_point;
 				}
 				break;
 			}

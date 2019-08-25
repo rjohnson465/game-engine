@@ -18,7 +18,7 @@ c.text = "Here, have the toast. You earned it, and maybe more...";
 c.sound = snd_conv_terri_toastmaker_complete_terri_2;
 c.speaker = obj_npc_terri;
 c.func = completeQuest;
-c.funcParam1 = obj_quest_toastmaker;
+c.funcParam1 = instance_nearest(x,y,obj_quest_toastmaker);
 ds_list_add(c1.steps,c);
 
 return c1;

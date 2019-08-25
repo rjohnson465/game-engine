@@ -67,7 +67,7 @@ c.text = "Let me know when you’re ready. I’ll take you to Floor 0. I don’t
 c.sound = snd_conv_rob_llfe_rob_5;
 c.speaker = obj_npc_rob;
 c.func = completeQuest;
-c.funcParam1 = obj_quest_llf;
+c.funcParam1 = instance_nearest(x,y,obj_quest_llf);
 ds_list_add(c1.steps,c);
 
 return c1;

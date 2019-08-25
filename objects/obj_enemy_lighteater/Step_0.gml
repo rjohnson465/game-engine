@@ -154,3 +154,11 @@ if state == "Eat" {
 		}
 	}
 }
+
+
+// handle lack of range???
+if distance_to_object(obj_player) > 100 && state == CombatantStates.Moving && !isStrafing {
+	normalSpeed = 12;
+} else {
+	normalSpeed = 7;
+}

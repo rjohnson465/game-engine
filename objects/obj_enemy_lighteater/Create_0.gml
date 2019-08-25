@@ -100,8 +100,17 @@ var c_tailstab = [tailstab];
 var c_breath = [breath];
 var c_aoe = [aoe];
 var c_claw2 = [cs1, cs2];
-var c_claw = [cs1];
-meleeAttacks = [c_js, c_js, c_jab, c_claw, c_claw2, c_claw2, c_breath, c_tailstab, c_aoe, c_ts];
+var c_claw3 = [cs1, cs2, cjab];
+var c_claw4hit = [cs1, cs2, cjab, csweep];
+
+var c_clawsTail = [cs1, cs2, tailstab];
+var c_clawsTail2 = [cs1, cs2, tailshot];
+var c_aoeSweep = [aoe, csweep];
+
+meleeAttacks = [
+	c_js, c_jab, c_claw4hit, c_claw2, c_claw3, c_breath, c_clawsTail, 
+	c_aoe, c_aoeSweep, c_clawsTail2, c_ts, c_tailstab
+];
 
 // meleeAttacks = [c_aoe, c_breath];
 // ranged attacks info

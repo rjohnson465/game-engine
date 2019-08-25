@@ -110,7 +110,7 @@ switch(state) {
 				startInvestigation(); break;
 			}
 			// else, check if the player is just too goddamn close 
-			else if distance_to_object(global.player) < minAggroRange {
+			else if global.player.visible && distance_to_object(global.player) < minAggroRange {
 				if array_length_1d(meleeAttacks) > 0 {
 					state = CombatantStates.AggroMelee; break;
 				} else {

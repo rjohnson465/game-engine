@@ -13,3 +13,5 @@ attackSound = snd_axe2h_attack_1;
 hitSound = snd_hit1;
 
 minRange = 30;
+
+staggersAgainstBlocks = false;
