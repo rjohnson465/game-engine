@@ -25,10 +25,6 @@ with obj_factory_redlight {
 	instance_deactivate_object(id);
 }
 
-with obj_factory_redlight {
-	instance_deactivate_object(id);
-}
-
 with obj_enemy_parent {
 	if state != CombatantStates.Moving && !isBoss {
 		audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;

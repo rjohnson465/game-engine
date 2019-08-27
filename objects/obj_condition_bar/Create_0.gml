@@ -38,6 +38,3 @@ for (var i = 1; i <= maxPossible; i++) {
 if conditionBarNumber == noone {
 	conditionBarNumber = 1;
 }
-
-
-var a = 3;

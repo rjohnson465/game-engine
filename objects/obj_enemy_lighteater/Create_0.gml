@@ -119,8 +119,8 @@ meleeAttacks = [
 currentRangedAttack = noone;
 rangedAttacks = [];
 
-hp = 450;
-maxHp = 450;
+hp = 4.50;
+maxHp = 4.50;
 
 stamina = 6000;
 maxStamina = 6000;

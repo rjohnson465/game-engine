@@ -1,13 +1,10 @@
-// audio_debug(true);
-defineItemPropertyRangesForPts();
-
-
 var n = instance_number(object_index);
 
 if instance_number(object_index) > 1 {
 	instance_destroy(id,0);
 	exit;
 }
+defineItemPropertyRangesForPts();
 fs_clear_enemydata_tempfile(); fs_clear_roomdata_tempfile();
 display_set_gui_size(view_get_wport(view_camera[0]),view_get_hport(view_camera[0]));
 global.gameManager = id;

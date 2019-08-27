@@ -1,6 +1,10 @@
 layerToMoveTo = "instances_floor_4";
 
 
+var in = instance_number(obj_fade);
+show_debug_message(in);
+if in > 0 exit;
+
 questStart(obj_quest_llf);
 
 

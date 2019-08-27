@@ -149,7 +149,7 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 			elevatorScale = ((-1/(2*elevatorMoveFrameTotal)) * elevatorMoveFrame) + 1.5;
 		}
 	}
-}
+} 
 
 var pFloorNum = getLayerFloorNumber(global.player.layer);
 var myFloorNum = getLayerFloorNumber(origLayer);

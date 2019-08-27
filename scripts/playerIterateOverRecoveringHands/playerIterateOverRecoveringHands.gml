@@ -53,7 +53,7 @@ if ds_map_size(recoveringLimbs) != 0 {
 					
 			if ds_map_find_value(attackAgain,hand) != 0 && asset_get_index(prepString) != -1 {
 						
-				if recoverFrame == 0 {
+				if recoverFrame <= 0 {
 					ds_map_replace(preparingLimbs,hand,attackInChain+1);
 					ds_map_replace(prepFrames,hand,0);
 					ds_map_replace(prepFrameTotals,hand,sprite_get_number(asset_get_index(prepString)));

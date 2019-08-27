@@ -1,4 +1,4 @@
-var rmap = ds_map_create();
+/*var rmap = ds_map_create();
 ds_map_replace(rmap,ItemRarities.Normal,0);
 ds_map_replace(rmap,ItemRarities.Fine,0);
 ds_map_replace(rmap,ItemRarities.Masterwork,5);
@@ -6,6 +6,16 @@ ds_map_replace(rmap,ItemRarities.Legendary,5);
 
 var item1 = maybeMakeItem(100,rmap); //randomly generated item
 addItemToInventory(item1);
+*/
+
+for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
+	var ele = global.ALL_DAMAGE_TYPES[i];
+	if ele == PHYSICAL continue;
+	randomize();
+	var rand = random_range(5,500);
+	maybeApplyElementalCondition(ele, rand, noone, noone);
+}
+
 
 
 /*

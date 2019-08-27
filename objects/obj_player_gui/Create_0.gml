@@ -108,6 +108,9 @@ instance_create_depth(x,y,-1001,obj_quest_log);
 // options manager
 instance_create_depth(x,y,-1001,obj_options_manager);
 
+// conditions
+instance_create_depth(x,y,-1000,obj_conditions_manager);
+
 // selected equipment slot
 selectedEquipmentSlot = noone;
 

@@ -48,11 +48,11 @@ if condiPercentageCurrent == 0 {
 	var currentBuildup = ds_map_find_value(conditionsBuildupMap, damageType);
 	
 	// if current buildup is 0, create a buildup condi bar (if Player) 
-	if currentBuildup == 0 && type == CombatantTypes.Player {
+	/*if currentBuildup == 0 && type == CombatantTypes.Player {
 		global.owner = global.player.id;
 		global.condition = damageType;
 		instance_create_depth(x,y,1,obj_condition_bar);
-	}
+	}*/
 	
 	var newBuildupAmount = currentBuildup + buildupAmount;
 	ds_map_replace(conditionsBuildupMap, damageType, newBuildupAmount);
@@ -80,7 +80,7 @@ if currentBuildup >= 100 {
 	ds_map_replace(conditionsBuildupMap, damageType, 0);
 	
 	if type == CombatantTypes.Player {
-		// destroy buildup condi bar?
+		/*// destroy buildup condi bar?
 		var condiBuildupBar = noone;
 		with obj_condition_bar {
 			if condition == damageType && owner == global.player.id {
@@ -90,7 +90,7 @@ if currentBuildup >= 100 {
 		if condiBuildupBar && instance_exists(condiBuildupBar) {
 			instance_destroy(condiBuildupBar);
 			global.conditionBarCount--;
-		}
+		} */
 	}
 	
 	if type == CombatantTypes.Player && ds_map_find_value(conditionPercentages,damageType) == 0 {
@@ -116,7 +116,7 @@ if currentBuildup >= 100 {
 				break;
 			}
 		}
-		var conditionBar = noone;
+		/*var conditionBar = noone;
 		with (obj_condition_bar) {
 			if condition == damageType && owner == global.player.id {
 				conditionBar = id;
@@ -126,7 +126,7 @@ if currentBuildup >= 100 {
 			global.owner = global.player.id;
 			global.condition = damageType;
 			instance_create_depth(x,y,1,obj_condition_bar);
-		}
+		}*/
 	}
 	
 	/*
