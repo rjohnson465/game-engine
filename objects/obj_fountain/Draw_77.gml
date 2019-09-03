@@ -33,11 +33,6 @@ shader_set(shd_radial_blur);
 		sh = dh;
 	}
 	
-	
-	
-
-	
-	
 	draw_surface_stretched(application_surface,vpx,0,stw,sh);
     //if full_screen_effect draw_surface(surf,0,0);
 shader_reset();

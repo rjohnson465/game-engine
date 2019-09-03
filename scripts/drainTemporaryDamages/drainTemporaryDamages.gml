@@ -16,8 +16,10 @@ for (var i = 0; i < ds_list_size(td); i++) {
 	var damageType = entry[0];
 	var framesLeft = entry[1];
 	var damageAmount = entry[2]; // array, [lower bound, upper bound]
+	var totalDur = entry[3];
+	var itemSprite = entry[4];
 	var newFramesLeft = framesLeft - 1;
-	var newEntry = [damageType, newFramesLeft, damageAmount];
+	var newEntry = [damageType, newFramesLeft, damageAmount, totalDur, itemSprite];
 	ds_list_replace(td, i, newEntry);
 	
 }

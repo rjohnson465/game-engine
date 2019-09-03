@@ -15,6 +15,6 @@ numberOfSockets = 2;
 
 act = 1;
 
-//numberOfSockets = 1;
-
 weight = 4.5;
+
+description = "A medium-speed, one-handed gun. Go on, bring a gun to a swordfight. Sounds fair.";

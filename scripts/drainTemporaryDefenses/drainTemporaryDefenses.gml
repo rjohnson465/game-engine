@@ -13,7 +13,9 @@ for (var i = 0; i < ds_list_size(temporaryDefenses); i++) {
 	var framesLeft = entry[1];
 	var defenseAmount = entry[2];
 	var newFramesLeft = framesLeft - 1;
-	var newEntry = [defenseType, newFramesLeft, defenseAmount];
+	var totalDur = entry[3];
+	var itemSprite = entry[4];
+	var newEntry = [defenseType, newFramesLeft, defenseAmount, totalDur, itemSprite];
 	ds_list_replace(temporaryDefenses, i, newEntry);
 	
 	// maybe ready this entry for deletion later if framesLeft is 0

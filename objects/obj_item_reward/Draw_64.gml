@@ -1,5 +1,7 @@
 drawRewardItems();
 
+var pad = global.gamePadIndex;
+
 if isConfirming {
 	var x1 = topLeftX+width+5; var y1 = topLeftY+100;
 	var x2 = x1+width-10; var y2 = y1+150;
@@ -40,12 +42,17 @@ if isConfirming {
 		}
 	}
 	
-	draw_set_color(buttonColor);
+	// draw normal gray button, then overlay the real color
+	draw_set_color(c_gray);
 	draw_rectangle(x1, y1, x2, y2, false);
+	
+	draw_set_color(buttonColor);
+	draw_set_alpha(global.gameManager.selectedItemFilterAlpha);
+	draw_rectangle(x1, y1, x2, y2, false);
+	draw_set_alpha(1);
 	draw_set_color(c_black);
 	draw_rectangle(x1, y1, x2, y2, true);
-	
-	
+
 	draw_set_color(textColor);
 	draw_set_halign(fa_center); draw_set_valign(fa_center);
 	draw_text(mean(x1, x2),mean(y1, y2),s);
@@ -77,8 +84,14 @@ if isConfirming {
 			confirmOption = noone;
 		}
 	}
-	draw_set_color(buttonColor);
+	// draw normal gray button, then overlay the real color
+	draw_set_color(c_gray);
 	draw_rectangle(x1, y1, x2, y2, false);
+	
+	draw_set_color(buttonColor);
+	draw_set_alpha(global.gameManager.selectedItemFilterAlpha);
+	draw_rectangle(x1, y1, x2, y2, false);
+	draw_set_alpha(1);
 	draw_set_color(c_black);
 	draw_rectangle(x1, y1, x2, y2, true);
 

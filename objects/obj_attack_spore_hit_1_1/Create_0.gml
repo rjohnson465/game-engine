@@ -4,8 +4,8 @@ spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
 limbKey = noone;
-ds_map_add(damages,CRUSH,[1,3]);
-ds_map_add(damages,POISON,[3,6]);
+ds_map_add(damages,CRUSH,[1,2]);
+ds_map_add(damages,POISON,[2,3]);
 isRanged = true;
 projectileSpeed = 7;
 staminaCost = 5;
@@ -29,3 +29,5 @@ part_type_direction(part1,0,360,0,4); // set later
 part_type_orientation(part1,0,360,5,5,1);
 part_type_life(part1,15,25);
 part1Num = 15;
+
+coolDownFrames = [60, 120];

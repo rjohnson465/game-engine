@@ -7,6 +7,7 @@ event_inherited();
 name = "Spearmint Elixir";
 spriteName = "spearmint_elixir";
 itemSprite = spr_item_spearmint_elixir;
+baseValue = 500;
 
 type = ItemTypes.Other;
 

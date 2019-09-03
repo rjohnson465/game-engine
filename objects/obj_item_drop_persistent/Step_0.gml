@@ -3,6 +3,17 @@ if layer >= global.player.layer {
 	part_emitter_region(system,emitter,bbox_left,bbox_right,bbox_top,bbox_bottom,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(system,emitter,particle, 2);
 }
+// light radius 
+
+var scaleBase = .1*cos((pi*floatingFrame)/30)+.9; // normal floating
+floatingFrame += 1;
+floatingFrame = floatingFrame % 120;
+
+scaleBase *= .25;
+lightRadiusScale = scaleBase;
+with lightRadius {
+	light_set_scale(other.lightRadiusScale);
+}
 
 if global.isReadingTutorial exit;
 global.isLooting = false;

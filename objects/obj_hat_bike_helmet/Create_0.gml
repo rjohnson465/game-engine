@@ -8,6 +8,7 @@ name = "Bike Helmet";
 baseName = "Bike Helmet";
 spriteName = "bike_helmet";
 itemSprite = spr_item_bike_helmet;
+baseValue = 650;
 
 soundDrop = snd_item_wood;
 

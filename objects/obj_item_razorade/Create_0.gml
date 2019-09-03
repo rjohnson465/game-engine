@@ -7,6 +7,7 @@ event_inherited();
 name = "Razorade";
 spriteName = "razorade";
 itemSprite = spr_item_razorade;
+baseValue = 500;
 
 type = ItemTypes.Other;
 

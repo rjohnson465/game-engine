@@ -94,7 +94,10 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 	if maxDamage == 0 && !ui.isShowingExplanations {
 		draw_text(wdCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el)+ ": 0");
 	} else if (maxDamage != 0) && !ui.isShowingExplanations {
+		var dmgCol = p.isHexed ? c_red : c_white;
+		draw_set_color(dmgCol);
 		draw_text(wdCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) + ": " + string(minDamage) + "-" + string(maxDamage));
+		draw_set_color(c_white);
 	} else {
 		drawTextWidth(wdCol2XText,startingY+(line*20)+(i*20),stringCapitalize(el) + " damage",wdCol1Width-21);
 	}
@@ -117,7 +120,12 @@ if stringWidth > (wdCol1Width-21) {
 if ui.isShowingExplanations {
 	drawTextWidth(wdCol1XText,startingY+(line*20),"Phys. attacks damage",wdCol1Width-21);
 	additionalLine = 0;
-} else draw_text_ext(wdCol1XText,startingY+(line*20),physicalDamagesString,20,wdCol1Width-21);
+} else {
+	var dmgCol = p.isHexed ? c_red : c_white;
+	draw_set_color(dmgCol);
+	draw_text_ext(wdCol1XText,startingY+(line*20),physicalDamagesString,20,wdCol1Width-21);
+	draw_set_color(c_white);
+}
 
 line++; 
 line+= additionalLine;

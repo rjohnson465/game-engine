@@ -12,12 +12,6 @@ var tileLayersAbove = ds_list_create();
 
 var layers = layer_get_all();
 
-for (var j = 0; j < array_length_1d(layers); j++) {
-				var lay = layers[j];
-				var layName = layer_get_name(lay);
-				show_debug_message(layName + "\n");
-			}
-
 
 for (var i = 0; i < array_length_1d(layers); i++) {
 	var l = layers[i];

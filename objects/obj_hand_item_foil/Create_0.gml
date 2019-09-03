@@ -18,6 +18,8 @@ ds_map_set(damages,CRUSH,[0,0,0,0,0,0,0,0]);
 
 act = 1;
 
+description = "En garde. Touche. Lunge. Fencing is a real sport, dad. Please accept me.";
+
 numberOfSockets = 3;
 
 weight = 4;

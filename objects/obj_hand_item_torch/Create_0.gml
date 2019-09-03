@@ -29,3 +29,5 @@ act = 1;
 attackSounds = [snd_axe2h_attack_1];
 
 weight = 2.5;
+
+description = "Not a great weapon, but an excellent source of light. Allows one to light sconces.";

@@ -8,6 +8,7 @@ name = "Leather Cap";
 baseName = "Leather Cap";
 spriteName = "leathercap";
 itemSprite = spr_item_leathercap;
+baseValue = 500;
 
 ds_map_replace(defenses,SLASH,10);
 ds_map_replace(defenses,CRUSH,2);

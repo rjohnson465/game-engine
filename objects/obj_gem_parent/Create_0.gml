@@ -30,21 +30,25 @@ switch condition {
 	case CRACKED: {
 		gemWeaponBonusMin = 2; gemWeaponBonusMax = 4;
 		gemShieldBonus = 5; gemHatBonus = 3;
+		baseValue = 1000;
 		break;
 	}
 	case NORMAL: {
 		gemWeaponBonusMin = 4; gemWeaponBonusMax = 8;
 		gemShieldBonus = 10; gemHatBonus = 6;
+		baseValue = 5000;
 		break;
 	}
 	case EXQUISITE: {
 		gemWeaponBonusMin = 8; gemWeaponBonusMax = 16;
 		gemShieldBonus = 15; gemHatBonus = 10;
+		baseValue = 10000;
 		break;
 	}
 	case FLAWLESS: {
 		gemWeaponBonusMin = 12; gemWeaponBonusMax = 22;
 		gemShieldBonus = 25; gemHatBonus = 15;
+		baseValue = 20000;
 		break;
 	}
 }

@@ -7,6 +7,7 @@ event_inherited();
 name = "Club Soda";
 spriteName = "club_soda";
 itemSprite = spr_item_club_soda;
+baseValue = 500;
 
 type = ItemTypes.Other;
 

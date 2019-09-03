@@ -20,6 +20,7 @@ ammo = 20;
 ammoMax = 20;
 
 act = 1;
-//numberOfSockets = 1;
 
 weight = 4;
+
+description = "A lightweight bow requiring little skill to use.";

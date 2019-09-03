@@ -19,3 +19,5 @@ sparksXOffset = 100;
 sparksYOffset = -15;
 
 weight = 6.5;
+
+description = "Yes, this is a real gun name, I swear. I Googled it and everything.";

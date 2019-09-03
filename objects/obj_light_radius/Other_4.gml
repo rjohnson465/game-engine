@@ -7,6 +7,10 @@ if !instance_exists(owner) {
 colorAlpha = calculateLightRadiusAlphaLayer(floorNum);
 light_set_alpha(colorAlpha);
 
+if owner.object_index == obj_fountain || owner.object_index == obj_fountain_dark {
+	colorAlpha = .35;
+}
+
 if (owner.object_index == obj_item_drop || owner.object_index == obj_portal) && colorAlpha < .5 {
 	colorAlpha = .5;
 }

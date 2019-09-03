@@ -14,8 +14,6 @@ ds_map_set(damages,PIERCE,[12,15,14,15]);
 ds_map_set(damages,CRUSH,[0,0,0,0]);
 act = 1;
 
-//requiredMastery = 1;
-
-//numberOfSockets = 3;
-
 weight = 10;
+
+description = "Lets you stab your enemies one at a time from a long range, you coward.";

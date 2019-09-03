@@ -18,3 +18,5 @@ act = 1;
 //numberOfSockets = 1;
 
 weight = 7;
+
+description = "Wow, this bow is so angry, it's cross!";

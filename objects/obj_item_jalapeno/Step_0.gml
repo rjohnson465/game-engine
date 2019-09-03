@@ -14,7 +14,7 @@ if isInUse {
 	}
 	else {
 		// grant 50% ice resistance for 30 seconds
-		ds_list_add(p.temporaryDefenses, [ICE, 900, 50]);
+		ds_list_add(p.temporaryDefenses, [ICE, 900, 50, 900, itemSprite]);
 	}
 	isInUse = false;
 }

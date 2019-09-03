@@ -3,6 +3,7 @@ name = "Buckler";
 baseName = "Buckler";
 spriteName = "buckler";
 itemSprite = spr_item_buckler;
+baseValue = 200;
 
 material = WOOD;
 weight = 9;
@@ -18,5 +19,6 @@ act = 1;
 durabilityMax = 22;
 durability = 22;
 
-//numberOfSockets = 1;
 soundDrop = snd_item_wood;
+
+description = "An old, light shield, bound with leather. Won't absorb the full impact of a blow, but better than nothing.";

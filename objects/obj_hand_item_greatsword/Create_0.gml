@@ -17,6 +17,6 @@ ds_map_set(damages,CRUSH,[0,0,0,0,0,0]);
 
 act = 1;
 
-//numberOfSockets = 3;
-
 weight = 13.5;
+
+description = "Wow! Just take a look at this sword. It's so... uh... great.";

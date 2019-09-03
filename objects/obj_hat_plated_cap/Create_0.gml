@@ -8,6 +8,7 @@ name = "Plated Cap";
 baseName = "Plated Cap";
 spriteName = "plated_cap";
 itemSprite = spr_item_plated_cap;
+baseValue = 1000;
 
 soundDrop = snd_item_metal;
 

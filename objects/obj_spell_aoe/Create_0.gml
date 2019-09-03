@@ -1,7 +1,7 @@
 event_inherited();
 spriteName = "aoe"; // i.e. magicmissile, fireball ...
 name = "Explosion";
-description = "Eat my dick.";
+description = "Blasts magic projectiles in a circle around you.";
 skillSprite = spr_item_aoe_magic;
 
 damageRangesByLevel = ds_map_create();

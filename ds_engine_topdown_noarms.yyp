@@ -2447,6 +2447,14 @@
             }
         },
         {
+            "Key": "1a80a734-3a71-4322-9c95-2ad5b68db938",
+            "Value": {
+                "id": "0b9c6cbc-a2f7-493d-ae34-31a913453fc9",
+                "resourcePath": "sprites\\spr_enemy_krampuself_limb_iceclub_recover_1_1\\spr_enemy_krampuself_limb_iceclub_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1a8d088c-78af-4a27-b6ef-4ed530fc1e02",
             "Value": {
                 "id": "c9f8925e-3029-4602-af25-55d9169eb76a",
@@ -4707,6 +4715,14 @@
             "Value": {
                 "id": "22bc2b6f-f131-4b31-8b17-632888e80b0e",
                 "resourcePath": "scripts\\maybeAggro\\maybeAggro.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "357a5d01-9c7d-4698-ade0-2bd252c32c6c",
+            "Value": {
+                "id": "92410566-dc6c-4d08-80af-648a4c74c6e1",
+                "resourcePath": "scripts\\drawLoadGameScreen\\drawLoadGameScreen.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -7351,6 +7367,14 @@
             }
         },
         {
+            "Key": "52e94cc4-4e94-4b3f-b976-63841e368ad3",
+            "Value": {
+                "id": "ff7933e5-7cfc-4bca-bd12-e5898361750c",
+                "resourcePath": "objects\\obj_attack_krampuself_iceclub_1_1\\obj_attack_krampuself_iceclub_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "52f7191a-089b-448a-9e8b-627fb48a7629",
             "Value": {
                 "id": "cb7256a4-6a9e-4011-ab76-82a76ebebfa4",
@@ -8252,6 +8276,14 @@
                 "id": "201c00c4-14f4-4b10-8b05-c92a4fed42ab",
                 "resourcePath": "sprites\\spr_player_battleaxe_base\\spr_player_battleaxe_base.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5f85bf39-84a0-4f85-8034-771ce3678bd9",
+            "Value": {
+                "id": "fe95bf5f-ea47-488b-bdf2-a67ae8f87e43",
+                "resourcePath": "scripts\\ei_krampuself_iceclub\\ei_krampuself_iceclub.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -9663,6 +9695,14 @@
             }
         },
         {
+            "Key": "70de3436-9912-42c6-b75a-3e9f286ea41e",
+            "Value": {
+                "id": "a59b85ac-c35b-4d0e-acdb-ef4ba841d69a",
+                "resourcePath": "sprites\\spr_enemy_krampuself_iceclub_attack_1_1\\spr_enemy_krampuself_iceclub_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "70df6c66-46b6-47f0-a3a7-fc03b3fa5329",
             "Value": {
                 "id": "7aadfd2b-6766-441d-ba5d-b26f10e6371d",
@@ -10855,6 +10895,14 @@
             }
         },
         {
+            "Key": "7f8e0f33-fffe-4045-807e-b56b240e43b4",
+            "Value": {
+                "id": "d1869ac0-3da4-4592-bfe0-8aac4e816bce",
+                "resourcePath": "scripts\\drawGameMenuScreen\\drawGameMenuScreen.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "7fb720e1-badf-4891-b512-8871c6f721ce",
             "Value": {
                 "id": "99a66f86-7aac-42bf-b11e-7fa7d86068bf",
@@ -11655,6 +11703,14 @@
             }
         },
         {
+            "Key": "88bd70c8-a1a2-4214-8616-bc38c6b1e614",
+            "Value": {
+                "id": "f7bff870-9936-4f7a-8e56-bfb835b86072",
+                "resourcePath": "sprites\\spr_enemy_krampuself_iceclub_prep_1_1\\spr_enemy_krampuself_iceclub_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "88ed3c64-7832-4abe-87c9-e80c3e0c091a",
             "Value": {
                 "id": "703d93b4-76fa-4842-a4f9-02f488197150",
@@ -12119,6 +12175,14 @@
             }
         },
         {
+            "Key": "8daa6d5c-aa1d-40a7-8708-09f3c0da99b9",
+            "Value": {
+                "id": "34c99578-e1a7-4218-957f-e1f630dc7293",
+                "resourcePath": "sprites\\spr_enemy_krampuself_iceclub_recover_1_1\\spr_enemy_krampuself_iceclub_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8dc9904c-f370-4b15-964e-74b2550ccbd0",
             "Value": {
                 "id": "e99d5ac7-1774-49e7-a139-97f0f6924a8b",
@@ -12220,6 +12284,14 @@
                 "id": "f831e237-1a5a-4723-8aba-9ec4138b3311",
                 "resourcePath": "sprites\\spr_ww_fence_mid\\spr_ww_fence_mid.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8f9cea6e-1023-49f4-8341-ea2f601e7b6b",
+            "Value": {
+                "id": "8fe8f246-5acd-42e0-b40a-bfd0f3b2d59c",
+                "resourcePath": "objects\\obj_hand_item_iceclub\\obj_hand_item_iceclub.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -12419,6 +12491,14 @@
             "Value": {
                 "id": "c4b12706-ac1a-454a-a71c-7ba5844704d5",
                 "resourcePath": "scripts\\getItemPropertySuffix1\\getItemPropertySuffix1.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "92679daf-f3c8-4014-a1e5-4f4f9337db22",
+            "Value": {
+                "id": "26a7dd6f-759b-4b9c-b96a-db313c4cd636",
+                "resourcePath": "scripts\\drawNewGameScreen\\drawNewGameScreen.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -13327,6 +13407,14 @@
             }
         },
         {
+            "Key": "9d42f927-43c4-48aa-b942-df1c00fb891d",
+            "Value": {
+                "id": "209bf776-6e12-4770-8bf9-b54565fd53d7",
+                "resourcePath": "views\\9d42f927-43c4-48aa-b942-df1c00fb891d.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "9d5fe401-7158-463c-8ac5-c3e5229ab2bd",
             "Value": {
                 "id": "269cbe25-b682-4928-800c-0596c5b1e030",
@@ -13951,6 +14039,14 @@
             }
         },
         {
+            "Key": "a43e2973-442a-4e92-bd9a-249a79712989",
+            "Value": {
+                "id": "448e1d39-5e5c-457c-9e2d-cd912940cff9",
+                "resourcePath": "views\\a43e2973-442a-4e92-bd9a-249a79712989.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "a451fd72-4465-4b62-ac3d-f70e3d13c8c7",
             "Value": {
                 "id": "a346d6a5-183c-46fe-92f0-397b1a0ed601",
@@ -14115,6 +14211,14 @@
             "Value": {
                 "id": "b9fbcf19-3c8c-484a-9da9-434bbe017c05",
                 "resourcePath": "sprites\\spr_enemy_ravebot_minion_move\\spr_enemy_ravebot_minion_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a61db558-6bba-4c1b-bc1f-264c168869fa",
+            "Value": {
+                "id": "3a5c8460-b49f-43c6-9a6a-554fdc96f674",
+                "resourcePath": "sprites\\spr_enemy_krampuself_limb_iceclub_prep_1_1\\spr_enemy_krampuself_limb_iceclub_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -14700,6 +14804,14 @@
                 "id": "ce8d6814-8e51-47a6-be25-d8ef84433b4a",
                 "resourcePath": "sounds\\snd_ui_tab1\\snd_ui_tab1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "ac23d00f-445f-4468-8774-b2e3fd0af6a4",
+            "Value": {
+                "id": "881038f0-6dfe-439b-8cfb-587883a92e8e",
+                "resourcePath": "sprites\\spr_prompt_mk_enter\\spr_prompt_mk_enter.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -15915,6 +16027,14 @@
             "Value": {
                 "id": "1b6bd7de-1523-4d82-a154-7fff7bbc5417",
                 "resourcePath": "sprites\\spr_player_hand_bow\\spr_player_hand_bow.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b9c46935-3c50-44c3-8dee-ded598f53930",
+            "Value": {
+                "id": "8f8a3320-3457-45d1-9ebc-c1edb48e599a",
+                "resourcePath": "sprites\\spr_enemy_krampuself_limb_iceclub_attack_1_1\\spr_enemy_krampuself_limb_iceclub_attack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -17403,6 +17523,14 @@
             "Value": {
                 "id": "8084931f-290e-4854-a5b0-8f188edfbaa7",
                 "resourcePath": "sprites\\spr_enemy_noeyeddeer_move\\spr_enemy_noeyeddeer_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "cb790b03-fb27-4d93-b2c5-3001196df0f0",
+            "Value": {
+                "id": "6dc897f1-103c-40a1-9726-250f4d0f1b17",
+                "resourcePath": "sprites\\spr_enemy_krampuself_limb_iceclub\\spr_enemy_krampuself_limb_iceclub.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -18959,10 +19087,26 @@
             }
         },
         {
+            "Key": "df061d57-bf22-4b87-b961-c94e5881633c",
+            "Value": {
+                "id": "46b74f89-014d-40d4-bd90-02d48751f0a3",
+                "resourcePath": "sprites\\spr_enemy_krampuself_iceclub\\spr_enemy_krampuself_iceclub.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "df252df0-6a96-4e88-b2fd-25429ffd1acb",
             "Value": {
                 "id": "a5efe5ec-4865-4a5f-8cd3-87f3a9c057b4",
                 "resourcePath": "sounds\\snd_bgms_le\\snd_bgms_le.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "df27df10-bc18-453b-a94a-e74a33ca8698",
+            "Value": {
+                "id": "88165af8-57e8-48c8-a8ae-26bdd2dcd0d6",
+                "resourcePath": "sounds\\snd_walking_galloping_snow\\snd_walking_galloping_snow.yy",
                 "resourceType": "GMSound"
             }
         },
@@ -20055,6 +20199,14 @@
             }
         },
         {
+            "Key": "ed582bda-8b8c-434b-ab11-ccbf4b3c5a9d",
+            "Value": {
+                "id": "fd0cd20e-ce3a-42f8-ad56-4b0c60d88f67",
+                "resourcePath": "scripts\\doesSaveFileExist\\doesSaveFileExist.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ed7d79b0-9054-429d-bc9a-b7a8d8ab3894",
             "Value": {
                 "id": "11ab32d4-1027-425b-bacb-51ee4bde1ab7",
@@ -20131,6 +20283,14 @@
             "Value": {
                 "id": "bff9fee6-c113-4078-8593-edc2e89509c8",
                 "resourcePath": "scripts\\removeGemsFromItem\\removeGemsFromItem.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ee6efa70-0a45-4a5a-b7bc-f154bfc8f672",
+            "Value": {
+                "id": "e8a834a9-f306-40f2-9855-580e81cf7396",
+                "resourcePath": "scripts\\maybeStartNewGame\\maybeStartNewGame.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -21159,6 +21319,14 @@
             }
         },
         {
+            "Key": "fb635fb7-5189-46ec-b269-e8de687b1418",
+            "Value": {
+                "id": "5e172903-f829-453b-8422-4cdcc5380750",
+                "resourcePath": "sounds\\snd_bgm_icedrops\\snd_bgm_icedrops.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "fb850a29-c199-4d45-97b6-4caf239aba07",
             "Value": {
                 "id": "63ea899c-f539-40d0-a9e9-a313cbe5bdf5",
@@ -21734,6 +21902,7 @@
         "fe69f33d-844b-4217-a0ba-0aef1decc56b",
         "cce111f8-4a86-4e54-9932-3aec66a4c4ee",
         "e6330671-23fa-40ad-ab47-a7181893cf35",
+        "5f85bf39-84a0-4f85-8034-771ce3678bd9",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",
         "566e567f-06b1-4a92-9cea-84bc4525cdf8",
@@ -21831,6 +22000,11 @@
         "6237072f-3651-4918-9d3f-ffece383520f",
         "79516dff-1e3b-4aa5-a4ab-fd4ee0cf77b0",
         "8836d46e-cdf3-4b93-a31f-ac57d2046aa0",
+        "92679daf-f3c8-4014-a1e5-4f4f9337db22",
+        "357a5d01-9c7d-4698-ade0-2bd252c32c6c",
+        "7f8e0f33-fffe-4045-807e-b56b240e43b4",
+        "ed582bda-8b8c-434b-ab11-ccbf4b3c5a9d",
+        "ee6efa70-0a45-4a5a-b7bc-f154bfc8f672",
         "1949d661-bf35-49e3-906d-36ee6139f2e2",
         "49c3814e-d8c4-4d0e-b35d-1ddee2964762",
         "2c63982b-75f5-4392-b9b2-2399e82fb6d4",

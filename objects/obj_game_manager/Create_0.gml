@@ -87,6 +87,7 @@ global.ALL_WEAPON_TYPES = [
 
 depth = -10000;
 
+
 global._light_layers = ds_map_create();
 global._light_color = c_black;
 
@@ -122,6 +123,8 @@ fs_clear_roomdata_tempfile();
 roomToGoTo = noone;
 isReadyToMoveRooms = false;
 newGameName = "";
+isConfirmingDestroySaveFile = false;
+confirmDestroyOption = "N";
 cursorPos = 1;
 
 var vw = view_get_wport(view_camera[0]);

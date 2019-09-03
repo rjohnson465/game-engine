@@ -32,7 +32,7 @@ if layer == global.player.layer && fallFrame >= fallTotalFrames {
 }
 previousFacingDirection = facingDirection;
 
-if part_type_exists(sprintParticle) && isSprinting {
+if part_type_exists(sprintParticle) && isSprinting && hp >= 1 {
 	part_type_direction(sprintParticle,movingDirection-45,movingDirection+45,0,0);
 	part_type_orientation(sprintParticle,facingDirection, facingDirection,0,0,0);
 	part_system_depth(sprintParticleSystem,depth+1);

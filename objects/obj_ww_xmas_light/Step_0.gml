@@ -1,4 +1,4 @@
-lightAlpha = .1*cos((pi*floatingFrame)/30)+.9; // normal floating
+lightAlpha = .3*cos((pi*floatingFrame)/30)+.7; // normal floating
 floatingFrame += 1;
 floatingFrame = floatingFrame % 120;
 

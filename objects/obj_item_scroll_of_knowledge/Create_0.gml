@@ -7,6 +7,7 @@ event_inherited();
 name = "Scroll of Knowledge";
 spriteName = "scroll_of_knowledge";
 itemSprite = spr_item_scroll_of_knowledge;
+baseValue = 1000;
 
 type = ItemTypes.Other;
 

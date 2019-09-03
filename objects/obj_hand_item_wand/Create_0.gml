@@ -29,3 +29,5 @@ act = 1;
 attackSounds = [snd_dagger_attack_1];
 
 weight = 1.5;
+
+description = "With this wand, you can be a real magician, like how you always wanted when you were pretending in Mom's basement. Lets you set all your childhood bullies on fire. Who's laughing now, Derrick?";

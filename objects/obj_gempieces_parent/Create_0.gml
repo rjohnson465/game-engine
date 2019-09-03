@@ -25,24 +25,28 @@ switch condition {
 		gemWeaponBonusMin = 2; gemWeaponBonusMax = 4;
 		gemShieldBonus = 5; gemHatBonus = 3;
 		conditionString = "dust Grains";
+		baseValue = 1000;
 		break;
 	}
 	case PILE: {
 		gemWeaponBonusMin = 4; gemWeaponBonusMax = 8;
 		gemShieldBonus = 10; gemHatBonus = 6;
 		conditionString = "dust Pile";
+		baseValue = 3000;
 		break;
 	}
 	case CHUNKS: {
 		gemWeaponBonusMin = 8; gemWeaponBonusMax = 16;
 		gemShieldBonus = 15; gemHatBonus = 10;
 		conditionString = " Chunks";
+		baseValue = 7000;
 		break;
 	}
 	case SHARDS: {
 		gemWeaponBonusMin = 12; gemWeaponBonusMax = 22;
 		gemShieldBonus = 25; gemHatBonus = 15;
 		conditionString = " Shards";
+		baseValue = 1100;
 		break;
 	}
 }

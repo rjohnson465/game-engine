@@ -7,6 +7,7 @@ event_inherited();
 name = "Revive Orb";
 spriteName = "revive_orb";
 itemSprite = spr_item_revive_orb;
+baseValue = 5000;
 
 type = ItemTypes.Other;
 
@@ -15,4 +16,4 @@ isUsable = true;
 
 soundUse = snd_iu_choirheal;
 
-description = "Use to revive upon death with no penalty except being Jewish. Can use at any time to restore all health and stamina. Eat my dick I am a lobster.";
+description = "Use to revive when killed. You will revive where you died and you will lose no XP.";

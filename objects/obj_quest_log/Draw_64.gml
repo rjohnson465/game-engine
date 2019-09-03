@@ -452,16 +452,20 @@ if ui.currentMenu == SKILLS && isActive {
 	// controller prompts
 	if gamepad_is_connected(pad) {
 		if selectedQuest != noone && selectedQuest.currentQuestStep != noone && selectedQuest.currentQuestStep.canClaimRewardFromQuestLog && selectedQuest.currentQuestStep.isRewardStep && !selectedQuest.isFinished {
-			w += drawPrompt("Complete " + string(selectedQuest.name), Input.F,promptsStartX+w,promptsY)+xOffset;
+			// w += drawPrompt("Complete " + string(selectedQuest.name), Input.F,promptsStartX+w,promptsY)+xOffset;
+			w += drawPrompt("Complete Quest", Input.F,promptsStartX+w,promptsY)+xOffset;
 		}
 		if selectedQuest != noone && selectedQuest.isRepeatable && selectedQuest.isFinished {
-			w += drawPrompt("Repeat " + string(selectedQuest.name), Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+			// w += drawPrompt("Repeat " + string(selectedQuest.name), Input.Backspace,promptsStartX+w,promptsY)+xOffset;
+			w += drawPrompt("Repeat Quest", Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		}
 		if selectedQuest != noone && watchedQuest != selectedQuest {
-			w += drawPrompt("Watch " + string(selectedQuest.name), Input.Face4,promptsStartX+w,promptsY)+xOffset;
+			// w += drawPrompt("Watch " + string(selectedQuest.name), Input.Face4,promptsStartX+w,promptsY)+xOffset;
+			w += drawPrompt("Watch Quest", Input.Face4,promptsStartX+w,promptsY)+xOffset;
 		}
 		if selectedQuest != noone && watchedQuest == selectedQuest {
-			w += drawPrompt("Unwatch " + string(selectedQuest.name), Input.Face4,promptsStartX+w,promptsY)+xOffset;
+			// w += drawPrompt("Unwatch " + string(selectedQuest.name), Input.Face4,promptsStartX+w,promptsY)+xOffset;
+			w += drawPrompt("Unwatch Quest", Input.Face4,promptsStartX+w,promptsY)+xOffset;
 		}
 		if isShowingCompletedQuests {
 			w += drawPrompt("Hide Completed Quests", Input.Shift,promptsStartX+w,promptsY)+xOffset;

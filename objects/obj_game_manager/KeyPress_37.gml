@@ -7,8 +7,6 @@ if ds_exists(105, ds_type_map) {
 	var b = 3;
 }*/
 
-global.player.hp -= 100;
-
 // fs_save_game();
 
 

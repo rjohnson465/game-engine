@@ -4,17 +4,19 @@
 // Expected level: 8
 // Using: Longsword w/ cracked hematite, wood shield, ringed coif, ring with hp regen
 // Skills (7 points)
-// 4 into health
-// 2 into blade master
+// 5 into health
+// 3 into blade master
 // 1 into steroids
 
-scr_test_set_level(8);
+global.doNotDisplayTutorialMessages = true;
+
+scr_test_set_level(10);
 
 // Level skills
-repeat(4) {
+repeat(5) {
 	scr_test_skill_up(obj_skill_hpmax);
 }
-repeat(2) {
+repeat(3) {
 	scr_test_skill_up(obj_skill_blade_mastery);
 }
 repeat(1) {

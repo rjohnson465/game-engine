@@ -1,4 +1,4 @@
-
+/*
 show_debug_message("Light Radius Alpha: " + string(playerLightRadius.colorAlpha));
 
 /*

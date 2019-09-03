@@ -64,8 +64,8 @@ meleeAttacks = [c_lunge];
 rangedAttacks = [];
 
 
-hp = 60;
-maxHp = 60;
+hp = 35;
+maxHp = 35;
 hpRegen = 1;
 
 stamina = 60;
@@ -90,4 +90,4 @@ soundsWhenDie = [snd_enemy_wolf_die_1, snd_enemy_wolf_die_2];
 
 chanceToDropHealthOrb = .1;
 
-walkingSound = snd_walking_galloping;
+walkingSound = snd_walking_galloping_snow;

@@ -16,3 +16,5 @@ ammoMax = 20;
 act = 1;
 
 weight = 3.5;
+
+description = "A long time ago, rumors of unfairy ninjas ran amok. No one has ever seen one, but that won't stop you from pretending to be one.";

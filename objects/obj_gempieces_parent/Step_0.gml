@@ -28,7 +28,7 @@ if isInUse && ds_list_size(leftHandItem.temporaryDamages) == 1 {
 event_inherited();
 
 if isInUse {
-	var entry = [element, duration, [gemWeaponBonusMin, gemWeaponBonusMax]];
+	var entry = [element, duration, [gemWeaponBonusMin, gemWeaponBonusMax], duration, itemSprite];
 	applyTemporaryDamageBonus(leftHandItem, entry);
 	isInUse = false;
 }

@@ -39,6 +39,8 @@ attackSound = noone;
 attackSoundLoop = noone;
 recoverSound = noone;
 hitSound = noone;
+mustVocalizeAttack = false;
+mustVocalizePrep = false;
 attackSoundsVocals = [];
 prepSoundsVocals = [];
 

@@ -8,6 +8,7 @@ name = "Ringed Coif";
 baseName = "Ringed Coif";
 spriteName = "ringed_coif";
 itemSprite = spr_item_ringed_coif;
+baseValue = 750;
 
 soundDrop = snd_item_cloth;
 

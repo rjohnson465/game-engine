@@ -155,6 +155,7 @@ enum Input {
 	Face4, // Y
 	Control,
 	DestroyInput, // Click joystick / middle mouse buttondraw
+	Enter
 }
 
 isShowingExplanations = false;

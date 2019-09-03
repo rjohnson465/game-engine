@@ -4,9 +4,9 @@ if !point_in_rectangle(x,y,vx-100,vy-100,vx+vw+100,vy+vh+100) exit;
 if image_xscale == 1 && image_yscale == 1 {
 	draw_sprite(spr_tree1_mask,1,x,y);
 } else {
-	draw_sprite_ext(spr_tree1_mask,1,x,y,image_xscale, image_yscale, 0, c_white, 1);
+	draw_sprite_ext(spr_tree1_mask,1,x,y,image_xscale, image_yscale, image_angle, c_white, 1);
 }
 
 
 
-draw_sprite_ext(spr_tree_fir_decorated,1,x,y,image_xscale,image_yscale,0,c_white,treeAlpha);
+draw_sprite_ext(spr_tree_fir_decorated,1,x,y,image_xscale,image_yscale,image_angle,c_white,treeAlpha);

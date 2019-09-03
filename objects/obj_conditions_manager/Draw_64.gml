@@ -34,6 +34,46 @@ with obj_player {
 		ck = ds_map_find_next(conditionPercentages, ck);
 	}
 	
+	// also do temp damages (from gempieces)
+	var leftWeapon = ds_map_find_value(global.player.equippedLimbItems, "l");
+	if instance_exists(leftWeapon) && ds_list_size(leftWeapon.temporaryDamages) > 0 {
+		var tempDamages = leftWeapon.temporaryDamages;
+		for (var i = 0; i < ds_list_size(tempDamages); i++) {
+			var tempDamageEntry = ds_list_find_value(tempDamages, i);
+			if tempDamageEntry != undefined && is_array(tempDamageEntry) {
+				// draw the temp damage 
+				var curFrame = tempDamageEntry[1];
+				var totalFrames = tempDamageEntry[3];
+				var spr = tempDamageEntry[4];
+				
+				var cCol = c_ltgray;
+				var condiPerc = (curFrame / totalFrames)*100;
+				sprScale = .3125;
+				
+				drawCondition(1, condisCount, condiPerc, spr, sprScale, true, cCol);
+				condisCount++;
+			}
+		}
+	}
+	
+	// also do tempDefenses (from condition cures used when not conditioned)
+	for (var i = 0; i < ds_list_size(temporaryDefenses); i++) {
+			var tempDefEntry = ds_list_find_value(temporaryDefenses, i);
+			if tempDefEntry != undefined && is_array(tempDefEntry) {
+				// draw the temp defense 
+				var curFrame = tempDefEntry[1];
+				var totalFrames = tempDefEntry[3];
+				var spr = tempDefEntry[4];
+				
+				var cCol = c_ltgray;
+				var condiPerc = (curFrame / totalFrames)*100;
+				sprScale = .3125;
+				
+				drawCondition(1, condisCount, condiPerc, spr, sprScale, true, cCol);
+				condisCount++;
+			}
+		}
+	
 }
 
 

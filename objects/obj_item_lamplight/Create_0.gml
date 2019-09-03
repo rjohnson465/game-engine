@@ -13,6 +13,8 @@ type = ItemTypes.Other;
 isStackable = true;
 isUsable = true;
 
+baseValue = 200;
+
 soundUse = snd_iu_lamplight;
 
 description = "The mysterious, otherworldly source of the Sacred Lamplights. Insert into a dull Lamplight, or consume to receive a temporary boost to health and stamina regeneration.";

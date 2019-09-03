@@ -7,7 +7,11 @@ ds_map_replace(rmap,ItemRarities.Legendary,5);
 var item1 = maybeMakeItem(100,rmap); //randomly generated item
 addItemToInventory(item1);
 */
+/*
+maybeApplyElementalCondition(MAGIC, 500, noone, noone);
+maybeApplyElementalCondition(MAGIC, 500, noone, noone);
 
+/*
 for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 	var ele = global.ALL_DAMAGE_TYPES[i];
 	if ele == PHYSICAL continue;
@@ -18,9 +22,8 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 
 
 
-/*
-maybeApplyElementalCondition(POISON, 500, noone, noone);
-maybeApplyElementalCondition(POISON, 500, noone, noone);
+
+
 
 
 /*

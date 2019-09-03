@@ -14,8 +14,6 @@ ds_map_set(damages,PIERCE,[0,0,0,0,0,0]);
 ds_map_set(damages,CRUSH,[22,30,25,35,35,45]);
 act = 1;
 
-//requiredMastery = 1;
-
-//numberOfSockets = 3;
-
 weight = 20;
+
+description = "For when regular hammers just aren't cutting it.";

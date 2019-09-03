@@ -4,6 +4,7 @@ var in = instance_number(obj_fade);
 show_debug_message(in);
 if in > 0 exit;
 
+/*
 layerToMoveTo = "instances_floor_4";
 
 level = 4;

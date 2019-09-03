@@ -146,11 +146,23 @@ for (var i = 0; i < array_length_1d(keys); i++) {
 			sprite = isGamepadConnected ? spr_prompt_xbox_rs_click : spr_prompt_mk_mb;
 			break;
 		}
+		case Input.Enter: {
+			sprite = spr_prompt_mk_enter;
+			break;
+		}
+		default: {
+			sprite = noone;
+			break;
+		}
 	}
 	
 	ds_map_replace(spritesMap,i,sprite);
 	var sw = sprite_get_width(sprite)*.35;
 	var sh = sprite_get_height(sprite)*.35;
+	
+	if sprite == noone {
+		sw = 35; sh = 35;
+	}
 
 	draw_set_halign(fa_left);
 	draw_set_font(font_main);
@@ -179,11 +191,15 @@ for (var i = 0 ; i < array_length_1d(keys); i++) {
 	var sw = sprite_get_width(sprite)*.35;
 	var sh = sprite_get_height(sprite)*.35;
 	// center bottom screen
-	if argument_count < 3 {
-		
-		draw_sprite_ext(sprite,1,xx-(.5*promptWidth)+spritesWidth,yy-(.5*sh),.35,.35,0,c_white,1);
+	if sprite > 0 {
+		if argument_count < 3 {
+			draw_sprite_ext(sprite,1,xx-(.5*promptWidth)+spritesWidth,yy-(.5*sh),.35,.35,0,c_white,1);
+		} else {
+			draw_sprite_ext(sprite,1,xx+spritesWidth,yy,.35,.35,0,c_white,1);
+		}
 	} else {
-		draw_sprite_ext(sprite,1,xx+spritesWidth,yy,.35,.35,0,c_white,1);
+		sw = 35;
+		sh = 35;
 	}
 	spritesWidth += (sw);
 }

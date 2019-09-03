@@ -3,6 +3,7 @@ name = "Kite Shield";
 baseName = "Kite Shield";
 spriteName = "kiteshield";
 itemSprite = spr_item_kiteshield;
+baseValue = 250;
 
 material = METAL;
 weight = 12;
@@ -19,3 +20,5 @@ durabilityMax = 30;
 durability = 30;
 
 soundDrop = snd_item_metal;
+
+description = "A big, heavy hunk of metal. Absorbs physical attacks well, but increases damage dealt by lightning";
