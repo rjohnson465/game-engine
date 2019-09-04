@@ -65,8 +65,16 @@ global.owner = id;
 
 var heavyStab = makeEnemyAttackObj(obj_attack_krampuself_icespear_1_1);
 
+var spearCharge = makeEnemyAttackObj(obj_attack_krampuself_icespear_2_1);
+
+var jab1 = makeEnemyAttackObj(obj_attack_krampuself_icespear_3_1);
+var jab2 = makeEnemyAttackObj(obj_attack_krampuself_icespear_3_2);
+var jab3 = makeEnemyAttackObj(obj_attack_krampuself_icespear_3_3);
+
 var c0 = [heavyStab];
-meleeAttacks = [c0];
+var c1 = [spearCharge];
+var c2 = [jab1, jab2, jab3];
+meleeAttacks = [c0, c1, c2];
 // ranged attacks info
 
 // currently chosen ranged attack

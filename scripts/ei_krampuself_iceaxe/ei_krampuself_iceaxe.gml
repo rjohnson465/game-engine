@@ -14,8 +14,14 @@ ds_map_replace(equippedLimbItems,"r",iceshield);
 global.owner = id;
 
 var axeSwing1 = makeEnemyAttackObj(obj_attack_krampuself_iceaxe_1_1);
-var meleeChain1 = [axeSwing1];
+var axeSwing2 = makeEnemyAttackObj(obj_attack_krampuself_iceaxe_1_2);
+
+var axeCharge = makeEnemyAttackObj(obj_attack_krampuself_iceaxe_2_1);
+
+var c0 = [axeSwing1];
+var c1 = [axeSwing1, axeSwing2];
+var c2 = [axeCharge];
 
 meleeAttacks = [
-	meleeChain1
+	c0, c1, c2
 ];

@@ -12,8 +12,20 @@ if !instance_exists(item) || !object_is_ancestor(item.object_index, obj_item_par
 
 // increment the wires count parameter of this quest step
 if item.object_index == obj_item_wire_b || item.object_index == obj_item_wire_r || item.object_index == obj_item_wire_w {
-	var wc = ds_map_find_value(parameters, "wiresCount");
-	ds_map_replace(parameters, "wiresCount", wc+1);
+	
+	var newWc = 0;
+	// completely reassess given player inventory
+	with obj_player {
+		for (var i = 0; i < ds_list_size(inventory); i++) {
+			var it = ds_list_find_value(inventory, i);
+			if it.object_index == obj_item_wire_b || it.object_index == obj_item_wire_r || it.object_index == obj_item_wire_w {
+				newWc++;
+			}
+		}
+	}
+	
+	// var wc = ds_map_find_value(parameters, "wiresCount");
+	ds_map_replace(parameters, "wiresCount", newWc);
 	
 	// update the description for this quest step
 	var wc = ds_map_find_value(parameters, "wiresCount");

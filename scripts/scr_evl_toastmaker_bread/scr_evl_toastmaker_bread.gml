@@ -12,6 +12,7 @@ if !instance_exists(item) || !object_is_ancestor(item.object_index, obj_item_par
 
 // increment the wires count parameter of this quest step
 if item.object_index == obj_item_bread {
+	
 	var bc = ds_map_find_value(parameters, "breadCount");
 	ds_map_replace(parameters, "breadCount", bc+1);
 	
