@@ -20,6 +20,12 @@ if ds_map_size(attackingLimbs) != 0 {
 		} else {
 			speed = 0;
 		}
+		
+		// MAYBE turn during attack
+		if attackData.turnsDuringAttack && attackData.turnSpeedAttack > 0 {
+			turnToFacePoint(attackData.turnSpeedAttack, lockOnTarget.x, lockOnTarget.y);
+		}
+		
 	} else {
 		speed = 0;
 	}

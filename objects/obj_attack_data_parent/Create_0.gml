@@ -117,3 +117,6 @@ bouncesOffWalls = false;
 life = noone; // how long ranged attacks last
 
 zonePartNum = noone; // specify to say how many zone particles to spawn per frame, for zone attacks
+
+turnsDuringAttack = false;
+turnSpeedAttack = 0;
