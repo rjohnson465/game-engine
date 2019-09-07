@@ -12,8 +12,8 @@ normalSpeed = 5;
 turnSpeed = 10;
 normalTurnSpeed = 10;
 
-poiseCurrent = 15;
-poiseMax = 15;
+poiseCurrent = 20;
+poiseMax = 20;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
@@ -52,7 +52,7 @@ strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
 waryTotalFrames=[60,90];
 skittishness = 100;
-cautiousness = 50;
+cautiousness = 25;
 
 // melee attacks info
 // currently chosen melee attack chain

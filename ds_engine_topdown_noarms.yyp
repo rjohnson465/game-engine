@@ -807,6 +807,14 @@
             }
         },
         {
+            "Key": "08991654-a820-4b25-89cb-0ddd7e715cc6",
+            "Value": {
+                "id": "6ee02ee4-dffd-4b66-8fdc-9a74bf83d7f9",
+                "resourcePath": "views\\08991654-a820-4b25-89cb-0ddd7e715cc6.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "089b3309-61f4-411d-9b3a-687901b57a3c",
             "Value": {
                 "id": "d1dd4e8a-97c0-4f38-8aa6-b1ffcc476cdc",
@@ -956,6 +964,14 @@
                 "id": "3b698764-f1f3-4ab6-8b89-fbc01dd15e5d",
                 "resourcePath": "sounds\\snd_conv_rob_llfe_rob_5\\snd_conv_rob_llfe_rob_5.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "0a169198-e749-47d0-841f-b6acf7c32f01",
+            "Value": {
+                "id": "671e4e54-3e74-4055-8485-72d0940de246",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_limb_wand_attack_3_1\\spr_enemy_krampusmage_limb_wand_attack_3_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1523,6 +1539,14 @@
             "Value": {
                 "id": "9817a820-c6b6-4b30-a6e4-98eeb5a3b412",
                 "resourcePath": "sprites\\spr_player_spear_prep_2\\spr_player_spear_prep_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "106b2105-91ae-4ed8-9471-db6acca2ce98",
+            "Value": {
+                "id": "1b67291b-7b42-463c-a0f3-32b43e427570",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_wand_3_1_projectile\\spr_enemy_krampusmage_wand_3_1_projectile.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3279,6 +3303,14 @@
             }
         },
         {
+            "Key": "2315373f-3e5c-430b-8b9c-2bb28e666e90",
+            "Value": {
+                "id": "530fd679-206f-436f-b004-7d2b45a260e8",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_limb_wand_prep_3_1\\spr_enemy_krampusmage_limb_wand_prep_3_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "231c8ec1-5a3a-4d06-b53a-5f02cea992aa",
             "Value": {
                 "id": "6d599cb4-1264-458e-ac7b-e41c2602be74",
@@ -4684,6 +4716,14 @@
                 "id": "71095eed-fe57-49ee-bd87-f1c1c712a683",
                 "resourcePath": "sprites\\spr_prompt_mk_shift\\spr_prompt_mk_shift.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "33ce516d-ff32-456a-8d19-511b6c9283ea",
+            "Value": {
+                "id": "e54f36fd-7c9b-4b4a-bc4f-7801133b9ec0",
+                "resourcePath": "objects\\obj_attack_krampusmage_wand_3_1\\obj_attack_krampusmage_wand_3_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -6300,6 +6340,14 @@
                 "id": "8563bdf3-e590-4a02-80b6-7bbad611250d",
                 "resourcePath": "objects\\obj_hand_item_shuriken\\obj_hand_item_shuriken.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "4606c25c-791b-4cc8-a190-9ece4fcdb595",
+            "Value": {
+                "id": "b742d586-f8a4-4fcb-b000-65e5eac9a843",
+                "resourcePath": "sprites\\spr_ww_icecrystals_end\\spr_ww_icecrystals_end.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8135,6 +8183,14 @@
             }
         },
         {
+            "Key": "59d129f9-f2d3-4480-8d29-5b5162fa8d55",
+            "Value": {
+                "id": "d418c92a-302e-4fab-b8ac-5c87ab9c3999",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_wand_recover_3_1\\spr_enemy_krampusmage_wand_recover_3_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "59ef01dd-a365-478f-b3b9-86a9b240eb9c",
             "Value": {
                 "id": "aa6de918-6e1d-4a68-a17a-71e237e33782",
@@ -8284,6 +8340,14 @@
                 "id": "1ec5c266-b9e8-49c1-b68b-44106ce8501c",
                 "resourcePath": "scripts\\scr_conv_rob_llfe\\scr_conv_rob_llfe.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5d20b93f-2c04-4889-b87c-5fa10b6a88da",
+            "Value": {
+                "id": "c49fff38-7831-45ba-ba17-25cead967c61",
+                "resourcePath": "sprites\\spr_ww_icecrystal\\spr_ww_icecrystal.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8580,6 +8644,14 @@
                 "id": "8321d913-ab5d-4f5b-8b5f-ab219513d030",
                 "resourcePath": "sprites\\spr_block_blue\\spr_block_blue.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6092a756-3da4-48ba-9705-a3f969a2f3f9",
+            "Value": {
+                "id": "4c2ee52a-1425-40b7-a13b-d6fe036bb4ed",
+                "resourcePath": "objects\\obj_ww_icecrystal\\obj_ww_icecrystal.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -9379,6 +9451,14 @@
             "Value": {
                 "id": "67255710-0ba3-40e3-9272-8030ee046d63",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_spear_attack_1_1\\spr_enemy_unfairy_limb_spear_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "690df7ed-b2a2-4661-8c1f-40e2bea3d37d",
+            "Value": {
+                "id": "0a949635-222d-4ef7-9816-b95ad4d138b4",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_limb_wand_recover_3_1\\spr_enemy_krampusmage_limb_wand_recover_3_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -11575,6 +11655,14 @@
             }
         },
         {
+            "Key": "83a0fc78-de62-41fb-bb88-a78f02cb2e11",
+            "Value": {
+                "id": "5c575849-5525-4e70-b9d9-dfb5ef92b1c5",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_limb_wand_attack_2_1\\spr_enemy_krampusmage_limb_wand_attack_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "83cae823-e0ca-4b60-b3ac-e29307f35a9d",
             "Value": {
                 "id": "2406ef8c-98fa-4503-85d3-24f36bdf4114",
@@ -12915,6 +13003,14 @@
             "Value": {
                 "id": "907d9f60-e667-4c2e-bbb3-32f2ae75343b",
                 "resourcePath": "sprites\\spr_item_info_defense_lightning\\spr_item_info_defense_lightning.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "93cc76de-f391-4bb4-b6cd-9f03b8185802",
+            "Value": {
+                "id": "c0dff26a-e341-43b4-bf42-d9075a69a68a",
+                "resourcePath": "sprites\\spr_ww_icecrystals_mid\\spr_ww_icecrystals_mid.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -14871,6 +14967,14 @@
             }
         },
         {
+            "Key": "a9aba894-a785-4075-a171-be55cb3c8499",
+            "Value": {
+                "id": "b19d1bb7-f482-4482-afad-aef2025a6d0e",
+                "resourcePath": "objects\\obj_attack_krampusmage_wand_2_1\\obj_attack_krampusmage_wand_2_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a9ad0af9-09fd-4aef-a064-e5a429b72eea",
             "Value": {
                 "id": "bd5f9e4f-fe0a-4765-b3dd-d73769d18945",
@@ -15423,11 +15527,27 @@
             }
         },
         {
+            "Key": "aecbc05f-7d56-4175-952c-6ab53bb17b43",
+            "Value": {
+                "id": "37811088-8014-4337-937a-0a9e6921b58c",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_wand_attack_3_1\\spr_enemy_krampusmage_wand_attack_3_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "aed5710c-8b51-486d-8a29-54098d360b6d",
             "Value": {
                 "id": "eda8c411-e312-46f6-b0c3-6f724dfea4ff",
                 "resourcePath": "objects\\obj_queststep_llf_2\\obj_queststep_llf_2.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "aeee047b-1587-48c4-9f69-35d3ae30c276",
+            "Value": {
+                "id": "2451ec68-33d5-49e4-8425-2293c027eb2f",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_limb_wand_prep_2_1\\spr_enemy_krampusmage_limb_wand_prep_2_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -16651,6 +16771,14 @@
             "Value": {
                 "id": "746dcdb8-ca43-47fc-8139-385d444b514e",
                 "resourcePath": "sprites\\spr_tree_root1\\spr_tree_root1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bcc3284e-e3fa-4dc4-ac79-e2b72d283fdf",
+            "Value": {
+                "id": "4e0413b8-9667-4b1c-a4ca-02f7db25b2bd",
+                "resourcePath": "sprites\\spr_ww_icecrystals_start\\spr_ww_icecrystals_start.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -18399,6 +18527,14 @@
             }
         },
         {
+            "Key": "d14dc8ad-b6ec-4b2c-9a2a-f8d45acfacd9",
+            "Value": {
+                "id": "435d624c-2ae0-4f1f-9a0e-ff6789c8dbf2",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_limb_wand_recover_2_1\\spr_enemy_krampusmage_limb_wand_recover_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d16d4f72-d69e-4c7a-a059-db93f0a9b853",
             "Value": {
                 "id": "220687cb-1eed-46fe-bf57-84377cfc7777",
@@ -18839,6 +18975,14 @@
             }
         },
         {
+            "Key": "d607e9ff-0126-48f2-ac48-5352c0203e8b",
+            "Value": {
+                "id": "d945b84d-f52f-4e3a-8367-ea78d9302367",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_wand_prep_2_1\\spr_enemy_krampusmage_wand_prep_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d60b6c09-ba11-4f4f-8958-3d025a4e8f4d",
             "Value": {
                 "id": "52e3602c-c5d2-4787-bee8-0d46c91a2869",
@@ -19119,10 +19263,26 @@
             }
         },
         {
+            "Key": "d9cefc43-11a6-406a-bce2-929f5f7099a8",
+            "Value": {
+                "id": "e7724cc9-12e9-4c12-af92-6027b30a088f",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_wand_recover_2_1\\spr_enemy_krampusmage_wand_recover_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d9d286e5-8915-4d8f-930c-dc7dfd671711",
             "Value": {
                 "id": "8d96834d-86e8-465c-af77-cb1b93118da6",
                 "resourcePath": "sprites\\spr_elevatorbutton_pressed\\spr_elevatorbutton_pressed.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d9d2ac8a-2150-43a7-b42c-844500d83373",
+            "Value": {
+                "id": "6a4a627e-705b-4f33-bf37-c120970efdf9",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_wand_prep_3_1\\spr_enemy_krampusmage_wand_prep_3_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -19922,7 +20082,7 @@
             "Key": "e2bc43bf-9eeb-49e2-aa5b-642cb12dc504",
             "Value": {
                 "id": "5624fb10-e399-4ae0-a3ad-21c14c9db19d",
-                "resourcePath": "sprites\\spr_enemy_krampusmage_limb_wand1\\spr_enemy_krampusmage_limb_wand1.yy",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_limb_wand\\spr_enemy_krampusmage_limb_wand.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -20268,6 +20428,14 @@
                 "id": "98dae2c9-9d5e-4eb8-91d4-23740e678adc",
                 "resourcePath": "objects\\obj_attack_lighteater_claw_1_2\\obj_attack_lighteater_claw_1_2.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "e71cc8f0-3fbb-4d27-a376-48dedbdd0e69",
+            "Value": {
+                "id": "172a0d3d-225e-4045-ab1b-314643892d82",
+                "resourcePath": "sprites\\spr_enemy_krampusmage_wand_attack_2_1\\spr_enemy_krampusmage_wand_attack_2_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -22052,6 +22220,14 @@
                 "id": "cb771d52-4e07-482f-a108-0646bd88ee76",
                 "resourcePath": "sprites\\spr_item_aoe_ice\\spr_item_aoe_ice.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fde64554-e5b6-4e40-9fe6-88a114e9a942",
+            "Value": {
+                "id": "de0bb813-b300-4f77-a06c-8ce4b5dfc391",
+                "resourcePath": "objects\\obj_ww_icecrystals\\obj_ww_icecrystals.yy",
+                "resourceType": "GMObject"
             }
         },
         {

@@ -38,6 +38,7 @@ cautiousness = 50;
 poiseCurrent = 10000;
 poiseMax = 10000;
 poiseRegen = 100;
+cannotStagger = true;
 
 // melee attacks info
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)

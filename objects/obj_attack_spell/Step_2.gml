@@ -2,7 +2,7 @@
 	var x1 = x + lengthdir_x(100,facingDirection);
 	var y1 = y + lengthdir_y(100,facingDirection);
 	var firstObj = noone;
-	var possibleSolids = scr_collision_line_list_layer(x,y,x1,y1,obj_solid_parent,true,true);
+	var possibleSolids = scr_collision_line_list_layer(x,y,x1,y1,obj_solid_parent,true,true,true);
 	if possibleSolids != noone {
 		var closestDist = 1000;
 		for (var i = 0; i < ds_list_size(possibleSolids); i++) {

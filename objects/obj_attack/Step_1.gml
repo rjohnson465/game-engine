@@ -131,6 +131,9 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		if script_execute(scr_collision_point,id,firstObj.id) {
 
 			global.damageType = firstObj.material == METAL ? "Block" : "Dust";
+			if firstObj.material == ICE_MAT {
+				global.damageType = ICE;
+			}
 			if owner.type == CombatantTypes.Player && weapon.weaponType == UNARMED {
 				global.damageType = "Dust";
 			}
@@ -143,6 +146,9 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 			if !isSpell {
 				// play wall hit sound, dependent on type of material wall is
 				var snd = global.damageType == "Dust" ? snd_shield_hit_wood : snd_wallhit;
+					if firstObj.material == ICE_MAT {
+					snd = snd_magic_ice_hit;
+				}
 				audio_play_sound_at(snd,__x,__y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 			}
 		}
@@ -152,7 +158,7 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		}
 	
 		instance_destroy(id,true);
-		if owner.poise < 100 {
+		if !owner.cannotStagger {
 			owner.state = CombatantStates.Staggering;
 		}
 	}
@@ -167,6 +173,9 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 			direction = ((direction+180) %360) + rand;
 			facingDirection = direction;
 			var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
+			if firstObj.material == ICE_MAT {
+				snd = snd_magic_ice_hit;
+			}
 			
 			// only play bounce sound once every 7 frames, at maximum
 			if alarm[2] <= 0 {
@@ -180,6 +189,9 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 			if isSpell {
 				global.damageType = spellElement;
 			}
+			if firstObj.material == ICE_MAT {
+				global.damageType = ICE;
+			}
 			global.x1 = x + lengthdir_x(bbox_right-bbox_left,facingDirection);
 			global.y1 = bbox_bottom;
 			global.particleDirection = facingDirection;
@@ -192,6 +204,9 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 			hasSetAlarm = true;
 			if !isSpell {
 				var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
+				if firstObj.material == ICE_MAT {
+					snd = snd_magic_ice_hit;
+				}
 				audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 			} else {
 				audio_stop_sound(sound);

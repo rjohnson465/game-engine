@@ -9,7 +9,7 @@ staminaCost = 5;
 staggerDuration = 10;
 limbKey = noone;
 type = AttackTypes.AOE;
-minRange = 100;
+minRange = 60;
 
 
 numberOfProjectiles = 3; // TEST

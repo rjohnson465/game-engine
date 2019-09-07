@@ -3,6 +3,7 @@ subType = HandItemTypes.Shield;
 
 #macro METAL "Metal"
 #macro WOOD "Wood"
+#macro ICE_MAT "Ice Material"
 
 material = METAL;
 // defenses -- different % for each element

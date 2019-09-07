@@ -18,7 +18,7 @@ dyingParticleColor2 = c_olive;
 
 canJump = true;
 
-canStrafe = false;
+// canStrafe = false;
 
 hasHands = false; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
