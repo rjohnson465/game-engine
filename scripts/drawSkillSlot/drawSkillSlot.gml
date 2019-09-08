@@ -17,7 +17,9 @@ with obj_skill_selector {
 }
 if drawDark {
 	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,c_gray,.75);
-	draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,C_HIGHLIGHT,global.gameManager.selectedItemFilterAlpha);
+	if global.skillManager.isActive || !gamepad_is_connected(global.gamePadIndex) {
+		draw_sprite_ext(spr_item_slot,1,xx,yy,1,1,0,C_HIGHLIGHT,global.gameManager.selectedItemFilterAlpha);
+	}
 } else {
 	draw_sprite(spr_item_slot,1,xx,yy);
 }

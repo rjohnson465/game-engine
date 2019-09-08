@@ -19,7 +19,8 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 		if playerItemsObj.selectedItem != noone && playerItemsObj.selectedItem != undefined && instance_exists(playerItemsObj.selectedItem) && playerItemsObj.selectedItem.isSellable {
 			w += drawPrompt("Sell " + playerItemsObj.selectedItem.name, Input.F,promptsStartX+w,promptsY)+xOffset;
 		} 
-		if playerItemsObj.selectedItem != undefined && playerItemsObj.selectedItem >= 0 && instance_exists(playerItemsObj.selectedItem) && playerItemsObj.selectedItem.type != ItemTypes.Other && !playerItemsObj.selectedItem.isUsable {
+		if playerItemsObj.selectedItem != undefined && playerItemsObj.selectedItem >= 0 && instance_exists(playerItemsObj.selectedItem) 
+			&& (playerItemsObj.selectedItem.type == ItemTypes.HandItem || playerItemsObj.selectedItem.type == ItemTypes.Head) && !playerItemsObj.selectedItem.isUsable {
 			w += drawPrompt("Toggle Item Info",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		}
 		if global.ui.isShowingExplanations {
@@ -35,7 +36,8 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 		if vendorItemsObj.selectedItem != noone && vendorItemsObj.selectedItem != undefined && instance_exists(vendorItemsObj.selectedItem) && vendorItemsObj.selectedItem.isSellable {
 			w += drawPrompt("Buy " + vendorItemsObj.selectedItem.name, Input.F,promptsStartX+w,promptsY)+xOffset;
 		} 
-		if vendorItemsObj.selectedItem != undefined && vendorItemsObj.selectedItem >= 0 && instance_exists(vendorItemsObj.selectedItem) && vendorItemsObj.selectedItem.type != ItemTypes.Other && !vendorItemsObj.selectedItem.isUsable {
+		if vendorItemsObj.selectedItem != undefined && vendorItemsObj.selectedItem >= 0 && instance_exists(vendorItemsObj.selectedItem) 
+			&& (vendorItemsObj.selectedItem.type == ItemTypes.HandItem || vendorItemsObj.selectedItem.type == ItemTypes.Head) && !vendorItemsObj.selectedItem.isUsable {
 			w += drawPrompt("Toggle Item Info",Input.Backspace,promptsStartX+w,promptsY)+xOffset;
 		}
 		if global.ui.isShowingExplanations {
@@ -55,7 +57,8 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	var activeItems = playerItemsObj.isActive ? playerItemsObj : vendorItemsObj;
 	
 	with activeItems {
-		if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && selectedItem.type != ItemTypes.Other && !selectedItem.isUsable {
+		if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) 
+			&& (selectedItem.type == ItemTypes.HandItem || selectedItem.type == ItemTypes.Head) && !selectedItem.isUsable {
 			w += drawPrompt("Toggle Item Info",Input.Control,promptsStartX+w,promptsY)+xOffset;
 		}
 		if global.ui.isShowingExplanations {

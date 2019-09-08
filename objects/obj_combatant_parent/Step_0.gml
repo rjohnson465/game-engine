@@ -143,7 +143,7 @@ switch(state) {
 		// player overrides this entirely
 		if type != CombatantTypes.Player && usesDefaultMoveState {
 			if substate == noone substate = CombatantMoveSubstates.Chasing;
-			// face the proper direction
+			// face the proper directionmaybe
 			faceMovingDirection();
 			
 			// play proper moving sound -- walk sound, strafe sound, no sound...

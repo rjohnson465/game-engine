@@ -57,7 +57,7 @@ if showIfHighlighted {
 		isActive2 = true;
 	}
 	if isSelected && isActive2 {
-		var hlc = item.equipmentSlot != noone ? c_aqua : c_orange;
+		var hlc = item.equipmentSlot != noone ? c_aqua : C_HIGHLIGHT;
 		draw_sprite_ext(spr_item_slot,1,x1,y1,1,1,0,hlc,global.gameManager.selectedItemFilterAlpha);
 	}
 }

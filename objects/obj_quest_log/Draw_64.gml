@@ -67,7 +67,7 @@ for (var i = scrollLevel; i < ds_list_size(p.quests); i++) {
 	var x2 = xx+(.5*sw); var y2 = yy;
 	
 	// if this is the selected quest, draw a highlight
-	if quest == selectedQuest {
+	if quest == selectedQuest && (isActive || !gamepad_is_connected(global.gamePadIndex)) {
 		var adjustedSh = string_height_ext(s,-1,maxW);
 		draw_set_alpha(global.gameManager.selectedItemFilterAlpha * alphaMod); draw_set_color(C_HIGHLIGHT);
 		var hx1 = xx-(.5*maxW); var hy1 = yy - (1 * adjustedSh);

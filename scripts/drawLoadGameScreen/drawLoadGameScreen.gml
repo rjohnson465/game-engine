@@ -175,7 +175,7 @@ while fileName != ""
 		if selectedFile != "" && selectedFile != noone && selectedFile == fileName && hasSetSelectedFile {
 			draw_set_alpha(selectedItemFilterAlpha);
 			var textCol = draw_get_color();
-			draw_set_color(c_orange);
+			draw_set_color(C_HIGHLIGHT);
 			draw_rectangle(x1, y1, x2, y2, 0);
 			draw_set_color(textCol);
 			draw_set_alpha(1);
@@ -315,7 +315,7 @@ else {
 		}
 		
 		// if mousing over back button, show selection highlight
-		draw_set_color(c_orange);
+		draw_set_color(C_HIGHLIGHT);
 		draw_set_alpha(selectedItemFilterAlpha);
 		draw_rectangle(x1, y1, x2, y2, 0);
 		draw_set_alpha(1);

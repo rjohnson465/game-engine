@@ -1,4 +1,4 @@
-event_inherited();
+ event_inherited();
 spriteName = "spr_enemy_krampusmage_wand";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;

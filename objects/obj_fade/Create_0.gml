@@ -1,5 +1,6 @@
 fadeDuration = global.fadeDuration;
 owner = global.owner;
+ownerObjIndex = owner.object_index;
 frame = 0;
 alpha = 1;
 emitter = noone;

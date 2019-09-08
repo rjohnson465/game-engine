@@ -84,7 +84,7 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 			}
 		} else {
 			// if preparing a STANDARD melee attack and no attacks are happening with other hand, move back a bit (if you can)
-			if ds_map_size(attackingLimbs) == 0 {
+			if ds_map_size(attackingLimbs) == 0 && attackData.movesDuringAttack {
 				var x1 = x +lengthdir_x(-.5,facingDirection);
 				var y1 = y +lengthdir_y(-.5,facingDirection);
 		

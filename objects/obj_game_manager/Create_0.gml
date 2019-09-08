@@ -85,7 +85,7 @@ global.ALL_WEAPON_TYPES = [
 	BOW, CROSSBOW, SHURIKEN, MUSKET, THROWN, PISTOL
 ];
 
-depth = -10000;
+depth = -1000;
 
 
 global._light_layers = ds_map_create();

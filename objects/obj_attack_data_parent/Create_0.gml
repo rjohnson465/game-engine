@@ -120,3 +120,5 @@ zonePartNum = noone; // specify to say how many zone particles to spawn per fram
 
 turnsDuringAttack = false;
 turnSpeedAttack = 0;
+
+movesDuringAttack = true;

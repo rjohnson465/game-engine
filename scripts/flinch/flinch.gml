@@ -1,7 +1,10 @@
 // flinching just moves you back a little in a given direction
 // its like staggering but doesnt interrupt attacks
 
-if !canFlinch exit;
+if !canFlinch {
+	isFlinching = false;
+	exit;
+}
 
 isStrafing = false;
 if flinchFrame < totalFlinchFrames {

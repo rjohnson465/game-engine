@@ -263,7 +263,9 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 			w += drawPrompt("Use Item",Input.Face4,promptsStartX+w,promptsY)+xOffset;
 		}
 		// prompt to toggle info with Y
-		if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && selectedItem.type != ItemTypes.Other && isSelectorInInventory(global.ui.moveSelector) && !selectedItem.isUsable {
+		if selectedItem != undefined && selectedItem >= 0 && instance_exists(selectedItem) && 
+			(selectedItem.type == ItemTypes.HandItem || selectedItem.type == ItemTypes.Head) 
+			&& isSelectorInInventory(global.ui.moveSelector) && !selectedItem.isUsable {
 			w += drawPrompt("Toggle Item Info",Input.Face4,promptsStartX+w,promptsY)+xOffset;
 		}
 	
@@ -303,7 +305,8 @@ else {
 			w += drawPrompt("Destroy Item",Input.MMB,promptsStartX+w,promptsY)+xOffset;
 		}
 		
-		if selectedItem != noone && selectedItem.type != ItemTypes.Other {
+		if selectedItem != noone && 
+			(selectedItem.type == ItemTypes.HandItem || selectedItem.type == ItemTypes.Head)  {
 			w += drawPrompt("Toggle Item Info",Input.Control,promptsStartX+w,promptsY)+xOffset;
 		}
 		
