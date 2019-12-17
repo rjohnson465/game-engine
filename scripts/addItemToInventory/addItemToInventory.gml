@@ -9,18 +9,16 @@ if item == noone || item == undefined || !instance_exists(item) exit;
 
 item.owner = p;
 
-raiseEvent(EV_ITEM_PICKEDUP, [item]);
-
-// itemType is either Ranged, Melee, Ring, Head, Other
-/* var itemType = getItemFilterType(item);
-var currentItemTypeCount = ds_map_find_value(global.player.inventoryCapacityMap, itemType);
-*/
-
 if item.isStackable {
 	// check if there's another item of this object_index in inventory
 	var stack = noone;
 	for (var i = 0; i < ds_list_size(p.inventory); i++) {
 		var el = ds_list_find_value(p.inventory,i);
+		if !instance_exists(el) {
+			ds_list_delete(p.inventory, i);
+			i--;
+			continue;
+		}
 		if object_is_ancestor(el.object_index,obj_gem_parent) || object_is_ancestor(el.object_index, obj_gempieces_parent) {
 			if el.object_index == item.object_index && el.condition == item.condition {
 				stack = el;
@@ -32,6 +30,7 @@ if item.isStackable {
 	}
 	// just increment the stack
 	if stack != noone {
+		raiseEvent(EV_ITEM_PICKEDUP, [item]);
 		stack.count += item.count;
 		if item != undefined && item >= 0 && instance_exists(item) {
 			instance_destroy(item, 1);
@@ -39,21 +38,8 @@ if item.isStackable {
 	}
 	// no stack exists, add the item to inv
 	else {
-		/*
-		if (item.object_index != obj_item_coins) {
-			
-			// make sure we're not at capacity
-			if (currentItemTypeCount < global.player.INVENTORY_MAX_CAPACITY) {
-				ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount + 1);
-			} else {
-				var fs = getInvFilterName(itemType);
-				alert("You are at capacity for " + fs + " items!", c_red);
-				return false;
-				exit;
-			}
-		}
-		*/
 		ds_list_add(p.inventory,item);
+		raiseEvent(EV_ITEM_PICKEDUP, [item]);
 		if !item.persistent {
 			item.persistent = true;
 		}
@@ -61,16 +47,8 @@ if item.isStackable {
 }
 // item is not stackable
 else {
-	/*
-	if (currentItemTypeCount < global.player.INVENTORY_MAX_CAPACITY) {
-		ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount + 1);
-	} else {
-		var fs = getInvFilterName(itemType);
-		alert("You are at capacity for " + fs + " items!", c_red);
-		return false;
-		exit;
-	}*/
 	ds_list_add(p.inventory,item);
+	raiseEvent(EV_ITEM_PICKEDUP, [item]);
 	if !item.persistent {
 		item.persistent = true;
 	}

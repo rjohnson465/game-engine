@@ -1,6 +1,6 @@
 event_inherited();
 origLayer = layer;
-depth = layer_get_depth(layer)-5;
+depth = layer_get_depth(layer)-3;
 treeAlpha = 1;
 sprite_index = spr_treedead1_mask
 stopsAttacks = true;

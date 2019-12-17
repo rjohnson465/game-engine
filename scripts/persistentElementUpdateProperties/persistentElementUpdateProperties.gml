@@ -4,14 +4,6 @@
 var el = argument0; 
 
 var rd = instance_nearest(x, y, obj_room_data);
-/*if rd == noone || rd.persistentElements == noone || rd.enemiesData == noone {
-	return false; exit;
-}*/
-
-/*
-if !variable_instance_exists(el, "persistentProperties") || el.persistentProperties == noone || !ds_exists(el.persistentProperties, ds_type_map) {
-	el.persistentProperties = ds_map_create();
-}*/
 
 // enemy...
 if object_is_ancestor(el.object_index, obj_enemy_parent) {

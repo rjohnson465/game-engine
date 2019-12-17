@@ -190,7 +190,3 @@ if global.player.rightHandItem == noone && !global.player.leftHandItem.isTwoHand
 	global.player.rightHandItem = unarmed;
 }
 
-var a = ds_list_create();
-var b = ds_map_create();
-ds_list_destroy(a); a = -1;
-ds_map_destroy(b); b = -1;

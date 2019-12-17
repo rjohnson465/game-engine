@@ -1,4 +1,4 @@
-/// lightSconce(soundToPlay*)
+        /// lightSconce(soundToPlay*)
 /// @param soundToPlay*
 
 var soundToPlay = snd_magic_fire_shoot;

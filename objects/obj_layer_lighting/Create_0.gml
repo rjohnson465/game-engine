@@ -1,5 +1,25 @@
 floorNum = global.floorNum;
-depth = layer_get_depth(layer_get_name("instances_floor_"+string(floorNum)))-5;
+
+
+// your depth is the depth of the layer with "floor_"<floorNum> that is the least deep
+var layers = layer_get_all();
+var topMostLayer = layer_get_id("instances_floor_"+string(floorNum)); 
+
+var lowestDepth = layer_get_depth(layer_get_name("instances_floor_"+string(floorNum)))-5;
+for (var i = 0; i < array_length_1d(layers); i++) {
+	var lay = layers[i];
+	var layName = layer_get_name(lay);
+	if string_pos("floor_" + string(floorNum), layName) {
+		if layer_get_depth(lay) < lowestDepth {
+			lowestDepth = layer_get_depth(lay) - 5;
+			topMostLayer = lay;
+		}
+	}
+}
+
+// depth = layer_get_depth(layer_get_name("instances_floor_"+string(floorNum)))-5;
+// depth = layer_get_depth(topMostLayer);
+depth = lowestDepth;
 
 with obj_layer_lighting {
 	if floorNum == other.floorNum && id != other.id {

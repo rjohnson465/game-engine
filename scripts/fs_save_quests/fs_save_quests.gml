@@ -10,14 +10,15 @@ with obj_quest_parent {
 	for (var i = 0; i < ds_list_size(questSteps); i++) {
 		var qs = ds_list_find_value(questSteps,i);
 		with qs {
-			var cv = ds_map_find_first(parameters);
+			/*var cv = ds_map_find_first(parameters);
 			var paramsMap = ds_map_create();
 			for (var j = 0; j < ds_map_size(parameters); j++) {
 				var val = ds_map_find_value(parameters,cv);
 				ds_map_add(paramsMap,cv,val);
 			
 				cv = ds_map_find_next(parameters,cv);
-			}
+			}*/
+			var paramsMap = ds_map_deep_clone(parameters);
 			ds_map_add_map(sd_quest,string(i)+"Parameters",paramsMap);
 			ds_map_add(sd_quest, string(i)+"Status", qs.status);
 			ds_map_add(sd_quest, string(i)+"Description", qs.description);

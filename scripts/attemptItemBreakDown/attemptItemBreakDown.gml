@@ -1,6 +1,11 @@
 /// attemptItemBreakDown()
 /// must be called by instance of obj_fountain_gui_nameprice
 
+if getGoldCount() < namedPrice {
+	alert("Not enough gold", c_red);
+	exit;
+}
+
 var itemsGui = instance_nearest(x,y,obj_fountain_gui_gemmeditems);
 var item = itemsGui.selectedItem;
 /*

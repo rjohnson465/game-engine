@@ -13,5 +13,10 @@ if !instance_exists(wamdkQuest) {
 }
 
 if instance_exists(wamdkQuest) && (wamdkQuest.currentQuestStep.isRewardStep || wamdkQuest.isFinished) {
-	ds_list_add(conversationsList, instance_create_depth(x, y, 1, obj_conv_wamdk_completed));
+	var conv = instance_create_depth(x, y, 1, obj_conv_wamdk_completed);
+	// if narrative state is lamplight factory or before, this can be an urgent conv
+	if global.player.narrativeState <= NarrativeState.LamplightFactory {
+		conv.isUrgent = true;
+	}
+	ds_list_add(conversationsList, conv);
 }

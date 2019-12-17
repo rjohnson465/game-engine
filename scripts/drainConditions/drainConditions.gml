@@ -1,8 +1,9 @@
-if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked {
+//if !isSlowed && !isPoisoned && !isHexed && !isFrozen && !isBurning && !isShocked {
 	if layer != global.player.layer {
 		exit;
 	}
-}
+// }
+
 // conditionPercentages drain every step
 if type != CombatantTypes.Player && (distance_to_object(obj_player)) > 1000 && state == CombatantStates.Idle exit;
 // TODO Devin fix calculations for draining
@@ -99,10 +100,13 @@ for (var i = 0; i < size; i++) {
 		if !arrayIncludes(global.ALL_ELEMENTS, currentCondition) {
 			decrementAmount = .05;
 		} else {
+			// having negative defense doesn't prolong the condition
 			var defense = ds_map_find_value(defenses,currentCondition);
-			decrementAmount = (.0067*defense)+.2;
-			if decrementAmount < 0 {
-				decrementAmount = .1;
+				if defense >= 0 {
+				decrementAmount = (.0067*defense)+.2;
+				if decrementAmount < 0 {
+					decrementAmount = .1;
+				}
 			}
 		}
 

@@ -43,16 +43,16 @@ if ds_map_size(attackingLimbs) != 0 {
 		} else {
 			// if there's no attack object for this attack, have a fail safe to start recovery process for this limb
 			// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
-			var attackInChain = ds_map_find_value(attackingLimbs,limbKey);
-			ds_map_replace(recoveringLimbs,limbKey,attackInChain);
+			var attackInChain = ds_map_find_value(attackingLimbs,limb);
+			ds_map_replace(recoveringLimbs,limb,attackInChain);
 		
 			// set recoverFrames to -1
-			ds_map_replace(recoverFrames,limbKey,-1);
+			ds_map_replace(recoverFrames,limb,-1);
 		
 			// remove limbKey from attackingLimbs map
-			ds_map_delete(attackingLimbs,limbKey);
+			ds_map_delete(attackingLimbs,limb);
 		
-			prevAttackHand = limbKey;
+			prevAttackHand = limb;
 		}
 		limb = ds_map_find_next(attackingLimbs, limb);
 	}

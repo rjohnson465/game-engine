@@ -48,3 +48,6 @@ attackSoundLoop = snd_magic_poison_loop;
 zonePartNum = 7;
 
 zonePartNum2 = 5;
+
+turnsDuringAttack = true;
+turnSpeedAttack = 1;

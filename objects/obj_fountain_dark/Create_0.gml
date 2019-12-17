@@ -9,7 +9,7 @@ event_inherited();
 origLayer = layer;
 fountainRunningSoundEmitter = audio_emitter_create();
 audio_emitter_position(fountainRunningSoundEmitter,x,y,layer_get_depth(origLayer));
-audio_emitter_falloff(fountainRunningSoundEmitter,50,500,1);
+audio_emitter_falloff(fountainRunningSoundEmitter,50,800,1);
 audio_emitter_gain(fountainRunningSoundEmitter,0);
 fountainRunningSound = snd_fountain_running;
 fountainRunningSoundIndex = noone;

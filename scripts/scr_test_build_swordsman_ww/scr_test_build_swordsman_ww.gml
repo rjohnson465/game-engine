@@ -1,7 +1,7 @@
 /// scr_test_build_swordsman_ww
 
 // The swordsman build test, for start of ww map
-// Expected level: 8
+// Expected level: 10
 // Using: Longsword w/ cracked hematite, wood shield, ringed coif, ring with hp regen
 // Skills (7 points)
 // 5 into health
@@ -41,6 +41,14 @@ addItemToInventory(ls);
 equipItem(ls, EquipmentSlots.LeftHand1);
 var ws = instance_create_depth(x, y, depth, obj_hand_item_woodshield);
 addItemToInventory(ws);
+
+var bow = instance_create_depth(x, y, depth, obj_hand_item_shortbow);
+var torch = instance_create_depth(x, y, depth, obj_hand_item_torch);
+var wand = instance_create_depth(x, y, depth, obj_hand_item_wand);
+addItemToInventory(bow);
+addItemToInventory(torch);
+addItemToInventory(wand);
+
 equipItem(ws, EquipmentSlots.RightHand1);
 var rc = instance_create_depth(x, y, depth, obj_hat_ringed_coif);
 addItemToInventory(rc);

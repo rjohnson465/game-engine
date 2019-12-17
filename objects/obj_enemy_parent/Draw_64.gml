@@ -2,62 +2,65 @@
 if !isBoss {
 	if id.showHp && id.isAlive && !id.isDying && layer == global.player.layer {
 	
-		// totalhp bar outline
-		var vx = camera_get_view_x(view_camera[0]);
-		var vy = camera_get_view_y(view_camera[0]);
-		var spw = sprite_get_bbox_right(sprite_index)-sprite_get_bbox_left(sprite_index); 
-		var sph = sprite_get_bbox_bottom(sprite_index)-sprite_get_bbox_top(sprite_index);
-		var hpOutlineLeftX = (id.x-vx)-(.5*spw);
-		var hpOutlineTopY = (id.y-vy)-(.5*sph)-10;
-		var hpOutlineRightX = (id.x-vx)+(.5*spw);
-		var hpOutlineBottomY = (id.y-vy)-(.5*sph)-5;
-		draw_set_color(c_white);
-		draw_rectangle(hpOutlineLeftX,hpOutlineTopY,hpOutlineRightX,hpOutlineBottomY,true);
+		var doDrawSmHealthBar = ds_map_find_value(global.optionsManager.optionsMapDisplay, OPT_D_SMALLHEALTHBARS);
+		if doDrawSmHealthBar {
+			// totalhp bar outline
+			var vx = camera_get_view_x(view_camera[0]);
+			var vy = camera_get_view_y(view_camera[0]);
+			var spw = sprite_get_bbox_right(sprite_index)-sprite_get_bbox_left(sprite_index); 
+			var sph = sprite_get_bbox_bottom(sprite_index)-sprite_get_bbox_top(sprite_index);
+			var hpOutlineLeftX = (id.x-vx)-(.5*spw);
+			var hpOutlineTopY = (id.y-vy)-(.5*sph)-10;
+			var hpOutlineRightX = (id.x-vx)+(.5*spw);
+			var hpOutlineBottomY = (id.y-vy)-(.5*sph)-5;
+			draw_set_color(c_white);
+			draw_rectangle(hpOutlineLeftX,hpOutlineTopY,hpOutlineRightX,hpOutlineBottomY,true);
 	
-		// current hp
-		var percentHpLeft = id.hp / id.maxHp;
-		var currentHpRightX = hpOutlineLeftX + (spw * percentHpLeft);
-		if (currentHpRightX < hpOutlineLeftX) currentHpRightX = hpOutlineLeftX;
-		draw_set_color(c_red);
-		draw_rectangle(
-			hpOutlineLeftX,
-			hpOutlineTopY,
-			currentHpRightX,
-			hpOutlineBottomY,
-			false);
+			// current hp
+			var percentHpLeft = id.hp / id.maxHp;
+			var currentHpRightX = hpOutlineLeftX + (spw * percentHpLeft);
+			if (currentHpRightX < hpOutlineLeftX) currentHpRightX = hpOutlineLeftX;
+			draw_set_color(c_red);
+			draw_rectangle(
+				hpOutlineLeftX,
+				hpOutlineTopY,
+				currentHpRightX,
+				hpOutlineBottomY,
+				false);
 		
-		// show currently lost / losing hp in yellow?
-		var sustainingDamageObj = noone;
-		var enemyId = id.id;
-		with (obj_damage) {
-			if victim == enemyId {
-				sustainingDamageObj = id;
+			// show currently lost / losing hp in yellow?
+			var sustainingDamageObj = noone;
+			var enemyId = id.id;
+			with (obj_damage) {
+				if victim == enemyId {
+					sustainingDamageObj = id;
+				}
 			}
-		}
-		if sustainingDamageObj {
+			if sustainingDamageObj {
 		
-			// this is how much hp the enemy had when the first damage in this group was leveled against it
-			var healingSustained = sustainingDamageObj.healingSustained;
+				// this is how much hp the enemy had when the first damage in this group was leveled against it
+				var healingSustained = sustainingDamageObj.healingSustained;
 		
-			var sustainingDamage = sustainingDamageObj.amount;
-			// top right corner of current hp bar
-			var sustainingDamageLeftX = currentHpRightX;
-			var percentOfTotal = sustainingDamage / id.maxHp;
-			var sustainingDamageRightX = sustainingDamageLeftX + (spw * percentOfTotal);
+				var sustainingDamage = sustainingDamageObj.amount;
+				// top right corner of current hp bar
+				var sustainingDamageLeftX = currentHpRightX;
+				var percentOfTotal = sustainingDamage / id.maxHp;
+				var sustainingDamageRightX = sustainingDamageLeftX + (spw * percentOfTotal);
 		
-			// offset the damage right x to account for any hp regen or healing
-			if healingSustained > 0 {
-				var deltaPercent = healingSustained / id.maxHp;
-				var xOff = spw * deltaPercent;
-				sustainingDamageRightX -= xOff;
+				// offset the damage right x to account for any hp regen or healing
+				if healingSustained > 0 {
+					var deltaPercent = healingSustained / id.maxHp;
+					var xOff = spw * deltaPercent;
+					sustainingDamageRightX -= xOff;
+				}
+		
+				if sustainingDamageRightX > hpOutlineRightX {
+					sustainingDamageRightX = hpOutlineRightX;
+				}
+		
+				draw_set_color(c_ltgray);
+				draw_rectangle(sustainingDamageLeftX,hpOutlineTopY,sustainingDamageRightX,hpOutlineBottomY,false);
 			}
-		
-			if sustainingDamageRightX > hpOutlineRightX {
-				sustainingDamageRightX = hpOutlineRightX;
-			}
-		
-			draw_set_color(c_ltgray);
-			draw_rectangle(sustainingDamageLeftX,hpOutlineTopY,sustainingDamageRightX,hpOutlineBottomY,false);
 		}
 	
 	
@@ -118,13 +121,16 @@ if !isBoss {
 		draw_set_font(font_main);
 		
 		// draw poise???
-		if !cannotStagger {
-			var poiseAmount = (poiseCurrent / poiseMax) * 100; 
-			var poiseColor = (state == CombatantStates.Staggering || hp <= 0) ? c_gray : C_POISE;
-			draw_healthbar(x1, y2+2, x2, y2+7, poiseAmount, c_black, poiseColor, poiseColor, 0, true, false);
-			// border
-			draw_set_color(c_white);
-			draw_rectangle(x1, y2+2, x2, y2+7, true);
+		var doDrawPoise = ds_map_find_value(global.optionsManager.optionsMapDisplay, OPT_D_ENEMYPOISE);
+		if doDrawPoise {
+			if !cannotStagger {
+				var poiseAmount = (poiseCurrent / poiseMax) * 100; 
+				var poiseColor = (state == CombatantStates.Staggering || hp <= 0) ? c_gray : C_POISE;
+				draw_healthbar(x1, y2+2, x2, y2+7, poiseAmount, c_black, poiseColor, poiseColor, 0, true, false);
+				// border
+				draw_set_color(c_white);
+				draw_rectangle(x1, y2+2, x2, y2+7, true);
+			}
 		}
 	
 		// draw conditions
@@ -247,8 +253,11 @@ else if isBoss && isAlive {
 			draw_healthbar(BOSS_HP_X1, y1, BOSS_HP_X2, y2, (hp/maxHp)*100, c_black, c_red, c_maroon, 0, true, true);
 	
 			// maybe draw poise
-			if !cannotStagger {
-				draw_healthbar(BOSS_HP_X1, y2, BOSS_HP_X2, y2+5, (poiseCurrent/poiseMax)*100, c_black, C_POISE, C_POISE, 0, true, true);
+			var doDrawPoise = ds_map_find_value(global.optionsManager.optionsMapDisplay, OPT_D_ENEMYPOISE);
+			if doDrawPoise {
+				if !cannotStagger {
+					draw_healthbar(BOSS_HP_X1, y2, BOSS_HP_X2, y2+5, (poiseCurrent/poiseMax)*100, c_black, C_POISE, C_POISE, 0, true, true);
+				}
 			}
 	
 			var percentHpLeft = id.hp / id.maxHp;

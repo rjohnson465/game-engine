@@ -33,9 +33,15 @@ if ui.isShowingExplanations {
 	}
 	
 	var defTotal = defBase + bonusesTotal;
+	if defTotal < 0 {
+		draw_set_color(c_red);
+	} else {
+		draw_set_color(c_white);
+	}
 	draw_text(wdCol1XText,startingY+(line*20),"vs. Slash: " + string(defTotal));
 	ds_list_destroy(bonusesDefenses); bonusesDefenses = -1;
 }
+draw_set_color(c_white);
 line++;
 
 // crush defense
@@ -103,6 +109,8 @@ for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
 		}
 		if bonusesTotal > 0 {
 			draw_set_color(c_lime);
+		} else if defTotal < 0 {
+			draw_set_color(c_red);
 		} else {
 			draw_set_color(c_white);
 		}

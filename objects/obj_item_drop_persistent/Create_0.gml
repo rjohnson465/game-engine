@@ -4,6 +4,7 @@ sprite_index = noone;
 isBeingLooted = false;
 
 postX = x; postY = y; postZ = layer; roomIndex = room;
+currentX = x; currentY = y;
 
 var sw = view_get_wport(view_camera[0]);
 var sh = view_get_hport(view_camera[0]);
@@ -67,5 +68,7 @@ particle = magic;
 isNonPriorityInteractable = true;
 isLooted = false;
 ds_map_replace(properties, "isLooted", false);
+ds_map_replace(properties, "currentX", x);
+ds_map_replace(properties, "currentY", y);
 
 distToPickup = 33;

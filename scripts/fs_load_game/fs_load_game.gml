@@ -45,6 +45,9 @@ fs_load_quests(ds_map_find_value(save_data,"Quests"));
 // maps / lists clean, methinks
 fs_load_npcs(ds_map_find_value(save_data,"Npcs"));
 
+// load options 
+fs_load_options(ds_map_find_value(save_data,"Options"));
+
 with obj_environment_particles_controller {
 	event_perform(ev_other,ev_room_end);
 } 

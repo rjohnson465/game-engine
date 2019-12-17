@@ -22,6 +22,10 @@ switch npcName {
 		getConversationsForTerri(conversationsList);
 		break;
 	}
+	case "Elon": {
+		getConversationsForElon(conversationsList);
+		break;
+	}
 }
 
 return conversationsList;

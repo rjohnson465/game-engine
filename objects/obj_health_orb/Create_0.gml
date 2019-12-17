@@ -6,7 +6,7 @@ if variable_global_exists("fromEnemyIndex") {
 } 
 
 soundCreate = snd_magic_magic_shoot;
-audio_play_sound_at(soundCreate, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+audio_play_sound_at(soundCreate, x, y, depth, 500, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 
 isMoving = true;
 moveDuration = 45;
@@ -67,10 +67,8 @@ soundIdle = snd_healthorb;
 
 sndEmitter = audio_emitter_create();
 audio_emitter_position(sndEmitter, x, y, depth);
-audio_emitter_falloff(sndEmitter, 25, 300, 1);
+audio_emitter_falloff(sndEmitter, 50, 300, 1);
 sndEmitterSndId = audio_play_sound_on(sndEmitter, soundIdle, 1, 0);
 
 // for particles
 hasSetAlarm = false;
-
-show_debug_message(sprite_index);

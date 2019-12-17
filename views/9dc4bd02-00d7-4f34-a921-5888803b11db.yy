@@ -8,7 +8,8 @@
         "f859b762-40bd-444d-a49d-42474a9ffb64",
         "3e8e308d-da47-4fc1-af96-5f12acb50e2b",
         "1c6268b7-07f7-415c-8359-d6db73ab362c",
-        "593280aa-fcf9-4bf3-b235-d6a6fccc4e0e"
+        "593280aa-fcf9-4bf3-b235-d6a6fccc4e0e",
+        "ff7455af-7667-4116-9aa7-f28dbeedb8f6"
     ],
     "filterType": "GMSprite",
     "folderName": "quest items",

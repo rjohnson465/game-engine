@@ -62,6 +62,7 @@ if reviveOrbs != noone && instance_exists(reviveOrbs) {
 if selectedOption == ReviveOptions.Fountain {
 	draw_set_font(font_main);
 	scr_draw_text_outline(s1x, bottomY+50, "You will lose " + string(global.player.xpTemp) + " XP", c_white, c_white);
+	scr_draw_text_outline(s1x, bottomY+75, "Your health flask will be filled", c_white, c_white);
 }
 
 draw_set_alpha(1);

@@ -83,6 +83,7 @@ if gamepad_is_connected(pad) && isActive && !isConfirming {
 	
 	if gamepad_button_check_pressed(pad,gp_face4) {
 		global.ui.isShowingExplanations = !global.ui.isShowingExplanations;
+		audio_play_sound(snd_ui_option_change,1,0);
 	}
 }
 

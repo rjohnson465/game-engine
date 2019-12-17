@@ -1,5 +1,4 @@
 
-// welcome convo
 global.ownerNpcName = "Robort";
 var c1 = instance_create_depth(x,y,1,obj_conversation_parent);
 c1.isRepeatable = false;

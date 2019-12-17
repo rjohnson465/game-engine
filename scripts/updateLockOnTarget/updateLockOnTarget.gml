@@ -28,8 +28,44 @@ if lockOnInputReceived || lockOnInputChangeReceived {
 					ds_list_add(targetsToRemove, possibleTarget);
 				}
 			}
+			else {
+				// disinclude enemies behind doors / walls
+				var wallsBetweenLockOnTarget = scr_collision_line_list_layer(x,y,possibleTarget.x,possibleTarget.y,obj_wall_parent,true,true);
+				var doorsBetweenLockOnTarget = scr_collision_line_list_layer(x,y,possibleTarget.x,possibleTarget.y,obj_door,true,true);
+				
+				// filter out no interrupt walls
+				var garbageIndices = ds_list_create();
+				if ds_exists(wallsBetweenLockOnTarget, ds_type_list) {
+					for (var j = 0; j < ds_list_size(wallsBetweenLockOnTarget); j++) {
+						var w = ds_list_find_value(wallsBetweenLockOnTarget, j);
+						if w.object_index == obj_wall_nocast_nointerrupt || object_is_ancestor(w.object_index, obj_wall_nocast_nointerrupt) {
+							ds_list_add(garbageIndices, i);
+						}
+					}
+				}
+				for (var j = 0; j < ds_list_size(garbageIndices); j++) {
+					var index = ds_list_find_value(garbageIndices, j);
+					ds_list_delete(wallsBetweenLockOnTarget, index);
+					if ds_list_size(wallsBetweenLockOnTarget) == 0 {
+						ds_list_destroy(wallsBetweenLockOnTarget);
+						wallsBetweenLockOnTarget = noone;
+					}
+				}
+				ds_list_destroy(garbageIndices);
+				
+				if wallsBetweenLockOnTarget != noone || doorsBetweenLockOnTarget != noone {
+					ds_list_add(targetsToRemove, possibleTarget);
+				}
+				if ds_exists(wallsBetweenLockOnTarget, ds_type_list) {
+					ds_list_destroy(wallsBetweenLockOnTarget); wallsBetweenLockOnTarget = -1;
+				}
+				if ds_exists(doorsBetweenLockOnTarget, ds_type_list) {
+					ds_list_destroy(doorsBetweenLockOnTarget); doorsBetweenLockOnTarget = -1;
+				}
+			}
 		}
 		
+		// actually remove unlockonable targets
 		for (var i = 0; i < ds_list_size(targetsToRemove); i++) {
 			var targToRemove = ds_list_find_value(targetsToRemove, i);
 			var pos = ds_list_find_index(lockOnList, targToRemove);
@@ -182,4 +218,8 @@ if wallsBetweenLockOnTarget != noone {
 if doorsBetweenLockOnTarget != noone {
 	lockOnTarget = noone; isLockedOn = false;
 	ds_list_destroy(doorsBetweenLockOnTarget); doorsBetweenLockOnTarget = -1;
+}
+
+if instance_exists(lockOnTarget) && lockOnTarget.hp <= 0 {
+	lockOnTaget = noone; isLockedOn = false;
 }

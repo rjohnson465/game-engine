@@ -1,3 +1,6 @@
+var doDrawDamage = ds_map_find_value(global.optionsManager.optionsMapDisplay, OPT_D_DAMAGENUMBERS);
+if !doDrawDamage exit;
+
 if victim.layer != global.player.layer || (!victim.showHp && victim.type != CombatantTypes.Player) exit;
 // boss enemies draw their damage above their health bar at the bottom of the screen
 if victim.type == CombatantTypes.Enemy && victim.isBoss exit;

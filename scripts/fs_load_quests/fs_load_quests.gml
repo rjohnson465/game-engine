@@ -30,7 +30,7 @@ for (var j = 0; j < ds_map_size(sd_quests); j++) {
 			for (var i = 0; i < ds_list_size(questObj.questSteps); i++) {
 				var qs = ds_list_find_value(questObj.questSteps,i);
 				var paramsMap = ds_map_find_value(sd_quest,string(i)+"Parameters");
-				if ds_map_size(paramsMap) > 0 {
+				/*if ds_map_size(paramsMap) > 0 {
 					var ck = ds_map_find_first(paramsMap);
 					for (var k = 0; k < ds_map_size(paramsMap); k++) {
 						var val = ds_map_find_value(paramsMap,ck);
@@ -39,7 +39,10 @@ for (var j = 0; j < ds_map_size(sd_quests); j++) {
 					
 						ck = ds_map_find_next(paramsMap,ck);
 					}
-				}
+				}*/
+				var oldMap = qs.parameters;
+				ds_map_destroy(oldMap); oldMap = -1;
+				qs.parameters = ds_map_deep_clone(paramsMap);
 				with qs {
 					event_perform(ev_step, ev_step_begin);
 				}
@@ -64,4 +67,4 @@ for (var j = 0; j < ds_map_size(sd_quests); j++) {
 	
 	cv = ds_map_find_next(sd_quests,cv);
 }
-//ds_map_destroy(sd_quests); sd_quests = -1;
+

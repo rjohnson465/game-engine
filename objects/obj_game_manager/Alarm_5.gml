@@ -53,10 +53,18 @@ instance_activate_region(vx - deactivationBorder, vy - deactivationBorder, w, h,
 
 
 with obj_factory_redlight {
-	if layer != global.player.layer {
+	if origLayer != global.player.layer {
 		instance_deactivate_object(id);
 	}
 }
+
+
+// deactivate enemies more than 1 layer away from player (maybe only on some maps?)
+with obj_enemy_parent {
+	if abs(getLayerFloorNumber(layer) - getLayerFloorNumber(global.player.layer)) > 1 {
+		instance_deactivate_object(id);
+	}
+} 
 
 /// idk????
 instance_activate_object(obj_persistent_environment);

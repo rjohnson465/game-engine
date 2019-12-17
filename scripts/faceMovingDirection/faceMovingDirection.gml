@@ -32,23 +32,19 @@ if lockOnTarget != noone && substate != CombatantMoveSubstates.ReturningToPost {
 			var tx = x + lengthdir_x(5, direction);
 			var ty = y + lengthdir_y(5, direction);
 			 turnToFacePoint(turnSpeed,tx,ty); 
-			 
-			
-			/*
-			functionalSpeed = normalSpeed*slowedSpeedModifier;
-			facingDirection = direction;
-			*/
+		
 		}
-		// 
-		 
-		// turnToFacePoint(turnSpeed,pathNextX,pathNextY);
+
 	}
 	if wallsBetweenTarget != noone {
 		ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
 	}
 } else {
-	// turnToFacePoint(turnSpeed,pathNextX,pathNextY);
-	
+
 	functionalSpeed = normalSpeed*slowedSpeedModifier;
 	facingDirection = direction; ///???
+}
+
+if functionalSpeed == NaN {
+	var a = 3;
 }

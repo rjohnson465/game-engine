@@ -2,6 +2,8 @@ event_inherited();
 
 
 isOpen = false;
+stopsAttacks = false;
+material = WOOD;
 
 origLayer = layer;
 

@@ -34,13 +34,17 @@ if type == CombatantTypes.Player exit;
 // death
 if hp < 1 && isAlive && !isDying {
 	
+	if type == CombatantTypes.Enemy {
+		raiseEvent(EV_ENEMY_KILLED, [id]);
+	}
+	
 	if array_length_1d(soundsWhenDie) > 0 {
 		// pick a death sound
 		randomize();
 		
 		var rand = round(random_range(0,array_length_1d(soundsWhenDie)-1));
 		var deathSnd = soundsWhenDie[rand];
-		audio_play_sound_at(deathSnd,x,y,depth,50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		audio_play_sound_at(deathSnd,x,y,depth,250,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 	}
 	
 	audio_emitter_gain(walkingEmitter,0);
@@ -70,9 +74,9 @@ if hp < 1 && isAlive && !isDying {
 		if ds_map_find_value(conditionPercentages,ICE) > 33 && (rand > 0) {
 			global.condition = "IceDeath";
 			dyingFrame = dyingTotalFrames;
-			audio_play_sound_at(snd_iceshatter,x,y,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			audio_play_sound_at(snd_iceshatter,x,y,depth,200,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		} else {
-			audio_play_sound_at(snd_death_fade,x,y,depth,50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			audio_play_sound_at(snd_death_fade,x,y,depth,500,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 			
 			global.condition = "Death";
 		}
@@ -214,8 +218,6 @@ if !isAlive {
 	
 	speed = 0;
 	if type == CombatantTypes.Enemy {
-		
-		raiseEvent(EV_ENEMY_KILLED, [id]);
 		
 		showHp = false;
 		isShowingLightRadius = false;

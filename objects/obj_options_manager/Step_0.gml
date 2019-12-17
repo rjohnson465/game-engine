@@ -3,7 +3,9 @@
 if instance_exists(fade) {
 	if fade.frame == .5*fade.fadeDuration {
 		fs_save_game(); // this SHOULD flush temp data cache
-		//game_restart();
+		with obj_bgm_manager {
+			stopBgm();
+		}
 		with all {
 			// if object_index != obj_game_manager {
 				instance_destroy(id,1);
@@ -14,28 +16,28 @@ if instance_exists(fade) {
 		for (var i = 0; i < 100000; i++) {
 			var s = i;
 			if ds_exists(s, ds_type_map) {
-				ds_map_destroy(s);
+				ds_map_destroy(s); s = -1;
 			}
 			if ds_exists(s, ds_type_list) && s != partSystems {
-				ds_list_destroy(s); 
+				ds_list_destroy(s); s = -1;
 			}
 			if part_type_exists(s) {
-				part_type_destroy(s);
+				part_type_destroy(s); s = -1;
 			}
 			if audio_emitter_exists(s) {
-				audio_emitter_free(s);
+				audio_emitter_free(s); s = -1
 			}
 			if path_exists(s) {
-				path_delete(s);
+				path_delete(s); s = -1
 			}
 			if ds_exists(s, ds_type_grid) {
-				ds_grid_destroy(s);
+				ds_grid_destroy(s); s = -1
 			}
 			if surface_exists(s) {
-				surface_free(s);
+				surface_free(s); s = -1;
 			}
 			if part_system_exists(s) {
-				ds_list_add(partSystems, s);
+				ds_list_add(partSystems, s); s = -1;
 			}
 			s = -1;
 		}

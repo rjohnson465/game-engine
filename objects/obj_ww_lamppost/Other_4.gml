@@ -1,0 +1,1 @@
+light_create_layer(spr_light_point, .3, color, .7, 0, 1);

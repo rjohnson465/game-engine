@@ -13,22 +13,32 @@ with obj_npc_parent {
 
 maybeAddOrRemoveFromInteractablesList(20);
 
-if	p.currentInteractableObject == id 
+if	p.currentInteractableObject == id && instance_number(obj_quest_muskoxfeeder)
 	&& origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
 	
 	if isFed {
 		alert("This muskox has already been fed", c_yellow);
 	} else {
-		alert("Muskox fed!", c_lime);
+		// alert("Muskox fed!", c_lime);
 		isFed = true;
 		ds_map_replace(properties, "IsFed", true);
 		audio_play_sound_at(snd_muskox_moo_2, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+		with obj_queststep_muskoxfeeder_1 {
+			if status == QuestStepStatus.InProgress {
+				var curFedCount = ds_map_find_value(parameters, "fedCount");
+				var newFedCount = curFedCount + 1;
+				ds_map_replace(parameters, "fedCount", newFedCount);
+				description = string(newFedCount) + "/" + string(maxFedCount) + " muskox fed";
+				if (newFedCount) >= maxFedCount {
+					status = QuestStepStatus.Completed;
+				}
+			}
+		}
 	}
 	
 } 
 
 
-// TODO, wander
 // wander, but only if near enough to player to be on screen
 if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 {
 	if distance_to_point(postX, postY) < 250 {
@@ -48,7 +58,7 @@ if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 {
 }
 
 
-// TODO -- if fed, burst heart particles overhead
+// if fed, burst heart particles overhead
 if isFed {
 	part_emitter_region(system, emitter, bbox_left, bbox_right, bbox_top, bbox_bottom, ps_shape_ellipse, ps_distr_gaussian);
 	part_emitter_burst(system, emitter, particle, -8);

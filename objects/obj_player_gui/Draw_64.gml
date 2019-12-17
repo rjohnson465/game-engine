@@ -120,16 +120,19 @@ if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 }
 
 // poise 
-var poiseAmount = (global.player.poiseCurrent / global.player.poiseMax) * 100;
-draw_set_color(c_white);
-draw_rectangle(x1, y2, x2, y2+5, true);
-var poiseColor = global.player.state == CombatantStates.Staggering ? c_gray : C_POISE;
-draw_healthbar(x1, y2+1, x2, y2+6, poiseAmount, c_black, poiseColor, poiseColor, 0, false, false);
-if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y2,vx+x2,vy+y2+5) {
-	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center);
-	var s = "Poise: " + string(round(global.player.poiseCurrent)) + "/" + string(round(global.player.poiseMax));
-	var sh = string_height(s); 	var ys = 1;
-	scr_draw_text_outline(mean(x1,x2),mean(y2,y2+5),s,c_white,c_white,ys,ys,0,c_black);
+var doDrawPoise = ds_map_find_value(global.optionsManager.optionsMapDisplay, OPT_D_PLAYERPOISE);
+if doDrawPoise {
+	var poiseAmount = (global.player.poiseCurrent / global.player.poiseMax) * 100;
+	draw_set_color(c_white);
+	draw_rectangle(x1, y2, x2, y2+5, true);
+	var poiseColor = global.player.state == CombatantStates.Staggering ? c_gray : C_POISE;
+	draw_healthbar(x1, y2+1, x2, y2+6, poiseAmount, c_black, poiseColor, poiseColor, 0, false, false);
+	if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y2,vx+x2,vy+y2+5) {
+		draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center);
+		var s = "Poise: " + string(round(global.player.poiseCurrent)) + "/" + string(round(global.player.poiseMax));
+		var sh = string_height(s); 	var ys = 1;
+		scr_draw_text_outline(mean(x1,x2),mean(y2,y2+5),s,c_white,c_white,ys,ys,0,c_black);
+	}
 }
 
 // xp bar

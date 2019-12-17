@@ -66,7 +66,7 @@ global.owner = id;
 global.makeLightOnCreate = true;
 instance_create_depth(x,y,1,obj_light_radius);
 
-audio_play_sound_at(snd_magic_magic_shoot, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+audio_play_sound_at(snd_magic_magic_shoot, x, y, depth, 500, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 
 // let the funfairy carry on after shooting the missile
 direction = owner.facingDirection;

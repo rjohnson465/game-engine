@@ -46,6 +46,8 @@ for (var i = 0; i < size; i++) {
 		// positive defense will offset x% of damageBase, negative defense increase damageBase by abs(x)%
 		damageBase = defense >= 0 ? damageBase - (defense/100)*damageBase : damageBase + abs((defense/100))*damageBase;
 	}
+	// account for game difficulty
+	damageBase = applyDifficultyToDamage(damageBase);
 	ds_map_replace(damagesTaken,currentDamageType,damageBase);
 	damage += damageBase;
 			

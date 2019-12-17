@@ -71,6 +71,7 @@ if gamepad_is_connected(pad) && global.ui.isShowingMenus && global.ui.currentMen
 			var eqSel = global.ui.equipSelector;
 			if !eqSel.isActive && (item == noone || (item != noone && item.type != ItemTypes.Other)) {
 				global.inventory.isShowingItemInfo2 = !global.inventory.isShowingItemInfo2;
+				audio_play_sound(snd_ui_option_change,1,0);
 				exit;
 			} else if item && item.isUsable {
 				with global.player {

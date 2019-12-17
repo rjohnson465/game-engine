@@ -21,7 +21,7 @@ particle = noone;
 origLayer = layer;
 fountainRunningSoundEmitter = audio_emitter_create();
 audio_emitter_position(fountainRunningSoundEmitter,x,y,layer_get_depth(origLayer));
-audio_emitter_falloff(fountainRunningSoundEmitter,50,500,1);
+audio_emitter_falloff(fountainRunningSoundEmitter,50,800,1);
 audio_emitter_gain(fountainRunningSoundEmitter,0);
 fountainRunningSound = snd_fountain_running;
 fountainRunningSoundIndex = noone;
@@ -31,12 +31,12 @@ num = random_range(10,25);
 // water particle
 var water = part_type_create();
 part_type_shape(water, pt_shape_sphere);
-part_type_color2(water,c_aqua,c_ltgray);
+part_type_color2(water,c_aqua,c_white);
 part_type_orientation(water,0,0,0,15,1);
-part_type_size(water,0,0.05,0,0);
-part_type_speed(water,2,3,0,0);
+part_type_size(water,0.05,0.1,0,0);
+part_type_speed(water,1,2,0,0);
 part_type_direction(water,0,360,0,4);
-part_type_life(water,7,11);
+part_type_life(water,11,20);
 particle = water;
 
 

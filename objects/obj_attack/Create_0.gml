@@ -109,7 +109,7 @@ else if attackData != noone {
 		var rand = round(random_range(lBound,array_length_1d(attackData.attackSoundsVocals)-1));
 		if rand >= 0 {
 			vocalsSound = attackData.attackSoundsVocals[rand];
-			audio_play_sound_at(vocalsSound, owner.x, owner.y, owner.depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+			audio_play_sound_at(vocalsSound, owner.x, owner.y, owner.depth, 500, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 		}
 	}
 }
@@ -123,7 +123,7 @@ if (sound > 1 && audio_exists(sound)) {
 		if owner.type == CombatantTypes.Player {
 			audio_play_sound(sound,1,0);
 		} else {
-			audio_play_sound_at(sound,owner.x,owner.y,layer_get_depth(owner.layer),100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			audio_play_sound_at(sound,owner.x,owner.y,layer_get_depth(owner.layer),500,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		}
 	}
 }

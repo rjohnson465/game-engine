@@ -4,6 +4,9 @@ if instance_number(object_index) > 1 {
 	instance_destroy(id,0);
 	exit;
 }
+
+// window_set_fullscreen(true);
+
 defineItemPropertyRangesForPts();
 fs_clear_enemydata_tempfile(); fs_clear_roomdata_tempfile();
 display_set_gui_size(view_get_wport(view_camera[0]),view_get_hport(view_camera[0]));
@@ -188,7 +191,7 @@ ambpEmitters = ds_map_create();
 ambpFrameStarts = ds_map_create();
 ambSoundIndexes = ds_list_create();
 
-global.doNotDisplayTutorialMessages = true;
+global.doNotDisplayTutorialMessages = false;
 alarm[3] = 5;
 
 waterManager = instance_create_depth(x,y,1,obj_water_manager);

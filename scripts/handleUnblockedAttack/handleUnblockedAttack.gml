@@ -42,11 +42,11 @@ if array_length_1d(soundsWhenHitVocals) != 0 && hp >= 1 {
 	if rand >= 0 {
 		var snd = soundsWhenHitVocals[rand];
 		if snd && snd != noone {
-			audio_play_sound_at(snd,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			audio_play_sound_at(snd,x,y,depth,500,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		}
 	}
 }
 
 if attackObj.attackData != noone && lastAttackHitWith.hitSound >= 0 {
-	audio_play_sound_at(lastAttackHitWith.hitSound,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+	audio_play_sound_at(lastAttackHitWith.hitSound,x,y,depth,500,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 }

@@ -211,8 +211,8 @@ if instance_number(obj_fade) == 0 {
 
 if global.populateInventory && !global.gameManager.isLoading {
 	
-	addItemToInventory(makeGold(100000,200000));
-	
+	addItemToInventory(makeGold(0,0));
+	/*
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_woodshield ));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_buckler ));
 	addItemToInventory(instance_create_depth(x,y,1,obj_hand_item_kiteshield ));

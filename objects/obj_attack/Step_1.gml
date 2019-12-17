@@ -40,6 +40,19 @@ with obj_sconce {
 	}
 }
 
+with obj_firepit {
+	if origLayer == other.layer && isLit && distance_to_object(other) < 2 &&
+		!other.isOnFire && other.weapon != noone && (other.weapon.weaponType == BOW || other.weapon.weaponType == CROSSBOW) {
+		
+		audio_play_sound_at(snd_magic_fire_shoot,x,y,depth,25,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		other.isOnFire = true;
+		ds_map_replace(other.additionalDamages,FIRE,[1,5]);
+		with other {
+			updateWeaponParticles(id);
+		}
+	}
+}
+
 // general ranged particles algorithm
 for (var i = 0; i < array_length_1d(weaponParticles); i++) {
 	var part = weaponParticles[i];

@@ -83,9 +83,7 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 				var wt = global.ALL_WEAPON_TYPES[j];
 				ds_map_replace(criticalsChanceMap,wt,15); // default 15% chance of critical
 			}
-			// ds_map_replace(basePlayerProperties,i,criticalsChanceMap);
 			ds_map_add_map(basePlayerProperties, i, criticalsChanceMap);
-			//ds_map_destroy(criticalsChanceMap);
 			break;
 		}
 		case ModifiableProperties.CriticalsDamage: {
@@ -97,7 +95,6 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 			}
 			// ds_map_replace(basePlayerProperties,i,criticalsDamageMap);
 			ds_map_add_map(basePlayerProperties, i, criticalsDamageMap);
-			//ds_map_destroy(criticalsDamageMap);
 			break;
 		}
 		case ModifiableProperties.WeaponTypesDamage: {
@@ -108,7 +105,6 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 			}
 			//ds_map_replace(basePlayerProperties,i,weaponDamageMap);
 			ds_map_add_map(basePlayerProperties, i, weaponDamageMap);
-			//ds_map_destroy(weaponDamageMap);
 			break;
 		}
 	}

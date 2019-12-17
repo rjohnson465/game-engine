@@ -34,7 +34,7 @@ part_system_depth(system, layer_get_depth(layer));
 
 audioEmitter = audio_emitter_create();
 audio_emitter_position(audioEmitter,x,y,layer_get_depth(layer));
-audio_emitter_falloff(audioEmitter,1,300,1);
+audio_emitter_falloff(audioEmitter,50,400,1);
 audio_emitter_gain(audioEmitter,1);
 portalSoundIndex = audio_play_sound_on(audioEmitter,snd_portal,1,1);
 

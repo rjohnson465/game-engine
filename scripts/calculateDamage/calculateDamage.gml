@@ -28,6 +28,18 @@ if !ds_exists(beenHitWith,ds_type_list) {
 }
 if ds_list_find_index(beenHitWith,attackObj.id) != -1 exit;
 
+// if player, check if player has been hit with some member of this AOE group recently
+if type == CombatantTypes.Player && (object_is_ancestor(attackObj, obj_attack_aoe) || attackObj.object_index == obj_attack_aoe) {
+	if ds_exists(beenHitWith, ds_type_list) {
+		for (var i = 0; i < ds_list_size(beenHitWith); i++) {
+			var atkThatHit = ds_list_find_value(beenHitWith, i);
+			if is_string(atkThatHit) && string_pos(attackObj.owner.key, atkThatHit) {
+				exit;
+			}
+		}
+	}
+}
+
 // if enemy or ally, seek retribution (even if out of normal range)
 if	(type == CombatantTypes.Enemy || type == CombatantTypes.Ally) 
 	&& state == CombatantStates.Idle
@@ -49,7 +61,11 @@ if	state != CombatantStates.Dodging &&
 	}
 		
 	ds_list_add(attackObj.combatantsHit,id);
-	ds_list_add(beenHitWith,attackObj.id);
+	if type == CombatantTypes.Player && (object_is_ancestor(attackObj, obj_attack_aoe) || attackObj.object_index == obj_attack_aoe) {
+		ds_list_add(beenHitWith, "AOE-" + string(attackObj.owner.key));
+	} else {
+		ds_list_add(beenHitWith,attackObj.id);
+	}
 		
 	// run to get __x and __y (collision point where attack meet this combatant)
 	if !script_execute(scr_collision_point,id,attackObj.id) {

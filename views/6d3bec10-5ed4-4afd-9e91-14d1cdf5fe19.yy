@@ -19,7 +19,8 @@
         "1256637d-b8ce-4ed5-b371-ca06966d1677",
         "6f2bdc4c-968c-4f06-9d03-f9dd04bd202b",
         "3f518a74-ac21-492d-93f9-b350e3278c66",
-        "f251e07f-88e9-4f67-a41e-a2c553d896e1"
+        "f251e07f-88e9-4f67-a41e-a2c553d896e1",
+        "95cf81c4-779a-435e-9f5a-04f9302a0694"
     ],
     "filterType": "GMObject",
     "folderName": "factory",

@@ -62,34 +62,37 @@ switch(state) {
 			// isNoticingEngagement -- if there is some ally you can see that has a lockOnTarget, try aggroing
 			var allyType = object_is_ancestor(object_index,obj_enemy_parent) ? obj_enemy_parent : obj_goodguy_parent;
 			var isNoticingEngagement = false;
-			with allyType {
+			// only perform this check every so often
+			if alarm[1] == 1 {
+				with allyType {
 				
-				var minRange = rangedAggroRange > 0 ? rangedAggroRange : 800;
+					var minRange = rangedAggroRange > 0 ? rangedAggroRange : 800;
 				
-				if layer == other.layer && lockOnTarget != noone && distance_to_object(other) < minRange {
-					var wallsBetweenAlly = scr_collision_line_list_layer(x,y,other.x,other.y,obj_wall_parent,true,true);
+					if layer == other.layer && lockOnTarget != noone && distance_to_object(other) < minRange {
+						var wallsBetweenAlly = scr_collision_line_list_layer(x,y,other.x,other.y,obj_wall_parent,true,true);
 					
-					if wallsBetweenAlly != noone {
-						// must be able to see this ally's engagement
-						var dirToAlly = point_direction(other.x,other.y,x,y);
+						if wallsBetweenAlly != noone {
+							// must be able to see this ally's engagement
+							var dirToAlly = point_direction(other.x,other.y,x,y);
 						
-						// also, that ally must be able to see their lockOnTarget
-						var canAllySeeTarget = false;
-						with (other) {
-							if canSeeLockOnTarget() {
-								canAllySeeTarget = true;
+							// also, that ally must be able to see their lockOnTarget
+							var canAllySeeTarget = false;
+							with (other) {
+								if canSeeLockOnTarget() {
+									canAllySeeTarget = true;
+								}
+							}
+						
+							if angleBetween(other.x-sightAngleDelta,other.y+sightAngleDelta,dirToAlly) && canAllySeeTarget {
+								isNoticingEngagement = true;
 							}
 						}
-						
-						if angleBetween(other.x-sightAngleDelta,other.y+sightAngleDelta,dirToAlly) && canAllySeeTarget {
-							isNoticingEngagement = true;
+						if wallsBetweenAlly != noone && ds_exists(wallsBetweenAlly, ds_type_list) {
+							ds_list_destroy(wallsBetweenAlly); wallsBetweenAlly = -1;
 						}
 					}
-					if wallsBetweenAlly != noone && ds_exists(wallsBetweenAlly, ds_type_list) {
-						ds_list_destroy(wallsBetweenAlly); wallsBetweenAlly = -1;
-					}
-				}
 				
+				}
 			}
 			
 			var biggestAggroRange = meleeAggroRange > rangedAggroRange ? meleeAggroRange : rangedAggroRange;
@@ -351,10 +354,11 @@ switch(state) {
 			// aim when preparing attack
 			if ds_map_size(preparingLimbs) != 0 && ds_map_size(attackingLimbs) == 0 /*&& ds_map_size(recoveringLimbs) == 0*/ && attackData.type != AttackTypes.AOE {
 				turnToFacePoint(attackData.turnSpeed,lockOnTarget.x,lockOnTarget.y);
+				show_debug_message(string(functionalSpeed));
 			}
 			
 			// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again
-			if !isRanged && ds_map_size(preparingLimbs) !=0 && attackData.type != AttackTypes.Charge && attackData.type != AttackTypes.AOE {
+			if !isRanged && ds_map_size(preparingLimbs) !=0 && attackData.type != AttackTypes.Charge && attackData.type != AttackTypes.AOE && attackData.movesDuringPrep {
 				if distance_to_object(lockOnTarget) > getRangeForAttackIndex(currentMeleeAttack,true) /*meleeRangeArray[currentMeleeAttack]*/ && !place_meeting_layer(x,y,lockOnTarget) {
 					mp_potential_step(lockOnTarget.x,lockOnTarget.y,normalSpeed*.5,false);
 				}
@@ -581,7 +585,7 @@ switch(state) {
 			staggerDuration = 0;
 			staggerFrame = 0;
 			speed = 0;
-			staggerSpeed = noone;
+			// staggerSpeed = noone;
 			
 			// at final frame of staggering, maybe mark your spot as free in your personalGrid
 			maybeMarkGridCellTempFree(x, y);

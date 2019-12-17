@@ -68,10 +68,10 @@ for (var i = 0; i < size; i++) {
 				// slowed
 				if conditionLevel == 1 {
 					if conditionPercent > 0 && conditionPercent < 25 {
-						slowedSpeedModifier = .9;
+						slowedSpeedModifier = .92;
 					} else if conditionPercent > 25 && conditionPercent < 50 {
-						slowedSpeedModifier = .75;
-					} else slowedSpeedModifier = .5;
+						slowedSpeedModifier = .85;
+					} else slowedSpeedModifier = .75;
 				}
 				// frozen
 				else if conditionLevel == 2 {
@@ -99,6 +99,9 @@ for (var i = 0; i < size; i++) {
 
 					var originalBurnDamage = burnDamage;
 					if burnDamage <= 1 burnDamage = 1;
+					if burnDamage >= 5 {
+						burnDamage = 5;
+					}
 					if burnDamage > hp {
 						burnDamage = hp;
 					}
@@ -136,6 +139,9 @@ for (var i = 0; i < size; i++) {
 						poisonDamage = hp;
 					}
 					if poisonDamage <= 1 poisonDamage = 1;
+					if poisonDamage >= 5 {
+						poisonDamage = 5;
+					}
 					hp -= poisonDamage;
 
 					global.damageAmount = poisonDamage;

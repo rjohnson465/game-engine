@@ -59,7 +59,28 @@ if fallFrame == .5*fallTotalFrames {
 	// lower layer doesn't exit? we fallin to our deaths brotha
 	if lowerLayer < 0 || lowerLayerNum < 1 {
 		hp = 0;
-		audio_play_sound_at(snd_crunchy_thud,x,y,layer_get_depth(layer),50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		
+		// check if the layer we were on had deep water and that we were standing on it when we fell
+		var deepWaterLayer = layer_get_id("tiles_waterdeep_floor_"+string(layerNum));
+		if deepWaterLayer >= 0 {
+			var tmap = layer_tilemap_get_id(deepWaterLayer);
+			var tile = tilemap_get_at_pixel(tmap,x,y);
+			if tile >= 0 {
+				// if so, play splash snd
+				audio_play_sound_at(snd_splash,x,y,layer_get_depth(layer),50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+				
+				// Make splash particles
+				var ftn = instance_nearest(x, y, obj_fountain);
+				if instance_exists(ftn) {
+					var waterPart = ftn.particle;
+					part_system_depth(sprintParticleSystem, depth-1);
+					part_emitter_region(sprintParticleSystem, sprintParticleEmitter, x-10, x+10, y-10, y+10, ps_shape_ellipse, ps_distr_gaussian);
+					part_emitter_burst(sprintParticleSystem, sprintParticleEmitter, waterPart, 100);
+				}
+			}
+		} else {
+			audio_play_sound_at(snd_crunchy_thud,x,y,layer_get_depth(layer),50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		}
 		exit;
 	}
 

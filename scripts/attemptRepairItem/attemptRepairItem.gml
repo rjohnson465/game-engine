@@ -1,5 +1,11 @@
 /// attemptRepairItem()
 /// must be called by instance of obj_fountain_gui_nameprice
+
+if getGoldCount() < namedPrice {
+	alert("Not enough gold", c_red);
+	exit;
+}
+
 audio_play_sound(snd_fountain_repair,1,0);
 randomize();
 var rand = random_range(0,100);

@@ -34,7 +34,7 @@ if macro == noone {
 	// get the map of all macro values (i.e. critical hit chances)
 	var macroMap = ds_map_find_value(mapToUpdate,prop);
 	// if macroMap is not defined yet, create it 
-	if macroMap == undefined {
+	if macroMap == undefined || !ds_exists(macroMap, ds_type_map) {
 		macroMap = ds_map_create();
 	}
 	
@@ -60,7 +60,7 @@ if macro == noone {
 	// OTHER BONUS
 	// find the skill / item bonus value (whichever is NOT being updated now)
 	var otherMacroMap = ds_map_find_value(otherMap,prop);
-	if otherMacroMap == undefined {
+	if otherMacroMap == undefined || !ds_exists(otherMacroMap, ds_type_map) {
 		otherMacroMap = ds_map_create();
 	}
 	

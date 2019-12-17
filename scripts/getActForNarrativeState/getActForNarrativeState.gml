@@ -3,9 +3,13 @@
 var p = global.player;
 var ns = p.narrativeState;
 
-var act1States = [NarrativeState.Start];
+var act1States = [
+	NarrativeState.Start, 
+	NarrativeState.LamplightFactory, 
+	NarrativeState.WinterWonderground
+];
 
-var act2States = [NarrativeState.LamplightFactory];
+var act2States = [];
 
 var act3States = [];
 

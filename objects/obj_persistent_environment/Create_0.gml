@@ -1,6 +1,8 @@
 event_inherited();
 postX = x;
 postY = y;
+currentX = x;
+currentY = y;
 key = fs_generate_key();
 data = noone;
 isNonPriorityInteractable = false;

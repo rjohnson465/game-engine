@@ -6,6 +6,8 @@
 /// @param *spritesSeparators
 
 if global.doNotDisplayTutorialMessages exit;
+var doShowTut = ds_map_find_value(global.optionsManager.optionsMapDisplay, OPT_D_TUTORIALS);
+if !doShowTut exit;
 
 global.tutMessage = argument[0];
 global.tutSpritesController = argument[1];

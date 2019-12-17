@@ -5,6 +5,10 @@
 var rm = argument0;
 
 switch rm {
+	case game_menu: {
+		return [snd_bgm_menu]
+		break;
+	}
 	case rm_forest: {
 		//return noone;
 		return [snd_bgm_woodland_stream, snd_bgm_verdant_leaves];
@@ -20,15 +24,16 @@ switch rm {
 		break;
 	}
 	case rm_factory: {
-		// return noone;
 		return [snd_bgm_lamplight_blasphemy];
 		break;
 	}
 	case rm_boss_lighteater: {
 		return [snd_bgm_lighteater];
+		break;
 	}
 	case rm_winter: {
 		return [snd_bgm_endless_tundra, snd_bgm_wonderground, snd_bgm_icedrops];
+		break;
 	}
 }
 

@@ -29,5 +29,5 @@ elevatorFloorToMoveTo = elevatorCurrentFloor;
 
 elevatorName = noone;
 
-properties = ds_map_create();
+// properties = ds_map_create();
 ds_map_add(properties, "ElevatorCurrentFloor", elevatorCurrentFloor);

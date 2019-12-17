@@ -60,7 +60,7 @@ meleeAggroRange = 300;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 800;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
-attackFrequencyTotalFramesMelee = [35,40];
+attackFrequencyTotalFramesMelee = [45,60];
 attackFrequencyTotalFramesRanged = [60,90];
 strafeTotalFrames = [25,50];
 waryDistanceRange=[100,120];
@@ -124,9 +124,9 @@ showHp = false; // hit at all (flag for showing health bar)
 // stagger stuff
 poise = 50;
 
-ds_map_replace(defenses, MAGIC, -150);
-ds_map_replace(defenses, ICE, -50);
-ds_map_replace(defenses, FIRE, -50);
+ds_map_replace(defenses, MAGIC, -75);
+ds_map_replace(defenses, ICE, -10);
+ds_map_replace(defenses, FIRE, -10);
 ds_map_replace(defenses, LIGHTNING, 100);
 ds_map_replace(defenses, POISON, 100);
 ds_map_replace(defenses, SLASH, 25);

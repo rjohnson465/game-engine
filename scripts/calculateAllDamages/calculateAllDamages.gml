@@ -18,6 +18,9 @@ var damagesTaken = ds_map_create();
 var currentDamageType = ds_map_find_first(damagesMap);
 var size = ds_map_size(damagesMap);
 for (var i = 0; i < size; i++) {
+	
+	if !arrayIncludes(global.ALL_DAMAGE_TYPES, currentDamageType) continue;
+	
 	var damageArray = ds_map_find_value(damagesMap,currentDamageType);
 	var damageMin; var damageMax;
 	// physical damage is dependent on attack number -- assuming the damage array is specified as such
@@ -137,6 +140,9 @@ for (var i = 0; i < size; i++) {
 				damageBase = 0;
 			}
 		}
+	}
+	if assailant.object_index != obj_player {
+		damageBase = applyDifficultyToDamage(damageBase);
 	}
 	ds_map_replace(damagesTaken,currentDamageType,damageBase);
 	damage += damageBase;

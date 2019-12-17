@@ -31,7 +31,8 @@ if	// isCurrentInteractableObject &&
 	} else canOpenFromThisSide = true;
 	
 	if !canOpenFromThisSide {
-		alert("Door does not open from this side", c_red); exit;
+		var s = oneSidedDoorText == noone ? "Door does not open from this side" : oneSidedDoorText;
+		alert(s, c_red); exit;
 	}
 	
 	var hasKey = false;
@@ -57,7 +58,7 @@ if	// isCurrentInteractableObject &&
 		updatePersistentElementProperty(id,"isOpen",true);
 		sprite_index = noone;
 		alarm[0] = 30;
-		audio_play_sound_at(openingSound,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		audio_play_sound_at(openingSound,x,y,depth,500,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		light_destroy_caster_layer(getLayerFloorNumber(layer));
 		
 		global.isPopulatingGrids = true;

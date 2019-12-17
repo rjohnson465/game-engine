@@ -6,6 +6,7 @@ if argument_count > 0 performBlur = argument[0];
 	
 var fountain = id;
 
+
 with obj_player {
 	lastFountain = other.id;
 	lastFountainRoom = room_get_name(room);
@@ -36,8 +37,7 @@ if !isRunning {
 	}
 }
 	
-// wish at fountain
-		
+// wish at fountain		
 audio_play_sound(snd_fountain_wish,1,0);
 if performBlur {
 	alarm[0] = 30; // trigger radial blur

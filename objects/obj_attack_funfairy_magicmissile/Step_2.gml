@@ -51,7 +51,7 @@
 		instance_create_depth(0,0,1,obj_hit_particles);
 		audio_stop_sound(sound);
 		var snd = snd_magic_magic_hit;
-		audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		audio_play_sound_at(snd,global.x1,global.y1,depth,300,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		alarm[0] = 15;
 		visible = 0;
 		speed = 0;

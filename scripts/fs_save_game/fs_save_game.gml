@@ -15,8 +15,6 @@ ds_map_add_map(save_data,"Player",playerDataMap);
 var roomDataMap = fs_save_roomdata(); // CLEAN
 ds_map_add_map(save_data,"RoomData",roomDataMap);
 
-
-
 // save enemy info
 var enemyDataMap = fs_save_enemies(); // CLEAN
 ds_map_add_map(save_data,"Enemies",enemyDataMap);
@@ -37,6 +35,10 @@ ds_map_add_map(save_data,"Quests",questsDataMap);
 // save npc data
 var npcsDataMap = fs_save_npcs();
 ds_map_add_map(save_data,"Npcs",npcsDataMap);
+
+// save options data
+var optionsDataMap = fs_save_options();
+ds_map_add_map(save_data,"Options",optionsDataMap);
 
 // save to file name
 ds_map_secure_save(save_data,filename);

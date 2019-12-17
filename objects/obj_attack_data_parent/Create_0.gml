@@ -122,3 +122,4 @@ turnsDuringAttack = false;
 turnSpeedAttack = 0;
 
 movesDuringAttack = true;
+movesDuringPrep = true;

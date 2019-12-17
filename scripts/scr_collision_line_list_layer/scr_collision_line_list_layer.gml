@@ -35,7 +35,7 @@
 		}
 		
 		// only if these two objects are on same layer OR have depth within 5 of each other
-        if (!notme || id != other.id) && (lay == other.layer) {/* || abs(abs(other.depth)-abs(depth)) <= 5) {*/
+        if (!notme || id != other.id) && ((lay == other.layer) || (abs(abs(other.depth)-abs(depth)) <= 5)) {
             i = collision_line(x1,y1,x2,y2,id,prec,false);
             if (i != noone) ds_list_add(dsid,i);
         }

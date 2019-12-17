@@ -34,3 +34,30 @@ if isRanged && instance_exists(weapon) && weapon != noone && weapon.isTwoHanded 
 if ds_exists(additionalDamages, ds_type_map) {
 	ds_map_destroy(additionalDamages); additionalDamages = -1;
 }
+
+// check if this is the last AOE object of an attack to still be here
+// if so, remove this AOE object from player's beenHit list
+if owner.type == CombatantTypes.Player exit;
+var isLastAOE = true;
+with obj_attack_aoe {
+	if owner == other.owner && id != other.id {
+		isLastAOE = false;
+	}
+}
+if isLastAOE {
+	with obj_player {
+		var indexToRemove = noone;
+		if ds_exists(beenHitWith, ds_type_list) {
+			for (var i = 0; i < ds_list_size(beenHitWith); i++) {
+				var atkThatHit = ds_list_find_value(beenHitWith, i);
+				if is_string(atkThatHit) && string_pos(other.owner.key, atkThatHit) >= 0 {
+					indexToRemove = i;
+				}
+			}
+		}
+		if indexToRemove >= 0 {
+			ds_list_delete(beenHitWith, indexToRemove);
+		}
+	}
+}
+	

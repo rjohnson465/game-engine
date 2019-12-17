@@ -15,7 +15,8 @@
         "ae87fee5-f9f2-48e8-94af-b19479c267cf",
         "b4fe8e3d-9643-496d-96a0-3c44b781c731",
         "ba3523fb-3100-4c94-bc79-672a22a76c4c",
-        "f68faf89-131a-44ad-93a0-27fc4e1f68fb"
+        "f68faf89-131a-44ad-93a0-27fc4e1f68fb",
+        "a0666cb9-9ef1-485a-b1dd-571229b0ae16"
     ],
     "filterType": "GMScript",
     "folderName": "calculateDamage",

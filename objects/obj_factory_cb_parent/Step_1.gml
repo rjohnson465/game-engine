@@ -55,5 +55,10 @@ if ds_exists(itemsOnBelt, ds_type_list) && ds_list_size(itemsOnBelt) > 0 {
 			// it.speed = 0;
 		}
 		
+		with it {
+			ds_map_replace(properties, "currentX", x);
+			ds_map_replace(properties, "currentY", y);
+		}
+		
 	}
 }
