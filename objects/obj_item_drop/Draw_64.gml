@@ -7,7 +7,7 @@ if	// distance_to_object(obj_player) < 20 &&
 	global.player.currentInteractableObject == id &&
 	global.player.isAlive && layer == global.player.layer && !isInConvo {
 	if !isBeingLooted {
-		drawPrompt("Loot Items",Input.F);
+		drawPrompt("Loot Items",Input.F, noone, noone, noone, noone, true);
 	}
 }
 

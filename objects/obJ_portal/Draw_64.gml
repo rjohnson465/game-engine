@@ -18,5 +18,5 @@ if  //place_meeting(x,y,obj_player) &&
 	// && !isNearFountain 
 	{
 	var prompt = "Enter " + nextRoomName;
-	drawPrompt(prompt,Input.F);
+	drawPrompt(prompt,Input.F, noone, noone, noone, noone, true);
 }

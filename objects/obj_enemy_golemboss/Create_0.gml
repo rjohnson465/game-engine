@@ -46,7 +46,7 @@ cautiousness = 0;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 meleeRangeArray=[];
 
-xpReward = 1800;
+xpReward = 0;
 
 // ATTACKS
 
@@ -70,7 +70,7 @@ var c2 = [fireblast, fireblast, fireblast];
 var c3 = [slam1, slam2];
 var c4 = [stab, fb];
 
-meleeAttacks = [c4];
+meleeAttacks = [c0, c1, c2, c3, c4];
 
 // ranged attacks info
 

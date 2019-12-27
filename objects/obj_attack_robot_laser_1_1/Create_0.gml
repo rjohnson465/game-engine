@@ -26,6 +26,7 @@ recoverSound = snd_enemy_robot_charge_recover;
 beamLightColor = c_fuchsia;
 beamWidthWaverArray = [.2,1.2];
 beamHitLightColor = c_fuchsia;
+turnSpeedAttack = noone;
 
 var spark = part_type_create();
 part_type_shape(spark, pt_shape_spark);

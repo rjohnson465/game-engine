@@ -10,9 +10,9 @@ if
 	global.player.currentInteractableObject == id &&
 	origLayer == global.player.layer && global.player.isAlive && !global.isWishing && !global.ui.isShowingMenus && !isInConvo {
 	if !isRunning {
-		drawPrompt("Fill Fountain",Input.F);
+		drawPrompt("Fill Fountain",Input.F, noone, noone, noone, noone, true);
 	}
 	if isDoneFilling {
-		drawPrompt("Wish At Fountain",Input.F);
+		drawPrompt("Wish At Fountain",Input.F, noone, noone, noone, noone, true);
 	}
 }

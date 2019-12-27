@@ -31,6 +31,6 @@ with obj_alert {
 	}
 }
 
-if isVisible && color == c_red && !isAlreadyOnScreen {
+if isVisible && color == c_red {
 	audio_play_sound(snd_ui_error,1,0);
 }

@@ -10,7 +10,7 @@ if	!isActive
 	// && distance_to_object(obj_player) < 20 
 	&& global.player.currentInteractableObject == id 
 	&& !global.isReadingTutorial && global.player.isAlive && !global.isLooting && !global.isWishing && !global.ui.isShowingMenus && !isInConvo {
-	drawPrompt("Read message",Input.F);
+	drawPrompt("Read message",Input.F, noone, noone, noone, noone, true);
 }
 
 if isActive && global.player.isAlive && !global.canLoot && !global.isWishing && !global.ui.isShowingMenus && !isInConvo {

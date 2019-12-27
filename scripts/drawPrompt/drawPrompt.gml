@@ -1,4 +1,4 @@
-/// drawInputPrompt(promptMessage,inputKeyEnums,*x,*y,*messageColor, *maxW)
+/// drawInputPrompt(promptMessage,inputKeyEnums,*x,*y,*messageColor, *maxW, *drawAtInstanceCoordinates)
 
 /// @param promptMessage
 /// @param inputKeyEnums
@@ -6,6 +6,7 @@
 /// @param *y
 /// @param *messageColor
 /// @param *maxW
+/// @param *drawAtInstanceCoordinates
 
 // returns the width of the prompt
 
@@ -38,25 +39,33 @@ if atLeastOneBossAlive {
 	yy -= bossCount*50;
 }
 
-if argument_count == 3 {
+// maybe assign explicit x value
+if argument_count >= 3 && argument[2] != noone {
 	xx = argument[2];
 }
-if argument_count == 4 {
-	xx = argument[2];
+// maybe assign explicit y value
+if argument_count >= 4 && argument[3] != noone {
 	yy = argument[3];
 }
+// maybe assign explicit color value
 var msgColor = c_white;
-if argument_count == 5 {
-	xx = argument[2];
-	yy = argument[3];
+if argument_count >= 5 && argument[4] != noone {
 	msgColor = argument[4];
 }
+// maybe assign explicit max width value
 var maxW = 300;
-if argument_count == 6 {
-	xx = argument[2];
-	yy = argument[3];
-	msgColor = argument[4];
+if argument_count >= 6 && argument[5] != noone {
 	maxW = argument[5];
+}
+// maybe draw this prompt at the invoking instance coordinates
+var isDrawingAtInstanceCoordinates = false;
+if argument_count >= 7 && argument[6] == true {
+	isDrawingAtInstanceCoordinates = true;
+	// TEST: draw prompts near invoking instance? 
+	var vx = camera_get_view_x(view_camera[0]);
+	var vy = camera_get_view_y(view_camera[0]);
+	var xx = x - vx;
+	var yy = y - vy;
 }
 
 draw_set_font(font_main);
@@ -227,7 +236,6 @@ if
 	ds_list_find_index(p.interactableObjects, id) != -1 {
 	if ds_list_size(p.interactableObjects) > 1 {
 		
-		var tLeftX = xx - (.5*promptWidth);
 		var tSprite = isGamepadConnected ? spr_prompt_xbox_y : spr_prompt_mk_r;
 		var tSpriteWidth = sprite_get_width(tSprite);
 		var tSpriteWidthAdjusted = tSpriteWidth * .35 * .95;
@@ -236,8 +244,11 @@ if
 		var tStringWidthAdjusted = tStringWidth * .95;
 		promptWidth = tStringWidthAdjusted + tSpriteWidthAdjusted;
 		
-		// xx = tLeftX + .5*promptWidth;	
-		xx = view_get_wport(view_camera[0]) / 2;
+
+		if !isDrawingAtInstanceCoordinates {
+			xx = view_get_wport(view_camera[0]) / 2;
+		} 
+		
 		
 		yy -= (sh*.5) + 15;
 		sh = sh * .35;

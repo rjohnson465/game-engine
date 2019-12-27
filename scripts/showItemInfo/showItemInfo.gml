@@ -515,6 +515,8 @@ else if item.type == ItemTypes.Head {
 			} else {
 				draw_set_color(c_white);
 			}
+			// draw negative hat defenses red
+			if val < 0 draw_set_color(c_red);
 			draw_text(itemDescriptionCol2XText,itemDescriptionColY+((i+1)*25),string(val)+"%");
 		} else {
 			draw_set_color(c_white);

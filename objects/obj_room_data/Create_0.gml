@@ -13,6 +13,10 @@ enemiesData = noone;
 persistentElements = fs_load_roomdata_tempfile(roomName);
 
 // if there is no data for this room saved, we have to build our own 
+
+// TODO: what if there are new persistent elements / enemies that have been added / removed since last save?
+// Need some way to merge those
+
 if persistentElements == noone {
 	persistentElements = ds_map_create();
 	with obj_persistent_environment {

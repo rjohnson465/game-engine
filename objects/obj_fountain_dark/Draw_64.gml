@@ -8,5 +8,5 @@ with obj_npc_parent {
 if	// distance_to_object(obj_player) < 20
 	global.player.currentInteractableObject == id 
 	&& origLayer == global.player.layer && global.player.isAlive && !global.isWishing && !global.ui.isShowingMenus && !isInConvo {
-	drawPrompt("Wish At Dark Fountain",Input.F);	
+	drawPrompt("Wish At Dark Fountain",Input.F, noone, noone, noone, noone, true);	
 }

@@ -6,5 +6,5 @@ with obj_npc_parent {
 if	// isCurrentInteractableObject && 
 	global.player.currentInteractableObject == id &&
 	!isOpen && global.player.isAlive && layer == global.player.layer && !isInConvo && !global.isInteractingWithNpc {
-	drawPrompt("Open Door",Input.F);
+	drawPrompt("Open Door",Input.F, noone, noone, noone, noone, true);
 }

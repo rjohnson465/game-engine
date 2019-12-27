@@ -354,7 +354,6 @@ switch(state) {
 			// aim when preparing attack
 			if ds_map_size(preparingLimbs) != 0 && ds_map_size(attackingLimbs) == 0 /*&& ds_map_size(recoveringLimbs) == 0*/ && attackData.type != AttackTypes.AOE {
 				turnToFacePoint(attackData.turnSpeed,lockOnTarget.x,lockOnTarget.y);
-				show_debug_message(string(functionalSpeed));
 			}
 			
 			// it's posslbe we're out of range again, especially if the lockOnTarget staggered or ran. try getting in range again

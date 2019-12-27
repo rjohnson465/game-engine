@@ -9,12 +9,17 @@ var isFacing = angleBetween(p.facingDirection-90,p.facingDirection+90,angleToSco
 
 
 if isFacing && p.currentInteractableObject == id && distance_to_object(obj_player) < 20 && p.isAlive && origLayer == p.layer && !isInConvo && !global.isInteractingWithNpc {
+	
 	if !isLit {
-		drawPrompt("Light Sacred Lamplight",Input.F);
+		
+		// make sure player has a lamplight in inventory
+		if inventoryContainsItem(obj_item_lamplight) {
+			drawPrompt("Light Sacred Lamplight",Input.F, noone, noone, noone, noone, true);
+		}
 	} 
 	// steal lamplight back 
 	else if isLit {
-		drawPrompt("Steal Sacred Lamplight",Input.F);
+		drawPrompt("Steal Sacred Lamplight",Input.F, noone, noone, noone, noone, true);
 	}
 }
 

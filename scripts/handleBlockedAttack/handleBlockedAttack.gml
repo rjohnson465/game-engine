@@ -60,6 +60,7 @@ global.victim = id;
 global.healingSustained = 0;
 global.isCriticalHit = isCriticalHit;
 instance_create_depth(x,y,1,obj_damage);
+raiseEvent(EV_DAMAGE_TAKEN, [id, adjustedDamage, attackObj]);
 if stamina < 1 {
 	isShielding = false;
 	// if no more stamina, stagger (slow stagger)

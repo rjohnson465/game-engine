@@ -20,7 +20,9 @@ with obj_npc_parent {
 var angleToSconce = point_direction(p.x,p.y,x,y);
 var isFacing = angleBetween(p.facingDirection-90,p.facingDirection+90,angleToSconce);
 
-maybeAddOrRemoveFromInteractablesList(20);
+if isLit || (!isLit && inventoryContainsItem(obj_item_lamplight)) {
+	maybeAddOrRemoveFromInteractablesList(20);
+}
 
 if !isFacing {
 	removeFromInteractablesList();

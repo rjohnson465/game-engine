@@ -27,6 +27,8 @@ beamLightColor = c_aqua;
 beamWidthWaverArray = [.2,1.2];
 beamHitLightColor = c_aqua;
 
+turnSpeedAttack = noone;
+
 var spark = part_type_create();
 part_type_shape(spark, pt_shape_spark);
 part_type_orientation(spark,0,359,0,15,1);

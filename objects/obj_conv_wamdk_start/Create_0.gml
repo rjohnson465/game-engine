@@ -102,9 +102,17 @@ s.sound = noone;
 s.func = giveItemRewardChoice;
 var items = ds_list_create();
 ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_longsword));
-ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_club));
-ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_spear));
+ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_greatsword));
 ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_dagger));
-ds_list_add(items, instance_create_depth(x, y, 1, obj_item_razorade));
+
+
+ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_club));
+ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_warhammer));
+
+ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_foil));
+ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_spear));
+
+ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_hatchet));
+ds_list_add(items, instance_create_depth(x, y, 1, obj_hand_item_battleaxe));
 s.funcParam1 = items;
 ds_list_add(steps, s);

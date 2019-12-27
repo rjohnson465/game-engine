@@ -16,5 +16,7 @@ if isInUse {
 		}
 	}
 	
+	fillHealthFlask();
+	
 	isInUse = false;
 }

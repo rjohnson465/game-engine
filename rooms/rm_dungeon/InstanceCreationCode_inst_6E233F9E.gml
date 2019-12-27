@@ -1,0 +1,1 @@
+isUntraversable = true;

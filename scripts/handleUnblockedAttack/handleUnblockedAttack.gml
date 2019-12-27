@@ -21,6 +21,8 @@ global.healingSustained = 0;
 global.victim = id;
 global.isCriticalHit = isCriticalHit; // critical?
 instance_create_depth(x,y,1,obj_damage);
+raiseEvent(EV_DAMAGE_TAKEN, [id, damage, attackObj]);
+
 // if assailant was player, damage their weapon a bit
 if assailant.type == CombatantTypes.Player && attackObj.isMelee {
 	if attackObj.weapon.weaponType != UNARMED {

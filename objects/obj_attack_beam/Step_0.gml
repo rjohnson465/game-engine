@@ -24,7 +24,8 @@ if !hasSetAlarm && beamHitLight != noone && instance_exists(beamHitLight) &&
 // attacker turns to face beam at target
 with owner {
 	if lockOnTarget >= 0 {
-		turnToFacePoint(.25*turnSpeed, lockOnTarget.x, lockOnTarget.y);
+		var ts = other.attackData.turnSpeedAttack == noone ? .25*turnSpeed : other.attackData.turnSpeedAttack
+		turnToFacePoint(ts, lockOnTarget.x, lockOnTarget.y);
 	}
 }
 // set beam angle to match attacker's angle

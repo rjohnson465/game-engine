@@ -1,0 +1,1 @@
+if status != ExerciseStepStatus.InProgress exit;

@@ -46,7 +46,7 @@ fade = noone;
 reviveOrbs = noone;
 for (var i = 0; i < ds_list_size(global.player.inventory); i++) {
 	var el = ds_list_find_value(global.player.inventory,i);
-	if el.object_index == obj_item_revive_orb {
+	if instance_exists(el) && el.object_index == obj_item_revive_orb {
 		reviveOrbs = el;
 	}
 }

@@ -5,5 +5,5 @@ with obj_npc_parent {
 }
 if	global.player.currentInteractableObject == id &&
 	!isOpen && global.player.isAlive && layer == global.player.layer && !isInConvo && !global.isInteractingWithNpc {
-	drawPrompt("Melt Ice",Input.F);
+	drawPrompt("Melt Ice",Input.F, noone, noone, noone, noone, true);
 }

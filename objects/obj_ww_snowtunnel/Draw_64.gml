@@ -6,5 +6,5 @@ with obj_npc_parent {
 
 if	global.player.currentInteractableObject == id &&
 	distance_to_object(obj_player) < 20 && global.player.isAlive && origLayer == global.player.layer && !isInConvo && !global.isInteractingWithNpc {
-	drawPrompt("Enter Snowtunnel To " + string(tunnelDestinationName),Input.F);
+	drawPrompt("Enter Snowtunnel To " + string(tunnelDestinationName),Input.F, noone, noone, noone, noone, true);
 }

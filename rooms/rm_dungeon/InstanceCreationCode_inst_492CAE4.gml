@@ -1,1 +1,0 @@
-isLit = true;

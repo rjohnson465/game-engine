@@ -4,7 +4,7 @@
 // Inherit the parent event
 event_inherited();
 
-if state != CombatantStates.Attacking {
+if state != CombatantStates.Attacking && lockOnTarget != noone && substate != CombatantMoveSubstates.ReturningToPost {
 	chooseMeleeAttack();
 	alarm[0] = 60;
 }

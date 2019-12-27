@@ -3,7 +3,12 @@
 
 // always decide drops on death
 if hp < 1 && isAlive && !isDying {
+	
+	// spawn dybukkboss
+	instance_create_layer(x,y,global.player.layer,obj_enemy_dybukkboss);
+	
 	// items
+	/*
 	var rmap = ds_map_create();
 	ds_map_replace(rmap,ItemRarities.Normal,90);
 	ds_map_replace(rmap,ItemRarities.Fine,9);
@@ -22,9 +27,11 @@ if hp < 1 && isAlive && !isDying {
 	ds_list_add(droppedItems,item1, item2, gold);
 	
 	ds_map_destroy(rmap); rmap = -1;
-	ds_map_destroy(rmap2); rmap2 = -1;
+	ds_map_destroy(rmap2); rmap2 = -1; */
 	
 }
+
+
 
 // Inherit the parent event
 event_inherited();
