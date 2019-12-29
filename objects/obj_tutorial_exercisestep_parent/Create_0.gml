@@ -1,3 +1,4 @@
+depth = -2000;
 exercise = global.exercise;
 name = "Exercise step";
 messageController = "Exercise step description (controller)";
@@ -18,3 +19,8 @@ status = ExerciseStepStatus.Unstarted;
 parameters = ds_map_create(); 
 
 isFinalStep = false;
+
+messageTopLeftX = noone;
+messageTopLeftY = noone;
+messageBottomRightX = noone;
+messageBottomRightY = noone;

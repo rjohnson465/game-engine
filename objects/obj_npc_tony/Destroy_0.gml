@@ -7,7 +7,9 @@ event_inherited();
 if room == rm_boss_lighteater {
 	isInteractingWithPlayer = false;
 	alert("In his haste, Tony drops a strange wire...", c_white, 150);
-	addItemToInventory(instance_create_depth(x, y, 1, obj_item_wire_rg));
+	var swire = instance_create_depth(x, y, 1, obj_item_wire_rg);
+	addItemToInventory(swire);
+	alertItemAddedToInventory(swire)
 	
 	with obj_queststep_llf_2 {
 		status = QuestStepStatus.Completed;

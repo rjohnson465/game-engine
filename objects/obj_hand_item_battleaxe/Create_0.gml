@@ -16,6 +16,6 @@ act = 1;
 
 //requiredMastery = 1;
 
-description = "This two-sided axe requires both hands and incredible strength to use. This was the preferred melee weapon of the Gunfairies, long ago, before theie extinction.";
+description = "This two-sided axe requires both hands and incredible strength to use. This was the preferred melee weapon of the Gunfairies, long ago, before their extinction.";
 
 weight = 15;

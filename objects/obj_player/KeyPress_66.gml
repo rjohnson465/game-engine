@@ -1,3 +1,4 @@
+room_restart();
 /*var rmap = ds_map_create();
 ds_map_replace(rmap,ItemRarities.Normal,0);
 ds_map_replace(rmap,ItemRarities.Fine,0);

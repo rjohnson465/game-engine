@@ -9,6 +9,15 @@ if global.doNotDisplayTutorialMessages exit;
 var doShowTut = ds_map_find_value(global.optionsManager.optionsMapDisplay, OPT_D_TUTORIALS);
 if !doShowTut exit;
 
+var isExerciseActive = false;
+with obj_tutorial_exercise_parent {
+	if isActive {
+		isExerciseActive = true;
+	}
+}
+
+if isExerciseActive exit;
+
 global.tutMessage = argument[0];
 global.tutSpritesController = argument[1];
 global.tutSpritesMk = argument[2];

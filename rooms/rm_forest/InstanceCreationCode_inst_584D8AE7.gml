@@ -1,1 +1,1 @@
-associatedWallKeys = ["wrc1", "wrc2", "wrc3"];
+associatedWallKeys = ["wrc1", "wrc2", "wrc3", "wrc4", "wrc5"];

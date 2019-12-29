@@ -24,3 +24,9 @@ if	// isCurrentInteractionObject(id) && distance_to_object(obj_player) < 20 &&
 	isActive = true;
 	global.isReadingTutorial = true;
 }
+
+if global.isTutorialInProgress {
+	x = -1000; y = -1000; 
+} else {
+	x = postX; y = postY;
+}

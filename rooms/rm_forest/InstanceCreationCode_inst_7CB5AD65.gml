@@ -4,4 +4,4 @@ droppedItemsReplacement = ds_list_create();
 
 agility = 0;
 
-eKey = "rc1_enemy";
+eKey = "mc1_enemy";

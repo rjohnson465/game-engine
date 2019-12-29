@@ -1,7 +1,7 @@
 event_inherited();
 isShowingGrid = false;
 name = "Speyeder";
-descriptionChoices = ["Way too many eyes", "KILL IT WITH FIRE", "Wow what a great pun", "5/7 walk animation", "Debug the code? Nah. Rebug the code."];
+descriptionChoices = ["Way too many eyes", "KILL IT WITH FIRE", "Wow what a great pun", "5/7 walk animation"];
 description = "Way too many eyes";
 spriteName = "speyeder";
 spriteString = "enemy_speyeder";

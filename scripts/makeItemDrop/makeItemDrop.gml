@@ -1,5 +1,8 @@
-/// makeItemDrop(droppedItems)
+/// makeItemDrop(droppedItems, *x, *y, *layer)
 /// @param droppedItems ds_list
+/// @param x
+/// @param y
+/// @param layer
 
 var droppedItems = argument[0];
 
@@ -17,4 +20,16 @@ if ds_list_size(droppedItems) == 0 return noone;
 global.droppedItems = droppedItems;
 global.owner = id;
 
-return instance_create_depth(x,y,1,obj_item_drop);
+var xx = x; var yy = y; 
+if argument_count > 1 {
+	xx = argument[1];
+}
+if argument_count > 2 {
+	yy = argument[2];
+}
+if argument_count > 3 {
+	var lay = argument[3];
+	global.owner = global.player; // i guess??
+	return instance_create_layer(xx, yy, lay, obj_item_drop);
+}
+return instance_create_depth(xx,yy,1,obj_item_drop);

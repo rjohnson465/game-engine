@@ -21,4 +21,13 @@ if bow != noone && bow.ammo == 0 {
 	alert("Your bow's ammo has been refilled, as part of this tutorial", c_aqua);
 }
 
+// do allow the enemy to be killed during this step 
+if exercise.enemy && exercise.enemy.hpRegen > 1 {
+	with exercise.enemy {
+		hp = 50;
+		maxHp = 50;
+		hpRegen = 0;
+	}
+}
+
 

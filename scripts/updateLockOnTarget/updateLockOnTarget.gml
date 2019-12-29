@@ -139,7 +139,7 @@ if lockOnTarget {
 	doorsBetweenLockOnTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_door,true,true);
 }
 // filter out no interrupt walls
-var garbageInstances= ds_list_create();
+var garbageInstances = ds_list_create();
 if ds_exists(wallsBetweenLockOnTarget, ds_type_list) {
 	for (var i = 0; i < ds_list_size(wallsBetweenLockOnTarget); i++) {
 		var w = ds_list_find_value(wallsBetweenLockOnTarget, i);
@@ -193,6 +193,28 @@ if isLockedOn && gamepad_is_connected(gamePadIndex) {
 			var diff = abs(angle_difference(pdir,ang));
 			
 			var wallsBetweenLockOnTarget = script_execute(scr_collision_line_list_layer,x,y,el.x,el.y,obj_wall_parent,true,true);
+			
+			// filter out no interrupt walls
+			var garbageInstances = ds_list_create();
+			if ds_exists(wallsBetweenLockOnTarget, ds_type_list) {
+				for (var j = 0; j < ds_list_size(wallsBetweenLockOnTarget); j++) {
+					var w = ds_list_find_value(wallsBetweenLockOnTarget, j);
+					if w.object_index == obj_wall_nocast_nointerrupt || object_is_ancestor(w.object_index, obj_wall_nocast_nointerrupt) {
+						ds_list_add(garbageInstances, w);
+					}
+				}
+			}
+			for (var j = 0; j < ds_list_size(garbageInstances); j++) {
+				var inst = ds_list_find_value(garbageInstances, j);
+				var index = ds_list_find_index(wallsBetweenLockOnTarget, inst);
+				ds_list_delete(wallsBetweenLockOnTarget, index);
+				if ds_list_size(wallsBetweenLockOnTarget) == 0 {
+					ds_list_destroy(wallsBetweenLockOnTarget);
+					wallsBetweenLockOnTarget = noone;
+				}
+			}
+			ds_list_destroy(garbageInstances); garbageInstances = -1;
+			
 			if diff < closestAngleDiff && diff < 90 && wallsBetweenLockOnTarget == noone && doorsBetweenLockOnTarget == noone {
 				lockOnTarget = el;
 			}

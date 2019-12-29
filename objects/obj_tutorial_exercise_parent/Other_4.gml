@@ -4,6 +4,8 @@
 // Inherit the parent event
 event_inherited();
 
+global.isTutorialInProgress = false;
+
 isFinished = ds_map_find_value(properties, "isFinished");
 
 if isFinished {

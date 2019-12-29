@@ -10,6 +10,10 @@ if status == ExerciseStepStatus.Completed && nextStep != undefined && nextStep !
 		if !exercise.isFinished {
 			// play a sound to alert player step has ended
 			audio_play_sound(snd_sword_draw, 1, 0);
+			
+			with exercise {
+				part_particles_clear(system);
+			}
 		}
 		nextStep.status = ExerciseStepStatus.InProgress;
 		exercise.currentExerciseStep = nextStep;
@@ -27,6 +31,8 @@ if status == ExerciseStepStatus.Completed && nextStep == undefined && exercise.i
 		isActive = false;
 		isFinished = true;
 		updatePersistentElementProperty(id, "isFinished", true);
+		
+		global.isTutorialInProgress = false;
 				
 		// make associated walls traversable
 		for (var i = 0; i < array_length_1d(associatedWallKeys); i++) {
@@ -41,5 +47,8 @@ if status == ExerciseStepStatus.Completed && nextStep == undefined && exercise.i
 				w.isUntraversable = false;
 			}
 		}
+		
+		// destroy exercise instance, which should destroy all its steps
+		instance_destroy(id, 1);
 	}
 }

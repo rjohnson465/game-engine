@@ -33,6 +33,8 @@ lightRadius = instance_create_depth(x,y,1,obj_light_radius);
 
 key = fs_generate_key(id);
 
+postX = x; postY = y;
+
 	
 /* 
 isCurrentInteractableObject = isCurrentInteractionObject(id);

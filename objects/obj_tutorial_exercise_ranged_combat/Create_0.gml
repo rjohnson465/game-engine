@@ -9,7 +9,10 @@ exerciseName = "Ranged Combat";
 global.exercise = id;
 ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_rc_1));
 ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_rc_2));
+ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_rc_2b));
+ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_rc_2c));
 ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_rc_3));
+ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_rc_3b));
 ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_rc_4));
 
 // the enemy we are learning with

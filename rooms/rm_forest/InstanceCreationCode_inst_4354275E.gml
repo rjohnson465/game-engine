@@ -1,0 +1,1 @@
+associatedWallKeys = ["wbi1", "wbi2", "wbi3"];

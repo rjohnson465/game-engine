@@ -10,7 +10,7 @@ var ui = global.ui;
 
 var drawDark = false;
 with obj_item_selector {
-	if x1 == xx && y1 == yy && (isActive /* || type == SelectorTypes.Select*/) {
+	if x1 == xx && y1 == yy && (isActive) {
 		drawDark = true;
 	} 
 }
@@ -29,19 +29,18 @@ if !gamepad_is_connected(global.player.gamePadIndex) && drawGreen && mouseOverGu
 }
 
 var drawBlack = false; 
+var itemAtMoveSelector = getItemAtSelectorPosition(ui.moveSelector);
 if	(slot == EquipmentSlots.RightHand1 && 
 	arrayIncludes(ui.equipSelector.acceptableEquipmentSlots,EquipmentSlots.LeftHand1) &&
-	getItemAtSelectorPosition(ui.moveSelector).isTwoHanded &&
+	(itemAtMoveSelector != undefined && instance_exists(itemAtMoveSelector) && itemAtMoveSelector.isTwoHanded) &&
 	ui.equipSelector.y1 == getEquipmentSlotObject(EquipmentSlots.LeftHand1).y1)
 	||
 	(slot == EquipmentSlots.RightHand2 && 
 	arrayIncludes(ui.equipSelector.acceptableEquipmentSlots,EquipmentSlots.LeftHand2) &&
-	getItemAtSelectorPosition(ui.moveSelector).isTwoHanded &&
+	(itemAtMoveSelector != undefined && instance_exists(itemAtMoveSelector) && itemAtMoveSelector.isTwoHanded) &&
 	ui.equipSelector.y1 == getEquipmentSlotObject(EquipmentSlots.LeftHand2).y1)
 	{
 	
-	
-		
 	drawBlack = true;
 }
 

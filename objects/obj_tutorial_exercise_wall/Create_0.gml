@@ -51,7 +51,7 @@ var tly = ty - lengthdir_y(sw*.5, a);
 var trx = tx + lengthdir_x(sw*.5, a);
 var try = ty + lengthdir_y(sw*.5, a);
 
-part_emitter_region(system, emitter, bbox_left , bbox_right, bbox_top, bbox_bottom ,ps_shape_line, ps_distr_gaussian);
+part_emitter_region(system, emitter, bbox_left , bbox_right, bbox_top, bbox_bottom ,ps_shape_rectangle, ps_distr_gaussian);
 
 part_system_depth(system, layer_get_depth(layer));
 

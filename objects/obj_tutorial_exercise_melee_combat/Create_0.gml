@@ -12,6 +12,11 @@ ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_mc_2));
 ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_mc_3));
 ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_mc_4));
 ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_mc_5));
+ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_mc_6));
+ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_mc_7));
+ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_mc_8));
+ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_mc_9));
+
 
 // the enemy we are learning with
 enemyKey = "mc1_enemy";

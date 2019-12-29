@@ -159,7 +159,10 @@ if isDying && isAlive {
 						}
 					}
 					if !alreadyHasItem && !doNotAddToDroppedItems {
-						ds_list_add(droppedItems, dim);
+						// ds_list_add(droppedItems, dim);
+						// don't even bother dropping it, just give it to player automatically
+						addItemToInventory(dim);
+						alertItemAddedToInventory(dim);
 					}
 					
 				}

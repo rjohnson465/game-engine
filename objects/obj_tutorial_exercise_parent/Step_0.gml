@@ -27,7 +27,7 @@ if rectangle_in_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, p.bbox_l
 }
 
 // activate associated walls when active
-if isActive {
+if isActive && !hasActivatedWalls {
 	for (var i = 0; i < array_length_1d(associatedWallKeys); i++) {
 		var wKey = associatedWallKeys[i];
 		var w = noone;
@@ -41,4 +41,12 @@ if isActive {
 			w.isUntraversable = true;
 		}
 	}
+	
+	hasActivatedWalls = true;
+	
+	global.isTutorialInProgress = true;
+}
+
+if isActive {
+	part_emitter_burst(system, emitter, part, 25);
 }

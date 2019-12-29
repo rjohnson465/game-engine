@@ -70,4 +70,12 @@ with obj_enemy_parent {
 instance_activate_object(obj_persistent_environment);
 
 instance_activate_object(obj_fountain_dark);
+
+/*
+if global.isTutorialInProgress {
+	with obj_tutorial_message {
+		instance_deactivate_object(id);
+	}
+}*/
+
 alarm[5] = deactivationSteps;
