@@ -18191,6 +18191,14 @@
             }
         },
         {
+            "Key": "babcebaf-bd90-44c5-81b0-6240c6eedb38",
+            "Value": {
+                "id": "063d7011-c445-4c65-8c15-60b683edaee6",
+                "resourcePath": "objects\\obj_queststep_llf_0\\obj_queststep_llf_0.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "baefe25f-45a1-45f1-bce0-a1dcfad3ae39",
             "Value": {
                 "id": "7be50004-e110-4cc9-994e-35a4ad9252da",
