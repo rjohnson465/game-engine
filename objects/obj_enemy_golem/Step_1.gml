@@ -33,7 +33,7 @@ if hp < 1 && isAlive && !isDying {
 		
 		// since this is a dynamically added enemy, we must manually add it to the room data
 		with obj_room_data {
-			ds_map_add_map(enemiesData, other.key, other.persistentProperties);
+			ds_map_add_map(enemiesData, other.key, ds_map_deep_clone(other.persistentProperties));
 			var map = ds_map_find_value(enemiesData, other.key);
 			// hp and maxHp init values must be recorded here, otherwise they're always 35 
 			// since thats the default base enemy class values, and persistentProperties map is 

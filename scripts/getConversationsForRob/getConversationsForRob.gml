@@ -5,9 +5,11 @@ var conversationsList = argument[0];
 
 ds_list_add(conversationsList, scr_conv_rob_elevator());
 
-// add llf to conversations, if player does not have this quest already
+// add llf to conversations, if player has just begun llf quest
 var llfQuest = instance_nearest(x, y, obj_quest_llf);
-if !instance_exists(llfQuest) {
+var wamdkQuest = instance_nearest(x, y, obj_quest_wamdk);
+var llfQuestStep0 = instance_nearest(x, y, obj_queststep_llf_0);
+if (instance_exists(llfQuestStep0) && llfQuestStep0.status = QuestStepStatus.InProgress) || (wamdkQuest.currentQuestStep.isRewardStep && !wamdkQuest.isFinished) {
 	ds_list_add(conversationsList, instance_create_depth(x, y, 1, obj_conv_investigate_llf_start));
 }
 

@@ -4,10 +4,11 @@ var in = instance_number(obj_fade);
 if in > 0 exit;
 
 scr_test_build_swordsman_factory();
+questStart(obj_quest_llf);
 
+
+layerToMoveTo = "instances_floor_3";
 /*
-layerToMoveTo = "instances_floor_4";
-
 level = 4;
 xpToNextLevel = getXpToNextLevel();
 

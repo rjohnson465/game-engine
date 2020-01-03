@@ -61,7 +61,7 @@ if argument_count >= 6 && argument[5] != noone {
 var isDrawingAtInstanceCoordinates = false;
 if argument_count >= 7 && argument[6] == true {
 	isDrawingAtInstanceCoordinates = true;
-	// TEST: draw prompts near invoking instance? 
+	// draw prompts near invoking instance? 
 	var vx = camera_get_view_x(view_camera[0]);
 	var vy = camera_get_view_y(view_camera[0]);
 	var xx = x - vx;
@@ -178,6 +178,30 @@ for (var i = 0; i < array_length_1d(keys); i++) {
 
 	promptWidth += sw;
 
+}
+
+// if this prompt would overflow the left edge of the room, move it to the right so it displays ok
+if isDrawingAtInstanceCoordinates && x - (.5 * promptWidth) - 5 < 0 {
+	xx = 5 - vx;
+}
+
+// if this prompt would overflow the right edge of the room, move it to the left so it displays ok
+if isDrawingAtInstanceCoordinates && x + (promptWidth) + 5 > room_width {
+	xx = room_width - ((.5 * promptWidth) + 2);
+	xx = xx - vx;
+	xx = room_width - promptWidth - 10 - vx;
+}
+
+var promptHeight = sh + 10;
+
+// if this prompt would overflow the top edge of the room, move it down so it displays ok
+if isDrawingAtInstanceCoordinates && y - (.5 * promptHeight) <= 0 {
+	yy = 10 - vy;
+}
+
+// if this prompt would overflow the bottom edge of the room, move it up so it displays ok
+if isDrawingAtInstanceCoordinates && y + (.5 * promptHeight) > room_height {
+	yy = room_height - promptHeight - 10 - vy;
 }
 
 draw_set_alpha(.5);

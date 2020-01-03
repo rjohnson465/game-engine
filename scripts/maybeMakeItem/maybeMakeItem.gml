@@ -68,15 +68,17 @@ if argument_count >= 3 && is_array(argument[2]) {
 
 	itemIndex = getBaseItemFromAct(itemType,act);
 }
-var item = instance_create_depth(x,y,1,itemIndex);
-itemType = item.type;
+var item;
+if itemIndex != obj_gem_parent {
+	item = instance_create_depth(x,y,1,itemIndex);
+}
 
 // TODO -- the item might just be one of a set of possible object indexes provided.
 // Add support for an itemIndexMap -- a map of object indexes that might be dropped
 // this renders the notion of getting an item from an act unneeded when this param is provided
 
 // if we're making a gem, refine gems to actual gem objects
-if item.object_index == obj_gem_parent {
+if itemIndex == obj_gem_parent {
 	// decide quality based on act
 	randomize();
 	var rand = random_range(0,100);
@@ -120,6 +122,8 @@ if item.object_index == obj_gem_parent {
 	
 	item = makeGem(gemType,qualityType);
 }
+
+itemType = item.type;
 
 // PART 3: Decide Rarity, apply gems and / or item properties
 var rarityMap = getDefaultItemRarityMap();

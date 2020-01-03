@@ -51,7 +51,7 @@ else {
 			ds_map_replace(data_map, "ObjectIndexName", object_get_name(object_index));
 			ds_map_replace(data_map, "PostX", postX);
 			ds_map_replace(data_map, "PostY", postY);
-			ds_map_add_map(data_map, "Properties", properties);
+			ds_map_add_map(data_map, "Properties", ds_map_deep_clone(properties));
 		}
 		
 		ds_map_add_map(rd.persistentElements, el.key, data_map);

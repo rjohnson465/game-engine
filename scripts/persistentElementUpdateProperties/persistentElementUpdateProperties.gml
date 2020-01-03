@@ -11,7 +11,7 @@ if object_is_ancestor(el.object_index, obj_enemy_parent) {
 	if data_map == undefined {
 		// there is no enemy found for this key...
 		// add entry to rd.enemiesData
-		ds_map_add_map(rd.enemiesData, el.key, el.persistentProperties);
+		ds_map_add_map(rd.enemiesData, el.key, ds_map_deep_clone(el.persistentProperties));
 		var map = ds_map_find_value(rd.enemiesData, el.key);
 		// hp and maxHp init values must be recorded here, otherwise they're always 35 
 		// since thats the default base enemy class values, and persistentProperties map is 
@@ -38,7 +38,7 @@ else {
 		ds_map_replace(el_map, "ObjectIndexName", object_get_name(object_index));
 		ds_map_replace(el_map, "PostX", postX);
 		ds_map_replace(el_map, "PostY", postY);
-		ds_map_add_map(el_map, "Properties", properties);
+		ds_map_add_map(el_map, "Properties", ds_map_deep_clone(properties));
 		ds_map_add_map(other.persistentElements, key, el_map);
 		exit; 
 	}

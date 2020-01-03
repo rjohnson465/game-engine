@@ -4,6 +4,9 @@
 // Inherit the parent event
 event_inherited();
 
-status = QuestStepStatus.Unstarted;
-
-description = "Investigate Floor 4";
+// set llf quest to step 1
+if isFinished {
+	with obj_queststep_llf_0 {
+		status = QuestStepStatus.Completed;
+	}
+}

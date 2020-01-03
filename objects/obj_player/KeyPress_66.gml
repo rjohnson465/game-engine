@@ -1,4 +1,11 @@
-room_restart();
+var rmap = ds_map_create();
+ds_map_replace(rmap,ItemRarities.Normal,0);
+ds_map_replace(rmap,ItemRarities.Fine,0);
+ds_map_replace(rmap,ItemRarities.Masterwork,0);
+ds_map_replace(rmap,ItemRarities.Legendary,5);
+
+var item1 = maybeMakeItem(100,rmap); //randomly generated item
+addItemToInventory(item1);
 /*var rmap = ds_map_create();
 ds_map_replace(rmap,ItemRarities.Normal,0);
 ds_map_replace(rmap,ItemRarities.Fine,0);

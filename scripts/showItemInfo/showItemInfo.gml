@@ -281,7 +281,13 @@ if item.type == ItemTypes.HandItem && !global.inventory.isShowingItemInfo2 {
 			draw_text(itemDescriptionCol1XText,itemDescriptionColY+55,string(physBlockPercentage) + "%");
 		} else {
 			draw_set_color(c_white);
-			draw_text(itemDescriptionCol1XText,itemDescriptionColY+55,"Phys. absorption");
+			draw_text(itemDescriptionCol1XText,itemDescriptionColY+55,"Physical absorption");
+		}
+		
+		if global.ui.isShowingExplanations {
+			var str = "Elemental Absorption";
+			var strX = itemDescriptionCol2XPictures - 75;
+			draw_text(strX, itemDescriptionColY, str);
 		}
 		
 		var shieldDamgeTypes = [MAGIC,FIRE,ICE,POISON,LIGHTNING];

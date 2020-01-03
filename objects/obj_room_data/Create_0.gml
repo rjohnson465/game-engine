@@ -24,7 +24,7 @@ if persistentElements == noone {
 		ds_map_replace(el_map, "ObjectIndexName", object_get_name(object_index));
 		ds_map_replace(el_map, "PostX", postX);
 		ds_map_replace(el_map, "PostY", postY);
-		ds_map_add_map(el_map, "Properties", properties);
+		ds_map_add_map(el_map, "Properties", ds_map_deep_clone(properties));
 		ds_map_add_map(other.persistentElements, key, el_map);
 	}
 	with obj_persistent_environment_nonsolid {
@@ -32,7 +32,7 @@ if persistentElements == noone {
 		ds_map_replace(el_map, "ObjectIndexName", object_get_name(object_index));
 		ds_map_replace(el_map, "PostX", postX);
 		ds_map_replace(el_map, "PostY", postY);
-		ds_map_add_map(el_map, "Properties", properties);
+		ds_map_add_map(el_map, "Properties", ds_map_deep_clone(properties));
 		ds_map_add_map(other.persistentElements, key, el_map);
 	}
 }
@@ -42,7 +42,7 @@ enemiesData = fs_load_enemydata_tempfile(roomName);
 if enemiesData == noone {
 	enemiesData = ds_map_create();
 	with obj_enemy_parent {
-		ds_map_add_map(other.enemiesData, key, persistentProperties);
+		ds_map_add_map(other.enemiesData, key, ds_map_deep_clone(persistentProperties));
 		var map = ds_map_find_value(other.enemiesData, key);
 		// hp and maxHp init values must be recorded here, otherwise they're always 35 
 		// since thats the default base enemy class values, and persistentProperties map is 

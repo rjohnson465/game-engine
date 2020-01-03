@@ -11,7 +11,7 @@ var beltHasFlask = false;
 for (var i = 0; i < array_length_1d(p.beltItems); i++) {
 	var it = p.beltItems[i];
 	if !instance_exists(it) continue;
-	if it.object_index == obj_item_healthshard {
+	if it.object_index == obj_item_health_flask {
 		beltHasFlask = true;
 	}
 }
@@ -48,8 +48,8 @@ if global.ui.isShowingMenus {
 				drawTutorialMessage(400, 275, msgC, msgMk, [spr_prompt_xbox_lb, spr_prompt_xbox_rb], []);
 
 			} else {
-				var msgC = "Usable items can be used from the Inventory screen, or they can be equipped to your belt for later use. Equip the health flask shard on your belt.";
-				var msgMk = "Usable items can be used from the Inventory screen, or they can be equipped to your belt for later use. Equip the health flask shard on your belt.";
+				var msgC = "Usable items can be used from the Inventory screen, or they can be equipped to your belt for later use. Equip the health flask on your belt.";
+				var msgMk = "Usable items can be used from the Inventory screen, or they can be equipped to your belt for later use. Equip the health flask on your belt.";
 				drawTutorialMessage(500, 300, msgC, msgMk, [], []);
 			}
 		} else {

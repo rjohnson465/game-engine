@@ -96,12 +96,12 @@ if conditionLevel == 0 {
 		case LIGHTNING: {
 			// starts with many sparks but as freeze fades, less
 			if conditionPercent > 90 {
-				num = 2;
+				num = 5;
 			} else if conditionPercent > 50 {
-				num = 1;
+				num = 2;
 			} else if conditionPercent > 25 {
-				num = -1;
-			} else num = -3;
+				num = 1;
+			} else num = -1;
 			break;
 		}
 		case "Death": {

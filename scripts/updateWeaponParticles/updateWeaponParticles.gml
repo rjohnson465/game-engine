@@ -73,6 +73,14 @@ for (var i = 0; i < ds_list_size(damageTypes); i++) {
 			weaponParticlesNums[i] =  2;
 		}
 	}
+	
+	if damageType == MAGIC {
+		weaponParticlesNums[i] = numParticles + 2;
+		
+		if numParticles + 2 > -2 && numParticles + 2 < 2 {
+			weaponParticlesNums[i] =  2;
+		}
+	}
 
 }
 ds_list_destroy(damageTypes); damageTypes = -1;

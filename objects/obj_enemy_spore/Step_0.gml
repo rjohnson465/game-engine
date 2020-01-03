@@ -21,7 +21,7 @@ else {
 		with obj_room_data {
 			// regenerate key so it is unique from the other spores in its pod
 			
-			ds_map_add_map(enemiesData, other.key, other.persistentProperties);
+			ds_map_add_map(enemiesData, other.key, ds_map_deep_clone(other.persistentProperties));
 			var map = ds_map_find_value(enemiesData, other.key);
 			// hp and maxHp init values must be recorded here, otherwise they're always 35 
 			// since thats the default base enemy class values, and persistentProperties map is 

@@ -199,6 +199,7 @@ ds_map_replace(inventoryCapacityMap, InventoryFilters.Other, 0);
 
 // only have flask in inventory if game started at not main menu (i.e. create event did not happen on a Load Game)
 // When a New Game is made, give health flask programtically
+/*
 var hf = noone;
 if instance_number(obj_fade) == 0 {
 	var hfCount = instance_number(obj_item_health_flask);
@@ -206,7 +207,7 @@ if instance_number(obj_fade) == 0 {
 		hf = instance_create_depth(x,y,1,obj_item_health_flask);
 		addItemToInventory(hf);
 	}
-}
+} */
 
 
 if global.populateInventory && !global.gameManager.isLoading {
@@ -447,9 +448,11 @@ beltItems[3] = noone;
 beltItems[4] = noone;
 currentBeltItemIndex = 0; // this is the index of item that will be used when X is pressed
 
+/*
 if hf != noone {
 	equipItem(hf, EquipmentSlots.BeltItem1);
 }
+*/
 
 healingFrame = 0;
 healingTotalFrames = sprite_get_number(spr_player_heal);

@@ -47,7 +47,7 @@ if origLayer != global.player.layer exit;
 
 if	// distance_to_object(obj_player) < 20 && 
 	global.player.currentInteractableObject == id &&
-	origLayer == global.player.layer && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !inUse && !global.ui.isShowingMenus && !isInConvo {
+	origLayer == global.player.layer && interactInputReceived && fade == noone && !areActiveEnemiesNearby && global.player.isAlive && !inUse && !global.ui.isShowingMenus && !isInConvo && !global.isLooting {
 	if !isRunning {
 		fountainRunningSoundIndex = audio_play_sound_on(fountainRunningSoundEmitter, fountainRunningSound, 1, 1);
 		wishAtFountain(); // turn fountain on ;)

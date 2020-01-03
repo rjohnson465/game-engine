@@ -5,7 +5,7 @@
 event_inherited();
 
 messageController = "Lock on to an enemy by clicking the right thumbstick.";
-messageMk = "Lock on to an enemy with the Shift key";
+messageMk = "Lock on to an enemy with the Control key";
 promptSpritesController = [spr_prompt_xbox_rs_click];
-promptSpritesMk = [spr_prompt_mk_shift];
+promptSpritesMk = [spr_prompt_mk_ctrl];
 

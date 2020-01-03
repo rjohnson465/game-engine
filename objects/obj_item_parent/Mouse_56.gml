@@ -10,7 +10,7 @@ if id == global.ui.grabbedItem {
 	// if dropped somewhere in inventory and was equipped, unequip item
 	var nearestOtherItem = instance_nearest(x,y,obj_item_parent);
 	var i = 1;
-	while nearestOtherItem == id || ds_list_find_index(global.player.inventory, nearestOtherItem) == -1 {
+	while nearestOtherItem == id || ds_list_find_index(global.player.inventory, nearestOtherItem) == -1 && i < ds_list_size(global.player.inventory) {
 		nearestOtherItem = script_execute(scr_find_nth_closest,x,y,obj_item_parent,i);
 		i++;
 	}

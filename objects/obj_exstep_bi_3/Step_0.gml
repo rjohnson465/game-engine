@@ -11,7 +11,7 @@ if global.ui.isShowingMenus {
 var p = global.player;
 var curBeltItem = p.beltItems[p.currentBeltItemIndex];
 
-if !gamepad_is_connected(global.gamePadIndex) || curBeltItem.object_index == obj_item_healthshard {
+if !gamepad_is_connected(global.gamePadIndex) || curBeltItem.object_index == obj_item_health_flask {
 	status = ExerciseStepStatus.Completed;
 }
 

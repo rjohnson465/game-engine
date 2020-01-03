@@ -7,6 +7,7 @@ event_inherited();
 exerciseName = "Getting Started";
 
 global.exercise = id;
+ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_welcome_0));
 ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_welcome_1));
 ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_welcome_2));
 ds_list_add(exerciseSteps, instance_create_depth(x,y,1,obj_exstep_welcome_3));

@@ -30,6 +30,7 @@ addItemToInventory(key);
 // Build inventory / Equipment
 var ls = instance_create_depth(x, y, depth, obj_hand_item_longsword);
 ls.numberOfSockets = 2;
+insertGemIntoItem(makeGem(obj_gem_lapis, CRACKED), ls);
 addItemToInventory(ls);
 equipItem(ls, EquipmentSlots.LeftHand1);
 var ws = instance_create_depth(x, y, depth, obj_hand_item_woodshield);

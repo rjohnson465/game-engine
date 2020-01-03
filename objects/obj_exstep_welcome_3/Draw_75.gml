@@ -8,10 +8,7 @@ if status != ExerciseStepStatus.InProgress exit;
 
 var itemIsEquipped = false;
 
-if	getItemInEquipmentSlot(EquipmentSlots.LeftHand1) != global.player.unarmed ||
-	getItemInEquipmentSlot(EquipmentSlots.LeftHand2) != global.player.unarmed ||
-	getItemInEquipmentSlot(EquipmentSlots.RightHand1) != global.player.unarmed ||
-	getItemInEquipmentSlot(EquipmentSlots.RightHand2) != global.player.unarmed  {
+if	getItemInEquipmentSlot(EquipmentSlots.LeftHand1) != global.player.unarmed  {
 		itemIsEquipped = true;
 	}
 
@@ -53,12 +50,12 @@ if global.ui.isShowingMenus {
 				// weapon not yet selected...
 				if !global.ui.equipSelector.isActive || (!gamepad_is_connected(pad) && global.ui.grabbedItem == noone) {
 					var msgC = "Select weapon to equip using the A button.";
-					var msgMk = "Drag your weapon to an equipment slot.";
+					var msgMk = "Drag your weapon to Left Hand slot in Weapon Set 1.";
 					drawTutorialMessage(300, 275, msgC, msgMk, [spr_prompt_xbox_a], [spr_prompt_mk_mouse]);
 				} else {
 					// weapon selected, need to choose an equipment slot
-					var msgC = "Choose a slot with the D pad, and equip with the A button. Left hand is your main hand, and lets weapons deal full damage.";
-					var msgMk = "Drop weapon onto a valid slot. Left hand is your main hand, and lets weapons deal full damage.";
+					var msgC = "Choose a slot with the D pad, and equip with the A button. Equip your weapon in your left (main) hand, in Weapon Set 1. Weapons in main hand deal full damage; weapons in off hand deal partial damage.";
+					var msgMk = "Drop weapon onto a valid slot. Equip your weapon in your left (main) hand, in Weapon Set 1. Weapons in main hand deal full damage; weapons in off hand deal partial damage.";
 					drawTutorialMessage(800, 500, msgC, msgMk, [spr_prompt_xbox_a], [spr_prompt_mk_mouse]);
 				}
 			}

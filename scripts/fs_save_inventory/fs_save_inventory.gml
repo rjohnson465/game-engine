@@ -125,10 +125,6 @@ with obj_item_parent {
 			ds_map_add_list(sd_item,"ItemProperties",propsList);
 		} 
 		
-		if object_index == obj_item_health_flask {
-			var a = 3;
-		}
-		
 		// or maybe key can just be inventory index
 		ds_map_add_map(sd_inventory,key,sd_item);
 	}

@@ -4,12 +4,12 @@
 // Inherit the parent event
 event_inherited();
 
-status = QuestStepStatus.InProgress;
+status = QuestStepStatus.Unstarted;
 
 eventListeners = ds_map_create();
 ds_map_add(eventListeners, EV_ITEM_PICKEDUP, scr_evl_wires);
 
-description = "Find the 3 elevator wires for Robort to fix the elevator.\n Found 0/3 wires.";
+description = "Find wires to fix the elevator.\n Found 0/3 wires.";
 
 if !global.gameManager.isLoading {
 	// check if the player has already found some or all of the wires
@@ -26,7 +26,7 @@ if !global.gameManager.isLoading {
 
 	// if so, update the initial description
 	ds_map_replace(parameters,"wiresCount",wc);
-	description = "Find the 3 elevator wires for Robort to fix the elevator.\n Found " + string(wc) + "/3 wires.";
+	description = "Find wires to fix the elevator.\n Found " + string(wc) + "/3 wires.";
 
 	if wc >= 3 {
 		status = QuestStepStatus.Completed;

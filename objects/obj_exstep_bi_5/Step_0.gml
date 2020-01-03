@@ -1,5 +1,20 @@
 if status != ExerciseStepStatus.InProgress exit;
 
-if ((gamepad_is_connected(global.gamePadIndex) && gamepad_button_check_pressed(global.gamePadIndex, gp_face1)) || keyboard_check_pressed(ord("F"))) {
+if !hasInitializedEnemy {
+	var lay = global.player.layer;
+	var unfairy = instance_create_layer(1525, 1886, lay, obj_enemy_unfairy);
+	with unfairy {
+		ei_unfairy_unarmed();
+		droppedItemsReplacement = ds_list_create();
+		chanceToDropHealthOrb = 1;
+	}
+	
+	exercise.enemy = unfairy;
+	hasInitializedEnemy = true;
+}
+
+if instance_exists(exercise.enemy) && exercise.enemy.hp <= 0 {
 	status = ExerciseStepStatus.Completed;
 }
+
+

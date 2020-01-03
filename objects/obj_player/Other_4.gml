@@ -15,6 +15,7 @@ if variable_global_exists("newGameStarted") && global.newGameStarted {
 	lastFountainZ = lastFountain.layerName;
 	lastFountainRoom = room;
 	
+	/*
 	var hf = noone;
 	var hfCount = instance_number(obj_item_health_flask);
 	if instance_number(obj_item_health_flask) == 0 {
@@ -31,7 +32,7 @@ if variable_global_exists("newGameStarted") && global.newGameStarted {
 		currentBeltItemIndex = 0; // this is the index of item that will be used when X is pressed
 		equipItem(hf, EquipmentSlots.BeltItem1);
 		//equipBeltItem(0,hf);
-	}
+	} */
 	
 	global.newGameStarted = false;
 } else if lastFountainRoom == noone {
@@ -68,4 +69,22 @@ walkingInWaterEmitter = audio_emitter_create();
 audio_emitter_gain(walkingInWaterEmitter,0);
 //audio_play_sound_on(walkingInWaterEmitter,snd_water_floating_loop,1,0);
 
+
+
+
+
+
+/// test shit
+var m1 = ds_map_create();
+var m2 = ds_map_create();
+
+ds_map_add_map(m1, "map2", m2);
+
+ds_map_destroy(m1); m1 = -1; // what does m2 evalute to now?
+
+var m3 = ds_map_create();
+var m3 = ds_map_create();
+
+
+var a = 3;
 

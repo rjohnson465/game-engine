@@ -1,1 +1,1 @@
-ds_list_add(items, instance_create_depth(x,y,1,obj_hand_item_woodshield));
+ds_list_add(items, instance_create_depth(x,y,1,obj_item_health_flask));

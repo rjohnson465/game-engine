@@ -4,8 +4,8 @@
 // Inherit the parent event
 event_inherited();
 
-messageController = "Switch your current belt item to the health flask shard.";
-messageMk = "Switch your current belt item to the health flask shard.";
+messageController = "Switch your current belt item to the health flask.";
+messageMk = "Switch your current belt item to the health flask.";
 promptSpritesController = [spr_prompt_xbox_pad_ud];
 promptSpritesMk = [];
 

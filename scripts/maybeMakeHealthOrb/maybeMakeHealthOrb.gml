@@ -3,6 +3,7 @@
 
 // first, if the player's health flask is already full, do not drop anything
 var hf = instance_nearest(x,y,obj_item_health_flask);
+if !instance_exists(hf) || hf.owner != global.player exit;
 var charges = ds_map_find_value(hf.customItemProperties, hfs_charges);
 var maxCharges = ds_map_find_value(hf.customItemProperties, hfs_max_charges);
 if (charges >= maxCharges) exit;

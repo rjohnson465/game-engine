@@ -6,9 +6,9 @@ if wc == undefined {
 	ds_map_replace(parameters, "wiresCount", 0);
 }
 if status != QuestStepStatus.Completed {
-	description = "Find the 3 elevator wires for Robort to fix the elevator.\n Found " + string(wc) + "/3 wires.";
+	description = "Find wires to fix the elevator.\n Found " + string(wc) + "/3 wires.";
 } else {
-	description = "Find the 3 elevator wires for Robort to fix the elevator.\n Found 3/3 wires.";
+	description = "Find wires to fix the elevator.\n Found 3/3 wires.";
 }
 
 // if wires count is 3, this quest step is completed

@@ -9103,6 +9103,14 @@
             }
         },
         {
+            "Key": "5d691fad-76f3-4530-b649-436cb5c60e5d",
+            "Value": {
+                "id": "e5a9d6a3-c185-4d9c-a197-cfd9c4057579",
+                "resourcePath": "objects\\obj_exstep_bi_5\\obj_exstep_bi_5.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "5d6a91cf-65d5-4524-b5fd-d0b9f36c4a27",
             "Value": {
                 "id": "aa089414-dd9d-4983-b45c-e410bf9bd27e",
@@ -14602,7 +14610,7 @@
             "Key": "97803216-7452-4632-b6f6-26d33c332237",
             "Value": {
                 "id": "8d92f313-c2ea-4d41-b216-fd4506b6ae0a",
-                "resourcePath": "objects\\obj_exstep_bi_5\\obj_exstep_bi_5.yy",
+                "resourcePath": "objects\\obj_exstep_bi_7\\obj_exstep_bi_7.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -14868,6 +14876,14 @@
                 "id": "85109723-5b30-4c2f-9b7c-636f96107424",
                 "resourcePath": "sprites\\spr_enemy_krampuself_iceaxe_prep_1_2\\spr_enemy_krampuself_iceaxe_prep_1_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9aaf781b-99b9-4ec7-9586-d3e4a06643ea",
+            "Value": {
+                "id": "c7fccee9-cfcc-46db-aedf-04477a3d7141",
+                "resourcePath": "scripts\\scr_tutorials_destroy_all\\scr_tutorials_destroy_all.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -19823,6 +19839,14 @@
             }
         },
         {
+            "Key": "cc46e062-e687-4642-93d6-824c20a1e2c9",
+            "Value": {
+                "id": "01aaa7b1-0b0e-4c59-b52c-284f34641dab",
+                "resourcePath": "objects\\obj_exstep_welcome_0\\obj_exstep_welcome_0.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "cc4dcabf-0455-4849-a4ce-87d0d41c4c32",
             "Value": {
                 "id": "85938d18-18c3-4309-a9e7-9e268f1d0f46",
@@ -19844,6 +19868,14 @@
                 "id": "2842baa3-a476-4551-a0d4-e88eafd76415",
                 "resourcePath": "views\\cc6e963a-122f-4948-8d6f-f2c49ea5cdcb.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "cc731b09-9fe3-426b-a8d6-eb5665cbcc53",
+            "Value": {
+                "id": "26da496a-b07f-45d8-99f2-19f6b31c58e8",
+                "resourcePath": "objects\\obj_exstep_bi_6\\obj_exstep_bi_6.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -24940,10 +24972,10 @@
         "ead1f01a-22e3-4fd4-b5f7-5805bcb41210",
         "66d96a45-c863-45a1-baa1-d84d084bea72",
         "22ffe7d1-cfcb-4531-ad15-59c9a46b5895",
+        "187d3c49-dd60-4c42-8f9c-51dbf74ddea2",
         "b79353b3-8730-4b28-89fd-d8cd4333dcc5",
         "f126bd04-dd3a-43f4-94d6-aefd1b0ce9dc",
         "65e9bda3-e73b-4e5d-a4b0-eb73179ff7fe",
-        "187d3c49-dd60-4c42-8f9c-51dbf74ddea2",
         "dc20bdfa-f2bb-4664-bd11-181fd24ce23b",
         "7f697406-76f7-4073-8fea-2189307747de",
         "285e296d-e9a0-485a-9fb9-89b3f34686af",
@@ -25191,7 +25223,8 @@
         "5a0bbf2f-2777-42fd-86d5-0a96d9e4f2dc",
         "f7537df8-b0ce-4e92-9abd-293c792efe28",
         "3970572a-30e6-436a-9a7f-3dca1ed32115",
-        "f4c2eeaa-4b24-4f67-bf17-72bd66063395"
+        "f4c2eeaa-4b24-4f67-bf17-72bd66063395",
+        "9aaf781b-99b9-4ec7-9586-d3e4a06643ea"
     ],
     "tutorial": ""
 }
