@@ -5,6 +5,7 @@ enum AttackTypes {
 	Zone, // breath attacks, poison clouds, whatever
 	MultiRand, // multiple random projectiles at random locations
 	Beam, // Laserrrr
+	UnderPlayer // A "projectile" that attacks from right under the player
 }
 
 owner = global.owner;
@@ -123,3 +124,13 @@ turnSpeedAttack = 0;
 
 movesDuringAttack = true;
 movesDuringPrep = true;
+
+// Linger zone -- after attack ends, maybe leave a linger zone that damages player for a while
+underPlayerAttackSound = noone;
+underPlayerPrepDuration = 30; // default 1 second
+hasLingerZone = false;
+lingerZonePartTypes = [];
+lingerZoneDamages = noone; // a map of damages the linger zone delivers
+lingerZoneDuration = 150; // 5 seconds by default
+lingerZoneDamageFrequency = 30; // damage every second, by default
+lingerZoneSoundInit = noone;

@@ -6,17 +6,17 @@ castFrames = 30; // how long spell can be charged
 skillSprite = spr_item_magicmissile_magic;
 
 damageRangesByLevel = ds_map_create();
-ds_map_replace(damageRangesByLevel,0,[4,8]);
-ds_map_replace(damageRangesByLevel,1,[6,10]);
-ds_map_replace(damageRangesByLevel,2,[8,10]);
-ds_map_replace(damageRangesByLevel,3,[10,13]);
-ds_map_replace(damageRangesByLevel,4,[10,15]);
-ds_map_replace(damageRangesByLevel,5,[12,16]);
-ds_map_replace(damageRangesByLevel,6,[15,18]);
-ds_map_replace(damageRangesByLevel,7,[18,22]);
-ds_map_replace(damageRangesByLevel,8,[20,25]);
-ds_map_replace(damageRangesByLevel,9,[22,28]);
-ds_map_replace(damageRangesByLevel,10,[25,32]);
+ds_map_replace(damageRangesByLevel,0,[4,8]); // 1 projectile
+ds_map_replace(damageRangesByLevel,1,[4,6]); // 2 projectiles
+ds_map_replace(damageRangesByLevel,2,[4,6]); // 3 projectiles
+ds_map_replace(damageRangesByLevel,3,[6,8]);
+ds_map_replace(damageRangesByLevel,4,[7,9]);
+ds_map_replace(damageRangesByLevel,5,[8,10]);
+ds_map_replace(damageRangesByLevel,6,[6,8]); // 4 projectiles
+ds_map_replace(damageRangesByLevel,7,[7,9]);
+ds_map_replace(damageRangesByLevel,8,[6,8]); // 5 projectiles
+ds_map_replace(damageRangesByLevel,9,[8,9]);
+ds_map_replace(damageRangesByLevel,10,[8,10]);
 numberOfProjectilesByLevel = ds_map_create();
 ds_map_replace(numberOfProjectilesByLevel,0,1);
 ds_map_replace(numberOfProjectilesByLevel,1,2);

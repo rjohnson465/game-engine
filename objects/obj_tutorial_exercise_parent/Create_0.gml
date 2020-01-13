@@ -1,5 +1,7 @@
 event_inherited();
 
+visible = false;
+
 exerciseName = "Default Exercise Name";
 exerciseSteps = ds_list_create();
 currentExerciseStep = noone;

@@ -9,7 +9,7 @@ ds_list_add(conversationsList, scr_conv_rob_elevator());
 var llfQuest = instance_nearest(x, y, obj_quest_llf);
 var wamdkQuest = instance_nearest(x, y, obj_quest_wamdk);
 var llfQuestStep0 = instance_nearest(x, y, obj_queststep_llf_0);
-if (instance_exists(llfQuestStep0) && llfQuestStep0.status = QuestStepStatus.InProgress) || (wamdkQuest.currentQuestStep.isRewardStep && !wamdkQuest.isFinished) {
+if !instance_exists(llfQuest) || (instance_exists(llfQuestStep0) && llfQuestStep0.status = QuestStepStatus.InProgress) || (wamdkQuest.currentQuestStep.isRewardStep && !wamdkQuest.isFinished) {
 	ds_list_add(conversationsList, instance_create_depth(x, y, 1, obj_conv_investigate_llf_start));
 }
 

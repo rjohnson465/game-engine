@@ -112,7 +112,7 @@ part_type_speed(snowflake,1,1.5,0,0);
 part_type_direction(snowflake,0,360,0,4);
 part_type_life(snowflake,10,20);
 part_type_alpha3(snowflake,1,.75,.5);
-part_type_color2(snowflake, c_silver, c_aqua);
+part_type_color2(snowflake, c_navy, c_aqua);
 burrowParticle = snowflake;
 part_system_depth(sprintParticleSystem, depth-1);
 normalSpriteIndex = sprite_index;

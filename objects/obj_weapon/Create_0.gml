@@ -30,6 +30,7 @@ torchEmitter1 = part_emitter_create(torchSystem1);
 torchEmitter2 = part_emitter_create(torchSystem2);
 torchAudioEmitter = audio_emitter_create();
 audio_emitter_gain(torchAudioEmitter,0);
+audio_emitter_falloff(torchAudioEmitter, 50, AUDIO_MAX_FALLOFF_DIST, 1);
 torchSound = snd_torch_loop;
 torchSoundId = noone;
 if limbItem.object_index == obj_hand_item_torch {

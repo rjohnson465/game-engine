@@ -37,3 +37,7 @@ if isRanged && instance_exists(weapon) && weapon != noone && weapon.isTwoHanded 
 if ds_exists(additionalDamages, ds_type_map) {
 	ds_map_destroy(additionalDamages); additionalDamages = -1;
 }
+
+if variable_instance_exists(id, "attackSoundLoopIndex") && attackSoundLoopIndex != noone {
+	audio_stop_sound(attackSoundLoopIndex);
+}

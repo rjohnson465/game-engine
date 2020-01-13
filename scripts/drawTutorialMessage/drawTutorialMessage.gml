@@ -39,16 +39,18 @@ var sh = string_height_ext(msg,-1,view_get_wport(view_camera[0])/2);
 var sw = string_width_ext(msg,-1,view_get_wport(view_camera[0])/2);
 	
 if spritesWidth > sw sw = spritesWidth;
-	
+
+// black box
 draw_set_color(c_black);
 var rx1 = xx-(.5*sw)-10; var ry1 = yy-(.5*sh)-10;
 var rx2 = xx+(.5*sw)+10; var ry2 = yy+(.5*sh)+spriteHeight+10;
 draw_rectangle(rx1,ry1,rx2,ry2,0);
 messageTopLeftX = rx1; messageTopLefY = ry1;
 messageBottomRightX = rx2; messageBottomRightY = ry2;
-	
+
+// box outline
 draw_set_color(c_aqua);
-draw_rectangle(xx-(.5*sw)-10,yy-(.5*sh)-10,xx+(.5*sw)+10,yy+(.5*sh)+spriteHeight+10,1);
+draw_rectangle(rx1,ry1,rx2,ry2,1);
 	
 // draw name of tutorial we're in
 draw_set_halign(fa_left); draw_set_valign(fa_top);
@@ -64,7 +66,8 @@ for (var i = 0 ; i < array_length_1d(sprites); i++) {
 	var sprite = sprites[i];
 	var sw = sprite_get_width(sprite)*.35;
 	var sh = sprite_get_height(sprite)*.35;
-	draw_sprite_ext(sprite,1,xxx+spritesWidthCum,yy-(.25*sh),.35,.35,0,c_white,1);
+	// draw_sprite_ext(sprite,1,xxx+spritesWidthCum,yy-(.25*sh),.35,.35,0,c_white,1);
+	draw_sprite_ext(sprite,1,xxx+spritesWidthCum,ry1 + 5,.35,.35,0,c_white,1);
 	spritesWidthCum += (sw);
 		
 	// maybe draw separator 

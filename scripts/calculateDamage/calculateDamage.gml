@@ -238,7 +238,15 @@ if	state != CombatantStates.Dodging &&
 				audio_stop_sound(sound);
 			}
 		} else {
-			instance_destroy(attackObj,true);
+			// instance_destroy(attackObj,true);
+			if !attackObj.hasSetAlarm {
+				with attackObj {
+					alarm[0] = 60;
+					visible = 0;
+					speed = 0;
+					hasSetAlarm = true;
+				}
+			}
 			// also destroy the ranged attack's light radius, if it exists
 			var attackObjId = attackObj;
 			with obj_light_radius {

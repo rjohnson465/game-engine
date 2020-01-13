@@ -5,7 +5,9 @@
     "name": "217ca888-c2f7-4690-8535-44e9ae5f643d",
     "children": [
         "467f7f7d-d61c-47d8-a143-9d72ef42e283",
-        "213150d3-28f1-45d0-86e0-9302778f8c0e"
+        "213150d3-28f1-45d0-86e0-9302778f8c0e",
+        "ed38b10e-a6c2-4040-acaa-453f78dd9dd2",
+        "4fa41eba-cd30-4257-b7d2-033eeb0ef1e6"
     ],
     "filterType": "GMObject",
     "folderName": "wolf",

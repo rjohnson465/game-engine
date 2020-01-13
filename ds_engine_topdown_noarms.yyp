@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "0176207d-e606-4f85-85a0-2e758645e263",
+            "Value": {
+                "id": "3b8ab336-ca2b-46e5-9a72-968f2ac2ed38",
+                "resourcePath": "sprites\\spr_enemy_golem_swing_prep_1_1\\spr_enemy_golem_swing_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "018519d6-04e4-4554-98c9-145dc1592814",
             "Value": {
                 "id": "d7cde874-dd33-4fe4-aad9-ac68a60af373",
@@ -407,6 +415,14 @@
             }
         },
         {
+            "Key": "03d86fce-9c66-4dd9-89f8-f50d5103f1bc",
+            "Value": {
+                "id": "223110b7-c5e9-4419-994e-cedcd82dee04",
+                "resourcePath": "sprites\\head90\\head90.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "03ea1a63-e62d-4bcf-9b06-984eb859a526",
             "Value": {
                 "id": "0c56e758-29dc-4522-a638-8ad09f716840",
@@ -463,10 +479,26 @@
             }
         },
         {
+            "Key": "048bf1a3-370e-4f32-8fb1-05a6070d5d00",
+            "Value": {
+                "id": "0f628ceb-c49a-4126-bfe9-1cd61f4d5712",
+                "resourcePath": "sprites\\spr_prompt_mk_f5\\spr_prompt_mk_f5.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0499273a-0abb-4cc2-87f6-86a56cea2e98",
             "Value": {
                 "id": "0b8509e0-b521-42bc-9495-c8fb72881fa1",
                 "resourcePath": "sprites\\spr_enemy_unfairy_pistol_recover_1_1\\spr_enemy_unfairy_pistol_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "04bb9c44-e3d2-4f6c-b4a9-2b4707702431",
+            "Value": {
+                "id": "07064eba-24c3-45ee-bd87-6d536ce7ea34",
+                "resourcePath": "sprites\\head80\\head80.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -671,6 +703,14 @@
             }
         },
         {
+            "Key": "06f7ceb0-8ca6-41d4-a0dd-cd2581851343",
+            "Value": {
+                "id": "928f9eb5-bd81-489e-8420-bd42455bd0c9",
+                "resourcePath": "sprites\\spr_enemy_dybukk_headthrow_attack_1_1\\spr_enemy_dybukk_headthrow_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "06f9a3f8-d8da-41ce-9324-cb2200c4dbf0",
             "Value": {
                 "id": "ff5218c9-5c24-4464-bef4-77dffbc59f6e",
@@ -807,6 +847,14 @@
             }
         },
         {
+            "Key": "081ef7d9-766c-435b-9ca5-203b587cf9dd",
+            "Value": {
+                "id": "8268206a-5436-48ff-a9a2-120b910da62b",
+                "resourcePath": "objects\\obj_attack_icecursedfairy_baxe_1_1\\obj_attack_icecursedfairy_baxe_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0822ce6a-a1b1-4d26-8890-92e5589ae598",
             "Value": {
                 "id": "48874b32-0e2e-46d7-8a8d-928a5c0331bb",
@@ -908,6 +956,14 @@
                 "id": "7be12187-d4a3-4441-91ed-b8474bf20ade",
                 "resourcePath": "views\\08f19571-a23d-4d18-8e4f-1e4276dce00e.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "08f247ce-707e-4633-983f-3331a17ac635",
+            "Value": {
+                "id": "06b9421e-9952-4439-badb-dc658bf24652",
+                "resourcePath": "objects\\obj_exstep_magic_13\\obj_exstep_magic_13.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1167,6 +1223,14 @@
             }
         },
         {
+            "Key": "0bb00936-c0b0-489e-8fec-7add8d4c8812",
+            "Value": {
+                "id": "5a6245f6-08cf-4ada-8085-2b8e64937f29",
+                "resourcePath": "sounds\\snd_hit_ice_1\\snd_hit_ice_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "0bbd4df4-a5b8-481e-b1fd-ed102b126abf",
             "Value": {
                 "id": "8be9943b-90a4-43a3-8afc-7cecf78c0861",
@@ -1195,6 +1259,14 @@
             "Value": {
                 "id": "f0b5f92c-e226-46bf-9fd8-59f51ea23af1",
                 "resourcePath": "objects\\obj_attack_lighteater_claw_1_1\\obj_attack_lighteater_claw_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "0bec7a55-ef57-4e0f-9431-8ec6158830cf",
+            "Value": {
+                "id": "52b13573-12ce-4cb7-8bff-08a5b9767fb8",
+                "resourcePath": "objects\\obj_attack_golem_swing_1_1\\obj_attack_golem_swing_1_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1267,6 +1339,14 @@
             "Value": {
                 "id": "5f04991e-8e67-4944-8ed2-0048d27ef5b2",
                 "resourcePath": "sprites\\spr_enemy_krampusmage_wand_prep_1_1\\spr_enemy_krampusmage_wand_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0cafd181-7e36-479f-9399-a025cde04439",
+            "Value": {
+                "id": "f53c7ab4-062f-4c85-982e-de32386dcd29",
+                "resourcePath": "sprites\\spr_enemy_wolf_bite_attack_1_2_mask\\spr_enemy_wolf_bite_attack_1_2_mask.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1463,6 +1543,14 @@
             }
         },
         {
+            "Key": "0e775dd1-f894-48f9-aee6-53d0fcfab965",
+            "Value": {
+                "id": "e3731ff5-39d0-447e-8a9d-f7cb8656d170",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_club_attack_1_3\\spr_enemy_icecursedfairy_club_attack_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0e9ee59c-a445-4a6e-a6a2-9110df48c9ab",
             "Value": {
                 "id": "684f0775-dd8f-4e7c-baae-ca74717006ac",
@@ -1492,6 +1580,14 @@
                 "id": "6c51b9a1-9fe4-4382-a001-341d607ee3df",
                 "resourcePath": "sprites\\spr_enemy_golem_slam_recover_1_1\\spr_enemy_golem_slam_recover_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0ef0f7e0-dbff-4f17-b545-fb3ed3eb389a",
+            "Value": {
+                "id": "f0deb01e-8f1b-43e1-882b-98d43f1b8d51",
+                "resourcePath": "objects\\obj_hand_item_tknife\\obj_hand_item_tknife.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -1620,6 +1716,14 @@
                 "id": "2c295026-a56f-445d-a990-64089edda24e",
                 "resourcePath": "sprites\\spr_light_point\\spr_light_point.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "101d9e2c-1fed-4e2e-a5d0-871d246b172a",
+            "Value": {
+                "id": "efd690d9-bdec-4d6b-ac67-dbd59cf10e05",
+                "resourcePath": "views\\101d9e2c-1fed-4e2e-a5d0-871d246b172a.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1783,6 +1887,14 @@
             }
         },
         {
+            "Key": "11131184-8ff1-4751-9eec-6711584ccd9a",
+            "Value": {
+                "id": "26025b88-edcd-495d-aaeb-686ede17f8e8",
+                "resourcePath": "objects\\obj_exstep_magic_3\\obj_exstep_magic_3.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "111de94c-2430-4b2a-ade3-c63ccc65f728",
             "Value": {
                 "id": "16138be0-26f7-45ba-9773-e73742daf1e7",
@@ -1831,6 +1943,14 @@
             }
         },
         {
+            "Key": "11634fa3-ad60-4ab7-b0a9-1bbd67de9ef9",
+            "Value": {
+                "id": "8f2ab386-727d-4bf5-9f5a-3593a77c515b",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hand_2h\\spr_enemy_icecursedfairy_hand_2h.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "117f9cac-cfbc-4710-8acb-70d5e49934b8",
             "Value": {
                 "id": "6d7c14eb-a46d-443e-ae00-d376c14a584a",
@@ -1875,6 +1995,14 @@
             "Value": {
                 "id": "75fc9ac6-ee10-4cd7-a960-70f745e9c8be",
                 "resourcePath": "sprites\\spr_crate\\spr_crate.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "11b90b2e-5826-48d8-ad51-acc51f51f285",
+            "Value": {
+                "id": "91114d11-084f-4390-9c13-fab1b0a9da65",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_club\\spr_enemy_icecursedfairy_club.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2087,6 +2215,14 @@
             }
         },
         {
+            "Key": "138bd840-6eae-47a7-9668-3323608505b7",
+            "Value": {
+                "id": "9379974b-7fcb-4e84-8b41-024999282b83",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_hatchet_attack_1_1\\spr_enemy_icecursedfairy_limb_hatchet_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "139ed457-d31d-4719-b42e-d566b70df9e1",
             "Value": {
                 "id": "e0ec7f89-aecb-446b-b7dd-2deaa802a383",
@@ -2132,6 +2268,14 @@
                 "id": "b28c6225-12ad-4f91-964c-a04694b48faf",
                 "resourcePath": "views\\141b293e-9400-40ac-8cb2-577849de794d.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "14273015-9ae8-4780-b5dd-e5f322b52ce1",
+            "Value": {
+                "id": "be48f4cd-a8e5-4b4b-af2b-2b33b95b67d9",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_club_prep_1_1\\spr_enemy_icecursedfairy_limb_club_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2212,6 +2356,14 @@
                 "id": "2ce2398a-8499-48ad-a808-5515ac40d1b6",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_prep_1_2\\spr_enemy_unfairy_limb_dagger_prep_1_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "153b725d-f8d1-40a9-9e96-30b876493549",
+            "Value": {
+                "id": "0bc7eb23-0dd8-4dbb-b2e7-a32fa90c6758",
+                "resourcePath": "objects\\obj_attack_icecursedfairy_club_1_3\\obj_attack_icecursedfairy_club_1_3.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2343,6 +2495,14 @@
             }
         },
         {
+            "Key": "16a3d706-e89c-4e0c-8c46-f3c7a70e275d",
+            "Value": {
+                "id": "7c28cc83-ae0e-4687-82d7-741c0408d7ad",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_tknife\\spr_enemy_icecursedfairy_limb_tknife.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "16b805ca-830c-4dcd-8330-c29f451c3f1c",
             "Value": {
                 "id": "2a986d6a-cf3a-491d-92f3-a15935c74412",
@@ -2463,10 +2623,26 @@
             }
         },
         {
+            "Key": "17d12c3c-c7d1-4e93-92ad-091f02882f8f",
+            "Value": {
+                "id": "f3cfa4e8-347b-4d3b-88f2-f08246230f43",
+                "resourcePath": "objects\\obj_exstep_magic_1\\obj_exstep_magic_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "17dfc255-faba-4c79-80ed-1c7f659d3dcb",
             "Value": {
                 "id": "403c69cc-9651-464d-8a29-c7cfa8ae14ed",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_unarmed_recover_1_2\\spr_enemy_unfairy_limb_unarmed_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "17fbaf80-a462-4485-b5a4-7936a192033c",
+            "Value": {
+                "id": "56f7dccf-7d91-4acc-960c-84822bff91e5",
+                "resourcePath": "sprites\\head60\\head60.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2687,6 +2863,14 @@
             }
         },
         {
+            "Key": "1a045fc9-89ce-451a-a2f2-e43cb7dff906",
+            "Value": {
+                "id": "e2dec840-4ae4-4c5e-bdec-49c26a53a7b4",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_club_prep_1_3\\spr_enemy_icecursedfairy_club_prep_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1a08248b-1905-445a-8d94-79d61760be02",
             "Value": {
                 "id": "940d19a5-a623-4038-89f5-f3b7d90e914e",
@@ -2708,6 +2892,14 @@
                 "id": "237788c7-8b29-4e7a-bef0-7a601637132a",
                 "resourcePath": "scripts\\maybeStopShielding\\maybeStopShielding.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "1a5bdbf0-8b1d-4582-a7f3-58229af37065",
+            "Value": {
+                "id": "e53f434b-b7c0-4938-aa39-b7aeeb784589",
+                "resourcePath": "sprites\\spr_enemy_abominion_frostburst_1_1_lingerzone\\spr_enemy_abominion_frostburst_1_1_lingerzone.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -2803,6 +2995,14 @@
             "Value": {
                 "id": "cd192c68-7829-486f-b023-2eb41f6fb9b1",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_dagger_attack_1_3\\spr_enemy_unfairy_limb_dagger_attack_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1bca264c-7aa4-4650-8afc-c3ee5f1fd828",
+            "Value": {
+                "id": "b74f37aa-ca41-4c65-bfe0-0be23d7db57f",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_hatchet_recover_1_1\\spr_enemy_icecursedfairy_limb_hatchet_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3039,6 +3239,14 @@
             }
         },
         {
+            "Key": "1e5f597c-1957-404b-9351-04de332ace4c",
+            "Value": {
+                "id": "5c79e743-ea72-4304-9084-4f513fae40db",
+                "resourcePath": "sprites\\spr_prompt_mk_5\\spr_prompt_mk_5.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1e8647f9-9acc-4fd3-9eea-b497e3f0a3c8",
             "Value": {
                 "id": "4a58962f-35ca-45ec-a5d1-df9bdccc6f51",
@@ -3135,6 +3343,14 @@
             }
         },
         {
+            "Key": "1f63fa91-421a-4704-aad1-2815bd8aa704",
+            "Value": {
+                "id": "c76a669c-6a10-487f-a279-36c71d8e9c78",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_baxe_recover_1_2\\spr_enemy_icecursedfairy_baxe_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1f68a282-6a8c-43f3-bf26-a562567db653",
             "Value": {
                 "id": "e5c1ae6c-9452-4c33-904a-c26bdb18db5a",
@@ -3180,6 +3396,14 @@
                 "id": "8403c41e-2478-49ce-8b94-5f4b5923004c",
                 "resourcePath": "sprites\\spr_enemy_golemboss_stab_prep_1_1\\spr_enemy_golemboss_stab_prep_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1ffa9725-bac4-43d4-9c3a-3ac7b19503ce",
+            "Value": {
+                "id": "27a48592-9439-4f4a-bd78-493e21f564d4",
+                "resourcePath": "objects\\obj_enemy_icecursedfairy\\obj_enemy_icecursedfairy.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3247,6 +3471,22 @@
             }
         },
         {
+            "Key": "209a918d-9b9a-42bd-b4c4-deba4d69fe60",
+            "Value": {
+                "id": "c2574d86-06e8-47d8-8fa5-b93a14a215e2",
+                "resourcePath": "sprites\\spr_enemy_abominion\\spr_enemy_abominion.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "209fe7e9-2e01-4b93-865c-4c30f53591bc",
+            "Value": {
+                "id": "678a3f44-6219-4673-8ef6-d81fef7dbc13",
+                "resourcePath": "objects\\obj_exstep_magic_12\\obj_exstep_magic_12.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "20a917c5-98ba-49a1-82f3-ff8c458449f5",
             "Value": {
                 "id": "a3df95f7-2fff-4e45-9cde-a398dd4ae0d0",
@@ -3260,6 +3500,14 @@
                 "id": "0b2004f1-7abf-409c-ab03-f3d82b85f098",
                 "resourcePath": "scripts\\mp_grid_get_nearest_free_cell\\mp_grid_get_nearest_free_cell.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "20d4eaa4-248e-4a22-b807-f65539fb27d8",
+            "Value": {
+                "id": "77c03814-b5f5-4680-bea8-0b54fbff06a7",
+                "resourcePath": "objects\\obj_exstep_magic_10\\obj_exstep_magic_10.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3551,6 +3799,14 @@
             }
         },
         {
+            "Key": "22e2de19-e03e-4eae-940e-97b5e930d85c",
+            "Value": {
+                "id": "c069df5c-4e30-4f05-b77b-aee7b3e6a3a3",
+                "resourcePath": "sprites\\head70\\head70.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "22ffe7d1-cfcb-4531-ad15-59c9a46b5895",
             "Value": {
                 "id": "233ff28b-5575-423b-bb94-0d237b0a3cd5",
@@ -3695,6 +3951,14 @@
             }
         },
         {
+            "Key": "2472e11e-f02b-41c2-8bf2-c4345fc24e73",
+            "Value": {
+                "id": "f76211a5-6be7-4c9a-a1d6-d6174a4379b3",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_club_prep_1_2\\spr_enemy_icecursedfairy_limb_club_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "24803376-1a10-4695-aa55-be8e1c99149c",
             "Value": {
                 "id": "55937ff5-7cf1-4fab-b990-a0b989e2e184",
@@ -3815,6 +4079,14 @@
             }
         },
         {
+            "Key": "25a263d0-9026-4b36-a229-e039bfc32f73",
+            "Value": {
+                "id": "9f72bed4-6c03-428a-aad3-36d52e8bc3f1",
+                "resourcePath": "sounds\\snd_hit_ice_4\\snd_hit_ice_4.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "25ae88c6-7d07-4958-94ed-0c3aecb359cd",
             "Value": {
                 "id": "2eca756c-9755-4cf6-86ee-f80e771f873a",
@@ -3855,11 +4127,27 @@
             }
         },
         {
+            "Key": "26280f33-3839-4fee-90dd-8035a26fc067",
+            "Value": {
+                "id": "2136c2a6-1ed1-4ab3-b6df-6cdb29790b32",
+                "resourcePath": "views\\26280f33-3839-4fee-90dd-8035a26fc067.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "2658ef09-7334-4929-b8f3-a1ea063fec2b",
             "Value": {
                 "id": "55d86dd5-0843-4db9-a1c6-5f0f5d35de78",
                 "resourcePath": "scripts\\maybeMakeHealthOrb\\maybeMakeHealthOrb.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "2662ae01-1549-4784-998d-fc014c68b116",
+            "Value": {
+                "id": "f66797ba-40f6-45f6-8978-e66f85440503",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_club_recover_1_1\\spr_enemy_icecursedfairy_limb_club_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3980,6 +4268,14 @@
                 "id": "f9c0af94-8a6a-4c42-b9c8-56f1bc03f8e6",
                 "resourcePath": "objects\\obj_rock_2x2_2\\obj_rock_2x2_2.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "27a23a9e-0df3-4bd6-a5f2-fedae9320681",
+            "Value": {
+                "id": "d865d77f-5e5a-44e8-afdc-221799b7399a",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_hatchet\\spr_enemy_icecursedfairy_limb_hatchet.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4407,6 +4703,22 @@
             }
         },
         {
+            "Key": "2bc5d5ec-e800-484b-9110-c74d8b290afd",
+            "Value": {
+                "id": "4929413c-6b51-41b4-9513-db68929edd75",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_stagger\\spr_enemy_icecursedfairy_stagger.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2be370b5-d419-47c4-a3cd-247de7e40ff4",
+            "Value": {
+                "id": "a258f0c0-c479-4607-81f3-5c208999aa57",
+                "resourcePath": "sprites\\spr_golemhead\\spr_golemhead.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2bf0ca73-38ad-4e3e-99e7-4b6ee580efab",
             "Value": {
                 "id": "f7e8912a-73c4-40f6-a27e-617f964f3385",
@@ -4567,6 +4879,14 @@
             }
         },
         {
+            "Key": "2d6dedc8-98e6-4cf2-a09c-2ecc870fcb2c",
+            "Value": {
+                "id": "839d69a8-18bd-4d6b-b040-79fdb882c30f",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_tknife_recover_1_1\\spr_enemy_icecursedfairy_tknife_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2d733584-d2ce-4c55-9b39-e36541cfe425",
             "Value": {
                 "id": "f12b8665-5529-4e01-8415-7b5137f9b192",
@@ -4619,6 +4939,14 @@
             "Value": {
                 "id": "9a2042b6-b6a9-4e34-855a-eafa631c4754",
                 "resourcePath": "views\\2de98a03-2a60-451c-ae95-3c4d0618ff8f.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "2df98168-9395-47a5-b055-d668595fd6c1",
+            "Value": {
+                "id": "719672fd-0a13-4533-be60-48c2f3909bc6",
+                "resourcePath": "views\\2df98168-9395-47a5-b055-d668595fd6c1.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -4684,6 +5012,22 @@
                 "id": "fd29fee6-3bad-4f9b-9dfd-419ec80e596f",
                 "resourcePath": "sounds\\snd_enemy_wolf_growl_1\\snd_enemy_wolf_growl_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "2ec38862-f10c-4342-9091-9e0b26d79e28",
+            "Value": {
+                "id": "6f73a6b9-f188-41ce-a121-59e176ba0d27",
+                "resourcePath": "objects\\obj_attack_icecursedfairy_hatchet_1_3\\obj_attack_icecursedfairy_hatchet_1_3.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "2f0a6be7-1f71-4e6b-ba35-ba04184c0976",
+            "Value": {
+                "id": "8104dc71-3a08-496c-81e1-7795f603f07f",
+                "resourcePath": "sprites\\spr_enemy_golem_swing_attack_1_1\\spr_enemy_golem_swing_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4755,6 +5099,14 @@
             "Value": {
                 "id": "472eed05-d78d-4c4a-b400-028d6db9b06c",
                 "resourcePath": "sprites\\spr_enemy_krampuself_limb_icespear_prep_3_2\\spr_enemy_krampuself_limb_icespear_prep_3_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "30316160-b76f-4b80-b9dd-6a96b0b9fb2f",
+            "Value": {
+                "id": "41638209-96e7-4beb-b735-8fec1bc781ad",
+                "resourcePath": "sprites\\spr_enemy_dybukk_headthrow_prep_1_1\\spr_enemy_dybukk_headthrow_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4908,6 +5260,22 @@
                 "id": "0bae078d-3f51-486b-a989-086b51187c81",
                 "resourcePath": "scripts\\scr_conv_barry_unfairyslayer\\scr_conv_barry_unfairyslayer.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "31ba3634-bf78-4742-9257-e0cd666cc9f4",
+            "Value": {
+                "id": "ec182658-56b4-4b5b-bae8-a9cfe2894697",
+                "resourcePath": "objects\\obj_lingerzone\\obj_lingerzone.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "31bd2da8-7bdd-424a-b522-850cf972b5b5",
+            "Value": {
+                "id": "85a3598b-ea1a-4941-9e43-d34ce2aa472e",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_baxe_prep_1_1\\spr_enemy_icecursedfairy_baxe_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5175,6 +5543,14 @@
             }
         },
         {
+            "Key": "346900a5-1642-44b6-af07-002e14904440",
+            "Value": {
+                "id": "5fb8cf2a-1198-4ad9-85a4-96516966998c",
+                "resourcePath": "objects\\obj_attack_dybukk_headthrow_1_1\\obj_attack_dybukk_headthrow_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "346a63c4-3d8b-44d4-9e45-fe983ec10fae",
             "Value": {
                 "id": "c6722ee7-4697-4ed4-8599-87f7d15958bd",
@@ -5247,6 +5623,14 @@
             }
         },
         {
+            "Key": "3556278c-7fc9-4c0a-bc59-b45d91311cf7",
+            "Value": {
+                "id": "11b379be-0aef-4ff8-8459-c3aed99234a3",
+                "resourcePath": "sprites\\spr_enemy_abominion_swing_attack_1_1\\spr_enemy_abominion_swing_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3568f6e8-9045-4d5e-a434-86936a18fefe",
             "Value": {
                 "id": "f0e5b83c-096d-4531-805c-caad58bb048f",
@@ -5276,6 +5660,14 @@
                 "id": "92410566-dc6c-4d08-80af-648a4c74c6e1",
                 "resourcePath": "scripts\\drawLoadGameScreen\\drawLoadGameScreen.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "358c272d-e455-4a56-84a6-568b8550599c",
+            "Value": {
+                "id": "257d64f5-db58-43fc-a125-a1af5bc3c8ca",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_baxe_attack_1_1\\spr_enemy_icecursedfairy_baxe_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5495,6 +5887,14 @@
             }
         },
         {
+            "Key": "385d6297-24d0-4483-af20-cd32e6713f3e",
+            "Value": {
+                "id": "79cdacbb-f889-45d7-8a04-d0db3e68236d",
+                "resourcePath": "views\\385d6297-24d0-4483-af20-cd32e6713f3e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "38643a33-892f-4e0e-ae88-e91b7bc6f973",
             "Value": {
                 "id": "d21ca1cd-33ad-47bc-a669-7e8564b72bb9",
@@ -5548,6 +5948,22 @@
                 "id": "0ca6a591-442e-4126-98b8-658176be5b76",
                 "resourcePath": "sprites\\spr_enemy_speyeder_aoe_1_1_projectile\\spr_enemy_speyeder_aoe_1_1_projectile.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "389b900a-6abd-4a9a-8559-b0ab341a6262",
+            "Value": {
+                "id": "fc838b44-c46f-4a40-8122-766e4125cfa9",
+                "resourcePath": "views\\389b900a-6abd-4a9a-8559-b0ab341a6262.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "389c9194-ff9f-43a2-9aa6-59e2e7ab5ccf",
+            "Value": {
+                "id": "e7b79f12-d09f-4552-ba73-d3bbfd5bd411",
+                "resourcePath": "sounds\\snd_hit_ice_2\\snd_hit_ice_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -5815,6 +6231,14 @@
             }
         },
         {
+            "Key": "3ab5db54-39fd-4422-b72e-694274e238ac",
+            "Value": {
+                "id": "4e04ac40-1535-4c47-a3d2-110f76981047",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_dodge\\spr_enemy_icecursedfairy_dodge.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3ac73bd3-ac11-4ec1-a5b2-0e51cefacb5a",
             "Value": {
                 "id": "e9d6caec-3ea4-4334-9f85-20f4ce119ae0",
@@ -6063,6 +6487,14 @@
             }
         },
         {
+            "Key": "3d08fe84-4d61-473f-9af1-84c9fac50300",
+            "Value": {
+                "id": "d52fb6e8-f9a9-4471-84c0-ced37be5ae12",
+                "resourcePath": "objects\\obj_attack_underplayer_prep\\obj_attack_underplayer_prep.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "3d0d0271-37e2-4a2b-8a4a-1da81e53b142",
             "Value": {
                 "id": "8e74df80-18bf-4dd8-aa2f-d078b6dfe97d",
@@ -6255,6 +6687,14 @@
             }
         },
         {
+            "Key": "3f00a5fc-739a-4a6f-9553-a42fa3746822",
+            "Value": {
+                "id": "93eb9368-a14e-4bfe-a869-64f2f0e340c9",
+                "resourcePath": "sprites\\spr_enemy_wolf_bite_attack_1_2\\spr_enemy_wolf_bite_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3f0581af-a285-494c-9161-4782ce3351bb",
             "Value": {
                 "id": "b746b84a-4e55-4ddd-a90f-7913cd643630",
@@ -6308,6 +6748,14 @@
                 "id": "0797be2c-c1b6-4bd0-b151-3cf36a246072",
                 "resourcePath": "scripts\\pointInPolygon\\pointInPolygon.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "3f794037-120e-476b-a1b7-5f7c1f027e44",
+            "Value": {
+                "id": "01e4ab0b-0ea1-46ce-9706-e78b5697d255",
+                "resourcePath": "sprites\\spr_enemy_abominion_crystalshot_attack_1_1\\spr_enemy_abominion_crystalshot_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -6575,10 +7023,34 @@
             }
         },
         {
+            "Key": "42a85734-5c44-44f1-89b4-2052bf761500",
+            "Value": {
+                "id": "e114d998-8988-4c54-b0ef-a6e6a5af4822",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_tknife_attack_1_1\\spr_enemy_icecursedfairy_tknife_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "42c783fb-7411-45c0-a929-bbf6cac13b50",
+            "Value": {
+                "id": "361fbb2c-cac6-4ad5-a490-e06b29873fdd",
+                "resourcePath": "sprites\\spr_enemy_abominion_move\\spr_enemy_abominion_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "42c886b2-6d22-4e3c-9e82-91b53d45981a",
             "Value": {
                 "id": "354dd546-ca9c-4489-837b-0b6fcf4e4132",
                 "resourcePath": "sprites\\spr_player_hand_club_1h_recover_3\\spr_player_hand_club_1h_recover_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "42f7d583-80ff-434f-b039-095f848a0283",
+            "Value": {
+                "id": "d5b2710e-8d51-4353-b551-9056aa0b620a",
+                "resourcePath": "sprites\\head30\\head30.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6612,6 +7084,14 @@
                 "id": "39332c7a-b65b-4a3d-9ade-a2c4b435d53b",
                 "resourcePath": "scripts\\lootItem\\lootItem.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "43802335-b424-4d9e-b07a-367e5b93f73c",
+            "Value": {
+                "id": "869295e9-f8b3-45d0-bcda-63d800a13a4a",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_club\\spr_enemy_icecursedfairy_limb_club.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -6775,10 +7255,26 @@
             }
         },
         {
+            "Key": "4540bd1e-aaf7-414e-98a3-7fc934108087",
+            "Value": {
+                "id": "dae823e8-f373-440a-b950-e62786bef2c0",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hatchet_prep_1_3\\spr_enemy_icecursedfairy_hatchet_prep_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "457e6b2c-1bc9-4a35-9bb9-0edd5e942246",
             "Value": {
                 "id": "f36d24a8-721d-49ee-8f6c-02c26a6447ee",
                 "resourcePath": "sprites\\spr_player_hand_axe_2h_prep_1\\spr_player_hand_axe_2h_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "45906434-0147-4390-8998-7da5a60c8739",
+            "Value": {
+                "id": "58c60127-16d4-4fee-bd77-36d92c59c196",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_hatchet_prep_1_1\\spr_enemy_icecursedfairy_limb_hatchet_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6887,6 +7383,14 @@
             }
         },
         {
+            "Key": "46419bd4-1f96-4d6d-b173-5def93cefa39",
+            "Value": {
+                "id": "8ccfdd10-1dce-42ca-b0c0-dc906974f396",
+                "resourcePath": "sprites\\spr_enemy_abominion_swing_prep_1_2\\spr_enemy_abominion_swing_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "465ef5af-af9a-4964-947a-456969f12f85",
             "Value": {
                 "id": "9c694681-af49-4004-8bb0-6a2c149faf7c",
@@ -6940,6 +7444,14 @@
                 "id": "70ed98b0-2cc4-4aa0-9923-da147ddd0c21",
                 "resourcePath": "objects\\obj_attack_lighteater_claw_2_2\\obj_attack_lighteater_claw_2_2.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "46bfdd75-e4b0-4260-b010-8e8a2905af0a",
+            "Value": {
+                "id": "caf99603-031b-4618-ae38-937c6b09e92a",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_torch_recover_1_1\\spr_enemy_icecursedfairy_torch_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7343,6 +7855,14 @@
             }
         },
         {
+            "Key": "4a35dfe2-c1b4-4880-a68e-5b0e182571ea",
+            "Value": {
+                "id": "c2757558-c747-4b88-85b4-a6beeef1e85f",
+                "resourcePath": "scripts\\getAttunementPosition\\getAttunementPosition.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4a59511d-cd21-4066-aefe-edd14d3493bd",
             "Value": {
                 "id": "1b12c8c6-8a10-4884-9f5d-55faa3f13148",
@@ -7364,6 +7884,14 @@
                 "id": "5f663f77-d033-4f4f-a34c-b89528e4c7e9",
                 "resourcePath": "scripts\\light_create_layer\\light_create_layer.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "4aa80798-4255-4539-afa8-c8b9812a1860",
+            "Value": {
+                "id": "091e426e-692b-4374-b008-486bb5525e02",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_hatchet_prep_1_2\\spr_enemy_icecursedfairy_limb_hatchet_prep_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7439,6 +7967,14 @@
             }
         },
         {
+            "Key": "4b757b89-3bec-4c14-b1a9-7b031bd9d85b",
+            "Value": {
+                "id": "cf148e73-d0ac-4c86-9faf-647dcab3015c",
+                "resourcePath": "sprites\\spr_enemy_golem_swing_attack_1_2\\spr_enemy_golem_swing_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4b99a381-0159-4572-80e0-eb9a8700c2b5",
             "Value": {
                 "id": "c838ef18-12e0-4676-b9f0-b4ec8155340e",
@@ -7455,10 +7991,26 @@
             }
         },
         {
+            "Key": "4ba78dbe-c9c1-4a4e-93a7-c2674a961910",
+            "Value": {
+                "id": "1b2c11c5-f501-463f-8884-c364cc3a1be5",
+                "resourcePath": "scripts\\scr_evl_exstep_magic_lightningmissiles\\scr_evl_exstep_magic_lightningmissiles.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4bacc184-887e-47d4-8913-ed7ff7868684",
             "Value": {
                 "id": "44cec205-6b60-4358-bee8-d067a4313562",
                 "resourcePath": "sprites\\spr_player_hand_sword_2h_prep_1\\spr_player_hand_sword_2h_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4bae7b11-2986-43a4-9ea1-775af6add06c",
+            "Value": {
+                "id": "8a8e9fec-7d15-4d76-b5c1-b596c1dd09c7",
+                "resourcePath": "sprites\\head10\\head10.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -7759,6 +8311,14 @@
             }
         },
         {
+            "Key": "4e71440f-b43b-4fb2-829b-0a5777d8c380",
+            "Value": {
+                "id": "08740ede-f0f0-4dff-9e06-bbe720c128f8",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_club_recover_1_3\\spr_enemy_icecursedfairy_limb_club_recover_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4e91f565-e3d5-42e8-8deb-7575ba4b9a58",
             "Value": {
                 "id": "28ede4e7-985a-49c2-8f62-f233080d3c9b",
@@ -7868,6 +8428,14 @@
                 "id": "37f99642-12eb-4c58-b736-467928e17766",
                 "resourcePath": "scripts\\performUseBeltItem\\performUseBeltItem.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "4fa41eba-cd30-4257-b7d2-033eeb0ef1e6",
+            "Value": {
+                "id": "bafcb31b-f4d9-4a70-bfb7-7cef7de01d7a",
+                "resourcePath": "objects\\obj_attack_wolf_bite_1_2\\obj_attack_wolf_bite_1_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -8311,6 +8879,14 @@
             }
         },
         {
+            "Key": "5374ce85-cdd6-4f0c-969b-33a501b0f0d2",
+            "Value": {
+                "id": "b2da0da0-622c-4821-882f-ad5ceca5c48b",
+                "resourcePath": "sprites\\head50\\head50.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "53db88d0-0547-4cbf-84e0-2e88d5e0b094",
             "Value": {
                 "id": "a2bfe5dd-e186-4991-872f-63ade0b1a38f",
@@ -8343,11 +8919,27 @@
             }
         },
         {
+            "Key": "5456a091-d236-443f-9df2-d37b15ae1f30",
+            "Value": {
+                "id": "87058801-4f1d-4282-9896-bc65caa362a6",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hatchet_prep_1_2\\spr_enemy_icecursedfairy_hatchet_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "546d4b55-1222-456c-ae34-82297d894be7",
             "Value": {
                 "id": "5eb00022-d85c-4253-b9c8-1b4637a96d73",
                 "resourcePath": "sprites\\spr_player_hand_sword_1h_prep_3\\spr_player_hand_sword_1h_prep_3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "54885017-8fa7-4e79-aef5-6b7653e16104",
+            "Value": {
+                "id": "d60fa639-24ab-4b71-bf64-96011c7c5bfc",
+                "resourcePath": "views\\54885017-8fa7-4e79-aef5-6b7653e16104.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -8371,6 +8963,14 @@
             "Value": {
                 "id": "b59043d6-9ec2-4708-bd93-fd4f0c1e477c",
                 "resourcePath": "sprites\\spr_gem_amethyst_exquisite\\spr_gem_amethyst_exquisite.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "54de1640-6024-483b-9258-42695c9e487b",
+            "Value": {
+                "id": "7a1712dc-2d18-4df0-95e0-ba1e7927c5ac",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_torch_attack_1_1\\spr_enemy_icecursedfairy_limb_torch_attack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -8412,6 +9012,14 @@
                 "id": "3166bf1f-9436-40af-ad94-bd7da18210d5",
                 "resourcePath": "scripts\\fs_load_player\\fs_load_player.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5544e808-85ea-49f8-9f4d-0d3e08c6bc87",
+            "Value": {
+                "id": "87f6be08-074c-4765-8399-556eeeb224f8",
+                "resourcePath": "objects\\obj_attack_golem_swing_1_2\\obj_attack_golem_swing_1_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -8599,6 +9207,14 @@
             }
         },
         {
+            "Key": "56f0efdb-54ff-40ed-bb15-7431974eaa90",
+            "Value": {
+                "id": "4f1793e9-9f5d-47fc-bf9a-c092237a6ac7",
+                "resourcePath": "views\\56f0efdb-54ff-40ed-bb15-7431974eaa90.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "56ffbd0a-84a8-4254-a3bb-e9f66c3c0bff",
             "Value": {
                 "id": "b1378439-223f-4cc6-857d-5266551e2529",
@@ -8635,6 +9251,14 @@
             "Value": {
                 "id": "7945dc87-51f3-4aad-90b9-a59a42c7a325",
                 "resourcePath": "sounds\\snd_fall\\snd_fall.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "57b6f707-e481-444d-8482-fe69c51fa693",
+            "Value": {
+                "id": "501645bd-a2a8-464a-bfd4-6d1f0fddb935",
+                "resourcePath": "sounds\\snd_vox_grunt_2\\snd_vox_grunt_2.yy",
                 "resourceType": "GMSound"
             }
         },
@@ -8687,10 +9311,26 @@
             }
         },
         {
+            "Key": "57fbac43-4f7a-4734-a8ff-de183b0c89ce",
+            "Value": {
+                "id": "1611fbb4-a081-4d32-b866-aa97e5d0fb05",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_torch\\spr_enemy_icecursedfairy_torch.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "57fd5344-67d7-4f8a-b24e-38a6bedb6b65",
             "Value": {
                 "id": "85ebde27-a6ea-4699-adc6-c3e1a150a0d5",
                 "resourcePath": "sprites\\spr_enemy_icespeyeder_head_prep_1_1\\spr_enemy_icespeyeder_head_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "58208cbc-64a8-4976-9ece-844485b922f7",
+            "Value": {
+                "id": "f1a52619-e42f-481e-8de6-9cec01dddab2",
+                "resourcePath": "sprites\\head20\\head20.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -8807,6 +9447,14 @@
             }
         },
         {
+            "Key": "598ae83f-c71f-43ff-a51f-8eaf01512f93",
+            "Value": {
+                "id": "9c1b5dbb-4c44-48a5-9ca9-cd9eecde3870",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_baxe_prep_1_1\\spr_enemy_icecursedfairy_limb_baxe_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "599651e8-5c41-410e-8a4b-07145cd1d0e4",
             "Value": {
                 "id": "52cc8610-61a1-4e80-8a27-31e0d3d8f352",
@@ -8887,6 +9535,14 @@
             }
         },
         {
+            "Key": "5a785b7a-f2c8-49be-aa34-53b5eb62f1cf",
+            "Value": {
+                "id": "959700d8-031d-4b9c-9aba-b858c13e855f",
+                "resourcePath": "sprites\\spr_enemy_abominion_crystalshot_prep_1_1\\spr_enemy_abominion_crystalshot_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5aab7a83-f2d1-473d-b5c8-f147136b6e77",
             "Value": {
                 "id": "cf1ceeca-6cac-4c26-9cba-a76a93145499",
@@ -8916,6 +9572,14 @@
                 "id": "b5919d11-b94a-498e-9298-059398bdc048",
                 "resourcePath": "scripts\\raiseEvent\\raiseEvent.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5aca15f1-ff15-4ab0-ae92-a50a5ecf34af",
+            "Value": {
+                "id": "fad110a3-74d9-4bd5-9527-8645988409d7",
+                "resourcePath": "sprites\\spr_enemy_wolf_bite_attack_1_1\\spr_enemy_wolf_bite_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8988,6 +9652,22 @@
                 "id": "b921a705-02be-4ccb-bc24-e060598d6e0f",
                 "resourcePath": "objects\\obj_rock_3x3_1\\obj_rock_3x3_1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "5c2b9321-b382-41cd-8cfb-afe709a8c504",
+            "Value": {
+                "id": "65e78df8-1dd4-4659-928f-ced0c73bb6b6",
+                "resourcePath": "objects\\obj_exstep_magic_14\\obj_exstep_magic_14.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "5c36ef95-7733-4d4c-b3d6-ac80d1f363ea",
+            "Value": {
+                "id": "55f36726-2f3e-45e2-89b8-6093ff1e3131",
+                "resourcePath": "views\\5c36ef95-7733-4d4c-b3d6-ac80d1f363ea.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -9263,6 +9943,14 @@
             }
         },
         {
+            "Key": "5ef4b836-7440-493f-8bef-fd560e7fb192",
+            "Value": {
+                "id": "3295f087-85e1-4371-bf01-839b21311678",
+                "resourcePath": "sprites\\spr_enemy_abominion_swing_recover_1_2\\spr_enemy_abominion_swing_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5f068254-e79e-4999-b373-621167f0bfc1",
             "Value": {
                 "id": "125810d0-ff63-4cf7-bbc2-8bc3ea9c4c68",
@@ -9387,6 +10075,14 @@
             "Value": {
                 "id": "8321d913-ab5d-4f5b-8b5f-ab219513d030",
                 "resourcePath": "sprites\\spr_block_blue\\spr_block_blue.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6091e5ca-7f24-46a0-af3a-8169468e07e0",
+            "Value": {
+                "id": "7f3e2386-e74c-42f5-97ab-ccfa48442f4f",
+                "resourcePath": "sprites\\spr_enemy_abominion_crystalshot_recover_1_1\\spr_enemy_abominion_crystalshot_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -9570,7 +10266,7 @@
             "Key": "624d3db9-5716-4b31-bc6f-fd531cadc046",
             "Value": {
                 "id": "53c23d06-26e6-47c2-b75e-3d10d8c91a94",
-                "resourcePath": "sprites\\spr_lockon\\spr_lockon.yy",
+                "resourcePath": "sprites\\spr_lockon1\\spr_lockon1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -9611,6 +10307,14 @@
             "Value": {
                 "id": "5c74f5a4-08a2-478d-a99c-c1b36e8308f8",
                 "resourcePath": "sprites\\spr_enemy_lighteater_tail_recover_2_1\\spr_enemy_lighteater_tail_recover_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6293b5b6-544e-4ea6-aa20-6b53632a806c",
+            "Value": {
+                "id": "15cca6da-db4b-4e67-8f4d-a1ba9151b913",
+                "resourcePath": "sprites\\spr_lockon\\spr_lockon.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -9847,6 +10551,14 @@
             }
         },
         {
+            "Key": "64cbd5bf-13c3-44db-96f1-ff29bb8a2f2a",
+            "Value": {
+                "id": "e7b11d76-f047-4ca2-8f57-eec85c53c68c",
+                "resourcePath": "views\\64cbd5bf-13c3-44db-96f1-ff29bb8a2f2a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "64eb0c65-37a3-458f-90e9-a44787b6e340",
             "Value": {
                 "id": "3476a575-b6de-4643-9f00-74fd05af1b1c",
@@ -9948,6 +10660,14 @@
                 "id": "bc35f1dd-09e6-4476-8f68-61a77863385d",
                 "resourcePath": "sounds\\snd_wood_shatter\\snd_wood_shatter.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "6606c7c1-27e4-4ace-bff4-8655d1a4e51a",
+            "Value": {
+                "id": "2fe650d5-b0d5-46b6-8d69-6f79f1298d97",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_baxe_recover_1_1\\spr_enemy_icecursedfairy_limb_baxe_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -10055,6 +10775,14 @@
             }
         },
         {
+            "Key": "67206643-0df6-43ca-88a1-c695d462d45d",
+            "Value": {
+                "id": "7bc38fb1-9f5d-4b4c-9a44-45db5af869ce",
+                "resourcePath": "sprites\\spr_prompt_mk_f4\\spr_prompt_mk_f4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "674d99ce-8040-4609-98cf-095321030571",
             "Value": {
                 "id": "f782d8be-8897-4edf-8a54-308c86f05da1",
@@ -10092,6 +10820,14 @@
                 "id": "4eeaaec1-4ae8-4b3a-be93-9adfaeb16d89",
                 "resourcePath": "objects\\obj_queststep_wamdk_3\\obj_queststep_wamdk_3.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "67804b83-a4bd-4acc-a4d4-1b92a5d7d52b",
+            "Value": {
+                "id": "e6cf52ca-d3b0-4c5e-a981-0640f0e4acf9",
+                "resourcePath": "views\\67804b83-a4bd-4acc-a4d4-1b92a5d7d52b.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -10171,6 +10907,14 @@
             "Value": {
                 "id": "938b873d-3808-42ce-80e2-0087343ccb6b",
                 "resourcePath": "sprites\\spr_player_wand_prep_1\\spr_player_wand_prep_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "68428d5c-79ef-42ac-934d-94ee081dd811",
+            "Value": {
+                "id": "a508349c-e043-4962-b978-ad8f0dc33c98",
+                "resourcePath": "sprites\\sprite1390\\sprite1390.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -10623,11 +11367,35 @@
             }
         },
         {
+            "Key": "6e4d8026-068d-43af-9904-890b8189b034",
+            "Value": {
+                "id": "b9e98d12-974f-4a35-8779-3a71f74e8bc7",
+                "resourcePath": "objects\\obj_enemy_abominion\\obj_enemy_abominion.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "6e58cafe-2f37-45c9-9183-d0d8c63b042b",
+            "Value": {
+                "id": "8c8dc0ea-929b-4078-9bbb-dc85e1369cd5",
+                "resourcePath": "objects\\obj_attack_abominion_crystalshot_1_1\\obj_attack_abominion_crystalshot_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6e666b46-d7aa-448f-a4b0-1a3188e7add2",
             "Value": {
                 "id": "6864eafe-0e48-4d13-bb15-5be02354011e",
                 "resourcePath": "sprites\\spr_player_woodshield\\spr_player_woodshield.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6e784862-1056-4b3b-9288-7b683e3f806b",
+            "Value": {
+                "id": "80357ce5-c371-4591-9c3d-43b8a79bb610",
+                "resourcePath": "views\\6e784862-1056-4b3b-9288-7b683e3f806b.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -10775,6 +11543,14 @@
             }
         },
         {
+            "Key": "6fdcf772-960f-4eee-89cf-2790fc10a7e6",
+            "Value": {
+                "id": "72a506fb-6d36-4e75-ae4c-1acfcc866d29",
+                "resourcePath": "sprites\\spr_enemy_abominion_frostburst_prep_1_1\\spr_enemy_abominion_frostburst_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "70047c99-852b-4035-9b05-9162ae725ec9",
             "Value": {
                 "id": "470e9975-c34b-4522-aabd-5be1fb4c103e",
@@ -10799,6 +11575,14 @@
             }
         },
         {
+            "Key": "702b6b98-714d-463a-aaef-09b3ab823e53",
+            "Value": {
+                "id": "831fe711-714a-4481-b981-d1e1a97f9b24",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_club_recover_1_2\\spr_enemy_icecursedfairy_limb_club_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "70381db8-b3b2-4bf1-8561-afece973e267",
             "Value": {
                 "id": "f589cc19-1f12-4016-8b45-7a4233b1f394",
@@ -10820,6 +11604,14 @@
                 "id": "2cbb5b75-b491-4566-87ff-84853615217b",
                 "resourcePath": "views\\7074320d-2ed1-4974-b643-16b764a23171.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "70a228ab-2279-4f93-8b2d-25d64d64f9d8",
+            "Value": {
+                "id": "88e9ea6f-9ab1-4e8f-ad5c-58980568559d",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_club_recover_1_1\\spr_enemy_icecursedfairy_club_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -10967,6 +11759,14 @@
             }
         },
         {
+            "Key": "71e850d9-41c6-40c3-af00-cb05b44ec4f1",
+            "Value": {
+                "id": "05331eea-f74d-486e-a5c9-6e3f1220d301",
+                "resourcePath": "sprites\\spr_enemy_golem_ball_prep_1_1\\spr_enemy_golem_ball_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "71e89e85-ad0e-4341-83a7-bfb76fa57f06",
             "Value": {
                 "id": "e5da1187-636e-4554-94eb-f7b55800cb64",
@@ -11004,6 +11804,14 @@
                 "id": "0091f68d-8b19-4a86-b1c6-59548e4aaf1f",
                 "resourcePath": "sprites\\spr_enemy_golemboss_slam_attack_1_1\\spr_enemy_golemboss_slam_attack_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "724efee2-ef01-4e0f-b2a9-6cfe76207df8",
+            "Value": {
+                "id": "779c8ea2-46eb-4b42-8bc1-70ae81f2c0ae",
+                "resourcePath": "scripts\\ei_icecursedfairy_baxe\\ei_icecursedfairy_baxe.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -11143,6 +11951,14 @@
             }
         },
         {
+            "Key": "73967226-27bf-4ecb-a111-fd7edabcd45c",
+            "Value": {
+                "id": "b1e2e798-8406-478f-95ea-1294f0e57bf0",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hatchet_recover_1_1\\spr_enemy_icecursedfairy_hatchet_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "73b4e4e9-bda6-4408-b730-f04f99c26f2d",
             "Value": {
                 "id": "d49f676a-e49b-4bc4-a8aa-ce47273d4187",
@@ -11279,6 +12095,14 @@
             }
         },
         {
+            "Key": "74ea2f6a-bfd1-4a15-ace6-944fb21ffc0d",
+            "Value": {
+                "id": "6a77d4c3-35b7-4b16-80f7-70f6305afc2a",
+                "resourcePath": "objects\\obj_exstep_magic_11\\obj_exstep_magic_11.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "74f4a0e5-8159-42a6-b317-9081eece8872",
             "Value": {
                 "id": "b10ed91e-50b8-451e-87a6-d6848f37ebc5",
@@ -11367,6 +12191,14 @@
             }
         },
         {
+            "Key": "762a9d34-0b78-40db-b6c1-b9ca3cac47d0",
+            "Value": {
+                "id": "35006248-a88f-4fe1-9e8e-dcf2426e9439",
+                "resourcePath": "views\\762a9d34-0b78-40db-b6c1-b9ca3cac47d0.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "76345c83-e9ef-43c2-856b-a473e7a6354d",
             "Value": {
                 "id": "87d5114e-ccf5-4a74-a831-a32cd050fab5",
@@ -11419,6 +12251,14 @@
             "Value": {
                 "id": "03b5001b-d9b6-4e7a-a762-ad4192ff7633",
                 "resourcePath": "sprites\\spr_enemy_icewyrm_bite_prep_1_1\\spr_enemy_icewyrm_bite_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "76dbeece-36da-4b6f-bf49-ad1dd3041f2d",
+            "Value": {
+                "id": "293060bc-31ce-4627-bd02-17cea65728b3",
+                "resourcePath": "sprites\\head40\\head40.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -11663,6 +12503,14 @@
             }
         },
         {
+            "Key": "78b54f19-2b02-4418-9f39-69610257a7e8",
+            "Value": {
+                "id": "20437907-beac-47f5-879f-c79620789c64",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_club_attack_1_3\\spr_enemy_icecursedfairy_limb_club_attack_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "78c9e66b-366e-408c-8c95-f6400e0453bc",
             "Value": {
                 "id": "fcdfb349-b370-4b29-bcf9-16def0600913",
@@ -11700,6 +12548,14 @@
                 "id": "54ecd46c-9a03-4888-8baf-f5e4597057a1",
                 "resourcePath": "objects\\obj_enemy_dybukk\\obj_enemy_dybukk.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "791b2859-ddd3-4956-a34a-ee9bb74d0a68",
+            "Value": {
+                "id": "6fbfd49e-07a6-4aaa-b4a4-027d31b9ba45",
+                "resourcePath": "views\\791b2859-ddd3-4956-a34a-ee9bb74d0a68.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -11780,6 +12636,22 @@
                 "id": "3d3340fe-bfd0-4200-8b43-08bf2ead8a15",
                 "resourcePath": "rooms\\rm_boss_ravebot\\rm_boss_ravebot.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "79dc3615-e436-4140-b65b-44732650dbc8",
+            "Value": {
+                "id": "4b72a03b-c468-4120-a1c6-64c12fa9e7f5",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_hatchet_prep_1_3\\spr_enemy_icecursedfairy_limb_hatchet_prep_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "79e6e3c9-8149-46e2-9d69-1bf7976932c7",
+            "Value": {
+                "id": "f13e1c6e-8082-463e-ac86-7e1ad71dcea2",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_club_prep_1_3\\spr_enemy_icecursedfairy_limb_club_prep_1_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -11876,6 +12748,14 @@
                 "id": "2080e1b6-32c2-40c5-89df-c116267e387f",
                 "resourcePath": "scripts\\updateMovementState\\updateMovementState.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "7aabc88e-7028-4073-9b5b-55d1dca0ad01",
+            "Value": {
+                "id": "2d693753-cd97-4b8b-99eb-3219488b71ce",
+                "resourcePath": "views\\7aabc88e-7028-4073-9b5b-55d1dca0ad01.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -12103,6 +12983,14 @@
             }
         },
         {
+            "Key": "7d22b439-0e47-49db-9e8b-de41199a402d",
+            "Value": {
+                "id": "1bfc847a-f314-4a8d-993a-caaae38d64ae",
+                "resourcePath": "objects\\obj_attack_icecursedfairy_tknife_1_1\\obj_attack_icecursedfairy_tknife_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7d2805fd-566d-43d7-8db9-a2262a491a62",
             "Value": {
                 "id": "eafd633c-309d-4f6d-9ecc-e22ffdd08165",
@@ -12123,6 +13011,14 @@
             "Value": {
                 "id": "eb6eece0-e9b0-4f7e-a20a-112655aba969",
                 "resourcePath": "objects\\obj_attack_funfairy_pie_1_1\\obj_attack_funfairy_pie_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "7d6da78b-797f-4337-a352-ee2c7fcf8c1c",
+            "Value": {
+                "id": "05007471-6fe0-4cb4-aec0-ed58dbe2c5ee",
+                "resourcePath": "objects\\obj_attack_icecursedfairy_torch_1_1\\obj_attack_icecursedfairy_torch_1_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -12220,6 +13116,14 @@
                 "id": "cb769e95-600c-46d3-ab06-6e672cdac480",
                 "resourcePath": "sounds\\snd_enemy_wolf_hit_1\\snd_enemy_wolf_hit_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "7efafa51-c942-4901-b549-735a1cdebf6a",
+            "Value": {
+                "id": "0d327e0c-e9df-407c-b30f-7fba4f76b215",
+                "resourcePath": "views\\7efafa51-c942-4901-b549-735a1cdebf6a.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -12439,6 +13343,14 @@
             }
         },
         {
+            "Key": "810bc895-18ec-45af-b0c9-18435436f86b",
+            "Value": {
+                "id": "4cb9d9d9-50da-4fe0-b7fa-38a4ed408d86",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_club_attack_1_1\\spr_enemy_icecursedfairy_club_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "8122c939-27e6-45bb-a46d-2767442fbfbf",
             "Value": {
                 "id": "8a15de0f-f3c5-450a-8c9e-b2fc8afba982",
@@ -12500,6 +13412,14 @@
                 "id": "44448813-cf25-44a1-83ed-41f49b3adacb",
                 "resourcePath": "scripts\\getKeyFromCumulativeProbMap\\getKeyFromCumulativeProbMap.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "818783f7-335f-4ed0-b796-032357e14ee0",
+            "Value": {
+                "id": "87d942f8-c349-40d9-9ba9-fb356c38ea06",
+                "resourcePath": "objects\\obj_exstep_magic_9\\obj_exstep_magic_9.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -12583,10 +13503,26 @@
             }
         },
         {
+            "Key": "82b1afa6-e339-451c-b9b6-70ac8c9ef633",
+            "Value": {
+                "id": "41d4113a-1a2e-4d79-b7e9-7cef4cc7c7e9",
+                "resourcePath": "sprites\\spr_enemy_golem_ball_recover_1_1\\spr_enemy_golem_ball_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "82b5dac1-5a99-486d-a420-f30532ecd556",
             "Value": {
                 "id": "7703d9d4-b285-4068-886d-8be1b8e73f12",
                 "resourcePath": "sprites\\spr_player_hatchet1\\spr_player_hatchet1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "82d487b3-0c6b-4c2a-9374-94e1c831f29d",
+            "Value": {
+                "id": "4ceedd33-a105-46bf-8f97-6a86b78c7dc7",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_club_recover_1_3\\spr_enemy_icecursedfairy_club_recover_1_3.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -12823,11 +13759,27 @@
             }
         },
         {
+            "Key": "84acd371-2724-4880-a7d8-83a46a3fa606",
+            "Value": {
+                "id": "d63157aa-c886-477b-829f-88d970badd2b",
+                "resourcePath": "sprites\\spr_enemy_wolf_bite_prep_1_1\\spr_enemy_wolf_bite_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "84b07e70-db91-4e5b-872a-1aa62632eb72",
             "Value": {
                 "id": "abc97557-9bb7-485f-9f81-00cd03b2ef20",
                 "resourcePath": "sounds\\snd_amb_crickets\\snd_amb_crickets.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "84bb959c-16de-4467-a63d-bec468cc906a",
+            "Value": {
+                "id": "2feee1ab-2158-4744-9087-8af01467382f",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hatchet\\spr_enemy_icecursedfairy_hatchet.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -12919,6 +13871,14 @@
             }
         },
         {
+            "Key": "85e4b57d-c394-47af-8d5f-3f8d834a2fa5",
+            "Value": {
+                "id": "a6cb96d8-fd05-40c3-979d-0aef5ec76cba",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_tknife_prep_1_1\\spr_enemy_icecursedfairy_limb_tknife_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "86023503-c2ab-470e-8e50-277267e56a46",
             "Value": {
                 "id": "0d2a1768-356a-443a-b32b-a834a55f1c6a",
@@ -12975,6 +13935,14 @@
             }
         },
         {
+            "Key": "86ecd9e4-e7b5-4be8-b1e3-bdf74defc1cf",
+            "Value": {
+                "id": "edb60eb5-c386-42d8-b628-18d328a64cc3",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_club_recover_1_2\\spr_enemy_icecursedfairy_club_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "86ed8ff6-0445-49a8-846a-9bf71bdefb98",
             "Value": {
                 "id": "ab515672-547f-45c3-b9aa-70cce3703755",
@@ -12995,6 +13963,14 @@
             "Value": {
                 "id": "9b670961-8a7e-4a52-bc07-97277dbd8061",
                 "resourcePath": "sprites\\spr_player_longsword_prep_2\\spr_player_longsword_prep_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "871eebad-c13e-4087-9443-e23e30f2db5f",
+            "Value": {
+                "id": "0ace4ca4-3fe3-45e5-9783-b10b59aa7620",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_tknife_recover_1_1\\spr_enemy_icecursedfairy_limb_tknife_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -13103,6 +14079,14 @@
             }
         },
         {
+            "Key": "889644ef-9f86-491b-b528-a8f18b696af5",
+            "Value": {
+                "id": "726f6c64-aa60-4643-9072-19ecb43b27ab",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_hatchet_attack_1_3\\spr_enemy_icecursedfairy_limb_hatchet_attack_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "88a3faa7-f272-4625-852c-2e17a2971fdf",
             "Value": {
                 "id": "2a20c6a8-508d-4ec4-b04b-e4dbbb22d20f",
@@ -13164,6 +14148,14 @@
                 "id": "300f82c8-c8b3-4de5-8a64-233e78249683",
                 "resourcePath": "scripts\\getTorchOffset\\getTorchOffset.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "89919c55-086d-4fe9-8903-c1a12580e1ba",
+            "Value": {
+                "id": "729ee3a4-5118-41e2-8332-5970e44f5eb3",
+                "resourcePath": "sprites\\spr_prompt_mk_f3\\spr_prompt_mk_f3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -13887,6 +14879,14 @@
             }
         },
         {
+            "Key": "90a74222-6339-490a-b168-30d69e81ac0a",
+            "Value": {
+                "id": "9dbb9d0c-7365-4579-9546-d1edd929f67e",
+                "resourcePath": "sprites\\spr_enemy_abominion_frostburst_attack_1_1\\spr_enemy_abominion_frostburst_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "90a7c6ec-8e16-4379-a3fb-cfca784e20cc",
             "Value": {
                 "id": "795af96a-8b17-4b55-b1e3-43f5a6dd4367",
@@ -14031,6 +15031,14 @@
             }
         },
         {
+            "Key": "9231f239-3737-427c-b734-214dccc22f73",
+            "Value": {
+                "id": "92f6bafa-d2fa-4679-bbf6-ecba82ad0042",
+                "resourcePath": "sprites\\spr_enemy_abominion_stagger\\spr_enemy_abominion_stagger.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "92336a05-9686-4372-8d24-4da2d6bfe10c",
             "Value": {
                 "id": "9892f828-3e07-4173-a43c-52583f1237b7",
@@ -14116,6 +15124,14 @@
                 "id": "63632547-3293-4097-9f04-ce187257ae1a",
                 "resourcePath": "sounds\\snd_amb_wolf_howl\\snd_amb_wolf_howl.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "92c31d95-dc21-4298-9dc0-b68e61ebfaaf",
+            "Value": {
+                "id": "80996618-1021-4c00-bdd4-10bd67183cb5",
+                "resourcePath": "sprites\\spr_enemy_abominion_frostburst_recover_1_11\\spr_enemy_abominion_frostburst_recover_1_11.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -14495,6 +15511,14 @@
             }
         },
         {
+            "Key": "96ebd4a4-35a7-44f2-a7ee-7046e23ac9d5",
+            "Value": {
+                "id": "838d09e8-ac61-4655-acb8-bdc302a1b824",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_club_attack_1_2\\spr_enemy_icecursedfairy_limb_club_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "96f2bfd6-7803-46e6-b54b-0ab3c274a712",
             "Value": {
                 "id": "f20ae0e9-78f2-4e65-ac1a-9a1b420c2ba8",
@@ -14799,6 +15823,14 @@
             }
         },
         {
+            "Key": "9a18511b-7e86-44e7-899c-96f6d8027d3a",
+            "Value": {
+                "id": "cd7ef68e-cb61-4e67-8318-2847382715b0",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hatchet_attack_1_1\\spr_enemy_icecursedfairy_hatchet_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9a21edde-4a4c-4c84-b849-5eb2851327b5",
             "Value": {
                 "id": "b81a8a53-aa40-45f3-ac5b-c78cd0921d6f",
@@ -15063,10 +16095,34 @@
             }
         },
         {
+            "Key": "9c4bc6f9-a804-463d-8bef-35b963dcd57c",
+            "Value": {
+                "id": "3ae71a98-dc0d-4c82-81ac-d32968472634",
+                "resourcePath": "objects\\obj_attack_icecursedfairy_hatchet_1_1\\obj_attack_icecursedfairy_hatchet_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9c5939e0-a4bb-4fbc-aacf-1fd9c7e55a7d",
+            "Value": {
+                "id": "88297eea-975e-475b-bb47-9697e28d5b0d",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_baxe_prep_1_2\\spr_enemy_icecursedfairy_baxe_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9c88da99-283a-4f04-ad69-9a023046fca3",
             "Value": {
                 "id": "339ed41d-5126-442f-9c18-97bf659b3a2b",
                 "resourcePath": "objects\\obj_gempieces_aquamarine\\obj_gempieces_aquamarine.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9c95b7fe-92d4-4e38-8188-a42b24b006e9",
+            "Value": {
+                "id": "4c6430ef-4209-4897-a9fe-db52ec83197f",
+                "resourcePath": "objects\\obj_attack_icecursedfairy_club_1_1\\obj_attack_icecursedfairy_club_1_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -15076,6 +16132,14 @@
                 "id": "2226b161-ef58-4143-a677-3c8fe410a328",
                 "resourcePath": "objects\\obj_condition_particles\\obj_condition_particles.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9ca26770-f889-42fa-86f7-477640e54916",
+            "Value": {
+                "id": "de008d52-84e5-41ca-a791-8ac0d01a6d50",
+                "resourcePath": "sprites\\spr_enemy_golem_swing_attack_1_1_mask\\spr_enemy_golem_swing_attack_1_1_mask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -15100,6 +16164,14 @@
                 "id": "facf51d1-819b-4973-a52e-9b54f582c8dd",
                 "resourcePath": "objects\\obj_attack_troll_staff_1_1\\obj_attack_troll_staff_1_1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9cd955d3-e45b-4d2a-8cf1-c139413b83d4",
+            "Value": {
+                "id": "806b603c-b03d-409c-bb1e-c43f23f70820",
+                "resourcePath": "sprites\\spr_enemy_abominion_swing_attack_1_1_mask\\spr_enemy_abominion_swing_attack_1_1_mask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -15316,6 +16388,14 @@
                 "id": "7067da20-2a0d-4b86-909d-325934881233",
                 "resourcePath": "views\\9e8c127a-b351-4c81-a000-20ad80719d45.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "9ea91ac9-e7ad-478a-8d5d-b25779d0757d",
+            "Value": {
+                "id": "40b0d3c1-746b-4d86-9225-40487e75e357",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_hatchet_recover_1_2\\spr_enemy_icecursedfairy_limb_hatchet_recover_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -15559,6 +16639,14 @@
             }
         },
         {
+            "Key": "a0cb52ed-69c5-4970-b0be-fbaa58ca76c9",
+            "Value": {
+                "id": "88a63437-0336-464a-bde3-43bc145a2b74",
+                "resourcePath": "views\\a0cb52ed-69c5-4970-b0be-fbaa58ca76c9.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "a0cbd295-ba60-494c-b2d2-b8216b3668f0",
             "Value": {
                 "id": "6b9d24f5-f716-4349-a29c-ce2a8ba9c55f",
@@ -15692,6 +16780,14 @@
                 "id": "ca71987a-3086-4ce5-a8d0-e8aca23744f1",
                 "resourcePath": "sprites\\spr_player_arquebus\\spr_player_arquebus.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a26ebe18-2c49-406e-817e-248062fefaa5",
+            "Value": {
+                "id": "9fa6ad45-900a-4aba-9a76-0af14b73ea5a",
+                "resourcePath": "objects\\obj_exstep_magic_5\\obj_exstep_magic_5.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -16215,6 +17311,14 @@
             }
         },
         {
+            "Key": "a7e2bbb3-0bba-43a0-9475-02289fa1f508",
+            "Value": {
+                "id": "51479f6f-a8dc-4e2f-b8ba-f13fd2160e24",
+                "resourcePath": "views\\a7e2bbb3-0bba-43a0-9475-02289fa1f508.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "a7e647c6-aaa0-47aa-a9c4-6c111eeaa705",
             "Value": {
                 "id": "e5260dd5-5d58-46e8-906e-cc6f885a663e",
@@ -16244,6 +17348,14 @@
                 "id": "a28250df-6821-4be7-bb1c-fbbfd2b12c19",
                 "resourcePath": "objects\\obj_exstep_rc_2\\obj_exstep_rc_2.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "a81d3616-38f6-48e8-8fe0-2752f41c83fe",
+            "Value": {
+                "id": "778dd756-7cc6-435d-b479-27495f62a86c",
+                "resourcePath": "sprites\\spr_enemy_abominion_swing_attack_1_2\\spr_enemy_abominion_swing_attack_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -16415,6 +17527,14 @@
             }
         },
         {
+            "Key": "a971b36f-ef1a-4532-a902-8c2ed5502a06",
+            "Value": {
+                "id": "1b26c12e-66fa-4de1-9dc6-5e0790384fca",
+                "resourcePath": "objects\\obj_attack_abominion_swing_1_1\\obj_attack_abominion_swing_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a991b5c0-62ac-47c0-b777-abcc9a724fc8",
             "Value": {
                 "id": "fff119f3-a5a0-426f-8f65-07b438f0d852",
@@ -16551,6 +17671,22 @@
             }
         },
         {
+            "Key": "aa75c411-74f7-4599-b0c4-7c6360f91d50",
+            "Value": {
+                "id": "ac04fcd8-f559-4c4e-89d7-97b2494072da",
+                "resourcePath": "sprites\\spr_prompt_mk_3\\spr_prompt_mk_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "aa7717e2-9398-4377-9e4e-82f4ecbad809",
+            "Value": {
+                "id": "520aa46b-cb07-43d3-8d86-e6d0f8feda11",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_club_prep_1_2\\spr_enemy_icecursedfairy_club_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "aa793596-e9df-44bc-afa3-ccc2e73d13f8",
             "Value": {
                 "id": "68dc80ba-110c-4b63-abfd-29283c7a32fd",
@@ -16571,6 +17707,14 @@
             "Value": {
                 "id": "5ad579c2-ab44-49f6-9bb4-39d53833a04b",
                 "resourcePath": "sprites\\spr_enemy_lighteater_tail_recover_1_1\\spr_enemy_lighteater_tail_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "aae23b12-c66c-4e36-adc8-81ac11cefd31",
+            "Value": {
+                "id": "af2358f7-7a24-4afa-a91f-a7b2fe83ee75",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_baxe_attack_1_2\\spr_enemy_icecursedfairy_limb_baxe_attack_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -16639,10 +17783,26 @@
             }
         },
         {
+            "Key": "abab071c-7357-4c16-9a84-7274bd1b35bb",
+            "Value": {
+                "id": "ef942ce0-5cf6-40b4-81a5-d20267cafcd8",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_baxe_attack_1_2\\spr_enemy_icecursedfairy_baxe_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "abb20e65-58dd-44fe-a1ed-24b00634fa7d",
             "Value": {
                 "id": "4eac1351-f147-4635-8bc4-26a116995c47",
                 "resourcePath": "objects\\obj_axe_2h_parent\\obj_axe_2h_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "abb389bb-33d1-4e06-8adf-3ae2a76b1bd3",
+            "Value": {
+                "id": "1cdb5c3e-73a5-4e99-8b29-1320e71c7e92",
+                "resourcePath": "objects\\obj_exstep_magic_2\\obj_exstep_magic_2.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -16759,6 +17919,14 @@
             }
         },
         {
+            "Key": "ac6b16ae-06d1-424d-ae5f-11ff767be46d",
+            "Value": {
+                "id": "9950bb06-126b-4510-83e9-1504db42a2c7",
+                "resourcePath": "sprites\\spr_enemy_abominion_swing_attack_1_2_mask\\spr_enemy_abominion_swing_attack_1_2_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ac6f0103-f487-4a60-9ba8-5d66cf3810ab",
             "Value": {
                 "id": "6467ffab-9058-432a-b070-77707e8c3dd7",
@@ -16811,6 +17979,14 @@
             "Value": {
                 "id": "2a6d5119-7a91-4bbb-a247-580809609d61",
                 "resourcePath": "sprites\\spr_enemy_unfairy_unarmed\\spr_enemy_unfairy_unarmed.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ad09959d-a025-4a1d-a137-965efdc110b4",
+            "Value": {
+                "id": "b935133a-7678-4814-9b04-4b6dca92109c",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_torch_recover_1_1\\spr_enemy_icecursedfairy_limb_torch_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -17103,6 +18279,14 @@
             }
         },
         {
+            "Key": "af5891e0-f6fe-4e9a-8cca-a6b1fa1eb6c4",
+            "Value": {
+                "id": "e91ba486-cf6b-498c-9ee0-cc2bcd3706f1",
+                "resourcePath": "sprites\\spr_enemy_wolf_bite_attack_1_1_mask\\spr_enemy_wolf_bite_attack_1_1_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "af60bf6d-c5b3-4a8b-92f0-b3582cb3af35",
             "Value": {
                 "id": "449d4766-93b8-4385-b494-eabba5c98776",
@@ -17255,6 +18439,14 @@
             }
         },
         {
+            "Key": "b0f40295-1d08-4a4a-adb5-b30962f3dfad",
+            "Value": {
+                "id": "d0bd40b1-27b8-4cc2-b46b-328e7649a625",
+                "resourcePath": "sprites\\spr_enemy_golem_swing_recover_1_2\\spr_enemy_golem_swing_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b10f2a35-3602-4046-a45b-63884c0bf7de",
             "Value": {
                 "id": "fbdd2229-b6ca-4d05-bda0-5839704ba4b0",
@@ -17348,6 +18540,14 @@
                 "id": "1319f39e-188d-4ca9-9798-d10587c6721d",
                 "resourcePath": "objects\\obj_attack_krampuself_icespear_3_3\\obj_attack_krampuself_icespear_3_3.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "b1eac14a-ddad-4051-a0bc-380f1df09fdb",
+            "Value": {
+                "id": "8eb0a2f8-5a12-4d82-92a5-0c972d847316",
+                "resourcePath": "views\\b1eac14a-ddad-4051-a0bc-380f1df09fdb.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -17479,6 +18679,14 @@
             }
         },
         {
+            "Key": "b320adad-dd1e-4172-b228-8d00719344cf",
+            "Value": {
+                "id": "7663c68e-65e9-4698-abe6-e6d2eb4cd66e",
+                "resourcePath": "sprites\\spr_ts_ww_darkicepatch\\spr_ts_ww_darkicepatch.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b345e351-8231-4cf7-90f6-b9cc73afeee5",
             "Value": {
                 "id": "357535c5-5e68-49c7-a5b2-3b5f2da5bca0",
@@ -17519,11 +18727,27 @@
             }
         },
         {
+            "Key": "b3af6d71-a1f8-4228-ba06-c4f589d33a56",
+            "Value": {
+                "id": "8e2131db-4e09-44ff-9c1a-fe85f5892d18",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_baxe_recover_1_1\\spr_enemy_icecursedfairy_baxe_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b3b2140d-f9b7-46ea-88d5-0745e13a1305",
             "Value": {
                 "id": "be171eb5-48eb-46a9-b2c2-c01778d2f4d0",
                 "resourcePath": "views\\b3b2140d-f9b7-46ea-88d5-0745e13a1305.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b3b5b51c-65c0-43f5-b275-60a0d2ef484d",
+            "Value": {
+                "id": "e034f376-4ad3-4497-aa50-818bab1cb0a5",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hatchet_recover_1_3\\spr_enemy_icecursedfairy_hatchet_recover_1_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -17703,6 +18927,14 @@
             }
         },
         {
+            "Key": "b5d0ff42-30fd-4648-a369-f9689d0c66be",
+            "Value": {
+                "id": "af372cd3-9c4f-4cd8-88c8-1d8e21e109cd",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_baxe_attack_1_1\\spr_enemy_icecursedfairy_limb_baxe_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b5d5dc40-5593-4d5c-aaae-b5e8be39c05f",
             "Value": {
                 "id": "f74123ca-802f-45ba-8277-ec0771ceb3c3",
@@ -17743,6 +18975,14 @@
             }
         },
         {
+            "Key": "b6077438-18ee-48f3-a1ab-24fa9218b7d1",
+            "Value": {
+                "id": "a427c93f-87f3-41e0-9273-fce7e4de7507",
+                "resourcePath": "sprites\\spr_prompt_mk_f1\\spr_prompt_mk_f1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b60b8aaa-812f-4c4f-b7b0-3bfbb1917706",
             "Value": {
                 "id": "fb57c1f3-3ba2-4e9b-aad3-52ae6b946e91",
@@ -17759,6 +18999,14 @@
             }
         },
         {
+            "Key": "b6189b27-3a92-44c9-835f-58847b0d1486",
+            "Value": {
+                "id": "87c8ac75-77ba-44b3-986a-9b978de67a1e",
+                "resourcePath": "sprites\\spr_enemy_golem_swing_prep_1_2\\spr_enemy_golem_swing_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b61f446a-0ad1-44bf-8abc-eefd9cca061b",
             "Value": {
                 "id": "3fd90ce6-0850-444c-94bc-285a8350d22a",
@@ -17772,6 +19020,22 @@
                 "id": "5b467120-cc95-485a-ae11-428cfa81e944",
                 "resourcePath": "sprites\\spr_enemy_funfairy_toyhammer_recover_1_1\\spr_enemy_funfairy_toyhammer_recover_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b6574edc-fddb-4a73-b929-e5db327eee73",
+            "Value": {
+                "id": "0c180d2c-be4c-48cb-af1c-e20c5b9f334a",
+                "resourcePath": "objects\\obj_hand_item_baxe\\obj_hand_item_baxe.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "b65c73c5-6846-4390-9b5d-4e26adbee733",
+            "Value": {
+                "id": "37765ccd-b4cd-4045-b7ee-e9b2d3845ae8",
+                "resourcePath": "views\\b65c73c5-6846-4390-9b5d-4e26adbee733.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -17983,6 +19247,14 @@
             }
         },
         {
+            "Key": "b93ad29a-2002-4aac-baf2-2d5acb23db46",
+            "Value": {
+                "id": "3e7ef4dd-c6eb-4057-a5ae-1abae9f5fbb8",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy\\spr_enemy_icecursedfairy.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b93e06f2-3b8a-487f-ae00-3b1e8b2dce98",
             "Value": {
                 "id": "13815b52-0571-4454-a463-274454a889d6",
@@ -17995,6 +19267,14 @@
             "Value": {
                 "id": "46b86e85-ea9c-4e7e-92d5-c977f45487c6",
                 "resourcePath": "sprites\\spr_item_kiteshield\\spr_item_kiteshield.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b9636508-aa79-4c34-8c7d-2283ff03407f",
+            "Value": {
+                "id": "917ef21e-9a51-47bb-b6d8-cd41249f7341",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_torch\\spr_enemy_icecursedfairy_limb_torch.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -18335,6 +19615,22 @@
             }
         },
         {
+            "Key": "bc355be4-865a-4886-a6ce-6535dfcb2bd7",
+            "Value": {
+                "id": "948817f3-1c36-47f1-aa47-51daa9eb3b0b",
+                "resourcePath": "objects\\obj_attack_icecursedfairy_baxe_1_2\\obj_attack_icecursedfairy_baxe_1_2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "bc41f04e-08cf-42a4-979e-3f9de51da7bb",
+            "Value": {
+                "id": "f9baccbb-9706-4c79-acf8-2a2706845878",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_baxe_recover_1_2\\spr_enemy_icecursedfairy_limb_baxe_recover_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "bc5e780e-f86c-42f3-97aa-960a42f1bbae",
             "Value": {
                 "id": "146cb0fc-237c-4749-82b4-a4ea4df405a2",
@@ -18396,6 +19692,14 @@
                 "id": "7a0e8dca-51e5-4ace-a595-b873fd875a59",
                 "resourcePath": "views\\bd31066b-cbc7-439b-afff-41345010ef41.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "bd3f82e0-d2f0-426d-a072-2fc0604ddce6",
+            "Value": {
+                "id": "f71b2542-e915-48b6-866d-2bddf3b03af8",
+                "resourcePath": "objects\\obj_attack_icecursedfairy_club_1_2\\obj_attack_icecursedfairy_club_1_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -18476,6 +19780,14 @@
                 "id": "e9cea450-8d8d-4872-ae8e-211f195607d7",
                 "resourcePath": "scripts\\ei_unfairy_add_ringedcoif\\ei_unfairy_add_ringedcoif.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "be033bc3-399f-4600-abdd-8d3e5ff340e1",
+            "Value": {
+                "id": "f3986b40-8e9d-460f-ae72-6dada48fdd6d",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hatchet_recover_1_2\\spr_enemy_icecursedfairy_hatchet_recover_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -18599,6 +19911,14 @@
             }
         },
         {
+            "Key": "bf0346e2-95e0-4275-90d3-50cfa603aaa0",
+            "Value": {
+                "id": "64f6c6f5-13e9-4765-9d75-c5c9b5b2845a",
+                "resourcePath": "sprites\\spr_prompt_mk_4\\spr_prompt_mk_4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "bf3d9d8c-21c0-40c2-9930-4b83bf2f83b3",
             "Value": {
                 "id": "40ac3a0e-7c31-45ad-a9e9-48d89d1bbb76",
@@ -18627,6 +19947,14 @@
             "Value": {
                 "id": "a0692e36-84e5-46ad-98dc-92902a996da6",
                 "resourcePath": "sounds\\snd_bgms_vl\\snd_bgms_vl.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "bfc6831f-3e95-4eb1-98ea-1d8b950e0635",
+            "Value": {
+                "id": "19f228ca-c0e0-444a-bb67-17c750e0c321",
+                "resourcePath": "sounds\\snd_hit_ice_3\\snd_hit_ice_3.yy",
                 "resourceType": "GMSound"
             }
         },
@@ -18767,6 +20095,22 @@
             }
         },
         {
+            "Key": "c1781a28-1f84-49de-ab88-39394623001c",
+            "Value": {
+                "id": "fe8d1d93-cd08-48f9-afee-3803c2a13c2f",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hand\\spr_enemy_icecursedfairy_hand.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c1ab3d6c-a18d-4e1c-86ac-b208b353e996",
+            "Value": {
+                "id": "ffb567d9-d158-474a-9f58-99903ab4835e",
+                "resourcePath": "views\\c1ab3d6c-a18d-4e1c-86ac-b208b353e996.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "c1c38c4c-0b79-455e-90ad-f7a74f6388f6",
             "Value": {
                 "id": "bdb127c8-043a-4570-854f-eb05b7fe3a82",
@@ -18819,6 +20163,14 @@
             "Value": {
                 "id": "063624d6-8d84-45b2-ada7-8188a8b66f60",
                 "resourcePath": "sprites\\spr_npc_barry_move\\spr_npc_barry_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c2114111-6bda-4570-82b7-56482319dc8e",
+            "Value": {
+                "id": "e8e24f7d-96c0-4f15-8bcc-b955ccac01ea",
+                "resourcePath": "sprites\\spr_enemy_wolf_bite_prep_1_2\\spr_enemy_wolf_bite_prep_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -18911,11 +20263,27 @@
             }
         },
         {
+            "Key": "c28b53be-b724-4a1f-961c-a9a67ca8d15d",
+            "Value": {
+                "id": "8aac567e-0663-4615-9f17-39acfb980b4e",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_tknife_attack_1_1\\spr_enemy_icecursedfairy_limb_tknife_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c2a56509-08e6-4105-8c41-d6b1b4a71ea6",
             "Value": {
                 "id": "e4515fa8-a7a0-4785-958d-8e5f414536bb",
                 "resourcePath": "views\\c2a56509-08e6-4105-8c41-d6b1b4a71ea6.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c2aeed1f-ef09-47ba-ab0d-9bbc6cae38a8",
+            "Value": {
+                "id": "749ec587-bcce-4609-ac77-c95cc868600e",
+                "resourcePath": "objects\\obj_tutorial_exercise_magic\\obj_tutorial_exercise_magic.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -19055,6 +20423,14 @@
             }
         },
         {
+            "Key": "c414430a-4cfd-4b94-b23f-190f8afbd2cf",
+            "Value": {
+                "id": "21bbe2c7-8b14-4203-96cf-fe6c5fc0f833",
+                "resourcePath": "sprites\\spr_enemy_dybukk_headthrow_recover_1_1\\spr_enemy_dybukk_headthrow_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c41a6985-6e39-4b39-9bd4-7253527f46d7",
             "Value": {
                 "id": "bc6aef85-94a4-44c9-9acc-35de33f4ced2",
@@ -19140,6 +20516,14 @@
                 "id": "1c4656ee-685e-4307-aa2b-3984a3de39d0",
                 "resourcePath": "views\\c4f4861a-4fef-4b8a-a210-aa4850548cd6.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c516c340-6429-4e35-930b-c1018de5c11a",
+            "Value": {
+                "id": "aa35645d-91b2-470b-b548-0811e340705c",
+                "resourcePath": "sprites\\spr_enemy_golem_ball_attack_1_1\\spr_enemy_golem_ball_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -19335,6 +20719,14 @@
             }
         },
         {
+            "Key": "c6b68b77-257d-4452-9507-bd002fca19ec",
+            "Value": {
+                "id": "1b46945f-710c-400e-872c-6ebc1687493e",
+                "resourcePath": "sprites\\head100\\head100.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c6befd31-b7da-4dbe-a6c1-e40879d571b7",
             "Value": {
                 "id": "44e6e121-eb36-42f1-a06b-3bc9ae04449c",
@@ -19455,6 +20847,14 @@
             }
         },
         {
+            "Key": "c8012095-8f65-4b59-b84f-ab908c98eda2",
+            "Value": {
+                "id": "dc35fddc-a39b-4738-97f9-6bba6cdeca43",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_hatchet_recover_1_3\\spr_enemy_icecursedfairy_limb_hatchet_recover_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c80643fd-5a65-4065-9ff4-d0a51aad8892",
             "Value": {
                 "id": "02fca7b8-f30d-4425-ae1f-cb0e1f468a9b",
@@ -19479,10 +20879,26 @@
             }
         },
         {
+            "Key": "c80e3d70-b8ae-4d61-b9ee-cbfaa7720d19",
+            "Value": {
+                "id": "4ff16e57-e45f-46a9-a745-cea8834767cb",
+                "resourcePath": "objects\\obj_exstep_magic_8\\obj_exstep_magic_8.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "c81cd172-d028-4797-a74f-eb0bb7caa4dd",
             "Value": {
                 "id": "b175e4f7-65e8-4f97-a8a8-501bcd7c48a7",
                 "resourcePath": "sprites\\spr_enemy_mushroom_stagger\\spr_enemy_mushroom_stagger.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c81ff029-f879-40ba-ae13-dd8c83b8a672",
+            "Value": {
+                "id": "906790e2-53ee-4a7b-bd6b-69cec6d9b3a0",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_club_attack_1_2\\spr_enemy_icecursedfairy_club_attack_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -19751,6 +21167,22 @@
             }
         },
         {
+            "Key": "caaabd85-7500-4a04-8eb9-bd244599256a",
+            "Value": {
+                "id": "3aac4bc7-12e5-4eda-8a7a-e175fd63f9d0",
+                "resourcePath": "objects\\obj_attack_abominion_swing_1_2\\obj_attack_abominion_swing_1_2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "cac4fd0a-a17a-495e-bc55-5f986cd6b171",
+            "Value": {
+                "id": "230d10b3-ddcc-4574-8648-7d125378d326",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hatchet_prep_1_1\\spr_enemy_icecursedfairy_hatchet_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "cb1b776e-d0be-4708-a4e8-bf87c8324263",
             "Value": {
                 "id": "6e02b5a9-8c61-4c2e-814e-c29957fbe636",
@@ -19795,6 +21227,22 @@
             "Value": {
                 "id": "6dc897f1-103c-40a1-9726-250f4d0f1b17",
                 "resourcePath": "sprites\\spr_enemy_krampuself_limb_iceclub\\spr_enemy_krampuself_limb_iceclub.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "cb89780a-d862-4d80-8ae6-702fe699e201",
+            "Value": {
+                "id": "f10496b2-6af9-4952-98f3-d983231386c6",
+                "resourcePath": "objects\\obj_exstep_magic_7\\obj_exstep_magic_7.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "cbb53f60-4a5e-413e-ac41-8bd123121f5a",
+            "Value": {
+                "id": "25cc62a0-b3a7-4bb3-b372-b3a10eb760f7",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_baxe_prep_1_2\\spr_enemy_icecursedfairy_limb_baxe_prep_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -19911,6 +21359,14 @@
             }
         },
         {
+            "Key": "ccda3248-f24f-4595-9469-844dc4fc81f4",
+            "Value": {
+                "id": "234b4ea1-76e7-469d-b62d-0fd111c4e68a",
+                "resourcePath": "views\\ccda3248-f24f-4595-9469-844dc4fc81f4.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "cce111f8-4a86-4e54-9932-3aec66a4c4ee",
             "Value": {
                 "id": "1dd7fd66-af7c-4d72-bc7d-82871803a96e",
@@ -19924,6 +21380,14 @@
                 "id": "94c3f7de-20de-46c1-9ce3-1dd0d8487fb9",
                 "resourcePath": "scripts\\calculateIsCriticalHit\\calculateIsCriticalHit.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "cd272878-a079-405e-aecd-6feefeaf820d",
+            "Value": {
+                "id": "e1ea501a-0216-4ef0-bcda-02a8eec3d7e4",
+                "resourcePath": "objects\\obj_exstep_magic_4\\obj_exstep_magic_4.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -20287,6 +21751,14 @@
             }
         },
         {
+            "Key": "d12fc32d-9428-4bb2-983a-40cbbbdbe862",
+            "Value": {
+                "id": "95158a50-ddbf-4d7f-88ce-0d57d969316f",
+                "resourcePath": "sprites\\spr_enemy_wolf_bite_recover_1_1\\spr_enemy_wolf_bite_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d130656a-1589-48b0-b0f6-eff585e0a13f",
             "Value": {
                 "id": "452c985f-939d-4d22-a278-1878daec3128",
@@ -20471,11 +21943,27 @@
             }
         },
         {
+            "Key": "d299781f-be64-443e-b588-e8671b419014",
+            "Value": {
+                "id": "d7a67ae7-42c8-40f9-b90b-64f556a09463",
+                "resourcePath": "sprites\\spr_enemy_golem_swing_attack_1_2_mask\\spr_enemy_golem_swing_attack_1_2_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d2a0313c-b78c-48bb-98fd-ee32f13be23a",
             "Value": {
                 "id": "260ab96d-7adc-4669-85a0-e2b5c6436c27",
                 "resourcePath": "sprites\\spr_ts_forest\\spr_ts_forest.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d2adaf8a-aafa-4b27-b783-6e88560312c9",
+            "Value": {
+                "id": "f01c87ca-9909-4d23-89b2-a1ae0584263d",
+                "resourcePath": "objects\\obj_attack_icecursedfairy_hatchet_1_2\\obj_attack_icecursedfairy_hatchet_1_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -20511,6 +21999,14 @@
             }
         },
         {
+            "Key": "d302b83a-5e03-4b91-98d3-ed0a6d608723",
+            "Value": {
+                "id": "cfe1f6fc-d6f0-48cd-bce7-063407c8c90d",
+                "resourcePath": "sprites\\spr_enemy_abominion_frostburst_1_1_projectile\\spr_enemy_abominion_frostburst_1_1_projectile.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d32c5c96-b6a5-49e2-a277-495a376d66a6",
             "Value": {
                 "id": "c059d3d5-919f-4143-b6a3-125535e63a14",
@@ -20523,6 +22019,14 @@
             "Value": {
                 "id": "c49c8ece-7488-4771-8ca7-e944530728b7",
                 "resourcePath": "sprites\\spr_player_hand_club_base\\spr_player_hand_club_base.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d33d7091-ebc7-4525-b315-10d7ef064da7",
+            "Value": {
+                "id": "efd423ce-0ad9-45f1-9cc6-3542fd699bc9",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_move\\spr_enemy_icecursedfairy_move.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -20580,6 +22084,14 @@
                 "id": "665aee90-405f-4405-819c-9bdf32fb58f7",
                 "resourcePath": "objects\\obj_lamplight_holder\\obj_lamplight_holder.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d3ba3d2f-cd84-4d50-9051-84a4f72d0ad0",
+            "Value": {
+                "id": "b2d8b991-bfcc-4fc9-b562-adad7842a1cd",
+                "resourcePath": "sounds\\snd_vox_grunt_1\\snd_vox_grunt_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -20647,6 +22159,14 @@
             }
         },
         {
+            "Key": "d4a1ebc8-b8e1-463d-8e0e-84241aacfcf5",
+            "Value": {
+                "id": "d47e7b5b-2d37-42dd-9901-487b763d8364",
+                "resourcePath": "sprites\\spr_enemy_abominion_frostburst_recover_1_1\\spr_enemy_abominion_frostburst_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d4cb7902-2f51-421b-9204-d74c0d0cebe7",
             "Value": {
                 "id": "f3862ae4-728b-4c9b-9cc5-9083aff4282d",
@@ -20660,6 +22180,14 @@
                 "id": "245392d4-a242-4c63-9e3e-e5d11f8776ee",
                 "resourcePath": "objects\\obj_exstep_rc_3\\obj_exstep_rc_3.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d4d3f212-77ec-4e31-a4ee-d9971036a751",
+            "Value": {
+                "id": "e646e606-a8fb-43f8-9cf9-79a8d48ed92c",
+                "resourcePath": "scripts\\scr_evl_exstep_magic_poisonblast\\scr_evl_exstep_magic_poisonblast.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -20791,6 +22319,14 @@
             }
         },
         {
+            "Key": "d6abab9f-d559-419d-af66-d7202b4e724d",
+            "Value": {
+                "id": "9d6b30d3-4b2a-4d61-b759-9fdbe319148c",
+                "resourcePath": "sounds\\snd_golem_roll\\snd_golem_roll.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "d6cf2a62-9b86-4843-abe7-3ad39d1aede9",
             "Value": {
                 "id": "f917f725-6d87-495a-8ff7-641c5af9e31c",
@@ -20895,6 +22431,14 @@
             }
         },
         {
+            "Key": "d7d409c4-11a9-4cdf-88e4-76a73294076f",
+            "Value": {
+                "id": "e65b05c8-2b3d-4977-bc71-33a02c13739f",
+                "resourcePath": "objects\\obj_attack_abominion_frostburst_1_1\\obj_attack_abominion_frostburst_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d809ae01-7032-4274-b87d-d349bc38fa1c",
             "Value": {
                 "id": "d27b96c9-915b-4c06-ad79-c4dff2a39e73",
@@ -20932,6 +22476,14 @@
                 "id": "6d01e813-3a26-4be0-8db8-efb69ad510f6",
                 "resourcePath": "scripts\\light_destroy_layer\\light_destroy_layer.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "d861a5d7-2fe9-4380-bd89-28cb7a12e490",
+            "Value": {
+                "id": "e568726e-f187-42bc-8cf3-9c1b108a050f",
+                "resourcePath": "sprites\\spr_enemy_golem_swing_recover_1_1\\spr_enemy_golem_swing_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -21020,6 +22572,14 @@
                 "id": "77175eb6-7d96-4324-8fb9-ed6c10a7b2b6",
                 "resourcePath": "sounds\\snd_conv_rob_otherrobots_rob_2\\snd_conv_rob_otherrobots_rob_2.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "d9562133-95ff-4d14-809f-7c1d5dbbb880",
+            "Value": {
+                "id": "c9772c6a-1b3d-4b42-b511-37705a4a00ad",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_club_attack_1_1\\spr_enemy_icecursedfairy_limb_club_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -21311,11 +22871,27 @@
             }
         },
         {
+            "Key": "dc482bf6-d189-404c-8da7-d106aff8a5ed",
+            "Value": {
+                "id": "ab04ba85-fa32-46a6-b00d-57348dfd116e",
+                "resourcePath": "views\\dc482bf6-d189-404c-8da7-d106aff8a5ed.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "dc585519-2fc3-4998-bfd6-c631473cfe85",
             "Value": {
                 "id": "a7176987-b440-4cd4-9150-885b5dbeeef5",
                 "resourcePath": "views\\dc585519-2fc3-4998-bfd6-c631473cfe85.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "dc6df799-f714-4fb7-8a32-3313cbc74480",
+            "Value": {
+                "id": "fca71f50-7d19-4e0a-b6fc-8ce1315010ea",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_tknife\\spr_enemy_icecursedfairy_tknife.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -21623,6 +23199,14 @@
             }
         },
         {
+            "Key": "df2e0e45-82d7-47b3-8c41-1ed78e7d2ca7",
+            "Value": {
+                "id": "cfbca5e2-5090-4bcc-89d4-98b1b3cc1485",
+                "resourcePath": "sprites\\spr_enemy_abominion_swing_prep_1_1\\spr_enemy_abominion_swing_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "df2ebd40-a716-4d9a-99cb-e0c901a8f011",
             "Value": {
                 "id": "b66e7f66-f59b-42c9-a372-f09eb084bf64",
@@ -21775,6 +23359,14 @@
             }
         },
         {
+            "Key": "e0d818d0-8111-4af4-9632-60b4c17ff330",
+            "Value": {
+                "id": "54ebc1c5-dddf-4730-aaf9-3943cd0f3860",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_torch_attack_1_1\\spr_enemy_icecursedfairy_torch_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e0daeabe-4050-4032-859d-c05694cde2e1",
             "Value": {
                 "id": "266a1ded-509a-4f17-90c4-539bcb8f9940",
@@ -21852,6 +23444,14 @@
                 "id": "0c1b51e3-999a-40b4-a68d-3be1614237c4",
                 "resourcePath": "scripts\\drawRewardItems\\drawRewardItems.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "e151898b-bf9a-4af3-9976-6812182f0b96",
+            "Value": {
+                "id": "db942c56-b22e-4f10-ba07-b5c8749a0f90",
+                "resourcePath": "sprites\\spr_prompt_mk_1\\spr_prompt_mk_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -22039,6 +23639,14 @@
             }
         },
         {
+            "Key": "e314e2d2-2a19-4c4d-951d-7aa1618b179c",
+            "Value": {
+                "id": "6e46938e-9322-468a-a45e-e6ea21777d42",
+                "resourcePath": "sprites\\spr_ts_ww_darkiceonsnow\\spr_ts_ww_darkiceonsnow.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e31dc35f-d2bd-42d2-96fc-63dc249199af",
             "Value": {
                 "id": "b97e1455-ec6e-4cb1-ad62-74c2d3ceb018",
@@ -22175,6 +23783,14 @@
             }
         },
         {
+            "Key": "e4ca9921-74fa-41d0-a3f7-f5d7e9870615",
+            "Value": {
+                "id": "6be2b567-be48-46f1-a459-2cffe8692fd7",
+                "resourcePath": "views\\e4ca9921-74fa-41d0-a3f7-f5d7e9870615.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "e4cc2799-f1e7-42bb-9d2d-053f5c24587a",
             "Value": {
                 "id": "ffd2ecd5-d87a-4811-aa40-ed5707fe5366",
@@ -22308,6 +23924,14 @@
                 "id": "c097e5f9-7e40-48ad-bd91-73aa62395292",
                 "resourcePath": "views\\e5588dc1-811f-414d-8162-7199ea0f38d0.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e5719628-ac25-4f34-ad62-20999c723f2d",
+            "Value": {
+                "id": "b90e7b71-1cf6-4299-b41a-24017b5daac3",
+                "resourcePath": "objects\\obj_exstep_magic_6\\obj_exstep_magic_6.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -22479,6 +24103,14 @@
             }
         },
         {
+            "Key": "e77c5169-0406-414d-8e23-aa3b432e7255",
+            "Value": {
+                "id": "20654488-b1bf-46fe-98a9-9eee2ffd985d",
+                "resourcePath": "sprites\\spr_prompt_mk_f2\\spr_prompt_mk_f2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e789e326-5a36-422f-b4ae-8bc004a1507e",
             "Value": {
                 "id": "e61f676d-5976-4cdb-a012-d496829d04e0",
@@ -22540,6 +24172,14 @@
                 "id": "888674f0-42e3-4456-89b4-9a457d9a9b3e",
                 "resourcePath": "scripts\\populateGrid\\populateGrid.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "e7fd7464-0fae-4f70-935f-d3bd73ca7122",
+            "Value": {
+                "id": "cd71ebbe-9d68-4823-87cf-c96ee4b8096b",
+                "resourcePath": "objects\\obj_attack_golem_ball_1_1\\obj_attack_golem_ball_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -22631,6 +24271,14 @@
             }
         },
         {
+            "Key": "e8fb424a-09c3-43c1-885a-9969ac6b8546",
+            "Value": {
+                "id": "86ff7e36-8f2e-4961-9645-b1365a1a1f63",
+                "resourcePath": "sprites\\spr_ts_ww_clayonsnow\\spr_ts_ww_clayonsnow.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e903ea72-6d8d-4ac0-b7df-4212648e81ed",
             "Value": {
                 "id": "894405df-614c-4c6c-8222-556ebcdb79bc",
@@ -22660,6 +24308,14 @@
                 "id": "173e5b57-6c26-4d82-af29-dd5a397feebf",
                 "resourcePath": "objects\\obj_gempieces_ruby\\obj_gempieces_ruby.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "e93828dd-c4dc-48e2-b6c8-6b117fd5ecb5",
+            "Value": {
+                "id": "3e8fa9bb-17ec-4fd4-a56e-2dacd41e3287",
+                "resourcePath": "views\\e93828dd-c4dc-48e2-b6c8-6b117fd5ecb5.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -22887,6 +24543,14 @@
             }
         },
         {
+            "Key": "ec6e6274-2b51-4cb7-bcbc-2501cef1e242",
+            "Value": {
+                "id": "bdb6e137-e774-4d6f-a8a2-b60e2d270b5f",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_baxe\\spr_enemy_icecursedfairy_baxe.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ec7492ae-d228-4d87-af16-d5a67ff821b1",
             "Value": {
                 "id": "f4ce5b24-d1bb-4a0a-aca5-a5465933a8f7",
@@ -22907,6 +24571,14 @@
             "Value": {
                 "id": "678dd4d8-2f05-4852-894a-e6add190b640",
                 "resourcePath": "sprites\\spr_enemy_dybukkboss_move\\spr_enemy_dybukkboss_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ecd1b545-0e65-4a31-8540-70b6fd8156a2",
+            "Value": {
+                "id": "0624beaa-ec82-4236-b2e3-8335c74f1a72",
+                "resourcePath": "sprites\\spr_prompt_mk_2\\spr_prompt_mk_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -22932,6 +24604,14 @@
                 "id": "ed7e05cd-ea0c-44e7-8f53-82d76fa0bbe2",
                 "resourcePath": "sprites\\spr_enemy_speyeder\\spr_enemy_speyeder.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ed38b10e-a6c2-4040-acaa-453f78dd9dd2",
+            "Value": {
+                "id": "580df786-c9aa-4e1f-a3d6-b7c70a2802c7",
+                "resourcePath": "objects\\obj_attack_wolf_bite_1_1\\obj_attack_wolf_bite_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -23007,6 +24687,14 @@
             }
         },
         {
+            "Key": "ee10180f-c283-404f-8863-12bbf5f85260",
+            "Value": {
+                "id": "84ef68ee-a1cc-497b-a21c-c825b3e0bc54",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hatchet_attack_1_2\\spr_enemy_icecursedfairy_hatchet_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ee2b6962-2a47-4e8e-89da-7fd06366bd9a",
             "Value": {
                 "id": "ad3f2243-9e46-4c14-b789-0232f385b649",
@@ -23036,6 +24724,14 @@
                 "id": "bff9fee6-c113-4078-8593-edc2e89509c8",
                 "resourcePath": "scripts\\removeGemsFromItem\\removeGemsFromItem.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ee6c44a0-fd2a-4c66-8973-e175c8438e5a",
+            "Value": {
+                "id": "71b3f718-f803-4b6f-aa78-0c3576d9fe9d",
+                "resourcePath": "sprites\\spr_enemy_wolf_bite_recover_1_2\\spr_enemy_wolf_bite_recover_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -23124,6 +24820,14 @@
                 "id": "0ec7bda0-a70a-4b89-a17e-e209b8cd4ea3",
                 "resourcePath": "objects\\obj_equipmentslot\\obj_equipmentslot.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "ef4e165c-d4f3-4ef9-b867-96d1db8446df",
+            "Value": {
+                "id": "49588fc9-0fc0-4097-8f5f-3d01ffeb2ba7",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_hatchet_attack_1_3\\spr_enemy_icecursedfairy_hatchet_attack_1_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -23231,6 +24935,14 @@
             }
         },
         {
+            "Key": "eff5a8d2-4a82-4eb4-a595-816bf7dd9389",
+            "Value": {
+                "id": "22c66179-def1-4f6c-9ca8-28002cda4463",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_torch_prep_1_1\\spr_enemy_icecursedfairy_limb_torch_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f000075d-a1dc-42a9-aad7-0829d583c35b",
             "Value": {
                 "id": "fa9081e7-7f0b-4db9-adc8-7e8ee0ad1ebe",
@@ -23275,6 +24987,14 @@
             "Value": {
                 "id": "809c0054-6dce-48e0-b203-f0cc2feef5d3",
                 "resourcePath": "scripts\\fs_save_roomdata\\fs_save_roomdata.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f069e022-9d78-43da-b512-2aad9cbd7e97",
+            "Value": {
+                "id": "d8ec5bcc-6aeb-4fdc-b1b6-da96dafa5eec",
+                "resourcePath": "scripts\\ei_icecursedfairy_club\\ei_icecursedfairy_club.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -23551,6 +25271,14 @@
             }
         },
         {
+            "Key": "f35efe25-d707-4551-bb1a-ba8247d8156b",
+            "Value": {
+                "id": "92c3d1e3-e374-44ed-9123-198d8f998278",
+                "resourcePath": "objects\\obj_attack_abominion_crystalshot_1_1_melee\\obj_attack_abominion_crystalshot_1_1_melee.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "f363be3c-d933-480d-8602-502a5c5a721f",
             "Value": {
                 "id": "d189c54c-1fc4-43c8-ae76-249310c543b3",
@@ -23636,6 +25364,14 @@
                 "id": "cbb67c1b-a0a7-4739-a625-e58045c92ff8",
                 "resourcePath": "views\\f4995a7b-4dc4-4952-907c-9abf44370ae8.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f4c1dcd2-5640-4c54-9279-b4d809192564",
+            "Value": {
+                "id": "80f90876-a8fd-426e-a848-3faecca2d54b",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_torch_prep_1_1\\spr_enemy_icecursedfairy_torch_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -23935,6 +25671,14 @@
             }
         },
         {
+            "Key": "f7ce666f-3bd9-47ac-a2ee-ac7ed270ffb5",
+            "Value": {
+                "id": "07fa8ff1-70ee-4d70-9082-b8fc770f7dd6",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_tknife_prep_1_1\\spr_enemy_icecursedfairy_tknife_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f7e80ac6-7107-4a91-b291-8e3e108c92d3",
             "Value": {
                 "id": "dd8a2f29-31b8-46ce-855d-c92718a528c7",
@@ -24027,6 +25771,14 @@
             "Value": {
                 "id": "6eb8cdbd-b4b5-4612-83d0-7734ec052ac4",
                 "resourcePath": "sprites\\spr_enemy_unfairy_dagger_prep_1_1\\spr_enemy_unfairy_dagger_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f9c7f41a-aa88-42c2-9575-4ee55d7803d9",
+            "Value": {
+                "id": "1be24d09-a7df-4914-acfc-9167b0f663e5",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_club_prep_1_1\\spr_enemy_icecursedfairy_club_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -24191,6 +25943,14 @@
             }
         },
         {
+            "Key": "fb02f1c8-8ac9-4501-ac13-4b254a09e3eb",
+            "Value": {
+                "id": "b7fe4ae1-ba95-4e80-a6db-3675485609d5",
+                "resourcePath": "objects\\obj_attack_underplayer\\obj_attack_underplayer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "fb07fcb1-c6ad-45b7-8bd2-4cefbdcef322",
             "Value": {
                 "id": "e69a0bee-0ad1-4a5e-99bf-cd77a0684aae",
@@ -24244,6 +26004,14 @@
                 "id": "433d07a3-721d-49ef-ba04-377ddf8790cf",
                 "resourcePath": "views\\fb539831-3252-4a09-b7a6-5317d44e01c5.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "fb564281-e503-40fe-947d-b530b5c22fcd",
+            "Value": {
+                "id": "bb18b4df-10e7-4760-be13-6c9367be40f8",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_baxe\\spr_enemy_icecursedfairy_limb_baxe.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -24447,6 +26215,14 @@
             }
         },
         {
+            "Key": "fd78f666-e40a-4f2a-8ac1-efb00e2fdf65",
+            "Value": {
+                "id": "b83c7521-f77c-4cdc-8e21-47ab1d7e1c27",
+                "resourcePath": "scripts\\scr_evl_exstep_magic_iceexplosion\\scr_evl_exstep_magic_iceexplosion.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fd896036-56fa-4bab-bf9e-03faba2e2f16",
             "Value": {
                 "id": "d52a5dfa-3307-42cd-be23-bfb641a3a577",
@@ -24455,10 +26231,26 @@
             }
         },
         {
+            "Key": "fd98855c-a5ec-40cf-9f4a-e6a048e5a25b",
+            "Value": {
+                "id": "957c74fa-b5d4-43d3-829e-e4a1918ab827",
+                "resourcePath": "sprites\\spr_enemy_abominion_swing_recover_1_1\\spr_enemy_abominion_swing_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "fda30dd2-5317-4c7d-b93a-f790616a7dbb",
             "Value": {
                 "id": "e117680d-c267-4b22-bab9-b601a5418ad8",
                 "resourcePath": "sprites\\spr_enemy_unfairy_warhammer_recover_1_1\\spr_enemy_unfairy_warhammer_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fdd8d8ac-9156-4922-8416-80c4535cefc8",
+            "Value": {
+                "id": "09c31828-b5de-4221-9899-c7058d163ea1",
+                "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_hatchet_attack_1_2\\spr_enemy_icecursedfairy_limb_hatchet_attack_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -24922,6 +26714,8 @@
         "e6330671-23fa-40ad-ab47-a7181893cf35",
         "5f85bf39-84a0-4f85-8034-771ce3678bd9",
         "f130b20f-9e48-48b2-aa0d-551f9b2738c9",
+        "724efee2-ef01-4e0f-b2a9-6cfe76207df8",
+        "f069e022-9d78-43da-b512-2aad9cbd7e97",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",
         "566e567f-06b1-4a92-9cea-84bc4525cdf8",
@@ -25031,6 +26825,7 @@
         "a2b49c3d-85e9-4317-a94d-050e5e4b4f1a",
         "eb411dc6-4632-4893-b97a-fba1d1293c90",
         "3ff4bd00-272d-445c-8c81-022e874bb1f2",
+        "4a35dfe2-c1b4-4880-a68e-5b0e182571ea",
         "ca167c39-b8cc-454a-905f-5e2017e7463a",
         "1949d661-bf35-49e3-906d-36ee6139f2e2",
         "49c3814e-d8c4-4d0e-b35d-1ddee2964762",
@@ -25223,6 +27018,9 @@
         "5a0bbf2f-2777-42fd-86d5-0a96d9e4f2dc",
         "f7537df8-b0ce-4e92-9abd-293c792efe28",
         "3970572a-30e6-436a-9a7f-3dca1ed32115",
+        "d4d3f212-77ec-4e31-a4ee-d9971036a751",
+        "4ba78dbe-c9c1-4a4e-93a7-c2674a961910",
+        "fd78f666-e40a-4f2a-8ac1-efb00e2fdf65",
         "f4c2eeaa-4b24-4f67-bf17-72bd66063395",
         "9aaf781b-99b9-4ec7-9586-d3e4a06643ea"
     ],

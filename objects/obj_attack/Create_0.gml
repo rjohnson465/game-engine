@@ -33,6 +33,7 @@ soundEmitter = audio_emitter_create();
 audio_emitter_falloff(soundEmitter, 50, AUDIO_MAX_FALLOFF_DIST, 1);
 sound = noone;
 isSoundLooping = false;
+attackSoundLoopIndex = noone;
 
 weaponParticles = [noone, noone, noone, noone, noone];
 weaponParticlesNums = [noone, noone, noone, noone, noone];
@@ -165,6 +166,28 @@ if attackData != noone && attackData.type == AttackTypes.MultiRand {
 		instance_create_depth(xx,yy,depth,obj_attack_multirand_prep);
 	}
 	//instance_change(obj_attack_aoe,1); 
+	
+	// start recovery
+	// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
+	var attackInChain = ds_map_find_value(owner.attackingLimbs,limbKey);
+	ds_map_replace(owner.recoveringLimbs,limbKey,attackInChain);
+		
+	// set recoverFrames to -1
+	ds_map_replace(owner.recoverFrames,limbKey,-1);
+		
+	// remove limbKey from attackingLimbs map
+	ds_map_delete(owner.attackingLimbs,limbKey);
+		
+	owner.prevAttackHand = limbKey;
+	instance_destroy(id,1);
+	exit;
+}
+
+if attackData != noone && attackData.type == AttackTypes.UnderPlayer {
+	// create underplayer prep attack obj at player
+	var target = owner.lockOnTarget != noone ? owner.lockOnTarget : owner;
+	global.attackData = attackData;
+	instance_create_depth(target.x,target.y,depth,obj_attack_underplayer_prep);
 	
 	// start recovery
 	// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
@@ -357,3 +380,6 @@ if true {
 	updateWeaponParticles(id);
 }
 
+if attackData != noone && audio_exists(attackData.attackSoundLoop) {
+	attackSoundLoopIndex = audio_play_sound_on(soundEmitter, attackData.attackSoundLoop, 1, 1);
+}

@@ -9,7 +9,7 @@ isRanged = false;
 staminaCost = 5;
 staggerDuration = 30;
 limbKey = noone;
-type = AttackTypes.Standard;
+type = AttackTypes.Charge;
 minRange = 50;
 
 staggersAgainstBlocks = false;

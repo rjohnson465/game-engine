@@ -12,7 +12,10 @@
         "30d9c74e-f1fa-4849-9556-17034d034131",
         "256d1b1c-be1e-46bc-8b74-89cf75ebca69",
         "9ed29cca-8035-43d3-b0a6-f941e2db5f59",
-        "c0384881-94ad-47b8-a7ca-8da10a55a82e"
+        "c0384881-94ad-47b8-a7ca-8da10a55a82e",
+        "3d08fe84-4d61-473f-9af1-84c9fac50300",
+        "fb02f1c8-8ac9-4501-ac13-4b254a09e3eb",
+        "31ba3634-bf78-4742-9257-e0cd666cc9f4"
     ],
     "filterType": "GMObject",
     "folderName": "attack objs",

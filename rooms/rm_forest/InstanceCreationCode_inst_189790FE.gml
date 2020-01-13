@@ -1,0 +1,1 @@
+key = "magicWall1";

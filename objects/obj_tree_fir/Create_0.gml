@@ -9,3 +9,10 @@ material = WOOD;
 // check every quarter second if a combatant is under tree (must draw transparent then)
 treeAlpha = 1;
 alarm[0] = 7;
+
+drawScaleX = image_xscale;
+drawScaleY = image_yscale;
+
+// trunk collision is always smal
+image_xscale = 1;
+image_yscale = 1;

@@ -10,7 +10,7 @@ isFloating = false;
 
 functionalSpeed = 7;
 normalSpeed = 7;
-turnSpeed = 5;
+turnSpeed = 8;
 normalTurnSpeed = turnSpeed;
 
 dyingParticleColor1 = c_silver;
@@ -28,13 +28,13 @@ meleeAggroRange = 250;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 1000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
-attackFrequencyTotalFramesMelee = [20,45];
+attackFrequencyTotalFramesMelee = [15,25];
 attackFrequencyTotalFramesRanged = [60,90];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
-waryTotalFrames=[60,90];
+waryTotalFrames=[15,60];
 skittishness = 100;
-cautiousness = 50;
+cautiousness = 75;
 
 poiseCurrent = 25;
 poiseMax = 25;
@@ -43,7 +43,7 @@ poiseMax = 25;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 meleeRangeArray=[];
 
-xpReward = 80;
+xpReward = 65;
 
 // ATTACKS
 
@@ -55,17 +55,21 @@ currentMeleeAttack = noone;
 
 global.owner = id;
 var lunge = makeEnemyAttackObj(obj_attack_wolf_lunge_1_1);
+var bite1 = makeEnemyAttackObj(obj_attack_wolf_bite_1_1);
+var bite2 = makeEnemyAttackObj(obj_attack_wolf_bite_1_2);
 
-var c_lunge = [lunge];
-meleeAttacks = [c_lunge];
+var c0 = [lunge];
+var c1 = [bite1];
+var c2 = [bite1, bite2];
+meleeAttacks = [c0, c1, c2];
 
 // ranged attacks info
 
 rangedAttacks = [];
 
 
-hp = 35;
-maxHp = 35;
+hp = 45;
+maxHp = 45;
 hpRegen = 1;
 
 stamina = 60;
@@ -74,9 +78,6 @@ staminaRegen = 10;
 
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
-
-// stagger stuff
-poise = 80;
 
 ds_map_replace(defenses, FIRE, -100);
 ds_map_replace(defenses, ICE, 75);

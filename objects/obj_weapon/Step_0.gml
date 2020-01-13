@@ -122,7 +122,10 @@ if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && 
 	part_emitter_region(torchSystem1,torchEmitter1,xx-1,xx+1,yy-1,yy+1,ps_shape_diamond,ps_distr_gaussian);
 	part_emitter_burst(torchSystem1,torchEmitter1,smoke,-3);
 	part_emitter_burst(torchSystem1,torchEmitter1,fire,6);
-	audio_emitter_position(torchAudioEmitter,xx,yy,owner.depth-1);
+	// audio_emitter_position(torchAudioEmitter,xx,yy,owner.depth-1);
+	
+	audio_emitter_position(torchAudioEmitter,owner.x,owner.y,owner.depth-1);
+	
 	// set the torch light radius position
 	with torchLightRadius {
 		

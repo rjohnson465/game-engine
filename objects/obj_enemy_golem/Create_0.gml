@@ -56,17 +56,25 @@ currentMeleeAttack = noone;
 
 global.owner = id;
 var slam = makeEnemyAttackObj(obj_attack_golem_slam_1_1);
+var swing1 = makeEnemyAttackObj(obj_attack_golem_swing_1_1);
+var swing2 = makeEnemyAttackObj(obj_attack_golem_swing_1_2);
+var ball = makeEnemyAttackObj(obj_attack_golem_ball_1_1);
 
-var c_slam = [slam];
-meleeAttacks = [c_slam];
+var c0 = [slam];
+var c1 = [swing1];
+var c2 = [swing1, swing2];
+var c3 = [ball];
+var c4 = [swing1, slam];
+var c5 = [swing1, swing2, slam];
+meleeAttacks = [c0, c1, c2, c3, c4, c5, c2];
 
 // ranged attacks info
 
 rangedAttacks = [];
 
 
-hp = 100;
-maxHp = 100;
+hp = 175;
+maxHp = 175;
 hpRegen = 1;
 
 stamina = 60;

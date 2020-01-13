@@ -61,7 +61,13 @@ if item.type == ItemTypes.Ring {
 					}
 					case WeaponProperties.ElementalDamageBonus: {
 						// each point of elemental damamge is worth 311 gold
-						value += 311*buff;
+						var minDamageBuff = round((buff/6));
+						var maxDamageBuff = round(minDamageBuff*1.5);
+						if maxDamageBuff == 0 maxDamageBuff = 1;
+						
+						var totalElementalPointsAdded = minDamageBuff + maxDamageBuff;
+						
+						value += 311*totalElementalPointsAdded;
 						break;
 					}
 					case WeaponProperties.PhysicalDamageBonus: {

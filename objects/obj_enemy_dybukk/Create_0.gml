@@ -14,7 +14,7 @@ turnSpeed = 10;
 normalTurnSpeed = turnSpeed;
 
 
-dyingParticleColor1 = c_aqua;
+dyingParticleColor1 = make_color_rgb(33,180,154);
 dyingParticleColor2 = c_silver;
 
 canJump = true;
@@ -52,17 +52,16 @@ xpReward = 125;
 currentMeleeAttack = noone;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 // ATTACKS
-
-
 global.owner = id;
 var slash1 = makeEnemyAttackObj(obj_attack_dybukk_slash_1_1);
+var headthrow = makeEnemyAttackObj(obj_attack_dybukk_headthrow_1_1);
 
-var c_slash1 = [slash1];
-meleeAttacks = [c_slash1];
+var c0 = [slash1];
+var c1 = [headthrow];
+meleeAttacks = [c0, c1];
 
 // ranged attacks info
-
-rangedAttacks = [];
+rangedAttacks = [c1];
 
 
 hp = 75;
@@ -92,3 +91,20 @@ soundsWhenHitVocals = [snd_enemy_dybukk_scream_2, snd_enemy_dybukk_scream_3];
 soundsWhenDie = [snd_enemy_dybukk_die_1, snd_enemy_dybukk_die_2];
 
 chanceToDropHealthOrb = .15;
+
+// constant emitter / ps for "spore" trails
+sporeSystem = part_system_create();
+sporeEmitter = part_emitter_create(sporeSystem);
+// smoke
+var smoke = part_type_create();
+part_type_shape(smoke, pt_shape_smoke);
+part_type_color2(smoke,make_color_rgb(33,180,154),c_silver);
+part_type_orientation(smoke,0,0,0,15,1);
+part_type_alpha3(smoke, .5, .25, .1);
+part_type_size(smoke,0.2,0.5,0,0);
+part_type_speed(smoke,.5,2,0,0);
+part_type_direction(smoke,0,360,0,4);
+part_type_life(smoke,45,60);
+sporeParticle = smoke;
+
+part_system_depth(sporeSystem, layer_get_depth(layer)+1);

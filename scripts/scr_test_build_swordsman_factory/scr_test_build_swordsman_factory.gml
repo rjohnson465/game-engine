@@ -28,6 +28,20 @@ addItemToInventory(key);
 
 
 // Build inventory / Equipment
+
+// health flask 
+var hf = instance_create_depth(x, y, 1, obj_item_health_flask);
+addItemToInventory(hf);
+equipItem(hf, EquipmentSlots.BeltItem1);
+// 4 charges
+with hf {
+	var currentMaxCharges = ds_map_find_value(customItemProperties, hfs_max_charges);
+	ds_map_replace(customItemProperties, hfs_max_charges, currentMaxCharges + 1);
+	updateHealthFlaskDescription();
+}
+fillHealthFlask();
+
+
 var ls = instance_create_depth(x, y, depth, obj_hand_item_longsword);
 ls.numberOfSockets = 2;
 insertGemIntoItem(makeGem(obj_gem_lapis, CRACKED), ls);

@@ -4,7 +4,7 @@ numFloors = global.elevatorSelectNumFloors;
 
 startFloor = global.elevatorStartFloor;
 
-selectedFloor = 1;
+selectedFloor = getLayerFloorNumber(global.player.layer);
 
 joystickInputFrame = 0;
 joystickInputTotalFrames = 30;

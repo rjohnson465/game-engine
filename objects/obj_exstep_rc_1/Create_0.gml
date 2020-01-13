@@ -6,6 +6,6 @@ event_inherited();
 
 messageController = "Glowing sparkles on the ground are items. Go interact with them to loot the items.";
 messageMk = "Glowing sparkles on the ground are items. Go interact with them to loot the items.";
-promptSpritesController = [];
-promptSpritesMk = [];
+promptSpritesController = [spr_prompt_xbox_a];
+promptSpritesMk = [spr_prompt_mk_f];
 

@@ -30,7 +30,7 @@ if isSpell && hasSetAlarm {
 audio_emitter_position(soundEmitter,x,y,depth);
 
 if isRanged && life <= 0 && !hasSetAlarm {
-	alarm[0] = 1;
+	alarm[0] = 60;
 }
 
 if !hasSetAlarm && part_type_exists(particle) {

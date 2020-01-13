@@ -2,6 +2,15 @@ if room == game_menu exit;
 draw_set_alpha(1);
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);
+
+// lock on target
+if instance_exists(global.player.lockOnTarget) {
+	if (global.player.isLockedOn && global.player.lockOnTarget != noone) {
+		var rot = (alarm[0]/60)*360;
+		draw_sprite_ext(spr_lockon,1,global.player.lockOnTarget.x-vx, global.player.lockOnTarget.y-vy,1,1,rot,c_white,1);
+	}
+} else global.player.lockOnTarget = noone;
+
 var pad = global.player.gamePadIndex;
 var p = global.player;
 

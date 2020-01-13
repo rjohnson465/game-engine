@@ -27,3 +27,9 @@ if is_array(beamHitParticlesArr) && array_length_1d(beamHitParticlesArr) > 0 {
 		}
 	}
 }
+
+/*
+// handle this in linger zone object, when it dies
+if ds_exists(lingerZoneDamages, ds_type_map) {
+	ds_map_destroy(lingerZoneDamages); lingerZoneDamages = -1;
+}

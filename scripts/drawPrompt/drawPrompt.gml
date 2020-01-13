@@ -201,7 +201,7 @@ if isDrawingAtInstanceCoordinates && y - (.5 * promptHeight) <= 0 {
 
 // if this prompt would overflow the bottom edge of the room, move it up so it displays ok
 if isDrawingAtInstanceCoordinates && y + (.5 * promptHeight) > room_height {
-	yy = room_height - promptHeight - 10 - vy;
+	yy = room_height - promptHeight - 20 - vy;
 }
 
 draw_set_alpha(.5);

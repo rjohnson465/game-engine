@@ -6,9 +6,12 @@ if in > 0 exit;
 scr_test_build_swordsman_factory();
 questStart(obj_quest_llf);
 
+addItemToInventory(instance_create_depth(x,y, 1, obj_hand_item_wand));
 
-layerToMoveTo = "instances_floor_3";
+
 /*
+layerToMoveTo = "instances_floor_3";
+
 level = 4;
 xpToNextLevel = getXpToNextLevel();
 

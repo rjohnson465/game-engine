@@ -160,7 +160,7 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 				// play wall hit sound, dependent on type of material wall is
 				var snd = global.damageType == "Dust" ? snd_shield_hit_wood : snd_wallhit;
 					if firstObj.material == ICE_MAT {
-					snd = snd_iu_icecrack;
+					snd = snd_hit_ice_1;
 				}
 				audio_play_sound_at(snd,__x,__y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 			}
@@ -187,7 +187,7 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 			facingDirection = direction;
 			var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
 			if firstObj.material == ICE_MAT {
-				snd = snd_iu_icecrack;
+				snd = snd_hit_ice_1;
 			}
 			
 			// only play bounce sound once every 7 frames, at maximum
@@ -211,14 +211,14 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 			global.hitParticlesLayer = layer; 
 			global.victim = firstObj;
 			instance_create_depth(0,0,1,obj_hit_particles);
-			alarm[0] = 25;
+			alarm[0] = 60;
 			visible = 0;
 			speed = 0;
 			hasSetAlarm = true;
 			if !isSpell {
 				var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
 				if firstObj.material == ICE_MAT {
-					snd = snd_iu_icecrack;
+					snd = snd_hit_ice_1;
 				}
 				audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 			} else {
@@ -245,7 +245,7 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		global.hitParticlesLayer = layer;
 		instance_create_depth(0,0,1,obj_hit_particles);
 		//instance_destroy(id,true);
-		alarm[0] = 15;
+		alarm[0] = 60;
 		visible = 0;
 		speed = 0;
 		x = global.x1;

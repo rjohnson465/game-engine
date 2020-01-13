@@ -128,6 +128,56 @@
                 579,
                 580
             ]
+        },
+        {
+            "id": "db98b848-513b-4b06-9246-2af3052c96c5",
+            "modelName": "GMAutoTileSet",
+            "mvc": "1.0",
+            "closed_edge": false,
+            "name": "snow_on_clay",
+            "tiles": [
+                510,
+                484,
+                486,
+                435,
+                534,
+                507,
+                437,
+                434,
+                536,
+                438,
+                513,
+                436,
+                585,
+                584,
+                586,
+                562
+            ]
+        },
+        {
+            "id": "9d5303cd-0c83-4d59-afc3-981d49115fc8",
+            "modelName": "GMAutoTileSet",
+            "mvc": "1.0",
+            "closed_edge": false,
+            "name": "snow_on_darkice",
+            "tiles": [
+                517,
+                491,
+                493,
+                442,
+                541,
+                514,
+                444,
+                441,
+                543,
+                445,
+                520,
+                443,
+                592,
+                591,
+                593,
+                594
+            ]
         }
     ],
     "macroPageTiles": {

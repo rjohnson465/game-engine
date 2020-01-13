@@ -1,0 +1,1 @@
+associatedWallKeys = ["magicWall1", "magicWall2", "magicWall3", "magicWall4"];

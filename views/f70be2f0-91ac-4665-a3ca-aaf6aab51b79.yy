@@ -9,7 +9,8 @@
         "60815d42-11e1-48a4-a459-400eb6595b7a",
         "be2efbc9-c666-446f-afce-7a0bb0bc8675",
         "28f30f7c-7470-4659-9608-015edc3d66a4",
-        "d7c026fc-1bf2-471f-9484-62f6ac0c4ef5"
+        "d7c026fc-1bf2-471f-9484-62f6ac0c4ef5",
+        "d6abab9f-d559-419d-af66-d7202b4e724d"
     ],
     "filterType": "GMSound",
     "folderName": "golem",

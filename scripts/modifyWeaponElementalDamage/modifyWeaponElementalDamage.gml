@@ -17,5 +17,7 @@ currentElementalDamage[1] += maxDamageBuff;
 
 ds_map_replace(weapon.damages, element, currentElementalDamage);
 // adjustedBuff holds how many points of elemental damage were added
-ds_map_replace(weapon.itemPropertyModifiers, WeaponProperties.ElementalDamageBonus, [element, (minDamageBuff+maxDamageBuff)]);
+
+// ds_map_replace(weapon.itemPropertyModifiers, WeaponProperties.ElementalDamageBonus, [element, (minDamageBuff+maxDamageBuff)]);
+ds_map_replace(weapon.itemPropertyModifiers, WeaponProperties.ElementalDamageBonus, [element, buff]);
 ds_map_replace(weapon.itemPropertyModifiersPts, WeaponProperties.ElementalDamageBonus, [element, buff]);

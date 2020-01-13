@@ -1,4 +1,6 @@
-var rmap = ds_map_create();
+xpTemp += 500;
+
+/*var rmap = ds_map_create();
 ds_map_replace(rmap,ItemRarities.Normal,0);
 ds_map_replace(rmap,ItemRarities.Fine,0);
 ds_map_replace(rmap,ItemRarities.Masterwork,0);
@@ -6,7 +8,7 @@ ds_map_replace(rmap,ItemRarities.Legendary,5);
 
 var item1 = maybeMakeItem(100,rmap); //randomly generated item
 addItemToInventory(item1);
-/*var rmap = ds_map_create();
+var rmap = ds_map_create();
 ds_map_replace(rmap,ItemRarities.Normal,0);
 ds_map_replace(rmap,ItemRarities.Fine,0);
 ds_map_replace(rmap,ItemRarities.Masterwork,5);
@@ -37,11 +39,6 @@ for (var i = 0; i < array_length_1d(global.ALL_DAMAGE_TYPES); i++) {
 /*
 var key = makeKey("Great-Lodge F2 Key", "key", spr_item_key, "Opens the door to the Fairy's Great-Lodge, Level 2. We really should have more than one copy of this thing.");
 addItemToInventory(key);
-
-
-
-//xpTemp += 500;
-
 /*
 
 var ring = instance_create_depth(x,y,1,obj_item_ring);
