@@ -10,8 +10,16 @@
         "2434db9e-2f24-4700-b046-06bde929d23e",
         "a5c067cc-a484-4ce1-97d0-0594ded85fdf",
         "5cf1e18f-476a-49a9-ba51-79925d70a92d",
+        "e9181cc4-0809-43a0-bf54-27c46cd340e9",
         "f3e028bd-2409-47e8-b535-66d62f187896",
-        "e9181cc4-0809-43a0-bf54-27c46cd340e9"
+        "cfd6cca1-27cd-41a7-af96-6a608b7c10a3",
+        "825877df-d185-427e-b5a5-8eeec3750c09",
+        "7c0ebd38-dfbf-43da-a3dc-0176d2011ee2",
+        "784ef398-f3e5-4c0c-9254-221bb3b9ce69",
+        "2453a8a4-102d-4732-be50-b2ae3c2c26b2",
+        "c45ddd6e-cae4-4a35-8b5e-998e2153e15b",
+        "2cd88074-31a1-4ce5-aa54-60e10b03078e",
+        "42c42f99-cb0a-4186-b3e2-f35759ba36f2"
     ],
     "filterType": "GMSprite",
     "folderName": "icetroll",

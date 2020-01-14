@@ -54,11 +54,13 @@ currentMeleeAttack = noone;
 // ATTACKS
 global.owner = id;
 var slash1 = makeEnemyAttackObj(obj_attack_dybukk_slash_1_1);
+var slash2 = makeEnemyAttackObj(obj_attack_dybukk_slash_1_2);
 var headthrow = makeEnemyAttackObj(obj_attack_dybukk_headthrow_1_1);
 
 var c0 = [slash1];
 var c1 = [headthrow];
-meleeAttacks = [c0, c1];
+var c2 = [slash1, slash2];
+meleeAttacks = [c2];
 
 // ranged attacks info
 rangedAttacks = [c1];

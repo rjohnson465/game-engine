@@ -80,6 +80,12 @@ prepPartStartFrame = noone;
 // if there is a sound that should play mid attack, specify the sound and the frame here
 attackSoundMid = noone;
 attackSoundMidFrame = noone;
+// any particles that should be made during the attack (like smoke from slamming hammer against ground)
+attackPart = noone;
+attackPartBoundingBox = noone;
+attackPartStartFrame = noone;
+attackPartEndFrame = noone;
+attackPartNum = 4;
 
 usesWeapon = false;
 

@@ -56,9 +56,13 @@ currentMeleeAttack = noone;
 
 global.owner = id;
 var club1 = makeEnemyAttackObj(obj_attack_icetroll_club_1_1);
+var slam1 = makeEnemyAttackObj(obj_attack_icetroll_slam_1_1);
+var slam2 = makeEnemyAttackObj(obj_attack_icetroll_slam_1_2);
 
 var c0 = [club1];
-meleeAttacks = [c0];
+var c1 = [slam1];
+var c2 = [slam1, slam2];
+meleeAttacks = [c2];
 
 // ranged attacks info
 

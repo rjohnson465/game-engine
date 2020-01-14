@@ -66,11 +66,26 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 					
 		hasCalculatedNextAttack = false;
 	} else {
+		
+		var currentAttack = currentMeleeAttack != noone ? currentMeleeAttack : currentRangedAttack;
+		var attacksChainArray = currentMeleeAttack != noone ? meleeAttacks : rangedAttacks;
+		var attackChainArray = attacksChainArray[currentAttack];
+		var attackInChain = ds_map_find_value(preparingLimbs,currentPreparingLimbKey);
+		if attackInChain != undefined {
+			attackData = attackChainArray[attackInChain-1];
+			var spriteAttackNumber = attackData.spriteAttackNumber;
+			var spriteAttackNumberInChain = attackData.spriteAttackNumberInChain;
+		
+			var prepSprite = asset_get_index(attackData.spriteName+"_prep_"+string(spriteAttackNumber)+"_"+string(spriteAttackNumberInChain));
+			var prepSpriteSpeed = sprite_get_speed(prepSprite);
+			var incAmount = prepSpriteSpeed/room_speed;
+		} else exit;
+		
 		// increment through frames for attack prep
 		if isSlowed {
-			ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+.5);
+			ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame + incAmount*.5);
 		} else {
-			ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+1);
+			ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+incAmount);
 		}
 		// if not in proper range, try to get there before attack begins
 		if attackData.type == AttackTypes.Charge {

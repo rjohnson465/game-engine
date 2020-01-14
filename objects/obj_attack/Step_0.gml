@@ -55,3 +55,32 @@ if !hasSetAlarm && part_type_exists(particle) {
 		}
 	}
 }
+
+// maybe make some attack particles (if attackData has attackPart)
+if attackData != noone && part_type_exists(attackData.attackPart) && attackData.attackPartStartFrame > 0 && attackData.attackPartEndFrame > 0 {
+	
+	if image_index >= attackData.attackPartStartFrame && image_index <= attackData.attackPartEndFrame {
+		var bbl = owner.bbox_left; var bbr = owner.bbox_right;
+		var bbt = owner.bbox_top; var bbb = owner.bbox_bottom;
+	
+		// TODO maybe define a more specific burst region
+		if (attackData.attackPartBoundingBox != noone) {
+		
+			// offsets
+			var offsets = attackData.attackPartBoundingBox;
+			var xo1 = offsets[0]; var yo1 = offsets[1];
+			var xo2 = offsets[2]; var yo2 = offsets[3];
+
+			var newTopLeft = rotateAndTranslatePoint(owner.x, owner.y, xo1, yo1, owner.facingDirection);
+			var newBottomRight = rotateAndTranslatePoint(owner.x, owner.y, xo2, yo2, owner.facingDirection);
+	
+			bbl = newTopLeft[0]; var bbt = newTopLeft[1];
+			bbr = newBottomRight[0]; var bbb = newBottomRight[1]; 
+		
+		}
+	
+		part_emitter_region(system,emitter,bbl, bbr, bbt, bbb, ps_shape_ellipse, ps_distr_gaussian);
+		part_emitter_burst(system,emitter,attackData.attackPart, attackData.attackPartNum);
+	}
+	
+}

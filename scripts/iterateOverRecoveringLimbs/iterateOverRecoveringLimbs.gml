@@ -65,7 +65,6 @@ if ds_map_size(recoveringLimbs) != 0 {
 				ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+(.5*incAmount));
 			} else {
 				// increment frames according to sprite image speed
-				
 				ds_map_replace(recoverFrames,currentRecoveringLimbKey,recoverFrame+incAmount);
 			}
 		}

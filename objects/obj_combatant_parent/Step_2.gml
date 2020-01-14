@@ -80,22 +80,7 @@ if	type != CombatantTypes.Player && attackData != noone && attackData.prepPart1 
 		var offsets = attackData.prepPartBoundingBox;
 		var xo1 = offsets[0]; var yo1 = offsets[1];
 		var xo2 = offsets[2]; var yo2 = offsets[3];
-		/*var ofd = facingDirection;
-		
-		
-		var radians = (pi/180) * ofd;
-		var cx = x; var cy = y;
-		var cs = cos(radians);
-		var sn = sin(radians);
 
-		
-		var sx1 = x + xo1; var sy1 = y + yo1;
-		var nx1 = (cs * (sx1 - cx)) + (sn * (sy1 - cy)) + cx;
-		var ny1 = (cs * (sy1 - cy)) - (sn * (sx1 - cx)) + cy;
-		
-		var sx2 = x + xo2; var sy2 = y + yo2;
-		var nx2 = (cs * (sx2 - cx)) + (sn * (sy2 - cy)) + cx;
-		var ny2 = (cs * (sy2 - cy)) - (sn * (sx2 - cx)) + cy;*/
 		var newTopLeft = rotateAndTranslatePoint(x, y, xo1, yo1, facingDirection);
 		var newBottomRight = rotateAndTranslatePoint(x, y, xo2, yo2, facingDirection);
 	

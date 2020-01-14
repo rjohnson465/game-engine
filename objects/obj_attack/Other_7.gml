@@ -9,7 +9,7 @@ if ds_exists(combatantsHit, ds_type_list) {
 }
 
 
-if isMelee {	
+if isMelee && !hasSetAlarm {	
 	
 	if owner.fallFrame != 0 {
 		// set recoveringLimbs at limbKey to the attackNumberInChain that is recovering
@@ -53,5 +53,12 @@ if isMelee {
 		
 		owner.prevAttackHand = limbKey;
 	}
-	instance_destroy(id, true);
+	
+	// destroy (with delay, for particles)
+	if !hasSetAlarm {
+		alarm[0] = 30;
+		hasSetAlarm = true;
+		sprite_index = -1;
+	}
+	// instance_destroy(id, true);
 }

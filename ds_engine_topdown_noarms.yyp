@@ -191,6 +191,14 @@
             }
         },
         {
+            "Key": "01a34fe2-7574-4f94-8c28-a40484185270",
+            "Value": {
+                "id": "0ce6baf8-25a2-4877-9b61-6694b7a1ac10",
+                "resourcePath": "objects\\obj_attack_dybukk_slash_1_2\\obj_attack_dybukk_slash_1_2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "01a586ae-1990-4a09-aa7b-413bc1526884",
             "Value": {
                 "id": "40bd8579-4c11-40b4-a0e2-d041407f1b25",
@@ -803,6 +811,14 @@
             "Value": {
                 "id": "92f886ca-03dd-4568-a6ee-aace3f4ef4c7",
                 "resourcePath": "sprites\\spr_enemy_lighteater_claw_attack_1_2_mask\\spr_enemy_lighteater_claw_attack_1_2_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "079f9ac0-5294-4512-821d-c35f50a5afb0",
+            "Value": {
+                "id": "b16196e0-36a0-440d-89b5-410f0894f0b5",
+                "resourcePath": "sprites\\spr_enemy_dybukk_slash_prep_1_2\\spr_enemy_dybukk_slash_prep_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3935,6 +3951,14 @@
             }
         },
         {
+            "Key": "2453a8a4-102d-4732-be50-b2ae3c2c26b2",
+            "Value": {
+                "id": "d02aa863-63e1-40a9-9ba8-1ce307689766",
+                "resourcePath": "sprites\\spr_enemy_icetroll_slam_prep_1_2\\spr_enemy_icetroll_slam_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "245b492d-36bb-416c-adbd-5c85cbf2fa70",
             "Value": {
                 "id": "be117479-92e6-4136-b698-737d2adee296",
@@ -4132,6 +4156,14 @@
                 "id": "2136c2a6-1ed1-4ab3-b6df-6cdb29790b32",
                 "resourcePath": "views\\26280f33-3839-4fee-90dd-8035a26fc067.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "264effa7-84c9-4b03-b89d-78390498b643",
+            "Value": {
+                "id": "35b70068-86bc-4534-92d0-7fbbcc2b3689",
+                "resourcePath": "objects\\obj_attack_icetroll_slam_1_1\\obj_attack_icetroll_slam_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -4851,6 +4883,14 @@
             "Value": {
                 "id": "14681e2d-0d88-46d4-8a3a-2a96f3c64471",
                 "resourcePath": "sprites\\spr_player_dagger_attack_2\\spr_player_dagger_attack_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2cd88074-31a1-4ce5-aa54-60e10b03078e",
+            "Value": {
+                "id": "230a7448-61a7-4a18-bf21-8b91f7f592d0",
+                "resourcePath": "sprites\\spr_enemy_icetroll_slam_attack_1_2_mask\\spr_enemy_icetroll_slam_attack_1_2_mask.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6303,14 +6343,6 @@
             }
         },
         {
-            "Key": "3b293ca3-4db0-4370-aa62-9d2079e75dc1",
-            "Value": {
-                "id": "130fb40a-96ee-4b49-b901-ca5e3a6affe0",
-                "resourcePath": "sprites\\spr_enemy_dybukk_slash_attack_1_1_mask\\spr_enemy_dybukk_slash_attack_1_1_mask.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "3b2c9131-4e41-45d6-b120-9ea92c435118",
             "Value": {
                 "id": "d7bd5055-4524-4a15-bfdf-e1cced1a185d",
@@ -6323,6 +6355,14 @@
             "Value": {
                 "id": "7166f82c-10ac-4d9d-a856-df083fa24247",
                 "resourcePath": "sprites\\spr_player_hand_axe_2h_recover_2\\spr_player_hand_axe_2h_recover_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3b758102-28ea-429e-931f-831c2b598e67",
+            "Value": {
+                "id": "d41bc31c-f1ab-422e-859b-979295abdcc9",
+                "resourcePath": "sprites\\spr_enemy_dybukk_slash_attack_1_1\\spr_enemy_dybukk_slash_attack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -7027,6 +7067,14 @@
             "Value": {
                 "id": "e114d998-8988-4c54-b0ef-a6e6a5af4822",
                 "resourcePath": "sprites\\spr_enemy_icecursedfairy_tknife_attack_1_1\\spr_enemy_icecursedfairy_tknife_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "42c42f99-cb0a-4186-b3e2-f35759ba36f2",
+            "Value": {
+                "id": "5413d737-3ba9-4b24-bcc6-e056506a722b",
+                "resourcePath": "sprites\\spr_enemy_icetroll_slam_recover_1_2\\spr_enemy_icetroll_slam_recover_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -8583,6 +8631,14 @@
             }
         },
         {
+            "Key": "50bfdf89-7948-44be-a25f-8df1e9b83016",
+            "Value": {
+                "id": "2c83c1d4-9e27-46a8-84d9-c5a133220fde",
+                "resourcePath": "sprites\\spr_enemy_dybukk_slash_attack_1_2_mask\\spr_enemy_dybukk_slash_attack_1_2_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "50ddee19-c4cf-40e1-9458-e5079c7e53c4",
             "Value": {
                 "id": "7d64f71a-a3e8-4e75-8ad6-90d7b659440e",
@@ -9963,6 +10019,14 @@
             "Value": {
                 "id": "321b5f1b-5ac2-4c85-a317-8f205c084e02",
                 "resourcePath": "sprites\\spr_enemy_krampuself_dodge\\spr_enemy_krampuself_dodge.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5f5dd3ad-f57f-4a7f-908d-a62e767ebab9",
+            "Value": {
+                "id": "2d79070e-0565-46a8-8b44-35c00394ce3d",
+                "resourcePath": "sprites\\spr_enemy_dybukk_slash_prep_1_1\\spr_enemy_dybukk_slash_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -12415,6 +12479,14 @@
             }
         },
         {
+            "Key": "784ef398-f3e5-4c0c-9254-221bb3b9ce69",
+            "Value": {
+                "id": "3da77748-77a5-4a4c-a6b2-b64b820f2e51",
+                "resourcePath": "sprites\\spr_enemy_icetroll_slam_recover_1_1\\spr_enemy_icetroll_slam_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "785fc40b-3346-4115-84e6-87460872ab84",
             "Value": {
                 "id": "f2602a87-0b03-474f-b560-f6f8ea5735ce",
@@ -12892,6 +12964,14 @@
                 "id": "7e3f9eda-db44-45cb-a3b0-84c4ac79e890",
                 "resourcePath": "objects\\obj_stairs\\obj_stairs.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "7c0ebd38-dfbf-43da-a3dc-0176d2011ee2",
+            "Value": {
+                "id": "5f755b3f-4dcc-499e-b52f-e939a940638d",
+                "resourcePath": "sprites\\spr_enemy_icetroll_slam_attack_1_1_mask\\spr_enemy_icetroll_slam_attack_1_1_mask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -13476,6 +13556,14 @@
                 "id": "561b8d4d-e26b-40d3-905e-1197bef4fbec",
                 "resourcePath": "views\\824df558-ff22-4c1c-aa28-cdbc6d6f72c0.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "825877df-d185-427e-b5a5-8eeec3750c09",
+            "Value": {
+                "id": "14129e38-a175-4a97-a950-2f2a599c673c",
+                "resourcePath": "sprites\\spr_enemy_icetroll_slam_attack_1_1\\spr_enemy_icetroll_slam_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -14452,6 +14540,14 @@
                 "id": "3be1a0e6-9d0a-4033-99e0-1bd77cb80577",
                 "resourcePath": "sprites\\spr_player_hand_spear\\spr_player_hand_spear.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8c2040a5-172c-4601-9d14-496d04d651f7",
+            "Value": {
+                "id": "b65f8d81-c6d9-4133-aed5-005d6789ae0b",
+                "resourcePath": "objects\\obj_attack_icetroll_slam_1_2\\obj_attack_icetroll_slam_1_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -16291,14 +16387,6 @@
             "Value": {
                 "id": "aaec338d-d646-4e25-bfa6-e91c4620580e",
                 "resourcePath": "sprites\\spr_item_gempieces_emerald_shards\\spr_item_gempieces_emerald_shards.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "9df0ceda-bead-43b2-a989-c2e83c298ba0",
-            "Value": {
-                "id": "4881c5bc-8344-48a1-a9c6-c662669dbcdb",
-                "resourcePath": "sprites\\spr_enemy_dybukk_slash_attack_1_1\\spr_enemy_dybukk_slash_attack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -18919,6 +19007,14 @@
             }
         },
         {
+            "Key": "b59e0015-4c94-4f65-ac6f-51af8d216c4b",
+            "Value": {
+                "id": "f9ee7b76-1f1a-41f7-bb3e-9dcf886da1e3",
+                "resourcePath": "sprites\\spr_enemy_dybukk_slash_attack_1_1_mask\\spr_enemy_dybukk_slash_attack_1_1_mask.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b5a5a056-d1a8-4648-8b45-ed5ee4da9ba2",
             "Value": {
                 "id": "160e0d6e-5f12-4b80-a169-baf409fcd8f3",
@@ -19487,6 +19583,14 @@
             }
         },
         {
+            "Key": "baaea705-9cf3-496f-918d-38e63564a0be",
+            "Value": {
+                "id": "48a550a7-1446-40b1-8cea-7b36c487d29a",
+                "resourcePath": "sprites\\spr_enemy_dybukk_slash_attack_1_2\\spr_enemy_dybukk_slash_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "babcebaf-bd90-44c5-81b0-6240c6eedb38",
             "Value": {
                 "id": "063d7011-c445-4c65-8c15-60b683edaee6",
@@ -19659,6 +19763,14 @@
             "Value": {
                 "id": "4e0413b8-9667-4b1c-a4ca-02f7db25b2bd",
                 "resourcePath": "sprites\\spr_ww_icecrystals_start\\spr_ww_icecrystals_start.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bcc91e30-c989-4fdd-889d-a85ff94d1dc6",
+            "Value": {
+                "id": "d88d4f44-6e5d-45e5-8e5e-36511f75cf68",
+                "resourcePath": "sprites\\spr_enemy_dybukk_slash_recover_1_2\\spr_enemy_dybukk_slash_recover_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -20444,6 +20556,14 @@
                 "id": "2da0fc10-af6b-4b75-9773-ac19b30ad0aa",
                 "resourcePath": "objects\\obj_item_wire_r\\obj_item_wire_r.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c45ddd6e-cae4-4a35-8b5e-998e2153e15b",
+            "Value": {
+                "id": "ce8a82c1-c3af-4b68-abaa-c4060d05236c",
+                "resourcePath": "sprites\\spr_enemy_icetroll_slam_attack_1_2\\spr_enemy_icetroll_slam_attack_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -21623,6 +21743,14 @@
             }
         },
         {
+            "Key": "cfd6cca1-27cd-41a7-af96-6a608b7c10a3",
+            "Value": {
+                "id": "55efbfd6-3201-4695-9b36-3ff3b57ecb4b",
+                "resourcePath": "sprites\\spr_enemy_icetroll_slam_prep_1_1\\spr_enemy_icetroll_slam_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d008d3b4-f61b-4df6-9d12-c24ec5cc32d4",
             "Value": {
                 "id": "1388447f-a136-490e-893a-ef90e6d3163f",
@@ -21835,14 +21963,6 @@
             "Value": {
                 "id": "8ca01e90-1a41-486a-b9f2-ebc530401473",
                 "resourcePath": "sprites\\spr_enemy_bug_melee_prep_1_1\\spr_enemy_bug_melee_prep_1_1.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "d1e7e071-dbfa-4242-8f01-788bed42db21",
-            "Value": {
-                "id": "15edfa54-708c-4346-860a-a93ff6b8009a",
-                "resourcePath": "sprites\\spr_enemy_dybukk_slash_prep_1_1\\spr_enemy_dybukk_slash_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },

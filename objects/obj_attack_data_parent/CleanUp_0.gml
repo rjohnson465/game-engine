@@ -18,6 +18,10 @@ if part_type_exists(prepPart1) {
 	part_type_destroy(prepPart1); prepPart1 = -1;
 }
 
+if part_type_exists(attackPart) {
+	part_type_destroy(attackPart); attackPart = -1;
+}
+
 if is_array(beamHitParticlesArr) && array_length_1d(beamHitParticlesArr) > 0 {
 	for (var i = 0; i < array_length_1d(beamHitParticlesArr); i ++) {
 		var partArr = beamHitParticlesArr[i];
