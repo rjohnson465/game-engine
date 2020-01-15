@@ -2,7 +2,7 @@
     "id": "2434db9e-2f24-4700-b046-06bde929d23e",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "sprite1237",
+    "name": "spr_enemy_icetroll_club",
     "For3D": false,
     "HTile": false,
     "VTile": false,

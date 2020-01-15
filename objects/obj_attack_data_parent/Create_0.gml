@@ -86,6 +86,9 @@ attackPartBoundingBox = noone;
 attackPartStartFrame = noone;
 attackPartEndFrame = noone;
 attackPartNum = 4;
+// trail particles 
+trailPart = noone;
+trailPartNum = 4;
 
 usesWeapon = false;
 

@@ -599,6 +599,14 @@
             }
         },
         {
+            "Key": "05cc2907-a5de-4b47-9d9c-51953ca71a4d",
+            "Value": {
+                "id": "3437100c-38cb-440b-a430-aecbf7c600b1",
+                "resourcePath": "sprites\\spr_enemy_icetroll_punch_attack_1_1\\spr_enemy_icetroll_punch_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "05dda6a3-36c9-4c7d-baa8-1d9e955b1eb7",
             "Value": {
                 "id": "96e39b18-26b3-4bff-958d-abfc2af68836",
@@ -636,6 +644,14 @@
                 "id": "e8e37007-dd33-4527-8e15-d390ab586356",
                 "resourcePath": "sprites\\spr_factory_controlpanel1\\spr_factory_controlpanel1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "061fc927-56fb-40dc-9dce-54e9f52d5d7e",
+            "Value": {
+                "id": "07d4ccfb-aa0c-4892-93b7-c685e324e185",
+                "resourcePath": "sounds\\snd_enemy_troll_hit_3\\snd_enemy_troll_hit_3.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -724,6 +740,14 @@
                 "id": "ff5218c9-5c24-4464-bef4-77dffbc59f6e",
                 "resourcePath": "scripts\\moveToNearestFreePoint\\moveToNearestFreePoint.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "06ffb77b-0cb5-4a16-9893-8845015a9dfd",
+            "Value": {
+                "id": "743d7da5-da64-4aa5-a358-e49b6793f3fa",
+                "resourcePath": "sounds\\snd_enemy_dybukk_squelch\\snd_enemy_dybukk_squelch.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -3938,7 +3962,7 @@
             "Key": "2434db9e-2f24-4700-b046-06bde929d23e",
             "Value": {
                 "id": "02bdc25c-0bc4-482e-9614-6fe6b4721500",
-                "resourcePath": "sprites\\sprite1237\\sprite1237.yy",
+                "resourcePath": "sprites\\spr_enemy_icetroll_club\\spr_enemy_icetroll_club.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4719,6 +4743,14 @@
             }
         },
         {
+            "Key": "2b526f50-e943-4700-a5a0-8d4306af06e1",
+            "Value": {
+                "id": "fe877aa9-0ee1-41c4-866f-d14b1c1455a7",
+                "resourcePath": "sounds\\snd_scrape_1\\snd_scrape_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "2ba44dcb-cae6-47bb-b07c-06041b74bd53",
             "Value": {
                 "id": "913968f5-f41c-4233-b861-92c73e726d04",
@@ -5428,6 +5460,14 @@
                 "id": "9cfdfc05-4ffb-4e22-ab68-26e9e19aa7c3",
                 "resourcePath": "views\\331d65df-6a08-46c5-8737-618f64d4163d.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "332f1f3b-26d9-4a00-9eb1-0072b4b03e8a",
+            "Value": {
+                "id": "8a66a850-68a5-4747-8126-4129a8704c0d",
+                "resourcePath": "sounds\\snd_scrape_2\\snd_scrape_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -6663,6 +6703,14 @@
             }
         },
         {
+            "Key": "3e04ee15-1f15-4d2f-9654-b835e89109a8",
+            "Value": {
+                "id": "fd666446-96c4-47f3-93dc-e0dab3bf4d41",
+                "resourcePath": "sprites\\spr_enemy_icetroll_drag_recover_1_1\\spr_enemy_icetroll_drag_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3e085c1a-547f-467a-a788-223b7a6d4dd7",
             "Value": {
                 "id": "53b879d1-4738-4cd2-9815-872d29d9c45a",
@@ -7028,6 +7076,14 @@
                 "id": "bb46404d-2550-44b3-9c77-724b41aeae4e",
                 "resourcePath": "sprites\\spr_item_woodshield1\\spr_item_woodshield1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "41c29e61-e009-4973-8577-3ce383bb70cf",
+            "Value": {
+                "id": "7cd34208-71aa-47d4-a7d9-a13773e5c316",
+                "resourcePath": "objects\\obj_attack_icetroll_drag_1_1\\obj_attack_icetroll_drag_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -7619,6 +7675,14 @@
             "Value": {
                 "id": "18ed6c18-6bc1-4c0f-b7bc-b74fc0a1fe4c",
                 "resourcePath": "sprites\\spr_player_hand_club_2h_recover_3\\spr_player_hand_club_2h_recover_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "478fca62-817f-4888-a59b-c124676a250d",
+            "Value": {
+                "id": "b630ad2a-75cd-4dcf-88a7-1800b797dd35",
+                "resourcePath": "sprites\\spr_enemy_icetroll_punch_recover_1_1\\spr_enemy_icetroll_punch_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -8324,6 +8388,14 @@
                 "id": "2cb4f0f6-29c1-4e92-a0c0-4309f6438ce0",
                 "resourcePath": "sounds\\snd_conv_terri_lighteaterlarvae_terri_3\\snd_conv_terri_lighteaterlarvae_terri_3.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "4e0998e9-30e9-499b-8424-63c79914e330",
+            "Value": {
+                "id": "c46e3078-07b6-45a4-b194-573a2d5ded1d",
+                "resourcePath": "sprites\\spr_enemy_icetroll_punch_prep_1_1\\spr_enemy_icetroll_punch_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -9563,6 +9635,14 @@
             "Value": {
                 "id": "d418c92a-302e-4fab-b8ac-5c87ab9c3999",
                 "resourcePath": "sprites\\spr_enemy_krampusmage_wand_recover_3_1\\spr_enemy_krampusmage_wand_recover_3_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "59da758b-616e-461c-bd14-bbb149e2f393",
+            "Value": {
+                "id": "87dd6ef5-7fa7-4287-ba27-c8b99dda4e90",
+                "resourcePath": "sprites\\spr_enemy_icetroll_punch_attack_1_1_mask\\spr_enemy_icetroll_punch_attack_1_1_mask.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -11863,6 +11943,14 @@
             }
         },
         {
+            "Key": "7219d32d-16e9-4925-b20c-4ffa5605a846",
+            "Value": {
+                "id": "bdfe6afa-aa75-492f-9fff-3a2ab62c1e39",
+                "resourcePath": "objects\\obj_attack_icetroll_punch_1_1\\obj_attack_icetroll_punch_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7236ae29-836e-42a1-9498-1d925f11ddb6",
             "Value": {
                 "id": "0091f68d-8b19-4a86-b1c6-59548e4aaf1f",
@@ -12076,6 +12164,14 @@
                 "id": "d6c1f106-c228-4da4-ae47-c709b673a522",
                 "resourcePath": "sprites\\spr_dummy_enemy_unarmed_recover_1_1\\spr_dummy_enemy_unarmed_recover_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "73f65b47-ea41-46a1-9510-03a21d320d59",
+            "Value": {
+                "id": "3085772e-d12c-4aac-9a2b-0df9d020f712",
+                "resourcePath": "sounds\\snd_enemy_troll_hit_1\\snd_enemy_troll_hit_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -12759,6 +12855,14 @@
             }
         },
         {
+            "Key": "7a2d6a3e-c2ea-4672-af6f-52926301e122",
+            "Value": {
+                "id": "6992ef6b-85ba-466f-acdb-1b132e242337",
+                "resourcePath": "sounds\\snd_enemy_troll_roar_2\\snd_enemy_troll_roar_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "7a2f5803-c273-4247-b175-b08e3f17e769",
             "Value": {
                 "id": "0d4d8473-0c62-49e1-8601-0d0bb94ab9b6",
@@ -13255,6 +13359,14 @@
             }
         },
         {
+            "Key": "7f82c85c-38ca-4596-ac06-0e5134862b07",
+            "Value": {
+                "id": "508efc2c-48cb-4c79-b933-bb0da0d4ccac",
+                "resourcePath": "objects\\obj_attack_dybukk_headthrow_melee_1_1\\obj_attack_dybukk_headthrow_melee_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7f8e0f33-fffe-4045-807e-b56b240e43b4",
             "Value": {
                 "id": "d1869ac0-3da4-4592-bfe0-8aac4e816bce",
@@ -13543,6 +13655,14 @@
             }
         },
         {
+            "Key": "81febebd-549e-4875-9c79-fce231251ca3",
+            "Value": {
+                "id": "43b1f4cf-e05b-415a-9352-1c8e9a393ae5",
+                "resourcePath": "sprites\\spr_enemy_icetroll_drag_attack_1_1_trail\\spr_enemy_icetroll_drag_attack_1_1_trail.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "82148066-0eb7-4f5e-b6b3-c9dfa9347189",
             "Value": {
                 "id": "9d5e5523-85e6-4a33-b917-246e28abe811",
@@ -13692,6 +13812,14 @@
                 "id": "cf256358-eb6d-4bf6-9ca6-8e3d8c29f1eb",
                 "resourcePath": "rooms\\rm_boss_lighteater\\rm_boss_lighteater.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "8348ec75-80ef-4966-8ad2-b95f721c43d4",
+            "Value": {
+                "id": "504c8e40-0814-4b66-babf-9c2af32025a2",
+                "resourcePath": "objects\\obj_attacktrail\\obj_attacktrail.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -16095,6 +16223,14 @@
             }
         },
         {
+            "Key": "9b995243-ae6f-45e1-b6dc-82d6bac8992a",
+            "Value": {
+                "id": "bb10cdf5-837c-4c84-b3ed-aa97fd24ac1e",
+                "resourcePath": "sounds\\snd_enemy_troll_hit_2\\snd_enemy_troll_hit_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "9bb402d4-e1b5-4544-8ec5-cc6c8225593e",
             "Value": {
                 "id": "f313bd56-0dec-4522-9074-604c188b7a17",
@@ -16955,6 +17091,14 @@
             "Value": {
                 "id": "02caa42d-aa42-4db5-baa4-24e09d5cb310",
                 "resourcePath": "sprites\\spr_enemy_unfairy_warhammer_attack_1_1\\spr_enemy_unfairy_warhammer_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a320d87e-6509-48fb-99fb-7955c4f2dc02",
+            "Value": {
+                "id": "ef14bb97-c2d5-4e14-bbd1-43a32875c6a5",
+                "resourcePath": "sprites\\spr_enemy_icetroll_drag_attack_1_1_mask\\spr_enemy_icetroll_drag_attack_1_1_mask.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -17999,6 +18143,14 @@
             }
         },
         {
+            "Key": "ac2f5921-a20b-416c-a129-20c7eb88336f",
+            "Value": {
+                "id": "d02a8463-00cc-46a0-859d-3819c1b969cc",
+                "resourcePath": "sprites\\spr_enemy_icetroll_club_low\\spr_enemy_icetroll_club_low.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ac303734-3f9b-40fd-830c-0ab70585c2a6",
             "Value": {
                 "id": "08334c20-9f78-4997-a45c-280c350f35ce",
@@ -18180,6 +18332,14 @@
                 "id": "afecb702-d371-467a-9904-1daa5c4f56c2",
                 "resourcePath": "sprites\\spr_factory_wingbag_6\\spr_factory_wingbag_6.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ae2e8877-e3aa-46ce-9eff-e36d61bbc16e",
+            "Value": {
+                "id": "aabea725-945c-49b9-ae34-09ae9e3a9f42",
+                "resourcePath": "sounds\\snd_enemy_troll_roar_3\\snd_enemy_troll_roar_3.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -21319,6 +21479,14 @@
             }
         },
         {
+            "Key": "cb34f27e-d051-46c8-98af-b7c474bd1960",
+            "Value": {
+                "id": "c9575b0d-0edf-4ecf-af89-b5b3ac296c42",
+                "resourcePath": "sounds\\snd_enemy_troll_roar_1\\snd_enemy_troll_roar_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "cb56ee6d-7bb9-4f0d-acde-81b6c976c8e8",
             "Value": {
                 "id": "4571986f-5580-4063-8044-98106e80cab1",
@@ -22495,6 +22663,14 @@
             }
         },
         {
+            "Key": "d78a1a58-1ced-4cce-8d8e-7f3db70baf31",
+            "Value": {
+                "id": "e9e33e64-372f-4d6b-b51d-d946c826c8cb",
+                "resourcePath": "sprites\\spr_enemy_icetroll_drag_prep_1_1\\spr_enemy_icetroll_drag_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d7993979-1109-4697-8ed9-3d7ec123f556",
             "Value": {
                 "id": "8cad7341-3e12-4773-b831-7d1a3be4cf01",
@@ -22828,6 +23004,14 @@
                 "id": "5d2cb66d-2927-463d-a7ba-3ef4e0d2ecac",
                 "resourcePath": "scripts\\fs_clear_roomdata_tempfile\\fs_clear_roomdata_tempfile.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "da680304-c1bc-485c-a39b-8ee79a99715f",
+            "Value": {
+                "id": "7d2d39f9-183b-4e1b-97e5-35e21b6820f7",
+                "resourcePath": "sprites\\spr_enemy_icetroll_drag_attack_1_1\\spr_enemy_icetroll_drag_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -23356,6 +23540,14 @@
                 "id": "2d1280b1-f504-4364-b4f9-0bba60b3d6f5",
                 "resourcePath": "sprites\\spr_enemy_icetroll_stagger\\spr_enemy_icetroll_stagger.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "df58f7dc-d4bb-4cd9-9630-2c32bffb0d94",
+            "Value": {
+                "id": "2d01c039-f408-411d-a1e7-c92b086f6a35",
+                "resourcePath": "sounds\\snd_enemy_troll_die_1\\snd_enemy_troll_die_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {

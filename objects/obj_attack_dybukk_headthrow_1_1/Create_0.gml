@@ -18,5 +18,5 @@ projectileSpeed = 15;
 staggersAgainstBlocks = false;
 
 attackSound = snd_thrown_attack;
-prepSound = snd_thrust_attack_1;
+prepSound = snd_enemy_dybukk_squelch;
 attackSoundsVocals = [snd_enemy_dybukk_scream_2];

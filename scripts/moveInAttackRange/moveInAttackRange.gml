@@ -33,6 +33,8 @@ if attackFrequencyFrame < 0 {
 		if !isFrozen && !isShielding {
 			hasCalculatedWillDodge = false;
 			isStrafing = false;
+			
+			/*
 			if attackData.prepSound != noone {
 				if audio_emitter_exists(attackPrepSoundEmitter) { 
 					audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
@@ -57,7 +59,7 @@ if attackFrequencyFrame < 0 {
 				}
 				audio_emitter_gain(attackPrepSoundEmitter, 1);
 				audio_play_sound_on(attackPrepSoundEmitter,prepSoundVocal,0,1);
-			}
+			} */
 			
 			state = CombatantStates.Attacking;
 		}

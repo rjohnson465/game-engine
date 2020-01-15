@@ -16,8 +16,8 @@ staggersAgainstBlocks = false;
 attackSound = snd_axe2h_attack_1;
 prepSound = snd_thrust_attack_1;
 
-attackSoundsVocals = [snd_enemy_golem_attack_1];
-prepSoundsVocals = [snd_enemy_golem_prep_1];
+attackSoundsVocals = [snd_enemy_troll_roar_2];
+prepSoundsVocals = [snd_enemy_troll_roar_3];
 
 attackSoundMid = snd_crunchy_thud;
 attackSoundMidFrame = 5;
@@ -36,7 +36,7 @@ part_type_speed(smoke,2,6,0,0);
 part_type_direction(smoke,0,360,0,4);
 part_type_life(smoke,45,60);
 attackPart = smoke;
-attackPartStartFrame = 4;
+attackPartStartFrame = 5;
 attackPartEndFrame = 5;
 attackPartNum = 5;
 attackPartBoundingBox = [100, -50, 125, -25];

@@ -308,6 +308,11 @@ if attackData != noone && attackData.part2 != noone {
 	particle2 = attackData.part2;
 }
 
+// maybe attack has trailing particlese
+if attackData != noone && part_type_exists(attackData.trailPart) {
+	global.attackData = attackData;
+	instance_create_depth(x, y, depth, obj_attacktrail);
+}
 
 
 // special case -- guns create fire / smoke particles when attack starts
@@ -383,3 +388,4 @@ if true {
 if attackData != noone && audio_exists(attackData.attackSoundLoop) {
 	attackSoundLoopIndex = audio_play_sound_on(soundEmitter, attackData.attackSoundLoop, 1, 1);
 }
+

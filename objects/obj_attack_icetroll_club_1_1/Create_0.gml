@@ -10,12 +10,12 @@ staminaCost = 5;
 staggerDuration = 45;
 limbKey = noone;
 type = AttackTypes.Standard;
-minRange = 75;
+minRange = 65;
 
 staggersAgainstBlocks = false;
 
 attackSound = snd_axe2h_attack_1;
 prepSound = snd_thrust_attack_1;
 
-attackSoundsVocals = [snd_enemy_golem_attack_1];
-prepSoundsVocals = [snd_enemy_golem_prep_1];
+attackSoundsVocals = [snd_enemy_troll_roar_1];
+prepSoundsVocals = [snd_enemy_troll_roar_3];

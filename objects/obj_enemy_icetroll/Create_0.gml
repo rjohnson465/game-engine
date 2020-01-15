@@ -58,11 +58,16 @@ global.owner = id;
 var club1 = makeEnemyAttackObj(obj_attack_icetroll_club_1_1);
 var slam1 = makeEnemyAttackObj(obj_attack_icetroll_slam_1_1);
 var slam2 = makeEnemyAttackObj(obj_attack_icetroll_slam_1_2);
+var drag = makeEnemyAttackObj(obj_attack_icetroll_drag_1_1);
+var punch = makeEnemyAttackObj(obj_attack_icetroll_punch_1_1);
 
 var c0 = [club1];
 var c1 = [slam1];
 var c2 = [slam1, slam2];
-meleeAttacks = [c2];
+var c3 = [slam1, drag];
+var c4 = [club1, punch];
+meleeAttacks = [c0, c1, c2, c3, c4];
+// meleeAttacks = [c3];
 
 // ranged attacks info
 
@@ -89,8 +94,8 @@ ds_map_replace(defenses, CRUSH, 40);
 agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
-soundsWhenHitVocals = [snd_enemy_golem_roar_1, snd_enemy_golem_roar_2, snd_enemy_golem_roar_3];
-soundsWhenDie = [snd_enemy_troll_death1];
+soundsWhenHitVocals = [snd_enemy_troll_hit_1, snd_enemy_troll_hit_2, snd_enemy_troll_hit_3];
+soundsWhenDie = [snd_enemy_troll_die_1];
 
 chanceToDropHealthOrb = 1;
 
