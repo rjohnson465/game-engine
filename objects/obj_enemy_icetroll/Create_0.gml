@@ -25,7 +25,7 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 // general attacks info
 meleeAggroRange = 250;
 rangedAggroRange = 800;
-farthestAllowedFromPost = 1000;
+farthestAllowedFromPost = 2000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
 attackFrequencyTotalFramesMelee = [20,45];
 attackFrequencyTotalFramesRanged = [60,90];
@@ -60,14 +60,16 @@ var slam1 = makeEnemyAttackObj(obj_attack_icetroll_slam_1_1);
 var slam2 = makeEnemyAttackObj(obj_attack_icetroll_slam_1_2);
 var drag = makeEnemyAttackObj(obj_attack_icetroll_drag_1_1);
 var punch = makeEnemyAttackObj(obj_attack_icetroll_punch_1_1);
+var aoe = makeEnemyAttackObj(obj_attack_icetroll_aoe_1_1);
 
 var c0 = [club1];
 var c1 = [slam1];
 var c2 = [slam1, slam2];
 var c3 = [slam1, drag];
 var c4 = [club1, punch];
-meleeAttacks = [c0, c1, c2, c3, c4];
-// meleeAttacks = [c3];
+var c5 = [aoe];
+meleeAttacks = [c0, c1, c2, c3, c4, c5];
+// meleeAttacks = [c5];
 
 // ranged attacks info
 

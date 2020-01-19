@@ -23,7 +23,7 @@ usesWeapon = false;
 part1 = part_type_create();
 part_type_sprite(part1,spr_enemy_speyeder_aoe_1_1_particle,1,0,1);
 part_type_alpha2(part1,1,.2);
-part_type_color2(part1,c_white,c_silver);
+part_type_color2(part1,c_navy,c_silver);
 part_type_size(part1,.5,1,0,0);
 part_type_speed(part1,.5,2,0,0);
 part_type_direction(part1,0,360,0,4); // set later

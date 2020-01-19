@@ -26,6 +26,18 @@ switch npcName {
 		getConversationsForElon(conversationsList);
 		break;
 	}
+	case "Casino Guard": {
+		getConversationsForCasinoGuard(conversationsList);
+		break;
+	}
+	case "Santa": {
+		getConversationsForSanta(conversationsList);
+		break;
+	}
+	case "David": {
+		getConversationsForDavid(conversationsList);
+		break;
+	}
 }
 
 return conversationsList;

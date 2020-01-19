@@ -68,6 +68,9 @@ if isInteractingWithPlayer && !isInConversation && !showBuySell {
 			isInteractingWithPlayer = false;
 			global.isInteractingWithNpc = false;
 			showBuySell = false;
+			with obj_npc_parent {
+				refreshNpcConversations();
+			}
 		}
 	}	
 	

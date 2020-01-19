@@ -25,7 +25,7 @@ part_type_size(part1,0.25,.65,0,0);
 part_type_speed(part1,.5,.75,0,0);
 part_type_direction(part1,0,360,0,4);
 part_type_life(part1,25,50);
-part_type_color2(part1,c_aqua,c_silver);
+part_type_color2(part1,c_navy,c_silver);
 part_type_alpha3(part1,.85,.5,.25);
 
 part1Num = 20;

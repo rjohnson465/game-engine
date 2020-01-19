@@ -9,4 +9,4 @@ if image_xscale == 1 && image_yscale == 1 {
 
 
 
-draw_sprite_ext(spr_tree_fir_snowy,1,x,y,image_xscale,image_yscale,image_angle,c_white,treeAlpha);
+draw_sprite_ext(spr_tree_fir_snowy_decorated,1,x,y,drawScaleX,drawScaleY,image_angle,c_white,treeAlpha);

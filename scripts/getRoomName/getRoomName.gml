@@ -27,4 +27,7 @@ switch ri {
 	case rm_winter: {
 		return "Winter Wonderground"; break;
 	}
+	case rm_xmas_town: {
+		return "Christmas Town"; break;
+	}
 }

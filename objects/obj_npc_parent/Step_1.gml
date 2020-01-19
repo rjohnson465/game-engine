@@ -70,5 +70,9 @@ if gamepad_is_connected(pad) {
 			global.isInteractingWithNpc = false;
 			global.isTrading = false;
 			global.ui.justClosedMenus = true;
+			
+			with obj_npc_parent {
+				refreshNpcConversations();
+			}
 		}
 }

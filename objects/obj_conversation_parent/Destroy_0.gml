@@ -6,6 +6,5 @@ if ds_exists(steps, ds_type_list) {
 		}
 	}
 
-
 	ds_list_destroy(steps); steps = -1;
 }

@@ -37,7 +37,7 @@ if isActive {
 		if currentSound != noone {
 			
 			var g = owner.greeting;
-			if is_array(g) {
+			if is_array(g) && array_length_1d(g) > 0 {
 				for (var i = 0; i < array_length_1d(g); i++) {
 					var gr = g[i];
 					if audio_is_playing(gr) {
@@ -86,6 +86,11 @@ if isFinished && !isRepeatable {
 			}
 		}
 	}
+	
+	with obj_npc_parent {
+		refreshNpcConversations();
+	}
+	
 	instance_destroy(id,1);
 }
 

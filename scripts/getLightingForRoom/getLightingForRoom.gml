@@ -12,6 +12,10 @@ switch rm {
 		var c = make_color_rgb(52, 66, 105)
 		return [c, c];
 	}
+	case rm_xmas_town: {
+		var c = make_color_rgb(52, 66, 105)
+		return [c, c];
+	}
 	case rm_dungeon: {
 		return [c_dkgray, c_dkgray, c_red]; break;
 	}

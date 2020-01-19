@@ -1,4 +1,4 @@
-/// getConversationsForTerri(convList)
+/// getConversationsForElon(convList)
 /// @param convList
 
 var conversationsList = argument[0];
@@ -14,5 +14,7 @@ if !instance_exists(mfQuest) {
 
 // Muskox feeder quest TODO
 
-
 // Flavor conversations, todo
+ds_list_add(conversationsList, scr_conv_elon_directions());
+ds_list_add(conversationsList, scr_conv_elon_icewyrms());
+ds_list_add(conversationsList, scr_conv_elon_curse());

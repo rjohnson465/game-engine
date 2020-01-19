@@ -33,6 +33,9 @@ scr_test_quest_complete(obj_quest_llf);
 var key = makeKey("Mess Hall Key", "key", spr_item_key_messhall, "Opens the door to the Lamplight Factory Mess Hall. What the heck do robots eat? Toast?");
 addItemToInventory(key);
 
+// start Saving The Holidays???
+questStart(obj_quest_savingtheholidays);
+
 // Build inventory / Equipment
 
 // health flask 

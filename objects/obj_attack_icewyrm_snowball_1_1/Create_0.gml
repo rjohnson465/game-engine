@@ -27,7 +27,7 @@ part_type_speed(snowflake,1,1.5,0,0);
 part_type_direction(snowflake,0,360,0,4);
 part_type_life(snowflake,10,20);
 part_type_alpha3(snowflake,1,.75,.5);
-part_type_color2(snowflake, c_silver, c_white);
+part_type_color2(snowflake, c_navy, c_white);
 part1 = snowflake;
 
 part1Num = 14;

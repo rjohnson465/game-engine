@@ -69,7 +69,7 @@ if	isInteractable &&
 		global.player.state = CombatantStates.Idle;
 		state = CombatantStates.Idle; speed = 0;
 		var g = greeting;
-		if is_array(g) {
+		if is_array(g) && array_length_1d(g) > 0 {
 			randomize();
 			var rand = random_range(0, array_length_1d(g));
 			g = g[rand];
@@ -89,7 +89,7 @@ if	isInteractable &&
 				doNotPlayGreeting = true;
 			}
 		}
-		if !doNotPlayGreeting {
+		if !doNotPlayGreeting && audio_exists(g) {
 			audio_play_sound_at(g,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		}
 	}

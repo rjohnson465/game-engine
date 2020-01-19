@@ -35,6 +35,10 @@ switch rm {
 		return [snd_bgm_endless_tundra, snd_bgm_wonderground, snd_bgm_icedrops];
 		break;
 	}
+	case rm_xmas_town: {
+		return [snd_bgm_sleighbells];
+		break; 
+	}
 }
 
 return noone;
