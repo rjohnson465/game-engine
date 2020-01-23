@@ -89,7 +89,7 @@ if	isInteractable &&
 				doNotPlayGreeting = true;
 			}
 		}
-		if !doNotPlayGreeting && audio_exists(g) {
+		if !doNotPlayGreeting && is_real(g) && audio_exists(g) {
 			audio_play_sound_at(g,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		}
 	}

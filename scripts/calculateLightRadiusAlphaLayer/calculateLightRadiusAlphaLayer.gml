@@ -16,7 +16,7 @@ var luma = getLumaForColor(lightColor);
 var lightRadiusAlpha = ((-1/128)*luma) + 1 + .35;
 if lightRadiusAlpha > 1 lightRadiusAlpha = 1;
 
-var wintryRooms = [rm_winter, rm_xmas_town];
+var wintryRooms = [rm_winter, rm_xmas_town, rm_tundra];
 
 if arrayIncludes(wintryRooms, room) {
 	if lightRadiusAlpha > .3 {

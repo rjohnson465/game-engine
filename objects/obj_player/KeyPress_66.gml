@@ -1,6 +1,6 @@
-xpTemp += 500;
+//xpTemp += 500;
 
-/*var rmap = ds_map_create();
+var rmap = ds_map_create();
 ds_map_replace(rmap,ItemRarities.Normal,0);
 ds_map_replace(rmap,ItemRarities.Fine,0);
 ds_map_replace(rmap,ItemRarities.Masterwork,0);
@@ -9,14 +9,15 @@ ds_map_replace(rmap,ItemRarities.Legendary,5);
 var item1 = maybeMakeItem(100,rmap); //randomly generated item
 addItemToInventory(item1);
 var rmap = ds_map_create();
-ds_map_replace(rmap,ItemRarities.Normal,0);
-ds_map_replace(rmap,ItemRarities.Fine,0);
+ds_map_replace(rmap,ItemRarities.Normal,5);
+ds_map_replace(rmap,ItemRarities.Fine,5);
 ds_map_replace(rmap,ItemRarities.Masterwork,5);
 ds_map_replace(rmap,ItemRarities.Legendary,5);
 
 var item1 = maybeMakeItem(100,rmap); //randomly generated item
 addItemToInventory(item1);
-*/
+
+
 /*
 maybeApplyElementalCondition(MAGIC, 500, noone, noone);
 maybeApplyElementalCondition(MAGIC, 500, noone, noone);

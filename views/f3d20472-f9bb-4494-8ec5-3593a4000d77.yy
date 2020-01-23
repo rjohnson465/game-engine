@@ -45,7 +45,15 @@
         "1d2e555f-736a-4b23-94d8-16f0f4912d52",
         "f0cd3d91-6dc1-4a1d-98c3-579517217e41",
         "753e087c-0368-484b-908f-f9e84c3c73b0",
-        "19d22fb0-31fc-40d5-9ddc-02a5f61b6868"
+        "19d22fb0-31fc-40d5-9ddc-02a5f61b6868",
+        "2529f4fa-57a1-4d81-b19d-afb2478d1e5b",
+        "8a3a523a-608f-41df-a0f8-6f968fdd6e39",
+        "0e518b13-d80d-4638-9eb3-65fb3f496c96",
+        "a0ae2228-46a7-4147-8a65-59357ba58efd",
+        "de23ed1a-b74c-4739-afd9-7b5ca3fe1b2e",
+        "617b6b67-9e24-4a84-bd1b-4c32e6c0cb36",
+        "d86e91d3-b08e-4b03-a7a4-c741900208be",
+        "4aa69211-4cbe-48d5-babc-c8f9d11c61e3"
     ],
     "filterType": "GMSprite",
     "folderName": "winter",

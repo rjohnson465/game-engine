@@ -1,1 +1,0 @@
-ds_list_add(items, makeGold(25,25));

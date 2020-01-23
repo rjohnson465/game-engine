@@ -24,7 +24,7 @@ switch rm {
 		break;
 	}
 	case rm_factory: {
-		return [snd_bgm_lamplight_blasphemy];
+		return [snd_bgm_lamplight_blasphemy, snd_bgm_factorysins];
 		break;
 	}
 	case rm_boss_lighteater: {
@@ -34,6 +34,9 @@ switch rm {
 	case rm_winter: {
 		return [snd_bgm_endless_tundra, snd_bgm_wonderground, snd_bgm_icedrops];
 		break;
+	}
+	case rm_tundra: {
+		return [snd_bgm_endless_tundra, snd_bgm_icedrops];
 	}
 	case rm_xmas_town: {
 		return [snd_bgm_sleighbells];

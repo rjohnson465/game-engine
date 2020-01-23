@@ -4,8 +4,8 @@ spriteAttackNumber = 2;
 spriteAttackNumberInChain = 1;
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
 limbKey = "l";
-ds_map_replace(damages,ICE,[5,5]);
-ds_map_replace(damages,PIERCE, [12,15]);
+ds_map_replace(damages,ICE,[8,10]);
+ds_map_replace(damages,PIERCE, [20,25]);
 // ds_map_replace(conditionsChances, POISON, .8); // 100% chance a hit will poison someone
 isRanged = true;
 staminaCost = 5;

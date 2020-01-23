@@ -63,7 +63,8 @@ if	p.currentInteractableObject == id
 if p.path_index >= 0 && global.isTrading && p.path_position > .5 && distance_to_object(p) < 50 {
 	if !isOpen {
 		isOpen = true;
-		ds_map_replace(properties, "IsOpen", true);
+		// ds_map_replace(properties, "IsOpen", true);
+		updatePersistentElementProperty(id, "IsOpen", true);
 		audio_play_sound_at(snd_door_open, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 		sprite_index = spr_ww_snowtunnel_open;
 	}

@@ -14,6 +14,7 @@ showBuySell = false;
 isStrafing = false;
 
 postX = x;
+postX = x;
 postY = y;
 
 prevX = x;
@@ -22,7 +23,7 @@ prevY = y;
 normalSpeed = 2;
 alarm[0] = 90;
 
-greeting = noone;
+greeting = snd_enemy_unfairy_hit1;
 
 type = CombatantTypes.Ally;
 state = CombatantStates.Idle;

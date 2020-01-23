@@ -5,4 +5,4 @@ if questNum > 0 {
 	instance_destroy(id, 1);
 	performCutscene = false;
 }
-
+alarm[0] = 2;

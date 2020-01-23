@@ -34,7 +34,7 @@ var key = makeKey("Mess Hall Key", "key", spr_item_key_messhall, "Opens the door
 addItemToInventory(key);
 
 // start Saving The Holidays???
-questStart(obj_quest_savingtheholidays);
+// questStart(obj_quest_savingtheholidays);
 
 // Build inventory / Equipment
 

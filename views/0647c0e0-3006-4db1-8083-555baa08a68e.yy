@@ -5,7 +5,8 @@
     "name": "0647c0e0-3006-4db1-8083-555baa08a68e",
     "children": [
         "29940ab5-ab87-4237-81d1-1130a560be0f",
-        "d7fecc9c-8c2e-4f75-ae39-ca29f439076f"
+        "d7fecc9c-8c2e-4f75-ae39-ca29f439076f",
+        "3568b4e3-6d8e-4e39-bd18-2adf99637fde"
     ],
     "filterType": "GMSprite",
     "folderName": "casino_guard",

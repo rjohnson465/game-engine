@@ -55,13 +55,13 @@ if argument_count >= 3 && is_array(argument[2]) {
 
 // PART 2: Select object based on "act" || based on indexesArray param
 var itemIndex = noone;
+var act = getRoomAct();
 if argument_count >= 3 && is_array(argument[2]) {
 	var possibleObjIndexes = argument[2];
 	randomize();
 	var rand = round(random_range(0,array_length_1d(possibleObjIndexes)-1));
 	itemIndex = possibleObjIndexes[rand];
 } else {
-	var act = getRoomAct();
 	if argument_count >= 4 && argument[3] != noone {
 		act = argument[3];
 	}
@@ -158,6 +158,53 @@ for (var i = 0; i < ds_map_size(rarityMap); i++) {
 }
 
 item.rarity = rarityType;
+
+// define a required skill, based on act and rarity
+var reqMast = noone;
+if item.type == ItemTypes.HandItem {
+	switch item.rarity {
+		case ItemRarities.Normal: {
+			switch act {
+				case 1: { reqMast = 0; break; }
+				case 2: { reqMast = 1; break; }
+				case 3: { reqMast = 2; break; }
+				case 4: { reqMast = 3; break; }
+			}
+			break;
+		}
+		case ItemRarities.Fine: {
+			switch act {
+				case 1: { reqMast = 1; break; }
+				case 2: { reqMast = 2; break; }
+				case 3: { reqMast = 3; break; }
+				case 4: { reqMast = 4; break; }
+			}
+			break;
+		}
+		case ItemRarities.Masterwork: {
+			switch act {
+				case 1: { reqMast = 2; break; }
+				case 2: { reqMast = 3; break; }
+				case 3: { reqMast = 4; break; }
+				case 4: { reqMast = 5; break; }
+			}
+			break;
+		}
+		case ItemRarities.Legendary: {
+			switch act {
+				case 1: { reqMast = 3; break; }
+				case 2: { reqMast = 4; break; }
+				case 3: { reqMast = 5; break; }
+				case 4: { reqMast = 6; break; }
+			}
+			break;
+		}
+	}
+}
+
+if reqMast != noone {
+	item.requiredMastery = reqMast;
+}
 
 // Gems, consumables, keys, etc... cannot be anything other than normal rarity...
 if item.type == ItemTypes.Other || item.type == ItemTypes.Gem || item.type == ItemTypes.Key {

@@ -4,11 +4,13 @@
     "mvc": "1.1",
     "name": "c88fb435-280a-4169-95d5-c32b369710aa",
     "children": [
+        "3a47af7f-a52f-4e20-b17d-bad42447309a",
         "e7c5ef23-3dfb-4416-b5de-0b0182583045",
         "a50a2430-2034-4fb9-af0a-2f7af64fd388",
         "413adcec-a6ca-4003-80c5-8976c2f17e0e",
         "f30bb3ea-d3a0-46eb-8566-0c94fba54888",
         "a7025cbb-4cfc-441e-8501-7527af446133",
+        "94379286-674f-4109-94dd-4b81ec3bb701",
         "9a24af0d-9f0a-4b9a-8a70-8838c43b8bd6",
         "09ebd977-678e-467d-9bb6-d371b9833e87",
         "2e963f1a-16ce-453c-9471-98295ffe0a39",
@@ -20,7 +22,10 @@
         "6092a756-3da4-48ba-9705-a3f969a2f3f9",
         "a813f1d9-1993-4694-b06c-8040de469029",
         "eb59b2a7-2825-461e-8e63-00da9f4ce62f",
-        "2abd792a-da5d-4f7b-ad92-3b521803a52c"
+        "2abd792a-da5d-4f7b-ad92-3b521803a52c",
+        "0d5696fc-dff7-4629-a5e6-92f817585837",
+        "a7f70fc3-b963-449b-a2e7-8f7ee916820b",
+        "972f9585-0dc8-42ed-8595-264dfab2ca8b"
     ],
     "filterType": "GMObject",
     "folderName": "winter",

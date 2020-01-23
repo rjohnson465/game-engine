@@ -30,4 +30,7 @@ switch ri {
 	case rm_xmas_town: {
 		return "Christmas Town"; break;
 	}
+	case rm_tundra: {
+		return "Krampus Tundra"; break;
+	}
 }

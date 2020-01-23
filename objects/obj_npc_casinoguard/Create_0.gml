@@ -7,8 +7,6 @@ event_inherited();
 name = "Casino Guard";
 spriteString = "npc_casinoguard";
 
-greeting = [];
-
 wanders = false;
 isFairy = true;
 isFloating = true;

@@ -1,5 +1,5 @@
 event_inherited();
-name = "Posessed Golem Lord";
+name = "Amir, Possessed Golem Lord";
 descriptionChoices = ["C3P0's Cranky Friend", "This is NOT the droid you're looking for", "Still more empathetic than my ex-wife"];
 description = "C3P0's Cranky Friend";
 spriteName = "golemboss";

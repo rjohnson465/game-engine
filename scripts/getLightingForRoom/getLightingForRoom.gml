@@ -16,6 +16,11 @@ switch rm {
 		var c = make_color_rgb(52, 66, 105)
 		return [c, c];
 	}
+	case rm_tundra: {
+		var c = make_color_rgb(52, 66, 105)
+		var c2 = make_color_rgb(45, 59, 98);
+		return [c, c2];
+	}
 	case rm_dungeon: {
 		return [c_dkgray, c_dkgray, c_red]; break;
 	}
