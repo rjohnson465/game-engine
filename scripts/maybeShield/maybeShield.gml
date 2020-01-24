@@ -33,20 +33,6 @@ if !willDodge || !isShielding {
 			}
 		}
 		// only shield for a finite amount of time, jesus
-		/*else if isShielding {
-			if shieldingFrame >= totalShieldingFrames {
-				isShielding = false;
-				shieldingFrame = 0;
-				hasCalculatedWillShield = false;
-			}
-		}*/
-		/*else {
-			if shieldingFrame >= totalShieldingFrames {
-				shieldingFrame = 0;
-				hasCalculatedWillShield = false;
-				isShielding = false;
-			}
-		}*/
 		shieldingFrame++;
 	}
 	

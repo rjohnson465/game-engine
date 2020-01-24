@@ -20,9 +20,10 @@ if type != CombatantTypes.Player {
 		if ds_map_find_value(equippedLimbItems,"r") {
 			var rightHandItem = ds_map_find_value(equippedLimbItems,"r");
 			if rightHandItem.subType == HandItemTypes.Shield && cautiousness > 0 {
-				isShielding = true;
+				/*isShielding = true;
 				global.owner = id;
-				instance_create_depth(x,y,1,obj_shield_block);
+				instance_create_depth(x,y,1,obj_shield_block);*/
+				maybeShield();
 			}
 		}
 					

@@ -52,7 +52,7 @@ strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
 waryTotalFrames=[60,90];
 skittishness = 100;
-cautiousness = 25;
+cautiousness = 15;
 
 // melee attacks info
 // currently chosen melee attack chain

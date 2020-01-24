@@ -28,4 +28,6 @@ scale = 1;
 scaleFrame = 0;
 scaleTotalFrames = 120;
 
+isActive = false;
+
 light_create_layer_multiscale(spr_light_square, lightScaleX, lightScaleY, c_white, 0, 0, true);

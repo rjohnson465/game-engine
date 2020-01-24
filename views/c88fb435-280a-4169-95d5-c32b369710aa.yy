@@ -25,7 +25,8 @@
         "2abd792a-da5d-4f7b-ad92-3b521803a52c",
         "0d5696fc-dff7-4629-a5e6-92f817585837",
         "a7f70fc3-b963-449b-a2e7-8f7ee916820b",
-        "972f9585-0dc8-42ed-8595-264dfab2ca8b"
+        "972f9585-0dc8-42ed-8595-264dfab2ca8b",
+        "56ab3163-e1db-4354-9843-68b50e2991f9"
     ],
     "filterType": "GMObject",
     "folderName": "winter",

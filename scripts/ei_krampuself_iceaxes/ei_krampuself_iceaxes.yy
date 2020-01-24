@@ -1,8 +1,8 @@
 {
-    "id": "61e4b22a-4fad-4113-a319-ffd044b6ecd4",
+    "id": "ff4e9a80-74b0-4889-a479-b1df010d733d",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_test_build_swordsman_ww",
+    "name": "ei_krampuself_iceaxes",
     "IsCompatibility": false,
     "IsDnD": false
 }

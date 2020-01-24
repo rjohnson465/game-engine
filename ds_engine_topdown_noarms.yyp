@@ -5423,6 +5423,14 @@
             }
         },
         {
+            "Key": "2dc89f5d-1e07-4589-b8b5-c1c6da8cb9d6",
+            "Value": {
+                "id": "6507d966-138a-436f-9cab-3805bd745e39",
+                "resourcePath": "scripts\\ei_krampuself_icespears\\ei_krampuself_icespears.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2ddbbafa-9ef2-4999-ab98-cac46eda5f73",
             "Value": {
                 "id": "781000c9-7312-44d4-91d2-9c73995975c7",
@@ -11271,6 +11279,14 @@
             }
         },
         {
+            "Key": "61e4b22a-4fad-4113-a319-ffd044b6ecd4",
+            "Value": {
+                "id": "4682f9fa-181d-4685-8796-c64d07ac3bf2",
+                "resourcePath": "scripts\\scr_test_build_swordsman_ww\\scr_test_build_swordsman_ww.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "61f764a0-670b-47a5-87e9-fe599742be19",
             "Value": {
                 "id": "ce6770a6-f461-43d7-9cd3-89626060a5b4",
@@ -12268,6 +12284,14 @@
                 "id": "acf06a3a-55e8-483c-93bf-a7e0022ebb25",
                 "resourcePath": "sounds\\snd_conv_terri_toastmaker_terri_1\\snd_conv_terri_toastmaker_terri_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "6b350b4c-5f3c-43ec-b8a9-d06c633700b7",
+            "Value": {
+                "id": "e69e3790-878a-42c4-a4bb-6b76d11ca154",
+                "resourcePath": "scripts\\ei_krampuself_iceclubs\\ei_krampuself_iceclubs.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -17442,7 +17466,7 @@
             "Key": "99f1d271-0177-478a-9f5a-0e38eb2070b2",
             "Value": {
                 "id": "55f5af82-bfce-4276-bcee-22c69cf36431",
-                "resourcePath": "scripts\\scr_test_build_swordsman_ww\\scr_test_build_swordsman_ww.yy",
+                "resourcePath": "scripts\\scr_test_build_swordsman_ww11\\scr_test_build_swordsman_ww11.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -29015,6 +29039,14 @@
             }
         },
         {
+            "Key": "ff4e9a80-74b0-4889-a479-b1df010d733d",
+            "Value": {
+                "id": "c2e4efd2-6039-4aea-af29-a87505352ae6",
+                "resourcePath": "scripts\\ei_krampuself_iceaxes\\ei_krampuself_iceaxes.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ff55a266-f519-4f93-986d-34b5b128086a",
             "Value": {
                 "id": "e6e5f2c9-09f2-46fb-9cfb-4415275567da",
@@ -29296,7 +29328,10 @@
         "fe69f33d-844b-4217-a0ba-0aef1decc56b",
         "cce111f8-4a86-4e54-9932-3aec66a4c4ee",
         "e6330671-23fa-40ad-ab47-a7181893cf35",
+        "ff4e9a80-74b0-4889-a479-b1df010d733d",
+        "2dc89f5d-1e07-4589-b8b5-c1c6da8cb9d6",
         "5f85bf39-84a0-4f85-8034-771ce3678bd9",
+        "6b350b4c-5f3c-43ec-b8a9-d06c633700b7",
         "f130b20f-9e48-48b2-aa0d-551f9b2738c9",
         "724efee2-ef01-4e0f-b2a9-6cfe76207df8",
         "f069e022-9d78-43da-b512-2aad9cbd7e97",
@@ -29620,6 +29655,7 @@
         "089b3309-61f4-411d-9b3a-687901b57a3c",
         "229f7b87-dd3f-4ceb-b9a4-c463918f538f",
         "99f1d271-0177-478a-9f5a-0e38eb2070b2",
+        "61e4b22a-4fad-4113-a319-ffd044b6ecd4",
         "60019f43-cc1f-4d7a-924a-c01bfff38038",
         "f9efede9-4639-4a87-ad20-def8f1d3f3c8",
         "5a0bbf2f-2777-42fd-86d5-0a96d9e4f2dc",

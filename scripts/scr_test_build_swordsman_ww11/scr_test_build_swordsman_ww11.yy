@@ -1,8 +1,8 @@
 {
-    "id": "61e4b22a-4fad-4113-a319-ffd044b6ecd4",
+    "id": "99f1d271-0177-478a-9f5a-0e38eb2070b2",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_test_build_swordsman_ww",
+    "name": "scr_test_build_swordsman_ww11",
     "IsCompatibility": false,
     "IsDnD": false
 }

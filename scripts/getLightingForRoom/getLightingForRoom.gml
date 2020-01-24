@@ -19,7 +19,7 @@ switch rm {
 	case rm_tundra: {
 		var c = make_color_rgb(52, 66, 105)
 		var c2 = make_color_rgb(45, 59, 98);
-		return [c, c2];
+		return [c, c];
 	}
 	case rm_dungeon: {
 		return [c_dkgray, c_dkgray, c_red]; break;
