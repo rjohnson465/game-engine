@@ -24,7 +24,7 @@ switch rm {
 		break;
 	}
 	case rm_factory: {
-		return [snd_bgm_lamplight_blasphemy, snd_bgm_factorysins];
+		return [snd_bgm_lamplight_blasphemy, snd_bgm_factorysins, snd_bgm_robotwarhymn];
 		break;
 	}
 	case rm_boss_lighteater: {

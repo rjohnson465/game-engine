@@ -22,6 +22,11 @@ if state == CombatantStates.Dodging && ds_list_find_index(beenHitWith,attackObj.
 
 if attackObj.alarm[0] >= 0 exit;
 
+// assailant and victim must be on the same layer
+if attackObj.owner.layer != layer {
+	exit;
+}
+
 // if combatant has not been hit with this instance before (only get hit with an attack once)
 if !ds_exists(beenHitWith,ds_type_list) {
 	beenHitWith = -1; beenHitWith = ds_list_create();

@@ -1,5 +1,5 @@
-nextRoom = rm_xmas_town ;
-nextRoomX = 700; 
-nextRoomY = 128;
+nextRoom = rm_krampus ;
+nextRoomX = 1185; 
+nextRoomY = 1730;
 nextRoomLayer = "instances_floor_1";
 nextRoomName = getRoomName(nextRoom);

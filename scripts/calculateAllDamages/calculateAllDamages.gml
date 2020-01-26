@@ -162,7 +162,7 @@ for (var i = 0; i < size; i++) {
 		}
 		
 		// possibly: special particles 
-		if attackObj != noone && attackObj.attackData != noone && attackObj.attackData.part1 != noone && part_type_exists(attackObj.attackData.part1) {
+		if attackObj != noone && attackObj.attackData != noone && !is_array(attackObj.attackData.part1) && attackObj.attackData.part1 != noone && part_type_exists(attackObj.attackData.part1) {
 			global.damageType = attackObj.attackData;
 			global.x1 = __x;
 			global.y1 = __y;

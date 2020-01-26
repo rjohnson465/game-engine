@@ -39,6 +39,10 @@ visible = attackData.isVisible;
 var s = attackData.spriteName+"_"+string(attackData.spriteAttackNumber)+"_"+string(attackData.spriteAttackNumberInChain)+"_zone";
 sprite_index = asset_get_index(s);
 
+if limbKey == "l" {
+	image_yscale = -1;
+}
+
 facingDirection = owner.facingDirection;
 alarm[2] = attackData.refreshCombatantsHit;
 

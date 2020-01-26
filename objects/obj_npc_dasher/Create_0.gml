@@ -11,3 +11,6 @@ faceSprite = spr_face_randolph;
 wanders = false;
 
 isInteractable = false;
+
+isFloating = false;
+isFairy = false;

@@ -2,8 +2,10 @@ layerToMoveTo = "instances_floor_4";
 
 
 var in = instance_number(obj_fade);
-show_debug_message(in);
 if in > 0 exit;
+
+scr_test_build_swordsman_factory();
+
 
 questStart(obj_quest_llf);
 
@@ -13,6 +15,7 @@ var q = instance_nearest(x,y, obj_quest_llf);
 var q1 = ds_list_find_value(q.questSteps, 0);
 q1.status = QuestStepStatus.Completed;
 
+/*
 // Build inventory / Equipment
 var ls = instance_create_depth(x, y, depth, obj_hand_item_longsword);
 ls.numberOfSockets = 2;

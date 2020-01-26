@@ -12,8 +12,8 @@ normalSpeed = 6;
 turnSpeed = 10;
 normalTurnSpeed = 10;
 
-poiseCurrent = 25;
-poiseMax = 25;
+poiseCurrent = 50;
+poiseMax = 50;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
@@ -24,18 +24,15 @@ dyingParticleColor1 = [make_color_rgb(36,129,92), c_red];
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var kstaff = makeEnemyWeapon(obj_hand_item_krampusstaff);
 ds_map_replace(handItems,"lm1",kstaff);
-ds_map_replace(handItems,"rm1",unarmed);
+ds_map_replace(handItems,"rm1",kstaff);
 // ds_map_replace(handItems,"lm2",unarmed);
 // ds_map_replace(handItems,"rm2",unarmed);
 ds_map_replace(handItems,"lr1",kstaff);
 ds_map_replace(handItems,"rr1",unarmed);
 rangedRangeArray = []; rangedAttacks = [];
 ds_map_replace(equippedLimbItems,"l",kstaff);
-ds_map_replace(equippedLimbItems,"r",unarmed);
-
-
-ds_map_replace(equippedLimbItems,"l",unarmed);
 ds_map_replace(equippedLimbItems,"r",kstaff);
+
 var rightHand = makeLimb(id,"r");
 var leftHand = makeLimb(id,"l");
 
@@ -46,8 +43,8 @@ stupidity = 15; // default .5 second in thinking state
 stupidityFrame = 0;
 
 // general attacks info
-meleeAggroRange = 300;
-rangedAggroRange = 800;
+meleeAggroRange = 400;
+rangedAggroRange = 2000;
 farthestAllowedFromPost = 2000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
 attackFrequencyTotalFramesMelee = [30,45];
@@ -68,20 +65,34 @@ currentMeleeAttack = noone;
 global.owner = id;
 
 var swing1 = makeEnemyAttackObj(obj_attack_krampus_staff_1_1);
+var stab12 = makeEnemyAttackObj(obj_attack_krampus_staff_1_2);
+var swing12 = makeEnemyAttackObj(obj_attack_krampus_staff_1_3);
+
+var stab1 = makeEnemyAttackObj(obj_attack_krampus_staff_2_1);
+var iceburst = makeEnemyAttackObj(obj_attack_krampus_staff_3_1);
+var icicleChunks = makeEnemyAttackObj(obj_attack_krampus_icechunks_1_1);
 
 var c0 = [swing1];
-meleeAttacks = [c0];
+var c1 = [swing1, stab12];
+var c2 = [swing1, swing12];
+var c3 = [stab1];
+var c4 = [iceburst];
+var c5 = [icicleChunks];
+meleeAttacks = [c0, c1, c2, c3, c4, c5];
 // ranged attacks info
 
 // currently chosen ranged attack
 currentRangedAttack = noone;
 
+var icicleChunks = makeEnemyAttackObj(obj_attack_krampus_icechunks_1_1);
 
-rangedAttacks = [];
+var c0 = [icicleChunks];
+
+rangedAttacks = [c0];
 
 
-hp = 400;
-maxHp = 400;
+hp = 500;
+maxHp = 500;
 
 stamina = 60;
 maxStamina = 60;
@@ -111,6 +122,7 @@ damageTaken = 0;
 DAMAGE_TO_TELEPORT = 50;
 TELEPORT_PREP_FRAME_MIN = 90;
 TELEPORT_PREP_FRAME_MAX = 150;
+TELEPORT_LAST_OBJ = noone;
 eventListeners = ds_map_create();
 ds_map_add(eventListeners, EV_DAMAGE_TAKEN, scr_evl_dybukkboss_teleport_on_damage);
 

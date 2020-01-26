@@ -36,9 +36,10 @@ visible = true;
 var s = attackData.spriteName+"_"+string(attackData.spriteAttackNumber)+"_"+string(attackData.spriteAttackNumberInChain)+"_projectile";
 sprite_index = asset_get_index(s);
 
+particle = attackData.part1;
 
 if part_type_exists(attackData.part2) {
-	particle = attackData.part2;
+	particle2 = attackData.part2;
 }
 
 if attackData.mrAttackSound != noone && audio_exists(attackData.mrAttackSound) {

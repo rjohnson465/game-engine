@@ -24,7 +24,7 @@ if isInteractingWithPlayer && !isInConversation && !showBuySell {
 	var paddingHeight = (conversationsNumber - 1) * paddingBetweenOptions;
 	var totalHeight = cHeight + menusHandleHeight + paddingHeight;
 	
-	// width is 200, or the longest conversation name width
+	// width is 200, or the longest conversation name width, 
 	var totalWidth = 200;
 	for (var i = 0; i < ds_list_size(conversations); i++) {
 		var c = ds_list_find_value(conversations, i);
@@ -32,6 +32,10 @@ if isInteractingWithPlayer && !isInConversation && !showBuySell {
 		if sw > totalWidth - 10 {
 			totalWidth = sw + 10;
 		}
+	}
+	// or the length of npc name, whatever is bigger
+	if string_width(name) > totalWidth {
+		totalWidth = string_width(name) + 10;
 	}
 	
 	// conversations box is centered on NPC

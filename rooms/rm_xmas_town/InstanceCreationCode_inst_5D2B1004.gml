@@ -1,1 +1,1 @@
-isLit = true;
+lightSconce(noone);

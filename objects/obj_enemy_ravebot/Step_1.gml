@@ -24,6 +24,11 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_destroy(rmap); rmap = -1;
 	ds_map_destroy(rmap2); rmap2 = -1;
 	
+	// kill all ravers
+	with obj_enemy_ravebot_minion {
+		hp = 0;
+	}
+	
 }
 
 // Inherit the parent event

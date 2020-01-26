@@ -4,13 +4,13 @@ spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 limbKey = "l"; // default value
 ds_map_add(damages,SLASH,[20,25]);
-ds_map_add(damages, ICE, [5, 5]);
+ds_map_add(damages, ICE, [2, 2]);
 isRanged = false;
 staminaCost = 10;
 staggerDuration = 10;
 
 var damagesIceSwing = ds_map_create();
-ds_map_replace(damagesIceSwing, ICE, [15,15]);
+ds_map_replace(damagesIceSwing, ICE, [3,3]);
 ds_map_add_map(extraHitsDamages, 1, damagesIceSwing);
 resetCombatantsHitFrame = 13;
 

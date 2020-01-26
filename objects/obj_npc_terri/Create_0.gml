@@ -11,8 +11,8 @@ greeting = [snd_npc_terri_greeting_1, snd_npc_terri_greeting_2];
 
 items = ds_list_create();
 var toast = instance_create_depth(x,y,1,obj_item_toast);
-toast.count = 30;
-toast.value = 1000;
+toast.count = 2;
+toast.value = 500;
 ds_list_add(items,toast);
 
 wanders = false;

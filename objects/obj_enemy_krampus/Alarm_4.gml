@@ -33,7 +33,26 @@ for (var i = 0; i < ds_list_size(allPoints); i++) {
 }
 
 if chosenPoint != noone {
+	
+	// do not allow teleport to the last teleport point you were at
+	if TELEPORT_LAST_OBJ == chosenPoint {
+		var firstPtIndex = pointIndex == 0 ? 1 : 0;
+		chosenPoint = ds_list_find_value(allPoints, firstPtIndex);
+	}
+	
+	TELEPORT_LAST_OBJ = chosenPoint;
+	
+	// burst some particles
+	var iceSpell = instance_nearest(x, y, obj_attack_krampus_staff_3_1);
+	var p = iceSpell.part1;
+	part_emitter_region(appSystem, appEmitter, bbox_left, bbox_right, bbox_top, bbox_bottom, ps_shape_ellipse, ps_distr_gaussian);
+	part_emitter_burst(appSystem, appEmitter, p, 25);
+	
 	x = chosenPoint.x; y = chosenPoint.y;
+	
+	with obj_player {
+		lockOnTarget = noone;
+	}
 }
 
 ds_list_destroy(allPoints); allPoints = -1; // mem leak

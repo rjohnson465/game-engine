@@ -37,6 +37,10 @@ if hp < 1 && isAlive && !isDying {
 	if !isBossKilledBefore {
 		doTriggerTonyIntro = true;
 	}
+	
+	with obj_player {
+		cureAllConditions();
+	}
 }
 
 // Inherit the parent event

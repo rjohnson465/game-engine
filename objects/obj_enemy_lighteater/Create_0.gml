@@ -32,8 +32,8 @@ stopEatingDamage = 0;
 stopEatingDamageAttacksList = ds_list_create();
 
 lamplightToEat = noone;
-LAMPLIGHT_EAT_FRAME_MAX = 90;
-LAMPLIGHT_TOTAL_HEAL_AMOUNT = 100;
+LAMPLIGHT_EAT_FRAME_MAX = 60;
+LAMPLIGHT_TOTAL_HEAL_AMOUNT = 125;
 lamplightEatFrame = LAMPLIGHT_EAT_FRAME_MAX;
 
 partSystemLighteater = part_system_create();

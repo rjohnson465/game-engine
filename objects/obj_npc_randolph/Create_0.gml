@@ -9,3 +9,6 @@ spriteString = "npc_randolph";
 
 faceSprite = spr_face_randolph; 
 wanders = false;
+
+isFloating = false;
+isFairy = false;

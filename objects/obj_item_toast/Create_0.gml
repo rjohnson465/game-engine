@@ -8,7 +8,7 @@ name = "Toast";
 spriteName = "toast";
 itemSprite = spr_item_toast;
 
-isSellable = false;
+isSellable = true;
 
 type = ItemTypes.Other;
 
@@ -19,4 +19,4 @@ soundUse = snd_iu_chew;
 
 description = "Mmm, fresh hot toast. Heals a small amount of hp.";
 
-baseValue = 25;
+value = 100;

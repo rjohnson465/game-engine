@@ -4,6 +4,7 @@ var sys = 20 / sprh;
 var gy1 = topLeftY - 50; var gy2 = gy1 + (sprh*sys);
 var str = "Your funds: "; var strw = string_width(str);
 draw_set_valign(fa_center);
+draw_set_font(font_main);
 scr_draw_text_outline(topLeftX, mean(gy1, gy2), str, c_white, c_white);
 
 // box

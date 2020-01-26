@@ -6,8 +6,17 @@ if ds_exists(conditionsChances, ds_type_map) {
 	ds_map_destroy(conditionsChances); conditionsChances = -1;
 }
 
-if part_type_exists(part1) {
+if !is_array(part1) && part_type_exists(part1) {
 	part_type_destroy(part1); part1 = -1;
+}
+else if is_array(part1) {
+	for (var i = 0; i < array_length_1d(part1); i++) {
+		var entry = part1[i];
+		var p = entry[0];
+		if part_type_exists(p) {
+			part_type_destroy(p); p = -1;
+		}
+	}
 }
 
 if part_type_exists(part2) {

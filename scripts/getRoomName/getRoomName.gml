@@ -33,4 +33,7 @@ switch ri {
 	case rm_tundra: {
 		return "Krampus Tundra"; break;
 	}
+	case rm_krampus: {
+		return "Krampus' Keep"; break;
+	}
 }
