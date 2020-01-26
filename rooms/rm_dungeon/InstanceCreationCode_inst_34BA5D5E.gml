@@ -1,1 +1,0 @@
-associatedBridgeKeys = ["b1"];

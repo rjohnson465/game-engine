@@ -84,3 +84,27 @@ if attackData != noone && part_type_exists(attackData.attackPart) && attackData.
 	}
 	
 }
+
+if attackData != noone && is_array(attackData.attackSoundsDuring) && !hasSetAlarm {
+	for (var i = 0; i < array_length_1d(attackData.attackSoundsDuring); i++) {
+		var entry = attackData.attackSoundsDuring[i];
+		var snd = entry[0];
+		var frame = entry[1];
+		if image_index == frame {
+			audio_play_sound_at(snd, x, y, owner.depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+		}
+	}
+}
+
+if attackData != noone && attackData.resetCombatantsHitFrame > 0 && !hasSetAlarm {
+	if image_index == attackData.resetCombatantsHitFrame {
+		ds_list_clear(combatantsHit);
+		with obj_player {
+			var pos = ds_list_find_index(beenHitWith, other);
+			if pos != -1 {
+				ds_list_delete(beenHitWith, pos);
+			}
+		}
+		hitIndex++;
+	}
+}

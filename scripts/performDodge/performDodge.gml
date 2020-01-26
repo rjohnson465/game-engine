@@ -26,7 +26,10 @@ if  stamina > 0 &&
 	&& !isFrozen
 	{
 	
-	stamina-= 15;
+	// dodge cost 20 stamina @ 100% equip load
+	// 10 stamina @ 0% equip load
+	stamina -= playerGetDodgeStaminaCost();
+	
 	var UP = keyboard_check(ord("W"));
 	var DOWN = keyboard_check(ord("S"));
 	var LEFT = keyboard_check(ord("A"));

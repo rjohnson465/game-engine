@@ -31,6 +31,9 @@ draw_set_halign(fa_left); draw_set_valign(fa_top);
 draw_set_color(c_white);
 draw_text(x1, y2 + 5, "Move Speed: " + string(p.functionalSpeed));
 draw_text(x1, y2 + string_height("s") + 5, "Dodge Frames: " + string(p.totalDodgeFrames));
+// stamina cost per dodge
+var cpd = playerGetDodgeStaminaCost();
+draw_text(x1, y2 + 5 + 2*(string_height("s")), "Stamina / Dodge: " + string(cpd));
 
 
 draw_set_halign(fa_left); draw_set_valign(fa_top);

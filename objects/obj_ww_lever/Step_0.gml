@@ -34,7 +34,27 @@ if	p.currentInteractableObject == id &&
 			}
 		}
 	}
-	global.isPopulatingGrids = true;
+	
+	for (var i = 0; i < ds_list_size(deactivateBridges); i++) {
+		var br = ds_list_find_value(deactivateBridges, i);
+		br.isActive = !isActive;
+		if !isActive {
+			br.image_xscale = br.xscale; br.image_yscale = br.yscale;
+			with br {
+				light_set_alpha(lightAlpha);
+			}
+		}
+		else {
+			br.image_xscale = 0; br.image_yscale = 0; 
+			with br {
+				light_set_alpha(0);
+			}
+		}
+	}
+	
+	if repopulatesGrids {
+		global.isPopulatingGrids = true;
+	}
 
 	
 	// deactivate bridges not associated with this lever, and in turn, all levers that aren't this one

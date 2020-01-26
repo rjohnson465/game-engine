@@ -38,6 +38,12 @@ attackSoundLoopIndex = noone;
 weaponParticles = [noone, noone, noone, noone, noone];
 weaponParticlesNums = [noone, noone, noone, noone, noone];
 
+// most attacks only hit a combatant once
+// some may have additional hits per attack, such as a swing, followed by a trail of ice magic (krampus)
+// this keeps track of which hit index we're at, so we know which damamges map to use when 
+// calculating damage
+hitIndex = 0; 
+
 
 if owner.type != CombatantTypes.Player {
 	attackData = global.attackData;
@@ -231,10 +237,12 @@ if owner.type == CombatantTypes.Player {
 	sprStr = "spr_"+owner.spriteString+attackItemSprite+"_attack_"+string(attackNumber);
 	maskString = sprStr + "_mask";
 	visible = true;
+	// visible = false;
 } else {
 	//sprStr = "_"+string(owner.attackNumberInChain);
 	sprStr = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain);
 	maskString = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain) + "_mask";
+	visible = true;
 }
 
 // if this is a left hand attack, flip yscale 
@@ -309,7 +317,7 @@ if attackData != noone && attackData.part2 != noone {
 }
 
 // maybe attack has trailing particlese
-if attackData != noone && part_type_exists(attackData.trailPart) {
+if attackData != noone && (is_array(attackData.trailPart) || part_type_exists(attackData.trailPart)) {
 	global.attackData = attackData;
 	instance_create_depth(x, y, depth, obj_attacktrail);
 }

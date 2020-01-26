@@ -19,7 +19,7 @@ if !instance_exists(lockOnTarget) || lockOnTarget == noone {
 				if wallsBetweenTarget != noone {
 					for (var j = 0; j < ds_list_size(wallsBetweenTarget); j++) {
 						var w = ds_list_find_value(wallsBetweenTarget, j);
-						if (w.object_index == obj_wall_nocast_nointerrupt) {
+						if (w.object_index == obj_wall_nocast_nointerrupt) || object_is_ancestor(w.object_index, obj_wall_nocast_nointerrupt) {
 							ds_list_add(wallsToRemove, w);
 						}
 					}

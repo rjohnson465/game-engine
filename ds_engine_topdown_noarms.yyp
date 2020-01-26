@@ -1855,6 +1855,14 @@
             }
         },
         {
+            "Key": "0f446c2b-0cfa-4c52-aa79-c1dd225145bc",
+            "Value": {
+                "id": "722f511d-7b54-47ed-999d-65eacb1498e2",
+                "resourcePath": "sprites\\spr_enemy_krampus_staff_recover_1_1\\spr_enemy_krampus_staff_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0f4de6cd-e1e0-49e9-81da-f3affe3ab20a",
             "Value": {
                 "id": "4c9dde46-8141-4cf6-82db-3555c5d5fade",
@@ -2020,6 +2028,14 @@
                 "id": "cbd4c42c-8633-4d6a-aa56-08a884566e70",
                 "resourcePath": "views\\108eacde-37f0-48bb-8751-0d88bec5cfc4.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "10a2dc97-89e3-4a10-b177-ab17f17e1d73",
+            "Value": {
+                "id": "c815b36d-d68f-404c-b481-68c27cacdb0d",
+                "resourcePath": "objects\\obj_npc_dasher\\obj_npc_dasher.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3423,6 +3439,14 @@
             }
         },
         {
+            "Key": "1d294f72-828f-4cbc-ac32-e4ba4f408ace",
+            "Value": {
+                "id": "7cb5125c-6717-4a78-950c-9083b4f8a62f",
+                "resourcePath": "views\\1d294f72-828f-4cbc-ac32-e4ba4f408ace.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "1d2c5934-19c8-4b69-8108-9a1dd6bbfe19",
             "Value": {
                 "id": "bd939d18-0f05-4638-80c5-6833a091c456",
@@ -3595,6 +3619,14 @@
             "Value": {
                 "id": "5c79e743-ea72-4304-9084-4f513fae40db",
                 "resourcePath": "sprites\\spr_prompt_mk_5\\spr_prompt_mk_5.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1e70b8c4-8652-4854-9df8-63003ad9f898",
+            "Value": {
+                "id": "e6ed2e81-aecb-45ff-b769-47bc7a4b1fd6",
+                "resourcePath": "sprites\\spr_enemy_krampus_limb_staff\\spr_enemy_krampus_limb_staff.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4567,6 +4599,14 @@
             }
         },
         {
+            "Key": "265c15e3-80cf-4aa3-aab2-2ffe72624430",
+            "Value": {
+                "id": "481aa047-6acb-4f8c-8d22-47f3599be928",
+                "resourcePath": "views\\265c15e3-80cf-4aa3-aab2-2ffe72624430.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "2662ae01-1549-4784-998d-fc014c68b116",
             "Value": {
                 "id": "f66797ba-40f6-45f6-8978-e66f85440503",
@@ -5300,6 +5340,14 @@
                 "id": "725670af-1c86-4725-ac96-cd0c8ebc8609",
                 "resourcePath": "objects\\obj_roofs_manager\\obj_roofs_manager.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "2c7d2832-e91c-4219-9614-72ee9e6ca99e",
+            "Value": {
+                "id": "9e11d780-c3b4-4b1e-85b1-3c1c4a9c5536",
+                "resourcePath": "sprites\\spr_enemy_krampus_staff\\spr_enemy_krampus_staff.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -6951,6 +6999,14 @@
             }
         },
         {
+            "Key": "3af97c72-a635-44c9-851b-5e70b6e995d6",
+            "Value": {
+                "id": "bca1ac67-80fd-4f47-b0bf-1ced04187621",
+                "resourcePath": "sprites\\spr_enemy_krampus_staff_attack_1_1\\spr_enemy_krampus_staff_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3b0962d3-6c78-45da-9736-65a842e5320e",
             "Value": {
                 "id": "e77cbbdb-f895-4682-a701-3e295d80714c",
@@ -7351,6 +7407,14 @@
             }
         },
         {
+            "Key": "3e22cc61-da56-4a54-a6f2-fc42d9d3ce50",
+            "Value": {
+                "id": "78098ed5-2c65-491a-b22d-10eea93a3c37",
+                "resourcePath": "sprites\\spr_enemy_krampus_move\\spr_enemy_krampus_move.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3e307b67-6b66-4a2f-940e-13a6de55e7ab",
             "Value": {
                 "id": "8c74b932-9d0b-429b-a57e-970697ade948",
@@ -7396,6 +7460,14 @@
                 "id": "0e30dbf1-00c0-4eaa-9ed7-febaafe1f743",
                 "resourcePath": "objects\\obj_hand_item_greatsword\\obj_hand_item_greatsword.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "3ef22659-5967-4d85-a154-f612ecbba32d",
+            "Value": {
+                "id": "2a0c2ffc-674e-4699-bcb1-530d45813dac",
+                "resourcePath": "sprites\\spr_enemy_krampus_limb_staff_recover_1_1\\spr_enemy_krampus_limb_staff_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -10631,6 +10703,14 @@
             }
         },
         {
+            "Key": "5be4bbff-e689-46fa-852b-31f45fe6ced1",
+            "Value": {
+                "id": "7ebcb743-e33e-4b9b-a7d5-5822d85acdc1",
+                "resourcePath": "sprites\\spr_enemy_krampus\\spr_enemy_krampus.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5c138469-c951-4ca9-80d3-bb0b3e21dd39",
             "Value": {
                 "id": "b921a705-02be-4ccb-bc24-e060598d6e0f",
@@ -13151,6 +13231,14 @@
             }
         },
         {
+            "Key": "733d4f4f-993d-46ce-a2df-f2de2bbb78ad",
+            "Value": {
+                "id": "75e8a44a-5572-451f-91b1-210d4205c765",
+                "resourcePath": "sprites\\spr_enemy_krampus_limb_staff_attack_1_1\\spr_enemy_krampus_limb_staff_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "73404479-78f2-440b-abfe-77f9d63684cc",
             "Value": {
                 "id": "6bd7401f-574e-4be6-92fe-9081d5cbf956",
@@ -13620,6 +13708,14 @@
                 "id": "e484e697-72c8-401d-81b3-f7c05919b743",
                 "resourcePath": "scripts\\arrayIncludes\\arrayIncludes.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "7745c69d-fa16-47f8-b463-e1163cb7da54",
+            "Value": {
+                "id": "63b0814c-0d89-4151-b1aa-6a42d9702a09",
+                "resourcePath": "sprites\\spr_enemy_krampus_staff_attack_1_1_mask\\spr_enemy_krampus_staff_attack_1_1_mask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -15439,6 +15535,14 @@
             }
         },
         {
+            "Key": "86d87722-a6dd-4ce0-8996-ac4805c2c5e2",
+            "Value": {
+                "id": "c7567c7f-ce11-4104-823e-c48bc85f4d3e",
+                "resourcePath": "sprites\\spr_enemy_krampus_limb_staff_prep_1_1\\spr_enemy_krampus_limb_staff_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "86ecd9e4-e7b5-4be8-b1e3-bdf74defc1cf",
             "Value": {
                 "id": "edb60eb5-c386-42d8-b628-18d328a64cc3",
@@ -15588,6 +15692,14 @@
                 "id": "ac14ff2e-a631-437e-8745-c04e4c25786b",
                 "resourcePath": "sprites\\spr_block_green\\spr_block_green.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "887139cf-5c55-4ef1-824e-a7ca4f03c088",
+            "Value": {
+                "id": "c297e12f-7570-444f-aa38-3b24c2586e08",
+                "resourcePath": "views\\887139cf-5c55-4ef1-824e-a7ca4f03c088.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -18716,6 +18828,14 @@
                 "id": "448e1d39-5e5c-457c-9e2d-cd912940cff9",
                 "resourcePath": "views\\a43e2973-442a-4e92-bd9a-249a79712989.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a44ce14f-edce-4778-89be-da7621c592e4",
+            "Value": {
+                "id": "b31b22c1-39da-45f9-a9de-a413e1f949ca",
+                "resourcePath": "sprites\\spr_enemy_krampus_stagger\\spr_enemy_krampus_stagger.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -21911,6 +22031,14 @@
             }
         },
         {
+            "Key": "be79e5bd-69fe-4939-890d-ffdb28eec68c",
+            "Value": {
+                "id": "9e5852c3-31ca-445f-bb78-23ae44a82387",
+                "resourcePath": "objects\\obj_hand_item_krampusstaff\\obj_hand_item_krampusstaff.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "be85f495-54ed-45f1-a4c0-621e5e25400f",
             "Value": {
                 "id": "b03f939c-3d31-47e5-81c8-ec44f81a843e",
@@ -23663,6 +23791,14 @@
             }
         },
         {
+            "Key": "ce025ce7-9262-470a-b60e-cc9b96fe4811",
+            "Value": {
+                "id": "e28b1de1-e51d-4426-8f22-980afa2cbc2a",
+                "resourcePath": "sprites\\spr_npc_reindeer\\spr_npc_reindeer.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ce0311df-5adf-4a7c-8408-1ac9580be357",
             "Value": {
                 "id": "18d889d5-dd8a-4efe-94e8-22b9dcef81ac",
@@ -24551,6 +24687,14 @@
             }
         },
         {
+            "Key": "d6c03850-6e54-4c8e-b6d5-f34123429b99",
+            "Value": {
+                "id": "0993eef1-ba57-4634-951a-00541116893b",
+                "resourcePath": "objects\\obj_attack_krampus_staff_1_1\\obj_attack_krampus_staff_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "d6cf2a62-9b86-4843-abe7-3ad39d1aede9",
             "Value": {
                 "id": "f917f725-6d87-495a-8ff7-641c5af9e31c",
@@ -24588,6 +24732,14 @@
                 "id": "e7215a99-9974-42d0-b686-741a833d7196",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_shortbow_prep_1_1\\spr_enemy_unfairy_limb_shortbow_prep_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d76499e7-7c68-4a71-bed0-9e7b4065dcc2",
+            "Value": {
+                "id": "f94f32b8-a029-4ccf-b7b1-83a2a22a1c78",
+                "resourcePath": "objects\\obj_enemy_krampus\\obj_enemy_krampus.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -25375,6 +25527,14 @@
             }
         },
         {
+            "Key": "de1f778b-a575-4875-8896-1f888ab61620",
+            "Value": {
+                "id": "07dfea6f-e58e-4aea-bd27-42a0e257ac85",
+                "resourcePath": "rooms\\rm_krampus\\rm_krampus.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "de23ed1a-b74c-4739-afd9-7b5ca3fe1b2e",
             "Value": {
                 "id": "4eaee1dc-bad1-4032-944b-382e3ecda51f",
@@ -25655,6 +25815,14 @@
             }
         },
         {
+            "Key": "dff7a989-52bd-4e58-8a69-e26bbafa830d",
+            "Value": {
+                "id": "c78bff16-91fe-4ef7-b119-0bde08a8522b",
+                "resourcePath": "sprites\\spr_enemy_krampus_staff_prep_1_1\\spr_enemy_krampus_staff_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e01e944f-a61f-4943-b72c-7a50403d754e",
             "Value": {
                 "id": "10c472b7-e481-4728-8e47-670b0d0ddef5",
@@ -25916,6 +26084,14 @@
                 "id": "3bfaf732-d618-4cc7-afc5-dacfd818e5d7",
                 "resourcePath": "views\\e1feadd1-37a4-4980-8cee-b134e8b125fd.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e20ce7c1-b33d-4f80-9434-3c90873e4152",
+            "Value": {
+                "id": "a53497ef-a18f-4a67-b8a1-1fbe90384da9",
+                "resourcePath": "sprites\\spr_enemy_krampus_staff_attack_1_1_trail\\spr_enemy_krampus_staff_attack_1_1_trail.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -26620,6 +26796,14 @@
                 "id": "9ae5870b-8043-4056-9f87-a8513d96f605",
                 "resourcePath": "views\\e8085c66-1753-4708-afe9-820247fd0ed3.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e81a0bd6-05d0-4b51-9317-0dc13dd5b1f6",
+            "Value": {
+                "id": "bd71ef79-f171-4199-8ab5-31784e075b2e",
+                "resourcePath": "scripts\\playerGetDodgeStaminaCost\\playerGetDodgeStaminaCost.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -27652,6 +27836,14 @@
                 "id": "c3d183b3-615e-4b40-b1bd-df41b0c57d2f",
                 "resourcePath": "sprites\\spr_spell_projectile_lightning\\spr_spell_projectile_lightning.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f1c9847e-6650-4e7a-849f-ca4b51ae7eb0",
+            "Value": {
+                "id": "df57e10e-2b46-49d3-972c-6558a06becc1",
+                "resourcePath": "views\\f1c9847e-6650-4e7a-849f-ca4b51ae7eb0.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -29367,6 +29559,7 @@
         "cb260bf1-84a1-4a6c-b2c1-9424e00a232a",
         "25d1ee2f-bef1-4995-b981-aaad5ac9496e",
         "c464697d-965a-4868-a46a-74267a7cd01a",
+        "e81a0bd6-05d0-4b51-9317-0dc13dd5b1f6",
         "9bd32a79-2503-44b5-a00f-a63b87284907",
         "16568123-5957-4757-92be-a766ccac59ff",
         "b876bddf-c38a-44ab-bca5-d50240d22cea",

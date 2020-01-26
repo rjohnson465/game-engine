@@ -1,5 +1,7 @@
 event_inherited();
 
+
+
 isActive = ds_map_find_value(properties, "IsActive");
 
 for (var i = 0; i < array_length_1d(associatedBridgeKeys); i++) {
@@ -11,6 +13,16 @@ for (var i = 0; i < array_length_1d(associatedBridgeKeys); i++) {
 	}
 }
 
+for (var i = 0; i < array_length_1d(deactivateBridgeKeys); i++) {
+	var bk = deactivateBridgeKeys[i];
+	with obj_ww_icebridge {
+		if bKey == bk {
+			ds_list_add(other.deactivateBridges, id);
+		}
+	}
+}
+
+if !remembersState exit;
 with obj_ww_icebridge {
 	if arrayIncludes(other.associatedBridgeKeys, bKey) {
 		lever = other;

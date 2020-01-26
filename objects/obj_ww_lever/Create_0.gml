@@ -3,9 +3,13 @@ event_inherited();
 origLayer = layer;
 depth += 5;
 isActive = false;
+remembersState = true;
+repopulatesGrids = true;
 
 associatedBridgeKeys = noone;
 associatedBridges = ds_list_create();
+deactivateBridgeKeys = noone;
+deactivateBridges = ds_list_create();
 
 onlyDrawLightOnPlayerLayer = true;
 

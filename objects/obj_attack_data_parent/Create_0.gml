@@ -38,6 +38,7 @@ type = AttackTypes.Standard;
 prepSound = noone;
 attackSound = noone;
 attackSoundLoop = noone;
+attackSoundsDuring = noone;
 recoverSound = noone;
 hitSound = noone;
 mustVocalizeAttack = false;
@@ -88,6 +89,8 @@ attackPartEndFrame = noone;
 attackPartNum = 4;
 // trail particles 
 trailPart = noone;
+trailStarts = noone;
+trailEnds = noone;
 trailPartNum = 4;
 
 usesWeapon = false;
@@ -143,3 +146,6 @@ lingerZoneDamages = noone; // a map of damages the linger zone delivers
 lingerZoneDuration = 150; // 5 seconds by default
 lingerZoneDamageFrequency = 30; // damage every second, by default
 lingerZoneSoundInit = noone;
+
+resetCombatantsHitFrame = noone;
+extraHitsDamages = ds_map_create();

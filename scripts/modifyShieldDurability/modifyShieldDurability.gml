@@ -5,7 +5,7 @@
 var shield = argument[0];
 var buff = argument[1];
 
-if !instance_exists(shield) || !object_is_ancestor(shield, obj_shield_parent) exit;
+if !instance_exists(shield) || !object_is_ancestor(shield.object_index, obj_shield_parent) exit;
 if !is_real(buff) exit;
 
 var adjustedBuff = round(buff);

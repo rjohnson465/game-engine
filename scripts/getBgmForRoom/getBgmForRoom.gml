@@ -42,6 +42,10 @@ switch rm {
 		return [snd_bgm_sleighbells];
 		break; 
 	}
+	case rm_krampus: {
+		return noone;
+		break;
+	}
 }
 
 return noone;

@@ -1,4 +1,7 @@
 attackData = global.attackData;
+if attackData.limbKey == "l" {
+	image_yscale = -1;
+}
 owner = attackData.owner;
 particle = attackData.trailPart;
 system = part_system_create();

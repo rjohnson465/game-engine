@@ -22,8 +22,15 @@ if part_type_exists(attackPart) {
 	part_type_destroy(attackPart); attackPart = -1;
 }
 
-if part_type_exists(trailPart) {
+if trailPart != noone && !is_array(trailPart) && part_type_exists(trailPart) {
 	part_type_destroy(trailPart); trailPart = -1;
+} else if is_array(trailPart) {
+	for (var i = 0; i < array_length_1d(trailPart); i++) {
+		var p = trailPart[i];
+		if part_type_exists(p) {
+			part_type_destroy(p); p = -1;
+		}
+	}
 }
 
 if is_array(beamHitParticlesArr) && array_length_1d(beamHitParticlesArr) > 0 {
@@ -36,8 +43,6 @@ if is_array(beamHitParticlesArr) && array_length_1d(beamHitParticlesArr) > 0 {
 	}
 }
 
-/*
-// handle this in linger zone object, when it dies
-if ds_exists(lingerZoneDamages, ds_type_map) {
-	ds_map_destroy(lingerZoneDamages); lingerZoneDamages = -1;
+if ds_exists(extraHitsDamages, ds_type_map) {
+	ds_map_destroy(extraHitsDamages); extraHitsDamages = -1;
 }
