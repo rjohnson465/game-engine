@@ -66,3 +66,5 @@ hasReleasedInteract = true;
 wanders = true;
 
 isInteractable = true;
+
+defaultVendorFilter = InventoryFilters.Melee;

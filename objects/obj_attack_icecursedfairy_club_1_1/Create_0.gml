@@ -3,7 +3,7 @@ spriteName = "spr_enemy_icecursedfairy_club";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 limbKey = "l"; 
-ds_map_add(damages,CRUSH,[24,28]);
+ds_map_add(damages,CRUSH,[15,20]);
 isRanged = false;
 staminaCost = 10;
 staggerDuration = 15;

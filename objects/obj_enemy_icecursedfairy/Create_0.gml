@@ -12,8 +12,8 @@ normalSpeed = 5;
 turnSpeed = 10;
 normalTurnSpeed = 10;
 
-poiseCurrent = 30;
-poiseMax = 30;
+poiseCurrent = 20;
+poiseMax = 20;
 
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it

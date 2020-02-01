@@ -54,7 +54,9 @@ for (var j = 0; j < ds_map_size(sd_inventory); j++) {
 		item.ammo = ds_map_find_value(sd_item,"Ammo");
 		item.charges = ds_map_find_value(sd_item,"Charges");
 	
-	
+		if type == ItemTypes.HandItem {
+			item.requiredMastery = ds_map_find_value(sd_item, "RequiredMastery");
+		}
 	
 		// rings need to remember what their sprite is, as it is variable on create
 		if item.type == ItemTypes.Ring {

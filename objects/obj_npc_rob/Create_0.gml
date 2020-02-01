@@ -14,6 +14,8 @@ var rd = instance_create_depth(x,y,1,obj_item_rubberducky);
 rd.count = 3;
 ds_list_add(items,rd);
 
+defaultVendorFilter = InventoryFilters.Other;
+
 wanders = false;
 isFairy = false;
 isFloating = false;

@@ -17,6 +17,23 @@ if	p.currentInteractableObject == id &&
 	isActive = !isActive;
 	updatePersistentElementProperty(id, "IsActive", isActive);
 	
+	// deactivate every lever in group and their associated bridges
+	if group != noone {
+		with obj_ww_lever {
+			if id == other continue;
+			if group == other.group {
+				isActive = false;
+				for (var i = 0; i < ds_list_size(associatedBridges); i++) {
+					var br = ds_list_find_value(associatedBridges, i);
+					br.isActive = false;
+					br.image_xscale = 0; br.image_yscale = 0; 
+					with br {
+						light_set_alpha(0);
+					}
+				}
+			}
+		}
+	}
 
 	for (var i = 0; i < ds_list_size(associatedBridges); i++) {
 		var br = ds_list_find_value(associatedBridges, i);
@@ -35,6 +52,7 @@ if	p.currentInteractableObject == id &&
 		}
 	}
 	
+	/* ????
 	for (var i = 0; i < ds_list_size(deactivateBridges); i++) {
 		var br = ds_list_find_value(deactivateBridges, i);
 		br.isActive = !isActive;
@@ -50,7 +68,7 @@ if	p.currentInteractableObject == id &&
 				light_set_alpha(0);
 			}
 		}
-	}
+	} */
 	
 	if repopulatesGrids {
 		global.isPopulatingGrids = true;

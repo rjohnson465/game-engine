@@ -15,6 +15,8 @@ normalTurnSpeed = 10;
 poiseCurrent = 50;
 poiseMax = 50;
 
+sightAngleDelta = 360;
+
 hasHands = true; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
@@ -72,12 +74,15 @@ var stab1 = makeEnemyAttackObj(obj_attack_krampus_staff_2_1);
 var iceburst = makeEnemyAttackObj(obj_attack_krampus_staff_3_1);
 var icicleChunks = makeEnemyAttackObj(obj_attack_krampus_icechunks_1_1);
 
+var summonElf = makeEnemyAttackObj(obj_attack_krampus_summon_1_1);
+
 var c0 = [swing1];
 var c1 = [swing1, stab12];
 var c2 = [swing1, swing12];
 var c3 = [stab1];
 var c4 = [iceburst];
 var c5 = [icicleChunks];
+var c6 = [summonElf];
 meleeAttacks = [c0, c1, c2, c3, c4, c5];
 // ranged attacks info
 
@@ -87,8 +92,10 @@ currentRangedAttack = noone;
 var icicleChunks = makeEnemyAttackObj(obj_attack_krampus_icechunks_1_1);
 
 var c0 = [icicleChunks];
+var c1 = [summonElf];
 
-rangedAttacks = [c0];
+rangedAttacks = [c0, c1];
+// rangedAttacks = [c1];
 
 
 hp = 500;
@@ -117,12 +124,12 @@ isBoss = true;
 xpReward = 1500;
 
 
-// teleport after x damage taken
+// teleport 5-9 seconds after any damage taken
 damageTaken = 0;
-DAMAGE_TO_TELEPORT = 50;
-TELEPORT_PREP_FRAME_MIN = 90;
-TELEPORT_PREP_FRAME_MAX = 150;
-TELEPORT_LAST_OBJ = noone;
+DAMAGE_TO_TELEPORT = 1;
+TELEPORT_PREP_FRAME_MIN = 150;
+TELEPORT_PREP_FRAME_MAX = 270;
+TELEPORT_LAST_OBJ = instance_nearest(x, y, obj_teleport_point);
 eventListeners = ds_map_create();
 ds_map_add(eventListeners, EV_DAMAGE_TAKEN, scr_evl_dybukkboss_teleport_on_damage);
 

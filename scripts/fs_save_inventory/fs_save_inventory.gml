@@ -28,6 +28,10 @@ with obj_item_parent {
 		// some descriptions (i.e. health flask) may change based on stats, so remember them when save
 		ds_map_replace(sd_item, "Description", description);
 		
+		if type == ItemTypes.HandItem {
+			ds_map_replace(sd_item, "RequiredMastery", requiredMastery);
+		}
+		
 		// rings need to remember what their sprite is, as it is variable on create
 		if type == ItemTypes.Ring {
 			ds_map_replace(sd_item, "ItemSpriteName", itemSpriteName);

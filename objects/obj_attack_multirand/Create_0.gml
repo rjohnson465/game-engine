@@ -46,7 +46,9 @@ if attackData.mrAttackSound != noone && audio_exists(attackData.mrAttackSound) {
 	audio_play_sound_at(attackData.mrAttackSound,x,y,depth,250,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 }
 
-
+if attackData.attackFunc != noone {
+	script_execute(attackData.attackFunc);
+}
 
 
 

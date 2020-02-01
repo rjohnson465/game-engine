@@ -6,6 +6,8 @@ isActive = false;
 remembersState = true;
 repopulatesGrids = true;
 
+group = noone;
+
 associatedBridgeKeys = noone;
 associatedBridges = ds_list_create();
 deactivateBridgeKeys = noone;

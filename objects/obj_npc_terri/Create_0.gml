@@ -15,6 +15,8 @@ toast.count = 2;
 toast.value = 500;
 ds_list_add(items,toast);
 
+defaultVendorFilter = InventoryFilters.Other;
+
 wanders = false;
 isFairy = false;
 isFloating = false;

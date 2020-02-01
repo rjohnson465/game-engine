@@ -12,6 +12,7 @@ if isInUse {
 		}
 	}
 	else {
+		ds_map_replace(p.conditionsBuildupMap, POISON, 0);
 		// grant 50% poison resistance for 30 seconds
 		ds_list_add(p.temporaryDefenses, [POISON, 900, 50, 900, itemSprite]);
 	}

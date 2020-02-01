@@ -8,6 +8,7 @@ name = "Alvin the Elf";
 spriteString = "npc_elf_2";
 
 faceSprite = spr_face_elf_2; 
+defaultVendorFilter = InventoryFilters.Ranged;
 
 // sells melee weapons
 items = ds_list_create();

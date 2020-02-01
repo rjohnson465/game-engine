@@ -43,7 +43,7 @@ switch rm {
 		break; 
 	}
 	case rm_krampus: {
-		return noone;
+		return [snd_bgm_krampus];
 		break;
 	}
 }

@@ -93,6 +93,9 @@ trailStarts = noone;
 trailEnds = noone;
 trailPartNum = 4;
 
+// function to fire as attack starts
+attackFunc = noone;
+
 usesWeapon = false;
 
 // For AOE attacks -- how many degrees all attacks span

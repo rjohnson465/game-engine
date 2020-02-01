@@ -3,7 +3,7 @@ spriteName = "spr_enemy_icecursedfairy_hatchet";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 limbKey = "l"; 
-ds_map_add(damages,SLASH,[18,22]);
+ds_map_add(damages,SLASH,[15,20]);
 isRanged = false;
 staminaCost = 10;
 staggerDuration = 15;

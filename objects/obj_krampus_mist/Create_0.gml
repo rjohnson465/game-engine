@@ -20,8 +20,8 @@ part_emitter_region(system, emitter, bbox_left, bbox_right, bbox_top, bbox_botto
 
 var smoke = part_type_create();
 part_type_shape(smoke, pt_shape_smoke);
-part_type_color2(smoke,c_navy,c_aqua);
-part_type_orientation(smoke,0,0,0,15,1);
+part_type_color2(smoke,c_navy,c_silver);
+part_type_orientation(smoke,0,0,1,0,1);
 part_type_alpha3(smoke, .3, .2, .1);
 part_type_size(smoke,0.5,1.0,0,0);
 part_type_speed(smoke,.1,.2,0,0);
@@ -30,11 +30,13 @@ part_type_life(smoke,60,90);
 
 var snowflake = part_type_create();
 part_type_shape(snowflake, pt_shape_snow);
+part_type_alpha2(snowflake, .75, .05);
+part_type_color2(snowflake, c_white, c_navy);
 part_type_orientation(snowflake,0,0,0,15,1);
 part_type_size(snowflake,0,0.25,0,0);
 part_type_speed(snowflake,1,1.5,0,0);
 part_type_direction(snowflake,0,360,0,4);
-part_type_life(snowflake,10,20);
+part_type_life(snowflake,20,30);
 
 partSmoke = smoke;
 partSnowflake = snowflake;

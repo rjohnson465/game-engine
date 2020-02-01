@@ -44,7 +44,7 @@ stupidity = 15; // default .5 second in thinking state
 stupidityFrame = 0;
 
 // general attacks info
-meleeAggroRange = 150;
+meleeAggroRange = 125;
 rangedAggroRange = 800;
 farthestAllowedFromPost = 1500;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
@@ -67,16 +67,18 @@ global.owner = id;
 
 var icyHands = makeEnemyAttackObj(obj_attack_krampusmage_wand_1_1);
 var iceAoe = makeEnemyAttackObj(obj_attack_krampusmage_wand_3_1);
+var iceMissile = makeEnemyAttackObj(obj_attack_krampusmage_wand_2_1);
 
 var c0 = [icyHands];
 var c1 = [iceAoe];
-meleeAttacks = [c1, c0];
+var c2 = [iceMissile];
+meleeAttacks = [c1, c0, c2];
 // ranged attacks info
 
 // currently chosen ranged attack
 currentRangedAttack = noone;
 
-var iceMissile = makeEnemyAttackObj(obj_attack_krampusmage_wand_2_1);
+// var iceMissile = makeEnemyAttackObj(obj_attack_krampusmage_wand_2_1);
 
 var r0 = [iceMissile];
 

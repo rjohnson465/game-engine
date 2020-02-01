@@ -14,6 +14,6 @@ var w = bbox_right - bbox_left;
 var h = bbox_bottom - bbox_top;
 var a = w * h;
 var gridSquares = (a / 32) / 32;
-var pNum = -1;
+var pNum = 1;
 part_emitter_region(system, emitter, bbox_left, bbox_right, bbox_top, bbox_bottom, ps_shape_rectangle, ps_distr_gaussian);
 part_emitter_burst(system, emitter, partSmoke, pNum);

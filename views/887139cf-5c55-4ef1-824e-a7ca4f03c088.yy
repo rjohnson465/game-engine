@@ -11,7 +11,8 @@
         "7bd7db45-8150-4775-ae76-f5237631a5ca",
         "b517395e-d667-428a-9586-68b447f9c7dd",
         "7bcc0a8f-da7b-4dd0-bf9f-fd89c9c6e89a",
-        "ff9aca5c-cf54-4a69-aff7-c578711982f3"
+        "ff9aca5c-cf54-4a69-aff7-c578711982f3",
+        "370dfd79-61ec-4243-8f4d-83127a591158"
     ],
     "filterType": "GMObject",
     "folderName": "krampus",

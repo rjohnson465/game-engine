@@ -1,8 +1,12 @@
 event_inherited();
 
 
-
 isActive = ds_map_find_value(properties, "IsActive");
+
+// always reset state in krampus room
+if room = rm_krampus {
+	isActive = false;
+}
 
 for (var i = 0; i < array_length_1d(associatedBridgeKeys); i++) {
 	var bk = associatedBridgeKeys[i];

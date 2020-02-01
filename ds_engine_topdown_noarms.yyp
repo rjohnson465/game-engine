@@ -3879,6 +3879,14 @@
             }
         },
         {
+            "Key": "2044f8df-eab4-4d0c-aa09-cd922b3fd6ac",
+            "Value": {
+                "id": "7cf48127-7376-40fb-b438-56ef6932ad90",
+                "resourcePath": "sprites\\spr_enemy_krampus_staff_recover_5_1\\spr_enemy_krampus_staff_recover_5_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "206a4e7f-f8b5-4bf7-b052-374b514f413b",
             "Value": {
                 "id": "64bd8312-066d-4adf-9916-de5bc5a6ddf2",
@@ -6567,6 +6575,14 @@
             }
         },
         {
+            "Key": "370dfd79-61ec-4243-8f4d-83127a591158",
+            "Value": {
+                "id": "4699551a-2fb5-4cdf-9664-e0aea26a3f87",
+                "resourcePath": "objects\\obj_attack_krampus_summon_1_1\\obj_attack_krampus_summon_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "37545232-1f8e-4840-a1f6-cfa74e4cd8d4",
             "Value": {
                 "id": "34c5c22d-1f32-47ee-837c-326ec07aabfc",
@@ -7012,6 +7028,14 @@
                 "id": "89a085c4-b4e1-4803-9d96-310cf307c1ec",
                 "resourcePath": "scripts\\modifyHatResistance\\modifyHatResistance.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "3aad3aba-a205-4ac8-91c3-94a39ac9e16e",
+            "Value": {
+                "id": "06ca7884-a3be-48be-a508-14524f4232ca",
+                "resourcePath": "sprites\\spr_enemy_krampus_staff_5_1_projectile\\spr_enemy_krampus_staff_5_1_projectile.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -10879,6 +10903,14 @@
             }
         },
         {
+            "Key": "5cc068bc-25ab-42fb-a0c9-d86fe64ea5a0",
+            "Value": {
+                "id": "a3828336-af4c-42eb-b5d6-6c856b18db2e",
+                "resourcePath": "sounds\\snd_bgm_krampus\\snd_bgm_krampus.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "5ccba3f1-7bbe-407e-97ae-9da0da0540b4",
             "Value": {
                 "id": "213bb30f-041b-4141-8537-da3d2c55d8e1",
@@ -11228,6 +11260,14 @@
                 "id": "5efd7f5d-c39d-4414-93eb-6ba16c94a7b7",
                 "resourcePath": "scripts\\getNormalizedWeightMap\\getNormalizedWeightMap.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5fe33c8d-64df-4c7c-94e2-509f9b5305f4",
+            "Value": {
+                "id": "684a47ea-66eb-4934-a22c-78a41bbf7bef",
+                "resourcePath": "views\\5fe33c8d-64df-4c7c-94e2-509f9b5305f4.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -13939,6 +13979,14 @@
             "Value": {
                 "id": "fe786a1c-4eef-4359-9254-083a9aed0287",
                 "resourcePath": "sprites\\spr_ww_pinecone\\spr_ww_pinecone.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7862560e-5e5e-458f-be90-87d5d792a8f5",
+            "Value": {
+                "id": "cb5caa36-d63a-4ac5-96cc-4199423ce3c2",
+                "resourcePath": "sprites\\spr_enemy_krampus_staff_attack_5_1\\spr_enemy_krampus_staff_attack_5_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -21911,6 +21959,14 @@
             }
         },
         {
+            "Key": "bb2f4f7e-faf9-484d-853e-b363e556c382",
+            "Value": {
+                "id": "fe42d2bc-5b9a-43ed-8cb6-b235ca793a3d",
+                "resourcePath": "sprites\\spr_enemy_krampus_staff_prep_5_1\\spr_enemy_krampus_staff_prep_5_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "bb3b9d02-cdac-433c-a958-84e8660cd036",
             "Value": {
                 "id": "00b6c01e-3a65-4425-b775-806a57483516",
@@ -26503,6 +26559,14 @@
             }
         },
         {
+            "Key": "e33c2a61-cd97-4ca8-9781-0a14cdf4c94b",
+            "Value": {
+                "id": "d486a63c-f5ee-42db-9d44-c0b9bcf637e9",
+                "resourcePath": "scripts\\scr_krampus_summon_elf\\scr_krampus_summon_elf.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e34075f8-f193-4e1a-bd59-af47a39c1f79",
             "Value": {
                 "id": "9dcc2991-6cbc-4ded-9225-d3646e15536e",
@@ -29839,6 +29903,7 @@
         "f130b20f-9e48-48b2-aa0d-551f9b2738c9",
         "724efee2-ef01-4e0f-b2a9-6cfe76207df8",
         "f069e022-9d78-43da-b512-2aad9cbd7e97",
+        "e33c2a61-cd97-4ca8-9781-0a14cdf4c94b",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",
         "566e567f-06b1-4a92-9cea-84bc4525cdf8",

@@ -12,6 +12,7 @@ if isInUse {
 		}
 	}
 	else {
+		ds_map_replace(p.conditionsBuildupMap, LIGHTNING, 0);
 		// grant 50% lightning resistance for 30 seconds
 		ds_list_add(p.temporaryDefenses, [LIGHTNING, 900, 50, 900, itemSprite]);
 	}

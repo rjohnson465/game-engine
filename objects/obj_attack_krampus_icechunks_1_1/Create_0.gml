@@ -3,13 +3,13 @@ spriteName = "spr_enemy_krampus_staff";
 spriteAttackNumber = 4;
 spriteAttackNumberInChain = 1;
 limbKey = "l";
-ds_map_add(damages,ICE,[4,6]);
-ds_map_add(damages,PIERCE,[30,30]);
+ds_map_add(damages,ICE,[10,10]);
+ds_map_add(damages,PIERCE,[12,12]);
 isRanged = false;
 staminaCost = 5;
 staggerDuration = 2;
 type = AttackTypes.MultiRand;
-minRange = 1000;
+minRange = 3000;
 numberOfProjectiles = 4;
 
 var snowflake = part_type_create();
@@ -61,7 +61,7 @@ prepPartBoundingBox = [35, -0, 85, -100];
 
 prepSoundsVocals = [snd_vox_snarl_1];
 
-mrOffset = 200; // random projectiles within n px of target
-mrPrepDuration = 45; // how long each projectile charges
+mrOffset = 250; // random projectiles within n px of target
+mrPrepDuration = 35; // how long each projectile charges
 mrAttackSound = snd_iceshatter;
 mrPrepSound = snd_magic_ice_charge;

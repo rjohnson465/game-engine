@@ -38,7 +38,10 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 		
 		var postX = ds_map_find_value(sd_temp_enemy, "PostX");
 		var postY = ds_map_find_value(sd_temp_enemy, "PostY");
-		if is_nan(postX) || postX == undefined || is_nan(postY) || postY == undefined continue;
+		if is_nan(postX) || postX == undefined || is_nan(postY) || postY == undefined {
+			ek = ds_map_find_next(sd_temp_enemies_room, ek);
+			continue;
+		}
 		
 		var enemyObj = findPersistentRoomElement(obj_enemy_parent, real(postX), real(postY));
 		
@@ -50,6 +53,7 @@ for (var i = 0; i < ds_map_size(sd_temp_enemies_rooms); i++) {
 		}
 		// do not normally respawn bosses
 		if ib && !onlyRespawnBosses {
+			ek = ds_map_find_next(sd_temp_enemies_room, ek);
 			continue;
 		}
 		

@@ -3,7 +3,7 @@ spriteName = "spr_enemy_icecursedfairy_tknife";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 limbKey = "l"; 
-ds_map_add(damages,SLASH,[15,20]);
+ds_map_add(damages,SLASH,[12,12]);
 isRanged = true;
 staminaCost = 5;
 projectileSpeed = 20;

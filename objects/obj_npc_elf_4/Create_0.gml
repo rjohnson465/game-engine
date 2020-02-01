@@ -9,6 +9,8 @@ spriteString = "npc_elf_3";
 
 faceSprite = spr_face_elf_3; 
 
+defaultVendorFilter = InventoryFilters.Other;
+
 // sells melee weapons
 items = ds_list_create();
 ds_list_add(items,instance_create_depth(x,y,1,obj_item_jalapeno));

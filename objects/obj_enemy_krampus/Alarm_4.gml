@@ -9,6 +9,8 @@ if state == CombatantStates.Attacking {
 	exit;
 }
 
+if hp <= 0 exit;
+
 audio_play_sound_at(snd_death_fade, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 
 // teleport
@@ -49,6 +51,7 @@ if chosenPoint != noone {
 	part_emitter_burst(appSystem, appEmitter, p, 25);
 	
 	x = chosenPoint.x; y = chosenPoint.y;
+	postX = x; postY = y;
 	
 	with obj_player {
 		lockOnTarget = noone;

@@ -196,7 +196,7 @@ if isDying && isAlive {
 					j++;
 				}
 				
-				if ds_list_size(droppedItems) > 0 {
+				if ds_list_size(droppedItems) > 0 && (!isBoss || !isBossKilledBefore) {
 					var drop = makeItemDrop(droppedItems);
 					drop.x = x;
 					drop.y = y;

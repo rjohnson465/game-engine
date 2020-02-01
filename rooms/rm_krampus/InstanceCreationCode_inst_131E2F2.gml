@@ -1,5 +1,5 @@
 repopulatesGrids = false;
 remembersState = false;
+group = "krampus";
 
-associatedBridgeKeys = ["1", "3"];
-deactivateBridgeKeys = ["2", "4"];
+associatedBridgeKeys = ["A","B"];

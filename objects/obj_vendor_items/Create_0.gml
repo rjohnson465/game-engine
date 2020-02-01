@@ -60,7 +60,7 @@ itemDescriptionColY = itemDescriptionTopLeftY+itemDescriptionHandleHeight;
 
 filtersHeight = 30;
 filtersWidth = 30;
-filter = InventoryFilters.Melee;
+filter = owner.defaultVendorFilter;
 filterSprites = ds_map_create();
 ds_map_add(filterSprites,InventoryFilters.Melee,spr_filter_melee);
 ds_map_add(filterSprites,InventoryFilters.Ranged,spr_filter_ranged);

@@ -30,4 +30,7 @@ scaleTotalFrames = 120;
 
 isActive = false;
 
-light_create_layer_multiscale(spr_light_square, lightScaleX, lightScaleY, c_white, 0, 0, true);
+light_create_layer_multiscale(spr_light_square, lightScaleX, lightScaleY, c_white, 0, angle, true);
+
+image_xscale = 0; 
+image_yscale = 0;
