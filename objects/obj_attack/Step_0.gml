@@ -4,11 +4,7 @@ if !instance_exists(owner) {
 }
 audio_emitter_position(soundEmitter, x, y, depth);
 
-if isMelee {
-	image_angle = owner.facingDirection;
-	x = owner.x;
-	y = owner.y;
-}
+
 
 if	owner.state == CombatantStates.Staggering 
 {

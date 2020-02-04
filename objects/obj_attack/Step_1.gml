@@ -1,4 +1,15 @@
 life --;
+
+if isMelee {
+	image_angle = owner.facingDirection;
+	x = owner.x;
+	y = owner.y;
+	image_xscale = owner.scale;
+	var isNeg = image_yscale < 1;
+	image_yscale = owner.scale;
+	if isNeg image_yscale *= -1;
+}
+
 // special case - 2h club on 3rd attack create dust particles from hitting the ground
 if (weapon != noone && weapon.weaponType == BLUNT2H && attackNumber == 3) {
 	
@@ -27,6 +38,23 @@ if (weapon != noone && weapon.weaponType == BLUNT2H && attackNumber == 3) {
 }
 
 // special case -- sconces light arrows / bolts on fire
+var fieryObjs = [obj_sconce, obj_sconce_icy, obj_firepit];
+for (var i = 0; i < array_length_1d(fieryObjs); i++) {
+	var obj = fieryObjs[i];
+	with obj {
+		if origLayer == other.layer && isLit && distance_to_object(other) < 2 &&
+			!other.isOnFire && other.weapon != noone && (other.weapon.weaponType == BOW || other.weapon.weaponType == CROSSBOW) {
+		
+			audio_play_sound_at(snd_magic_fire_shoot,x,y,depth,25,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+			other.isOnFire = true;
+			ds_map_replace(other.additionalDamages,FIRE,[1,5]);
+			with other {
+				updateWeaponParticles(id);
+			}
+		}
+	}
+}
+/*
 with obj_sconce {
 	if origLayer == other.layer && isLit && distance_to_object(other) < 2 &&
 		!other.isOnFire && other.weapon != noone && (other.weapon.weaponType == BOW || other.weapon.weaponType == CROSSBOW) {
@@ -38,8 +66,9 @@ with obj_sconce {
 			updateWeaponParticles(id);
 		}
 	}
-}
+} */
 
+/*
 with obj_firepit {
 	if origLayer == other.layer && isLit && distance_to_object(other) < 2 &&
 		!other.isOnFire && other.weapon != noone && (other.weapon.weaponType == BOW || other.weapon.weaponType == CROSSBOW) {
@@ -51,7 +80,7 @@ with obj_firepit {
 			updateWeaponParticles(id);
 		}
 	}
-}
+} */
 
 // general ranged particles algorithm
 for (var i = 0; i < array_length_1d(weaponParticles); i++) {

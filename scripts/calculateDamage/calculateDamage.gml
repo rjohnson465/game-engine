@@ -273,6 +273,7 @@ if	state != CombatantStates.Dodging &&
 	// get out of wary state
 	if state == CombatantStates.Wary {
 		hasCalculatedWillDodge = false;
+		hasCalculatedWillShield = false;
 		state = CombatantStates.Idle;
 	}
 		

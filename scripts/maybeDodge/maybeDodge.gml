@@ -101,6 +101,7 @@ if distance_to_object(lockOnTarget) < range*1.5 && ds_map_size(lockOnTarget.prep
 		}
 		facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 		hasCalculatedWillDodge = false;
+		hasCalculatedWillShield = false;
 		dodgeDirection = (facingDirection+180)%360;
 		path_end();
 		stamina -= 15;
@@ -139,6 +140,7 @@ else if distance_to_object(obj_attack) < 200 - agility && willDodge {
 	if stamina > 0 && !isFrozen && isEnemyAttack {
 		facingDirection = point_direction(x,y,lockOnTarget.x,lockOnTarget.y);
 		hasCalculatedWillDodge = false;
+		hasCalculatedWillShield = false;
 		randomize();
 		var rand = floor(random_range(1.01,2.99));
 		dodgeDirection = rand == 1 ? (attackObj.owner.facingDirection+90)%360 : (attackObj.owner.facingDirection - 90 + 360)%360;

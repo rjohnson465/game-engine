@@ -108,7 +108,7 @@ ds_map_replace(defenses,ICE,90);
 soundsWhenHitVocals = [snd_enemy_krampuself_hit_1, snd_enemy_krampuself_hit_2];
 soundsWhenDie = [snd_enemy_krampuself_die_1];
 
-xpReward = 50;
+xpReward = 140;
 
 
 

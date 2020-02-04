@@ -524,6 +524,7 @@ switch(state) {
 		var closestAllowedDist = .5*waryDistance < 200 ? .5*waryDistance : 200;
 		if distance_to_object(lockOnTarget) < closestAllowedDist && hasReachedWaryDistance {
 			hasCalculatedWillDodge = false;
+			hasCalculatedWillShield = false;
 			state = CombatantStates.Moving;
 		}
 		

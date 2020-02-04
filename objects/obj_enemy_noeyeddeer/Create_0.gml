@@ -52,7 +52,7 @@ damageFrequency = 3;
 alarm[4] = damageFrequency; 
 
 
-xpReward = 150;
+xpReward = 1;
 hp = 200;
 maxHp = 200;
 

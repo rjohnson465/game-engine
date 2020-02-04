@@ -68,5 +68,9 @@ if selectedOption == ReviveOptions.Fountain {
 	}
 }
 
+if gamepad_is_connected(global.gamePadIndex) && acceptingInput {
+	drawPrompt("Select", Input.F);
+}
+
 draw_set_alpha(1);
 draw_set_font(font_main);

@@ -28,6 +28,7 @@ if type != CombatantTypes.Player {
 		}
 					
 		shieldingFrame = 0;
+		hasCalculatedWillShield = false;
 		state = CombatantStates.Wary;
 		return true;
 	}

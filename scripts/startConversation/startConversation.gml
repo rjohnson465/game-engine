@@ -12,11 +12,13 @@ if conv {
 	if	!conv.isFinished ||
 		(conv.isFinished && conv.isRepeatable)
 	{
-	
+		
 		isInConversation = true;
 		global.isInteractingWithNpc = false;
 		conv.currentStep = noone;
 		conv.isActive = true;
+		conv.alarm[0] = conv.CONV_SKIP_DELAY_FRAMES;
+		conv.canBeSkipped = false;
 		isFinished = false;
 	}
 }

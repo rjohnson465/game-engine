@@ -32,6 +32,7 @@ if attackFrequencyFrame < 0 {
 	if rand <= aggressiveness {
 		if !isFrozen && !isShielding {
 			hasCalculatedWillDodge = false;
+			hasCalculatedWillShield = false;
 			isStrafing = false;
 			
 			/*

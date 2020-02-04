@@ -22,6 +22,7 @@ if (distance_to_object(lockOnTarget) < waryDistance && !hasReachedWaryDistance) 
 		y += lengthdir_y(sp,dir);
 	} else {
 		hasCalculatedWillDodge = false;
+		hasCalculatedWillShield = false;
 		state = CombatantStates.Idle;
 	}
 	turnToFacePoint(turnSpeed,lockOnTarget.x,lockOnTarget.y);

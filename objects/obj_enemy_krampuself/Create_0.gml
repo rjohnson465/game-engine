@@ -52,7 +52,9 @@ strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
 waryTotalFrames=[60,90];
 skittishness = 100;
-cautiousness = 15;
+cautiousness = 50;
+shieldingFrame = 0;
+shieldingFrequencyFrames = [90,100]; // range of values for how often to check if should shield
 
 // melee attacks info
 // currently chosen melee attack chain
@@ -94,9 +96,6 @@ staminaRegen = 10;
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
-// stagger stuff
-poise = 50;
-
 // dodge stuff
 agility = 40; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
@@ -107,7 +106,7 @@ ds_map_replace(defenses,ICE,90);
 soundsWhenHitVocals = [snd_enemy_krampuself_hit_1, snd_enemy_krampuself_hit_2];
 soundsWhenDie = [snd_enemy_krampuself_die_1];
 
-xpReward = 50;
+xpReward = 140;
 
 
 

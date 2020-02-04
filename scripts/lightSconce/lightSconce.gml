@@ -13,7 +13,8 @@ if lightRadius != noone exit;
 
 
 isLit = true;
-if object_index == obj_sconce || object_is_ancestor(object_index, obj_sconce) {
+var sconcyObjs = [obj_sconce, obj_sconce_icy];
+if arrayIncludes(sconcyObjs, object_index) {
 	audio_emitter_gain(soundEmitter,MAXGAIN);
 	torchSoundId = audio_play_sound_on(soundEmitter, torchSound,1,1);
 }

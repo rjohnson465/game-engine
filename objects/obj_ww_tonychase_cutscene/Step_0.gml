@@ -22,7 +22,7 @@ with obj_player {
 		} else if path_index < 0 {
 			var cg = instance_nearest(x, y, obj_npc_casinoguard);
 			var p = mp_potential_path(path, cg.x, cg.y, 4, 4, false);
-			path_start(path, 5, path_action_stop, true);
+			path_start(path, 7, path_action_stop, true);
 		}
 	} 
 }
