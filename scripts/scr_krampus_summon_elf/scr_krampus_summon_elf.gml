@@ -31,9 +31,10 @@ var associatedTeleObj = noone;
 with obj_teleport_point {
 	var p = path_add();	
 	var pathExists = mp_grid_path(grid, p, other.x, other.y, x, y, true);
+	
 	if pathExists {
 		// make sure this teleport point is not one krampus can currently walk to
-		with obj_enemy_krampus {
+		/*with obj_enemy_krampus {
 			var p2 = path_add();
 			var pathExists2 = mp_grid_path(personalGrid, p2, x, y, global.player.x, global.player.y, true);
 			if pathExists2 {
@@ -41,7 +42,7 @@ with obj_teleport_point {
 				exit;
 			}
 			path_delete(p2);
-		}
+		} */
 		
 		// set this teleport point to be the elf's associatedTeleportPoint
 		associatedTeleObj = id;

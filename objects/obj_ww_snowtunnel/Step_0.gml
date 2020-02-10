@@ -36,6 +36,7 @@ if	p.currentInteractableObject == id
 				global.isTrading = true;
 				audio_play_sound(snd_snow_crunch, 1, 0);
 				visible = false;
+				isInvulnerable = true;
 				
 				// assign path to player
 				var pathToTunnel = path_add();
@@ -70,6 +71,7 @@ if p.path_index >= 0 && global.isTrading && p.path_position > .5 && distance_to_
 	}
 	global.isTrading = false;
 		with p {
+			isInvulnerable = false;
 			var pathToTunnel = path_index;
 			path_end();
 			path_delete(pathToTunnel);

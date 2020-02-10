@@ -133,5 +133,7 @@ TELEPORT_LAST_OBJ = instance_nearest(x, y, obj_teleport_point);
 eventListeners = ds_map_create();
 ds_map_add(eventListeners, EV_DAMAGE_TAKEN, scr_evl_dybukkboss_teleport_on_damage);
 
+chanceToDropHealthOrb = 1;
+
 
 

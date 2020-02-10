@@ -30,16 +30,20 @@ if isEnemy objectsToAvoid = obj_enemy_obstacle_parent;
 
 var oldX = x;
 var oldY = y;
+var dir = d;
+var pred1 = includesFallzones ? 
+			!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone)
+			: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid);
 
-
-if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) {
+// if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) {
+if pred1 {
 	x = x+lengthdir_x(sp,d); 
 	y = y+lengthdir_y(sp,d);
 	direction = point_direction(oldX,oldY,x,y);
 	return true;
 }
 else {
-	var dir = d;
+	
 	var possibleAngles = ds_list_create();
 	dir = (dir + angMult)%360; 
 	while dir != d

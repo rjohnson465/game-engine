@@ -1,1 +1,1 @@
-hearingDistance = 25;
+hearingDistance = 15;

@@ -8,7 +8,7 @@ var pts = argument[1];
 var act = argument[2];
 
 var val = 0;
-global.a1MaxPtsVal = 40; // this might change -- its the most pts that could possibly be put into a property, at act 1 
+
 var a1MaxPtsVal = global.a1MaxPtsVal;
 // we calculate the effect by act1 vals, then multiply by act
 var arr = ds_map_find_value(global.itemPropertyRangesForPts, prop);

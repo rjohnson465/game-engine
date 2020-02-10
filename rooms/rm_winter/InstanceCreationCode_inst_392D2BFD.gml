@@ -1,1 +1,0 @@
-lightSconce(false);

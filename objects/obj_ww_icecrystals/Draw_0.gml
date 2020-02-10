@@ -1,3 +1,4 @@
+shader_reset();
 var gridWidth = sprite_width div 32;
 var remainder = sprite_width % 32;
 var totalWidth = sprite_width;

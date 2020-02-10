@@ -3,15 +3,14 @@
 var in = instance_number(obj_fade);
 if in > 0 exit;
 
-// scr_test_build_swordsman_ww();
+scr_test_build_swordsman_ww();
 
-
+/*
 scr_test_build_swordsman_factory();
 questStart(obj_quest_llf);
 
 addItemToInventory(makeKey("Mess Hall Key", "key", spr_item_key_messhall, "This is a dummy item lol"));
 
-/*
 var q = instance_nearest(x,y, obj_quest_llf);
 
 var q1 = ds_list_find_value(q.questSteps, 0);
@@ -24,8 +23,12 @@ q2.status = QuestStepStatus.Completed;
 
 var q3 = ds_list_find_value(q.questSteps, 2);
 q3.status = QuestStepStatus.InProgress;
-q.currentQuestStep = q3;
-q.currentQuestStepIndex = 2;
+
+var q4 = ds_list_find_value(q.questSteps, 3);
+q4.status = QuestStepStatus.InProgress;
+q.currentQuestStep = q4;
+q.currentQuestStepIndex = 3;
+
 addItemToInventory(instance_create_depth(x,y,1,obj_item_wire_rg));
 
 

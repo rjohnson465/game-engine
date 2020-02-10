@@ -8,7 +8,7 @@
         "e93828dd-c4dc-48e2-b6c8-6b117fd5ecb5"
     ],
     "filterType": "GMScript",
-    "folderName": "Enemy Generation",
+    "folderName": "Enemys",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

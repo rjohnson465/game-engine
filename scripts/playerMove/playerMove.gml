@@ -58,7 +58,8 @@ if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowing
 	var useSpeed = functionalSpeed;
 	if SHIFT && stamina > 0 {
 		useSpeed = functionalSpeed*2;
-		stamina -= .35;
+		// stamina -= .35;
+		stamina -= .3;
 		isSprinting = true;
 	}
 	// walking backwards is slow

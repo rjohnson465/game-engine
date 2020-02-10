@@ -4,5 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-depth += 1; // hands appear over 
+// depth += 1; // hands appear over 
 stopsAttacks = true;
+material = METAL;

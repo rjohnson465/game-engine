@@ -19,3 +19,6 @@ ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.HpSteal, [1
 ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.StaminaSteal, [1,15]);
 ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.GoldDrop, [1,15]);
 ds_map_replace(global.itemPropertyRangesForPts, ModifiableProperties.XpMultiplier, [1,15]);
+
+
+global.a1MaxPtsVal = 40; // this might change -- its the most pts that could possibly be put into a property, at act 1 

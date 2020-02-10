@@ -34,6 +34,6 @@ switch ri {
 		return "Krampus Tundra"; break;
 	}
 	case rm_krampus: {
-		return "Krampus' Keep"; break;
+		return "Krampus Campus"; break;
 	}
 }
