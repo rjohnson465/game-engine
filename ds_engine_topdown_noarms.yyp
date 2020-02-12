@@ -567,6 +567,14 @@
             }
         },
         {
+            "Key": "05318700-2819-4412-8792-0d42b76c8bb0",
+            "Value": {
+                "id": "6ab54dab-2c2e-4a49-9e08-d1bb9af546b4",
+                "resourcePath": "objects\\obj_enemy_gargoylebust\\obj_enemy_gargoylebust.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "05492d82-6bdb-4a6a-8fda-721f22dce2ae",
             "Value": {
                 "id": "cfdfcbd5-314c-4836-b56c-10fb51fcb8c2",
@@ -1196,6 +1204,14 @@
                 "id": "361e4480-366c-49d6-b485-5fea65e7b5c5",
                 "resourcePath": "sounds\\snd_npc_rob_greeting_1\\snd_npc_rob_greeting_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "0985c7ed-b157-470a-9cd9-1170b5621208",
+            "Value": {
+                "id": "518ba76a-2534-49a2-997f-11ceabe91938",
+                "resourcePath": "sprites\\spr_enemy_gargoylebust_fireball_attack_1_1\\spr_enemy_gargoylebust_fireball_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4631,6 +4647,14 @@
             }
         },
         {
+            "Key": "25f44979-03d5-4588-b8a6-cbdc3c1afc06",
+            "Value": {
+                "id": "245452c7-d47f-479c-b9d3-517f2defb337",
+                "resourcePath": "views\\25f44979-03d5-4588-b8a6-cbdc3c1afc06.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "25f9e73f-ad97-44df-9cbd-e1f8faec6050",
             "Value": {
                 "id": "f37231fa-2a2a-4a45-8db4-cc9dd251473a",
@@ -6351,6 +6375,14 @@
             }
         },
         {
+            "Key": "354b141c-c5d0-4e3b-ba5d-e00a190aebf2",
+            "Value": {
+                "id": "73bacdf3-674e-4bb1-9c40-e2d9a964bc08",
+                "resourcePath": "sprites\\spr_enemy_gargoylebust_fireball_attack_1_11\\spr_enemy_gargoylebust_fireball_attack_1_11.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "355174dc-34c1-4574-b69f-f1f1c3fbd3ac",
             "Value": {
                 "id": "198474ac-f150-4b7f-b511-0e08e0fde050",
@@ -7484,6 +7516,14 @@
                 "id": "276a86a8-a755-4e20-a54d-9f2af9e7a956",
                 "resourcePath": "sprites\\spr_player_spear_recover_2\\spr_player_spear_recover_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3e049c6d-acf1-44fd-9702-92b2b35d09ed",
+            "Value": {
+                "id": "b11340d6-1fbc-4671-971a-b1d87678ea4a",
+                "resourcePath": "scripts\\returnToLastFountain\\returnToLastFountain.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -8783,6 +8823,14 @@
             }
         },
         {
+            "Key": "49d2ceeb-3940-40f9-b587-fd63ded9e4ae",
+            "Value": {
+                "id": "5b3bda8b-4322-4a35-bc2c-9f209890cf2b",
+                "resourcePath": "views\\49d2ceeb-3940-40f9-b587-fd63ded9e4ae.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "49d42644-f8a4-406d-bce9-bfa61dccebe0",
             "Value": {
                 "id": "045b3900-1eee-4977-8be6-feaf59f766cc",
@@ -9991,6 +10039,14 @@
             }
         },
         {
+            "Key": "53c75abd-bfa1-4ba5-90c7-ce904d69edc2",
+            "Value": {
+                "id": "7241e34a-6a1b-498f-9ff8-bed69f66d3d5",
+                "resourcePath": "sprites\\spr_enemy_gargoylebust_fireball_recover_1_1\\spr_enemy_gargoylebust_fireball_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "53db88d0-0547-4cbf-84e0-2e88d5e0b094",
             "Value": {
                 "id": "a2bfe5dd-e186-4991-872f-63ade0b1a38f",
@@ -10483,6 +10539,14 @@
             "Value": {
                 "id": "06b20e4f-252b-4c47-a199-c95a91d85b86",
                 "resourcePath": "sprites\\spr_player_foil_prep_2\\spr_player_foil_prep_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5843bece-2beb-4a93-9c9d-ea587cd48114",
+            "Value": {
+                "id": "f4ede05e-2b5c-4bdc-a9e4-a3bac3e5392b",
+                "resourcePath": "sprites\\spr_item_ancient_coin\\spr_item_ancient_coin.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -11308,6 +11372,14 @@
                 "id": "081f581c-f9af-4b76-8e51-e923fe06d272",
                 "resourcePath": "sounds\\snd_conv_santa_krampus_santa_3\\snd_conv_santa_krampus_santa_3.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "6047dc83-f760-402e-b536-205b38c58c75",
+            "Value": {
+                "id": "aced729f-d594-457e-b7d2-a4eb08deafdf",
+                "resourcePath": "objects\\obj_item_ancient_coin\\obj_item_ancient_coin.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -13847,6 +13919,14 @@
             }
         },
         {
+            "Key": "77245909-db5d-4df2-9db0-38ac147e4a2f",
+            "Value": {
+                "id": "6cac5805-3586-4879-83d1-0a4bc522f795",
+                "resourcePath": "objects\\obj_attack_gargoylebust_fireball_1_1\\obj_attack_gargoylebust_fireball_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "77344340-93d0-4007-ac19-aab6aa0a368c",
             "Value": {
                 "id": "c582bf32-c700-4788-beb0-bb1a443b21f8",
@@ -14443,6 +14523,14 @@
             "Value": {
                 "id": "e4a60c01-41ba-422d-9ace-d58b8cad63cd",
                 "resourcePath": "sprites\\spr_gem_hematite_exquisite\\spr_gem_hematite_exquisite.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7b3a22f5-d1c5-4415-9b2a-347da9702166",
+            "Value": {
+                "id": "58a86568-88b0-4a21-8b7a-64860fc132ce",
+                "resourcePath": "sprites\\spr_player_santa_hat\\spr_player_santa_hat.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -21255,6 +21343,14 @@
             }
         },
         {
+            "Key": "b5850047-4231-4dd8-ae36-f6de4d81a376",
+            "Value": {
+                "id": "d6e1dc76-5876-4357-9a2f-90fbd50cc5f0",
+                "resourcePath": "sprites\\spr_enemy_gargoylebust_fireball_prep_1_1\\spr_enemy_gargoylebust_fireball_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b58f8d42-460c-4ac0-bdd8-6f1c33ba40e1",
             "Value": {
                 "id": "37cabcc3-6d8e-46e9-85b8-6d4e3d5cc1f2",
@@ -23543,6 +23639,14 @@
             }
         },
         {
+            "Key": "c89542e6-c7ab-4ae6-b1a4-4ec42fa5355e",
+            "Value": {
+                "id": "5a2b4cca-a60c-4e29-a557-9d92a69994ee",
+                "resourcePath": "sprites\\spr_item_santa_hat\\spr_item_santa_hat.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c8c5ee76-57b7-4f05-ba02-fd314d93d31b",
             "Value": {
                 "id": "113d49dd-4df5-4386-81ef-923a734f8897",
@@ -25340,6 +25444,14 @@
                 "id": "02c2c11c-f71e-4a59-a478-4c4bdc4f2d45",
                 "resourcePath": "sounds\\snd_conv_start_barry_8\\snd_conv_start_barry_8.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "d9960a2e-9e31-4c03-a7e6-dbdb8d700b55",
+            "Value": {
+                "id": "158e21f2-ef2d-4633-9b07-cbd3d8e9084b",
+                "resourcePath": "sprites\\spr_enemy_gargoylebust\\spr_enemy_gargoylebust.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -30102,6 +30214,7 @@
         "b20b5997-37cc-4546-92d2-fe7dc8479aba",
         "8305d611-d802-438b-a7f2-7d475431cb73",
         "3a4f4e5d-aae5-4528-93d9-9d2cb6f27b93",
+        "3e049c6d-acf1-44fd-9702-92b2b35d09ed",
         "8da4eee5-515f-4749-8509-780e480c1519",
         "ad389817-86f0-4fa2-bfa9-17773f67dfac",
         "d7bc54d2-9209-4ff2-ba0e-cf931dea81cc",

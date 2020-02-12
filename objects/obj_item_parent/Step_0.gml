@@ -13,21 +13,19 @@ if count < 1 && object_index != obj_item_coins {
 }
 
 // if being used, decrement count or destroy item
-if isInUse {
+if isInUse && !isUseCycleInProgress {
 	if object_index != obj_item_health_flask {
 		audio_play_sound(soundUse,1,0);
 	}
 	alert("Used " + name,c_yellow);
+	isUseCycleInProgress = true;
+}
+
+if isUseCycleInProgress && !isInUse {
+	isUseCycleInProgress = false;
 	if count > 1 && isStackable {
 		count--;
 	} else if isStackable {
-		
-		/*
-		var itemType = getItemFilterType(id);
-		var currentItemTypeCount = ds_map_find_value(global.player.inventoryCapacityMap, itemType);
-		ds_map_replace(global.player.inventoryCapacityMap, itemType, currentItemTypeCount - 1);
-		*/
-		
 		var p = global.player;
 		
 		// if this item was equipped, remove it from the list of equipped items

@@ -43,6 +43,7 @@ count = 1;
 isUsable = false;
 canUse = true; // usable items may be unusable sometimes (i.e. health flask out of charges)
 isInUse = false;
+isUseCycleInProgress = false;
 
 isDestroyable = true;
 

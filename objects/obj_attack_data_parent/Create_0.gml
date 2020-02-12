@@ -152,3 +152,9 @@ lingerZoneSoundInit = noone;
 
 resetCombatantsHitFrame = noone;
 extraHitsDamages = ds_map_create();
+
+hasLightRadius = false;
+lightRadiusAlpha = .2;
+lightRadiusScale = .23;
+lightRadiusColor = c_white;
+lightRadiusSprite = spr_light_point;

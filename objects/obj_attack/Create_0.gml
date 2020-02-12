@@ -44,6 +44,11 @@ weaponParticlesNums = [noone, noone, noone, noone, noone];
 // calculating damage
 hitIndex = 0; 
 
+// determine attack type
+if isSpell {
+	instance_change(obj_attack_spell,1); 
+	exit;
+}
 
 if owner.type != CombatantTypes.Player {
 	attackData = global.attackData;
@@ -93,11 +98,7 @@ if owner.type != CombatantTypes.Player {
 	isMelee = weapon.subType == HandItemTypes.Melee;
 }
 
-// determine attack type
-if isSpell {
-	instance_change(obj_attack_spell,1); 
-	exit;
-}
+
 
 // sounds
 if (weapon != noone && owner.type == CombatantTypes.Player) {
@@ -222,6 +223,18 @@ if attackData != noone && attackData.type == AttackTypes.Beam {
 
 if isMelee && owner.isSlowed {
 	image_speed = .5; // TODO
+}
+
+if attackData != noone && attackData.hasLightRadius {
+	var lr_scale = attackData.lightRadiusScale;
+	var lr_color = attackData.lightRadiusColor;
+	var lr_alpha = attackData.lightRadiusAlpha;
+	if lr_alpha == noone {
+		var fNum = getLayerFloorNumber(owner.layer);
+		lr_alpha = calculateLightRadiusAlphaLayer(fNum);
+	}
+	var lr_spr = attackData.lightRadiusSprite;
+	light_create_layer(lr_spr, lr_scale, lr_color, lr_alpha, 0, true);
 }
 	
 // get current attacking limb item sprite name (or "")

@@ -23,6 +23,12 @@ if isSpell && hasSetAlarm {
 	}
 }
 
+// dim nornal light linearly
+if attackData != noone && attackData.hasLightRadius && hasSetAlarm {
+	var a = other.alarm[0]/15;
+	light_set_alpha(a);
+}
+
 audio_emitter_position(soundEmitter,x,y,depth);
 
 if isRanged && life <= 0 && !hasSetAlarm {

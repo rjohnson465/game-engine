@@ -9,7 +9,8 @@
         "2ac32dfd-8243-41b9-a31c-b637c1e46053",
         "ad7ecf3d-1f74-4e9c-aac8-44f90574c0fe",
         "56834a46-6c29-4908-ad1f-d20ba45ba5b9",
-        "1184254d-17a9-46f2-bd4e-b528d58c2df0"
+        "1184254d-17a9-46f2-bd4e-b528d58c2df0",
+        "c89542e6-c7ab-4ae6-b1a4-4ec42fa5355e"
     ],
     "filterType": "GMSprite",
     "folderName": "hats",

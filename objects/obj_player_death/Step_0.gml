@@ -65,6 +65,7 @@ if (ENTER || ((mouseOverFountainRevive || mouseOverOrbRevive) && mouse_check_but
 if instance_exists(fade) {
 	if fade.frame == .5*fade.fadeDuration {
 		with p {
+			
 			hp = maxHp;
 			stamina = maxStamina;
 			isDying = false;
@@ -73,10 +74,10 @@ if instance_exists(fade) {
 			alpha = 1;
 			room_speed = 30;
 			application_surface_draw_enable(true);
-		
+			
 			// iff reviving at fountain
 			if other.selectedOption == ReviveOptions.Fountain {
-				var nearestFountain = instance_nearest(x,y,obj_fountain);
+				/*var nearestFountain = instance_nearest(x,y,obj_fountain);
 				if lastFountainRoom == noone {
 				
 					//lastFountain = nearestFountain;
@@ -91,12 +92,14 @@ if instance_exists(fade) {
 				room_goto(rm);
 				x = lastFountainX;
 				y = lastFountainY;
-				xpTemp = 0;
-				
-				fillHealthFlask();
+				// xpTemp = 0;
 				
 				layerToMoveTo = lastFountainZ;
-				justRevivedAtFountain = true;
+				justRevivedAtFountain = true; */
+				returnToLastFountain();
+				
+				xpTemp = 0;
+				fillHealthFlask();
 			} 
 			// or used revive orb
 			else {
