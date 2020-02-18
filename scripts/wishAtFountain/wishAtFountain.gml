@@ -6,7 +6,6 @@ if argument_count > 0 performBlur = argument[0];
 	
 var fountain = id;
 
-
 with obj_player {
 	lastFountain = other.id;
 	lastFountainRoom = room_get_name(room);
@@ -116,6 +115,9 @@ with obj_player {
 
 
 updatePersistentElementProperty(id, "isDoneFilling", true);
+
+raiseEvent(EV_FOUNTAIN_WISH, []);
+
 /*with obj_game_manager {
 	updatePersistentElementProperty(other, "isDoneFilling", true);
 	fs_save_game();

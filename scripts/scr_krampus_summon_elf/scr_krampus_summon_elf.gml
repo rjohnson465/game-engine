@@ -60,6 +60,8 @@ with obj_enemy_krampuself {
 }
 
 var elf = instance_create_layer(x, y, global.player.layer, obj_enemy_krampuself);
+elf.attackFrequencyTotalFramesMeleeDefault = [60, 90];
+elf.attackFrequencyTotalFramesMelee = [60, 90];
 var possibleCreateScripts = [ei_krampuself_iceaxes, ei_krampuself_iceclubs, ei_krampuself_icespears];
 
 randomize();

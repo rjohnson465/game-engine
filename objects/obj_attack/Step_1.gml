@@ -5,7 +5,7 @@ if isMelee {
 	x = owner.x;
 	y = owner.y;
 	image_xscale = owner.scale;
-	var isNeg = image_yscale < 1;
+	var isNeg = image_yscale < 0;
 	image_yscale = owner.scale;
 	if isNeg image_yscale *= -1;
 }

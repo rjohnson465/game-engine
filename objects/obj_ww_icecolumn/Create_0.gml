@@ -14,4 +14,6 @@ for (var i = 0; i < n; i++) {
 	ds_list_add(pointsx, lengthdir_x((sw/2) + 1, i * gap))
 	ds_list_add(pointsy, lengthdir_y((sh/2) + 1, i * gap))
 }
-light_create_caster_from_points_layer(pointsx, pointsy)
+light_create_caster_from_points_layer(pointsx, pointsy);
+
+instance_create_depth(x, y, layer_get_depth(origLayer), obj_ww_icecolumn_base);

@@ -16,11 +16,23 @@ switch rm {
 		var c = make_color_rgb(52, 66, 105)
 		return [c, c];
 	}
+	case rm_hanukkah_village: {
+		var c = make_color_rgb(52, 66, 105)
+		return [c, c];
+	}
 	case rm_tundra: {
 		var c = make_color_rgb(52, 66, 105);
 		return [c, c];
 	}
+	case rm_clayfields: {
+		var c = make_color_rgb(52, 66, 105);
+		return [c, c];
+	}
 	case rm_krampus: {
+		var c = make_color_rgb(52, 66, 105);
+		return [c, c];
+	}
+	case rm_golemking: {
 		var c = make_color_rgb(52, 66, 105);
 		return [c, c];
 	}

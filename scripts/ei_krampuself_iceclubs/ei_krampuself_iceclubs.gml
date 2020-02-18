@@ -19,14 +19,15 @@ var clubSwing2 = makeEnemyAttackObj(obj_attack_krampuself_iceclub_1_2);
 var cs1r = instance_create_depth(x,y,1,obj_attack_krampuself_iceclub_1_1);
 cs1r.limbKey = "r";
 var cs2r = instance_create_depth(x,y,1,obj_attack_krampuself_iceclub_1_2);
-cs2r.limbKey = "r";
+// cs2r.limbKey = "r";
 
 var c0 = [clubSwing1];
 var c1 = [clubSwing1, clubSwing2];
 var c2 = [clubSwing1, cs1r];
 var c3 = [clubSwing1, cs1r, cs2r];
 var c4 = [clubSwing1, clubSwing2, cs1r];
-
+var ct = [cs1r];
 meleeAttacks = [
 	c0, c1, c2, c3, c4
 ];
+meleeAttacks = [ct];

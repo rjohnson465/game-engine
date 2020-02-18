@@ -110,11 +110,4 @@ var yy = p.y;
 
 updatePersistentElementProperty(id, "isDoneFilling", true);
 
-/*
-var a = 3;
-
-// trigger a save 
-with obj_game_manager {
-	fs_save_game();
-	alert("Saving " + currentSaveFile, c_yellow);
-}
+raiseEvent(EV_DARK_FOUNTAIN_WISH, []);

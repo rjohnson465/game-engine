@@ -38,12 +38,23 @@ switch rm {
 	case rm_tundra: {
 		return [snd_bgm_endless_tundra, snd_bgm_icedrops];
 	}
+	case rm_clayfields: {
+		return [snd_bgm_endless_tundra, snd_bgm_icedrops];
+	}
 	case rm_xmas_town: {
 		return [snd_bgm_sleighbells];
 		break; 
 	}
+	case rm_hanukkah_village: {
+		return [snd_bgm_hanukkah_village];
+		break; 
+	}
 	case rm_krampus: {
 		return [snd_bgm_krampus];
+		break;
+	}
+	case rm_golemking: {
+		return [snd_bgm_golemlord];
 		break;
 	}
 }

@@ -8,7 +8,9 @@
         "b06499ed-14fb-42ed-bf7e-ae33fb582998",
         "fb635fb7-5189-46ec-b269-e8de687b1418",
         "0255adbe-424c-4e71-9108-afd1febf6d63",
-        "5cc068bc-25ab-42fb-a0c9-d86fe64ea5a0"
+        "e7816060-97cf-4640-a759-9e46462cbdb7",
+        "5cc068bc-25ab-42fb-a0c9-d86fe64ea5a0",
+        "71762c06-8079-425d-81fa-53b78c9c86ea"
     ],
     "filterType": "GMSound",
     "folderName": "winter",

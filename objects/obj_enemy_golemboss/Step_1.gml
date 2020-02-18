@@ -5,7 +5,8 @@
 if hp < 1 && isAlive && !isDying {
 	
 	// spawn dybukkboss
-	instance_create_layer(x,y,global.player.layer,obj_enemy_dybukkboss);
+	var dybukkboss = instance_create_layer(x,y,global.player.layer,obj_enemy_dybukkboss);
+	dybukkboss.isBossKilledBefore = isBossKilledBefore;
 	
 	// items
 	/*

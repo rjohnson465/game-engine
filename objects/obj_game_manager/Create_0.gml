@@ -219,6 +219,8 @@ bgmManager = instance_create_depth(x,y,1,obj_bgm_manager);
 #macro EV_ITEM_PICKEDUP "ItemPickedUp"
 #macro EV_QUEST_COMPLETED "QuestCompleted"
 #macro EV_DAMAGE_TAKEN "DamageTaken"
+#macro EV_FOUNTAIN_WISH "FountainWish"
+#macro EV_DARK_FOUNTAIN_WISH "DarkFountainWish"
 
 // eventManager = instance_create_depth(x, y, 1, obj_event_manager);
 

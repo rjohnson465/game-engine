@@ -26,18 +26,20 @@ if hp < 1 && isAlive && !isDying {
 	ds_map_add(pmap2, obj_item_scroll_of_knowledge, 5);
 	var scroll = maybeMakeItemBasic(pmap2, .05);
 	
+	var pmap3 = ds_map_create();
+	ds_map_add(pmap3, obj_item_ancient_coin, 5);
+	var coin = maybeMakeItemBasic(pmap3, .025);
+	
 	var gold = makeGold(0,25);
 	ds_list_clear(droppedItems);
-	ds_list_add(droppedItems,item1, item2, item3, scroll);
-	//ds_list_add(droppedItems,item2);
+	ds_list_add(droppedItems,item1, item2, item3, scroll, coin);
+
 	ds_list_add(droppedItems,gold);
 	ds_map_destroy(rmap); rmap = -1;
-	//ds_map_destroy(tmap); tmap = -1;
-	
-	
-	
+
 	ds_map_destroy(pmap); pmap = -1;
 	ds_map_destroy(pmap2); pmap2 = -1;
+	ds_map_destroy(pmap3); pmap3 = -1;
 }
 
 // Inherit the parent event

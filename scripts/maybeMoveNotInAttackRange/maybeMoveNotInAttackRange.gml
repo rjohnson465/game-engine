@@ -68,7 +68,7 @@ ds_list_destroy(garbage); garbage = -1;
 var pred = currentMeleeAttack == noone ? 
 	// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 	(array_length_1d(rangedAttacks) > 0 && distance_to_object(lockOnTarget) > getRangeForAttackIndex(currentRangedAttack,false)) 
-		|| wallsBetweenTarget != noone /*|| alliesBetweenTarget != noone*/ || enemyObstaclesBetweenTarget >= 0 || (layer != lockOnTarget.layer) || !canSeeLockOnTarget() : 
+		|| wallsBetweenTarget != noone || enemyObstaclesBetweenTarget >= 0 || (layer != lockOnTarget.layer) || !canSeeLockOnTarget() : 
 	((array_length_1d(meleeAttacks) > 0 && distance_to_object(lockOnTarget) > getRangeForAttackIndex(currentMeleeAttack, true)) || fallzonesBetweenTarget != noone ) 
 	|| (layer != lockOnTarget.layer) || !canSeeLockOnTarget();
 

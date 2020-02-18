@@ -67,8 +67,8 @@ meleeAttacks = [c0];
 rangedAttacks = [];
 
 
-hp = 300;
-maxHp = 300;
+hp = 3;
+maxHp = 3;
 hpRegen = 1;
 
 stamina = 60;
@@ -101,3 +101,4 @@ TELEPORT_PREP_FRAME_MIN = 90;
 TELEPORT_PREP_FRAME_MAX = 150;
 eventListeners = ds_map_create();
 ds_map_add(eventListeners, EV_DAMAGE_TAKEN, scr_evl_dybukkboss_teleport_on_damage);
+ds_map_add(eventListeners, EV_DARK_FOUNTAIN_WISH, scr_evl_dybukboss_remove);

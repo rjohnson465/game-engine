@@ -77,8 +77,8 @@ meleeAttacks = [c0, c1, c2, c3, c4];
 // currently chosen ranged attack
 rangedAttacks = [];
 
-hp = 500;
-maxHp = 500;
+hp = 400;
+maxHp = 400;
 hpRegen = 0;
 
 stamina = 60;
@@ -101,6 +101,7 @@ ds_map_replace(defenses, CRUSH, 35);
 agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
+// soundsWhenHit = [snd_hit_rocky_2];
 soundsWhenHitVocals = [snd_enemy_golem_roar_1, snd_enemy_golem_roar_2, snd_enemy_golem_roar_3];
 soundsWhenDie = [snd_enemy_golem_die_1];
 

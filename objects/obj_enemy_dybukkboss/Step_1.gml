@@ -28,14 +28,9 @@ event_inherited();
 
 if instance_number(obj_player_death) > 0 && !hasRevivedGolem {
 	with obj_enemy_golemboss {
-		
-		//if hp == 0 {
-			//hp = -4;
-			other.hasRevivedGolem = true;
-			updatePersistentElementProperty(id,"Hp",maxHp);
-			updatePersistentElementProperty(id,"IsAlive",true);
-			//isBossKilledBefore = false
-			updatePersistentElementProperty(id, "IsBossKilledBefore", false);
-		//}
+		other.hasRevivedGolem = true;
+		updatePersistentElementProperty(id,"Hp",maxHp);
+		updatePersistentElementProperty(id,"IsAlive",true);
+		updatePersistentElementProperty(id, "IsBossKilledBefore", false);
 	}
 }

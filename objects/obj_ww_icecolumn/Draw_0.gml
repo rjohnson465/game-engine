@@ -3,8 +3,9 @@ var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(
 if !point_in_rectangle(x,y,vx-500,vy-500,vx+vw+500,vy+vh+500) exit; 
 shader_reset();
 
+/*
 if getLayerFloorNumber(layer) == 1 {
 	draw_sprite(spr_ww_icecolumn_base, 1, x, y);
-}
+}*/
 
-draw_sprite(sprite_index,1,x,y);
+draw_sprite_ext(sprite_index,1,x,y, image_xscale, image_yscale, image_angle, c_white, 1);

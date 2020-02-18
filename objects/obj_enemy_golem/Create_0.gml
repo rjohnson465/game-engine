@@ -92,6 +92,7 @@ ds_map_replace(defenses, POISON, 90);
 agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
+// soundsWhenHit = [snd_hit_rocky_2];
 soundsWhenHitVocals = [snd_enemy_golem_roar_1, snd_enemy_golem_roar_2, snd_enemy_golem_roar_3];
 soundsWhenDie = [snd_enemy_golem_die_1];
 

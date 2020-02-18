@@ -30,10 +30,19 @@ switch ri {
 	case rm_xmas_town: {
 		return "Christmas Town"; break;
 	}
+	case rm_hanukkah_village: {
+		return "Hanukkah Village"; break;
+	}
+	case rm_clayfields: {
+		return "The Clayfields"; break;
+	}
 	case rm_tundra: {
-		return "Krampus Tundra"; break;
+		return "The Krampus Campus"; break;
 	}
 	case rm_krampus: {
-		return "Krampus Campus"; break;
+		return "Krampus' Keep"; break;
+	}
+	case rm_golemking: {
+		return "The Claythrone Hall"; break;
 	}
 }

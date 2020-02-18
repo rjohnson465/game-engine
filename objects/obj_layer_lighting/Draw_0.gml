@@ -12,7 +12,7 @@ if room == rm_factory && abs(floorNum - pFloorNum) > 1 {
 	exit;
 }
 
-if room == rm_tundra && floorNum == 1 {
+if (room == rm_tundra || room == rm_clayfields) && floorNum == 1 {
 	if pFloorNum == 2 {
 		lightColor = c_dkgray;
 	} else {

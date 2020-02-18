@@ -1,1 +1,0 @@
-color = make_color_rgb(37, 156, 112);

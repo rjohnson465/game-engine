@@ -79,6 +79,16 @@ switch rm {
 		]
 		]; break;
 	}
+	case rm_clayfields: {
+		return [
+		[snd_amb_winter_wind], 
+		// periodical sounds
+		[
+			[snd_amb_ww_sleighbells, 1000, .5, [200, 400], 30, 30],
+			[snd_amb_wolf_howl, 1000, .5, [120, 240], 30, 30]
+		]
+		]; break;
+	}
 	case rm_krampus: {
 		return [
 		[snd_amb_winter_wind], 
@@ -88,7 +98,26 @@ switch rm {
 		]
 		]; break;
 	}
+	case rm_golemking: {
+		return [
+		[snd_amb_winter_wind], 
+		// periodical sounds
+		[
+			[snd_amb_wolf_howl, 1000, .5, [120, 240], 30, 30]
+		]
+		]; break;
+	}
 	case rm_xmas_town: {
+		return [
+		[snd_amb_winter_wind], 
+		// periodical sounds
+		[
+			[snd_amb_ww_sleighbells, 1000, .5, [200, 400], 30, 30],
+			[snd_amb_wolf_howl, 1000, .5, [120, 240], 30, 30]
+		]
+		]; break;
+	}
+	case rm_hanukkah_village: {
 		return [
 		[snd_amb_winter_wind], 
 		// periodical sounds

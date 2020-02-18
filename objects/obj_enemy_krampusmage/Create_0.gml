@@ -79,10 +79,9 @@ meleeAttacks = [c1, c0, c2];
 currentRangedAttack = noone;
 
 // var iceMissile = makeEnemyAttackObj(obj_attack_krampusmage_wand_2_1);
-
 var r0 = [iceMissile];
 
-rangedAttacks = [r0, c1];
+rangedAttacks = [r0];
 
 
 hp = 75;

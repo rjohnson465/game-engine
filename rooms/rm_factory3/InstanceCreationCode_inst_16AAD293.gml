@@ -1,1 +1,0 @@
-associatedBeltKeys = ["b1"];

@@ -1,1 +1,0 @@
-ds_list_add(items, makeGem(obj_gem_amethyst, CRACKED));

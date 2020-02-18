@@ -1,2 +1,0 @@
-isOneSided = true;
-opensFrom = "b";

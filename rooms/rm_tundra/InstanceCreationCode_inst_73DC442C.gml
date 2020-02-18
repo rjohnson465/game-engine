@@ -1,0 +1,1 @@
+rangedAggroRange = 400;

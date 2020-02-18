@@ -77,7 +77,8 @@ ds_map_replace(defenses, MAGIC, -100);
 agility = 0; // 0 - 100% chance to try a dodge
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_enemy_"+spriteName+"_dodge"));
 
-soundsWhenHitVocals = [snd_wood_shatter];
+soundsWhenHit = [snd_hit_clay_1, snd_hit_clay_2];
+soundsWhenHitVocals = [snd_hit_rocky_1];
 soundsWhenDie = [];
 
 chanceToDropHealthOrb = .2;
