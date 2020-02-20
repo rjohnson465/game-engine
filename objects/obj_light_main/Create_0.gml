@@ -30,7 +30,7 @@ for (var i = 0; i < array_length_1d(lightForLayers); i++) {
 	var lNum = i+1;
 	var arrOneIndex = lNum;
 	
-	if room == rm_factory {
+	if room == rm_factory || room == rm_clayfields {
 		lNum = i;
 	}
 	

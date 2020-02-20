@@ -26,7 +26,7 @@ switch rm {
 	}
 	case rm_clayfields: {
 		var c = make_color_rgb(52, 66, 105);
-		return [c, c];
+		return [c, c, c];
 	}
 	case rm_krampus: {
 		var c = make_color_rgb(52, 66, 105);
