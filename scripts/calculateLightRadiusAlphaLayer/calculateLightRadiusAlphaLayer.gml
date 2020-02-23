@@ -1,13 +1,28 @@
 /// calculateLightRadiusAlphaLayer(layerNum)
+/// @param layerNum
 /// return appropriate alpha value for light radii, based on the lighting of a certain layer (light_main)
 
-var layerNum = argument0
+var layerNum = argument0;
 
 var map = ds_map_find_value(global._light_layers,layerNum);
 
 if map == undefined return 1;
 
-var lightColor = ds_map_find_value(map,"_light_color");
+if variable_instance_exists(id, "owner") && variable_instance_exists(owner, "isLightRadiusAlphaFixed") {
+	if owner.isLightRadiusAlphaFixed {
+		return owner.lightRadiusAlpha;
+	}
+}
+
+if variable_instance_exists(id, "isLightRadiusAlphaFixed") {
+	if id.isLightRadiusAlphaFixed && variable_instance_exists(id, "owner") {
+		return owner.lightRadiusAlpha;
+	} else {
+		return .1; // ??
+	}
+}
+
+var lightColor = ds_map_find_value(map,"_light_color"); 
 
 var luma = getLumaForColor(lightColor);
 

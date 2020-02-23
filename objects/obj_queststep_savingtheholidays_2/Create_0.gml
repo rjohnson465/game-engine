@@ -6,4 +6,4 @@ event_inherited();
 
 status = QuestStepStatus.Unstarted;
 
-description = "TBD";
+description = "Speak with David in Hannukah Village, west of Winter Wonderground";

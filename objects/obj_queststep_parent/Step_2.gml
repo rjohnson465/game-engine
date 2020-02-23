@@ -21,5 +21,25 @@ if status == QuestStepStatus.Completed && nextStep != undefined && nextStep != n
 				refreshNpcConversations();
 			}
 		}
+		
+		// maybe run activation script
+		if nextStep.activationScript != noone && script_exists(nextStep.activationScript) {
+			if nextStep.activationScriptParams != noone {
+				with nextStep {
+					script_execute(nextStep.activationScript, nextStep.activationScriptParams);
+				}
+			} else {
+				with nextStep {
+					script_execute(nextStep.activationScript);
+				}
+			}
+		}
+		
+		// maybe refresh npc convos too, if we're not already in a convo
+		with obj_npc_parent {
+			if !isInConversation {
+				refreshNpcConversations();
+			}
+		}
 	}
 }

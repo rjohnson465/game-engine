@@ -16,8 +16,3 @@ if instance_exists(sth) && sth.currentQuestStepIndex == 0 {
 		secondStep.description = "Speak with Santa in Christams Town, east of Winter Wonderground";
 	}
 }
-
-/*
-with obj_npc_parent {
-	refreshNpcConversations();
-}

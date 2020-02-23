@@ -135,5 +135,6 @@ ds_map_add(eventListeners, EV_DAMAGE_TAKEN, scr_evl_dybukkboss_teleport_on_damag
 
 chanceToDropHealthOrb = 1;
 
-
+var hat = instance_create_depth(x, y, 1, obj_hat_santa_hat);
+ds_list_add(droppedItemsMandatory, hat);
 

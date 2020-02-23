@@ -1783,6 +1783,14 @@
             }
         },
         {
+            "Key": "0e53416f-4e8d-43ea-9b1f-c072e4912c76",
+            "Value": {
+                "id": "ce2df78c-3ea2-4075-8861-2d7bd0f7b018",
+                "resourcePath": "scripts\\scr_evl_krampus_killed\\scr_evl_krampus_killed.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "0e71034f-1c70-4a35-a23c-1395e8b8cca1",
             "Value": {
                 "id": "a3780526-fc1c-49a6-afca-09778849e3d0",
@@ -4338,7 +4346,7 @@
             "Key": "2309a24f-e8bb-4beb-933b-188897016d63",
             "Value": {
                 "id": "0480baf5-969b-4de0-8637-ba387e0293b4",
-                "resourcePath": "sprites\\spr_starofdavid\\spr_starofdavid.yy",
+                "resourcePath": "sprites\\spr_item_starofdavid\\spr_item_starofdavid.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -5551,6 +5559,14 @@
             }
         },
         {
+            "Key": "2d3dc682-1482-4b86-bcd6-3db40d17002b",
+            "Value": {
+                "id": "97dce04c-b447-4b82-a8cd-f5a7a585c1f5",
+                "resourcePath": "scripts\\scr_conv_santa_krampus_complete\\scr_conv_santa_krampus_complete.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2d6dedc8-98e6-4cf2-a09c-2ecc870fcb2c",
             "Value": {
                 "id": "839d69a8-18bd-4d6b-b040-79fdb882c30f",
@@ -6244,6 +6260,14 @@
                 "id": "6345afae-8224-43ae-bdd4-4f93bce8f034",
                 "resourcePath": "sounds\\snd_conv_casinoguard_intro_casinoguard_1\\snd_conv_casinoguard_intro_casinoguard_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "33e3ee94-3c4d-4069-af73-a7e0eb792b46",
+            "Value": {
+                "id": "10b33f96-0813-4db3-9651-3b74e0c259bc",
+                "resourcePath": "scripts\\scr_evl_golemking_killed\\scr_evl_golemking_killed.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -8327,6 +8351,14 @@
             }
         },
         {
+            "Key": "45c65e62-f228-45e5-89ab-7287fc58f8aa",
+            "Value": {
+                "id": "03758be5-00b0-41af-ad0a-6683743385d1",
+                "resourcePath": "sounds\\snd_conv_santa_krampus_complete_santa_1\\snd_conv_santa_krampus_complete_santa_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "45fc6f87-97b0-42bf-a829-64807eb2f882",
             "Value": {
                 "id": "78f91d53-7984-44d3-a206-a37de6845609",
@@ -8388,6 +8420,14 @@
                 "id": "18ece017-a608-438b-bcbf-de0ceddb4bd4",
                 "resourcePath": "sprites\\spr_chimney\\spr_chimney.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "46411adf-728c-4ebb-94b8-3aa6dc1e0a7f",
+            "Value": {
+                "id": "c7cbaa15-041c-4dcd-801d-4c9b5fb622d8",
+                "resourcePath": "scripts\\scr_sth_stars_activation\\scr_sth_stars_activation.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -8732,6 +8772,14 @@
                 "id": "0eca1c82-8aa1-42a7-95e3-a0e5ff9be1aa",
                 "resourcePath": "objects\\obj_exstep_welcome_1\\obj_exstep_welcome_1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "49039501-a739-42e1-a1be-e81b63fe718e",
+            "Value": {
+                "id": "66a24b69-a43c-4d7d-80a5-5a0faa144e55",
+                "resourcePath": "views\\49039501-a739-42e1-a1be-e81b63fe718e.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -9612,6 +9660,14 @@
                 "id": "f9d5b2eb-d464-4e9e-91b0-d2e88c6049d5",
                 "resourcePath": "sprites\\spr_player_foil_prep_3\\spr_player_foil_prep_3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4fe662ec-0afa-4742-aeb3-aae385a4cdb1",
+            "Value": {
+                "id": "1f53551e-d94e-4301-9b2f-01ce741c0302",
+                "resourcePath": "objects\\obj_queststep_krampus_3\\obj_queststep_krampus_3.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -10716,6 +10772,14 @@
                 "id": "86cfa9fe-f51b-45a1-aad1-358b47a08396",
                 "resourcePath": "sprites\\spr_factory_wingbags\\spr_factory_wingbags.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5985fea5-f065-4d66-b2fc-815e87b6362a",
+            "Value": {
+                "id": "f4b6c1da-bcd8-4815-a11a-cfe5980d0873",
+                "resourcePath": "objects\\obj_queststep_smashingpottery_2\\obj_queststep_smashingpottery_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -12223,6 +12287,14 @@
             }
         },
         {
+            "Key": "66870242-4a61-4056-bbe4-c304bde1db54",
+            "Value": {
+                "id": "22727037-9428-4203-90a2-70c93d0f39c0",
+                "resourcePath": "scripts\\scr_evl_sth_stars\\scr_evl_sth_stars.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "668a444a-c726-4207-b536-ab691b4b5f9a",
             "Value": {
                 "id": "5d838c42-35fa-4f7d-961c-40002755b33f",
@@ -13399,6 +13471,14 @@
             }
         },
         {
+            "Key": "720da971-ecd4-4e2e-b16a-0132cbb8c6af",
+            "Value": {
+                "id": "66a4f6db-0970-4aaf-b48d-ba9175beb05f",
+                "resourcePath": "views\\720da971-ecd4-4e2e-b16a-0132cbb8c6af.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "7219d32d-16e9-4925-b20c-4ffa5605a846",
             "Value": {
                 "id": "bdfe6afa-aa75-492f-9fff-3a2ab62c1e39",
@@ -13476,6 +13556,14 @@
                 "id": "0e81c64b-60b6-449d-ac82-7e5ea1e12ec7",
                 "resourcePath": "sprites\\spr_enemy_unfairy_limb_spear_recover_1_2\\spr_enemy_unfairy_limb_spear_recover_1_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "727d5e7b-b4f8-463a-b878-4df8f221ee12",
+            "Value": {
+                "id": "9a834408-99fe-4a5c-9dee-6e8745fa9093",
+                "resourcePath": "views\\727d5e7b-b4f8-463a-b878-4df8f221ee12.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -13732,6 +13820,14 @@
                 "id": "bcf5bc20-9540-4610-8fae-47cc38e12d91",
                 "resourcePath": "sprites\\spr_factory_gear\\spr_factory_gear.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "74ded172-8716-4e5d-92c4-ed454fd5a245",
+            "Value": {
+                "id": "dcfda1a5-a643-4f2d-b521-3cc2043ae236",
+                "resourcePath": "sounds\\snd_conv_santa_krampus_complete_santa_3\\snd_conv_santa_krampus_complete_santa_3.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -16282,7 +16378,7 @@
             "Key": "8a3a523a-608f-41df-a0f8-6f968fdd6e39",
             "Value": {
                 "id": "4ac5b7f2-282b-4c90-bb61-039443ae16ed",
-                "resourcePath": "sprites\\spr_xmas_star\\spr_xmas_star.yy",
+                "resourcePath": "sprites\\spr_item_xmas_star\\spr_item_xmas_star.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -16927,6 +17023,14 @@
             }
         },
         {
+            "Key": "90070fff-b82b-44fc-a52a-37b677f210c5",
+            "Value": {
+                "id": "003df6fc-f8c5-4327-a06a-e2f3eb6e0603",
+                "resourcePath": "views\\90070fff-b82b-44fc-a52a-37b677f210c5.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "900b67a2-0880-491c-90c5-cc2a9cfb5fe9",
             "Value": {
                 "id": "d18396ed-fb45-445c-bd65-4595b50227a2",
@@ -17071,6 +17175,14 @@
             }
         },
         {
+            "Key": "916643bc-2748-407c-b3f6-3b1f3581caf3",
+            "Value": {
+                "id": "993b8184-3f5f-4937-87f5-98496e94e29f",
+                "resourcePath": "scripts\\scr_conv_david_smashingpottery_complete\\scr_conv_david_smashingpottery_complete.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "916add28-9423-4231-827e-e927f4b5502f",
             "Value": {
                 "id": "c99ff8bb-d8d5-4425-a79f-f252861242f4",
@@ -17212,6 +17324,14 @@
                 "id": "9cb3419e-5c7d-4601-b02d-3af61884689b",
                 "resourcePath": "sprites\\spr_enemy_unfairy_dagger_attack_1_1\\spr_enemy_unfairy_dagger_attack_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "928e0059-0072-4a49-9811-1957c43ea784",
+            "Value": {
+                "id": "eca000a1-f5a4-40b8-b2c7-fc0eb85ad14c",
+                "resourcePath": "objects\\obj_queststep_krampus_2\\obj_queststep_krampus_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -18003,6 +18123,14 @@
             "Value": {
                 "id": "55f5af82-bfce-4276-bcee-22c69cf36431",
                 "resourcePath": "scripts\\scr_test_build_swordsman_ww11\\scr_test_build_swordsman_ww11.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "99f2d08c-236f-41be-b74d-0070d2622203",
+            "Value": {
+                "id": "0524a22d-dce1-4808-8de9-913dfc7a2ec1",
+                "resourcePath": "scripts\\scr_quest_sth_wintermagicbreak\\scr_quest_sth_wintermagicbreak.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -19847,6 +19975,14 @@
             }
         },
         {
+            "Key": "a892ebbb-ffca-4bc1-bcfc-574e8ea22a76",
+            "Value": {
+                "id": "8bd42a23-3fe4-4f14-844f-4a24f08dd295",
+                "resourcePath": "objects\\obj_queststep_smashingpottery_3\\obj_queststep_smashingpottery_3.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a8cdad76-0670-4e4e-95df-7a6266025880",
             "Value": {
                 "id": "8a95b0d8-fd93-433a-abbc-5b0d1a50e1b2",
@@ -20951,6 +21087,14 @@
             }
         },
         {
+            "Key": "b0eb78f5-8772-40bb-a8ad-dd2ff91b18ac",
+            "Value": {
+                "id": "73362537-d2dd-45a3-9f4e-9b0b9c51f70e",
+                "resourcePath": "sounds\\snd_conv_david_smashingpottery_complete_david_1\\snd_conv_david_smashingpottery_complete_david_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "b0f40295-1d08-4a4a-adb5-b30962f3dfad",
             "Value": {
                 "id": "d0bd40b1-27b8-4cc2-b46b-328e7649a625",
@@ -21500,6 +21644,14 @@
                 "id": "160e0d6e-5f12-4b80-a169-baf409fcd8f3",
                 "resourcePath": "views\\b5a5a056-d1a8-4648-8b45-ed5ee4da9ba2.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b5b21f01-c939-4950-8adf-e1a96c9f16ab",
+            "Value": {
+                "id": "e7f54a71-2b1f-4301-98c8-309b411f87d0",
+                "resourcePath": "objects\\obj_hat_santa_hat\\obj_hat_santa_hat.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -24039,6 +24191,14 @@
             }
         },
         {
+            "Key": "cb342152-e72f-426d-a543-e809f9e347fb",
+            "Value": {
+                "id": "8437ef16-3dce-4f8e-86c4-9faaceb10134",
+                "resourcePath": "views\\cb342152-e72f-426d-a543-e809f9e347fb.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "cb34f27e-d051-46c8-98af-b7c474bd1960",
             "Value": {
                 "id": "c9575b0d-0edf-4ecf-af89-b5b3ac296c42",
@@ -25103,6 +25263,14 @@
             }
         },
         {
+            "Key": "d4c1a115-eaf3-477d-ad18-df976d95021d",
+            "Value": {
+                "id": "2da76c5d-79da-45b0-b95b-6ae0db261160",
+                "resourcePath": "scripts\\scr_quest_sth_toabominablelands\\scr_quest_sth_toabominablelands.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d4cb7902-2f51-421b-9204-d74c0d0cebe7",
             "Value": {
                 "id": "f3862ae4-728b-4c9b-9cc5-9083aff4282d",
@@ -25268,6 +25436,14 @@
                 "id": "9d6b30d3-4b2a-4d61-b759-9fdbe319148c",
                 "resourcePath": "sounds\\snd_golem_roll\\snd_golem_roll.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "d6aec032-a9df-4a70-8298-b1259e5f3b16",
+            "Value": {
+                "id": "6a2005dd-9fd1-4783-801d-3a5dad5428d6",
+                "resourcePath": "objects\\obj_item_xmas_star\\obj_item_xmas_star.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -25748,6 +25924,14 @@
                 "id": "d85f9d7a-fe33-469e-936d-b2b886f132f6",
                 "resourcePath": "sprites\\spr_enemy_krampuself_icespear_attack_2_1\\spr_enemy_krampuself_icespear_attack_2_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "da976a34-0ca4-4f8a-bc4b-784ad73a8574",
+            "Value": {
+                "id": "8d59b08f-9dfa-44c0-9a85-a4484e476f4c",
+                "resourcePath": "scripts\\scr_quest_sth_togazebo\\scr_quest_sth_togazebo.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -27599,6 +27783,14 @@
             }
         },
         {
+            "Key": "e9c43758-3091-46cd-beb7-efc8ebbe0fa3",
+            "Value": {
+                "id": "e16dd81d-9b47-4425-a81a-64d148eaf66e",
+                "resourcePath": "sounds\\snd_conv_david_smashingpottery_complete_david_2\\snd_conv_david_smashingpottery_complete_david_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "e9c4f54a-6220-4603-8a2a-0a5e137399b0",
             "Value": {
                 "id": "166f3261-7435-4f1b-bc65-89d3d8407809",
@@ -28815,6 +29007,14 @@
             }
         },
         {
+            "Key": "f51daf7e-f5f1-46c8-a2ce-b80c76bc4311",
+            "Value": {
+                "id": "7e62b51b-3623-45c3-b51c-dcf842af5e70",
+                "resourcePath": "sounds\\snd_conv_santa_krampus_complete_santa_2\\snd_conv_santa_krampus_complete_santa_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "f51dd378-a466-49b7-b11e-61dd8b60b475",
             "Value": {
                 "id": "8606147d-2bad-4928-90fa-3c22f851e7ed",
@@ -29196,6 +29396,14 @@
                 "id": "6eb8cdbd-b4b5-4612-83d0-7734ec052ac4",
                 "resourcePath": "sprites\\spr_enemy_unfairy_dagger_prep_1_1\\spr_enemy_unfairy_dagger_prep_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f8e2e1f7-4498-4e08-91c0-d218e8b1bab4",
+            "Value": {
+                "id": "db2b2915-d111-4642-9278-9d26cdebc299",
+                "resourcePath": "objects\\obj_item_starofdavid\\obj_item_starofdavid.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -30451,6 +30659,7 @@
         "19adc1e8-9a2a-4549-ac24-d8c5a35332cb",
         "f6c29205-a5e9-4ff7-ab80-9d04a55dd16b",
         "29ba5599-9a37-4fe0-80e5-d1131a25cbb0",
+        "2d3dc682-1482-4b86-bcd6-3db40d17002b",
         "9d8554f0-9972-44d8-98e7-8a927ed08e20",
         "30995769-90f0-4513-9c19-bec62d137ff9",
         "d7ad0331-1247-4207-aa34-300d63e3df18",
@@ -30460,6 +30669,7 @@
         "b94c36e9-287c-4d58-91f8-238b4c83115e",
         "68c3dcef-a235-4363-8133-d2225ae6a711",
         "3ad7a10a-bf69-46aa-8f8f-22d0f26b54cd",
+        "916643bc-2748-407c-b3f6-3b1f3581caf3",
         "e2b4cbd5-7d8e-4282-bec6-34436a468be3",
         "ca986da5-bdf7-4910-9e12-f22ef5025956",
         "f5318c21-772a-49fc-a0d6-c74039dfe954",
@@ -30475,6 +30685,13 @@
         "e793773e-6865-49aa-b909-bc69e8a42348",
         "876b8b7d-38dc-4d43-8501-35d28f24d563",
         "88bf8c20-890c-4ab4-93da-c434644e85d9",
+        "da976a34-0ca4-4f8a-bc4b-784ad73a8574",
+        "d4c1a115-eaf3-477d-ad18-df976d95021d",
+        "99f2d08c-236f-41be-b74d-0070d2622203",
+        "66870242-4a61-4056-bbe4-c304bde1db54",
+        "46411adf-728c-4ebb-94b8-3aa6dc1e0a7f",
+        "0e53416f-4e8d-43ea-9b1f-c072e4912c76",
+        "33e3ee94-3c4d-4069-af73-a7e0eb792b46",
         "a3657cb7-e5e9-46c3-9a90-92ab687b10ee",
         "29637b3d-cad2-43be-8798-f52be753b041",
         "814faa60-6f32-4021-9f72-ef6bd758b08c",

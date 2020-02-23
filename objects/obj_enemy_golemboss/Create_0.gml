@@ -108,3 +108,4 @@ soundsWhenDie = [snd_enemy_golem_die_1];
 chanceToDropHealthOrb = 1;
 
 walkingSound = snd_walking_heavy;
+

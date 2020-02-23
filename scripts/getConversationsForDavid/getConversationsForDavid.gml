@@ -29,7 +29,7 @@ if (instance_exists(sth) && sth.currentQuestStepIndex == 3) {
 }
 
 // gazebo
-if (instance_exists(sth) && sth.currentQuestStep == 4) {
+if (instance_exists(sth) && sth.currentQuestStepIndex == 4) {
 	ds_list_add(conversationsList, scr_conv_david_sthg());
 }
 
@@ -38,6 +38,10 @@ if (instance_exists(sth) && sth.currentQuestStep == 4) {
 var kQuest = instance_nearest(x, y, obj_quest_smashingpottery); 
 if !instance_exists(kQuest) {
 	ds_list_add(conversationsList, scr_conv_david_smashingpottery());
+}
+
+if instance_exists(kQuest) && kQuest.currentQuestStep.isRewardStep {
+	ds_list_add(conversationsList, scr_conv_david_smashingpottery_complete());
 }
 
 // Flavor conversations

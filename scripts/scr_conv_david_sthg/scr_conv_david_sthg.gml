@@ -7,7 +7,7 @@ c1.name = "Saving the Holidays (Gazebo)";
 var cs = instance_create_depth(x,y,1,obj_conversation_step_parent);
 cs.text = "Oh hi, guys. Have you just been standing here staring at each other ‘til I arrived.";
 cs.sound = snd_conv_david_sthg_gary_1;
-cs.speaker = obj_npc_david;
+cs.speaker = obj_player;
 ds_list_add(c1.steps,cs);
 
 var cs = instance_create_depth(x,y,1,obj_conversation_step_parent);
@@ -86,12 +86,14 @@ var cs = instance_create_depth(x,y,1,obj_conversation_step_parent);
 cs.text = "Kwanzaa is mentioned every year and I legit don’t know what it is.";
 cs.sound = snd_conv_david_sthg_gary_7;
 cs.speaker = obj_player;
+cs.func = scr_quest_sth_wintermagicbreak;
 ds_list_add(c1.steps,cs);
 
 var cs = instance_create_depth(x,y,1,obj_conversation_step_parent);
 cs.text = "Wait did that actually work?";
 cs.sound = snd_conv_david_sthg_gary_8;
 cs.speaker = obj_player;
+
 ds_list_add(c1.steps,cs);
 
 var cs = instance_create_depth(x,y,1,obj_conversation_step_parent);
@@ -104,6 +106,7 @@ var cs = instance_create_depth(x,y,1,obj_conversation_step_parent);
 cs.text = "The Dark Winter magic seal is broken! Go now, Gary, south, to the Abominable Lands, and rid us of this terrible beast! When you’re done, come back here, and we will vouch for you at the Olive Branch casino.";
 cs.sound = snd_conv_david_sthg_david_4;
 cs.speaker = obj_npc_david;
+cs.func = scr_quest_sth_toabominablelands;
 ds_list_add(c1.steps,cs);
 
 

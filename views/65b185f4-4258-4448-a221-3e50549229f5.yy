@@ -10,7 +10,8 @@
         "dcc36013-d003-4c88-bfc9-7cf741d4caee",
         "d1af4f52-1a38-48a0-8db7-7107d5897e34",
         "88fdbc9a-28ca-4d9a-80fc-98336562493d",
-        "2c9f4d4d-4ed9-489a-9a63-5fbedba5fbdf"
+        "2c9f4d4d-4ed9-489a-9a63-5fbedba5fbdf",
+        "b5b21f01-c939-4950-8adf-e1a96c9f16ab"
     ],
     "filterType": "GMObject",
     "folderName": "hats",

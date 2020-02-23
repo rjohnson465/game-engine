@@ -13,6 +13,11 @@ normalSpeed = 6;
 turnSpeed = 10;
 normalTurnSpeed = turnSpeed;
 
+isLightRadiusAlwaysOn = true;
+lightRadiusAlpha = .25;
+lightRadiusColor = make_color_rgb(33,180,154);
+calculatesLightRadiusOnRoomStart = false;
+isLightRadiusAlphaFixed = true;
 
 dyingParticleColor1 = make_color_rgb(33,180,154);
 dyingParticleColor2 = c_silver;

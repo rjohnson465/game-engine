@@ -44,6 +44,17 @@ if hp < 1 && isAlive && !isDying {
 			ds_map_replace(map, "DoesEnemyRespawn", false);
 		}
 		
+		var lr = noone;
+		with obj_light_radius {
+			if owner == other.id {
+				lr = id;
+			}
+		}
+		if lr != noone {
+			with lr {
+				event_perform(ev_other, ev_room_start);
+			}
+		}
 	}
 }
 

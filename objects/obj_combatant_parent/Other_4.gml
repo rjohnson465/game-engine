@@ -30,3 +30,5 @@ if (part_system_exists(sprintParticleSystem) && part_emitter_exists(sprintPartic
 }
 sprintParticleSystem = part_system_create();
 sprintParticleEmitter = part_emitter_create(sprintParticleSystem);
+
+

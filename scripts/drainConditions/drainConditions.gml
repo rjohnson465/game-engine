@@ -141,10 +141,10 @@ for (var i = 0; i < size; i++) {
 					
 					if lr >= 0 {
 						with lr {
-							light_set_color(c_white);
+							light_set_color(owner.lightRadiusColor);
 						}
 					} else {
-						lightRadiusColor = c_white;
+						lightRadiusColor = lightRadiusColor;
 						lightRadiusSprite = spr_light_point;
 					}
 					lightRadiusScale = normalLightRadiusScale;
@@ -162,7 +162,7 @@ for (var i = 0; i < size; i++) {
 				
 				if lr >= 0 {
 					with lr {
-						light_set_color(c_white);
+						light_set_color(owner.lightRadiusColor);
 					}
 				} else {
 					lightRadiusColor = c_white;
@@ -171,15 +171,12 @@ for (var i = 0; i < size; i++) {
 				break;
 			}
 			case POISON: {
-				if id == global.player {
-					var a = 3;
-				}
 				isPoisoned = false; 
 				poisonDamage = 0; 
 				if lightRadiusColor == c_lime {
 					if lr >= 0 {
 						with lr {
-							light_set_color(c_white);
+							light_set_color(owner.lightRadiusColor);
 						}
 					} 
 					lightRadiusSprite = spr_light_point;
@@ -211,5 +208,5 @@ for (var i = 0; i < size; i++) {
 }
 
 if !conditionsExist {
-	lightRadiusColor = c_white;
+	lightRadiusColor = lightRadiusColor;
 }

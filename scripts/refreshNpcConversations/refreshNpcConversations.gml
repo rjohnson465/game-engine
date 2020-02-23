@@ -4,6 +4,8 @@ global.ownerNpcName = id;
 
 if !ds_exists(conversations, ds_type_list) exit;
 
+// isInConversation = false;
+
 // get an array of all possible conversations for this NPC, based on Narrative State and other factors
 var possibleConversations = getConversationsForNpc(name);
 

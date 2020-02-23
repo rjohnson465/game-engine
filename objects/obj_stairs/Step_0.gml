@@ -2,7 +2,7 @@ var udMin = upDirectionMin;
 var udMax = upDirectionMax;
 var fu = floorUp;
 var fd = floorDown;
-if place_meeting_layer(x,y,global.player) {
+if place_meeting_layer(x,y,global.player) && global.player.visible {
 	with global.player {
 
 		var dir = point_direction(other.x,other.y,x,y);

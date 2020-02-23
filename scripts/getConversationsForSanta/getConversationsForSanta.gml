@@ -35,5 +35,10 @@ if !instance_exists(kQuest) {
 	ds_list_add(conversationsList, scr_conv_santa_krampus());
 }
 
+// Kill Krampus complete step, if krampus quest is at reward step
+if instance_exists(kQuest) && kQuest.currentQuestStep.isRewardStep {
+	ds_list_add(conversationsList, scr_conv_santa_krampus_complete());
+}
+
 // Flavor conversations
 ds_list_add(conversationsList, scr_conv_santa_krampuselves());

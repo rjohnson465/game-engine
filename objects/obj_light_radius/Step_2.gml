@@ -24,7 +24,7 @@ if instance_exists(owner) {
 		y = owner.y;
 	} 
 	
-	if object_is_ancestor(owner.object_index,obj_combatant_parent) && owner != global.player && !owner.isBurning {
+	if object_is_ancestor(owner.object_index,obj_combatant_parent) && owner != global.player && !owner.isBurning && !owner.isLightRadiusAlwaysOn {
 		x = -1000; y = -1000;
 	}
 

@@ -4,7 +4,13 @@ if !instance_exists(owner) {
 	exit;
 }
 
-colorAlpha = calculateLightRadiusAlphaLayer(floorNum);
+if object_is_ancestor(owner.object_index, obj_combatant_parent) {
+	colorAlpha = owner.lightRadiusAlpha;
+}
+
+if !object_is_ancestor(owner.object_index, obj_combatant_parent) || owner.calculatesLightRadiusOnRoomStart {
+	colorAlpha = calculateLightRadiusAlphaLayer(floorNum);
+}
 light_set_alpha(colorAlpha);
 
 if owner.object_index == obj_fountain || owner.object_index == obj_fountain_dark {

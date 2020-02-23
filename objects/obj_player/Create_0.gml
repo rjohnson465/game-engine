@@ -104,6 +104,8 @@ comboFrame = 0; // counts up to COMBO_TIME_QUANTUM -- if it gets there, combo le
 // dodge stuff
 dodgeDirection = noone;
 dodgeFrame = 0;
+dodgeRestFrame = 0;
+DODGE_REST_TOTAL_FRAMES = 16;
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_player_dodge"));
 
 isShielding = false;

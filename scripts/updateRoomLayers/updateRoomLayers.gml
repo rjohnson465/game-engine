@@ -174,3 +174,20 @@ with obj_weapon {
 		}
 	}
 }
+
+with obj_combatant_parent {
+	if layer != playerLayer continue;
+	
+	var lr = noone;
+	with obj_light_radius {
+		if owner == other {
+			lr = id;
+		}
+	}
+	
+	if lr != noone {
+		with lr {
+			calculateLightRadiusAlphaLayer(pLayerNum);
+		}
+	}
+}

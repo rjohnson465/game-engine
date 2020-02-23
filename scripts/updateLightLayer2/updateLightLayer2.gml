@@ -16,7 +16,7 @@ for (var i = 0; i < ds_map_size(global._light_layers); i++) {
 	
 	var floorIndex = i;
 	// factory has 0-indexed floors
-	if room == rm_factory {
+	if room == rm_factory || room == rm_clayfields {
 		floorIndex -= 1;
 	}
 	

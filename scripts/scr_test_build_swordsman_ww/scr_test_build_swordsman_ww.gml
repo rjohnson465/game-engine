@@ -25,6 +25,7 @@ repeat(1) {
 
 // Complete Quests 
 scr_test_quest_complete(obj_quest_wamdk);
+scr_test_quest_complete(obj_quest_llf);
 var key = makeKey("Barry's Key", "key_barry", spr_item_key_barry, "Barry's Key to the Lamplight Factory, south of Everdusk Grove.");
 addItemToInventory(key);
 var key = makeKey("Great-Lodge F2 Key", "key", spr_item_key, "Opens the door to the Fairy's Great-Lodge, Level 2. We really should have more than one copy of this thing.");

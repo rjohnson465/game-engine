@@ -17,3 +17,6 @@ persistent = true;
 parameters = ds_map_create(); 
 
 canClaimRewardFromQuestLog = true;
+
+activationScript = noone;
+activationScriptParams = noone; // array

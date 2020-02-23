@@ -6,4 +6,4 @@ event_inherited();
 
 status = QuestStepStatus.InProgress;
 
-description = "Find the Golem Lord's throne room in the Clayfields";
+description = "Find Amir's throne room in the Clayfields";

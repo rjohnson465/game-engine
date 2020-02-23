@@ -12,7 +12,7 @@ isUrgent = false;
 
 
 // half second delay for when skipping is allowed
-CONV_SKIP_DELAY_FRAMES = 35;
+CONV_SKIP_DELAY_FRAMES = 15;
 skipTimer = CONV_SKIP_DELAY_FRAMES; 
 canBeSkipped = false;
 alarm[0] = skipTimer;

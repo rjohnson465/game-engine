@@ -18,7 +18,7 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 			ds_map_replace(basePlayerProperties,i,0); break;
 		}
 		case ModifiableProperties.StaminaMax: {
-			ds_map_replace(basePlayerProperties,i,50); break;
+			ds_map_replace(basePlayerProperties,i,500); break;
 		}
 		case ModifiableProperties.XpMultiplier: {
 			ds_map_replace(basePlayerProperties,i,100); break;

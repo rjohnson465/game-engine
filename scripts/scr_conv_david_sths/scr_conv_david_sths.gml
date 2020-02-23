@@ -26,6 +26,7 @@ var cs = instance_create_depth(x,y,1,obj_conversation_step_parent);
 cs.text = "Hm… Yes, indeed, Gary. If not for you, than for my dear Hans. We must go to the Gazebo, in the Woods of Peace, in central Winter Wonderground. There, Santa and I will talk, and do the spell.";
 cs.sound = snd_conv_david_sths_david_2;
 cs.speaker = obj_npc_david;
+cs.func = scr_quest_sth_togazebo;
 ds_list_add(c1.steps,cs);
 
 

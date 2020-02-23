@@ -48,6 +48,9 @@ normalLightRadiusScale = lightRadiusScale;
 lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
 isShowingLightRadius = true;
+isLightRadiusAlwaysOn = false;
+calculatesLightRadiusOnRoomStart = true;
+isLightRadiusAlphaFixed = false;
 
 idleFrame = 0;
 
@@ -359,7 +362,7 @@ with obj_light_radius {
 }
 if lr == noone {
 	global.owner = id;
-	global.makeLightOnCreate = false;
+	global.makeLightOnCreate = isLightRadiusAlwaysOn;
 	
 	instance_create_depth(x,y,1,obj_light_radius);
 }

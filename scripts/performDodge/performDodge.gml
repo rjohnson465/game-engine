@@ -1,4 +1,5 @@
 /// performDodge
+if dodgeRestFrame > 0 exit;
 
 if global.isWishing exit;
 if global.isTrading exit;
@@ -77,5 +78,6 @@ if  stamina > 0 &&
 		}
 	}
 	else dodgeDirection = facingDirection;
+	dodgeRestFrame = DODGE_REST_TOTAL_FRAMES;
 	state = CombatantStates.Dodging;
 } 

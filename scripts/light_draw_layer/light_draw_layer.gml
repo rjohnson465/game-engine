@@ -118,7 +118,7 @@ if _light_time >= _light_max_time
 					// draw lights below player brighter 
 					var a = _light_alpha;
 					var playerLayerNum = getLayerFloorNumber(global.player.layer);
-					if layerNum < playerLayerNum {
+					if layerNum < playerLayerNum && a > .01 {
 						a += .5;
 						if a > 1 a = 1;
 					}

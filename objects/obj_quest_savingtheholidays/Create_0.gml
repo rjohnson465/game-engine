@@ -18,3 +18,16 @@ ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_savingtheholida
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_savingtheholidays_7));
 
 xpReward = 1000;
+
+
+system = part_system_create();
+part_system_depth(system, -10000);
+emitter = part_emitter_create(system);
+part = part_type_create();
+part_type_shape(part, pt_shape_snow);
+part_type_color2(part,c_navy,c_ltgray);
+part_type_orientation(part,0,0,0,15,1);
+part_type_size(part,.2,.5,0,0);
+part_type_speed(part,2,3,0,0);
+part_type_direction(part,0,360,0,4);
+part_type_life(part,15,30);

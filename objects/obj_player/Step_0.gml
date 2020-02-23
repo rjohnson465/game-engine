@@ -157,3 +157,7 @@ if isSprinting {
 if interactableResetFrame > 0 {
 	interactableResetFrame--;
 }
+
+if dodgeRestFrame > 0 {
+	dodgeRestFrame--;
+}

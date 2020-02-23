@@ -4,6 +4,6 @@ if !isInConversation {
 	global.isInteractingWithNpc = false;
 	global.isTrading = false;
 	with obj_npc_parent {
-				refreshNpcConversations();
-			}
+		refreshNpcConversations();
+	}
 }
