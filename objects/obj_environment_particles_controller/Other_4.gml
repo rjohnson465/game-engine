@@ -1,3 +1,7 @@
+with obj_environment_particles {
+	instance_destroy(id, 1);
+}
+
 
 // look at what room we're in, then make particles accordingly
 switch room {
@@ -110,7 +114,7 @@ switch room {
 		part_type_speed(snowflake2,4,8,0,0);
 		part_type_direction(snowflake2,0,360,-4,10);
 		part_type_life(snowflake2,150,200);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",10,10, 1, 1);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",10,10, 100, 100);
 		
 		break;
 	}
@@ -134,7 +138,7 @@ switch room {
 		part_type_speed(snowflake2,4,8,0,0);
 		part_type_direction(snowflake2,0,360,-4,10);
 		part_type_life(snowflake2,150,200);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",10,10, 1, 1);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",10,10, 100, 100);
 		
 		break;
 	}
@@ -158,7 +162,7 @@ switch room {
 		part_type_speed(snowflake2,4,8,0,0);
 		part_type_direction(snowflake2,0,360,-4,10);
 		part_type_life(snowflake2,150,200);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",10,10, 1, 1);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",10,10, 100, 100);
 		
 		break;
 	}
@@ -182,8 +186,8 @@ switch room {
 		part_type_speed(snowflake2,4,8,0,0);
 		part_type_direction(snowflake2,0,360,-4,10);
 		part_type_life(snowflake2,150,200);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",12,12, 1, 1);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_2",12,12, 1, 1);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",12,12, 100, 100);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_2",12,12, 100, 100);
 		break;
 	}
 	case rm_clayfields: {
@@ -206,8 +210,8 @@ switch room {
 		part_type_speed(snowflake2,4,8,0,0);
 		part_type_direction(snowflake2,0,360,-4,10);
 		part_type_life(snowflake2,150,200);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",12,12, 1, 1);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_2",12,12, 1, 1);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",12,12, 100, 100);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_2",12,12, 100, 100);
 		break;
 	}
 	case rm_krampus: {
@@ -230,8 +234,8 @@ switch room {
 		part_type_speed(snowflake2,4,8,0,0);
 		part_type_direction(snowflake2,0,360,-4,10);
 		part_type_life(snowflake2,150,200);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",12,12, 1, 1);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_2",12,12, 1, 1);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",12,12, 100, 100);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_2",12,12, 100, 100);
 		break;
 	}
 	case rm_golemking: {
@@ -254,8 +258,8 @@ switch room {
 		part_type_speed(snowflake2,4,8,0,0);
 		part_type_direction(snowflake2,0,360,-4,10);
 		part_type_life(snowflake2,150,200);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",10,10, 1, 1);
-		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_2",10,10, 1, 1);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_1",10,10, 100, 100);
+		makeEnvironmentParticles(snowflake1,snowflake2,"instances_floor_2",10,10, 100, 100);
 		break;
 	}
 	case rm_boss_funfairy: {

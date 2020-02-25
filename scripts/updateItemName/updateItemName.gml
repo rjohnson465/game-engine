@@ -5,6 +5,9 @@
 var item = argument[0];
 
 if object_is_ancestor(item.object_index, obj_hat_parent) && item.isSpecialHat exit;
+
+if item.isItemNameStatic exit;
+
 updateItemNameBaseMods(item); // mods based on rarity
 updateItemNameGems(item);
 updateItemNameProperties(item);

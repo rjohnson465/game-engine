@@ -10,6 +10,8 @@ baseName = "default item base name";
 baseNameModified = baseName;
 gemmedName = "default item gemmed name";
 
+isItemNameStatic = false;
+
 enum ItemTypes {	
 	HandItem,
 	Ring,

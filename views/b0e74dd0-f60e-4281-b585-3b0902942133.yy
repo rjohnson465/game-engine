@@ -10,9 +10,7 @@
         "f1e31c7b-8b19-4a7e-afb6-066643e72504",
         "e8085c66-1753-4708-afe9-820247fd0ed3",
         "b9d825bc-f4d5-429e-9c10-b5bc78214d0a",
-        "7625b38c-59ee-49aa-bf84-1e5de08c1efd",
-        "713800fa-d2a4-4b1d-beba-22a6c7ae9554",
-        "df0d13f2-5864-4c11-b0e2-50bdbf9333ae"
+        "f8be6c25-6b9a-4593-a7d3-55663c5efd92"
     ],
     "filterType": "GMSound",
     "folderName": "npcs",

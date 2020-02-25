@@ -20,7 +20,7 @@ if state == CombatantStates.Staggering {
 		isSlowed = false; isFrozen = false;
 		alpha = (-dyingFrame/dyingTotalFrames)+1;
 	}
-	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,scale,scale,facingDirection,c_white,alpha);
+	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_stagger"),1,x,y,scale,scale,facingDirection,image_blend,alpha);
 	// slowed
 	if isSlowed || isFrozen {
 		var percentFrozen = ds_map_find_value(conditionPercentages,ICE);
@@ -37,7 +37,7 @@ if state == CombatantStates.Staggering {
 if state == CombatantStates.Dodging {
 	var a = alpha;
 	if isFairy a = alpha*.5;
-	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"),dodgeFrame,x,y,scale,scale,dodgeDirection,c_white,a);
+	draw_sprite_ext(asset_get_index("spr_"+spriteString+"_dodge"),dodgeFrame,x,y,scale,scale,dodgeDirection,image_blend,a);
 	// slowed
 	if isSlowed {
 		var percentFrozen = ds_map_find_value(conditionPercentages,ICE);
@@ -78,7 +78,7 @@ if isAttackingWithCore {
 	
 	
 	if spr != noone && frame >= 0 {
-		draw_sprite_ext(spr,frame,x,y,1,1,facingDirection,c_white,alpha);
+		draw_sprite_ext(spr,frame,x,y,1,1,facingDirection,image_blend,alpha);
 		
 		// slowed
 		if isSlowed {
@@ -98,7 +98,7 @@ if isShielding && state != CombatantStates.Moving {
 	var spr = asset_get_index("spr_"+spriteString+"_shielding");
 	var frame = 1;
 	if spr >= 0 && spr != undefined && frame >= 0 {
-		draw_sprite_ext(spr,frame,x,y,scale,scale,facingDirection,c_white,alpha);
+		draw_sprite_ext(spr,frame,x,y,scale,scale,facingDirection,image_blend,alpha);
 		
 		// slowed
 		if isSlowed {
@@ -153,7 +153,7 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering && !i
 		}
 	}
 	
-	draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, c_white, alpha);
+	draw_sprite_ext(sprite_index, image_index, x, y, scale, scale, facingDirection, image_blend, alpha);
 	
 	if isSlowed {
 		var percentFrozen = ds_map_find_value(conditionPercentages,ICE);
@@ -190,7 +190,7 @@ with obj_light_radius {
 
 // hat 
 if type != CombatantTypes.Player && state != CombatantStates.Dodging && hatSpriteIndex != noone {
-	draw_sprite_ext(hatSpriteIndex,1,x,y,scale,scale,facingDirection,c_white,alpha);
+	draw_sprite_ext(hatSpriteIndex,1,x,y,scale,scale,facingDirection,image_blend,alpha);
 }
 
 shader_reset();

@@ -26,6 +26,7 @@ var layerNum = real(string_char_at(layerName,string_length(layerName)));
 
 
 var layerMap = ds_map_find_value(global._light_layers,layerNum);
+if layerMap == undefined exit;
 var lightsList = ds_map_find_value(layerMap,"_lights");
 // add to the lights list iff its not already in there
 if ds_list_find_index(lightsList,id) == -1 {

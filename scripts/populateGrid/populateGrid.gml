@@ -13,6 +13,7 @@ var solids = ds_list_create();
 with obj_enemy_obstacle_parent {
 	if object_is_ancestor(object_index,obj_combatant_parent) continue;
 	if object_is_ancestor(object_index, obj_door) && isOpen continue;
+	if variable_instance_exists(id, "isObstacleOnGrid") && !isObstacleOnGrid continue;
 	else {
 		if object_index == obj_fountain && origLayer == layerId {
 			ds_list_add(solids,id);

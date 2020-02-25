@@ -9,7 +9,8 @@
         "0647c0e0-3006-4db1-8083-555baa08a68e",
         "186fe31c-92f2-41ec-b1e4-b720fafedf7b",
         "c92cac06-bab6-4fb3-9122-4bcba1f9a979",
-        "b88a7b1c-e1bd-4858-83fb-05013ec523dc"
+        "b88a7b1c-e1bd-4858-83fb-05013ec523dc",
+        "d0209df3-32f6-4d4a-8959-041bf840c5a3"
     ],
     "filterType": "GMSprite",
     "folderName": "ww",

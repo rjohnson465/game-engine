@@ -221,6 +221,9 @@ bgmManager = instance_create_depth(x,y,1,obj_bgm_manager);
 #macro EV_DAMAGE_TAKEN "DamageTaken"
 #macro EV_FOUNTAIN_WISH "FountainWish"
 #macro EV_DARK_FOUNTAIN_WISH "DarkFountainWish"
+#macro EV_EVENT_STARTED "EventStarted"
+#macro EV_EVENT_FAILED "EventFailed"
+#macro EV_EVENT_SUCCESS "EventSuccess"
 
 // eventManager = instance_create_depth(x, y, 1, obj_event_manager);
 

@@ -63,7 +63,7 @@ if sprite < 0 {
 	exit;
 }
 
-draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,c_white,owner.alpha);
+draw_sprite_ext(sprite,frame,owner.x,owner.y,owner.scale,ys*owner.scale,rot,owner.image_blend,owner.alpha);
 
 if owner.isSlowed {
 	var percentFrozen = ds_map_find_value(owner.conditionPercentages,ICE);

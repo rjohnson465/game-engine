@@ -191,3 +191,11 @@ with obj_combatant_parent {
 		}
 	}
 }
+
+with obj_environment_particles_controller {
+	event_perform(ev_other, ev_room_start);
+}
+
+with obj_game_manager {
+	startAmb();
+}
