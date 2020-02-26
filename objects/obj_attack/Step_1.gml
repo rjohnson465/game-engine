@@ -241,6 +241,9 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 			global.victim = firstObj;
 			instance_create_depth(0,0,1,obj_hit_particles);
 			alarm[0] = 60;
+			if attackData != noone && attackData.hasLightRadius {
+				alarm[0] = 15;
+			}
 			visible = 0;
 			speed = 0;
 			hasSetAlarm = true;
@@ -288,6 +291,9 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 		instance_create_depth(0,0,1,obj_hit_particles);
 		//instance_destroy(id,true);
 		alarm[0] = 60;
+		if attackData != noone && attackData.hasLightRadius {
+			alarm[0] = 15;
+		}
 		visible = 0;
 		speed = 0;
 		x = global.x1;

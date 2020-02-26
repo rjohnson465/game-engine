@@ -1,8 +1,9 @@
-/// addItemToInventory(item)
+/// addItemToInventory(item, doAlert)
 /// returns false if the item cannot be added
 /// @param item
+/// @param doAlert
 
-var item = argument0;
+var item = argument[0];
 var p = global.player;
 
 if item == noone || item == undefined || !instance_exists(item) exit;
@@ -119,6 +120,14 @@ for (var i = 0; i < TutFirsts.length; i++) {
 	}
 	
 	ck = ds_map_find_next(p.tutorialFirstsMap, ck);
+}
+
+var doAlert = false;
+if argument_count > 1 {
+	doAlert = argument[1];
+}
+if doAlert {
+	alertItemAddedToInventory(item);
 }
 
 return true;

@@ -10,8 +10,29 @@ if	global.player.currentInteractableObject == id &&
 }
 
 
-if isActive && !isGoingToAri {
-	var perc = hp / 100;
-	perc *= 100;
-	draw_healthbar(x, y, x + 100, y + 10, perc, c_black, c_red, c_red, 0, true, true);
+if isActive && !isGoingToAri && !isWithAri {
+	var vx = camera_get_view_x(view_camera[0]);
+	var vy = camera_get_view_y(view_camera[0]);
+	var spw = sprite_get_bbox_right(sprite_index)-sprite_get_bbox_left(sprite_index); 
+	var sph = sprite_get_bbox_bottom(sprite_index)-sprite_get_bbox_top(sprite_index);
+	var hpOutlineLeftX = (x-vx)-(.5*spw)-25;
+	var hpOutlineTopY = (y-vy)-(.5*sph)-10;
+	var hpOutlineRightX = (x-vx)+(.5*spw)+25;
+	var hpOutlineBottomY = (y-vy)-(.5*sph)-5;
+	
+	var hbw = hpOutlineRightX - hpOutlineLeftX;
+	draw_set_color(c_white);
+	draw_rectangle(hpOutlineLeftX,hpOutlineTopY,hpOutlineRightX,hpOutlineBottomY,true);
+	
+	// current hp
+	var percentHpLeft = hp / maxHp;
+	var currentHpRightX = hpOutlineLeftX + (hbw * percentHpLeft);
+	if (currentHpRightX < hpOutlineLeftX) currentHpRightX = hpOutlineLeftX;
+	draw_set_color(c_orange);
+	draw_rectangle(
+		hpOutlineLeftX,
+		hpOutlineTopY,
+		currentHpRightX,
+		hpOutlineBottomY,
+		false);
 }

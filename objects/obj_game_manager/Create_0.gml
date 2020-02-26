@@ -224,6 +224,7 @@ bgmManager = instance_create_depth(x,y,1,obj_bgm_manager);
 #macro EV_EVENT_STARTED "EventStarted"
 #macro EV_EVENT_FAILED "EventFailed"
 #macro EV_EVENT_SUCCESS "EventSuccess"
+#macro EV_PLAYER_DEATH "PlayerDeath"
 
 // eventManager = instance_create_depth(x, y, 1, obj_event_manager);
 

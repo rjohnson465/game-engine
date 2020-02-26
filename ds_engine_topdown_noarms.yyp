@@ -17559,6 +17559,14 @@
             }
         },
         {
+            "Key": "91df2d6d-8414-4357-b8a7-216e86dbeec3",
+            "Value": {
+                "id": "57999632-61c6-4b7d-832a-b5a4b9ec33c3",
+                "resourcePath": "scripts\\scr_evl_helpinghershel_dybbuk_aggro\\scr_evl_helpinghershel_dybbuk_aggro.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "91fde87b-eea5-4c51-9fe9-775b6ff01536",
             "Value": {
                 "id": "06b25df6-a80a-4351-90fb-ef45cffb2ba7",
@@ -27703,6 +27711,14 @@
             }
         },
         {
+            "Key": "e4c318d4-c782-404d-8d3b-7ae626c2da48",
+            "Value": {
+                "id": "ec94dd09-8cd9-473f-87c6-088f9b7d546c",
+                "resourcePath": "views\\e4c318d4-c782-404d-8d3b-7ae626c2da48.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "e4ca9921-74fa-41d0-a3f7-f5d7e9870615",
             "Value": {
                 "id": "6be2b567-be48-46f1-a459-2cffe8692fd7",
@@ -31419,7 +31435,8 @@
         "f4c2eeaa-4b24-4f67-bf17-72bd66063395",
         "9aaf781b-99b9-4ec7-9586-d3e4a06643ea",
         "fadbcd67-dfd0-471a-9cda-24cc14af9eaf",
-        "21002d2d-8351-4b35-9450-2e68026c393c"
+        "21002d2d-8351-4b35-9450-2e68026c393c",
+        "91df2d6d-8414-4357-b8a7-216e86dbeec3"
     ],
     "tutorial": ""
 }

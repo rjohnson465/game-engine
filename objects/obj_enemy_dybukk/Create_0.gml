@@ -118,3 +118,5 @@ part_type_life(smoke,45,60);
 sporeParticle = smoke;
 
 part_system_depth(sporeSystem, layer_get_depth(layer)+1);
+
+isAggroed = true;

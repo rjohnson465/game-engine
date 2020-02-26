@@ -22,7 +22,7 @@ if isActive && !hasActivatedWalls {
 	
 	hasActivatedWalls = true;
 	
-	global.isTutorialInProgress = true;
+	global.isPopulatingGrids = true;
 }
 
 if isActive {

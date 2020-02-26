@@ -1,4 +1,5 @@
 if !isVisible exit;
+if !instance_exists(item) exit;
 draw_set_alpha(1);
 
 var vw = view_get_wport(view_camera[0]);
@@ -11,7 +12,7 @@ var startingY = (!global.isLooting) ? vh - 100 : vh - 300;
 var cumHeight = 0;
 with obj_itemadded_alert {
 	if id != other.id && alertNumber < other.alertNumber && isVisible {
-		cumHeight += alertHeight + 15; // 15px padding
+		cumHeight -= alertHeight + 15; // 15px padding
 	}
 }
 var y1 = startingY + cumHeight;

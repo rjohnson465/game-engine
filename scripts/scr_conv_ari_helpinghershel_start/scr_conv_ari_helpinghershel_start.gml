@@ -40,6 +40,7 @@ cs.sound = snd_conv_ari_saving_hershel_ari_5;
 cs.speaker = obj_npc_ari;
 cs.func = addItemToInventory;
 cs.funcParam1 = instance_create_depth(x, y, 1, obj_item_clayheart);
+cs.funcParam2 = true;
 ds_list_add(c1.steps,cs);
 
 var cs = instance_create_depth(x,y,1,obj_conversation_step_parent);

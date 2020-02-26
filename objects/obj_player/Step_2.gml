@@ -74,6 +74,7 @@ if isDying && isAlive {
 		isAlive = false;
 		isDying = false;
 		instance_create_depth(x,y,1,obj_player_death);
+		raiseEvent(EV_PLAYER_DEATH, []);
 	}
 }
 

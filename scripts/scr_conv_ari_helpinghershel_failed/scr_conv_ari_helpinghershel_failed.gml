@@ -20,8 +20,7 @@ var cs = instance_create_depth(x,y,1,obj_conversation_step_parent);
 cs.text = "Damn, that’s so metal. No worries, here’s some more clay -- try, try again!";
 cs.sound = snd_conv_ari_saving_hershel_f_ari_2;
 cs.speaker = obj_npc_ari;
-cs.func = addItemToInventory;
-cs.funcParam1 = instance_create_depth(x, y, 1, obj_item_clayheart);
+cs.func = scr_quest_helpinghershel_getclay;
 ds_list_add(c1.steps,cs);
 
 return c1;

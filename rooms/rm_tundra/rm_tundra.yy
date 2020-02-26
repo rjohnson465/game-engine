@@ -516,7 +516,7 @@
             "grid_x": 32,
             "grid_y": 32,
             "hierarchyFrozen": false,
-            "hierarchyVisible": false,
+            "hierarchyVisible": true,
             "inheritLayerDepth": false,
             "inheritLayerSettings": false,
             "inheritSubLayers": false,
@@ -530,7 +530,7 @@
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
-                    "hierarchyVisible": false,
+                    "hierarchyVisible": true,
                     "inheritLayerDepth": false,
                     "inheritLayerSettings": false,
                     "inheritSubLayers": false,
@@ -716,7 +716,7 @@
                     "modelName": "GMRInstanceLayer",
                     "mvc": "1.0",
                     "userdefined_depth": false,
-                    "visible": false
+                    "visible": true
                 },
                 {
                     "__type": "GMRAssetLayer_Model:#YoYoStudio.MVCFormat",
@@ -736,7 +736,7 @@
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
-                    "hierarchyVisible": false,
+                    "hierarchyVisible": true,
                     "inheritLayerDepth": false,
                     "inheritLayerSettings": false,
                     "inheritSubLayers": false,
@@ -749,7 +749,7 @@
                     "modelName": "GMRAssetLayer",
                     "mvc": "1.0",
                     "userdefined_depth": false,
-                    "visible": false
+                    "visible": true
                 },
                 {
                     "__type": "GMRTileLayer_Model:#YoYoStudio.MVCFormat",
@@ -759,7 +759,7 @@
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
-                    "hierarchyVisible": false,
+                    "hierarchyVisible": true,
                     "inheritLayerDepth": false,
                     "inheritLayerSettings": false,
                     "inheritSubLayers": false,
@@ -876,7 +876,7 @@
                     },
                     "tilesetId": "8a9d36de-317c-498f-83f4-db59720f160d",
                     "userdefined_depth": false,
-                    "visible": false,
+                    "visible": true,
                     "x": 0,
                     "y": 0
                 },
@@ -888,7 +888,7 @@
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
-                    "hierarchyVisible": false,
+                    "hierarchyVisible": true,
                     "inheritLayerDepth": false,
                     "inheritLayerSettings": false,
                     "inheritSubLayers": false,
@@ -1005,7 +1005,7 @@
                     },
                     "tilesetId": "78a4cb14-2774-4905-a7ee-d5dc4561873d",
                     "userdefined_depth": false,
-                    "visible": false,
+                    "visible": true,
                     "x": 0,
                     "y": 0
                 },
@@ -1017,7 +1017,7 @@
                     "grid_x": 32,
                     "grid_y": 32,
                     "hierarchyFrozen": false,
-                    "hierarchyVisible": false,
+                    "hierarchyVisible": true,
                     "inheritLayerDepth": false,
                     "inheritLayerSettings": false,
                     "inheritSubLayers": false,
@@ -1134,7 +1134,7 @@
                     },
                     "tilesetId": "78a4cb14-2774-4905-a7ee-d5dc4561873d",
                     "userdefined_depth": false,
-                    "visible": false,
+                    "visible": true,
                     "x": 0,
                     "y": 0
                 }
@@ -1144,7 +1144,7 @@
             "modelName": "GMRLayer",
             "mvc": "1.0",
             "userdefined_depth": false,
-            "visible": false
+            "visible": true
         },
         {
             "name": "floor1",

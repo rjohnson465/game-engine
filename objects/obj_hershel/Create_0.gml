@@ -6,6 +6,7 @@ material = METAL;
 isNonPriorityInteractable = true;
 
 hp = 100;
+maxHp = 100;
 
 isAwakening = false;
 isSurrendering = false;
@@ -32,3 +33,6 @@ part_type_life(particle, 30, 60);
 part_type_size(particle, .2, .25, 0, 0);
 part_type_alpha2(particle, .65, .2);
 part_type_speed(particle, .2, .3, 0, 0);
+
+hasSetScreamAlarm = false;
+screamAlarmFrequencyFrames = [60,120];

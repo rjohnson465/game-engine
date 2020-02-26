@@ -444,3 +444,5 @@ canIntersectWithAllies = false;
 chanceToDropHealthOrb = .33; // 0 - 1 odds to drop a health orb on death
 
 hatSpriteIndex = noone;
+
+eventListeners = noone;

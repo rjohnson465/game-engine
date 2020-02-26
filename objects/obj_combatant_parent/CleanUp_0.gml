@@ -103,3 +103,7 @@ if audio_emitter_exists(attackPrepSoundEmitter) {
 }
 
 audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;
+
+if ds_exists(eventListeners, ds_type_map) {
+	ds_map_destroy(eventListeners); eventListeners = -1;
+}

@@ -13,6 +13,8 @@ normalSpeed = 0;
 turnSpeed = 0;
 normalTurnSpeed = turnSpeed;
 
+sightAngleDelta = 355;
+
 dyingParticleColor1 = c_silver;
 dyingParticleColor2 = c_olive;
 

@@ -12,6 +12,8 @@ baseName = "Ari's Clay Ring";
 spriteName = "clayring";
 // get random item sprite, based on act
 itemSprite = spr_item_clayring;
+// for saving / loading cosistently
+itemSpriteName = sprite_get_name(itemSprite);
 
 soundDrop = snd_item_ring;
 

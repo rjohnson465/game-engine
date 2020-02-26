@@ -1,5 +1,7 @@
 global.ui = id;
-display_set_gui_size(1024, 768);
+// display_set_gui_size(1024, 768);
+display_set_gui_size(2048, 1536);
+display_set_gui_maximise(2,2,0,0);
 global.conditionBarCount = 0;
 depth = -1000;
 

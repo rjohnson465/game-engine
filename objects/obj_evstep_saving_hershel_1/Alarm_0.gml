@@ -16,6 +16,11 @@ with dybukk {
 	facingDirection = point_direction(x, y, hershel.x, hershel.y);
 	attackFrequencyTotalFramesMeleeDefault = attackFrequencyTotalFramesMelee;
 	attackFrequencyTotalFramesRangedDefault = attackFrequencyTotalFramesRanged;
+	
+	// dybbuk wont care about player until struck
+	isAggroed = false;
+	eventListeners = ds_map_create();
+	ds_map_replace(eventListeners, EV_DAMAGE_TAKEN, scr_evl_helpinghershel_dybbuk_aggro);
 		
 	var lr = noone;
 	with obj_light_radius {
