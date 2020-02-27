@@ -53,3 +53,6 @@ if !hasSetAlarm && (is_array(particle) || part_type_exists(particle)) {
 		}	// end spawn
 		}
 }
+
+x = owner.x;
+y = owner.y;

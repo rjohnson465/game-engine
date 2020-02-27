@@ -377,8 +377,8 @@ dyingTotalFrames = 45;
 dyingParticleColor1 = c_red;
 dyingParticleColor2 = c_maroon;
 
-alpha = 1;
-scale = 1;
+alpha = image_alpha;
+scale = image_xscale;
 
 xpReward = 0;
 

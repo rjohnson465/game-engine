@@ -78,7 +78,7 @@ if isAttackingWithCore {
 	
 	
 	if spr != noone && frame >= 0 {
-		draw_sprite_ext(spr,frame,x,y,1,1,facingDirection,image_blend,alpha);
+		draw_sprite_ext(spr,frame,x,y,scale,scale,facingDirection,image_blend,alpha);
 		
 		// slowed
 		if isSlowed {
@@ -119,7 +119,7 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering && !i
 	
 	// normally draw base sprite -- on top of hands
 	alpha = 1;
-	scale = 1;
+	scale = image_xscale;
 	var scaleFactor = 1;
 	
 	// fairies float

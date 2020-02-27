@@ -1887,6 +1887,14 @@
             }
         },
         {
+            "Key": "0ed4dbd8-2cfc-4a74-bed0-0c10eec59790",
+            "Value": {
+                "id": "6ca05552-8951-479f-90c6-07ee8d48b41c",
+                "resourcePath": "objects\\obj_attack_wolf_dire_lunge_1_1\\obj_attack_wolf_dire_lunge_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0ef0f7e0-dbff-4f17-b545-fb3ed3eb389a",
             "Value": {
                 "id": "f0deb01e-8f1b-43e1-882b-98d43f1b8d51",
@@ -3108,6 +3116,14 @@
                 "id": "56f7dccf-7d91-4acc-960c-84822bff91e5",
                 "resourcePath": "sprites\\head60\\head60.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "184c354f-4599-444f-9bac-c6b36687d25d",
+            "Value": {
+                "id": "6bd37530-7b7a-4ddb-9f02-6ff5364fae5a",
+                "resourcePath": "views\\184c354f-4599-444f-9bac-c6b36687d25d.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -4916,6 +4932,14 @@
                 "id": "00ed6d42-dae5-4c59-b82d-5e03e56343f6",
                 "resourcePath": "objects\\obj_tree_trunk_mossy\\obj_tree_trunk_mossy.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "2702dd65-5fe1-468e-846a-715c52662b0f",
+            "Value": {
+                "id": "4f25077e-f4d3-41ee-a1c1-143e995db3e9",
+                "resourcePath": "scripts\\ei_arctic_direwolf\\ei_arctic_direwolf.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -14191,6 +14215,14 @@
             }
         },
         {
+            "Key": "753dceca-6357-496a-a5a9-a53862e51d69",
+            "Value": {
+                "id": "d8e91ce7-9413-475c-ad57-eb0da375b0db",
+                "resourcePath": "sprites\\spr_enemy_wolf_bite_attack_1_2_trail\\spr_enemy_wolf_bite_attack_1_2_trail.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "753e087c-0368-484b-908f-f9e84c3c73b0",
             "Value": {
                 "id": "17efd799-05d5-42ce-b438-8d0caec31594",
@@ -22711,6 +22743,14 @@
             }
         },
         {
+            "Key": "baa472be-4cb3-494c-9cd0-6f86c40ee7ff",
+            "Value": {
+                "id": "68fa6697-739c-4873-baf4-c6bbeef2b51a",
+                "resourcePath": "sprites\\spr_enemy_wolf_bite_attack_1_1_trail\\spr_enemy_wolf_bite_attack_1_1_trail.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "baaea705-9cf3-496f-918d-38e63564a0be",
             "Value": {
                 "id": "48a550a7-1446-40b1-8cea-7b36c487d29a",
@@ -25063,6 +25103,14 @@
             }
         },
         {
+            "Key": "ce5b2e70-8da1-4876-8229-8ae1248ffc14",
+            "Value": {
+                "id": "4585c39c-5e22-43fa-a61e-f6b4067692fc",
+                "resourcePath": "objects\\obj_attack_wolf_dire_bite_1_1\\obj_attack_wolf_dire_bite_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ce694de8-928f-4f2b-9924-59b45ba40bf6",
             "Value": {
                 "id": "2b4796f1-8d23-41fd-b579-5f3b50232b4f",
@@ -27343,6 +27391,14 @@
             }
         },
         {
+            "Key": "e1855a51-8d54-42e3-abe1-1f8047858ccb",
+            "Value": {
+                "id": "026727ec-1817-4096-8cfd-fbe26848cb79",
+                "resourcePath": "objects\\obj_attack_wolf_dire_bite_1_2\\obj_attack_wolf_dire_bite_1_2.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "e18e97fc-5301-49aa-b929-aab249fc36f6",
             "Value": {
                 "id": "fa4ec782-fe4d-4d78-9cda-e2c993b66a41",
@@ -27916,6 +27972,14 @@
                 "id": "3aca36b8-54d0-4b3c-99d3-ce1972cf78cd",
                 "resourcePath": "views\\e5ed0688-2b13-4a8a-a506-8cfa8a3574b7.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e5f51b2f-5ea0-4685-a55f-f8bc54b32d7c",
+            "Value": {
+                "id": "b0c92a9c-6a16-47b7-9bb7-6b6ed1cce373",
+                "resourcePath": "sprites\\spr_enemy_wolf_lunge_attack_1_1_trail\\spr_enemy_wolf_lunge_attack_1_1_trail.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -31081,6 +31145,7 @@
         "724efee2-ef01-4e0f-b2a9-6cfe76207df8",
         "f069e022-9d78-43da-b512-2aad9cbd7e97",
         "e33c2a61-cd97-4ca8-9781-0a14cdf4c94b",
+        "2702dd65-5fe1-468e-846a-715c52662b0f",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",
         "566e567f-06b1-4a92-9cea-84bc4525cdf8",

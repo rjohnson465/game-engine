@@ -7,7 +7,7 @@ if hershel.hp <= 0 {
 	scr_event_fail(event);
 }
 
-if ds_exists(ghostsSpawnedList, ds_type_list) && ds_list_size(ghostsSpawnedList) == GHOSTS_TO_SPAWN_COUNT {
+if ds_exists(ghostsSpawnedList, ds_type_list) {
 	
 	var isAtLeastOneAlive = false;
 	// if all ghosts this step spawned were killed, this step is done
@@ -29,7 +29,7 @@ if ds_exists(ghostsSpawnedList, ds_type_list) && ds_list_size(ghostsSpawnedList)
 		}
 	}
 	
-	if !isAtLeastOneAlive {
+	if ds_list_size(ghostsSpawnedList) == GHOSTS_TO_SPAWN_COUNT && !isAtLeastOneAlive {
 		status = EventStepStatus.Completed;
 		
 		hershel.isGoingToAri = true;

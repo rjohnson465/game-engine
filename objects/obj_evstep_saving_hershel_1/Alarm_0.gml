@@ -1,6 +1,19 @@
 if status != EventStepStatus.InProgress exit;
 
 if ds_list_size(ghostsSpawnedList) >= GHOSTS_TO_SPAWN_COUNT exit;
+// if there are 3 dybukks spawned already, do not spawn another yet
+var numGhostsAlive = 0;
+for (var i = 0; i < ds_list_size(ghostsSpawnedList); i++) {
+	var g = ds_list_find_value(ghostsSpawnedList, i);
+	if g.hp > 0 {
+		numGhostsAlive++;
+	}
+}
+
+if numGhostsAlive > 2 {
+	alarm[0] = random_range(GHOST_SPAWN_STAGGER_RANGE[0], GHOST_SPAWN_STAGGER_RANGE[1]);
+	exit;
+}
 
 randomize();
 var ptToSpawnAtIndex = round(random_range(0, array_length_1d(ghostSpawnPoints) - 1));
