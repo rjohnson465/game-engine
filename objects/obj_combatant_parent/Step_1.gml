@@ -38,6 +38,11 @@ if hp < 1 && isAlive && !isDying {
 		raiseEvent(EV_ENEMY_KILLED, [id]);
 	}
 	
+	if audio_emitter_exists(attackPrepSoundEmitter) { 
+		audio_emitter_gain(attackPrepSoundEmitter, 0);
+		audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
+	}
+	
 	if array_length_1d(soundsWhenDie) > 0 {
 		// pick a death sound
 		randomize();

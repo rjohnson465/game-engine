@@ -13,4 +13,9 @@ origLayer = layer;
 depth = layer_get_depth(layer) + 1;
 global.isPopulatingGrids = true;
 
+speed = 0;
+vspeed = 0;
+hspeed = 0;
+path_end();
+
 freesGridCells = true;

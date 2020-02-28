@@ -15,7 +15,9 @@
         "561c97ce-f971-4ef3-8e02-e1a28fe9e027",
         "6d3bec10-5ed4-4afd-9e91-14d1cdf5fe19",
         "c88fb435-280a-4169-95d5-c32b369710aa",
-        "1408451f-254c-4949-adaf-81174b83cda9"
+        "1408451f-254c-4949-adaf-81174b83cda9",
+        "5c8cb437-adb5-4b38-97c2-94132524c2c8",
+        "9bdbd8a1-4076-4d06-984d-97554275a735"
     ],
     "filterType": "GMObject",
     "folderName": "physical\/visible",

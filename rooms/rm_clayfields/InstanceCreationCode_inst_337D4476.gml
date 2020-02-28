@@ -1,0 +1,1 @@
+meleeAggroRange = 400;

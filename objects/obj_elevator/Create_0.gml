@@ -27,6 +27,10 @@ neverDeactivate = true;
 elevatorCurrentFloor = getLayerFloorNumber(layer);
 elevatorFloorToMoveTo = elevatorCurrentFloor;
 
+// some elevators only have 2 destinations
+// if this is the case, it's an "auto" elevator -- pressing the button takes you to the "other" floor
+elevatorAutoFloors = [noone, noone];
+
 elevatorName = noone;
 
 // properties = ds_map_create();

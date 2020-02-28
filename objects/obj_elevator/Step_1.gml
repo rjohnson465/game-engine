@@ -8,7 +8,8 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 		elevatorBarrier.layer = global.player.layer;
 		
 		// move sound
-		elevatorMoveSound = audio_play_sound_at(snd_elevator_move, x, y, depth, 200, AUDIO_MAX_FALLOFF_DIST, 1, 1, 1);
+		//elevatorMoveSound = audio_play_sound_at(snd_elevator_move, x, y, depth, 200, AUDIO_MAX_FALLOFF_DIST, 1, 1, 1);
+		elevatorMoveSound = audio_play_sound(snd_elevator_move, 1, 1);
 		
 		with obj_combatant_parent {
 			if place_meeting_layer(x, y, other) {
@@ -16,6 +17,11 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 			}
 		}
 		with obj_npc_parent {
+			if place_meeting_layer(x, y, other) {
+				ds_list_add(other.elevatorOccupants, id);
+			}
+		}
+		with obj_elevator_button_auto {
 			if place_meeting_layer(x, y, other) {
 				ds_list_add(other.elevatorOccupants, id);
 			}
@@ -83,7 +89,13 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 					layer = nextLayer;
 					if occupant != global.player && variable_instance_exists(occupant, "origLayer") {
 						origLayer = layer;
+						updateLightLayer2(id);
 					}
+					
+					if object_index == obj_elevator_button_auto {
+						depth += 4;
+					}
+					
 					var lr = noone;
 					with obj_light_radius {
 						if owner == other {
@@ -93,13 +105,15 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 					if lr != noone {
 						updateLightLayer(lr,oldLayer,layer);
 					}
-					populatePersonalGrid();
-					tempPostX = x;
-					tempPostY = y;
-					if type == CombatantTypes.Enemy {
-						updatePersistentElementProperty(id, "TempPostX", tempPostX);
-						updatePersistentElementProperty(id, "TempPostY", tempPostY);
-						updatePersistentElementProperty(id, "TempPostZ", layer);
+					if object_is_ancestor(object_index, obj_combatant_parent) {
+						populatePersonalGrid();
+						tempPostX = x;
+						tempPostY = y;
+						if type == CombatantTypes.Enemy {
+							updatePersistentElementProperty(id, "TempPostX", tempPostX);
+							updatePersistentElementProperty(id, "TempPostY", tempPostY);
+							updatePersistentElementProperty(id, "TempPostZ", layer);
+						}
 					}
 					
 					if object_is_ancestor(object_index, obj_npc_parent) {

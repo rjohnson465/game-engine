@@ -1,10 +1,10 @@
 name = "Arctic Direwolf";
 
-maxHp = 100;
-hp = 100;
-attackFrequencyTotalFramesMeleeDefault = [30, 40];
-poiseCurrent = 50;
-poiseMax = 50;
+maxHp = 125;
+hp = 125;
+attackFrequencyTotalFramesMeleeDefault = [30, 30];
+poiseCurrent = 100;
+poiseMax = 100;
 
 global.owner = id;
 var lunge = makeEnemyAttackObj(obj_attack_wolf_dire_lunge_1_1);
