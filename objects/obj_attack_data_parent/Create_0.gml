@@ -46,6 +46,14 @@ mustVocalizePrep = false;
 attackSoundsVocals = [];
 prepSoundsVocals = [];
 
+attackStartX = noone;
+attackStartY = noone;
+attackStartOffsetX = noone;
+attackStartOffsetY = noone;
+attackStartInstance = noone;
+
+stopsAtObstacles = true;
+
 chargePrepSpeed = noone; // how fast to move back in prep for charge, if this is an attack of type Charge
 chargeSpeed = noone; // how fast to charge, if this is an attack of type Charge
 
@@ -62,6 +70,7 @@ turnSpeed = owner.turnSpeed;
 part1 = noone;
 part2 = noone;
 numberOfProjectiles = noone;
+aoeOnlyHitsOnce = true;
 part1Num = noone;
 part2Num = noone;
 
@@ -158,3 +167,8 @@ lightRadiusAlpha = .2;
 lightRadiusScale = .23;
 lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
+
+// tracking?
+tracksTargets = false;
+trackingMinDistance = 1000;
+isTracking = true; // stop tracking if hit player dodging ??

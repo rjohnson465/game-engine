@@ -47,7 +47,6 @@ zonePartNum = 20;
 
 
 prepPart1Num = 10;
-
 prepPartBoundingBox = [100, 0, 110, 10];
 // prepPartStartFrame = 5;
 prepSound = snd_magic_fire_charge;

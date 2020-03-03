@@ -45,12 +45,15 @@ draw_set_valign(fa_center);
 // hit points
 var x1 = 10;
 var y1 = 10;
-var x2 = 210;
+// var x2 = 210;
+// 1px = 2 hit points
+var x2 = x1 + (global.player.maxHp * 2);
 var y2 = 20;
 draw_set_color(c_white);
 draw_rectangle(x1,y1,x2,y2,true);
 var percentHpLeft = global.player.hp/global.player.maxHp;
-x2 = x1 + (200 * percentHpLeft);
+var maxHpBarWidth = x2 - x1;
+x2 = x1 + (maxHpBarWidth * percentHpLeft);
 if x2 < x1 {
 	x2 = x1;
 }
@@ -93,7 +96,7 @@ if sustainingDamageObj {
 
 var x1 = 10;
 var y1 = 10;
-var x2 = 210;
+// var x2 = 210;
 var y2 = 20;
 if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center); draw_set_valign(fa_center);
@@ -103,15 +106,16 @@ if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 }
 
 // stamina
-/*
 var x1 = 10;
 var y1 = 20;
-var x2 = 210;
+// 1px = 2 stamina points
+var x2 = x1 + (global.player.maxStamina * 2);
 var y2 = 30;
 draw_set_color(c_white);
 draw_rectangle(x1,y1,x2,y2,true);
 var percentHpLeft = global.player.stamina/global.player.maxStamina;
-x2 = x1 + (200 * percentHpLeft);
+var maxStaminaBarWidth = x2 - x1;
+x2 = x1 + (maxStaminaBarWidth * percentHpLeft);
 if x2 < x1 {
 	x2 = x1;
 }
@@ -120,19 +124,21 @@ draw_rectangle_color(x1,y1,x2,y2,c_lime,c_lime,c_green,c_green,false);
 
 var x1 = 10;
 var y1 = 20;
-var x2 = 210;
+// var x2 = 210;
 var y2 = 30;
 if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 	draw_set_color(c_white); draw_set_font(font_small); draw_set_halign(fa_center);
 	var s = "Stamina: " + string(round(global.player.stamina)) + "/" + string(round(global.player.maxStamina));
 	var sh = string_height(s); 	var ys = 1;
 	scr_draw_text_outline(mean(x1,x2),mean(y1,y2),s,c_white,c_white,ys,ys,0,c_black);
-} */
+} 
 
 // poise 
 var doDrawPoise = ds_map_find_value(global.optionsManager.optionsMapDisplay, OPT_D_PLAYERPOISE);
 if doDrawPoise {
 	var poiseAmount = (global.player.poiseCurrent / global.player.poiseMax) * 100;
+	// 1 poise = 4px
+	var x2 = x1 + (global.player.poiseMax * 4);
 	draw_set_color(c_white);
 	draw_rectangle(x1, y2, x2, y2+5, true);
 	var poiseColor = global.player.state == CombatantStates.Staggering ? c_gray : C_POISE;

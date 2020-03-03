@@ -21,6 +21,8 @@ additionalDamages = ds_map_create();
 
 life = 60; // frames before ranged attack fades away
 
+isTracking = false;
+
 spell = noone;
 particle = noone;
 particle2 = noone;
@@ -121,6 +123,12 @@ else if attackData != noone {
 		}
 	}
 }
+
+if attackData != noone && attackData.tracksTargets {
+	isTracking = true;
+}
+
+
 
 if (sound > 1 && audio_exists(sound)) {
 	if isSoundLooping {
@@ -319,6 +327,42 @@ if isRanged {
 	owner.prevAttackHand = limbKey;
 } else {
 	image_alpha = .5;
+}
+
+// maybe reset attack position 
+if attackData != noone {
+	if attackData.attackStartX != noone && attackData.attackStartY != noone {
+		x = attackData.attackStartX;
+		y = attackData.attackStartY;
+	}
+	if instance_exists(attackData.attackStartInstance) {
+		x = attackData.attackStartInstance.x;
+		y = attackData.attackStartInstance.y;
+	}
+	// account for offset
+	if attackData.attackStartOffsetX != noone && attackData.attackStartOffsetY != noone && instance_exists(owner.lockOnTarget) {
+		var isValidPosition = false;
+		var numAttempts = 0;
+		while !isValidPosition && numAttempts < 1000 {
+			randomize();
+			var ang = random_range(0, 360);
+			var xx = x + lengthdir_x(attackData.attackStartOffsetX, ang);
+			var yy = y + lengthdir_y(attackData.attackStartOffsetY, ang);
+			x = xx; 
+			y = yy;
+			direction = point_direction(x, y, owner.lockOnTarget.x, owner.lockOnTarget.y);
+			var grid = owner.personalGrid;
+			var testPath = path_add();
+			var pathExists = mp_grid_path(grid, testPath, x, y, owner.lockOnTarget.x, owner.lockOnTarget.y, true);
+			isValidPosition = pathExists;
+			path_delete(testPath);
+			numAttempts++;
+		}
+		if !isValidPosition && numAttempts > 1000 {
+			x = owner.x; y = owner.y;
+		}
+	
+	}
 }
 
 if attackData != noone && attackData.part1 != noone {

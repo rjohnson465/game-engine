@@ -30,9 +30,9 @@ hasHands = false; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
 // general attacks info
-meleeAggroRange = 300;
-rangedAggroRange = 800;
-farthestAllowedFromPost = 800;
+meleeAggroRange = 2000;
+rangedAggroRange = 2500;
+farthestAllowedFromPost = 2800;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
 attackFrequencyTotalFramesMelee = [45,60];
 attackFrequencyTotalFramesRanged = [60,90];
@@ -63,14 +63,27 @@ var swing = makeEnemyAttackObj(obj_attack_golemboss_swing_1_1);
 var fireblast = makeEnemyAttackObj(obj_attack_golemboss_fireblast_1_1);
 var slam1 = makeEnemyAttackObj(obj_attack_golemboss_slam_1_1);
 var slam2 = makeEnemyAttackObj(obj_attack_golemboss_slam_1_2);
+var roll = makeEnemyAttackObj(obj_attack_golemboss_ball_1_1);
+var mm = makeEnemyAttackObj(obj_attack_golemboss_mm_1_1);
+var dybbuk = makeEnemyAttackObj(obj_attack_golemboss_dybbuk_1_1);
 
 var c0 = [swing, stab, fb];
 var c1 = [sswing];
 var c2 = [fireblast, fireblast, fireblast];
 var c3 = [slam1, slam2];
 var c4 = [stab, fb];
-
-meleeAttacks = [c0, c1, c2, c3, c4];
+var c5 = [roll];
+var c6 = [swing, roll];
+var c7 = [swing, stab, roll];
+var c8 = [mm];
+var c9 = [dybbuk];
+var c10 = [swing, mm];
+var c11 = [swing, dybbuk];
+var c12 = [swing, stab, mm];
+var c13 = [swing, fireblast];
+var c14 = [stab, fireblast];
+meleeAttacks = [c0, c1, c2, c3, c4, c5, c6, c7, c8, c9 , c10, c11, c12, c13, c14];
+// meleeAttacks = [c9];
 
 // ranged attacks info
 
@@ -93,9 +106,9 @@ ds_map_replace(defenses, ICE, -25);
 ds_map_replace(defenses, FIRE, 50);
 ds_map_replace(defenses, LIGHTNING, -25);
 ds_map_replace(defenses, POISON, 100);
-ds_map_replace(defenses, SLASH, 15);
-ds_map_replace(defenses, PIERCE, 0);
-ds_map_replace(defenses, CRUSH, 35);
+ds_map_replace(defenses, SLASH, 25);
+ds_map_replace(defenses, PIERCE, 5);
+ds_map_replace(defenses, CRUSH, 45);
 
 // dodge stuff
 agility = 0; // 0 - 100% chance to try a dodge

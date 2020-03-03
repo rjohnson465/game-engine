@@ -111,6 +111,14 @@
             }
         },
         {
+            "Key": "00d3a969-582e-404b-aafb-025523843162",
+            "Value": {
+                "id": "57825e1b-1c13-4aac-a7ec-f062cb5fe411",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_prep_1_2\\spr_enemy_dybukkboss_slash_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "00dfa8cb-4d1d-49aa-a449-0936e1243d69",
             "Value": {
                 "id": "8bc11e23-510d-43b3-94bb-211faae85bf4",
@@ -283,6 +291,14 @@
             "Value": {
                 "id": "c013b718-ebf4-4168-a7d5-44840be83859",
                 "resourcePath": "sprites\\spr_item_aoe_lightning11\\spr_item_aoe_lightning11.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0225546e-35cf-4430-8f14-2658274d46e5",
+            "Value": {
+                "id": "d6f8f343-435f-4df2-ba97-2e98ce310210",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_servant_prep_1_1\\spr_enemy_dybukkboss_servant_prep_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1175,6 +1191,14 @@
             }
         },
         {
+            "Key": "0909b60f-553a-456f-8ab1-1e21df25b5c0",
+            "Value": {
+                "id": "daebebe9-31f1-41dd-95f1-e087127a0627",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_servant_attack_1_1\\spr_enemy_dybukkboss_servant_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "090c148d-a7e7-4861-9129-f871531f9685",
             "Value": {
                 "id": "7b3e20d8-5f21-49ef-b7c8-3a925eb89c74",
@@ -1883,6 +1907,14 @@
             "Value": {
                 "id": "6c51b9a1-9fe4-4382-a001-341d607ee3df",
                 "resourcePath": "sprites\\spr_enemy_golem_slam_recover_1_1\\spr_enemy_golem_slam_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0ec2bc66-0d04-46a0-96c5-e95022139ea2",
+            "Value": {
+                "id": "313c42c0-6835-4500-80d6-b0fd9b670b78",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_dismantle_recover_1_2\\spr_enemy_dybukkboss_dismantle_recover_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3031,6 +3063,14 @@
             }
         },
         {
+            "Key": "1751c6ba-9678-4a7c-b00f-504f6de3c262",
+            "Value": {
+                "id": "51e15d29-551d-4286-96ab-58268f22307e",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_servant_attack_1_2\\spr_enemy_dybukkboss_servant_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "176ab2a8-7259-4c30-b78e-20876ef317f5",
             "Value": {
                 "id": "864c772c-09a8-41d7-a4c0-c4b1972fcf71",
@@ -3439,6 +3479,14 @@
             }
         },
         {
+            "Key": "1aaf0329-1bcd-4794-83c7-65e1b2db0980",
+            "Value": {
+                "id": "93f1852e-6feb-43b7-8083-cb7595d21069",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_attack_1_1qqq\\spr_enemy_dybukkboss_slash_attack_1_1qqq.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1ac240f4-c58a-41bd-b1c2-02b9fbe93c1e",
             "Value": {
                 "id": "62fa40cc-5d16-4bf5-9897-a695e3f1cd0f",
@@ -3523,6 +3571,14 @@
             "Value": {
                 "id": "eee7923c-7e88-43e8-88c2-7b1180ad325d",
                 "resourcePath": "sprites\\spr_enemy_troll_spikedshield_wprep_1_1\\spr_enemy_troll_spikedshield_wprep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1bea5ea1-b8b6-46e1-a1ba-195383329710",
+            "Value": {
+                "id": "40b11f55-2d09-428e-8a03-aa7dfc5b7e4d",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_dismantle_prep_1_2\\spr_enemy_dybukkboss_dismantle_prep_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4431,6 +4487,14 @@
             }
         },
         {
+            "Key": "22c5e110-2a38-4d18-abb3-0d2d84128c06",
+            "Value": {
+                "id": "470d3566-75c7-42ac-a16c-6147e51f0a8f",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_dismantle_prep_1_3\\spr_enemy_dybukkboss_dismantle_prep_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "22d6c0d1-5bce-41fc-8819-05e1843e7e61",
             "Value": {
                 "id": "de144542-bdd8-4616-81f2-22a94562b680",
@@ -4539,6 +4603,14 @@
             "Value": {
                 "id": "9ff80a31-634f-419e-8313-b504356eebcd",
                 "resourcePath": "sprites\\spr_item_info_defense_slash\\spr_item_info_defense_slash.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "23eef768-a9fa-4348-ba8a-38b3095222f6",
+            "Value": {
+                "id": "bd0c247e-c1c9-40ce-a12a-039f25c3f53c",
+                "resourcePath": "sprites\\spr_enemy_golemboss_ball_recover_1_1\\spr_enemy_golemboss_ball_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4707,6 +4779,14 @@
             "Value": {
                 "id": "db187a52-ce24-4df0-949d-afa2bb997dab",
                 "resourcePath": "sprites\\spr_sleigh\\spr_sleigh.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "254bc515-8dfa-4931-9bd6-029867cab18f",
+            "Value": {
+                "id": "639e4e63-56a8-42e3-8af9-0a57263af70e",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_servant_recover_1_2\\spr_enemy_dybukkboss_servant_recover_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -6055,6 +6135,14 @@
             }
         },
         {
+            "Key": "30b5788c-79e6-4192-9e42-b3f16d4a7fb7",
+            "Value": {
+                "id": "b2e7474e-d764-4bec-86ed-6aa374af0f30",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_recover_1_1\\spr_enemy_dybukkboss_slash_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "30c28ba5-9e1d-4d02-b282-89988032547a",
             "Value": {
                 "id": "a4808f06-6343-48f0-88de-8901187bfcc8",
@@ -6180,6 +6268,14 @@
                 "id": "ef23e1e9-5408-4b2d-9023-69879aa3c8d7",
                 "resourcePath": "sprites\\shurikenstar\\shurikenstar.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "31f358dd-a025-4e12-8b9d-a94924514e6e",
+            "Value": {
+                "id": "60dd4333-26be-4fe1-bef4-9e85fa6de089",
+                "resourcePath": "objects\\obj_evstep_golemattack_2\\obj_evstep_golemattack_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -6444,6 +6540,14 @@
                 "id": "5b1031a8-6aec-449e-bfc5-20fc318d2a96",
                 "resourcePath": "sprites\\spr_stump_rotten_fallen\\spr_stump_rotten_fallen.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "343f83f4-4493-4520-898e-a8cd9f93deed",
+            "Value": {
+                "id": "f9fe5dde-ce75-411e-86d8-5216bc8d40b6",
+                "resourcePath": "objects\\obj_attack_dybukkboss_dismantle_1_3\\obj_attack_dybukkboss_dismantle_1_3.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -6799,11 +6903,27 @@
             }
         },
         {
+            "Key": "3718d084-9d13-44df-982c-53183e66f9b0",
+            "Value": {
+                "id": "c8871246-6dfb-41ee-b1f7-b4f07f2d4b8a",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_dismantle_attack_1_2\\spr_enemy_dybukkboss_dismantle_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "37545232-1f8e-4840-a1f6-cfa74e4cd8d4",
             "Value": {
                 "id": "34c5c22d-1f32-47ee-837c-326ec07aabfc",
                 "resourcePath": "views\\37545232-1f8e-4840-a1f6-cfa74e4cd8d4.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "375f66b1-f3a3-40e8-b2e9-995175887ad8",
+            "Value": {
+                "id": "549f8963-6904-4d42-9437-9bc7e84dd040",
+                "resourcePath": "sprites\\spr_enemy_golemboss_dybbuk_recover_1_1\\spr_enemy_golemboss_dybbuk_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -7519,6 +7639,14 @@
             }
         },
         {
+            "Key": "3c6998f8-6ed4-4f6f-bccc-b8e0f88c0a77",
+            "Value": {
+                "id": "3fde725d-3e21-42b2-bc60-a3736ea9dd7f",
+                "resourcePath": "sprites\\spr_enemy_golemboss_mm_recover_1_1\\spr_enemy_golemboss_mm_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3c69f17e-b370-4b53-ae07-763390f0d7b8",
             "Value": {
                 "id": "b21f3e1e-75bf-4c75-8db2-7da56d3f5f51",
@@ -8223,6 +8351,14 @@
             }
         },
         {
+            "Key": "42be8457-210d-44de-ac5f-43b7fe7c7e85",
+            "Value": {
+                "id": "a03fb924-d0a3-4d9c-b277-fd4220fd659f",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_dismantle_attack_1_1\\spr_enemy_dybukkboss_dismantle_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "42c42f99-cb0a-4186-b3e2-f35759ba36f2",
             "Value": {
                 "id": "5413d737-3ba9-4b24-bcc6-e056506a722b",
@@ -8252,6 +8388,14 @@
                 "id": "40268703-108b-4f75-b1f1-479956ead10a",
                 "resourcePath": "sounds\\snd_conv_santa_sthf_santa_2\\snd_conv_santa_sthf_santa_2.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "42e31a30-3579-40c7-8964-f36a60183bfb",
+            "Value": {
+                "id": "0b16a10c-a33e-4f09-aeeb-52cbc2dcbf04",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_attack_1_1_mask\\spr_enemy_dybukkboss_slash_attack_1_1_mask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -8887,6 +9031,14 @@
             }
         },
         {
+            "Key": "481a6b95-0f23-4dca-80b9-17d70cafa60e",
+            "Value": {
+                "id": "2ba1e09a-250f-45a7-8fc7-5607afcbb1c5",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_dismantle_prep_1_1\\spr_enemy_dybukkboss_dismantle_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4830adac-eef5-40c9-8b9f-2305dac46aea",
             "Value": {
                 "id": "42c40474-4773-4155-941d-752ae168131c",
@@ -9247,6 +9399,14 @@
             }
         },
         {
+            "Key": "4b0dd68a-f638-482f-930a-41eb4d1f5c4c",
+            "Value": {
+                "id": "7c3f5fcf-baf9-4077-9c91-2dfac0f6898f",
+                "resourcePath": "views\\4b0dd68a-f638-482f-930a-41eb4d1f5c4c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "4b298482-be2d-4d36-81d7-e3c2d53b7273",
             "Value": {
                 "id": "bc6ffca9-3fb7-4222-96d4-cbcd9c54e72a",
@@ -9415,6 +9575,14 @@
             }
         },
         {
+            "Key": "4bd8d71f-1f88-4425-8b9e-06141969f9c6",
+            "Value": {
+                "id": "00aea123-4b94-4b08-aa3e-8a59e05fcbc3",
+                "resourcePath": "sprites\\spr_enemy_golemboss_mm_prep_1_1\\spr_enemy_golemboss_mm_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4be67cd3-0d95-4e7c-b4f4-a6113652efbd",
             "Value": {
                 "id": "123f8c3b-e6d3-49c5-99de-7ac41a10c30d",
@@ -9508,6 +9676,14 @@
                 "id": "71163d52-8bbe-4659-ae45-5537d03f2e9c",
                 "resourcePath": "views\\4cd24ea6-2a87-4e41-80ca-933b635a3b50.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4cdd4e75-1e89-4f61-b27a-1f92e1b331dc",
+            "Value": {
+                "id": "b704267c-d6bf-4b71-b006-037671f72824",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_attack_1_1\\spr_enemy_dybukkboss_slash_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -9940,6 +10116,14 @@
                 "id": "a7c2fe53-d427-4fd5-ab67-13d2d6361964",
                 "resourcePath": "sprites\\spr_enemy_ravebot_dance_prep_1_2\\spr_enemy_ravebot_dance_prep_1_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "504df565-89cb-49ba-bc28-551af7f75982",
+            "Value": {
+                "id": "b84d1cd0-7357-4659-8ddf-180b28bd6c88",
+                "resourcePath": "objects\\obj_attack_dybukkboss_dismantle_1_2\\obj_attack_dybukkboss_dismantle_1_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -10452,6 +10636,14 @@
                 "id": "7a1712dc-2d18-4df0-95e0-ba1e7927c5ac",
                 "resourcePath": "sprites\\spr_enemy_icecursedfairy_limb_torch_attack_1_1\\spr_enemy_icecursedfairy_limb_torch_attack_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "550af59d-0d32-4374-9338-b16a5a594273",
+            "Value": {
+                "id": "4f88adb1-9232-4ec6-97ba-563282523c07",
+                "resourcePath": "objects\\obj_attack_dybukkboss_slash_1_2\\obj_attack_dybukkboss_slash_1_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -11388,6 +11580,14 @@
                 "id": "43bba19b-07bb-48f3-9eca-fc71520b6a27",
                 "resourcePath": "views\\5cfeffc7-b8de-41c5-832a-d7c61b7d23f6.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "5d1b1bbb-67d0-44d6-9c11-0d6b870a4ac3",
+            "Value": {
+                "id": "ef252b6d-5cae-46fd-a88f-c29ed896cf16",
+                "resourcePath": "objects\\obj_attack_golemboss_ball_1_1\\obj_attack_golemboss_ball_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -12543,6 +12743,14 @@
             }
         },
         {
+            "Key": "6642685b-bf14-4bc5-81a4-6e49b9192081",
+            "Value": {
+                "id": "36c72be0-53f6-47aa-8744-84be0b066f62",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_prep_1_111\\spr_enemy_dybukkboss_slash_prep_1_111.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6655b6bd-12d5-4669-bdd6-8e7bccc73389",
             "Value": {
                 "id": "0b3a9fc4-9111-4831-ab3f-c9850e875162",
@@ -12759,6 +12967,14 @@
             }
         },
         {
+            "Key": "6817197d-070e-4193-803b-c502b8e7925a",
+            "Value": {
+                "id": "1d631f9c-a599-4f0d-b893-4162e3096556",
+                "resourcePath": "sprites\\spr_enemy_golemboss_mm_1_1_projectile\\spr_enemy_golemboss_mm_1_1_projectile.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "681ce488-ddfb-49b1-b14a-685ac1bcf8e0",
             "Value": {
                 "id": "5ae9713a-53d1-44dc-a918-d0b0afd6043e",
@@ -12820,6 +13036,14 @@
                 "id": "213f7533-ab63-44e9-a14e-81af62caeba1",
                 "resourcePath": "sounds\\snd_conv_rob_otherrobots_rob_1\\snd_conv_rob_otherrobots_rob_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "688b743c-1601-4a1f-8337-321a51fa7b6f",
+            "Value": {
+                "id": "6fc32986-13e5-4252-acd6-a6fc878623db",
+                "resourcePath": "scripts\\scr_evl_ev_golemattack_golemkilled\\scr_evl_ev_golemattack_golemkilled.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -12964,6 +13188,14 @@
                 "id": "315be0a8-9de6-4c2a-be56-c63aa7de646e",
                 "resourcePath": "sprites\\spr_player_hand_rapier_attack_2\\spr_player_hand_rapier_attack_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6a4c24be-157f-48f2-8fd6-8ad8ad6e50b8",
+            "Value": {
+                "id": "7875b7ea-968d-4cc6-95fb-3a7a6722771a",
+                "resourcePath": "objects\\obj_attack_dybukkboss_servant_1_1\\obj_attack_dybukkboss_servant_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -13167,6 +13399,14 @@
             }
         },
         {
+            "Key": "6cd7778b-b650-40c6-bbee-220f28664389",
+            "Value": {
+                "id": "26ec212f-cddf-448e-aa69-9191ffd9cc17",
+                "resourcePath": "objects\\obj_evstep_golemattack_1\\obj_evstep_golemattack_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6cf761ca-ea9f-49f3-b0d4-fcd5384ef85e",
             "Value": {
                 "id": "d34e3a4f-5abe-4afd-9311-186769e9caee",
@@ -13188,6 +13428,14 @@
                 "id": "74bff3d2-d38c-4c4a-ae8c-3623cb29e94f",
                 "resourcePath": "views\\6d07e332-d675-43cf-af72-bf1afbd4e482.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6d170ec5-2f27-4c75-a640-717ef63711ca",
+            "Value": {
+                "id": "d0461502-aeb7-4e1c-ac82-aa9456434f6b",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_attack_1_2\\spr_enemy_dybukkboss_slash_attack_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -13775,6 +14023,14 @@
             }
         },
         {
+            "Key": "71f9e80d-51da-4d37-9a7f-5607733d9ed3",
+            "Value": {
+                "id": "653c1dd5-189b-4175-bb6b-275b213cd9be",
+                "resourcePath": "objects\\obj_event_golemattack\\obj_event_golemattack.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "720d79d1-8a5a-47d6-9b6d-7ff40655c260",
             "Value": {
                 "id": "17f5b688-35a6-4db6-b576-fb61e7e193db",
@@ -14035,6 +14291,14 @@
             "Value": {
                 "id": "b4fee7dd-8fba-4c2b-809c-039475908cf4",
                 "resourcePath": "sprites\\spr_enemy_funfairy_limb_toyhammer_prep_1_1\\spr_enemy_funfairy_limb_toyhammer_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "73d841ea-5665-4e83-8b58-fa127295215a",
+            "Value": {
+                "id": "91aadfd7-92dc-4a4a-ba82-1e3c947d78e2",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_dismantle_recover_1_1\\spr_enemy_dybukkboss_dismantle_recover_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -14311,6 +14575,14 @@
             }
         },
         {
+            "Key": "7632091b-12dc-41a7-8819-ae94538097de",
+            "Value": {
+                "id": "caba383a-cb53-4bc9-a2ab-815660d45bb4",
+                "resourcePath": "views\\7632091b-12dc-41a7-8819-ae94538097de.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "76345c83-e9ef-43c2-856b-a473e7a6354d",
             "Value": {
                 "id": "87d5114e-ccf5-4a74-a831-a32cd050fab5",
@@ -14443,6 +14715,14 @@
             "Value": {
                 "id": "6cac5805-3586-4879-83d1-0a4bc522f795",
                 "resourcePath": "objects\\obj_attack_gargoylebust_fireball_1_1\\obj_attack_gargoylebust_fireball_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "772a329b-1126-4275-b23b-2ad39318f2da",
+            "Value": {
+                "id": "3632f1fb-0030-46f0-9453-975ec5d1efb7",
+                "resourcePath": "objects\\obj_attack_dybukkboss_dismantle_1_1\\obj_attack_dybukkboss_dismantle_1_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -15835,6 +16115,14 @@
             "Value": {
                 "id": "9d5e5523-85e6-4a33-b917-246e28abe811",
                 "resourcePath": "objects\\obj_attack_unfairy_dagger_1_3\\obj_attack_unfairy_dagger_1_3.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "82387e08-813c-4d82-8f34-1e8fd122379a",
+            "Value": {
+                "id": "040bd4ce-b7a4-4510-b191-c1e3b35025a3",
+                "resourcePath": "objects\\obj_attack_dybukkboss_servant_1_2\\obj_attack_dybukkboss_servant_1_2.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -17831,11 +18119,27 @@
             }
         },
         {
+            "Key": "9373b1da-d16b-449f-85e7-87c1f14b9d05",
+            "Value": {
+                "id": "529c01e3-8475-4cad-bb00-8ed98c6dc452",
+                "resourcePath": "sprites\\spr_enemy_golemboss_dybbuk_prep_1_1\\spr_enemy_golemboss_dybbuk_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "938a964c-f8b3-440e-bfc0-a2abc38e657b",
             "Value": {
                 "id": "96eae474-2036-4cc6-b89a-ba9d594032ed",
                 "resourcePath": "views\\938a964c-f8b3-440e-bfc0-a2abc38e657b.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "93b15a9d-dd17-4fbc-a84f-0fb5c4744e31",
+            "Value": {
+                "id": "bb9ee414-6fe3-4698-a4d6-0d3070546f3d",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_prep_1_1\\spr_enemy_dybukkboss_slash_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -17860,6 +18164,14 @@
                 "id": "3cac9a85-e48f-4cf3-909d-13765fb06f93",
                 "resourcePath": "views\\941b01e6-6c97-498b-8dc9-96e785f59de9.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "9425428a-a07f-418a-ae7c-0bd0dcf118a6",
+            "Value": {
+                "id": "1b28cef3-7957-43f9-9a5b-4ec5daf0d04d",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_servant_recover_1_1\\spr_enemy_dybukkboss_servant_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -19407,6 +19719,14 @@
             }
         },
         {
+            "Key": "a06b4c2f-fa84-4e65-9944-3be7dcd8343c",
+            "Value": {
+                "id": "1541ad58-712e-4692-bee9-e03191fe5006",
+                "resourcePath": "objects\\obj_attack_golemboss_dybbuk_1_1\\obj_attack_golemboss_dybbuk_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a077e6bc-0cfa-4bcc-ae19-7cbec7d29693",
             "Value": {
                 "id": "4728e915-ac79-4264-b47e-964ad7ce2cb5",
@@ -19420,6 +19740,14 @@
                 "id": "d9f2f67e-7f4c-47ff-b5c5-cf9e38eab5d3",
                 "resourcePath": "sprites\\spr_gem_aquamarine_normal\\spr_gem_aquamarine_normal.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a0a0584e-d7a5-46b9-a6b6-e7e52faf06bc",
+            "Value": {
+                "id": "0829221e-47e4-4114-a744-6960598ff0dd",
+                "resourcePath": "objects\\obj_attack_golemboss_mm_1_1\\obj_attack_golemboss_mm_1_1.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -19871,6 +20199,14 @@
             }
         },
         {
+            "Key": "a4ba4e77-fa37-4a71-a28e-7c04251a8fdd",
+            "Value": {
+                "id": "2d22434c-0206-4d5c-afe1-126c61b0c775",
+                "resourcePath": "sprites\\spr_enemy_golemboss_ball_attack_1_1_trail\\spr_enemy_golemboss_ball_attack_1_1_trail.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a4cdf389-0833-455d-8c7d-867b57aea632",
             "Value": {
                 "id": "c2daab79-f30b-42ff-a0a0-27d08d217de5",
@@ -19948,6 +20284,14 @@
                 "id": "fe418336-233d-4c72-b6e3-dd1aeae424ed",
                 "resourcePath": "objects\\obj_tutorial_exercise_ranged_combat\\obj_tutorial_exercise_ranged_combat.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "a5500c00-dbad-4cfe-836f-fcf9cc7dea61",
+            "Value": {
+                "id": "e87bd5bf-121e-439c-9823-07e811ab434d",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_attack_1_2_mask\\spr_enemy_dybukkboss_slash_attack_1_2_mask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -21716,6 +22060,22 @@
                 "id": "d1f09845-f6d2-4c6d-b3b4-770013d3f702",
                 "resourcePath": "scripts\\wishAtDarkFountain\\wishAtDarkFountain.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "b223e400-aeb8-4016-ae65-53f3c4a64162",
+            "Value": {
+                "id": "ca56c860-6ea2-4fb8-80f2-e5e5ea81c39a",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_recover_1_1qqq\\spr_enemy_dybukkboss_slash_recover_1_1qqq.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b22f09ce-fa3d-491b-9665-dbf0de95c1e5",
+            "Value": {
+                "id": "b45661a6-082a-42dd-9272-94bc00de058a",
+                "resourcePath": "sprites\\spr_enemy_golemboss_mm_attack_1_1_old\\spr_enemy_golemboss_mm_attack_1_1_old.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -24479,6 +24839,14 @@
             }
         },
         {
+            "Key": "c8e21313-aea7-4fe3-8648-aecac58c3b10",
+            "Value": {
+                "id": "5d3b2462-310c-4e1e-9e1e-0b1835b3fade",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_dismantle_recover_1_3\\spr_enemy_dybukkboss_dismantle_recover_1_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c8eee05d-2bb0-4848-8936-cfdee6279009",
             "Value": {
                 "id": "ca93907c-f123-4d9e-9af5-4da93376cc14",
@@ -24591,6 +24959,14 @@
             }
         },
         {
+            "Key": "ca2f87a7-022e-4f15-8b89-f8c75521f7d4",
+            "Value": {
+                "id": "47a6e2dd-9975-40fb-b342-3134db9bc606",
+                "resourcePath": "objects\\obj_bench\\obj_bench.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ca359ec9-6c44-402d-a8a7-9d9274d457cd",
             "Value": {
                 "id": "bd51906a-cc59-4022-a938-52e8f10e511b",
@@ -24619,6 +24995,14 @@
             "Value": {
                 "id": "5be4421f-c444-4f75-a627-1a94648f84a2",
                 "resourcePath": "sprites\\spr_enemy_spore_hit_recover_1_1\\spr_enemy_spore_hit_recover_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ca603592-881f-4707-b651-45f56b3c5238",
+            "Value": {
+                "id": "d81da637-33d9-4bb2-ab80-68027ee7bf31",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_recover_1_2\\spr_enemy_dybukkboss_slash_recover_1_2.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -24916,6 +25300,14 @@
                 "id": "1dd7fd66-af7c-4d72-bc7d-82871803a96e",
                 "resourcePath": "scripts\\ei_unfairy_melee_elements\\ei_unfairy_melee_elements.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "cce74970-1150-48f3-9d3a-18b1ee67a1e0",
+            "Value": {
+                "id": "0056b19d-6f06-4b5a-add9-578cbed5b687",
+                "resourcePath": "sprites\\spr_enemy_golemboss_ball_attack_1_1\\spr_enemy_golemboss_ball_attack_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -25935,6 +26327,14 @@
             }
         },
         {
+            "Key": "d595f011-e145-48cb-b7cf-d6c75fb8a3d3",
+            "Value": {
+                "id": "ec020352-be86-4323-8855-7bb4a23f5421",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_servant_prep_1_2\\spr_enemy_dybukkboss_servant_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d59d628f-971f-4cda-be08-a0e8c3b3d541",
             "Value": {
                 "id": "f8a58f99-4d7a-44e8-8239-4132c5a8754f",
@@ -26315,6 +26715,14 @@
             "Value": {
                 "id": "34875448-4347-4e90-bdf1-cb657cc9a4ec",
                 "resourcePath": "sprites\\spr_item_leathercap\\spr_item_leathercap.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d90eda12-19e1-4b8e-a99b-9e63903174bf",
+            "Value": {
+                "id": "ec4f52b3-f941-4879-87a9-a808e938b9bb",
+                "resourcePath": "sprites\\spr_enemy_golemboss_dybbuk_attack_1_1\\spr_enemy_golemboss_dybbuk_attack_1_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -27628,6 +28036,14 @@
                 "id": "9dcc2991-6cbc-4ded-9225-d3646e15536e",
                 "resourcePath": "views\\e34075f8-f193-4e1a-bd59-af47a39c1f79.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e3514f76-159e-4249-90d2-a1d19043a530",
+            "Value": {
+                "id": "bba59bc4-4d2b-44db-a350-d1c81df18dfc",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_dismantle_attack_1_3\\spr_enemy_dybukkboss_dismantle_attack_1_3.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -29551,6 +29967,14 @@
             }
         },
         {
+            "Key": "f3a94833-ecaf-4ad3-95c6-73f6c9da363a",
+            "Value": {
+                "id": "d2935f13-e834-4fe7-8905-634573f97d0b",
+                "resourcePath": "sprites\\spr_enemy_golemboss_ball_prep_1_1\\spr_enemy_golemboss_ball_prep_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f3d20472-f9bb-4494-8ec5-3593a4000d77",
             "Value": {
                 "id": "2c9523d0-88c6-4ab5-a161-d33d1a1dc780",
@@ -29828,6 +30252,14 @@
                 "id": "2f7a8212-9bc7-4103-b96e-46617ec4e681",
                 "resourcePath": "sprites\\spr_item_magicmissile_poison\\spr_item_magicmissile_poison.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f6b1a35d-ae46-4999-9ab6-15ec6f53faf2",
+            "Value": {
+                "id": "aa8914b3-06ea-443b-a0c6-67119a941d77",
+                "resourcePath": "views\\f6b1a35d-ae46-4999-9ab6-15ec6f53faf2.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -30927,6 +31359,14 @@
             }
         },
         {
+            "Key": "ffbc65ed-c9a9-4cd9-acaa-69ff222285f5",
+            "Value": {
+                "id": "625d868b-57e0-4cc5-a286-7c595778395b",
+                "resourcePath": "objects\\obj_attack_dybukkboss_slash_1_1\\obj_attack_dybukkboss_slash_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ffc15f65-c56c-4309-b4d5-c22e9d07fcf9",
             "Value": {
                 "id": "87ea76ca-58fd-4eb0-a1e6-f64916c6d576",
@@ -31517,7 +31957,8 @@
         "9aaf781b-99b9-4ec7-9586-d3e4a06643ea",
         "fadbcd67-dfd0-471a-9cda-24cc14af9eaf",
         "21002d2d-8351-4b35-9450-2e68026c393c",
-        "91df2d6d-8414-4357-b8a7-216e86dbeec3"
+        "91df2d6d-8414-4357-b8a7-216e86dbeec3",
+        "688b743c-1601-4a1f-8337-321a51fa7b6f"
     ],
     "tutorial": ""
 }

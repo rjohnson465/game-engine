@@ -298,26 +298,26 @@ else if isBoss && isAlive {
 				draw_rectangle(sustainingDamageLeftX,y1,sustainingDamageRightX,y2,false);
 				
 				// draw damage above health bar
-				with sustainingDamageObj {
-					draw_set_color(c_white);
-					draw_set_font(font_damage);
-					draw_set_halign(fa_left);
-					draw_set_valign(fa_bottom);
-					var damageText = round(amount);
-					var dsw = string_width(damageText);
-					var damageTextX = BOSS_HP_X2 - dsw; var damageTextY = y1 - 2;
+				//with sustainingDamageObj {
+				//	draw_set_color(c_white);
+				//	draw_set_font(font_damage);
+				//	draw_set_halign(fa_left);
+				//	draw_set_valign(fa_bottom);
+				//	var damageText = round(amount);
+				//	var dsw = string_width(damageText);
+				//	var damageTextX = BOSS_HP_X2 - dsw; var damageTextY = y1 - 2;
 					
-					var scale = 1;
-					if frame < 11 && isCriticalHit {
-						scale = ((-1/11)*frame)+2;
-					}
-					if frame > 11 {
-						draw_set_alpha(1-((frame-11)/11));
-					}
-					var c2 = isCriticalHit ? c_red : c_purple;
-					scr_draw_text_outline(damageTextX,damageTextY,damageText,c_white,c2,scale,scale,0,c_black);
-					draw_set_alpha(1);
-				}
+				//	var scale = 1;
+				//	if frame < 11 && isCriticalHit {
+				//		scale = ((-1/11)*frame)+2;
+				//	}
+				//	if frame > 11 {
+				//		draw_set_alpha(1-((frame-11)/11));
+				//	}
+				//	var c2 = isCriticalHit ? c_red : c_purple;
+				//	scr_draw_text_outline(damageTextX,damageTextY,damageText,c_white,c2,scale,scale,0,c_black);
+				//	draw_set_alpha(1);
+				//}
 			}
 	
 			draw_set_font(font_main);

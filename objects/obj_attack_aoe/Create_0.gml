@@ -34,6 +34,16 @@ attackData = global.attackData;
 attackNumber = attackData.spriteAttackNumber-1;
 attackNumberInChain = attackData.spriteAttackNumberInChain;
 
+aoeOnlyHitsOnce = true;
+if attackData != noone && attackData.aoeOnlyHitsOnce != noone {
+	aoeOnlyHitsOnce = attackData.aoeOnlyHitsOnce;
+}
+
+isTracking = false;
+if attackData != noone && attackData.tracksTargets {
+	isTracking = true;
+}
+
 visible = true;
 var s = attackData.spriteName+"_"+string(attackData.spriteAttackNumber)+"_"+string(attackData.spriteAttackNumberInChain)+"_projectile";
 sprite_index = asset_get_index(s);
@@ -71,5 +81,16 @@ if attackData != noone {
 }
 
 
+if attackData != noone && attackData.hasLightRadius {
+	var lr_scale = attackData.lightRadiusScale;
+	var lr_color = attackData.lightRadiusColor;
+	var lr_alpha = attackData.lightRadiusAlpha;
+	if lr_alpha == noone {
+		var fNum = getLayerFloorNumber(owner.layer);
+		lr_alpha = calculateLightRadiusAlphaLayer(fNum);
+	}
+	var lr_spr = attackData.lightRadiusSprite;
+	light_create_layer(lr_spr, lr_scale, lr_color, lr_alpha, 0, true);
+}
 
 

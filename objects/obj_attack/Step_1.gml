@@ -208,7 +208,10 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 	// make dust / spark particles, play sound, for range
 	if isRanged && !hasSetAlarm {
 		
-		if attackData != noone && attackData.bouncesOffWalls {
+		if attackData != noone && !attackData.stopsAtObstacles {
+			exit;
+		}
+		else if attackData != noone && attackData.bouncesOffWalls {
 			// iff bounce of walls, set direction to some kinda perpindicular direction
 			randomize();
 			var rand = random_range(-45, 45);

@@ -13,7 +13,6 @@ normalSpeed = 6;
 turnSpeed = 10;
 normalTurnSpeed = turnSpeed;
 
-
 dyingParticleColor1 = c_red;
 dyingParticleColor2 = c_silver;
 
@@ -40,7 +39,7 @@ cautiousness = 50;
 
 poiseCurrent = 50;
 poiseMax = 50;
-poiseRegen = 2;
+poiseRegen = 3;
 
 // melee attacks info
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
@@ -58,17 +57,34 @@ currentMeleeAttack = noone;
 
 global.owner = id;
 var beam = makeEnemyAttackObj(obj_attack_dybukkboss_beam);
-var c0 = [beam];
+var d1 = makeEnemyAttackObj(obj_attack_dybukkboss_dismantle_1_1);
+var d2 = makeEnemyAttackObj(obj_attack_dybukkboss_dismantle_1_2);
+var d3 = makeEnemyAttackObj(obj_attack_dybukkboss_dismantle_1_3);
 
-meleeAttacks = [c0];
+var s1 = makeEnemyAttackObj(obj_attack_dybukkboss_servant_1_1);
+var s2 = makeEnemyAttackObj(obj_attack_dybukkboss_servant_1_2);
+
+var slash11 = makeEnemyAttackObj(obj_attack_dybukkboss_slash_1_1);
+var slash12 = makeEnemyAttackObj(obj_attack_dybukkboss_slash_1_2);
+
+var c0 = [beam];
+var c1 = [d1, d2, d3];
+var c2 = [s1, s2, s2];
+var c3 = [s1];
+var c4 = [slash11, slash12];
+var c5 = [s1, s2];
+var c6 = [slash11, slash12, beam];
+var c7 = [slash11, beam];
+
+meleeAttacks = [c0, c1, c2, c3, c4, c5, c6, c7];
 
 // ranged attacks info
 
 rangedAttacks = [];
 
 
-hp = 3;
-maxHp = 3;
+hp = 250;
+maxHp = 250;
 hpRegen = 1;
 
 stamina = 60;
@@ -78,9 +94,9 @@ staminaRegen = 10;
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
-ds_map_replace(defenses, SLASH, 25);
-ds_map_replace(defenses, PIERCE, 25);
-ds_map_replace(defenses, CRUSH, 25);
+ds_map_replace(defenses, SLASH, 40);
+ds_map_replace(defenses, PIERCE, 40);
+ds_map_replace(defenses, CRUSH, 40);
 ds_map_replace(defenses, MAGIC, 50);
 
 // dodge stuff
@@ -102,3 +118,28 @@ TELEPORT_PREP_FRAME_MAX = 150;
 eventListeners = ds_map_create();
 ds_map_add(eventListeners, EV_DAMAGE_TAKEN, scr_evl_dybukkboss_teleport_on_damage);
 ds_map_add(eventListeners, EV_DARK_FOUNTAIN_WISH, scr_evl_dybukboss_remove);
+
+
+
+// constant emitter / ps for "spore" trails
+sporeSystem = part_system_create();
+sporeEmitter = part_emitter_create(sporeSystem);
+// smoke
+var smoke = part_type_create();
+part_type_shape(smoke, pt_shape_smoke);
+part_type_color2(smoke,c_red, c_silver);
+part_type_orientation(smoke,0,0,0,15,1);
+part_type_alpha3(smoke, .5, .25, .1);
+part_type_size(smoke,0.2,0.5,0,0);
+part_type_speed(smoke,.5,2,0,0);
+part_type_direction(smoke,0,360,0,4);
+part_type_life(smoke,45,60);
+sporeParticle = smoke;
+
+part_system_depth(sporeSystem, layer_get_depth(layer)+1);
+
+isLightRadiusAlwaysOn = true;
+lightRadiusAlpha = .35;
+lightRadiusColor = c_red;
+calculatesLightRadiusOnRoomStart = false;
+isLightRadiusAlphaFixed = true;

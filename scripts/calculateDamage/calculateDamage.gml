@@ -38,7 +38,7 @@ if type == CombatantTypes.Player && (object_is_ancestor(attackObj, obj_attack_ao
 	if ds_exists(beenHitWith, ds_type_list) {
 		for (var i = 0; i < ds_list_size(beenHitWith); i++) {
 			var atkThatHit = ds_list_find_value(beenHitWith, i);
-			if is_string(atkThatHit) && string_pos(attackObj.owner.key, atkThatHit) {
+			if is_string(atkThatHit) && string_pos(attackObj.owner.key, atkThatHit) && attackObj.aoeOnlyHitsOnce {
 				exit;
 			}
 		}
@@ -247,6 +247,9 @@ if	state != CombatantStates.Dodging &&
 			if !attackObj.hasSetAlarm {
 				with attackObj {
 					alarm[0] = 60;
+					if variable_instance_exists(id, "_light_alpha") {
+						alarm[0] = 15;
+					}
 					visible = 0;
 					speed = 0;
 					hasSetAlarm = true;

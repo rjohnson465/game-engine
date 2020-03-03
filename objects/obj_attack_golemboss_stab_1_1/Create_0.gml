@@ -11,7 +11,7 @@ staggerDuration = 15;
 
 attackSound = snd_thrust_attack_1;
 hitSound = snd_hit1;
-minRange = 100;
+minRange = 80;
 
 attackSoundsVocals = [snd_enemy_golem_attack_1];
 prepSoundsVocals = [snd_enemy_golem_prep_1];

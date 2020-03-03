@@ -1,1 +1,0 @@
-key = "hershel_wall_1";

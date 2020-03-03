@@ -31,6 +31,10 @@ if hp < 1 && isAlive && !isDying {
 		attackFrequencyTotalFramesMeleeDefault = attackFrequencyTotalFramesMelee;
 		attackFrequencyTotalFramesRangedDefault = attackFrequencyTotalFramesRanged;
 		
+		if variable_instance_exists(other, "enemyKey") {
+			enemyKey = other.enemyKey  + "_dybbuk";
+		}
+		
 		// since this is a dynamically added enemy, we must manually add it to the room data
 		with obj_room_data {
 			ds_map_add_map(enemiesData, other.key, ds_map_deep_clone(other.persistentProperties));

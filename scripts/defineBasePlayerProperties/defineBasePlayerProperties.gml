@@ -18,13 +18,13 @@ for (var i = 0; i <= ModifiableProperties.length; i++) {
 			ds_map_replace(basePlayerProperties,i,0); break;
 		}
 		case ModifiableProperties.StaminaMax: {
-			ds_map_replace(basePlayerProperties,i,500); break;
+			ds_map_replace(basePlayerProperties,i,75); break;
 		}
 		case ModifiableProperties.XpMultiplier: {
 			ds_map_replace(basePlayerProperties,i,100); break;
 		}
 		case ModifiableProperties.StaminaRegen: {
-			ds_map_replace(basePlayerProperties,i,200); break;
+			ds_map_replace(basePlayerProperties,i,30); break;
 		}
 		case ModifiableProperties.OffHandDamage: {
 			ds_map_replace(basePlayerProperties,i,50); break;

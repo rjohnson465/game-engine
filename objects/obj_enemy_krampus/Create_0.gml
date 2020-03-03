@@ -12,8 +12,8 @@ normalSpeed = 6;
 turnSpeed = 10;
 normalTurnSpeed = 10;
 
-poiseCurrent = 50;
-poiseMax = 50;
+poiseCurrent = 100;
+poiseMax = 100;
 
 sightAngleDelta = 360;
 

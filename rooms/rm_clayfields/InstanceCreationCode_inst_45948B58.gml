@@ -1,0 +1,1 @@
+enemyKey = "golem1";
