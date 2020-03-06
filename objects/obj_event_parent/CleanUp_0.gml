@@ -1,3 +1,5 @@
+event_inherited();
+
 if ds_exists(eventSteps, ds_type_list) {
 	
 	for (var i = 0; i < ds_list_size(eventSteps); i++) {

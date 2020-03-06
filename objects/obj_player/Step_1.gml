@@ -83,8 +83,14 @@ if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 	if leftHandItem.isTwoHanded && leftHandItem.isRanged && gamepad_button_check(gamePadIndex, gp_shoulderr) {
 		performRightHandDownAction();
 	}
+	
+	if gamepad_button_check_released(gamePadIndex,gp_face2) && !global.ui.isShowingMenus && !global.ui.justClosedMenus && !global.isLooting && sprintNeedsReset {
+		sprintNeedsReset = false;
+	}
+	
 	if gamepad_button_check_released(gamePadIndex,gp_face2) && !global.ui.isShowingMenus && !global.ui.justClosedMenus && !global.isLooting && (!isHoldingSprintButton || !isMoving) {
-		performDodge();
+		sprintNeedsReset = false;
+		performDodge();	
 	}
 	
 	// toggle interact

@@ -21,7 +21,7 @@ if isActive {
 
 for (var i = 0; i < gridWidth - 1; i++) {
 	
-	draw_sprite_ext(midSprite, index, xx, yy, 1, 1, image_angle, c_white, 1);
+	draw_sprite_ext(midSprite, index, xx, yy, 1, 1, image_angle, image_blend, 1);
 	
 	// get new xx and yy values 
 	xx = xx + lengthdir_x(32, image_angle);
@@ -35,10 +35,10 @@ for (var i = 0; i < gridWidth - 1; i++) {
 if (totalWidth - drawnWidth) - 32 > 0 {
 	var w = (totalWidth - drawnWidth) - 32; 
 	var sh = sprite_get_height(midSprite);
-	draw_sprite_general(midSprite, index, 0, 0, w, sh, xx, yy, 1, 1, image_angle, c_white, c_white, c_white, c_white, 1);
+	draw_sprite_general(midSprite, index, 0, 0, w, sh, xx, yy, 1, 1, image_angle, image_blend, image_blend, image_blend, image_blend, 1);
 	xx = xx + lengthdir_x(w, image_angle);
 	yy = yy + lengthdir_y(w, image_angle);
 }
 
 // draw end sprite
-draw_sprite_ext(endSprite, 0, xx, yy, 1, 1, image_angle, c_white, 1);
+draw_sprite_ext(endSprite, 0, xx, yy, 1, 1, image_angle, image_blend, 1);

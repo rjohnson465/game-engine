@@ -32,7 +32,7 @@ if layer == global.player.layer && fallFrame >= fallTotalFrames {
 }
 previousFacingDirection = facingDirection;
 
-if part_type_exists(sprintParticle) && isSprinting && hp >= 1 {
+if part_type_exists(sprintParticle) && isSprinting && hp >= 1 && visible {
 	part_type_direction(sprintParticle,movingDirection-45,movingDirection+45,0,0);
 	part_type_orientation(sprintParticle,facingDirection, facingDirection,0,0,0);
 	part_system_depth(sprintParticleSystem,depth+1);
@@ -41,7 +41,7 @@ if part_type_exists(sprintParticle) && isSprinting && hp >= 1 {
 }
 
 // snow tunnel particles
-if type == CombatantTypes.Player && room == rm_winter && path_index >= 0 && global.isTrading  {
+if type == CombatantTypes.Player && (room == rm_winter || room == rm_clayfields) && path_index >= 0 && global.isTrading  {
 	var icePart = ds_map_find_value(global.weaponParticlesMap, ICE);
 	part_emitter_region(sprintParticleSystem, sprintParticleEmitter, x-1, x+1, y-1, y+1,ps_shape_ellipse,ps_distr_gaussian);
 	part_emitter_burst(sprintParticleSystem,sprintParticleEmitter,icePart,12);

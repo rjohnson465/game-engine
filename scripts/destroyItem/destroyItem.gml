@@ -9,6 +9,8 @@ if argument_count > 1 {
 	doAlert = argument[1];
 }
 
+if !instance_exists(item) exit;
+
 if doAlert {
 	alert(item.name + " destroyed",c_yellow);
 }

@@ -14,6 +14,8 @@ type = AttackTypes.Standard;
 minRange = 250;
 projectileSpeed = 15;
 
+turnSpeed = .5;
+
 staggersAgainstBlocks = false;
 
 attackSound = snd_thrown_attack;
@@ -36,4 +38,4 @@ part1Num = -1;
 prepPart1 = magic;
 prepPart1Num = -2;
 // prepPartBoundingBox = [100, 0, 110, 10];
-stopsAtObstacles = false;
+// stopsAtObstacles = false;

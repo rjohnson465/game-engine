@@ -59,6 +59,7 @@ if hp < 1 && isAlive && !isDying {
 				event_perform(ev_other, ev_room_start);
 			}
 		}
+		jumpToNearestFreePoint(true, true);
 	}
 }
 

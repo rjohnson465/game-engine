@@ -12,25 +12,6 @@ draw_set_font(font_damage);
 draw_set_halign(fa_left);
 
 var x1 = 0; var y1 = 0;
-//var spw = sprite_get_bbox_right(sprite_index)-sprite_get_bbox_left(sprite_index); 
-//var sph = sprite_get_bbox_bottom(sprite_index)-sprite_get_bbox_top(sprite_index);
-//if victim.type == CombatantTypes.Enemy {
-//	// x1 = (victim.x-vx)+(spw*.5)+15;
-//	// y1 = (victim.y-vy)-(sph*.5)-15;
-	
-//	x1 = victimX - vx;
-//	y1 = victimY - vy;
-//	// decrease y1 based on time
-//	y1 -= frame*2;
-	
-//	// draw_set_valign(fa_bottom);
-//} else if victim.type == CombatantTypes.Player {
-//	var vx = camera_get_view_x(view_camera[0]);
-//	var vy = camera_get_view_y(view_camera[0]);
-//	x1 = 215; //+ vx;
-//	y1 = 15; //+ vy;
-//	draw_set_valign(fa_center);
-//}
 
 x1 = victimX - vx;
 y1 = victimY - vy;
@@ -48,6 +29,15 @@ if frame > 11 {
 var c2 = isCriticalHit ? c_purple : c_yellow;
 if victim.type == CombatantTypes.Player {
 	c2 = isCriticalHit ? c_maroon : c_red;
+}
+
+if color != noone {
+	c2 = color;
+}
+
+// healing
+if color == c_lime {
+	text = "+" + string(text);
 }
 
 var ang = frame * rotationAngle;

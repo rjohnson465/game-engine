@@ -52,6 +52,9 @@ attackStartOffsetX = noone;
 attackStartOffsetY = noone;
 attackStartInstance = noone;
 
+attackScaleX = noone;
+attackScaleY = noone;
+
 stopsAtObstacles = true;
 
 chargePrepSpeed = noone; // how fast to move back in prep for charge, if this is an attack of type Charge

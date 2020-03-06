@@ -78,6 +78,8 @@ if attackData != noone {
 			audio_play_sound_at(vocalsSound, owner.x, owner.y, owner.depth, 500, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 		}
 	}
+	
+	isSpell = attackData.isSpell;
 }
 
 

@@ -387,6 +387,9 @@ layerToChangeTo = noone;
 stairsIndex = noone;
 climbingDir = noone;
 
+activeRidges = ds_list_create();
+mightFallOffRidge = false;
+
 hasSetGuessPath = false;
 
 chargePointX = noone;

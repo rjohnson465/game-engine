@@ -6,7 +6,7 @@ var SHIFT = keyboard_check(vk_shift)
 if	 stamina < maxStamina && (state == CombatantStates.Idle || state == CombatantStates.Moving 
 	|| (state == CombatantStates.Attacking && type == CombatantTypes.Player)) {
 	// do not regen stamina while dashing
-	if	type != CombatantTypes.Player || (type == CombatantTypes.Player && !SHIFT)
+	if	type != CombatantTypes.Player || (type == CombatantTypes.Player && (!SHIFT || sprintNeedsReset))
 		|| (type == CombatantTypes.Player && state == CombatantStates.Attacking)
 	{
 		var lamplightCondi = ds_map_find_value(conditionLevels, "spr_item_lamplight");

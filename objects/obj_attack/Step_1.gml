@@ -8,6 +8,12 @@ if isMelee {
 	var isNeg = image_yscale < 0;
 	image_yscale = owner.scale;
 	if isNeg image_yscale *= -1;
+} 
+
+// maybe scale attack
+if attackData != noone && attackData.attackScaleX != noone && attackData.attackScaleY != noone {
+	image_xscale = attackData.attackScaleX;
+	image_yscale = attackData.attackScaleY;
 }
 
 // special case - 2h club on 3rd attack create dust particles from hitting the ground

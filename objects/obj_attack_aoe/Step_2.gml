@@ -60,7 +60,33 @@ if place_meeting_layer(x,y,obj_solid_environment) {
 		hasSetAlarm = true;
 		//var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
 		var snd = attackData.damageType == "Dust" ? snd_shield_hit_wood : snd_wallhit;
-		audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		
+		if !isSpell {
+			var snd = firstObj.material == METAL ? snd_wallhit : snd_shield_hit_wood;
+			if firstObj.material == ICE_MAT {
+				snd = snd_hit_ice_1;
+			}
+			audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		} else {
+			audio_stop_sound(sound);
+			var snd = noone;
+			if owner.object_index == global.player {
+				snd = asset_get_index("snd_magic_"+owner.currentSpellAttunement+"_hit");
+			} else {
+				// var dmgArr = ds_map_find_value(attackData.damages, 0);
+				var dmgType = ds_map_find_first(attackData.damages);
+				switch dmgType {
+					case MAGIC: { snd = snd_magic_magic_hit; break; }
+					case FIRE: { snd = snd_magic_fire_hit; break; }
+					case ICE: { snd = snd_magic_ice_hit; break; }
+					case POISON: { snd = snd_magic_poison_hit; break; }
+					case LIGHTNING: { snd = snd_magic_lightning_hit; break; }
+				}
+			}
+			audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		}
+		
+		// audio_play_sound_at(snd,global.x1,global.y1,depth,20,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 
 	}
 

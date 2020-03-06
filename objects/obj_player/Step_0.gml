@@ -18,7 +18,7 @@ if isFading || isDying || !isAlive {
 }
 
 if fallFrame < fallTotalFrames {
-	fall();
+	fall(mightFallOffRidge);
 	exit;
 }
 event_inherited();

@@ -441,6 +441,7 @@ tutorialFirstsMap = defineFirstsTutorialMessages(); // redo
 isHoldingSprintButton = false;
 sprintCounterTotal = 10;
 sprintCounter = sprintCounterTotal;
+sprintNeedsReset = false;
 
 // belt items
 beltItems[0] = noone;
@@ -468,6 +469,7 @@ narrativeState = NarrativeState.Start;
 faceSprite = spr_face_gary;
 
 name = "Gary";
+
 
 // TEST
 // var key = makeKey("Great-Lodge F2 Key", "key", spr_item_key, "Opens the door to the Fairy's Great-Lodge, Level 2. We really should have more than one copy of this thing.");

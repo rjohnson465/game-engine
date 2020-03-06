@@ -28,7 +28,7 @@ attackSoundsVocals = [snd_enemy_dybukk_scream_1, snd_enemy_dybukk_scream_2];
 // prepSoundsVocals = [snd_enemy_golem_prep_1];
 
 hasLightRadius = true;
-lightRadiusScale = .3;
+lightRadiusScale = .2;
 lightRadiusAlpha = noone;
 lightRadiusColor = c_aqua;
 
@@ -43,7 +43,7 @@ part_type_direction(magic,0,360,0,4);
 part_type_life(magic,10,15);
 part1 = magic;
 
-part1Num = 15;
+part1Num = 5;
 
 prepPart1 = magic;
 prepPart1Num = 5;
@@ -51,3 +51,6 @@ prepPartBoundingBox = [100, 0, 110, 10];
 
 trackingMinDistance = 500;
 tracksTargets = true;
+
+attackScaleX = .75;
+attackScaleY = .75;

@@ -3,9 +3,9 @@
 var in = instance_number(obj_fade);
 if in > 0 exit;
 
-scr_test_build_swordsman_ww();
+// scr_test_build_swordsman_ww();
 
-/*
+
 scr_test_build_swordsman_factory();
 questStart(obj_quest_llf);
 
@@ -22,7 +22,7 @@ q2.status = QuestStepStatus.Completed;
 
 
 var q3 = ds_list_find_value(q.questSteps, 2);
-q3.status = QuestStepStatus.InProgress;
+q3.status = QuestStepStatus.Completed;
 
 var q4 = ds_list_find_value(q.questSteps, 3);
 q4.status = QuestStepStatus.InProgress;

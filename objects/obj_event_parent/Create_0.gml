@@ -7,6 +7,7 @@ eventSteps = ds_list_create();
 currentEventStep = noone;
 isActive = false;
 isFinished = false;
+isRepeatable = false;
 
 // while exercise is active, associated walls are active
 hasActivatedWalls = false;

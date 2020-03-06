@@ -10,11 +10,12 @@ var isInConvo = false;
 with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
-maybeAddOrRemoveFromInteractablesList(20);
-
+if !isActive {
+	 maybeAddOrRemoveFromInteractablesList(20);
+}
 if	p.currentInteractableObject == id &&
 	origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
-	
+	removeFromInteractablesList();
 	isActive = true;
 	updatePersistentElementProperty(id, "IsActive", isActive);
 	audio_play_sound_at(snd_scrape_2, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);

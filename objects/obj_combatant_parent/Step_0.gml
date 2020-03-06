@@ -14,10 +14,9 @@ if ((!isAlive && type != CombatantTypes.Player) || isDying) && state != Combatan
 }
 
 if fallFrame < fallTotalFrames {
-	fall();
+	fall(mightFallOffRidge);
 	exit;
-}
-
+} 
 image_angle = facingDirection;
 depth = layer_get_depth(layer);
 
@@ -134,11 +133,13 @@ switch(state) {
 	}
 	case CombatantStates.AggroMelee: {
 		if type == CombatantTypes.Player break;
+		jumpToNearestFreePoint(true, true);
 		chooseMeleeAttack();
 		break;
 	}
 	case CombatantStates.AggroRanged: {
 		if type == CombatantTypes.Player break;
+		jumpToNearestFreePoint(true, true); 
 		chooseRangedAttack();
 		break;
 	}
@@ -481,6 +482,7 @@ switch(state) {
 				}
 				else {
 					state = CombatantStates.Idle;
+					jumpToNearestFreePoint(true, true);
 				}
 			}
 		}
@@ -653,6 +655,23 @@ if !isOnBridge && place_meeting(x, y, obj_fallzone) {
 		}
 	}
 }
+
+// maybe fall off ridge??
+var nearestRidge = instance_nearest(x, y, obj_ridge);
+if distance_to_object(nearestRidge) < 32 {
+	// check if standing on ridge mostly
+	var intersectArea = rectsIntersectionArea(
+		nearestRidge.bbox_left, nearestRidge.bbox_top, nearestRidge.bbox_right, nearestRidge.bbox_bottom,
+		bbox_left, bbox_top, bbox_right, bbox_bottom
+	);
+	// if !place_meeting_layer(x,y,obj_ridge) && mightFallOffRidge {
+	if intersectArea < 500 && mightFallOffRidge {
+		isFalling = true;
+		fallFrame = 0;
+		fall(mightFallOffRidge);
+	}
+}
+
 
 // position water emitter, conditions emitters
 audio_emitter_position(walkingInWaterEmitter,x,y,depth);

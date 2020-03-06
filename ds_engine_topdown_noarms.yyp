@@ -3063,14 +3063,6 @@
             }
         },
         {
-            "Key": "1751c6ba-9678-4a7c-b00f-504f6de3c262",
-            "Value": {
-                "id": "51e15d29-551d-4286-96ab-58268f22307e",
-                "resourcePath": "sprites\\spr_enemy_dybukkboss_servant_attack_1_2\\spr_enemy_dybukkboss_servant_attack_1_2.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "176ab2a8-7259-4c30-b78e-20876ef317f5",
             "Value": {
                 "id": "864c772c-09a8-41d7-a4c0-c4b1972fcf71",
@@ -3476,14 +3468,6 @@
                 "id": "2443bb39-e8c5-42d6-bc6b-d1c6f9495479",
                 "resourcePath": "scripts\\addItemPropertyByPtsAndAct\\addItemPropertyByPtsAndAct.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "1aaf0329-1bcd-4794-83c7-65e1b2db0980",
-            "Value": {
-                "id": "93f1852e-6feb-43b7-8083-cb7595d21069",
-                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_attack_1_1qqq\\spr_enemy_dybukkboss_slash_attack_1_1qqq.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -11583,6 +11567,14 @@
             }
         },
         {
+            "Key": "5d0cbcfd-4b45-4f97-a855-292e7797d1c2",
+            "Value": {
+                "id": "57655b5a-edbc-4e19-94ff-6d7878309664",
+                "resourcePath": "sprites\\spr_enemy_dybukkboss_servant_attack_1_2\\spr_enemy_dybukkboss_servant_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5d1b1bbb-67d0-44d6-9c11-0d6b870a4ac3",
             "Value": {
                 "id": "ef252b6d-5cae-46fd-a88f-c29ed896cf16",
@@ -12740,14 +12732,6 @@
                 "id": "c7f6c6cd-025f-473a-8aee-7ec046432d79",
                 "resourcePath": "sounds\\snd_conv_david_sthf_gary_2\\snd_conv_david_sthf_gary_2.yy",
                 "resourceType": "GMSound"
-            }
-        },
-        {
-            "Key": "6642685b-bf14-4bc5-81a4-6e49b9192081",
-            "Value": {
-                "id": "36c72be0-53f6-47aa-8744-84be0b066f62",
-                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_prep_1_111\\spr_enemy_dybukkboss_slash_prep_1_111.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -15516,6 +15500,14 @@
                 "id": "afffc156-87fb-4509-89a1-4ceccfa01386",
                 "resourcePath": "views\\7cbf9804-6d49-4181-8562-771e5b6f9bc7.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "7cc552f2-09e8-4acc-8c10-e34125f92564",
+            "Value": {
+                "id": "a9c205fe-fbec-4939-8a92-541a227a1722",
+                "resourcePath": "scripts\\rectsIntersectionArea\\rectsIntersectionArea.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -19311,6 +19303,14 @@
             }
         },
         {
+            "Key": "9d51d97d-4aa4-4fc2-b038-6ec86294ef29",
+            "Value": {
+                "id": "20c3cab0-f5a4-4c6e-9239-aab2f5882a44",
+                "resourcePath": "objects\\obj_ridge\\obj_ridge.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "9d5fe401-7158-463c-8ac5-c3e5229ab2bd",
             "Value": {
                 "id": "269cbe25-b682-4928-800c-0596c5b1e030",
@@ -22060,14 +22060,6 @@
                 "id": "d1f09845-f6d2-4c6d-b3b4-770013d3f702",
                 "resourcePath": "scripts\\wishAtDarkFountain\\wishAtDarkFountain.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "b223e400-aeb8-4016-ae65-53f3c4a64162",
-            "Value": {
-                "id": "ca56c860-6ea2-4fb8-80f2-e5e5ea81c39a",
-                "resourcePath": "sprites\\spr_enemy_dybukkboss_slash_recover_1_1qqq\\spr_enemy_dybukkboss_slash_recover_1_1qqq.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -27175,6 +27167,14 @@
             }
         },
         {
+            "Key": "dce3eaf4-8a0f-42ee-acf9-168b4b8eb0fb",
+            "Value": {
+                "id": "26093189-14f3-4b13-9b89-c68635f8fc33",
+                "resourcePath": "scripts\\angleBetweenClockwise\\angleBetweenClockwise.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "dce5907d-d320-4f47-901f-5e814efd588a",
             "Value": {
                 "id": "32fcbf50-0349-4802-970c-78febf2df06d",
@@ -31526,6 +31526,7 @@
         "a8cdad76-0670-4e4e-95df-7a6266025880",
         "0aa36b5b-7047-4003-ad3c-c1e1740f9d0d",
         "de1eaff5-ae4f-4519-bd0f-9ed553ce3f47",
+        "dce3eaf4-8a0f-42ee-acf9-168b4b8eb0fb",
         "a2f28e3f-1517-4014-9dc6-0fac94b0977c",
         "5e90dd3c-2bd9-43f1-9861-e77c03900217",
         "4a0f14f3-342c-4905-a6c5-266f0952cf1a",
@@ -31547,6 +31548,7 @@
         "5d8d9152-9a64-4e9d-ba55-1e1b42233a72",
         "3f77021c-2809-4850-a356-bc689a273815",
         "dcdebbfc-09a8-4ae9-b454-26d9ae1b5469",
+        "7cc552f2-09e8-4acc-8c10-e34125f92564",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "89e792c3-5306-41a1-8e55-479f0f2db5de",
         "295e5a03-8983-4afd-bdb3-14c23bed2058",

@@ -17,6 +17,8 @@ if point_in_rectangle(victim.__x, victim.__y, victim.bbox_left, victim.bbox_top,
 	victimY = victim.__y;
 }
 
+color = noone;
+
 /*
 // display only one damage count for each victim, cumulative
 var damagesCount = instance_number(obj_damage);

@@ -107,3 +107,7 @@ audio_stop_sound(walkingSoundIndex); walkingSoundIndex = -1;
 if ds_exists(eventListeners, ds_type_map) {
 	ds_map_destroy(eventListeners); eventListeners = -1;
 }
+
+if ds_exists(activeRidges, ds_type_list) {
+	ds_list_destroy(activeRidges); activeRidges = -1;
+}

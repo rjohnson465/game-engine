@@ -36,4 +36,4 @@ part1Num = -1;
 
 prepPart1 = magic;
 prepPart1Num = -2;
-stopsAtObstacles = false;
+// stopsAtObstacles = false;

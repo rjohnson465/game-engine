@@ -23,10 +23,22 @@ if isInUse {
 	
 	if chargesCount > 0 {
 		var chargeAmount = ds_map_find_value(customItemProperties, hfs_charge_strength);
+		var currentHp = p.hp;
 		global.player.hp += chargeAmount;
 		if global.player.hp > global.player.maxHp {
 			global.player.hp = global.player.maxHp;
 		}
+		
+		// healing text
+		var hpHealed = currentHp + chargeAmount > p.maxHp ? p.maxHp - currentHp : chargeAmount;
+		global.victim = p;
+		global.damageAmount = hpHealed;
+		global.healingSustained = 0;
+		global.isCriticalHit = false;
+		var healingText = instance_create_depth(x, y, 1, obj_damage);
+		healingText.color = c_lime;
+		
+		
 		chargesCount--;
 		ds_map_replace(customItemProperties, hfs_charges, chargesCount);
 		updateHealthFlaskDescription();

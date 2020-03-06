@@ -31,6 +31,9 @@ if status == EventStepStatus.Completed && nextStep == undefined && event.isActiv
 		
 		isActive = false;
 		isFinished = true;
+		if !isRepeatable {
+			updatePersistentElementProperty(id, "isFinished", true);
+		}
 						
 		// make associated walls traversable
 		for (var i = 0; i < array_length_1d(associatedWallKeys); i++) {

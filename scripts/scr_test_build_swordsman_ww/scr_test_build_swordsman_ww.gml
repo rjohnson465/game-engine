@@ -43,10 +43,11 @@ questStart(obj_quest_savingtheholidays);
 var hf = instance_create_depth(x, y, 1, obj_item_health_flask);
 addItemToInventory(hf);
 equipItem(hf, EquipmentSlots.BeltItem1);
-// 4 charges
+// 4 charges, 60 health per charge
 with hf {
 	var currentMaxCharges = ds_map_find_value(customItemProperties, hfs_max_charges);
 	ds_map_replace(customItemProperties, hfs_max_charges, currentMaxCharges + 1);
+	ds_map_replace(customItemProperties, hfs_charge_strength, 60);
 	updateHealthFlaskDescription();
 }
 fillHealthFlask();

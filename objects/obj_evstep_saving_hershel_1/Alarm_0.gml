@@ -46,6 +46,7 @@ with dybukk {
 			event_perform(ev_other, ev_room_start);
 		}
 	}
+	jumpToNearestFreePoint(true, true);
 }
 
 ds_list_add(ghostsSpawnedList, dybukk);

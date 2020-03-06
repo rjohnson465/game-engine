@@ -36,4 +36,9 @@ if chosenPoint != noone {
 	x = chosenPoint.x; y = chosenPoint.y;
 }
 
+// make sure some path to player exists -- otherwise, teleport again
+if !mp_grid_path(personalGrid, gridPath, x, y, global.player.x, global.player.y, true) {
+	alarm[4] = 1;
+}
+
 ds_list_destroy(allPoints); allPoints = -1; // mem leak

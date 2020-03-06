@@ -1,2 +1,3 @@
-ds_list_add(items, instance_create_depth(x, y, 1, obj_item_scroll_of_knowledge));
-ds_list_add(items, makeGold(100,100));
+var blessings = instance_create_depth(x, y, 1, obj_item_blessing);
+blessings.count = 3;
+ds_list_add(items, blessings);

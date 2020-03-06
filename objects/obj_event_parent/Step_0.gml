@@ -5,7 +5,7 @@
 event_inherited();
 
 var p = global.player;
-if rectangle_in_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, p.bbox_left, p.bbox_top, p.bbox_right, p.bbox_bottom) 
+if layer == p.layer && rectangle_in_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, p.bbox_left, p.bbox_top, p.bbox_right, p.bbox_bottom) 
 	&& !isActive && !isFinished {
 	scr_event_start(id);
 }

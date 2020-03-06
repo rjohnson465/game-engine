@@ -64,7 +64,7 @@ draw_rectangle_color(x1,y1,x2,y2,c_red,c_red,c_maroon,c_maroon,false);
 var sustainingDamageObj = noone;
 var playerId = global.player.id;
 with (obj_damage) {
-	if victim == playerId {
+	if victim == playerId && color != c_lime {
 		sustainingDamageObj = id;
 	}
 }
@@ -77,17 +77,17 @@ if sustainingDamageObj {
 	// top right corner of current hp bar
 	var sustainingDamageLeftX = x2;
 	var percentOfTotal = sustainingDamage / global.player.maxHp;
-	var sustainingDamageRightX = sustainingDamageLeftX + (200 * percentOfTotal);
+	var sustainingDamageRightX = sustainingDamageLeftX + (maxHpBarWidth * percentOfTotal);
 		
 	// offset the damage right x to account for any hp regen or healing
 	if healingSustained > 0 {
 		var deltaPercent = healingSustained / global.player.maxHp;
-		var xOff = 200 * deltaPercent;
+		var xOff = maxHpBarWidth * deltaPercent;
 		sustainingDamageRightX -= xOff;
 	}
 		
-	if sustainingDamageRightX > 210 {
-		sustainingDamageRightX = 210;
+	if sustainingDamageRightX > x1 + maxHpBarWidth {
+		sustainingDamageRightX = x1 + maxHpBarWidth;
 	}
 		
 	draw_set_color(c_ltgray);

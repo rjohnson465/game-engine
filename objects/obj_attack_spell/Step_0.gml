@@ -40,6 +40,7 @@ if !hasSetAlarm {
 					direction = 270;
 				}
 				facingDirection = direction;
+				image_angle = facingDirection;
 				if speed > 30 speed = 30;
 			}
 		}

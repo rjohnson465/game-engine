@@ -12,6 +12,7 @@ projectileSpeed = 15;
 type = AttackTypes.AOE;
 numberOfProjectiles = 3;
 aoeProjectilesDirectionOffsetArray = [-45, 0, 45];
+isSpell = true;
 
 prepSound = snd_magic_fire_charge;
 attackSoundLoop = snd_magic_fire_loop;

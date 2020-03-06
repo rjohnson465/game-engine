@@ -73,19 +73,19 @@ var c2 = [s1, s2, s2];
 var c3 = [s1];
 var c4 = [slash11, slash12];
 var c5 = [s1, s2];
-var c6 = [slash11, slash12, beam];
-var c7 = [slash11, beam];
+var c6 = [slash11, slash12];
+var c7 = [slash11];
 
-meleeAttacks = [c0, c1, c2, c3, c4, c5, c6, c7];
-
+meleeAttacks = [c1, c2, c3, c4, c5, c6, c7];
+// meleeAttacks = [c4, c6];
 // ranged attacks info
 
 rangedAttacks = [];
 
 
-hp = 250;
-maxHp = 250;
-hpRegen = 1;
+hp = 150;
+maxHp = 150;
+hpRegen = .5;
 
 stamina = 60;
 maxStamina = 60;
@@ -94,9 +94,9 @@ staminaRegen = 10;
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
-ds_map_replace(defenses, SLASH, 40);
-ds_map_replace(defenses, PIERCE, 40);
-ds_map_replace(defenses, CRUSH, 40);
+ds_map_replace(defenses, SLASH, 35);
+ds_map_replace(defenses, PIERCE, 35);
+ds_map_replace(defenses, CRUSH, 35);
 ds_map_replace(defenses, MAGIC, 50);
 
 // dodge stuff

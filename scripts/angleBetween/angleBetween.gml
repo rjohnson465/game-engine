@@ -1,9 +1,9 @@
-/// angleBetween(ang1,ang2,angleToCheck)
+/// nBetween(ang1,ang2,nbCheck)
 /// @param ang1
 /// @param ang2
-/// @param angleToCheck
+/// @param nbCheck
 
-// Check if an angle lies between two angles
+// Check if an n lies between two ns
 
 var a = argument0;
 var b = argument1;

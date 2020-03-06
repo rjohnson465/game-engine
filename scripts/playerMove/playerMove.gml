@@ -56,11 +56,14 @@ if gamepad_is_connected(gamePadIndex) {
 		
 if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowingMenus && !global.isInteractingWithNpc {
 	var useSpeed = functionalSpeed;
-	if SHIFT && stamina > 0 {
+	if SHIFT && stamina > 0 && !sprintNeedsReset {
 		useSpeed = functionalSpeed*2;
 		// stamina -= .35;
 		stamina -= .3;
 		isSprinting = true;
+	}
+	if SHIFT && stamina <= 0 {
+		sprintNeedsReset = true;
 	}
 	// walking backwards is slow
 	dirDiff = abs(direction - facingDirection);
