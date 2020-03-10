@@ -11,4 +11,9 @@ global.player.equipLoadSpeedModifier  = (eqPerc * (-.005)) + 1.25;
 
 // at 0% equip load, have all 12 dodgeFrames
 // at 100% equip load, have only 6
-global.player.totalDodgeFrames = ((-3/50)*eqPerc) + 12;
+// global.player.totalDodgeFrames = ((-3/50)*eqPerc) + 12;
+
+// new at 0%, 15, @ 100% 8
+global.player.totalDodgeFrames = ((-7/100)*eqPerc) + 15;
+
+var a = 3;

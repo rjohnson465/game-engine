@@ -660,12 +660,18 @@ if !isOnBridge && place_meeting(x, y, obj_fallzone) {
 var nearestRidge = instance_nearest(x, y, obj_ridge);
 if distance_to_object(nearestRidge) < 32 {
 	// check if standing on ridge mostly
-	var intersectArea = rectsIntersectionArea(
-		nearestRidge.bbox_left, nearestRidge.bbox_top, nearestRidge.bbox_right, nearestRidge.bbox_bottom,
-		bbox_left, bbox_top, bbox_right, bbox_bottom
-	);
+	var isStandingOnRidgeStill = false;
+	with obj_ridge {
+		var intersectArea = rectsIntersectionArea(
+			other.bbox_left, other.bbox_top, other.bbox_right, other.bbox_bottom,
+			bbox_left, bbox_top, bbox_right, bbox_bottom
+		);
+		if intersectArea > 500 {
+			isStandingOnRidgeStill = true;
+		}
+	}
 	// if !place_meeting_layer(x,y,obj_ridge) && mightFallOffRidge {
-	if intersectArea < 500 && mightFallOffRidge {
+	if !isStandingOnRidgeStill && mightFallOffRidge {
 		isFalling = true;
 		fallFrame = 0;
 		fall(mightFallOffRidge);

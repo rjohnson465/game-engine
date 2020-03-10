@@ -44,14 +44,14 @@ with obj_combatant_parent {
 				// scope: combatant
 				with other {
 				
-					if angleBetween(udMin,udMax,direction) && !mightFallOffRidge {
+					if angleBetween(udMin,udMax,direction) && !mightFallOffRidge && visible {
 					// if angleBetweenClockwise(udMin,udMax,direction) && !mightFallOffRidge {
 						var what = angleBetween(udMin, udMax, direction);
 						mightFallOffRidge = true;
 					} 
 	
 		
-					else if !angleBetween(udMin,udMax,direction) && mightFallOffRidge {
+					else if !angleBetween(udMin,udMax,direction) && mightFallOffRidge && visible {
 						mightFallOffRidge = false;
 					}
 				}
@@ -61,7 +61,7 @@ with obj_combatant_parent {
 	
 	// activate ridge for combatant if approaching from the proper direction
 	var dirToRidge = point_direction(x,y,other.x,other.y);
-	if place_meeting_layer(x, y, other) && angleBetween(udMin, udMax, direction) && angleBetween(udMin, udMax, dirToRidge) {
+	if visible && place_meeting_layer(x, y, other) && angleBetween(udMin, udMax, direction) && angleBetween(udMin, udMax, dirToRidge) {
 		
 		var doNotAdd = false;
 		var ridge = other;
@@ -73,7 +73,7 @@ with obj_combatant_parent {
 			}
 		}
 		
-		if !doNotAdd {
+		if !doNotAdd && visible {
 			if ds_list_find_index(activeRidges, other) == -1 {
 				ds_list_add(activeRidges, other);
 			}

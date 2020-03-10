@@ -107,6 +107,7 @@ dodgeFrame = 0;
 dodgeRestFrame = 0;
 DODGE_REST_TOTAL_FRAMES = 16;
 totalDodgeFrames = sprite_get_number(asset_get_index("spr_player_dodge"));
+totalDodgeFrames = 20;
 
 isShielding = false;
 

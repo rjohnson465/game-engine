@@ -3279,6 +3279,14 @@
             }
         },
         {
+            "Key": "1911e305-e23e-4dd0-b1cf-df9eb2514fd6",
+            "Value": {
+                "id": "dba44d91-58c0-4a4a-b2f8-130361c5d868",
+                "resourcePath": "objects\\obj_event_icetrollguard\\obj_event_icetrollguard.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "19219f5b-7a12-47ee-ad3c-e56b129d7255",
             "Value": {
                 "id": "3c936733-6bd6-493e-a0bf-110c049eb76e",
@@ -15439,6 +15447,14 @@
             }
         },
         {
+            "Key": "7c21f103-065b-4321-8c34-4d99a58195c1",
+            "Value": {
+                "id": "342a6282-57b0-4a84-a8a0-adb80bc20c59",
+                "resourcePath": "views\\7c21f103-065b-4321-8c34-4d99a58195c1.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "7c2e3b62-d33d-4fc8-a5a4-c089bdf112c7",
             "Value": {
                 "id": "9ca484e8-8472-4517-929a-75ef96fc5739",
@@ -26871,6 +26887,14 @@
             }
         },
         {
+            "Key": "da4d3955-3849-41f1-83af-2e4b0e7a1cf2",
+            "Value": {
+                "id": "6e96770e-ae9e-4293-ae92-0534539fbac7",
+                "resourcePath": "objects\\obj_evstep_icetrollguard_1\\obj_evstep_icetrollguard_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "da56bc14-8488-486f-8421-ad86c6146621",
             "Value": {
                 "id": "e2fadeb2-497b-4365-9892-d7a549beb0b1",
@@ -30420,6 +30444,14 @@
                 "id": "d07f616b-258f-4774-82da-33130fd005d8",
                 "resourcePath": "sounds\\snd_conv_elon_directions_elon_1\\snd_conv_elon_directions_elon_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "f7d77f9a-8b28-4656-8524-bc6971f97de0",
+            "Value": {
+                "id": "ad0d2dc1-82e7-4369-add1-9364a72d73b5",
+                "resourcePath": "views\\f7d77f9a-8b28-4656-8524-bc6971f97de0.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
