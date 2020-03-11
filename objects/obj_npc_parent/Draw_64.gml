@@ -11,9 +11,10 @@ if	// distance_to_object(obj_player) < 20 &&
 	drawPrompt("Talk with " + name, Input.F, noone, noone, noone, noone, true);
 }
 
+var vx = camera_get_view_x(view_camera[0]);
+var vy = camera_get_view_y(view_camera[0]);
 if isInteractingWithPlayer && !isInConversation && !showBuySell {
-	var vx = camera_get_view_x(view_camera[0]);
-	var vy = camera_get_view_y(view_camera[0]);
+	
 	
 	// figure out how big the NPC conversation UI must be, based on conversations NPC has 
 	var conversationsNumber = ds_list_size(conversations);
@@ -125,4 +126,21 @@ if isInteractingWithPlayer && !isInConversation && !showBuySell {
 		w += drawPrompt("Select", Input.F,promptsStartX+w,promptsY)+xOffset;
 		w += drawPrompt("Back",Input.Escape,promptsStartX+w,promptsY)+xOffset;
 	}
+}
+
+
+// if the NPC has urgent conversations, put a ! above their head 
+var hasUrgentConversations = false;
+for (var i = 0; i < ds_list_size(conversations); i++) {
+	var c = ds_list_find_value(conversations, i);
+	if c.isUrgent {
+		hasUrgentConversations = true;
+	}
+}
+if hasUrgentConversations {
+	urgentFloatingFrame += 1;
+	urgentFloatingFrame = urgentFloatingFrame % 60;
+	draw_set_font(font_damage); draw_set_halign(fa_center); draw_set_valign(fa_center);
+	var uScale = (.1*cos((pi*urgentFloatingFrame)/30)+.9)*2; // normal floating
+	scr_draw_text_outline(x-vx, y - vy - (sprite_height/2), "!", c_orange, c_yellow, uScale, uScale, 0, c_red);
 }

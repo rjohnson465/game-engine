@@ -57,7 +57,8 @@
         "64b11af8-8265-4eed-99d6-1215e5c0011b",
         "1e3b3469-40c9-48e2-856d-287f0342bc6f",
         "cf59aa4c-5622-46ed-8a90-f07d30f750bf",
-        "3b14982c-cc52-424e-89bc-a561af898fce"
+        "3b14982c-cc52-424e-89bc-a561af898fce",
+        "0aeb3fe0-e758-4e90-9e9d-e0cade2d9bdb"
     ],
     "filterType": "GMSprite",
     "folderName": "winter",
