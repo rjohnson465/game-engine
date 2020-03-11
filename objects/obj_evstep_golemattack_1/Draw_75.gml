@@ -20,16 +20,15 @@ if global.player.isAlive && !global.isWishing && !global.ui.isShowingMenus && !r
 	draw_set_halign(fa_center); draw_set_valign(fa_top);
 	draw_set_font(font_main); draw_set_color(c_white);
 	
+	// is the HUD showing (clickable shit for menus for m/k?)
+	var yy = 15;
+	if !gamepad_is_connected(global.gamePadIndex) {
+		yy += sprite_get_height(spr_hud_inventory)+30;
+	}
 	
 	/// account for watched quest
 	with obj_quest_log {
 		if watchedQuest != noone && instance_exists(watchedQuest) && ds_exists(watchedQuest.questSteps,ds_type_list) {
-			// is the HUD showing (clickable shit for menus for m/k?)
-			var yy = 15;
-			if !gamepad_is_connected(global.gamePadIndex) {
-				yy += sprite_get_height(spr_hud_inventory)+30;
-			}
-			
 			
 			// scr_draw_text_outline_ext(xx, yy, watchedQuest.name, c_fuchsia, c_silver, 1.25, 1.25, 0, c_black, -1, xw);
 			var titleHeight = string_height_ext(watchedQuest.name, -1, xw);

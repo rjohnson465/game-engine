@@ -30,6 +30,7 @@ if status == EventStepStatus.Completed && nextStep == undefined && event.isActiv
 		raiseEvent(EV_EVENT_SUCCESS, [id]);
 		
 		isActive = false;
+		updatePersistentElementProperty(id, "isActive", false);
 		isFinished = true;
 		if !isRepeatable {
 			updatePersistentElementProperty(id, "isFinished", true);
@@ -46,6 +47,13 @@ if status == EventStepStatus.Completed && nextStep == undefined && event.isActiv
 			}
 			if w != noone {
 				w.isUntraversable = false;
+			}
+		}
+		
+		// maybe stop event bgm 
+		if eventBgm != noone && audio_exists(eventBgm) {
+			with global.gameManager.bgmManager {
+				startBgm();
 			}
 		}
 		

@@ -1,7 +1,37 @@
-/// startBgm()
+/// startBgm(song*, doLoop*)
+/// @param song
+/// @param doLoop
 
 // must be called by obj_game_manager
 
+var song = noone;
+var doLoop = false;
+if argument_count > 0 {
+	song = argument[0];
+}
+
+if argument_count > 1 {
+	doLoop = argument[1];
+}
+
+// special case for when we must play a specific song: i.e. during an event
+if song != noone {
+	
+	stopBgm();
+	bgmCurrent = song;
+	bgmCurrentIndex = audio_play_sound_on(bgmEmitter, bgmCurrent, doLoop, 1);
+	audio_emitter_gain(bgmEmitter, bgmEmitterGain);
+	exit;
+}
+
+// if there is an active event woth bgm attached to it, go no further
+with obj_event_parent {
+	if isActive && !isFinished && eventBgm != noone && audio_exists(eventBgm) {
+		exit;
+	}
+}
+
+// normal case, where music is decided based on some playlist for the room
 bgmPossibilities = getBgmForRoom(room);
 if bgmPossibilities != noone {
 	

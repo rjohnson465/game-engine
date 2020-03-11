@@ -6,6 +6,18 @@ event_inherited();
 
 if isInUse {
 	
+	// cannot use coin during event
+	with obj_event_parent {
+		if isActive && !isFinished {
+			alert("Cannot use Ancient Coin during events!", c_red);
+			other.isInUse = false;
+			other.isFadeMade = false;
+			other.fade = noone;
+			other.isUseCycleInProgress = false;
+			exit;
+		}
+	}
+	
 	if !isFadeMade && fade == noone {
 		global.fadeDuration = 30;
 		global.owner = id;
@@ -14,6 +26,8 @@ if isInUse {
 	}
 	else if isFadeMade && !instance_exists(fade) {
 		isInUse = false;
+		isFadeMade = false;
+		fade = noone;
 	}
 	else {
 		if fade.frame == .5*fade.fadeDuration {

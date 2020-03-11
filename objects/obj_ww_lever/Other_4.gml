@@ -4,7 +4,7 @@ event_inherited();
 isActive = ds_map_find_value(properties, "IsActive");
 
 // always reset state in krampus room
-if room = rm_krampus {
+if room = rm_krampus || !remembersState {
 	isActive = false;
 }
 

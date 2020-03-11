@@ -12,16 +12,17 @@ if count < 1 && object_index != obj_item_coins {
 	instance_destroy(id);
 }
 
-// if being used, decrement count or destroy item
+// this gives us a little buffer between use input and actually usage
 if isInUse && !isUseCycleInProgress {
-	if object_index != obj_item_health_flask {
-		audio_play_sound(soundUse,1,0);
-	}
-	alert("Used " + name,c_yellow);
 	isUseCycleInProgress = true;
 }
 
+// if being used, decrement count or destroy item
 if isUseCycleInProgress && !isInUse {
+	alert("Used " + name,c_yellow);
+	if object_index != obj_item_health_flask {
+		audio_play_sound(soundUse,1,0);
+	}
 	isUseCycleInProgress = false;
 	if count > 1 && isStackable {
 		count--;

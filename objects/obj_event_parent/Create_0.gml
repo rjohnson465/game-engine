@@ -23,6 +23,8 @@ partRegionPrevX = noone;
 partRegionPrevY = noone;
 doNotShowParticles = false;
 
+eventBgm = noone;
+
 isShowingAMessage = false;
 
 var fire = part_type_create();

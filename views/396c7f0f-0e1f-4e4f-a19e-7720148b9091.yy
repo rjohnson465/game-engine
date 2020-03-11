@@ -12,7 +12,8 @@
         "bfbc3220-642a-4371-8a67-2ef5f9b463ea",
         "8b63054f-1c03-4a15-b452-241a53457d44",
         "a5e2f036-08e1-453b-843f-839127eac2de",
-        "e4e5d316-d845-442a-8cbc-e95ac1a58aa7"
+        "e4e5d316-d845-442a-8cbc-e95ac1a58aa7",
+        "f30e8c07-1a57-484b-8e04-9dcbb06fd9f1"
     ],
     "filterType": "GMSound",
     "folderName": "bgm",

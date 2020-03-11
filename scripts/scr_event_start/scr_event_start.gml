@@ -16,6 +16,7 @@ with ev {
 	if  !isActive && !isFinished {
 		
 		isActive = true;
+		updatePersistentElementProperty(id, "isActive", true);
 		sprite_index = noone;
 		alert("Event Started: " + eventName, c_aqua);
 		audio_play_sound(snd_sword_draw, 1, 0);
@@ -28,6 +29,13 @@ with ev {
 	
 		currentEventStep = ds_list_find_value(eventSteps,0);
 		currentEventStep.status = ExerciseStepStatus.InProgress;
+		
+		// play event music (looping) if it exists
+		if eventBgm != noone && audio_exists(eventBgm) {
+			with global.gameManager.bgmManager {
+				startBgm(other.eventBgm, true);
+			}
+		}
 		
 		raiseEvent(EV_EVENT_STARTED, [id]);
 	}
