@@ -3,6 +3,11 @@
 
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var iceaxe = makeEnemyWeapon(obj_hand_item_iceaxe);
+
+// for particles
+ds_map_replace(iceaxe.damages,ICE,[1,2]);
+
+
 var iceshield = makeEnemyWeapon(obj_hand_item_iceshield);
 ds_map_replace(handItems,"lm1",iceaxe);
 ds_map_replace(handItems,"rm1",iceshield);

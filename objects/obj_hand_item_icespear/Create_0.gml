@@ -15,6 +15,7 @@ range = 45;
 ds_map_set(damages,SLASH,[0,0,0,0,0,0]);
 ds_map_set(damages,PIERCE,[15,20,15,20,15,20]);
 ds_map_set(damages,CRUSH,[0,0,0,0,0,0]);
+ds_map_set(damages,ICE,[1,2]);
 //staminaCostArray=[15,15,25];
 
 act = 1;

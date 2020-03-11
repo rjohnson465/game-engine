@@ -11,7 +11,7 @@ staggerDuration = 45;
 limbKey = noone;
 type = AttackTypes.AOE;
 minRange = 50;
-numberOfProjectiles = 16;
+numberOfProjectiles = 10;
 
 projectileSpeed = 15;
 damageType = "Dust";

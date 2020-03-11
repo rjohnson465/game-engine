@@ -3,6 +3,10 @@
 
 // var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var iceclub = makeEnemyWeapon(obj_hand_item_iceclub);
+
+// for particles
+ds_map_replace(iceclub.damages,ICE,[1,2]);
+
 var iceshield = makeEnemyWeapon(obj_hand_item_iceshield);
 ds_map_replace(handItems,"lm1",iceclub);
 ds_map_replace(handItems,"rm1",iceshield);

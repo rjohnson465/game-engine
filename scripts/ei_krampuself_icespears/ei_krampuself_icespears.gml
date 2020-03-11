@@ -1,6 +1,10 @@
 /// ei_krampuself_iceaxe
 
 var icespear = makeEnemyWeapon(obj_hand_item_icespear);
+
+// for particles
+ds_map_replace(icespear.damages,ICE,[1,2]);
+
 // var iceshield = makeEnemyWeapon(obj_hand_item_iceshield);
 ds_map_replace(handItems,"lm1",icespear);
 ds_map_replace(handItems,"rm1",icespear);

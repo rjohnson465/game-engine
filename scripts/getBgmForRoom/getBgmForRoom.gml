@@ -39,7 +39,7 @@ switch rm {
 		return [snd_bgm_endless_tundra, snd_bgm_icedrops, snd_bgm_krampuslands];
 	}
 	case rm_clayfields: {
-		return [snd_bgm_endless_tundra, snd_bgm_icedrops];
+		return [snd_bgm_endless_tundra, snd_bgm_icedrops, snd_bgm_clayfields];
 	}
 	case rm_xmas_town: {
 		return [snd_bgm_sleighbells];
