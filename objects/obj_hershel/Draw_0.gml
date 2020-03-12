@@ -10,13 +10,13 @@ if isActive && !isGoingToAri && !isWithAri {
 	}
 }
 
-if isTakingDamge {
-	shader_set(sh_red);
-	var uPOSITION = shader_get_uniform(sh_red, "Position");
-	shader_set_uniform_f(uPOSITION, global.gameManager.selectedItemFilterAlpha); 
-}
+//if isTakingDamge {
+//	shader_set(sh_red);
+//	var uPOSITION = shader_get_uniform(sh_red, "Position");
+//	shader_set_uniform_f(uPOSITION, global.gameManager.selectedItemFilterAlpha); 
+//}
 
-draw_sprite_ext(sprite_index,image_index,x,y,1,1,image_angle,c_white,1);
+draw_sprite_ext(sprite_index,image_index,x,y,1,1,image_angle,image_blend,1);
 shader_reset();
 
 /*

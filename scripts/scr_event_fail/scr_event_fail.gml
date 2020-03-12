@@ -9,6 +9,8 @@ if argument_count > 0 {
 /// must be called by an event object
 with ev {
 	alert(eventName + " failed!", c_red);
+	isActive = false;
+	updatePersistentElementProperty(id, "isActive", false);
 	
 	// maybe stop event bgm 
 	if eventBgm != noone && audio_exists(eventBgm) {
@@ -18,9 +20,6 @@ with ev {
 	}
 	
 	raiseEvent(EV_EVENT_FAILED, [id]);
-	
-	isActive = false;
-	updatePersistentElementProperty(id, "isActive", false);
 	
 	instance_destroy(id, 1);
 }

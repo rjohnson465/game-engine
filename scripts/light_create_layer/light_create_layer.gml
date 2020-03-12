@@ -1,13 +1,14 @@
 /// light_create_layer(light_sprite, light_scale, light_color, light_alpha, light_angle, shadows)
-/*
-Creates a light and the local variables for it.
+
+//Creates a light and the local variables for it.
 /// @param sprite: Gradient sprite to use.
 /// @param scale: Scale of the sprite.
 /// @param color: The light color.
 /// @param alpha: Brightness of the light, from 0 to 1.
+/// @param angle
 /// @param shadows: If this light should draw shadows.
-Notice: An instance can only have one light attached to it.
-*/
+/// Notice: An instance can only have one light attached to it.
+
 
 _light_sprite = argument0
 _light_scale = argument1

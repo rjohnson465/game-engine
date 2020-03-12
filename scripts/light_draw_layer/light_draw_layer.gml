@@ -79,6 +79,11 @@ if _light_time >= _light_max_time
 		}
 		
         with _light {
+			
+			if object_index == obj_dybukk_beamlight {
+				var a = 3;
+			}
+			
             var _light_left, _light_top, _light_right, _light_bottom;
             if sprite_get_xoffset(_light_sprite) != sprite_get_width(_light_sprite) / 2 && sprite_get_yoffset(_light_sprite) != sprite_get_height(_light_sprite) / 2 {
                 _light_left = x - _light_size / 2

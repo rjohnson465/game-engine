@@ -1,7 +1,7 @@
 global.ownerNpcName = "Ari";
 var c1 = instance_create_depth(x,y,1,obj_conversation_parent);
 c1.isUrgent = true;
-c1.isRepeatable = false;
+c1.isRepeatable = true;
 c1.name = "Helping Hershel (Failed)";
 
 var cs = instance_create_depth(x,y,1,obj_conversation_step_parent);

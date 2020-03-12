@@ -117,6 +117,22 @@ part_type_direction(smoke,0,360,0,4);
 part_type_life(smoke,45,60);
 sporeParticle = smoke;
 
+// smoke
+var smoke = part_type_create();
+part_type_shape(smoke, pt_shape_sphere);
+part_type_color2(smoke,c_aqua,c_silver);
+part_type_orientation(smoke,0,0,0,15,1);
+part_type_alpha3(smoke, .5, .25, .1);
+part_type_size(smoke,0.1,0.3,0,0);
+part_type_speed(smoke,3,6,0,0);
+part_type_direction(smoke,0,360,0,4);
+part_type_life(smoke,45,60);
+possessParticle = smoke;
+
 part_system_depth(sporeSystem, layer_get_depth(layer)+1);
 
 isAggroed = true;
+
+// maybe
+beamLight = instance_create_layer(x, y, layer, obj_dybukk_beamlight);
+beamLight.x = -1000; beamLight.y = -1000;

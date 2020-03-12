@@ -4,7 +4,7 @@
 // Inherit the parent event
 event_inherited();
 
-message = "Slay dybukks away from Hershel to save him";
+message = "Slay dybukks before they possess hershel";
 
 ghostSpawnPoints = [
 	[1855, 2340],
@@ -14,7 +14,8 @@ ghostSpawnPoints = [
 ];
 
 GHOSTS_TO_SPAWN_COUNT = 8;
-GHOST_SPAWN_STAGGER_RANGE = [90, 120];
+GHOST_SPAWN_STAGGER_RANGE = [120, 200];
+GHOST_TIME_TO_DEAGGRO = 250;
 ghostsSpawnedList = ds_list_create();
 randomize();
 alarm[0] = 15;

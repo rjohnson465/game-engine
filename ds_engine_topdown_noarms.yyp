@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "0126de2e-832e-423b-b74c-64cfe6ee0174",
+            "Value": {
+                "id": "df971bad-8923-4e98-a2d0-9a854d1b024d",
+                "resourcePath": "rooms\\rm_abominable_snowman\\rm_abominable_snowman.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "014e5b1f-ff64-4845-8416-2b974b947254",
             "Value": {
                 "id": "34c68025-feca-4b51-bdb6-5fa27273980f",
@@ -1396,6 +1404,14 @@
                 "id": "b898715a-f5a5-44ed-8f1a-534aca01627c",
                 "resourcePath": "sounds\\snd_conv_rob_llfe_rob_45\\snd_conv_rob_llfe_rob_45.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "0ad25f82-9e1b-46e1-996b-65448878f114",
+            "Value": {
+                "id": "8dad25e9-42fe-4ced-8a3a-d6ec4d341619",
+                "resourcePath": "sprites\\spr_enemy_absnowman_snowball_recover_1_2\\spr_enemy_absnowman_snowball_recover_1_2.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -5799,6 +5815,14 @@
             }
         },
         {
+            "Key": "2d497ef1-6da0-42d2-939c-33e72c6629b8",
+            "Value": {
+                "id": "8be18a81-ec55-44e5-9c7a-af8f66aeb200",
+                "resourcePath": "sprites\\spr_enemy_absnowman_snowball_prep_1_2\\spr_enemy_absnowman_snowball_prep_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2d6dedc8-98e6-4cf2-a09c-2ecc870fcb2c",
             "Value": {
                 "id": "839d69a8-18bd-4d6b-b040-79fdb882c30f",
@@ -6188,6 +6212,14 @@
                 "id": "0ab49103-38d4-4b5d-8696-398ed1e2c837",
                 "resourcePath": "sprites\\spr_item_info_defense_poison\\spr_item_info_defense_poison.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "30fe84e5-dee3-4c25-81b2-59974f886574",
+            "Value": {
+                "id": "76939e8a-df9c-41aa-a869-3b3e5bad5a3a",
+                "resourcePath": "views\\30fe84e5-dee3-4c25-81b2-59974f886574.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -7927,6 +7959,14 @@
             }
         },
         {
+            "Key": "3e3b23f3-7895-4a84-9bd0-d43b8bdc8fa2",
+            "Value": {
+                "id": "41436db5-67be-4a64-b32a-a18a1754a945",
+                "resourcePath": "sprites\\spr_enemy_absnowman_snowball_attack_1_2\\spr_enemy_absnowman_snowball_attack_1_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3e42be3f-ef8a-4306-abaf-25d3ccbc769d",
             "Value": {
                 "id": "8728f68d-7f15-4632-842a-9f37cbd39fed",
@@ -8243,6 +8283,14 @@
             "Value": {
                 "id": "034c8001-69a2-4ef1-ab54-61c2b7144083",
                 "resourcePath": "sprites\\spr_player_heal\\spr_player_heal.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "40bebc0f-c7b6-4751-a43b-5235b9614e08",
+            "Value": {
+                "id": "830d35ef-2d62-4bf0-9fb3-82b971753aab",
+                "resourcePath": "sprites\\spr_enemy_absnowman_snowball_recover_2_1\\spr_enemy_absnowman_snowball_recover_2_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -9167,6 +9215,14 @@
             }
         },
         {
+            "Key": "4921f193-4392-4dc0-bb4b-6333c4fee3cb",
+            "Value": {
+                "id": "be1f4619-ba81-4bda-8bae-6484823de8ba",
+                "resourcePath": "views\\4921f193-4392-4dc0-bb4b-6333c4fee3cb.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "4922a3d3-9ebb-49cf-bcca-f3c6e1508d4c",
             "Value": {
                 "id": "fc5f9010-fef3-4971-ad94-d738022beb04",
@@ -9652,6 +9708,14 @@
                 "id": "29c84c13-03f9-424b-9901-679eb05ccbd6",
                 "resourcePath": "views\\4c121ab6-d8ee-4847-8cb4-b2db7781bf12.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4c1fa16a-5aab-4490-a51b-67de4148601c",
+            "Value": {
+                "id": "230fded6-394d-473b-8d79-1f9af5906af7",
+                "resourcePath": "objects\\obj_event_unfairy_captain\\obj_event_unfairy_captain.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -13183,6 +13247,14 @@
             }
         },
         {
+            "Key": "69136c2b-735e-404a-adc4-fee7e70c47bb",
+            "Value": {
+                "id": "8b640d2a-6cef-4ffc-92e8-568123de5e02",
+                "resourcePath": "views\\69136c2b-735e-404a-adc4-fee7e70c47bb.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "6925ed8d-32d8-4be5-b6d8-a985ed19f359",
             "Value": {
                 "id": "9ddfc8cf-1158-42af-a0a7-2fb02cfdadc4",
@@ -14263,6 +14335,14 @@
             }
         },
         {
+            "Key": "732ffcfd-a8ca-4abc-8ce5-f1854e31044e",
+            "Value": {
+                "id": "65c09dea-9006-4c7f-9ca4-ffc3370823f3",
+                "resourcePath": "sprites\\spr_bigsnowball\\spr_bigsnowball.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "733d4f4f-993d-46ce-a2df-f2de2bbb78ad",
             "Value": {
                 "id": "75e8a44a-5572-451f-91b1-210d4205c765",
@@ -14340,6 +14420,14 @@
                 "id": "0ecb692f-24ab-4efc-8f16-d8e8bff5ec6e",
                 "resourcePath": "objects\\obj_attack_unfairy_warhammer_1_1\\obj_attack_unfairy_warhammer_1_1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "73c2c79e-db8b-43d4-b062-4a40e8bf9b81",
+            "Value": {
+                "id": "9fdf2ac0-98ab-4072-83f4-fb13daf607ee",
+                "resourcePath": "sprites\\spr_enemy_absnowman_snowball_prep_1_1\\spr_enemy_absnowman_snowball_prep_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -14903,6 +14991,14 @@
             }
         },
         {
+            "Key": "781e95e5-16a7-4ccd-ac82-a772009cfae1",
+            "Value": {
+                "id": "6f96e6b4-7a41-4b39-8bfe-304ffd1c646d",
+                "resourcePath": "sprites\\spr_enemy_absnowman_snowball_attack_1_1\\spr_enemy_absnowman_snowball_attack_1_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "782c299b-dc7f-4aed-ac16-917774e31d70",
             "Value": {
                 "id": "7c03d1b9-04b4-45e8-9769-3d45f82df29b",
@@ -15139,6 +15235,14 @@
             "Value": {
                 "id": "8967027d-f582-4de1-80ec-44ba480edfd0",
                 "resourcePath": "sprites\\spr_player_warhammer_prep_2\\spr_player_warhammer_prep_2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "796f1b65-5bcc-42eb-9bfe-839b72581b93",
+            "Value": {
+                "id": "b9dd3dbf-9d55-4a71-a03e-468bd191fe88",
+                "resourcePath": "sprites\\spr_enemy_absnowman\\spr_enemy_absnowman.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -15499,6 +15603,14 @@
             "Value": {
                 "id": "a5667c92-b562-4646-a641-0ec3dcac432c",
                 "resourcePath": "objects\\obj_hand_item_pie\\obj_hand_item_pie.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "7bf3d0a0-a07b-4d24-873e-3fddc04341ed",
+            "Value": {
+                "id": "a6330d91-627b-4b42-9a8a-7b2067292018",
+                "resourcePath": "objects\\obj_attack_absnowman_snowball_1_1\\obj_attack_absnowman_snowball_1_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -17935,6 +18047,14 @@
             }
         },
         {
+            "Key": "912ee83b-da49-43dc-9f77-859a33174a0c",
+            "Value": {
+                "id": "06045740-7371-4acd-9302-407da5c89a3d",
+                "resourcePath": "objects\\obj_dybukk_beamlight\\obj_dybukk_beamlight.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "91537277-83cc-4405-b482-2f6188a8a36a",
             "Value": {
                 "id": "fe64ee7c-853e-4317-a69d-24a71475c619",
@@ -18156,6 +18276,14 @@
                 "id": "80996618-1021-4c00-bdd4-10bd67183cb5",
                 "resourcePath": "sprites\\spr_enemy_abominion_frostburst_recover_1_11\\spr_enemy_abominion_frostburst_recover_1_11.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "92c35e83-457d-4724-b39d-79869d925747",
+            "Value": {
+                "id": "93c34293-588d-46f7-ad14-fad65b39f541",
+                "resourcePath": "objects\\obj_attack_absnowman_snowball_1_2\\obj_attack_absnowman_snowball_1_2.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -18839,6 +18967,14 @@
             }
         },
         {
+            "Key": "98c64d84-650d-4c08-8d2b-a7e93075370c",
+            "Value": {
+                "id": "877714a0-a8a2-4f94-9193-a5305e99d865",
+                "resourcePath": "sprites\\spr_enemy_absnowman_snowball_attack_2_1\\spr_enemy_absnowman_snowball_attack_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "98edf0fa-93c7-416f-8a9f-86a71764953a",
             "Value": {
                 "id": "d4b404d6-c9f0-4751-ba52-f8d94414c7fe",
@@ -19316,6 +19452,14 @@
                 "id": "8ba4bd48-cac2-447e-896a-1e161de15f6c",
                 "resourcePath": "objects\\obj_attack_krampuself_icespear_1_1\\obj_attack_krampuself_icespear_1_1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9cb02052-4a10-43d8-b033-9af89d62a7a1",
+            "Value": {
+                "id": "816d21c6-23fb-4ed2-bcf9-2a7c7a9ddc20",
+                "resourcePath": "sprites\\spr_enemy_absnowman_move\\spr_enemy_absnowman_move.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -23311,6 +23455,14 @@
             }
         },
         {
+            "Key": "bb5e5fe1-9305-4f03-a3f0-f82e016d1dd2",
+            "Value": {
+                "id": "0e68f520-11c7-4d6a-99a4-f39bf8fd1d0e",
+                "resourcePath": "views\\bb5e5fe1-9305-4f03-a3f0-f82e016d1dd2.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "bb6a9e2a-5107-4372-b4b2-71624abfbdf9",
             "Value": {
                 "id": "a4f914ec-7c4f-4096-bfa1-cd8cead243fa",
@@ -24263,6 +24415,14 @@
             }
         },
         {
+            "Key": "c398e4fe-9254-46f8-9af5-df04deee892b",
+            "Value": {
+                "id": "d999a50a-f9de-489e-b1d7-4dd56b927608",
+                "resourcePath": "objects\\obj_attack_absnowman_snowball_2_1\\obj_attack_absnowman_snowball_2_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "c3c1875a-65b8-4fbb-b753-1d5aeed64c48",
             "Value": {
                 "id": "f9f8eebe-13e1-4f6d-ab47-da0d94122c7a",
@@ -24439,6 +24599,14 @@
             }
         },
         {
+            "Key": "c4fc3b7f-c980-4532-9519-a3978037b9f5",
+            "Value": {
+                "id": "c872b88c-94db-4028-86d2-e98565700e30",
+                "resourcePath": "sprites\\sprite1638\\sprite1638.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c516c340-6429-4e35-930b-c1018de5c11a",
             "Value": {
                 "id": "aa35645d-91b2-470b-b548-0811e340705c",
@@ -24460,6 +24628,14 @@
                 "id": "c092815b-9e47-4fbe-972c-78397ba3ec36",
                 "resourcePath": "scripts\\maybeDodge\\maybeDodge.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c554e0fc-e337-461b-8c52-4d56b89be8c7",
+            "Value": {
+                "id": "b2309308-d771-45a0-987c-da5639ddf4ad",
+                "resourcePath": "sprites\\spr_enemy_absnowman_snowball_prep_2_1\\spr_enemy_absnowman_snowball_prep_2_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -26499,6 +26675,14 @@
             "Value": {
                 "id": "efda54e0-25f2-4f54-b501-dc116419cd5a",
                 "resourcePath": "objects\\obj_attack_multirand\\obj_attack_multirand.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d5df241a-09e5-4e24-aa4f-efbc8259a984",
+            "Value": {
+                "id": "6de8f6ed-927f-4a2d-84bb-0f67882986ff",
+                "resourcePath": "objects\\obj_evstep_unfairycap_1\\obj_evstep_unfairycap_1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -30943,6 +31127,14 @@
             }
         },
         {
+            "Key": "fb25dd58-e5e9-49c1-b16f-fa82ff145a2c",
+            "Value": {
+                "id": "aaa380d4-caaf-442b-9ed6-e7b65685bed2",
+                "resourcePath": "objects\\obj_enemy_absnowman\\obj_enemy_absnowman.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "fb2bd6bc-757a-4614-ab82-b2cd0e5a7240",
             "Value": {
                 "id": "582894bf-2a81-463f-811c-6d3f523f55b9",
@@ -31148,6 +31340,14 @@
                 "id": "2b4da031-1ca5-45c2-99fc-f3620ed6b500",
                 "resourcePath": "sounds\\snd_npc_elon_greeting_3\\snd_npc_elon_greeting_3.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "fd067fdb-d893-49bc-add8-0f8d563a09e1",
+            "Value": {
+                "id": "78090c63-6622-4fde-b274-bdebfd3ab09a",
+                "resourcePath": "sprites\\spr_enemy_absnowman_snowball_recover_1_1\\spr_enemy_absnowman_snowball_recover_1_1.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

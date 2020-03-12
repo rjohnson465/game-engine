@@ -1,45 +1,37 @@
 event_inherited();
-/*
-if isShowingGrid {
-	draw_set_alpha(1);
-	draw_set_color(c_aqua);
-	draw_path(path,x,y,1);
-	draw_set_color(c_lime);
-	draw_path(gridPath,x,y,1);
-	draw_set_alpha(.15);
-	mp_grid_draw(personalGrid);
-}
-/*
 
-if ds_list_size(guessPathPts) > 0 {
+var hershel = instance_nearest(x, y, obj_hershel);
+if !isAggroed && instance_exists(hershel) {
+	// draw beam from hands
+	var beamSpr = spr_enemy_dybukkboss_beam_1_1_beam;
+	var length = point_distance(x, y, hershel.x, hershel.y);
 	
-	draw_set_color(c_orange);
-	draw_circle(tempTargetX, tempTargetY, 10, 0);
+	var xx = x + lengthdir_x(15, facingDirection);
+	var yy = y + lengthdir_y(10, facingDirection);
 	
-	draw_set_color(c_white);
-	draw_text(tempTargetX, tempTargetY, "tt");
-		
-	draw_text(tempTargetX,tempTargetY+15, "(" + string(tempTargetX) + ", " + string(tempTargetY) + ")");
-	
-	// draw each guessPt
-	for (var i = 0; i < ds_list_size(guessPathPts); i++) {
-	
-		var guessPathPt = ds_list_find_value(guessPathPts, i);
-		var gx = guessPathPt[0];
-		var gy = guessPathPt[1];
-	
-		draw_set_color(c_purple);
-		draw_circle(gx, gy, 10, 0);
-	
-		draw_set_color(c_white);
-		draw_text(gx, gy, string(i));
-		
-		draw_text(gx,gy+15, "(" + string(gx) + ", " + string(gy) + ")");
+	draw_sprite_ext(beamSpr, 1, xx, yy, length, 1, facingDirection, c_white, .85);
 
+	with beamLight {
+		x = other.x; 
+		y = other.y;
+		_light_sprite = spr_light_square_midleft;
+		_light_alpha = .75;
+		_light_angle = other.facingDirection;
+		
+		randomize();
+		var rand = random_range(.2, 1);
+		_light_yscale = rand;
+		_light_xscale = length / sprite_get_width(spr_light_square_midleft);
 	}
+	
+	// also burst more particles at hit zone
+	var xxx = xx + lengthdir_x(length, facingDirection);
+	var yyy = yy + lengthdir_y(length, facingDirection);
+	part_emitter_region(sporeSystem, sporeEmitter, xxx - 1, xxx + 1, yyy - 1, yyy + 1, ps_shape_ellipse, ps_distr_gaussian);
+	part_emitter_burst(sporeSystem, sporeEmitter, possessParticle, 4);
+	
+
+} else {
+	beamLight.x = -1000;
+	beamLight.y = -1000;
 }
-
-
-
-draw_set_alpha(.15);
-mp_grid_draw(personalGrid);

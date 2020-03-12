@@ -70,6 +70,7 @@ if global.player.isAlive && !global.isWishing && !global.ui.isShowingMenus && !r
 	
 	// draw progress bar
 	// if all ghosts this step spawned were killed, this step is done
+	
 	var ghostsSlain = 0;
 	for (var i = 0; i < ds_list_size(ghostsSpawnedList); i++) {
 		var g = ds_list_find_value(ghostsSpawnedList, i);
@@ -79,7 +80,23 @@ if global.player.isAlive && !global.isWishing && !global.ui.isShowingMenus && !r
 	}
 	var perc = ghostsSlain / GHOSTS_TO_SPAWN_COUNT;
 	perc *= 100;
-	draw_healthbar(xx- (.5*xw), yy, xx + (.5 * xw), yy + 5, perc, c_white, c_aqua, c_aqua, 0, false, false);
+	var sh = string_height("s");
+	draw_healthbar(xx- (.5*xw), yy, xx + (.5 * xw), yy + sh + 5, perc, c_white, c_aqua, c_aqua, 0, false, false);
 	draw_set_color(c_silver);
-	draw_rectangle(xx- (.5*xw), yy, xx + (.5 * xw), yy + 5, true);
+	draw_rectangle(xx- (.5*xw), yy, xx + (.5 * xw), yy + sh + 5, true);
+	draw_set_valign(fa_center);
+	scr_draw_text_outline(mean(xx - (.5*xw), xx + (.5 * xw)), mean(yy, yy + sh + 5), "Dybukks Slain", c_white, c_white);
+	
+	yy += sh + 5 + 15;
+	
+	// hershel health bar
+	var hershel = instance_nearest(x, y, obj_hershel);
+	if instance_exists(hershel) {
+		var perc = hershel.hp / hershel.maxHp;
+		perc *= 100;
+		draw_healthbar(xx- (.5*xw), yy, xx + (.5 * xw), yy + sh + 5, perc, c_white, c_aqua, c_aqua, 0, false, false);
+		draw_set_color(c_silver);
+		draw_rectangle(xx- (.5*xw), yy, xx + (.5 * xw), yy + sh + 5, true);
+		scr_draw_text_outline(mean(xx - (.5*xw), xx + (.5 * xw)), mean(yy, yy + sh + 5), "Hershel", c_white, c_white);
+	}
 }

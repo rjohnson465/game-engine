@@ -33,6 +33,10 @@ switch rm {
 		var c = make_color_rgb(52, 66, 105);
 		return [c, c];
 	}
+	case rm_abominable_snowman: {
+		var c = make_color_rgb(42, 56, 95);
+		return [c, c];
+	}
 	case rm_golemking: {
 		var c = make_color_rgb(52, 66, 105);
 		return [c, c];

@@ -32,6 +32,9 @@ with dybukk {
 	
 	// dybbuk wont care about player until struck
 	isAggroed = false;
+	hasSetUnaggroAlarm = false;
+	beamSoundShootIndex = noone;
+	beamSoundLoopIndex = noone;
 	eventListeners = ds_map_create();
 	ds_map_replace(eventListeners, EV_DAMAGE_TAKEN, scr_evl_helpinghershel_dybbuk_aggro);
 		
@@ -47,6 +50,8 @@ with dybukk {
 		}
 	}
 	jumpToNearestFreePoint(true, true);
+	
+	xpReward = 0;
 }
 
 ds_list_add(ghostsSpawnedList, dybukk);

@@ -45,14 +45,14 @@ if isWithAri && fNum <= pfNum {
 // if dybukks close and draining him, scream every so often
 if isActive && !isGoingToAri && !isWithAri {
 	with obj_enemy_dybukk {
-		// if isAggroed continue;
-		if distance_to_object(other) < 20 {
-			if !other.hasSetScreamAlarm {
-				randomize();
-				var frames = random_range(other.screamAlarmFrequencyFrames[0], other.screamAlarmFrequencyFrames[1]);
-				other.alarm[0] = frames;
-				other.hasSetScreamAlarm = true;
-			}
+		if isAggroed continue;
+		//if distance_to_object(other) < 20 {
+		if !other.hasSetScreamAlarm {
+			randomize();
+			var frames = random_range(other.screamAlarmFrequencyFrames[0], other.screamAlarmFrequencyFrames[1]);
+			other.alarm[0] = frames;
+			other.hasSetScreamAlarm = true;
 		}
+		//}
 	}
 }

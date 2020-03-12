@@ -57,6 +57,10 @@ switch rm {
 		return [snd_bgm_golemlord];
 		break;
 	}
+	case rm_abominable_snowman: {
+		return [noone];
+		break;
+	}
 }
 
 return noone;
