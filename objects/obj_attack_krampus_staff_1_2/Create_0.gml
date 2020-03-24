@@ -9,12 +9,12 @@ isRanged = false;
 staminaCost = 10;
 staggerDuration = 10;
 
-/*
+
 var damagesIceSwing = ds_map_create();
 ds_map_replace(damagesIceSwing, ICE, [10,10]);
 ds_map_add_map(extraHitsDamages, 1, damagesIceSwing);
 resetCombatantsHitFrame = 13;
-*/
+
 
 attackSound = snd_axe2h_attack_1;
 hitSound = snd_hit1;
@@ -49,3 +49,5 @@ trailPartNum = [20, 10];
 // trailEnds = 20;
 
 staggersAgainstBlocks = false;
+
+isVisible = false;

@@ -4,11 +4,11 @@ spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 limbKey = noone; // default value
 ds_map_add(damages, MAGIC, [10, 10]);
-ds_map_add(damages, PIERCE, [10, 10]);
+ds_map_add(damages, PIERCE, [1, 1]);
 isRanged = true;
 staminaCost = 10;
 staggerDuration = 15;
-projectileSpeed = 7;
+projectileSpeed = 5;
 
 life = 120;
 

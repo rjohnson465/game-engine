@@ -135,4 +135,6 @@ isAggroed = true;
 
 // maybe
 beamLight = instance_create_layer(x, y, layer, obj_dybukk_beamlight);
-beamLight.x = -1000; beamLight.y = -1000;
+if instance_exists(beamLight) {
+	beamLight.x = -1000; beamLight.y = -1000;
+}

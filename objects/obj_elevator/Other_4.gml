@@ -11,3 +11,4 @@ var floorLayer = layer_get_id(floorLayerName);
 layer = floorLayer;
 origLayer = layer;
 depth = layer_get_depth(origLayer) + 5;
+

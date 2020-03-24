@@ -21,6 +21,7 @@ if limbKey == "r" {
 	if leftHand {
 		
 		if (leftHandItem.isTwoHanded || owner.state == CombatantStates.Healing) && owner.currentUsingSpell == noone {
+			shader_reset();
 			exit;
 		}
 	}

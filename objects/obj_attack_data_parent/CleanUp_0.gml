@@ -42,6 +42,17 @@ if trailPart != noone && !is_array(trailPart) && part_type_exists(trailPart) {
 	}
 }
 
+if prepTrailPart != noone && !is_array(prepTrailPart) && part_type_exists(prepTrailPart) {
+	part_type_destroy(prepTrailPart); prepTrailPart = -1;
+} else if is_array(prepTrailPart) {
+	for (var i = 0; i < array_length_1d(prepTrailPart); i++) {
+		var p = prepTrailPart[i];
+		if part_type_exists(p) {
+			part_type_destroy(p); p = -1;
+		}
+	}
+}
+
 if is_array(beamHitParticlesArr) && array_length_1d(beamHitParticlesArr) > 0 {
 	for (var i = 0; i < array_length_1d(beamHitParticlesArr); i ++) {
 		var partArr = beamHitParticlesArr[i];

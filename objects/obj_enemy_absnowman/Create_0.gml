@@ -7,13 +7,13 @@ spriteString = "enemy_absnowman";
 isFairy = false;
 isFloating = false;
 
-functionalSpeed = 6;
-normalSpeed = 6;
+functionalSpeed = 7;
+normalSpeed = 7;
 turnSpeed = 6;
 normalTurnSpeed = turnSpeed;
 
-dyingParticleColor1 = c_silver;
-dyingParticleColor2 = c_olive;
+dyingParticleColor1 = c_white;
+dyingParticleColor2 = c_purple;
 
 cannotStagger = true;
 poiseCurrent = 75;
@@ -30,7 +30,7 @@ hasHands = false; // humanoid / uses hand attacks
 currentAttackingHand = noone; // hide current attack hand default image when attacking with it
 
 // general attacks info
-meleeAggroRange = 2000;
+meleeAggroRange = 800;
 rangedAggroRange = 2500;
 farthestAllowedFromPost = 2800;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
@@ -56,19 +56,50 @@ currentMeleeAttack = noone;
 
 // ATTACKS
 global.owner = id;
-var sb11 = makeEnemyAttackObj(obj_attack_absnowman_snowball_1_1);
-var sb12 = makeEnemyAttackObj(obj_attack_absnowman_snowball_1_2);
+var sb11 = makeEnemyAttackObj(obj_attack_absnowman_snowball_1_1_melee);
+var sb12 = makeEnemyAttackObj(obj_attack_absnowman_snowball_1_2_melee);
 
-var sb21 = makeEnemyAttackObj(obj_attack_absnowman_snowball_2_1);
+var sb21 = makeEnemyAttackObj(obj_attack_absnowman_snowball_2_1_melee);
+
+var swing11 = makeEnemyAttackObj(obj_attack_absnowman_swing_1_1);
+var swing12 = makeEnemyAttackObj(obj_attack_absnowman_swing_1_2);
+var swing21 = makeEnemyAttackObj(obj_attack_absnowman_swing_2_1);
+var fallAttack = makeEnemyAttackObj(obj_attack_absnowman_fall_1_1);
+
+var slam11 = makeEnemyAttackObj(obj_attack_absnowman_slam_1_1);
+var slam12 = makeEnemyAttackObj(obj_attack_absnowman_slam_1_2)
+
+var slam21 = makeEnemyAttackObj(obj_attack_absnowman_slam_2_1);
+
+var charge = makeEnemyAttackObj(obj_attack_absnowman_charge_1_1);
+var charge12 = makeEnemyAttackObj(obj_attack_absnowman_charge_1_2);
 
 var c0 = [sb11, sb12];
 var c1 = [sb21];
-meleeAttacks = [c0, c1];
+var c2 = [swing11, fallAttack];
+var c3 = [charge, charge12, charge12];
+var c4 = [slam11, slam12];
+var c5 = [slam21];
+var c6 = [swing11, swing12];
+var c7 = [swing11, slam12];
+var c8 = [swing11, swing12, slam11];
+var c9 = [slam11, swing12, fallAttack];
+var c10 = [sb11, sb12, sb21];
+var c11 = [sb21, fallAttack, charge12];
+var c12 = [swing21];
+meleeAttacks = [c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11];
+meleeAttacks = [c12];
 
 // ranged attacks info
 
 // currently chosen ranged attack
-rangedAttacks = [];
+var sb11r = makeEnemyAttackObj(obj_attack_absnowman_snowball_1_1);
+var sb12r = makeEnemyAttackObj(obj_attack_absnowman_snowball_1_2);
+var sb21r = makeEnemyAttackObj(obj_attack_absnowman_snowball_2_1);
+
+var r0 = [sb11r, sb12r];
+var r1 = [sb21r];
+rangedAttacks = [r0, r1];
 
 hp = 600;
 maxHp = 600;

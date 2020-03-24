@@ -177,6 +177,10 @@ if	state != CombatantStates.Dodging &&
 	// factor critical hit
 	if isCriticalHit damage = calculateCriticalHitDamage(attackObj,damage);	
 	if damage > hp damage = hp;
+	
+	if isCriticalHit {
+		audio_play_sound_at(snd_hit_critical,__x,__y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+	}
 		
 	// shielding was broken earlier by an unblockable attack
 	if isBlockBroken {

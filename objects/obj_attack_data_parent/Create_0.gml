@@ -104,6 +104,10 @@ trailPart = noone;
 trailStarts = noone;
 trailEnds = noone;
 trailPartNum = 4;
+prepTrailPart = noone;
+prepTrailStarts = noone;
+prepTrailEnds = noone;
+prepTrailPartNum = 4;
 
 // function to fire as attack starts
 attackFunc = noone;
@@ -168,6 +172,11 @@ extraHitsDamages = ds_map_create();
 hasLightRadius = false;
 lightRadiusAlpha = .2;
 lightRadiusScale = .23;
+lightRadiusScaleX = .23;
+lightRadiusScaleY = .23;
+lightRadiusOffsetX = noone;
+lightRadiusOffsetY = noone;
+lightRadiusScalesByFrame = noone;
 lightRadiusColor = c_white;
 lightRadiusSprite = spr_light_point;
 

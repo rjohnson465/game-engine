@@ -13,3 +13,7 @@ hasSetAlarm = false;
 // var sprStr = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain);
 var maskStr = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain) + "_trail";
 sprite_index = asset_get_index(maskStr);
+
+if !sprite_exists(sprite_index) {
+	instance_destroy(id, 1);
+}

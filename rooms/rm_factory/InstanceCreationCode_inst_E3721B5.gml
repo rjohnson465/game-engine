@@ -1,1 +1,2 @@
-ds_list_add(items, instance_create_depth(x,y,depth,obj_item_wire_b));
+ds_list_add(items, instance_create_depth(x,y,depth,obj_item_revive_orb));
+ds_list_add(items, makeGold(1000,1000));

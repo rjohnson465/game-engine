@@ -105,6 +105,7 @@ if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 	scr_draw_text_outline(mean(x1,x2),mean(y1,y2),s,c_white,c_white,ys,ys,0,c_black);
 }
 
+
 // stamina
 var x1 = 10;
 var y1 = 20;
@@ -132,6 +133,7 @@ if point_in_rectangle(mouse_x,mouse_y,vx+x1,vy+y1,vx+x2,vy+y2) {
 	var sh = string_height(s); 	var ys = 1;
 	scr_draw_text_outline(mean(x1,x2),mean(y1,y2),s,c_white,c_white,ys,ys,0,c_black);
 } 
+
 
 // poise 
 var doDrawPoise = ds_map_find_value(global.optionsManager.optionsMapDisplay, OPT_D_PLAYERPOISE);

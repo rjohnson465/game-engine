@@ -75,4 +75,22 @@ if attackData != noone {
 	}
 }
 
-
+// maybe make light
+if attackData != noone && attackData.hasLightRadius {
+	var lr_scale = attackData.lightRadiusScale;
+	var lr_color = attackData.lightRadiusColor;
+	var lr_alpha = attackData.lightRadiusAlpha;
+	if lr_alpha == noone {
+		var fNum = getLayerFloorNumber(owner.layer);
+		lr_alpha = calculateLightRadiusAlphaLayer(fNum);
+	}
+	var lr_spr = attackData.lightRadiusSprite;
+	if attackData.lightRadiusScaleX == noone || attackData.lightRadiusScaleY == noone {
+		light_create_layer(lr_spr, lr_scale, lr_color, lr_alpha, owner.facingDirection, true);
+	}
+	else {
+		var xs = attackData.lightRadiusScaleX;
+		var ys = attackData.lightRadiusScaleY;
+		light_create_layer_multiscale(lr_spr, xs, ys, lr_color, lr_alpha, owner.facingDirection, true)
+	}	
+}

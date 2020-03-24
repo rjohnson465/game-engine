@@ -22,9 +22,13 @@ if isFading exit;
 
 isSprinting = false;
 
+// cannot dodge if currently actively attacking or recovering?? but can during prep??
+if ds_map_size(attackingLimbs) > 0 exit;
+if ds_map_size(recoveringLimbs) > 0 exit;
+
 if  stamina > 0 &&
-	(state == CombatantStates.Idle || state == CombatantStates.Moving)
-	&& !isFrozen
+	// (state == CombatantStates.Idle || state == CombatantStates.Moving) &&
+	 !isFrozen
 	{
 	
 	// dodge cost 20 stamina @ 100% equip load
@@ -79,5 +83,6 @@ if  stamina > 0 &&
 	}
 	else dodgeDirection = facingDirection;
 	dodgeRestFrame = DODGE_REST_TOTAL_FRAMES;
+	stopAllAttacks();
 	state = CombatantStates.Dodging;
 } 

@@ -48,3 +48,13 @@ attackSoundLoop = snd_magic_poison_loop;
 zonePartNum = 15;
 
 zonePartNum2 = 5;
+
+hasLightRadius = true;
+lightRadiusScale = .25;
+lightRadiusScalesByFrame = [
+	.2, .3, .35, .4, .45,
+	.5, .55, .6, .65, .7
+	// stay at .7 until end
+];
+lightRadiusColor = c_lime;
+lightRadiusAlpha = .5;

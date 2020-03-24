@@ -23,7 +23,8 @@ y1 -= frame*2;
 var text = round(amount);
 var scale = 1;
 if frame < 11 && isCriticalHit {
-	scale = ((-1/11)*frame)+2;
+	// scale = ((-1/11)*frame)+2;
+	scale = ((-3/11)*frame)+4;
 }
 if frame > 11 {
 	draw_set_alpha(1-((frame-11)/11));

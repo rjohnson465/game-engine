@@ -51,3 +51,16 @@ zonePartNum2 = 5;
 
 turnsDuringAttack = true;
 turnSpeedAttack = 1;
+
+hasLightRadius = true;
+lightRadiusScale = .25;
+lightRadiusSprite = spr_light_point_midleft;
+lightRadiusOffsetX = 25;
+lightRadiusOffsetY = 5;
+lightRadiusScalesByFrame = [
+	[.2, .2], [.25, .2], [.3, .2], [.33, .2], [.35, .2],
+	[.4, .2], [.45, .2], [.5, .2], [.55, .2], [.6, .2]
+	// stay at [.6,2] until end
+];
+lightRadiusColor = c_lime;
+lightRadiusAlpha = .5;

@@ -26,8 +26,14 @@ if attackObj.attackData != noone sd = attackObj.attackData.staggerDuration;
 else if attackObj.isSpell sd = attackObj.spell.staggerDuration;
 else sd = attackObj.weapon.staggerDuration[attackObj.attackNumber-1];
 
-// subtract actualDamage from poiseCurrent
-poiseCurrent -= actualDamage;
+// check if weapon has poise damage
+if instance_exists(attackObj.weapon) && ds_map_find_value(attackObj.weapon.damagesPoise, attackObj.attackNumber -1) != undefined {
+	var poiseDmg = ds_map_find_value(attackObj.weapon.damagesPoise, attackObj.attackNumber -1);
+	poiseCurrent -= poiseDmg;
+} else {
+	// subtract actualDamage from poiseCurrent
+	poiseCurrent -= actualDamage;
+}
 
 // randomize();
 // var rand = random_range(0,1);

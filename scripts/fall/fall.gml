@@ -7,7 +7,6 @@ if argument_count > 0 {
 }
 
 // stop any and all attacks
-
 if object_index == global.player {
 	currentInteractableObject = noone;
 }

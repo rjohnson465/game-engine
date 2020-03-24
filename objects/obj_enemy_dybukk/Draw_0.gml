@@ -11,17 +11,19 @@ if !isAggroed && instance_exists(hershel) {
 	
 	draw_sprite_ext(beamSpr, 1, xx, yy, length, 1, facingDirection, c_white, .85);
 
-	with beamLight {
-		x = other.x; 
-		y = other.y;
-		_light_sprite = spr_light_square_midleft;
-		_light_alpha = .75;
-		_light_angle = other.facingDirection;
+	if instance_exists(beamLight) {
+		with beamLight {
+			x = other.x; 
+			y = other.y;
+			_light_sprite = spr_light_square_midleft;
+			_light_alpha = .75;
+			_light_angle = other.facingDirection;
 		
-		randomize();
-		var rand = random_range(.2, 1);
-		_light_yscale = rand;
-		_light_xscale = length / sprite_get_width(spr_light_square_midleft);
+			randomize();
+			var rand = random_range(.2, 1);
+			_light_yscale = rand;
+			_light_xscale = length / sprite_get_width(spr_light_square_midleft);
+		}
 	}
 	
 	// also burst more particles at hit zone
@@ -31,7 +33,7 @@ if !isAggroed && instance_exists(hershel) {
 	part_emitter_burst(sporeSystem, sporeEmitter, possessParticle, 4);
 	
 
-} else {
+} else if instance_exists(beamLight) {
 	beamLight.x = -1000;
 	beamLight.y = -1000;
 }

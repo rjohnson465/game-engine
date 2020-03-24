@@ -83,8 +83,8 @@ meleeAttacks = [c1, c2, c3, c4, c5, c6, c7];
 rangedAttacks = [];
 
 
-hp = 150;
-maxHp = 150;
+hp = 125;
+maxHp = 125;
 hpRegen = .5;
 
 stamina = 60;

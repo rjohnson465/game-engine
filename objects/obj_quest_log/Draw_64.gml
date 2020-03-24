@@ -240,7 +240,8 @@ if selectedQuest != noone && ds_exists(selectedQuest.questSteps,ds_type_list) {
 				if step.status == QuestStepStatus.InProgress {
 					draw_set_color(c_yellow);
 				} else if step.status == QuestStepStatus.Completed {
-					draw_set_color(c_lime);
+					// draw_set_color(c_lime);
+					draw_set_color(c_white);
 				}
 			
 				// draw quest step

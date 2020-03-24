@@ -13,8 +13,8 @@ with obj_enemy_krampuself {
 	}
 }
 
-// ALSO player must be someplace krampus cant walk to
 /*
+// ALSO player must be someplace krampus cant walk to
 with obj_enemy_krampus {
 	var p = path_add();
 	var pathExists = mp_grid_path(personalGrid, p, x, y, global.player.x, global.player.y, true);
@@ -23,7 +23,7 @@ with obj_enemy_krampus {
 		exit;
 	}
 	path_delete(p);
-}*/
+} */
 
 // make sure there is a "teleport point" this elf can path to
 var grid = ds_map_find_value(global.grids, 1);
@@ -62,6 +62,8 @@ with obj_enemy_krampuself {
 var elf = instance_create_layer(x, y, global.player.layer, obj_enemy_krampuself);
 elf.attackFrequencyTotalFramesMeleeDefault = [60, 90];
 elf.attackFrequencyTotalFramesMelee = [60, 90];
+elf.hp = 30;
+elf.maxHp = 30;
 var possibleCreateScripts = [ei_krampuself_iceaxes, ei_krampuself_iceclubs, ei_krampuself_icespears];
 
 randomize();

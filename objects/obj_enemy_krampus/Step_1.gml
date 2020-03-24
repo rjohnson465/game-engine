@@ -38,6 +38,18 @@ if hp < 1 && isAlive && !isDying {
 	
 	ds_map_destroy(pmap); pmap = -1;
 	ds_map_destroy(pmap2); pmap2 = -1;
+	
+	// activate all icebridges in room
+	with obj_ww_icebridge {
+		isActive = true;
+		image_xscale = xscale; image_yscale = yscale;
+		light_set_alpha(lightAlpha);
+	}
+	
+	// move all kelves 
+	with obj_enemy_krampuself {
+		x = 10; y = 10;
+	}
 }
 
 // Inherit the parent event

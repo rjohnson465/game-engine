@@ -9,10 +9,11 @@ isRanged = false;
 staminaCost = 10;
 staggerDuration = 10;
 
+/*
 var damagesIceSwing = ds_map_create();
 ds_map_replace(damagesIceSwing, ICE, [3,3]);
 ds_map_add_map(extraHitsDamages, 1, damagesIceSwing);
-resetCombatantsHitFrame = 13;
+resetCombatantsHitFrame = 13; */
 
 attackSound = snd_axe2h_attack_1;
 hitSound = snd_hit1;
@@ -43,7 +44,9 @@ part_type_life(snowflake,10,20);
 
 trailPart = [smoke, snowflake];
 trailPartNum = [20, 10];
-trailStarts = 13;
-trailEnds = 20;
+trailStarts = 1;
+trailEnds = 4;
 
 staggersAgainstBlocks = false;
+
+isVisible = false;

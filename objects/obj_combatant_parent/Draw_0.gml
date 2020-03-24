@@ -55,7 +55,7 @@ if state == CombatantStates.Dodging {
 if isAttackingWithCore {
 	var attackSpriteName = attackData.spriteName;
 	var attackNumber = attackData.spriteAttackNumber; var attackNumberInChain = attackData.spriteAttackNumberInChain;
-	var spr = noone; var frame = -1;
+	var spr = noone; var frame = noone;
 	if ds_map_size(preparingLimbs) > 0 {
 		var frame = ds_map_find_value(prepFrames,attackData.limbKey);
 		spr = asset_get_index(attackSpriteName+"_prep_"+string(attackNumber)+"_"+string(attackNumberInChain));

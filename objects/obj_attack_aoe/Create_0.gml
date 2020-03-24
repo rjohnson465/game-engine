@@ -92,7 +92,14 @@ if attackData != noone && attackData.hasLightRadius {
 		lr_alpha = calculateLightRadiusAlphaLayer(fNum);
 	}
 	var lr_spr = attackData.lightRadiusSprite;
-	light_create_layer(lr_spr, lr_scale, lr_color, lr_alpha, 0, true);
+	if attackData.lightRadiusScaleX == noone || attackData.lightRadiusScaleY == noone {
+		light_create_layer(lr_spr, lr_scale, lr_color, lr_alpha, owner.facingDirection, true);
+	}
+	else {
+		var xs = attackData.lightRadiusScaleX;
+		var ys = attackData.lightRadiusScaleY;
+		light_create_layer_multiscale(lr_spr, xs, ys, lr_color, lr_alpha, owner.facingDirection, true)
+	}	
 }
 
 

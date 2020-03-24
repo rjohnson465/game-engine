@@ -10,7 +10,7 @@ staminaCost = 10;
 staggerDuration = 15;
 
 var damagesIceSwing = ds_map_create();
-ds_map_replace(damagesIceSwing, ICE, [3,3]);
+ds_map_replace(damagesIceSwing, ICE, [2,2]);
 ds_map_add_map(extraHitsDamages, 1, damagesIceSwing);
 resetCombatantsHitFrame = 13;
 
@@ -47,3 +47,5 @@ trailStarts = 13;
 trailEnds = 19;
 
 staggersAgainstBlocks = false;
+
+isVisible = false;
