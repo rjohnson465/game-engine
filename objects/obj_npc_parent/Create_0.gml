@@ -1,4 +1,9 @@
-event_inherited();
+// event_inherited();
+
+origLayer = layer;
+neverDeactivate = true;
+stopsAttacks = false;
+
 name = "NPC";
 // remember this with room_data objects
 conversations = ds_list_create();

@@ -1,0 +1,2 @@
+isFed = true;
+wanders = false;

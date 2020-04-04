@@ -34,6 +34,12 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 			audio_emitter_gain(attackPrepSoundEmitter, 1);
 			audio_play_sound_on(attackPrepSoundEmitter,attackData.prepSound,0,1);
 		}
+		
+		// prep trail?
+		if attackData && instance_exists(attackData) && attackData.prepTrailPart != noone {
+			global.attackData = attackData;
+			instance_create_depth(x, y, depth, obj_attacktrail_prep);
+		}
 			
 		// prep sounds vocals
 		if array_length_1d(attackData.prepSoundsVocals) > 0 {

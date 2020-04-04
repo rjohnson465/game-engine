@@ -11,6 +11,7 @@ stopsAttacks = false;
 randomize();
 // alarm for wandering
 alarm[0] = random_range(0, 120);
+wanders = true;
 
 mooSounds = [snd_muskox_moo_1, snd_muskox_moo_2];
 // alarm for mooing

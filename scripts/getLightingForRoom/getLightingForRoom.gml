@@ -10,7 +10,8 @@ switch rm {
 	}
 	case rm_winter: {
 		var c = make_color_rgb(52, 66, 105)
-		return [c, c];
+		var verydarkgray = make_color_rgb(35, 35, 35);
+		return [verydarkgray, c];
 	}
 	case rm_xmas_town: {
 		var c = make_color_rgb(52, 66, 105)

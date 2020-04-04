@@ -12,6 +12,8 @@ var grid = mp_grid_create(0,0,hcells, vcells, gm.cell_width, gm.cell_height);
 var solids = ds_list_create();
 with obj_enemy_obstacle_parent {
 	if object_is_ancestor(object_index,obj_combatant_parent) continue;
+	if object_is_ancestor(object_index,obj_npc_parent) continue;
+	if object_index == obj_stump_frozen continue;
 	if object_is_ancestor(object_index, obj_door) && isOpen continue;
 	if variable_instance_exists(id, "isObstacleOnGrid") && !isObstacleOnGrid continue;
 	else {

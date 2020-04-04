@@ -4,7 +4,7 @@
 // Inherit the parent event
 event_inherited();
 
-name = "Herbie the Elf";
+name = "Legless the Elf";
 spriteString = "npc_elf_3";
 
 faceSprite = spr_face_elf_3; 

@@ -61,12 +61,25 @@ switch rm {
 	}
 	case rm_winter: {
 		return [
-		[snd_amb_winter_wind], 
-		// periodical sounds
-		[
-			[snd_amb_ww_sleighbells, 1000, .5, [200, 400], 30, 30],
-			[snd_amb_wolf_howl, 1000, .5, [120, 240], 30, 30]
-		]
+			// floor 1
+			[
+				["1"],
+				[snd_amb_winter_wind], 
+				// periodical sounds
+				[
+					[snd_amb_ww_sleighbells, 1000, .5, [200, 400], 30, 30],
+					[snd_amb_wolf_howl, 1000, .5, [120, 240], 30, 30]
+				]
+			],
+			// floor 0
+			[
+				["0"],
+				[snd_amb_cavern_drone], 
+				// periodical sounds
+				[
+					[snd_amb_minerocks_fall, 1000, .5, [200, 400], 30, 30],
+				]
+			]
 		]; break;
 	}
 	case rm_tundra: {

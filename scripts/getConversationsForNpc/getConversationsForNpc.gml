@@ -42,6 +42,14 @@ switch npcName {
 		getConversationsForAri(conversationsList);
 		break;
 	}
+	case "Herbie the Elf": {
+		getConversationsForHerbie(conversationsList);
+		break;
+	}
+	case "Mrs. Claus": {
+		getConversationsForMrsClaus(conversationsList);
+		break;
+	}
 }
 
 return conversationsList;

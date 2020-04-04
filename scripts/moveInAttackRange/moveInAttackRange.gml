@@ -35,11 +35,6 @@ if attackFrequencyFrame < 0 {
 			hasCalculatedWillShield = false;
 			isStrafing = false;
 			
-			if attackData && instance_exists(attackData) && attackData.prepTrailPart != noone {
-				global.attackData = attackData;
-				instance_create_depth(x, y, depth, obj_attacktrail_prep);
-			}
-			
 			state = CombatantStates.Attacking;
 		}
 	}

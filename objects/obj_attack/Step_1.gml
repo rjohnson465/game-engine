@@ -270,6 +270,14 @@ if place_meeting_layer(x,y,obj_solid_environment) || isHittingSolid {
 				} else {
 					// var dmgArr = ds_map_find_value(attackData.damages, 0);
 					var dmgType = ds_map_find_first(attackData.damages);
+					for (var i = 0; i < array_length_1d(global.ALL_ELEMENTS); i++) {
+						var el = global.ALL_ELEMENTS[i];
+						var entry = ds_map_find_value(attackData.damages, el);
+						if is_array(entry) {
+							dmgType = el;
+						}
+					}
+					
 					switch dmgType {
 						case MAGIC: { snd = snd_magic_magic_hit; break; }
 						case FIRE: { snd = snd_magic_fire_hit; break; }

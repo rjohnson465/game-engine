@@ -18,15 +18,18 @@ global.player.questsAtRewardStepCount--;
 
 if doGainXp {
 	gainXp(quest.xpReward);
+	audio_play_sound(snd_ui_quest_complete,1,0);
 }
-audio_play_sound(snd_ui_quest_complete,1,0);
+
 var itemsString = "";
 for (var i = 0; i < ds_list_size(quest.rewardItems); i++) {
 	var item = ds_list_find_value(quest.rewardItems,i);	
 	itemsString += item.name;
 	
 	addItemToInventory(item);
-	alertItemAddedToInventory(item); // this might be dumb
+	if doGainXp {
+		alertItemAddedToInventory(item); // this might be dumb
+	}
 	if i < ds_list_size(quest.rewardItems)-1 {
 		itemsString += ", ";
 	}

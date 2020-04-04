@@ -8,6 +8,11 @@ if is_array(ambs) {
 	var p = global.player;
 	var pFloorNum = getLayerFloorNumber(p.layer);
 	var pfString = string(pFloorNum);
+	if p.layerToMoveTo != noone {
+		var lay = layer_get_id(p.layerToMoveTo);
+		var layNum = getLayerFloorNumber(lay);
+		pfString = string(layNum);
+	}
 	
 	var arrLength = array_length_1d(ambs);
 	for (var i = 0; i < arrLength; i++) {

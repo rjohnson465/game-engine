@@ -24,8 +24,16 @@ if (room == rm_tundra || room == rm_clayfields) && floorNum == 1 {
 var d = depth;
 var pDepth = layer_get_depth(pLayer);
 
+// some cases in which you should not draw light layer
+// if this layer is an "underground" layer, only draw it if player is on that layer
+if room == rm_winter && floorNum == 0 && pFloorNum != 0 {
+	isActive = false; exit;
+}
+if room == rm_clayfields && floorNum == 0 && pFloorNum != 0 {
+	isActive = false; exit;
+}
+
 if floorNum <= pFloorNum {
-	
 	isActive = true;
 	light_draw_layer(vx,vy, 1, true, 1, floorNum);
 } else isActive = false;

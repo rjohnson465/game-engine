@@ -138,6 +138,7 @@ if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 &
 	speed = 0;
 }
 
+/*
 if place_meeting_layer(x,y,obj_player) && wanders {
 	jumpToNearestFreePoint(true);
 }

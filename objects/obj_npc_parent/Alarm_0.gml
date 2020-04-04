@@ -1,4 +1,5 @@
 // maybe walk
+if !wanders exit;
 randomize();
 var rand = random_range(0,1);
 if rand < .5 {

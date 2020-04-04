@@ -56,3 +56,5 @@ prepTrailPart = [smoke, snowflake];
 prepTrailStarts = 0;
 prepTrailEnds = 5;
 prepTrailPartNum = [5, 10];
+
+coolDownFrames = [10, 10];

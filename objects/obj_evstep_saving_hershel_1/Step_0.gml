@@ -19,6 +19,12 @@ if hershel.hp <= 0 {
 	
 }
 
+with obj_queststep_helpinghershel_1 {
+	if instance_number(obj_player_death) > 0 && description != "Hershel ripped out his heart to avoid possession. Speak with Ari." {
+		description = "Hershel ripped out his heart to avoid possession. Speak with Ari.";
+	}
+}
+
 if ds_exists(ghostsSpawnedList, ds_type_list) {
 	
 	var isAtLeastOneAlive = false;

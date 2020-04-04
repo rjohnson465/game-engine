@@ -33,7 +33,7 @@ part_type_alpha3(smoke, .5, .25, .1);
 part_type_size(smoke,.35,.5,0,0);
 part_type_speed(smoke,.2,1,0,0);
 part_type_direction(smoke,0,360,0,4);
-part_type_life(smoke,10,15 );
+part_type_life(smoke,25,35 );
 part1 = smoke;
 
-part1Num = 5;
+part1Num = 10;

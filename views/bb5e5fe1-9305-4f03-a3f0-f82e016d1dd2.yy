@@ -19,7 +19,11 @@
         "e0a5897e-7a23-4adf-b1e1-4ea3cc6deab7",
         "db8d7a3b-db52-40b4-b206-08cca400ad36",
         "ba084864-4ecd-4310-8793-4825c4884695",
-        "c9ee5e48-037d-4431-899d-a44e287d2dc2"
+        "c9ee5e48-037d-4431-899d-a44e287d2dc2",
+        "f3c99d98-c6f4-46c9-8085-3251ef64c1e2",
+        "f9433c8b-7fad-4817-b1be-0147aedeb409",
+        "b52b0ad4-f9be-44d7-99ef-453a900bf6be",
+        "5ec89c03-1e56-4f0c-9f22-dcdb98fb7dc6"
     ],
     "filterType": "GMObject",
     "folderName": "absnowman",

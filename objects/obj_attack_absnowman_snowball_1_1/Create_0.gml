@@ -54,3 +54,5 @@ attackSound = snd_thrown_attack;
 
 
 attackSoundsVocals = [noone];
+
+coolDownFrames = [10, 10];

@@ -1,9 +1,12 @@
-/// makeGold(min,max)
+/// makeGold(min,max*)
 /// @param min minGold
-/// @param max maxGold
+/// @param max* maxGold optional
 
 var minGold = argument[0];
-var maxGold = argument[1];
+var maxGold = minGold;
+if argument_count > 1 {
+	maxGold = argument[1];
+}
 
 // if this is gold being dropped from a monster, factor player item gold drop
 if object_is_ancestor(object_index,obj_enemy_parent) {

@@ -1,3 +1,4 @@
+/*
 var q = instance_nearest(x, y, obj_quest_savingtheholidays);
 if !instance_exists(q) || q == noone || q == undefined || !variable_instance_exists(q, "currentQuestStepIndex") {
 	x = -1000; y = -1000;

@@ -11,7 +11,7 @@ with obj_npc_parent {
 	if isInConversation isInConvo = true;
 }
 
-if instance_number(obj_quest_muskoxfeeder) && !(instance_nearest(x, y, obj_quest_muskoxfeeder).isFinished) {
+if !isFed && instance_number(obj_quest_muskoxfeeder) && !(instance_nearest(x, y, obj_quest_muskoxfeeder).isFinished) {
 	maybeAddOrRemoveFromInteractablesList(20);
 }
 
@@ -43,7 +43,7 @@ if	p.currentInteractableObject == id && instance_number(obj_quest_muskoxfeeder)
 
 
 // wander, but only if near enough to player to be on screen
-if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 {
+if state == CombatantStates.Moving && distance_to_object(global.player) < 1000 && wanders {
 	if distance_to_point(postX, postY) < 250 {
 		moveToNearestFreePoint(direction,normalSpeed,1, true);
 		facingDirection = direction;

@@ -38,6 +38,7 @@ isShowingLightRadius = true;
 if layerToMoveTo != noone {
 	layer = layer_get_id(layerToMoveTo);
 	updateLightLayer(playerLightRadius,noone,layer);
+	layerToMoveTo = noone;
 }
 
 

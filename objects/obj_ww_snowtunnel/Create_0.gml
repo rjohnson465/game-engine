@@ -6,6 +6,7 @@ stopsAttacks = false;
 material = WOOD;
 
 origLayer = layer;
+depth += 5;
 
 key = fs_generate_key();
 

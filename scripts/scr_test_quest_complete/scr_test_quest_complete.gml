@@ -3,7 +3,7 @@
 
 var questObjIndex = argument[0];
 
-questStart(questObjIndex);
+questStart(questObjIndex, false);
 
 var q = instance_nearest(x, y, questObjIndex);
 

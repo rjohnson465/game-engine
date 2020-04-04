@@ -1,4 +1,5 @@
 if !ds_exists(quest.questSteps,ds_type_list) exit;
+if quest.isFinished exit;
 
 var pos = ds_list_find_index(quest.questSteps,id);
 var nextStep = ds_list_find_value(quest.questSteps,pos+1);

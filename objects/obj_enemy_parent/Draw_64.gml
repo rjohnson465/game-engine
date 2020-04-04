@@ -251,6 +251,10 @@ else if isBoss && isAlive {
 			var y1 = BOSS_HP_Y1 - yOff; var y2 = BOSS_HP_Y2 - yOff;
 			
 			draw_healthbar(BOSS_HP_X1, y1, BOSS_HP_X2, y2, (hp/maxHp)*100, c_black, c_red, c_maroon, 0, true, true);
+			
+			// outline healthbar
+			draw_set_color(c_white);
+			draw_rectangle(BOSS_HP_X1, y1, BOSS_HP_X2, y2, true);
 	
 			// maybe draw poise
 			var doDrawPoise = ds_map_find_value(global.optionsManager.optionsMapDisplay, OPT_D_ENEMYPOISE);

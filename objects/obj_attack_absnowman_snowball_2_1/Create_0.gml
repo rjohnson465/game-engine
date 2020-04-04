@@ -40,3 +40,5 @@ attackSound = snd_thrown_attack;
 // attackSoundLoop = snd_magic_ice_loop;
 
 attackSoundsVocals = [snd_enemy_troll_roar_1];
+
+coolDownFrames = [10, 10];

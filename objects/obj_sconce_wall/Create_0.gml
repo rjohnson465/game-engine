@@ -58,9 +58,10 @@ floorNum = getLayerFloorNumber(layer);
 
 // var xx = x+(.5*sprite_width); var yy = y+(.5*sprite_height);
 
-var xx = x + lengthdir_x(100, image_angle); 
-var yy = y + lengthdir_y(100, image_angle);
+var xx = x + lengthdir_x(16, image_angle); 
+var yy = y + lengthdir_y(500, image_angle);
 
+/*
 var ofd = image_angle;
 var sx = x + 100; var sy = y + 16;
 var cx = x; var cy = y;
@@ -72,6 +73,10 @@ var ny = (cs * (sy - cy)) - (sn * (sx - cx)) + cy;
 	
 var xx = nx;
 var yy = ny;
+*/
+
+var xx = x;
+var yy = y;
 
 part_emitter_region(system, emitter, xx-5, xx+5, yy-5, yy+5, ps_shape_diamond, ps_distr_gaussian);
 

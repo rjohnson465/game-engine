@@ -135,7 +135,6 @@ part_type_speed(smoke,.5,2,0,0);
 part_type_direction(smoke,0,360,0,4);
 part_type_life(smoke,45,60);
 sporeParticle = smoke;
-
 part_system_depth(sporeSystem, layer_get_depth(layer)+1);
 
 isLightRadiusAlwaysOn = true;

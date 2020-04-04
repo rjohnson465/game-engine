@@ -133,13 +133,13 @@ switch(state) {
 	}
 	case CombatantStates.AggroMelee: {
 		if type == CombatantTypes.Player break;
-		jumpToNearestFreePoint(true, true);
+		// jumpToNearestFreePoint(true, true);
 		chooseMeleeAttack();
 		break;
 	}
 	case CombatantStates.AggroRanged: {
 		if type == CombatantTypes.Player break;
-		jumpToNearestFreePoint(true, true); 
+		// jumpToNearestFreePoint(true, true); 
 		chooseRangedAttack();
 		break;
 	}
@@ -482,7 +482,7 @@ switch(state) {
 				}
 				else {
 					state = CombatantStates.Idle;
-					jumpToNearestFreePoint(true, true);
+					// jumpToNearestFreePoint(true, true);
 				}
 			}
 		}
