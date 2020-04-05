@@ -5,5 +5,5 @@
 event_inherited();
 
 /*
-draw_set_alpha(.2);
+draw_set_alpha(.15);
 mp_grid_draw(personalGrid);

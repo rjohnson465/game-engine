@@ -8,7 +8,11 @@ if lockOnTarget == noone || (currentMeleeAttack == noone && currentRangedAttack 
 	}
 	exit;
 }
+
 // move to lockOnTarget until in range for chosen attack
+
+
+/*
 var wallsBetweenTarget = script_execute(scr_collision_line_list_layer,x,y,lockOnTarget.x,lockOnTarget.y,obj_wall_parent,true,true);
 // make sure at least one of those walls is not a no interrupt wall
 var doSwitch = false;
@@ -23,11 +27,11 @@ if wallsBetweenTarget != noone && ds_exists(wallsBetweenTarget, ds_type_list) {
 		}
 	}
 }
+
 if doSwitch {
 	wallsBetweenTarget = noone;
-}
-//var allyType = object_is_ancestor(object_index,obj_enemy_parent) ? obj_enemy_parent : obj_goodguy_parent;
-//var alliesBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,allyType,true,true);
+} */
+
 var fallzonesBetweenTarget = scr_collision_line_list_layer(x,y,lockOnTarget.x,lockOnTarget.y,obj_fallzone,true,true);
 var enemyObstaclesBetweenTarget = noone; 
 if type == CombatantTypes.Enemy {
@@ -39,7 +43,6 @@ if enemyObstaclesBetweenTarget != noone {
 	for (var i = 0; i < ds_list_size(enemyObstaclesBetweenTarget); i++) {
 		var el = ds_list_find_value(enemyObstaclesBetweenTarget,i);
 		// enemies, feel free to not consider your targets "obstacles" you dolts
-		
 		if object_is_ancestor(el.object_index,obj_goodguy_parent) || object_is_ancestor(el.object_index, obj_wall_nocast_nointerrupt) || el.depth > depth {
 			//ds_list_delete(enemyObstaclesBetweenTarget,i);
 			ds_list_add(garbage, el);
@@ -49,7 +52,6 @@ if enemyObstaclesBetweenTarget != noone {
 			ds_list_add(garbage, el);
 		}
 	}
-	
 }
 
 for (var i = 0; i < ds_list_size(garbage); i++) {
@@ -68,15 +70,17 @@ ds_list_destroy(garbage); garbage = -1;
 var pred = currentMeleeAttack == noone ? 
 	// predicate for ranged attacks -- check that we're in range and there are no walls between us and target
 	(array_length_1d(rangedAttacks) > 0 && distance_to_object(lockOnTarget) > getRangeForAttackIndex(currentRangedAttack,false)) 
-		|| wallsBetweenTarget != noone || enemyObstaclesBetweenTarget >= 0 || (layer != lockOnTarget.layer) || !canSeeLockOnTarget() : 
+		/*|| wallsBetweenTarget != noone*/ || enemyObstaclesBetweenTarget >= 0 || (layer != lockOnTarget.layer) || !canSeeLockOnTarget() : 
 	((array_length_1d(meleeAttacks) > 0 && distance_to_object(lockOnTarget) > getRangeForAttackIndex(currentMeleeAttack, true)) || fallzonesBetweenTarget != noone ) 
 	|| (layer != lockOnTarget.layer) || !canSeeLockOnTarget();
 
 if currentMeleeAttack == noone && array_length_1d(rangedAttacks) == 0 pred = true; // if we have no possible ranged attack and no melee attack chose, you have to get closer!
 
+/*
 if wallsBetweenTarget != noone && ds_exists(wallsBetweenTarget, ds_type_list) {
 	ds_list_destroy(wallsBetweenTarget); wallsBetweenTarget = -1;
-}
+}*/
+
 if fallzonesBetweenTarget != noone && ds_exists(fallzonesBetweenTarget, ds_type_list) {
 	ds_list_destroy(fallzonesBetweenTarget); fallzonesBetweenTarget = -1;
 }

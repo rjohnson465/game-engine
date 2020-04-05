@@ -46,6 +46,10 @@ if !hasSetAlarm {
 							}
 						}
 					
+						// clear grid cells this object used to occupy
+						var grid = ds_map_find_value(global.grids, getLayerFloorNumber(layer));
+						mp_grid_clear_rectangle(grid, bbox_left, bbox_top, bbox_right, bbox_bottom);
+					
 						// destroy item (after 2 second delay)
 						visible = false;
 						sprite_index = -1;

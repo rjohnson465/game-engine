@@ -1,3 +1,4 @@
+/*
 if global.activateAll {
 	instance_activate_all();
 	alarm[5] = 1;
@@ -71,11 +72,12 @@ instance_activate_object(obj_persistent_environment);
 
 instance_activate_object(obj_fountain_dark);
 
-/*
+
 if global.isTutorialInProgress {
 	with obj_tutorial_message {
 		instance_deactivate_object(id);
 	}
-}*/
+}
 
 alarm[5] = deactivationSteps;
+*/

@@ -56,9 +56,9 @@ if state == CombatantStates.Attacking {
 			for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
 				var attackInChain = ds_map_find_value(recoveringLimbs,hand);
 				
-				var recoverHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
+				// var recoverHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			
-				var recoverSprite = asset_get_index("spr_"+spriteString+recoverHandItemSprite+"_recover_"+string(attackInChain));
+				// var recoverSprite = asset_get_index("spr_"+spriteString+recoverHandItemSprite+"_recover_"+string(attackInChain));
 				var frame = ds_map_find_value(recoverFrames,hand);
 				if hand == "r" {
 					//draw_sprite_ext(recoverSprite,frame,x,y,1,1,facingDirection,c_white,1);

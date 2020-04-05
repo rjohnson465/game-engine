@@ -4,7 +4,6 @@
 if ds_map_size(recoveringLimbs) != 0 {
 	var hand = ds_map_find_first(recoveringLimbs);
 	for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
-		var weapon = hand == "l" ? leftHandItem : rightHandItem;
 		var attackInChain = ds_map_find_value(recoveringLimbs,hand);
 		var recoverFrame = ds_map_find_value(recoverFrames,hand);
 		var recoverFrameTotal = ds_map_find_value(recoverFrameTotals,hand);

@@ -5,8 +5,8 @@
 //var ppx = path_get_x(path,path_positionprevious); var ppy = path_get_y(path,path_positionprevious);
 //var px = path_get_x(path,path_position); var py = path_get_y(path, path_position);
 
-var pathNextX = path_get_x(path_index,path_position+.01);
-var pathNextY = path_get_y(path_index,path_position+.01);
+// var pathNextX = path_get_x(path_index,path_position+.01);
+// var pathNextY = path_get_y(path_index,path_position+.01);
 
 
 if lockOnTarget != noone && substate != CombatantMoveSubstates.ReturningToPost {
@@ -43,8 +43,4 @@ if lockOnTarget != noone && substate != CombatantMoveSubstates.ReturningToPost {
 
 	functionalSpeed = normalSpeed*slowedSpeedModifier;
 	facingDirection = direction; ///???
-}
-
-if functionalSpeed == NaN {
-	var a = 3;
 }

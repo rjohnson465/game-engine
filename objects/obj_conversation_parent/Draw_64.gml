@@ -32,8 +32,6 @@ if isActive && currentStep != noone {
 			var speakerSprite = 
 				variable_instance_exists(speakerObj, "faceSprite") ? speakerObj.faceSprite : -1;
 		
-			var vw = view_get_wport(view_camera[0]);
-			// var faceX = xx - vw/4 - sprite_get_width(spr_item_slot) - 15; 
 			var faceX = xx - (.5*sw) - rectPadding - 15 - sprite_get_width(spr_item_slot);	
 			var faceY = yy - rectPadding;
 			var nameX = faceX; var nameY = faceY - string_height("s") - 5;

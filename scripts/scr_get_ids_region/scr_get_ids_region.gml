@@ -9,7 +9,6 @@ n = 0;
 //arr[0] = noone;
 list = ds_list_create();
 var objType = argument[0];
-var objectName = object_get_name(objType.object_index);
 with (argument[0]) {
    if (point_in_rectangle(x, y, argument[1], argument[2], argument[3], argument[4])) {
       //arr[n++] = id;

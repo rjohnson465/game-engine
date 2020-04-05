@@ -66,7 +66,3 @@ ds_map_destroy(m1); m1 = -1; // what does m2 evalute to now?
 
 var m3 = ds_map_create();
 var m3 = ds_map_create();
-
-
-var a = 3;
-

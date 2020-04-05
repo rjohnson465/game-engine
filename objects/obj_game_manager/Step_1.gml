@@ -10,7 +10,13 @@ if global.isPopulatingGrids {
 	}
 	// then when next step happens, actually populate grids
 	else {
+		
+		var t1 = current_time;
 		populateGrids();
+		var t2 = current_time;
+		var diff = t2 - t1;
+		show_debug_message("grid population took: " + string(diff) + "ms");
+		
 		if global.respawnEnemiesAfterGridsPopulate {
 			respawnEnemies(global.respawnOnlyBosses);
 			with global.player {

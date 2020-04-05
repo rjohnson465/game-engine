@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-var p = global.player;
 if isInUse {
 	
 	var hf = instance_nearest(x, y, obj_item_health_flask);

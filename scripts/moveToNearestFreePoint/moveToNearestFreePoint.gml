@@ -150,8 +150,3 @@ else {
 	ds_list_destroy(ridges); ridges = -1;
 }
 //ds_list_destroy(additionalObjects); additionalObjects = -1;
-
-if x == NaN {
-	var a = 3;
-}
-

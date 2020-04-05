@@ -8,7 +8,7 @@ emitter2 = part_emitter_create(system2);
 partDepth = global.enviroPartDepth;
 partLayer = global.enviroPartLayer;
 
-var partDrawDepth = layer_get_depth(partLayer) - 1000;
+// var partDrawDepth = layer_get_depth(partLayer) - 1000;
 part_system_depth(system1, layer_get_depth(partLayer)-1000);
 part_system_depth(system2, layer_get_depth(partLayer)-1000);
 

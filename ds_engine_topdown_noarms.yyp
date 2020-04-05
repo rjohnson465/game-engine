@@ -13927,6 +13927,14 @@
             }
         },
         {
+            "Key": "6a2ffe20-d034-47ef-9255-7f338253dce6",
+            "Value": {
+                "id": "cb510acb-e7ef-42a4-8f03-961d9ae81876",
+                "resourcePath": "objects\\obj_world_optimizer\\obj_world_optimizer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "6a4c24be-157f-48f2-8fd6-8ad8ad6e50b8",
             "Value": {
                 "id": "7875b7ea-968d-4cc6-95fb-3a7a6722771a",

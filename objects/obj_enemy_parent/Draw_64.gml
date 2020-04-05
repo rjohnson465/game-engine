@@ -111,7 +111,6 @@ if !isBoss {
 		var percentHp = (id.hp / id.maxHp)*100;
 		// percentX 
 		var width = x2 - x1; var perDec = percentHp/100;
-		var px = x1+(width*perDec);
 		draw_healthbar(x1,y1,x2,y2,percentHp,c_black,c_red,c_maroon,0,1,1);
 		draw_set_color(c_white);
 		draw_rectangle(x1,y1,x2,y2,1);

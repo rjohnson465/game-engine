@@ -102,11 +102,6 @@ with global.player {
 	y = other.teleportY;
 }
 
-var p = global.player;
-var l = p.layer;
-var lname = layer_get_name(l);
-var xx = p.x; 
-var yy = p.y;
 
 updatePersistentElementProperty(id, "isDoneFilling", true);
 

@@ -19,7 +19,7 @@ else if isSelectorInInventory {
 			do {
 				x1 -= inv.slotWidth;
 				//y1 -= inv.slotHeight;
-				var _xx = x1;
+				// var _xx = x1;
 				var _yy = y1;
 				var _itemMaybe = getItemAtSelectorPosition(id);
 				var _xBound = MENUS_TOPLEFT_X;

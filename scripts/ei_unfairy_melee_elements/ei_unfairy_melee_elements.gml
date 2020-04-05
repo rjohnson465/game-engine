@@ -6,17 +6,16 @@
 
 // TODO..............
 
-var hand = argument[0];
-var handStr = hand + "m1";
-var meleeWeapon = ds_map_find_value(handItems, handStr);
+// var hand = argument[0];
+// var handStr = hand + "m1";
 
-var elements = argument[1];
-var elDamages = argument[2];
+//var elements = argument[1];
+//var elDamages = argument[2];
 
-for (var i = 0; i < array_length_1d(elements); i++) {
-	var el = elements[i];
-	var damageArr = elDamages[i];
-}
+//for (var i = 0; i < array_length_1d(elements); i++) {
+//	var el = elements[i];
+//	var damageArr = elDamages[i];
+//}
 
 // 2 random elements
 randomize();

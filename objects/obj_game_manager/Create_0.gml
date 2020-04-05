@@ -1,5 +1,3 @@
-var n = instance_number(object_index);
-
 if instance_number(object_index) > 1 {
 	instance_destroy(id,0);
 	exit;
@@ -230,13 +228,15 @@ bgmManager = instance_create_depth(x,y,1,obj_bgm_manager);
 
 isMouseOverBelt = false;
 
+worldOptimizer = instance_create_depth(x, y, 1, obj_world_optimizer);
+
 // every x steps, deactivate solid enviornment objects that are far away out of the view
-#macro DEACTIVATION_STEPS_DEFAULT 15;
+/*#macro DEACTIVATION_STEPS_DEFAULT 15;
 deactivationSteps = DEACTIVATION_STEPS_DEFAULT;
 deactivationBorder = 200;
 alarm[5] = deactivationSteps;
 
-persistent = true;
+persistent = true; */
 
 selectedItemFilterAlpha = .75;
 selectedItemFilterAlphaFrame = 60;

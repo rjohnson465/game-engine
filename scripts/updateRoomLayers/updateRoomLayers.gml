@@ -17,9 +17,7 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 	var l = layers[i];
 	var lName = layer_get_name(l);
 	if lName == "Background" break;
-	var roomName = room_get_name(room);
 	var l = layer_get_id(lName);
-	var le = layer_exists(l);
 	
 	if string_pos("_floor_",lName) {
 		var lNum = real(string_char_at(lName,string_length(lName)));

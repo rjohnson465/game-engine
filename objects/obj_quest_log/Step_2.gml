@@ -1,6 +1,5 @@
 if !global.ui.isShowingMenus || global.ui.currentMenu != SKILLS || !isActive exit;
 var pad = global.player.gamePadIndex;
-var p = global.player;
 
 if isActive && gamepad_is_connected(pad) {
 

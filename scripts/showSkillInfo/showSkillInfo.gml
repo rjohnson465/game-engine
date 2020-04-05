@@ -44,7 +44,7 @@ for (var i = 0; i < ds_map_size(skill.bonusesMap); i++) {
 	if skill.object_index == obj_skill_hpmax || skill.object_index == obj_skill_staminamax {
 		var bonus =	ds_map_find_value(skill.bonusesMap,currentBonus)
 		var bonusNext = ds_map_find_value(skill.nextLevelBonusesMap,currentBonus);
-		var baseStat = skill.object_index == obj_skill_hpmax ? global.player.maxHp : global.player.maxStamina;
+		// var baseStat = skill.object_index == obj_skill_hpmax ? global.player.maxHp : global.player.maxStamina;
 		var s = skill.object_index == obj_skill_hpmax ? "Additional HP: " : "Additional Stamina: ";
 		draw_text(skillDescriptionCol1X,descriptionHandleY2+(i+1)*25,s + string(bonus));
 		draw_text(skillDescriptionCol2X,descriptionHandleY2+(i+1)*25,s + string(bonusNext));

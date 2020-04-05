@@ -20,8 +20,9 @@ if gridTempFreeX != noone {
 		
 		
 		// TODO -- maybe make sure there are no enemies in this grid cell at all before marking it as blocked
-		// populateGrids();
-		global.isPopulatingGrids = true;
+		
+		mp_grid_add_cell(personalGrid, gridTempFreeX, gridTempFreeY);
+		
 		
 		// reset gridTempFree values so this check doesn't happen every step
 		gridTempFreeX = noone;

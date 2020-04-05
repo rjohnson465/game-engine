@@ -90,7 +90,9 @@ torchSoundId = noone;
 MAXGAIN = .1;
 
 origLayer = layer;
-// to draw under hands
+// to draw over player
 var lDepth = layer_get_depth(origLayer);
-lDepth += 2;
+lDepth -= 2;
 depth = lDepth;
+
+part_system_depth(system, depth);

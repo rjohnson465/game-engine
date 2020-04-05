@@ -56,12 +56,16 @@ if	// isCurrentInteractableObject &&
 		isOpen = true;
 		removeFromInteractablesList();
 		updatePersistentElementProperty(id,"isOpen",true);
+		
+		// clear grid cells this object used to occupy
+		var grid = ds_map_find_value(global.grids, getLayerFloorNumber(layer));
+		mp_grid_clear_rectangle(grid, bbox_left, bbox_top, bbox_right, bbox_bottom);
+		
 		sprite_index = noone;
 		alarm[0] = 30;
 		audio_play_sound_at(openingSound,x,y,depth,500,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		light_destroy_caster_layer(getLayerFloorNumber(layer));
 		
-		global.isPopulatingGrids = true;
-		// populateGrids();
+		
 	} 
 } 
