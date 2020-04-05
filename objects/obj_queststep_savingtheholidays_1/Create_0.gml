@@ -6,4 +6,4 @@ event_inherited();
 
 status = QuestStepStatus.InProgress;
 
-description = "Talk to the locals of Winter Wonderground.";
+description = "Talk to Winter Wonderground locals";

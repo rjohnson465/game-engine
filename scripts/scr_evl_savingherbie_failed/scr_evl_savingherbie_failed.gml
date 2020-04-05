@@ -9,14 +9,12 @@ if ev.object_index == obj_event_saving_herbie {
 	description = "Herbie fled. Find him back at the wolf den to try again.";
 	
 	with obj_npc_herbie {
-		x = initialPostX;
-		y = initialPostY;
+		isInteractingWithPlayer = false;
+		global.isInteractingWithNpc = false;
+		x = wolfDenPostX;
+		y = wolfDenPostY;
 		path_end();
 		speed = 0;
-		
-	}
-	
-	with obj_npc_parent {
-		refreshNpcConversations();
+		alarm[1] = 1;
 	}
 }

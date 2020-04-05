@@ -219,8 +219,9 @@ if selectedQuest != noone && ds_exists(selectedQuest.questSteps,ds_type_list) {
 	// draw quest description
 	var maxW = sqBottomRightX-sqTopLeftX-15;
 	var sh = string_height_ext(selectedQuest.description,-1,maxW); var sw = string_width_ext(selectedQuest.description,-1,maxW);
-	draw_set_halign(fa_left); draw_set_valign(fa_top); var yy = sqTopLeftY+handlesHeight+15;
-	draw_text_ext(sqTopLeftX+8,yy,selectedQuest.description,-1,maxW)
+	draw_set_halign(fa_center); draw_set_valign(fa_top); var yy = sqTopLeftY+handlesHeight+15;
+	draw_set_font(font_small);
+	draw_text_ext(mean(sqTopLeftX+8, sqTopLeftX+8+maxW),yy,selectedQuest.description,-1,maxW)
 	
 	// draw each quest step
 	var cumY = yy+sh;
@@ -232,16 +233,18 @@ if selectedQuest != noone && ds_exists(selectedQuest.questSteps,ds_type_list) {
 		
 		cumY += sh+10;
 		
+		draw_set_font(font_small);
+		
 		if step.status != QuestStepStatus.Unstarted {
 			
 			
 			if !step.isRewardStep || !step.canClaimRewardFromQuestLog {
 				// get quest step color
 				if step.status == QuestStepStatus.InProgress {
-					draw_set_color(c_yellow);
+					draw_set_color(c_white);
 				} else if step.status == QuestStepStatus.Completed {
 					// draw_set_color(c_lime);
-					draw_set_color(c_white);
+					draw_set_color(c_ltgray);
 				}
 			
 				// draw quest step

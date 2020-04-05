@@ -13,3 +13,7 @@ var event = instance_nearest(x, y, obj_event_saving_herbie);
 if instance_exists(savingherbie) && savingherbie.currentQuestStepIndex == 1 && (!instance_exists(event)) {
 	ds_list_add(conversationsList, scr_conv_herbie_start_escort());
 }
+
+if instance_exists(savingherbie) && savingherbie.currentQuestStepIndex == 1 && instance_exists(event) {
+	ds_list_add(conversationsList, scr_conv_herbie_abandon_escort());
+}

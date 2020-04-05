@@ -6,14 +6,16 @@ var herbieSpeed = 4;
 
 var evstep = id;
 with herbie {
-	isInteractable = false;
-	isInteractingWithPlayer = false;
-	global.isInteractingWithNpc = false;
+	// isInteractable = false;
+	// isInteractingWithPlayer = false;
+	// global.isInteractingWithNpc = false;
 	
 	switch state {
 		case CombatantStates.Idle: {
 			path_end();
 			speed = 0;
+			
+			if isInteractingWithPlayer break;
 			
 			// wait in idle for a while?
 			if other.idleFrame < 30 {
@@ -52,6 +54,11 @@ with herbie {
 			break;
 		}
 		case CombatantStates.Moving: {
+			
+			if isInteractingWithPlayer {
+				state = CombatantStates.Idle;
+				break;
+			}
 			
 			other.justReachedPathObjective = false;
 			facingDirection = direction;

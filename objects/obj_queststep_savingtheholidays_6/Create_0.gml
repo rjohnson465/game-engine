@@ -6,4 +6,4 @@ event_inherited();
 
 status = QuestStepStatus.Unstarted;
 
-description = "Go to the Abominable Lands, south of Winter Wonderground";
+description = "Go to the Abominable Lands";

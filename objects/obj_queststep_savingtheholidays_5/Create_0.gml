@@ -6,4 +6,4 @@ event_inherited();
 
 status = QuestStepStatus.Unstarted;
 
-description = "Meet Santa and David in central Winter Wonderground, in the Woods of Peace";
+description = "Meet Santa and David in Woods of Peace";
