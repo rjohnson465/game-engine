@@ -66,6 +66,7 @@ var c0 = [slash1];
 var c1 = [headthrowmelee];
 var c2 = [slash1, slash2];
 meleeAttacks = [c0, c1, c2];
+// meleeAttacks = [c2];
 
 // ranged attacks info
 var headthrow = makeEnemyAttackObj(obj_attack_dybukk_headthrow_1_1);

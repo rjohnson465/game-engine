@@ -78,6 +78,16 @@ if isAttackingWithCore {
 	
 	
 	if spr != noone && frame >= 0 {
+		
+		//var c = c_lime;
+		//if ds_map_size(preparingLimbs) > 0 c = c_yellow;
+		//else if ds_map_size(recoveringLimbs) > 0 c = c_red;
+		
+		//if currentMeleeAttack >= 0 {
+		//	var k = fs_generate_key(id);
+		//	show_debug_message(string(k) + ": " + string(frame));
+		//}
+		
 		draw_sprite_ext(spr,frame,x,y,scale,scale,facingDirection,image_blend,alpha);
 		
 		// slowed

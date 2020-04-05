@@ -3,12 +3,12 @@ if attackNumber == noone exit;
 var isRanged = currentRangedAttack != noone;
 
 // find attack data object
-var attackData = noone;
+var ad = noone;
 var attackChain = isRanged ? rangedAttacks[attackNumber] : meleeAttacks[attackNumber];
 if attackNumberInChain == noone {
-	attackData = attackChain[0];
+	ad = attackChain[0];
 } else {
-	attackData = attackChain[attackNumberInChain-1];
+	ad = attackChain[attackNumberInChain-1];
 }
 
 // update attackFrames values
@@ -17,25 +17,27 @@ if ds_map_size(attackingLimbs) != 0 {
 	for (var i = 0; i < ds_map_size(attackingLimbs); i++) {
 		var attackObj = noone;
 		with obj_attack {
-			if owner = other.id && limbKey == limb {
+			if owner == other.id && limbKey == limb && !hasSetAlarm && attackData.object_index == ad.object_index {
 				attackObj = id;
 			}
 		}
 		if attackObj != noone {
+			
 			ds_map_replace(attackFrames,limb,attackObj.image_index);
 			
+			
 			// maybe play a mid-attack sound
-			if attackData.attackSoundMid != noone && attackData.attackSoundMidFrame != noone {
-				if attackObj.image_index == attackData.attackSoundMidFrame {
-					audio_play_sound_at(attackData.attackSoundMid, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+			if ad.attackSoundMid != noone && ad.attackSoundMidFrame != noone {
+				if attackObj.image_index == ad.attackSoundMidFrame {
+					audio_play_sound_at(ad.attackSoundMid, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 				}
 			}
 			
-			if attackData.type == AttackTypes.Charge {
+			if ad.type == AttackTypes.Charge {
 				var chargeDir = point_direction(x,y,chargePointX,chargePointY);
 				turnToFacePoint(turnSpeed,chargePointX,chargePointY);
-				var chargeSpeed = attackData.chargeSpeed > 0 ? attackData.chargeSpeed : 2*functionalSpeed;
-				if isSlowed && attackData.chargeSpeed > 0 {
+				var chargeSpeed = ad.chargeSpeed > 0 ? ad.chargeSpeed : 2*functionalSpeed;
+				if isSlowed && ad.chargeSpeed > 0 {
 					chargeSpeed = chargeSpeed * slowedSpeedModifier;
 				}
 				moveToNearestFreePoint(chargeDir,chargeSpeed,true);
