@@ -49,12 +49,29 @@ if ds_list_size(ridges) > 0 {
 	}
 }
 
+var solidNpcs = ds_list_create();
+with obj_npc_parent {
+	if isSolid && distance_to_object(global.player) < 15 {
+		ds_list_add(solidNpcs, id);
+	}
+}
+var wouldHitSolidNpc = false;
+if id == global.player && ds_list_size(solidNpcs) > 0 {
+	for (var i = 0; i < ds_list_size(solidNpcs); i++) {
+		var n = ds_list_find_value(solidNpcs, i);
+		if place_meeting_layer(x + lengthdir_x(sp, d), y + lengthdir_y(sp, d), n) {
+			wouldHitSolidNpc = true;
+		}
+	}
+}
+
+
 var oldX = x;
 var oldY = y;
 var dir = d;
 var pred1 = includesFallzones ? 
-			!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge
-			: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) && !wouldHitRidge;
+			!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge && !wouldHitSolidNpc
+			: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !wouldHitRidge && !wouldHitSolidNpc; 
 
 // if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) {
 if pred1 {
@@ -80,10 +97,19 @@ else {
 				}
 			}
 		}
+		var wouldHitSolidNpc = false;
+		if id == global.player && ds_list_size(solidNpcs) > 0 {
+			for (var i = 0; i < ds_list_size(solidNpcs); i++) {
+				var n = ds_list_find_value(solidNpcs, i);
+				if place_meeting_layer(x + lengthdir_x(sp, dir), y + lengthdir_y(sp, dir), n) {
+					wouldHitSolidNpc = true;
+				}
+			}
+		}
 		
 		var pred =	includesFallzones ? 
-					!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge
-					: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) && !wouldHitRidge;
+					!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge && !wouldHitSolidNpc
+					: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !wouldHitRidge && !wouldHitSolidNpc;
 		
 		//if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) {
 		if pred {	
@@ -100,8 +126,17 @@ else {
 					}
 				}
 			}
+			var wouldHitSolidNpc = false;
+			if id == global.player && ds_list_size(solidNpcs) > 0 {
+				for (var i = 0; i < ds_list_size(solidNpcs); i++) {
+					var n = ds_list_find_value(solidNpcs, i);
+					if place_meeting_layer(x, y, n) {
+						wouldHitSolidNpc = true;
+					}
+				}
+			}
 			
-			if place_meeting_layer(x,y,objectsToAvoid) || wouldHitRidge || abs(angle_difference(d,dir) > 100) {
+			if place_meeting_layer(x,y,objectsToAvoid, solidNpcs) || wouldHitRidge || abs(angle_difference(d,dir) > 100) {
 				x = oldX;
 				y = oldY;
 			} else {
@@ -112,8 +147,8 @@ else {
 			
 			
 			pred =	includesFallzones ? 
-					!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge
-					: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) && !wouldHitRidge;
+					!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge && !wouldHitSolidNpc
+					: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !wouldHitRidge && !wouldHitSolidNpc;
 		}
 		dir = (dir + angMult)%360;
 	}
@@ -128,7 +163,7 @@ else {
 		}				
 	}
 	// only move if some angle was ok
-	if dir == d exit;
+	// if dir == d exit;
 	if dir != d && abs(angle_difference(d,dir)) < 90 {
 		// bigger angle diff = slower speed
 		var diff = abs(angle_difference(d,dir));
@@ -148,5 +183,6 @@ else {
 	}
 	ds_list_destroy(possibleAngles); possibleAngles = -1;
 	ds_list_destroy(ridges); ridges = -1;
+	ds_list_destroy(solidNpcs); solidNpcs = -1;
 }
 //ds_list_destroy(additionalObjects); additionalObjects = -1;

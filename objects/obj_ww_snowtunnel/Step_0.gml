@@ -48,7 +48,7 @@ if	p.currentInteractableObject == id
 				// path_add_point(pathToTunnel, otherTunnelEntrance.x - 500, otherTunnelEntrance.y - 100, 100);
 				
 				path_set_closed(pathToTunnel, false);
-				path_start(pathToTunnel, 25, path_action_stop, true);
+				path_start(pathToTunnel, other.TUNNEL_SPEED, path_action_stop, true);
 				
 				global.gameManager.deactivationSteps = 2;
 			}

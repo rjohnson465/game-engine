@@ -12,7 +12,8 @@
         "ca36cd8c-549b-46d0-ad7d-567ce0763f21",
         "f8e2e1f7-4498-4e08-91c0-d218e8b1bab4",
         "d6aec032-a9df-4a70-8298-b1259e5f3b16",
-        "b4ed8a07-ab5d-48e9-bc28-e2722135b61c"
+        "b4ed8a07-ab5d-48e9-bc28-e2722135b61c",
+        "81b6685f-3435-41c4-a248-16158f578ab8"
     ],
     "filterType": "GMObject",
     "folderName": "quest_items",

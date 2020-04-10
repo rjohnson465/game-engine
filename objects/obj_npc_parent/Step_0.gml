@@ -4,7 +4,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	(gamepad_button_check_pressed(global.player.gamePadIndex,gp_face1) && !global.ui.isShowingMenus && hasReleasedInteract && !isInConversation)
 }
 
-if distance_to_object(obj_player) < 20 && layer == global.player.layer && !global.isWishing && !global.canLoot && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && !isInConversation {
+if distance_to_object(obj_player) < distToInteract && layer == global.player.layer && !global.isWishing && !global.canLoot && !global.isLooting && global.player.isAlive && !global.ui.isShowingMenus && !isInConversation {
 	global.canInteractWithNpc = true;
 } else {
 	global.canInteractWithNpc = false;
@@ -17,11 +17,17 @@ with obj_item_drop {
 	}
 }
 
-maybeAddOrRemoveFromInteractablesList(20);
-
+maybeAddOrRemoveFromInteractablesList(distToInteract);
 
 var _ici = global.player.currentInteractableObject == id;
 var _layersEqual = layer == global.player.layer;
+
+var isInConvWithOtherNpc = false;
+with obj_npc_parent {
+	if id != other && isInConversation {
+		isInConvWithOtherNpc = true;
+	}
+}
 
 if	isInteractable &&
 	global.player.currentInteractableObject == id &&
@@ -32,6 +38,7 @@ if	isInteractable &&
 	global.player.isAlive && 
 	!global.ui.isShowingMenus && 
 	interactInputReceived &&
+	!isInConvWithOtherNpc &&
 	!isInConversation && 
 	!isInteractingWithPlayer 
 	{

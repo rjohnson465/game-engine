@@ -128,13 +128,19 @@ if state != CombatantStates.Dodging && state != CombatantStates.Staggering && !i
 	updateMoveSpriteAndImageSpeed();
 	
 	// normally draw base sprite -- on top of hands
+	
+	if variable_instance_exists(id, "eventKey") && eventKey == "icfb" {
+		var a = 3;
+	}
+	
 	alpha = 1;
 	scale = image_xscale;
-	var scaleFactor = 1;
+	var scaleFactor = image_xscale;
 	
 	// fairies float
 	if isFairy || isFloating {
 		scale = .1*cos((pi*floatingFrame)/30)+.9; // normal floating
+		scale *= scaleFactor;
 	} 
 	
 	// jumping

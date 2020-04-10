@@ -10,7 +10,8 @@
         "d7b04489-27c9-4493-ab19-f70972ab083b",
         "ef300794-2d58-4e5a-9089-ef84b0300436",
         "0e4c671b-049b-4a07-97f8-df77d77c519a",
-        "9209be5a-152d-48eb-b066-c826e7ae6a47"
+        "9209be5a-152d-48eb-b066-c826e7ae6a47",
+        "e660098b-51b6-4a70-b8f3-e33b928aeeec"
     ],
     "filterType": "GMScript",
     "folderName": "ww",

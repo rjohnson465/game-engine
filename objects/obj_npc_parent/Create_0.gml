@@ -73,3 +73,7 @@ wanders = true;
 isInteractable = true;
 
 defaultVendorFilter = InventoryFilters.Melee;
+
+isSolid = true;
+
+distToInteract = 20;

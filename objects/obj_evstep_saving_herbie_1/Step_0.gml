@@ -2,13 +2,10 @@ if status != EventStepStatus.InProgress exit;
 
 // if there is an enemy that can path to player within 300px of herbie, herbie stops walking
 
-var herbieSpeed = 4;
+var herbieSpeed = 6;
 
 var evstep = id;
 with herbie {
-	// isInteractable = false;
-	// isInteractingWithPlayer = false;
-	// global.isInteractingWithNpc = false;
 	
 	switch state {
 		case CombatantStates.Idle: {

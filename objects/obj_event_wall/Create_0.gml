@@ -4,6 +4,8 @@ scale = 1;
 scaleFrame = 0;
 scaleTotalFrames = 60;
 
+neverDeactivate = true;
+
 event_inherited();
 
 light_create_layer_multiscale(spr_light_square, lightScaleX, lightScaleY, c_aqua, .75, image_angle, true);

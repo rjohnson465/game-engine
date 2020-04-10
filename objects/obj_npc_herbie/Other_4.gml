@@ -15,4 +15,5 @@ if instance_exists(sh) && (sh.isFinished || sh.currentQuestStepIndex > 1) {
 } else {
 	x = wolfDenPostX;
 	y = wolfDenPostY;
+	facingDirection = 135;
 }

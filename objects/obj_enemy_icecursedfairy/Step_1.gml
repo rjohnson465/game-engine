@@ -31,6 +31,17 @@ if hp < 1 && isAlive && !isDying {
 	ds_list_add(droppedItems,item1, item2, item3, scroll);
 	//ds_list_add(droppedItems,item2);
 	ds_list_add(droppedItems,gold);
+	
+	// drop carrots if rudolph quest not done and no carrots exist
+	if variable_instance_exists(id, "eventKey") && eventKey == "icfb" {
+		var nearestCarrots = instance_nearest(x, y, obj_item_carrots);
+		var quest = instance_nearest(x, y, obj_quest_reindeerlove);
+		
+		if (!instance_exists(quest) || quest.currentQuestStepIndex == 0) && !instance_exists(nearestCarrots) {
+			ds_list_add(droppedItemsMandatory, instance_create_depth(x, y, 1, obj_item_carrots));
+		}
+	}
+	
 	ds_map_destroy(rmap); rmap = -1;
 	//ds_map_destroy(tmap); tmap = -1;
 	

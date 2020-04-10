@@ -12,3 +12,5 @@ wanders = false;
 
 isFloating = false;
 isFairy = false;
+
+greeting = [snd_npc_randolph_greeting_1, snd_npc_randolph_greeting_2, snd_npc_randolph_greeting_3];

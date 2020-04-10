@@ -50,6 +50,10 @@ switch npcName {
 		getConversationsForMrsClaus(conversationsList);
 		break;
 	}
+	case "Randolph, the Red-Nosed Reindeer": {
+		getConversationsForRandolph(conversationsList);
+		break;
+	}
 }
 
 return conversationsList;

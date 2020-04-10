@@ -14,3 +14,5 @@ ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_smashingpottery
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_smashingpottery_3));
 
 xpReward = 500;
+var iceshield = instance_create_depth(x,y,1,obj_hand_item_iceshield);
+ds_list_add(rewardItems,iceshield);

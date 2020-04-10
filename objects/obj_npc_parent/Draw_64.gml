@@ -4,12 +4,23 @@ with obj_item_drop {
 		canLoot = true;
 	}
 }
-if	// distance_to_object(obj_player) < 20 && 
+
+var isInConvWithOtherNpc = false;
+with obj_npc_parent {
+	if id != other && isInConversation {
+		isInConvWithOtherNpc = true;
+	}
+}
+
+if	
 	isInteractable &&
+	!isInConvWithOtherNpc &&
 	global.player.currentInteractableObject == id &&
 	global.player.isAlive && !global.isTrading && !global.isLooting && !global.isWishing && !global.ui.isShowingMenus &&!isInteractingWithPlayer && !isInConversation && layer == global.player.layer {
 	drawPrompt("Talk with " + name, Input.F, noone, noone, noone, noone, true);
 }
+
+
 
 var vx = camera_get_view_x(view_camera[0]);
 var vy = camera_get_view_y(view_camera[0]);

@@ -19,3 +19,5 @@ tunnelEntranceKey = undefined;
 tunnelDestinationName = "<undefined>";
 
 neverDeactivate = true;
+
+TUNNEL_SPEED = 50;

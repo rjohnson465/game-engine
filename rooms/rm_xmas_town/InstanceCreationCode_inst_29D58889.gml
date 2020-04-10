@@ -2,6 +2,8 @@ var in = instance_number(obj_fade);
 if in > 0 exit;
 
 scr_test_build_swordsman_ww();
+
+/*
 show_debug_message("hi");
 
 var q = instance_nearest(x, y, obj_quest_savingtheholidays);
@@ -19,3 +21,5 @@ q3.status = QuestStepStatus.Completed;
 
 var q4 = ds_list_find_value(q.questSteps, 3);
 q4.status = QuestStepStatus.Completed;
+
+q.currentQuestStepIndex = 4;
