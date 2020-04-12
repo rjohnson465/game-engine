@@ -59,6 +59,7 @@ global.damageAmount = adjustedDamage;
 global.victim = id;
 global.healingSustained = 0;
 global.isCriticalHit = isCriticalHit;
+global.attackObj = attackObj;
 instance_create_depth(x,y,1,obj_damage);
 raiseEvent(EV_DAMAGE_TAKEN, [id, adjustedDamage, attackObj]);
 if stamina < 1 {

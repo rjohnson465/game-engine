@@ -111,6 +111,7 @@ for (var i = 0; i < size; i++) {
 						global.victim = id;
 						global.healingSustained = 0;
 						global.isCriticalHit = false;
+						global.attackObj = noone;
 						instance_create_depth(x,y,1,obj_damage);
 					//}
 					// diminishes every pulse
@@ -148,6 +149,7 @@ for (var i = 0; i < size; i++) {
 					global.victim = id;
 					global.healingSustained = 0;
 					global.isCriticalHit = false;
+					global.attackObj = noone;
 					instance_create_depth(x,y,1,obj_damage);
 					// builds every pulse
 					// TODO math major DEVIN

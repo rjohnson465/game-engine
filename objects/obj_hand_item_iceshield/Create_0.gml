@@ -21,4 +21,4 @@ durability = 5;
 
 soundDrop = snd_hit_ice_1;
 
-description = "An enchanted piece of ice, often used by Krampus Elves. Offers defense for ice, magic, and physical attacks, but is incredibly fragile.";
+description = "An old slab of the Mystic Ice that used to cover all of Winter Wonderground. Often used by Krampus Elves. Offers defense for ice, magic, and physical attacks, but is incredibly fragile.";

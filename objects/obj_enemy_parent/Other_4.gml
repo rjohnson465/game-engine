@@ -22,6 +22,12 @@ if isAlive {
 	isShowingLightRadius = true;
 	x = ds_map_find_value(persistentProperties, "CurrentX");
 	y = ds_map_find_value(persistentProperties, "CurrentY");
+	
+	if isBoss {
+		x = postX;
+		y = postY;
+	}
+	
 } else {
 	x = -1000;
 	y = -1000;
@@ -50,6 +56,12 @@ if layer == -1 {
 	//var pz = ds_map_find_value(persistentProperties, "PostZ");
 	var pz = postZ;
 	layer = pz;
+	
+	
+}
+
+if isBoss {
+	layer = postZ;
 }
 
 

@@ -50,4 +50,4 @@ var_radial_brightness = 1;
 teleportX = noone;
 teleportY = noone;
 
-
+wishScript = noone;

@@ -153,3 +153,9 @@ with herbie {
 	}
 	
 }
+
+if message == DESC_FIGHT {
+	herbie.isInteractable = false;
+} else {
+	herbie.isInteractable = true;
+}

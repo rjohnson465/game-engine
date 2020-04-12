@@ -1,5 +1,8 @@
 //xpTemp += 500;
 
+maybeApplyElementalCondition(ICE, 25, noone, noone);
+
+/*
 var rmap = ds_map_create();
 ds_map_replace(rmap,ItemRarities.Normal,0);
 ds_map_replace(rmap,ItemRarities.Fine,0);

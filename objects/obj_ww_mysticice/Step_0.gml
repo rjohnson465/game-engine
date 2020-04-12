@@ -20,16 +20,7 @@ if	// isCurrentInteractableObject &&
 	global.player.currentInteractableObject == id &&
 	!isOpen  && layer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
 	
-	var hasKey = false;
-	// check if this door is locked
-	if keyRequired != noone {
-		with obj_item_key {
-			if owner == p && name == other.keyRequired {
-				alert(name + " used!", c_lime);
-				hasKey = true;
-			}
-		}
-	} else hasKey = true;
+	var hasKey = inventoryContainsItem(obj_item_randolphs_nose);
 	
 	if !hasKey {
 		alert(keyRequired + " required to melt ice", c_red); exit;
@@ -38,15 +29,19 @@ if	// isCurrentInteractableObject &&
 	var canOpen = hasKey;
 	
 	if canOpen {
+		
 		isOpen = true;
 		removeFromInteractablesList();
 		updatePersistentElementProperty(id,"isOpen",true);
 		sprite_index = noone;
-		alarm[0] = 30;
-		audio_play_sound_at(snd_iceshatter,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
+		alarm[0] = MELT_FRAMES_TOTAL;
+		audio_play_sound_at(snd_melt,x,y,depth,100,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 		light_destroy_caster_layer(getLayerFloorNumber(layer));
 		
-		global.isPopulatingGrids = true;
+		// global.isPopulatingGrids = true;
+		// clear grid cells this object used to occupy
+		var grid = ds_map_find_value(global.grids, getLayerFloorNumber(layer));
+		mp_grid_clear_rectangle(grid, bbox_left, bbox_top, bbox_right, bbox_bottom);
 
 	} 
 } 

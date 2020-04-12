@@ -20,6 +20,7 @@ global.damageAmount = damage;
 global.healingSustained = 0;
 global.victim = id;
 global.isCriticalHit = isCriticalHit; // critical?
+global.attackObj = attackObj;
 instance_create_depth(x,y,1,obj_damage);
 raiseEvent(EV_DAMAGE_TAKEN, [id, damage, attackObj]);
 

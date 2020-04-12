@@ -50,7 +50,7 @@ if (object_index == obj_player_items || object_index == obj_inventory) {
 
 // draw item name in color according to item rarity
 draw_set_color(ds_map_find_value(global.itemRarityColors, item.rarity));
-if item.type == ItemTypes.Head && item.isSpecialHat {
+if item.type == ItemTypes.Head && item.isSpecialHat || (item.type == ItemTypes.Ring && item.isSpecialRing) {
 	draw_set_color(C_GOLD);
 }
 draw_set_halign(fa_center);
@@ -408,31 +408,39 @@ else if item.type == ItemTypes.Other || item.type == ItemTypes.Gem || item.type 
 }
 // Ring items, show all properties
 else if item.type == ItemTypes.Ring {
-	var ringProps = item.itemProperties;
-	var currentProperty = ds_map_find_first(ringProps);
-	var line = 0;
-	for(var i = 0; i < ds_map_size(ringProps); i++) {
+	
+	if item.isSpecialRing {
+		var sh = string_height(item.description);
+		var desc = item.description;
+		draw_text_ext(topLeftX+5,topLeftY+itemDescriptionHandleHeight+5,desc,sh,width-5);
+	} else {
+	
+		var ringProps = item.itemProperties;
+		var currentProperty = ds_map_find_first(ringProps);
+		var line = 0;
+		for(var i = 0; i < ds_map_size(ringProps); i++) {
 		
-		var val = ds_map_find_value(ringProps,currentProperty);
-		var macro = noone;
-		// if array, its in the form [macro,val]
-		if is_array(val) {
-			macro = val[0];
-			val = val[1];
+			var val = ds_map_find_value(ringProps,currentProperty);
+			var macro = noone;
+			// if array, its in the form [macro,val]
+			if is_array(val) {
+				macro = val[0];
+				val = val[1];
+			}
+			var s = getItemPropertyString(currentProperty,macro);
+		
+			var sgn = val > 0 ? "+" : "-";
+			var finalString = sgn + string(val) + s;
+			var scale = 1;
+			var operatingWidth = itemDescriptionBottomRightX-itemDescriptionTopLeftX-21;
+			if string_width(finalString) > operatingWidth {
+				scale = operatingWidth / string_width(finalString);
+			}
+			draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+(line*25)+5,finalString,scale,scale,0);
+			line++;
+		
+			currentProperty = ds_map_find_next(ringProps,currentProperty);
 		}
-		var s = getItemPropertyString(currentProperty,macro);
-		
-		var sgn = val > 0 ? "+" : "-";
-		var finalString = sgn + string(val) + s;
-		var scale = 1;
-		var operatingWidth = itemDescriptionBottomRightX-itemDescriptionTopLeftX-21;
-		if string_width(finalString) > operatingWidth {
-			scale = operatingWidth / string_width(finalString);
-		}
-		draw_text_transformed(itemDescriptionCol1XText,itemDescriptionColY+(line*25)+5,finalString,scale,scale,0);
-		line++;
-		
-		currentProperty = ds_map_find_next(ringProps,currentProperty);
 	}
 }
 // Head items, show defenses

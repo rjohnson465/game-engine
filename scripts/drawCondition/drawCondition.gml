@@ -19,9 +19,13 @@ var condiColor = argument[6];
 draw_set_alpha(.75);
 draw_set_color(c_white);
 var x1 = 10
-var y1 = 100-(32)-20 + conditionBarNumber*25; 
+var initY = 100 - 32;
+if variable_global_exists("ringsManager") && global.ringsManager.ringsCount > 0 {
+	initY = 100;
+}
+var y1 = initY-20 + conditionBarNumber*25; 
 var x2 = 100+(32);
-var y2 = 100-(32)-15 + conditionBarNumber*25;
+var y2 = initY-15 + conditionBarNumber*25;
 
 var spriteX = x2;
 var spriteY = y1-5;

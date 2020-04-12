@@ -1,10 +1,19 @@
 amount = global.damageAmount;
+bonusDamage = 0;
 victim = global.victim;
 healingSustained = global.healingSustained;
 isCriticalHit = global.isCriticalHit;
+attackHitWith = global.attackObj;
 frame = 0;
 totalFrames = 22;
 depth = -500;
+
+// check if bonus damage from Wolf Tooth Ring was given
+if isRingActive(obj_item_ring_wolftoothring) && instance_exists(attackHitWith) && attackHitWith.owner.object_index == obj_player {
+	var normalDamage = amount / 1.5;
+	bonusDamage = round(amount - normalDamage);
+	amount -= bonusDamage;
+}
 
 randomize();
 rotationAngle = round(random_range(0, 1)) == 0 ? -1 : 1;

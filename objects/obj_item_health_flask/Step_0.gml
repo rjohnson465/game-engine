@@ -32,6 +32,7 @@ if isInUse {
 		// healing text
 		var hpHealed = currentHp + chargeAmount > p.maxHp ? p.maxHp - currentHp : chargeAmount;
 		global.victim = p;
+		global.attackObj = noone;
 		global.damageAmount = hpHealed;
 		global.healingSustained = 0;
 		global.isCriticalHit = false;

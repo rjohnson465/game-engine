@@ -58,3 +58,7 @@ with obj_enemy_parent {
 // however we revive, we should make sure all objects get their destroy / cleanup stuff
 // since death always ends with a fade, this global will be set to false once fade stops
 global.activateAll = true;
+
+with global.gameManager.bgmManager {
+	startBgm(snd_bgm_death, false);
+}

@@ -23,3 +23,6 @@ if (instance_exists(sth)) {
 	sth.currentQuestStepIndex = 5;
 	
 }
+
+
+addItemToInventory(instance_create_depth(x, y, 1, obj_item_randolphs_nose), false);

@@ -106,3 +106,7 @@ with global.player {
 updatePersistentElementProperty(id, "isDoneFilling", true);
 
 raiseEvent(EV_DARK_FOUNTAIN_WISH, []);
+
+if wishScript != noone {
+	script_execute(wishScript);
+}

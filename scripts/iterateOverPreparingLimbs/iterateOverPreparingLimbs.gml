@@ -118,7 +118,7 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 		
 		// increment through frames for attack prep
 		if isSlowed {
-			ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame + incAmount*.5);
+			ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame + incAmount*slowedSpeedModifier);
 		} else {
 			ds_map_replace(prepFrames,currentPreparingLimbKey,prepFrame+incAmount);
 		}

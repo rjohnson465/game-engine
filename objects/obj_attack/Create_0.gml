@@ -230,7 +230,8 @@ if attackData != noone && attackData.type == AttackTypes.Beam {
 }
 
 if isMelee && owner.isSlowed {
-	image_speed = .5; // TODO
+	
+	image_speed = owner.slowedSpeedModifier;
 }
 
 if attackData != noone && attackData.hasLightRadius {

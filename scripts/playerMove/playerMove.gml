@@ -77,6 +77,7 @@ if (UP || DOWN || LEFT || RIGHT || gamePadInputReceived) && !global.ui.isShowing
 	else {
 		moveToNearestFreePoint(direction,useSpeed);
 	}
+	
 }	
 		
 var isInteractingWithNpc = false;

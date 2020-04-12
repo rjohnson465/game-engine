@@ -7,12 +7,12 @@ if ds_map_size(recoveringLimbs) != 0 {
 		var attackInChain = ds_map_find_value(recoveringLimbs,hand);
 		var recoverFrame = ds_map_find_value(recoverFrames,hand);
 		var recoverFrameTotal = ds_map_find_value(recoverFrameTotals,hand);
-				
+		
+		var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
+		var recoverSprite = asset_get_index("spr_player_"+itemSprite+"_recover_"+string(attackInChain));
 		// check if this hand just started recovering attack
 		if recoverFrame == -1 {
 			ds_map_replace(recoverFrames,hand,0);
-			var itemSprite = hand == "l" ? leftHandItem.spriteName : rightHandItem.spriteName;
-			var recoverSprite = asset_get_index("spr_player_"+itemSprite+"_recover_"+string(attackInChain));
 			ds_map_replace(recoverFrameTotals,hand,sprite_get_number(recoverSprite));
 		}
 		// if at end of recover, we may need to leave attack state (if no other hands are recovering or preparing or attacking)
@@ -43,6 +43,10 @@ if ds_map_size(recoveringLimbs) != 0 {
 				break;
 			} 
 		} else {
+			var recoverDelta = sprite_get_speed(recoverSprite) / room_speed;
+			if isSlowed || isFrozen {
+				recoverDelta *= slowedSpeedModifier;
+			}
 			// if we're in recover but told to attack again:
 			// make sure there is another attack in the chain
 			// decrement recover frames until at 0
@@ -61,12 +65,13 @@ if ds_map_size(recoveringLimbs) != 0 {
 					ds_map_replace(recoverFrameTotals,hand,0);
 					ds_map_replace(attackAgain,hand,false);
 				} else {
-					ds_map_replace(recoverFrames,hand,recoverFrame-1);
+					
+					ds_map_replace(recoverFrames,hand,recoverFrame-recoverDelta);
 				}
 				break;
 			}
 					
-			ds_map_replace(recoverFrames,hand,recoverFrame+1);
+			ds_map_replace(recoverFrames,hand,recoverFrame+recoverDelta);
 		}
 		hand = ds_map_find_next(recoveringLimbs,hand);
 	}

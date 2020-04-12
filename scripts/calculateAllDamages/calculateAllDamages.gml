@@ -144,6 +144,12 @@ for (var i = 0; i < size; i++) {
 	if assailant.object_index != obj_player {
 		damageBase = applyDifficultyToDamage(damageBase);
 	}
+	if assailant.object_index == obj_player {
+		// if using wolftooth ring, damages increases by 50% when hp below 25%
+		if isRingActive(obj_item_ring_wolftoothring) {
+			damageBase *= 1.5;
+		}
+	}
 	ds_map_replace(damagesTaken,currentDamageType,damageBase);
 	damage += damageBase;
 			

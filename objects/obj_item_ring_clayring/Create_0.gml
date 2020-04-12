@@ -19,5 +19,9 @@ soundDrop = snd_item_ring;
 
 isItemNameStatic = true;
 
+isSpecialRing = true;
+
+description = "Imbued with the magic of clay, Ari's old ring, once belonging to his wife, grants its wearer significant fire defense, and boosts fire attacks.";
+
 addItemProperty(id, ModifiableProperties.ElementalDamageTypesMultiplier, [FIRE, 30]);
 addItemProperty(id, ModifiableProperties.Defenses, [FIRE, 25]);

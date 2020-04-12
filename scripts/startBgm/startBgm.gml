@@ -31,6 +31,9 @@ with obj_event_parent {
 	}
 }
 
+// if death has happened, go no further (presumably the death song has finished playing)
+if global.player.hp <= 0 exit;
+
 // normal case, where music is decided based on some playlist for the room
 bgmPossibilities = getBgmForRoom(room);
 if bgmPossibilities != noone {

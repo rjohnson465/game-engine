@@ -36,9 +36,9 @@ if state == CombatantStates.Attacking {
 				}
 			
 				if isSlowed {
-					var percentSpeed = functionalSpeed / normalSpeed;
+					// var percentSpeed = functionalSpeed / normalSpeed;
 					var currentVal = ds_map_find_value(prepFrames,hand);
-					frameInc *= percentSpeed;
+					frameInc *= slowedSpeedModifier;
 					ds_map_replace(prepFrames,hand,currentVal+frameInc);
 
 				} else {
@@ -56,25 +56,30 @@ if state == CombatantStates.Attacking {
 			for (var i = 0; i < ds_map_size(recoveringLimbs); i++) {
 				var attackInChain = ds_map_find_value(recoveringLimbs,hand);
 				
-				// var recoverHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
+				var recoverHandItemSprite = hand == "l" ? "_" + leftHandItem.spriteName : "_"+rightHandItem.spriteName;
 			
-				// var recoverSprite = asset_get_index("spr_"+spriteString+recoverHandItemSprite+"_recover_"+string(attackInChain));
+				var recoverSprite = asset_get_index("spr_"+spriteString+recoverHandItemSprite+"_recover_"+string(attackInChain));
 				var frame = ds_map_find_value(recoverFrames,hand);
 				if hand == "r" {
 					//draw_sprite_ext(recoverSprite,frame,x,y,1,1,facingDirection,c_white,1);
 				} else {
 					//draw_sprite_ext(recoverSprite,frame,x,y,1,-1,facingDirection,c_white,1);
 				}
+				
+				var sprSpeed = sprite_get_speed(recoverSprite);
+				var frameInc = sprSpeed / room_speed;
 			
+			/*
 				if isSlowed {
-					var percentSpeed = functionalSpeed / normalSpeed;
+					// var percentSpeed = functionalSpeed / normalSpeed;
 					var currentVal = ds_map_find_value(recoverFrames,hand);
-					ds_map_replace(recoverFrames,hand,currentVal+percentSpeed);
+					frameInc *= slowedSpeedModifier;
+					ds_map_replace(recoverFrames,hand,currentVal+frameInc);
 
 				} else {
 					var currentVal = ds_map_find_value(recoverFrames,hand);
 					//ds_map_replace(recoverFrames,hand,currentVal+1);
-				}
+				} */
 				
 				hand = ds_map_find_next(recoveringLimbs,hand);
 			}

@@ -17,6 +17,7 @@ if isInUse {
 	global.damageAmount = hpHealed;
 	global.healingSustained = 0;
 	global.isCriticalHit = false;
+	global.attackObj = noone;
 	var healingText = instance_create_depth(x, y, 1, obj_damage);
 	healingText.color = c_lime;
 	

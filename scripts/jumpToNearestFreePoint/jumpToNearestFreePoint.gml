@@ -4,7 +4,7 @@
 /// @param *distance -- if this is specified, just nudge the instance this much in the direction of the nearest free point
 
 var isEnemy = false;
-if argument_count == 1 {
+if argument_count > 0 {
 	isEnemy = argument[0];
 }
 

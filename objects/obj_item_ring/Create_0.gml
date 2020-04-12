@@ -26,8 +26,6 @@ switch act {
 // for saving / loading cosistently
 itemSpriteName = sprite_get_name(itemSprite);
 
-//ds_map_replace(itemProperties,ModifiableProperties.XpMultiplier,10);
-//ds_map_replace(itemProperties,ModifiableProperties.Defenses,[PIERCE,7]);
-//ds_map_replace(itemProperties,ModifiableProperties.ElementalDamageTypesMultiplier,[MAGIC,100]);
-//ds_map_replace(itemProperties,ModifiableProperties.StaminaSteal,10);
 soundDrop = snd_item_ring;
+
+isSpecialRing = false;

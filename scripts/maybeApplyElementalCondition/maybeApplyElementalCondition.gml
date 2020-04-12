@@ -58,20 +58,6 @@ if condiPercentageCurrent == 0 {
 	ds_map_replace(conditionsBuildupMap, damageType, newBuildupAmount);
 }
 
-// else, add to the condition percentage  (maybe? is this fair? maybe not...)
-// Should not do this for cold / slowed, thats BS its easy to get stuck then
-/*
-else if damageType != ICE {
-	// condition percent is 25 to 100, based on percentOfHp the damage is
-	// 0%hp hits give 25% condition bar. 20%hp hits give 100% of condition bar.
-	var percentOfHp = (damageAmount/maxHp)*100;
-	var condiPercent = ((15*percentOfHp)/4)+25;
-	if condiPercent > 100 condiPercent = 100;
-	var curVal = ds_map_find_value(conditionPercentages,damageType);
-	var newVal = curVal + condiPercent;
-	if newVal > 100 newVal = 100;	
-	ds_map_replace(conditionPercentages,damageType,newVal);
-} */
 
 // if the buildup has gotten to 100 or more, apply condition 
 var currentBuildup = ds_map_find_value(conditionsBuildupMap, damageType);

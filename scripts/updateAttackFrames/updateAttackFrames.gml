@@ -55,6 +55,7 @@ if ds_map_size(attackingLimbs) != 0 {
 			ds_map_delete(attackingLimbs,limb);
 		
 			prevAttackHand = limb;
+			
 		}
 		limb = ds_map_find_next(attackingLimbs, limb);
 	}

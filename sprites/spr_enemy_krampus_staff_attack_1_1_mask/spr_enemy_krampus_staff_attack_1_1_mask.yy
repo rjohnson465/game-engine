@@ -6,9 +6,9 @@
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 699,
+    "bbox_bottom": 750,
     "bbox_left": 0,
-    "bbox_right": 786,
+    "bbox_right": 790,
     "bbox_top": 0,
     "bboxmode": 0,
     "colkind": 0,
@@ -638,7 +638,7 @@
             "isLocked": false,
             "name": "default",
             "opacity": 100,
-            "visible": false
+            "visible": true
         },
         {
             "id": "065d6385-fc0b-4aea-b7a9-a4b28fd54b88",

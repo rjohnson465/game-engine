@@ -14,3 +14,4 @@ ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_savingherbie_2)
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_savingherbie_3));
 
 xpReward = 500;
+ds_list_add(rewardItems,instance_create_depth(x,y,1,obj_item_ring_wolftoothring));

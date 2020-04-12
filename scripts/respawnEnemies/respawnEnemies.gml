@@ -137,6 +137,10 @@ with obj_enemy_parent {
 	wasJustHit = false;
 	showHp = false;
 	
+	if isBoss {
+		var a = 3;
+	}
+	
 	// reset poise
 	poiseCurrent = poiseMax;
 	

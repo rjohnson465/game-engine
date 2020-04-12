@@ -20,7 +20,10 @@ y1 = victimY - vy;
 // decrease y1 based on time
 y1 -= frame*2;
 
-var text = round(amount);
+var text = string(round(amount));
+if bonusDamage > 0 {
+	text += " + " + string(bonusDamage);
+}
 var scale = 1;
 if frame < 11 && isCriticalHit {
 	// scale = ((-1/11)*frame)+2;
