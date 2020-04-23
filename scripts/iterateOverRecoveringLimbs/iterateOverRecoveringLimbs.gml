@@ -29,7 +29,7 @@ if ds_map_size(recoveringLimbs) != 0 {
 			prevAttackLimb = currentRecoveringLimbKey;
 			ds_map_replace(recoverFrames,currentRecoveringLimbKey,0);
 			
-			jumpToNearestFreePoint(true, true);
+			// jumpToNearestFreePoint(true, true);
 			
 			// maybe play recover sound
 			if attackData != noone && attackData.recoverSound != noone && audio_exists(attackData.recoverSound) {

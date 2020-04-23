@@ -47,7 +47,7 @@ switch(state) {
 			onAlert = false;
 			var actingPostX = postX;
 			var actingPostY = postY;
-			if layer != postZ {
+			if getLayerFloorNumber(layer) != postZ {
 				actingPostX = tempPostX;
 				actingPostY = tempPostY;
 			}
@@ -120,7 +120,7 @@ switch(state) {
 				}
 			}
 			// if no aggro and not at postX/postY, head back there
-			else if distance_to_point(postX, postY) > 10 && layer == postZ {
+			else if distance_to_point(postX, postY) > 10 && getLayerFloorNumber(layer) == postZ {
 				state = CombatantStates.Moving;
 				substate = CombatantMoveSubstates.ReturningToPost;
 				break;
@@ -170,7 +170,7 @@ switch(state) {
 					// maybe leash back to post
 					var actingPostX = postX;
 					var actingPostY = postY;
-					if layer != postZ {
+					if getLayerFloorNumber(layer) != postZ {
 						actingPostX = tempPostX;
 						actingPostY = tempPostY;
 					}
@@ -211,6 +211,16 @@ switch(state) {
 							&& 
 							canSeeLockOnTarget() && array_length_1d(rangedAttacks) > 0 {
 							state = CombatantStates.AggroRanged; break;
+						}
+						
+						// not switching melee / range, but maybe choose a different attack
+						// based on how far away from target we are
+						if reassessAttackFrame == 0 {
+							if currentMeleeAttack > -1 {
+								chooseMeleeAttack();
+							} else if currentRangedAttack > -1 {
+								chooseRangedAttack();
+							}
 						}
 				
 						// if we're not in range for attack, do this
@@ -282,7 +292,7 @@ switch(state) {
 				case CombatantMoveSubstates.ReturningToPost: {
 					var actingPostX = postX;
 					var actingPostY = postY;
-					if layer != postZ {
+					if getLayerFloorNumber(layer) != postZ {
 						actingPostX = tempPostX;
 						actingPostY = tempPostY;
 					}

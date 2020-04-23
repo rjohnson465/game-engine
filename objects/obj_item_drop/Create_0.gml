@@ -13,7 +13,7 @@ owner = global.owner;
 layer = owner.layer;
 isBeingLooted = false;
 
-postX = x; postY = y; postZ = layer; roomIndex = room;
+postX = x; postY = y; postZ = getLayerFloorNumber(layer); roomIndex = room;
 
 var sw = view_get_wport(view_camera[0]);
 var sh = view_get_hport(view_camera[0]);

@@ -25,6 +25,7 @@ if	p.currentInteractableObject == id && instance_number(obj_quest_muskoxfeeder)
 		isFed = true;
 		// ds_map_replace(properties, "IsFed", true);
 		updatePersistentElementProperty(id, "IsFed", true);
+		removeFromInteractablesList();
 		audio_play_sound_at(snd_muskox_moo_2, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
 		with obj_queststep_muskoxfeeder_1 {
 			if status == QuestStepStatus.InProgress {

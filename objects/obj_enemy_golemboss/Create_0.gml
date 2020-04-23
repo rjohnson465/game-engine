@@ -77,12 +77,12 @@ var c6 = [swing, roll];
 var c7 = [swing, stab, roll];
 var c8 = [mm];
 var c9 = [dybbuk];
-var c10 = [swing, mm];
-var c11 = [swing, dybbuk];
-var c12 = [swing, stab, mm];
-var c13 = [swing, fireblast];
+// var c10 = [swing, mm];
+// var c11 = [swing, dybbuk];
+// var c12 = [swing, stab, mm];
+// var c13 = [swing, fireblast];
 var c14 = [stab, fireblast];
-meleeAttacks = [c0, c1, c2, c3, c4, c5, c6, c7, c8, c9 , c10, c11, c12, c13, c14];
+meleeAttacks = [c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c14];
 // meleeAttacks = [c3];
 
 // ranged attacks info

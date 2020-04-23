@@ -139,6 +139,7 @@ if fallFrame == .5*fallTotalFrames {
 			global.y1 = y;
 			global.particleDirection = direction;
 			global.hitParticlesLayer = layer;
+			global.attackObj = noone;
 			global.victim = id;
 			instance_create_depth(0,0,1,obj_hit_particles);
 			var fallDamage = 10*floorsFallen;
@@ -149,6 +150,7 @@ if fallFrame == .5*fallTotalFrames {
 			global.victim = id;
 			global.healingSustained = 0;
 			global.isCriticalHit = false;
+			global.attackObj = noone;
 			instance_create_depth(x,y,1,obj_damage);
 			hp -= fallDamage;
 			audio_play_sound(snd_crunchy_thud,1,0);
@@ -179,7 +181,7 @@ if fallFrame == .5*fallTotalFrames {
 		if type == CombatantTypes.Enemy {
 			updatePersistentElementProperty(id, "TempPostX", tempPostX);
 			updatePersistentElementProperty(id, "TempPostY", tempPostY);
-			updatePersistentElementProperty(id, "TempPostZ", layer);
+			updatePersistentElementProperty(id, "TempPostZ", getLayerFloorNumber(layer));
 		}
 		populatePersonalGrid();
 	}

@@ -50,9 +50,11 @@ if ds_list_size(ridges) > 0 {
 }
 
 var solidNpcs = ds_list_create();
-with obj_npc_parent {
-	if isSolid && distance_to_object(global.player) < 15 {
-		ds_list_add(solidNpcs, id);
+if object_index == obj_player {
+	with obj_npc_parent {
+		if isSolid && distance_to_object(global.player) < 15 {
+			ds_list_add(solidNpcs, id);
+		}
 	}
 }
 var wouldHitSolidNpc = false;
@@ -107,9 +109,12 @@ else {
 			}
 		}
 		
+		var wouldHitObjectToAvoid = place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs);
+		var wouldHitFallzone = place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone);
+		
 		var pred =	includesFallzones ? 
-					!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge && !wouldHitSolidNpc
-					: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !wouldHitRidge && !wouldHitSolidNpc;
+					!wouldHitObjectToAvoid && !wouldHitFallzone && !wouldHitRidge && !wouldHitSolidNpc
+					: !wouldHitObjectToAvoid && !wouldHitRidge && !wouldHitSolidNpc;
 		
 		//if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) {
 		if pred {	
@@ -145,10 +150,11 @@ else {
 				y = oldY;
 			}
 			
+			var wouldHitObjectToAvoid = place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs);
 			
 			pred =	includesFallzones ? 
-					!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge && !wouldHitSolidNpc
-					: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !wouldHitRidge && !wouldHitSolidNpc;
+					!wouldHitObjectToAvoid && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge && !wouldHitSolidNpc
+					: !wouldHitObjectToAvoid && !wouldHitRidge && !wouldHitSolidNpc;
 		}
 		dir = (dir + angMult)%360;
 	}

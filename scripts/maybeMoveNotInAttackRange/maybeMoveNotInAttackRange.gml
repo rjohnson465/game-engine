@@ -137,7 +137,7 @@ if pred && !isFlinching {
 	} 
 	
 	// return to post if no path to target can be found
-	else if postZ == layer {
+	else if postZ == getLayerFloorNumber(layer) {
 		var a = mp_grid_path(personalGrid,path,x,y,postX,postY,0);
 		if a {
 			path_start(path,functionalSpeed,path_action_stop,false);

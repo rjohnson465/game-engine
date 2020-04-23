@@ -32,7 +32,7 @@ switch rm {
 		break;
 	}
 	case rm_winter: {
-		return [snd_bgm_endless_tundra, snd_bgm_wonderground, snd_bgm_icedrops];
+		return [snd_bgm_endless_tundra, snd_bgm_wonderground, snd_bgm_icedrops, snd_bgm_snowysolstice];
 		break;
 	}
 	case rm_tundra: {

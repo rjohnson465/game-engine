@@ -111,17 +111,19 @@ if lockOnInputReceived || lockOnInputChangeReceived {
 		}
 	}
 	// if not locked on just get the nearest enemy in the list 
-	else if (lockOnList != noone){
+	else if (lockOnList != noone) {
 		
 		// var closestInstance = scr_find_nth_closest_layer(x,y,obj_enemy_parent, 1);
 		var closestInstance = noone;
 		var closestDist = 10000;
 		for (var i = 0; i < ds_list_size(lockOnList); i++) {
 			var targ = ds_list_find_value(lockOnList, i);
-			var dist = distance_to_object(targ);
-			if dist < closestDist {
-				closestDist = dist;
-				closestInstance = targ;
+			if targ.hp > 0 {
+				var dist = distance_to_object(targ);
+				if dist < closestDist {
+					closestDist = dist;
+					closestInstance = targ;
+				}
 			}
 		}
 		
@@ -132,6 +134,29 @@ if lockOnInputReceived || lockOnInputChangeReceived {
 		}
 	}
 }
+
+// if locked on and the enemy dies, change lock on to the next nearest enemy
+if isLockedOn && instance_exists(lockOnTarget) && lockOnTarget.hp <= 0 {
+	var closestInstance = noone;
+	var closestDist = 10000;
+	for (var i = 0; i < ds_list_size(lockOnList); i++) {
+		var targ = ds_list_find_value(lockOnList, i);
+		if targ.hp > 0 && instance_exists(targ.lockOnTarget) {
+			var dist = distance_to_object(targ);
+			if dist < closestDist {
+				closestDist = dist;
+				closestInstance = targ;
+			}
+		}
+	}
+		
+	if closestInstance != noone && closestInstance != undefined {
+		lockOnTarget = closestInstance;
+		isLockedOn = true;
+		ds_list_add(lockOnListSeen, closestInstance);
+	}
+}
+
 var wallsBetweenLockOnTarget = noone;
 var doorsBetweenLockOnTarget = noone;
 if lockOnTarget {
@@ -178,6 +203,7 @@ if	isLockedOn && ((cancelLockOnInputReceived && !global.ui.isShowingMenus)
 if isLockedOn && gamepad_is_connected(gamePadIndex) {
 	var h_point = gamepad_axis_value(gamePadIndex, gp_axisrh);
 	var v_point = gamepad_axis_value(gamePadIndex, gp_axisrv);
+	
 	if ((h_point != 0) || (v_point != 0)) {
 		var pdir = point_direction(0, 0, h_point, v_point);
 		
@@ -234,6 +260,11 @@ if lockOnTarget != noone && instance_exists(lockOnTarget) && lockOnTarget != ori
 	}
 }
 
+
+
+
+
+// memory cleaning
 if wallsBetweenLockOnTarget != noone {
 	lockOnTarget = noone;
 	isLockedOn = false;

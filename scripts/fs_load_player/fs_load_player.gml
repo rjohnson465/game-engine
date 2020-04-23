@@ -46,5 +46,7 @@ with global.player {
 		}
 	}
 	
-	updateLightLayer(playerLightRadius, noone, layerToMoveTo);
+	if layer_exists(layerToMoveTo) {
+		updateLightLayer(playerLightRadius, noone, layerToMoveTo);
+	}
 }

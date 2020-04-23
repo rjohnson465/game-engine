@@ -18,7 +18,7 @@ prepSound = snd_magic_fire_charge;
 attackSoundLoop = snd_magic_fire_loop;
 attackSound = snd_magic_fire_shoot;
 
-minRange = 250;
+minRange = 400;
 
 attackSoundsVocals = [snd_enemy_golem_attack_1];
 prepSoundsVocals = [snd_enemy_golem_prep_1];

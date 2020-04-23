@@ -80,7 +80,8 @@ for (var i = 0; i < size; i++) {
 				break;
 			}
 			case MAGIC: {
-				hexedDamageModifier = .75-(.005*conditionPercent);
+				// hexedDamageModifier = .75-(.005*conditionPercent);
+				hexedDamageModifier = .75;
 				break;
 			}
 			// burning

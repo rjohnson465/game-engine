@@ -1,5 +1,9 @@
 owner = global.owner;
 
+if owner == global.player {
+	var a = 3;
+}
+
 layer = owner.layer;
 if owner.object_index == obj_fountain || owner.object_index == obj_sconce {
 	layer = owner.origLayer;

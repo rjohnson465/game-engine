@@ -62,8 +62,8 @@ var c0 = [fb];
 rangedAttacks = [c0];
 
 
-hp = 50;
-maxHp = 50;
+hp = 40;
+maxHp = 40;
 hpRegen = 0;
 
 beenHit = false; // hit during an attack animation
@@ -71,9 +71,9 @@ showHp = false; // hit at all (flag for showing health bar)
 
 ds_map_replace(defenses, FIRE, 100);
 ds_map_replace(defenses, POISON, 100);
-ds_map_replace(defenses, SLASH, 70);
-ds_map_replace(defenses, PIERCE, 70);
-ds_map_replace(defenses, CRUSH, 50);
+ds_map_replace(defenses, SLASH, 35);
+ds_map_replace(defenses, PIERCE, 35);
+ds_map_replace(defenses, CRUSH, 25);
 ds_map_replace(defenses, MAGIC, -100);
 
 // dodge stuff

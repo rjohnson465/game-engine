@@ -112,7 +112,7 @@ meleeAttacks = [
 	c_aoe, c_aoeSweep, c_clawsTail2, c_ts, c_tailstab
 ];
 
-meleeAttacks = [c_breath, c_aoe];
+// meleeAttacks = [c_breath, c_aoe];
 // ranged attacks info
 
 // currently chosen ranged attack

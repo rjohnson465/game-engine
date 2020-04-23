@@ -50,19 +50,21 @@ if isBoss && isAlive {
 }
 
 
-
-layer = ds_map_find_value(persistentProperties, "CurrentZ");
-if layer == -1 {
+var initialLayer = layer;
+layer = layer_get_id("instances_floor_" + string(ds_map_find_value(persistentProperties, "CurrentZ")));
+if layer == -1 || isBoss {
 	//var pz = ds_map_find_value(persistentProperties, "PostZ");
 	var pz = postZ;
-	layer = pz;
-	
+	layer = layer_get_id("instances_floor_"+ string(postZ));
+	if !layer_exists(layer) {
+		layer = initialLayer;
+	}
 	
 }
 
-if isBoss {
-	layer = postZ;
-}
+//if isBoss {
+//	layer = postZ;
+//}
 
 
 var lr = noone; var oldLayer = noone;

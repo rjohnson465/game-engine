@@ -4,7 +4,7 @@
 
 var actingPostX = postX;
 var actingPostY = postY;
-if layer != postZ {
+if getLayerFloorNumber(layer) != postZ {
 	actingPostX = tempPostX;
 	actingPostY = tempPostY;
 }

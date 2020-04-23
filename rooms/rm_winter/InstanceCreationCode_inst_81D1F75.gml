@@ -24,5 +24,5 @@ if (instance_exists(sth)) {
 	
 }
 
-
+/*
 addItemToInventory(instance_create_depth(x, y, 1, obj_item_randolphs_nose), false);

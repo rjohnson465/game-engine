@@ -3,7 +3,7 @@ items = ds_list_create();
 sprite_index = noone;
 isBeingLooted = false;
 
-postX = x; postY = y; postZ = layer; roomIndex = room;
+postX = x; postY = y; postZ = getLayerFloorNumber(layer); roomIndex = room;
 currentX = x; currentY = y;
 
 var sw = view_get_wport(view_camera[0]);

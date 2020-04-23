@@ -16247,6 +16247,14 @@
             }
         },
         {
+            "Key": "7929f67a-fbcc-41b9-a68e-af8a2267fcac",
+            "Value": {
+                "id": "95cd6d69-aa77-49d7-bf82-6a23e458d899",
+                "resourcePath": "objects\\obj_light\\obj_light.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "79516dff-1e3b-4aa5-a4ab-fd4ee0cf77b0",
             "Value": {
                 "id": "055c5790-a370-4043-977b-3ae0700b6222",
@@ -18119,6 +18127,14 @@
             }
         },
         {
+            "Key": "87a91e0e-efd6-41d9-a0be-aab7b0ca92a7",
+            "Value": {
+                "id": "132a4ac4-dda0-4023-baee-5a9fc0418dde",
+                "resourcePath": "sounds\\snd_bgm_snowysolstice\\snd_bgm_snowysolstice.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "87b41a77-bc5a-4302-a6a9-db1c6c8bbf3a",
             "Value": {
                 "id": "95059e43-2c86-4344-9b41-7509c39e82b5",
@@ -18436,6 +18452,14 @@
                 "id": "db660252-29bd-40fc-b125-a9bc239f92d4",
                 "resourcePath": "sprites\\spr_item_lamplight\\spr_item_lamplight.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8a753c17-1472-41ad-9c66-4e93ff8e7c3d",
+            "Value": {
+                "id": "03854d00-6625-4d3b-953f-cbe6a340c349",
+                "resourcePath": "objects\\obj_snd_owl_screech\\obj_snd_owl_screech.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -20996,6 +21020,14 @@
                 "id": "58ff1123-3746-4715-a8c6-f27611513c23",
                 "resourcePath": "objects\\obj_itemadded_alert\\obj_itemadded_alert.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "9e47a7de-f2ef-40b6-b52b-438abb0530b1",
+            "Value": {
+                "id": "e1fbc941-9efb-476c-a788-ba6fcc0a1d42",
+                "resourcePath": "views\\9e47a7de-f2ef-40b6-b52b-438abb0530b1.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -25076,6 +25108,14 @@
                 "id": "c4e73722-4cf3-4235-a4a1-0a1e560ca0b5",
                 "resourcePath": "sprites\\spr_enemy_speyeder_claw_attack_1_1\\spr_enemy_speyeder_claw_attack_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bc0834cb-6d85-47c8-8bb7-8620731d77ef",
+            "Value": {
+                "id": "bccab8fe-efa0-4580-a893-79d47ceabc25",
+                "resourcePath": "sounds\\snd_amb_owl_screech\\snd_amb_owl_screech.yy",
+                "resourceType": "GMSound"
             }
         },
         {

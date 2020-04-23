@@ -112,7 +112,7 @@ if elevatorCurrentFloor != elevatorFloorToMoveTo {
 						if type == CombatantTypes.Enemy {
 							updatePersistentElementProperty(id, "TempPostX", tempPostX);
 							updatePersistentElementProperty(id, "TempPostY", tempPostY);
-							updatePersistentElementProperty(id, "TempPostZ", layer);
+							updatePersistentElementProperty(id, "TempPostZ", getLayerFloorNumber(layer));
 						}
 					}
 					

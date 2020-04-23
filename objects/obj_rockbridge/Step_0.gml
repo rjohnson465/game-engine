@@ -22,7 +22,7 @@ if	p.currentInteractableObject == id &&
 } 
 
 if isActive && (x != goalX || y != goalY) {
-	move_towards_point(goalX, goalY, 4);
+	move_towards_point(goalX, goalY, 8);
 }
 
 // burst particles, play sound, turn into bridge

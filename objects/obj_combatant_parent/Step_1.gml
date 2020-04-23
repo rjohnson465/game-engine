@@ -2,6 +2,9 @@ endX = prevX; endY = prevY;
 prevX = x;
 prevY = y;
 
+reassessAttackFrame += 1;
+reassessAttackFrame %= reassessAttackFrameTotal;
+
 // maybe reset the old free grid space
 if gridTempFreeX != noone {
 	// make sure this combatant is no longer in this cell

@@ -89,7 +89,8 @@ spriteString = spriteType + "_" + spriteName;
 // "post" for enemies is where they spawn. "post" for allies is near the player
 postX = x;
 postY = y;
-postZ = layer;
+// postZ = layer;
+postZ = getLayerFloorNumber(layer);
 postDir = facingDirection;
 // tempPost is used when not on player layer -- wander around it, but not too far from it
 tempPostX = noone;
@@ -154,6 +155,8 @@ ds_map_add(recoverFrames,"r",-1);
 ds_map_add(recoverFrameTotals,"l",-1);
 ds_map_add(recoverFrameTotals,"r",-1);
 prevAttackLimb = noone;
+reassessAttackFrame = 0;
+reassessAttackFrameTotal = 30; // by default, every 30 seconds, re-assess what attack youre gonna do
 
 attackNumberInChain = noone;
 
