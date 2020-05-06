@@ -102,4 +102,12 @@ if attackData != noone && attackData.hasLightRadius {
 	}	
 }
 
+/*
+// if touching a solid environment on create, destroy immediately 
+with obj_solid_environment {
+	if distance_to_object(other) < 5 {
+		other.alarm[0] = 30;
+		other.hasSetAlarm = true;
+	}
+}
 

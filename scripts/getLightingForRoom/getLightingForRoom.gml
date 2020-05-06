@@ -25,6 +25,10 @@ switch rm {
 		var c = make_color_rgb(52, 66, 105);
 		return [c, c];
 	}
+	case rm_abominable_lands: {
+		var c = make_color_rgb(52, 66, 105);
+		return [c, c, c];
+	}
 	case rm_clayfields: {
 		var c = make_color_rgb(52, 66, 105);
 		var verydarkgray = make_color_rgb(25, 25, 25);

@@ -3783,6 +3783,14 @@
             }
         },
         {
+            "Key": "1b42e279-b19b-4113-9d55-bbdea1759407",
+            "Value": {
+                "id": "005fb345-2805-42c7-bf3f-0191aa3d58ad",
+                "resourcePath": "views\\1b42e279-b19b-4113-9d55-bbdea1759407.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "1b57f33c-10d7-4cce-90dc-ac6c954b3705",
             "Value": {
                 "id": "d4f8d82f-0560-410b-9a96-914a91ca39a1",
@@ -18967,6 +18975,14 @@
             }
         },
         {
+            "Key": "8e9e6482-4018-4ff2-a34e-be43de0d5a73",
+            "Value": {
+                "id": "7b5aba0d-416d-483c-b644-be23310f7073",
+                "resourcePath": "scripts\\scr_abominiongate_roomstart\\scr_abominiongate_roomstart.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "8ea4d269-f2e9-4121-a2e2-7998fd4541b4",
             "Value": {
                 "id": "fe12a1d4-3d12-4c74-b2c6-5f888834e089",
@@ -20340,6 +20356,14 @@
                 "id": "10290fc4-2b41-41c1-9fdf-a6834b04ab84",
                 "resourcePath": "objects\\obj_fallzone\\obj_fallzone.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "99194b0a-4705-43b4-b1dd-db0fec55d860",
+            "Value": {
+                "id": "1cfb71ce-52ab-4752-b9bf-82230843d44a",
+                "resourcePath": "scripts\\scr_evl_abominiongate_check\\scr_evl_abominiongate_check.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -32663,6 +32687,14 @@
             }
         },
         {
+            "Key": "f58c044a-ebde-418f-8682-2342f89490e4",
+            "Value": {
+                "id": "384902c8-7a36-4570-acaf-69522787a941",
+                "resourcePath": "rooms\\rm_abominable_lands\\rm_abominable_lands.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "f5929d69-f569-47af-bb53-3842a962c2c1",
             "Value": {
                 "id": "02c30dcb-4485-4c79-8aff-3928c051b9ca",
@@ -33935,6 +33967,14 @@
             }
         },
         {
+            "Key": "ff778b4d-e301-4e29-ad9c-9a56602273f9",
+            "Value": {
+                "id": "819544e3-9a85-4674-ac5f-dd2bd509df87",
+                "resourcePath": "objects\\obj_conditional_wall\\obj_conditional_wall.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ff82a325-23d7-40b6-9206-67e37a88cfe9",
             "Value": {
                 "id": "6e3238a7-77cd-491c-b56f-95f778c86eb5",
@@ -34222,6 +34262,8 @@
         "e33c2a61-cd97-4ca8-9781-0a14cdf4c94b",
         "2702dd65-5fe1-468e-846a-715c52662b0f",
         "55bc8f4f-0a80-44c1-bf9b-f7f6bbab4cbc",
+        "99194b0a-4705-43b4-b1dd-db0fec55d860",
+        "8e9e6482-4018-4ff2-a34e-be43de0d5a73",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",
         "566e567f-06b1-4a92-9cea-84bc4525cdf8",

@@ -128,6 +128,17 @@ switch rm {
 		];
 		break;
 	}
+	case rm_abominable_lands: {
+		return [
+			[snd_amb_cavern_drone], 
+			// periodical sounds
+			[
+				[snd_amb_minerocks_fall, 1000, .5, [200, 400], 30, 30],
+				[snd_amb_winter_wind, 1000, .5, [200, 400], 30, 30]
+			]
+		];
+		break;
+	}
 	case rm_krampus: {
 		return [
 		[snd_amb_winter_wind], 

@@ -13,7 +13,7 @@ numberOfTargets = [3,3,1];
 range = 50;
 
 ds_map_set(damages,SLASH,[10,20,10,20,0,0]);
-ds_map_set(damages,PIERCE,[0,0,0,0,25,30]);
+ds_map_set(damages,PIERCE,[0,0,0,0,20,22]);
 ds_map_set(damages,CRUSH,[0,0,0,0,0,0]);
 staminaCostArray=[10,10,25];
 

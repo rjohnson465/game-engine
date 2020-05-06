@@ -11,6 +11,8 @@ questStart(obj_quest_llf);
 
 addItemToInventory(makeKey("Mess Hall Key", "key", spr_item_key_messhall, "This is a dummy item lol"));
 
+addItemToInventory(instance_create_depth(x,y, 1, obj_item_bread));
+
 var q = instance_nearest(x,y, obj_quest_llf);
 
 var q1 = ds_list_find_value(q.questSteps, 0);

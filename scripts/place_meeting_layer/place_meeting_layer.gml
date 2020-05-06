@@ -40,7 +40,7 @@ for (var i = 0; i < ds_list_size(touchingInstances); i++) {
 	}
 	// would this collide with any additional objects to consider? 
 	// i.e. stairs edge case in which two combatants with different layers may appear on top of each other
-	if additionalObjectsToConsider != noone {
+	if ds_exists(additionalObjectsToConsider, ds_type_list) {
 		if ds_list_find_index(additionalObjectsToConsider,inst) != -1 && inst != id {
 			if place_meeting(xx,yy,inst) {
 				touchingAdditionalObjects = true;

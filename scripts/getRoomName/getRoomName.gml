@@ -45,4 +45,7 @@ switch ri {
 	case rm_golemking: {
 		return "The Claythrone Hall"; break;
 	}
+	case rm_abominable_lands: {
+		return "The Abominable Lands"; break;
+	}
 }

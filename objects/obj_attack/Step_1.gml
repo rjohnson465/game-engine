@@ -1,4 +1,7 @@
-life --;
+life--;
+if isRanged && life <= 0 && !hasSetAlarm {
+	alarm[0] = 1;
+}
 
 if isMelee {
 	image_angle = owner.facingDirection;
@@ -17,7 +20,7 @@ if attackData != noone && attackData.attackScaleX != noone && attackData.attackS
 }
 
 // special case - 2h club on 3rd attack create dust particles from hitting the ground
-if (weapon != noone && weapon.weaponType == BLUNT2H && attackNumber == 3) {
+if (weapon != noone && weapon.weaponType == BLUNT2H && attackNumber == 3 && !hasPlayedMidSound) {
 	
 	if image_index != 7 exit;
 	
@@ -41,6 +44,7 @@ if (weapon != noone && weapon.weaponType == BLUNT2H && attackNumber == 3) {
 	global.victim = noone;
 	instance_create_depth(x,y,1,obj_hit_particles);
 	audio_play_sound(snd_crunchy_thud,1,0);
+	hasPlayedMidSound = true;
 }
 
 // special case -- sconces light arrows / bolts on fire

@@ -10,7 +10,7 @@ baseValue = 200;
 range = 250;
 
 ds_map_set(damages,SLASH,[0,0,0,0]);
-ds_map_set(damages,PIERCE,[12,15,14,15]);
+ds_map_set(damages,PIERCE,[22,25,25,30]);
 ds_map_set(damages,CRUSH,[0,0,0,0]);
 act = 1;
 

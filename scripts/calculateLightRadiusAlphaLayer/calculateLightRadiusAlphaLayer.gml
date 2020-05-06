@@ -31,7 +31,11 @@ var luma = getLumaForColor(lightColor);
 var lightRadiusAlpha = ((-1/128)*luma) + 1 + .35;
 if lightRadiusAlpha > 1 lightRadiusAlpha = 1;
 
-var wintryRooms = [rm_winter, rm_xmas_town, rm_tundra, rm_krampus, rm_hanukkah_village, rm_clayfields, rm_golemking];
+var wintryRooms = [rm_winter, 
+	rm_xmas_town, rm_tundra, rm_krampus, rm_hanukkah_village, rm_clayfields, 
+	rm_golemking,
+	rm_abominable_lands
+	];
 
 if	arrayIncludes(wintryRooms, room) && 
 	!(object_index == obj_light_radius && owner.object_index == obj_item_drop_persistent) {

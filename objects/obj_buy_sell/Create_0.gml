@@ -1,7 +1,7 @@
 owner = global.owner;
 items = owner.items;
 global.isTrading = true;
-depth = -100000;
+// depth = -100000;
 
 global.owner = owner;
 vendorItemsObj = instance_create_depth(x,y,1,obj_vendor_items);

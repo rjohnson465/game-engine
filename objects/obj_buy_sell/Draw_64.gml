@@ -2,12 +2,13 @@
 var playerItemsObj = obj_player_items;
 var vendorItemsObj = obj_vendor_items;
 
-
 // instructions / prompts
 var promptsStartX = MENUS_TOPLEFT_X+18;
 var promptsY = MENUS_BOTTOMRIGHT_Y+25;
 var xOffset = 20;
 var w = 0;
+visible = true;
+
 if gamepad_is_connected(global.player.gamePadIndex) {
 	
 	if playerItemsObj.isConfirming || vendorItemsObj.isConfirming {
@@ -18,6 +19,8 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	else if playerItemsObj.isActive {
 		if playerItemsObj.selectedItem != noone && playerItemsObj.selectedItem != undefined && instance_exists(playerItemsObj.selectedItem) && playerItemsObj.selectedItem.isSellable {
 			w += drawPrompt("Sell " + playerItemsObj.selectedItem.name, Input.F,promptsStartX+w,promptsY)+xOffset;
+		
+			
 		} 
 		if playerItemsObj.selectedItem != undefined && playerItemsObj.selectedItem >= 0 && instance_exists(playerItemsObj.selectedItem) 
 			&& (playerItemsObj.selectedItem.type == ItemTypes.HandItem || playerItemsObj.selectedItem.type == ItemTypes.Head) && !playerItemsObj.selectedItem.isUsable {
@@ -69,6 +72,7 @@ if gamepad_is_connected(global.player.gamePadIndex) {
 	}
 
 }
+
 
 
 

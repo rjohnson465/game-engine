@@ -3,7 +3,7 @@ spriteName = "spr_enemy_golemboss_slowswing";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
 limbKey = noone; // default value
-ds_map_add(damages,SLASH,[25,25]);
+ds_map_add(damages,SLASH,[35,35]);
 ds_map_add(damages, FIRE, [15, 15]);
 type = AttackTypes.Charge;
 isRanged = false;
@@ -33,4 +33,4 @@ prepPart1 = cinder;
 
 prepPart1Num = 10;
 
-chargeSpeed = 12;
+chargeSpeed = 18;

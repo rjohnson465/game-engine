@@ -61,6 +61,9 @@ switch rm {
 		return [noone];
 		break;
 	}
+	case rm_abominable_lands: {
+		return [snd_bgm_endless_tundra, snd_bgm_krampuslands];
+	}
 }
 
 return noone;

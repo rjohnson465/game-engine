@@ -41,4 +41,9 @@ if !mp_grid_path(personalGrid, gridPath, x, y, global.player.x, global.player.y,
 	alarm[4] = 1;
 }
 
+maybeAggro();
+if !instance_exists(lockOnTarget) {
+	lockOnTarget = instance_nearest(x, y, obj_player);
+}
+
 ds_list_destroy(allPoints); allPoints = -1; // mem leak

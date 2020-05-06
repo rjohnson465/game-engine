@@ -32,9 +32,11 @@ if isEnemy objectsToAvoid = obj_enemy_obstacle_parent;
 var ridges = ds_list_create();
 if object_is_ancestor(object_index, obj_combatant_parent) {
 	with obj_ridge {
-		var isRidgeActiveForCombatant = ds_list_find_index(other.activeRidges, id) != -1;
-		if !isRidgeActiveForCombatant && !angleBetween(fallDirectionMin, fallDirectionMax, d) {
-			ds_list_add(ridges, id);
+		if distance_to_object(other) < 15 {
+			var isRidgeActiveForCombatant = ds_list_find_index(other.activeRidges, id) != -1;
+			if !isRidgeActiveForCombatant && !angleBetween(fallDirectionMin, fallDirectionMax, d) {
+				ds_list_add(ridges, id);
+			}
 		}
 	}
 }
@@ -71,9 +73,12 @@ if id == global.player && ds_list_size(solidNpcs) > 0 {
 var oldX = x;
 var oldY = y;
 var dir = d;
+
+var wouldHitObjectToAvoid = place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs);
+
 var pred1 = includesFallzones ? 
-			!place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge && !wouldHitSolidNpc
-			: !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs) && !wouldHitRidge && !wouldHitSolidNpc; 
+			!wouldHitObjectToAvoid && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge && !wouldHitSolidNpc
+			: !wouldHitObjectToAvoid && !wouldHitRidge && !wouldHitSolidNpc; 
 
 // if !place_meeting_layer(x+lengthdir_x(sp,d),y+lengthdir_y(sp,d),objectsToAvoid) {
 if pred1 {
@@ -88,45 +93,13 @@ else {
 	dir = (dir + angMult)%360; 
 	while dir != d
 	{
-		
-		// check again for ridge collisions
-		var wouldHitRidge = false;
-		if ds_list_size(ridges) > 0 {
-			for (var i = 0; i < ds_list_size(ridges); i++) {
-				var r = ds_list_find_value(ridges, i);
-				if place_meeting_layer(x + lengthdir_x(sp, dir), y + lengthdir_y(sp, dir), r) {
-					wouldHitRidge = true;
-				}
-			}
-		}
-		var wouldHitSolidNpc = false;
-		if id == global.player && ds_list_size(solidNpcs) > 0 {
-			for (var i = 0; i < ds_list_size(solidNpcs); i++) {
-				var n = ds_list_find_value(solidNpcs, i);
-				if place_meeting_layer(x + lengthdir_x(sp, dir), y + lengthdir_y(sp, dir), n) {
-					wouldHitSolidNpc = true;
-				}
-			}
-		}
-		
-		var wouldHitObjectToAvoid = place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs);
-		var wouldHitFallzone = place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone);
-		
-		var pred =	includesFallzones ? 
-					!wouldHitObjectToAvoid && !wouldHitFallzone && !wouldHitRidge && !wouldHitSolidNpc
-					: !wouldHitObjectToAvoid && !wouldHitRidge && !wouldHitSolidNpc;
-		
-		//if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) {
-		if pred {	
-			x = x+lengthdir_x(sp,dir); 
-			y = y+lengthdir_y(sp,dir); 
-			
+		if abs(angle_difference(d,dir) < 100) {
 			// check again for ridge collisions
 			var wouldHitRidge = false;
 			if ds_list_size(ridges) > 0 {
 				for (var i = 0; i < ds_list_size(ridges); i++) {
 					var r = ds_list_find_value(ridges, i);
-					if place_meeting_layer(x, y, r) {
+					if place_meeting_layer(x + lengthdir_x(sp, dir), y + lengthdir_y(sp, dir), r) {
 						wouldHitRidge = true;
 					}
 				}
@@ -135,26 +108,63 @@ else {
 			if id == global.player && ds_list_size(solidNpcs) > 0 {
 				for (var i = 0; i < ds_list_size(solidNpcs); i++) {
 					var n = ds_list_find_value(solidNpcs, i);
-					if place_meeting_layer(x, y, n) {
+					if place_meeting_layer(x + lengthdir_x(sp, dir), y + lengthdir_y(sp, dir), n) {
 						wouldHitSolidNpc = true;
 					}
 				}
 			}
-			
-			if place_meeting_layer(x,y,objectsToAvoid, solidNpcs) || wouldHitRidge || abs(angle_difference(d,dir) > 100) {
-				x = oldX;
-				y = oldY;
-			} else {
-				ds_list_add(possibleAngles,dir);
-				x = oldX;
-				y = oldY;
-			}
-			
+		
 			var wouldHitObjectToAvoid = place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs);
+			var wouldHitFallzone = place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone);
+		
+			var pred =	includesFallzones ? 
+						!wouldHitObjectToAvoid && !wouldHitFallzone && !wouldHitRidge && !wouldHitSolidNpc
+						: !wouldHitObjectToAvoid && !wouldHitRidge && !wouldHitSolidNpc;
+		
+			//if !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid) {
+			if pred {	
 			
-			pred =	includesFallzones ? 
-					!wouldHitObjectToAvoid && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge && !wouldHitSolidNpc
-					: !wouldHitObjectToAvoid && !wouldHitRidge && !wouldHitSolidNpc;
+				x = x+lengthdir_x(sp,dir); 
+				y = y+lengthdir_y(sp,dir); 
+			
+				/*
+				// check again for ridge collisions
+				var wouldHitRidge = false;
+				if ds_list_size(ridges) > 0 {
+					for (var i = 0; i < ds_list_size(ridges); i++) {
+						var r = ds_list_find_value(ridges, i);
+						if place_meeting_layer(x, y, r) {
+							wouldHitRidge = true;
+						}
+					}
+				}
+				var wouldHitSolidNpc = false;
+				if id == global.player && ds_list_size(solidNpcs) > 0 {
+					for (var i = 0; i < ds_list_size(solidNpcs); i++) {
+						var n = ds_list_find_value(solidNpcs, i);
+						if place_meeting_layer(x, y, n) {
+							wouldHitSolidNpc = true;
+						}
+					}
+				} */
+			
+				if place_meeting_layer(x,y,objectsToAvoid, solidNpcs) || wouldHitRidge {
+					x = oldX;
+					y = oldY;
+				} else {
+					ds_list_add(possibleAngles,dir);
+					x = oldX;
+					y = oldY;
+				}
+			
+				/*
+				var wouldHitObjectToAvoid = place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),objectsToAvoid, solidNpcs);
+			
+				pred =	includesFallzones ? 
+						!wouldHitObjectToAvoid && !place_meeting_layer(x+lengthdir_x(sp,dir),y+lengthdir_y(sp,dir),obj_fallzone) && !wouldHitRidge && !wouldHitSolidNpc
+						: !wouldHitObjectToAvoid && !wouldHitRidge && !wouldHitSolidNpc;
+			    */
+			}
 		}
 		dir = (dir + angMult)%360;
 	}

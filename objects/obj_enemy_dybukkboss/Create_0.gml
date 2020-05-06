@@ -27,15 +27,17 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 // general attacks info
 meleeAggroRange = 250;
 rangedAggroRange = 800;
-farthestAllowedFromPost = 1000;
+farthestAllowedFromPost = 50000;
 aggressiveness = 100; // aggressiveness 0-100%; every attackFrequencyFrames, roll using this number to see if we attack
 attackFrequencyTotalFramesMelee = [45,70];
 attackFrequencyTotalFramesRanged = [60,90];
 strafeTotalFrames = [30,60];
 waryDistanceRange=[100,120];
-waryTotalFrames=[60,90];
+waryTotalFrames=[30,45];
 skittishness = 100;
 cautiousness = 50;
+
+sightAngleDelta = 360;
 
 poiseCurrent = 50;
 poiseMax = 50;
@@ -69,23 +71,25 @@ var slash12 = makeEnemyAttackObj(obj_attack_dybukkboss_slash_1_2);
 
 // var c0 = [beam];
 var c1 = [d1, d2, d3];
+var c11 = [d1];
 // var c2 = [s1, s2, s2];
 // var c3 = [s1];
 var c4 = [slash11, slash12];
 var c5 = [s1, s2];
+var c55 = [s1, s2, s2];
 var c6 = [slash11, slash12];
 var c7 = [slash11];
 
-meleeAttacks = [c1, c4, c5, c6, c7];
-// meleeAttacks = [c4, c6];
+meleeAttacks = [c1, c4, c5, c55, c7];
+// meleeAttacks = [c5, c55];
 // ranged attacks info
 
 rangedAttacks = [];
 
 
-hp = 125;
-maxHp = 125;
-hpRegen = .5;
+hp = 175;
+maxHp = 175;
+hpRegen = .75;
 
 stamina = 60;
 maxStamina = 60;
@@ -114,7 +118,7 @@ hasRevivedGolem = false;
 damageTaken = 0;
 DAMAGE_TO_TELEPORT = 10;
 TELEPORT_PREP_FRAME_MIN = 60;
-TELEPORT_PREP_FRAME_MAX = 120;
+TELEPORT_PREP_FRAME_MAX = 90;
 eventListeners = ds_map_create();
 ds_map_add(eventListeners, EV_DAMAGE_TAKEN, scr_evl_dybukkboss_teleport_on_damage);
 ds_map_add(eventListeners, EV_DARK_FOUNTAIN_WISH, scr_evl_dybukboss_remove);

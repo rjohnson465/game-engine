@@ -192,6 +192,7 @@ for (var i = 0; i < ds_list_size(inv); i++) {
 	if !el.isSellable {
 		var pos = ds_list_find_index(inv,el);
 		ds_list_delete(inv,pos);
+		i--;
 	}
 	
 }

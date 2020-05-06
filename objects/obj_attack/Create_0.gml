@@ -37,6 +37,8 @@ sound = noone;
 isSoundLooping = false;
 attackSoundLoopIndex = noone;
 
+hasPlayedMidSound = false;
+
 weaponParticles = [noone, noone, noone, noone, noone];
 weaponParticlesNums = [noone, noone, noone, noone, noone];
 
@@ -355,7 +357,9 @@ if attackData != noone {
 			var grid = owner.personalGrid;
 			var testPath = path_add();
 			var pathExists = mp_grid_path(grid, testPath, x, y, owner.lockOnTarget.x, owner.lockOnTarget.y, true);
-			isValidPosition = pathExists;
+			// also make sure it spawns in a place kinda distant from target
+			var isntTooClose = point_distance(x, y, owner.lockOnTarget.x, owner.lockOnTarget.y) > 150;
+			isValidPosition = pathExists && isntTooClose;
 			path_delete(testPath);
 			numAttempts++;
 		}

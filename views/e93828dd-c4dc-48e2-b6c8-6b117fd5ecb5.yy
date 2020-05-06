@@ -9,7 +9,8 @@
         "64cbd5bf-13c3-44db-96f1-ff29bb8a2f2a",
         "5fe33c8d-64df-4c7c-94e2-509f9b5305f4",
         "184c354f-4599-444f-9bac-c6b36687d25d",
-        "613db4de-2886-4891-9092-17d177320d6c"
+        "613db4de-2886-4891-9092-17d177320d6c",
+        "1b42e279-b19b-4113-9d55-bbdea1759407"
     ],
     "filterType": "GMScript",
     "folderName": "winterWonderground",
