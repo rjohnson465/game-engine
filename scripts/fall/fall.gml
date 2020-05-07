@@ -67,17 +67,24 @@ if fallFrame == .5*fallTotalFrames {
 		var layerNum = real(string_char_at(layerName,string_length(layerName)));
 		var lowerLayerNum = layerNum-1;
 		var lowerLayer = layer_get_id("instances_floor_"+string(lowerLayerNum));
-	
+		var deepWaterLayer = layer_get_id("tiles_waterdeep_floor_"+string(layerNum));
+		var didFallInWater = false;
+		if deepWaterLayer >= 0 {
+			var tmap = layer_tilemap_get_id(deepWaterLayer);
+			var tile = tilemap_get_at_pixel(tmap,x,y);
+			if tile > 0 {
+				didFallInWater = true;
+			}
+		}
 		// lower layer doesn't exit? we fallin to our deaths brotha
-		if lowerLayer < 0 || lowerLayerNum < 1 {
+		if lowerLayer < 0 || lowerLayerNum < 1 || didFallInWater {
 			hp = 0;
 		
 			// check if the layer we were on had deep water and that we were standing on it when we fell
-			var deepWaterLayer = layer_get_id("tiles_waterdeep_floor_"+string(layerNum));
 			if deepWaterLayer >= 0 {
 				var tmap = layer_tilemap_get_id(deepWaterLayer);
 				var tile = tilemap_get_at_pixel(tmap,x,y);
-				if tile >= 0 {
+				if tile > 0 {
 					// if so, play splash snd
 					audio_play_sound_at(snd_splash,x,y,layer_get_depth(layer),50,AUDIO_MAX_FALLOFF_DIST,1,0,1);
 				

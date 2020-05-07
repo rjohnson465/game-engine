@@ -2087,6 +2087,14 @@
             }
         },
         {
+            "Key": "0edc685c-a5f9-441f-b533-8905cc2c7c0e",
+            "Value": {
+                "id": "10c3566d-bb4f-42e9-a50c-34b8a3b19676",
+                "resourcePath": "views\\0edc685c-a5f9-441f-b533-8905cc2c7c0e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "0ef0f7e0-dbff-4f17-b545-fb3ed3eb389a",
             "Value": {
                 "id": "f0deb01e-8f1b-43e1-882b-98d43f1b8d51",
@@ -8295,6 +8303,14 @@
             }
         },
         {
+            "Key": "3cf36983-06d8-4e41-a4f7-3e4ca357bd74",
+            "Value": {
+                "id": "4eb31686-b249-4259-b8b6-8a51e15b16a5",
+                "resourcePath": "scripts\\ei_icecursedfairy_baxe_ice\\ei_icecursedfairy_baxe_ice.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "3cf392dc-7244-44c4-81dc-2a3a30455758",
             "Value": {
                 "id": "211ddd43-a105-4816-8369-f60bc6e7c78b",
@@ -11231,6 +11247,14 @@
             }
         },
         {
+            "Key": "52461e29-280e-46b9-8cbb-ebad3ea507aa",
+            "Value": {
+                "id": "911544e1-5375-4403-9e08-55c3128f385f",
+                "resourcePath": "scripts\\ei_icecursedfairy_club_ice\\ei_icecursedfairy_club_ice.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "524a9e3f-4413-4591-88d9-68f2c8794bbd",
             "Value": {
                 "id": "ef72e6f1-5a3c-4a4f-a496-1d261f7ba7c4",
@@ -11476,6 +11500,14 @@
                 "id": "4e5c20a6-ee9b-4862-aa35-48dfb6500027",
                 "resourcePath": "sounds\\snd_enemy_lighteater_tailshot_prep\\snd_enemy_lighteater_tailshot_prep.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "549b19e7-da61-4935-af9a-e795ba2f0ff3",
+            "Value": {
+                "id": "da233716-4c51-4d35-a28c-228c4e0666c2",
+                "resourcePath": "sprites\\spr_part_icecrystal\\spr_part_icecrystal.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -34306,7 +34338,9 @@
         "4bba1dc0-6e25-421d-90fa-f9f903b92c3a",
         "724efee2-ef01-4e0f-b2a9-6cfe76207df8",
         "379913ac-5b24-468a-b6d3-09e8070a3615",
+        "3cf36983-06d8-4e41-a4f7-3e4ca357bd74",
         "f069e022-9d78-43da-b512-2aad9cbd7e97",
+        "52461e29-280e-46b9-8cbb-ebad3ea507aa",
         "e33c2a61-cd97-4ca8-9781-0a14cdf4c94b",
         "2702dd65-5fe1-468e-846a-715c52662b0f",
         "55bc8f4f-0a80-44c1-bf9b-f7f6bbab4cbc",

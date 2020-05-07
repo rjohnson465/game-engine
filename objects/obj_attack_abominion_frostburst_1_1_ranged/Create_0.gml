@@ -12,6 +12,7 @@ type = AttackTypes.UnderPlayer;
 
 prepSound = snd_magic_ice_loop;
 underPlayerAttackSound = snd_snow_crunch;
+underPlayerPrepDuration = 60;
 lingerZoneSoundInit = snd_hit_ice_3;
 
 hitSound = snd_hit1;
@@ -56,6 +57,7 @@ part_type_life(smoke,45,60);
 lingerZonePartTypes = [[snowflake, 3], [smoke, 3], [dust, 3]];
 var lDamages = ds_map_create();
 ds_map_replace(lDamages, ICE, [2,4]);
+ds_map_replace(lDamages, PIERCE, [2,2]);
 lingerZoneDamages = lDamages; // a map of damages the linger zone delivers
 lingerZoneDuration = 150; // 5 seconds by default
 lingerZoneDamageFrequency = 30; // damage every second, by default
