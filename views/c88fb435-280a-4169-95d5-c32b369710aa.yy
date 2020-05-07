@@ -18,6 +18,7 @@
         "94379286-674f-4109-94dd-4b81ec3bb701",
         "9a24af0d-9f0a-4b9a-8a70-8838c43b8bd6",
         "09ebd977-678e-467d-9bb6-d371b9833e87",
+        "b069a063-391b-4fc7-b3af-331fc6eda855",
         "2e963f1a-16ce-453c-9471-98295ffe0a39",
         "812a640e-7f6c-4da9-b1e0-f5e297f63e9b",
         "fde64554-e5b6-4e40-9fe6-88a114e9a942",
@@ -37,7 +38,8 @@
         "20a5c0ba-38a7-4b78-836b-b0fc51bcacaf",
         "ab30d5a2-7cf6-4d3d-99c4-757613d8659d",
         "5cf37687-a724-47fb-b471-e186c0731ee0",
-        "5cf6ad0d-ac49-4170-b70d-9b50be506613"
+        "5cf6ad0d-ac49-4170-b70d-9b50be506613",
+        "a7229c64-5d89-4031-b2c0-fdbe4d1cc58f"
     ],
     "filterType": "GMObject",
     "folderName": "winter",

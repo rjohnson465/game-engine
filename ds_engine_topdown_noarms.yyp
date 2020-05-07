@@ -3927,6 +3927,14 @@
             }
         },
         {
+            "Key": "1cdb934f-584b-4c37-9909-97b9982dce46",
+            "Value": {
+                "id": "ab01b339-39c0-42e3-96e2-deb481c55752",
+                "resourcePath": "objects\\obj_attack_abominion_frostburst_1_1_ranged\\obj_attack_abominion_frostburst_1_1_ranged.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "1ce7034f-4159-4cb7-9ae7-b872c2aa1bf0",
             "Value": {
                 "id": "824d80e0-b549-4c10-853c-1fb241531685",
@@ -6820,6 +6828,14 @@
                 "id": "732a0ad4-393f-452d-935e-cbef3b2b85c1",
                 "resourcePath": "objects\\obj_conv_wamdk_completed\\obj_conv_wamdk_completed.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "3300a356-af13-4ee1-9259-a462d70e0d3e",
+            "Value": {
+                "id": "4d2c3701-a459-43b5-b803-3395ec24d86b",
+                "resourcePath": "sprites\\spr_ww_ablands_stairs\\spr_ww_ablands_stairs.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -10791,6 +10807,14 @@
             }
         },
         {
+            "Key": "4f977fa8-665f-4a58-b963-e04e6ac93a13",
+            "Value": {
+                "id": "458bfde6-a206-4239-baf3-42d77928aabf",
+                "resourcePath": "sprites\\spr_ww_glowing_icecrystals\\spr_ww_glowing_icecrystals.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "4f9e1d7e-6e19-48bb-bfa0-9b32fa273aa8",
             "Value": {
                 "id": "37f99642-12eb-4c58-b736-467928e17766",
@@ -12964,6 +12988,14 @@
                 "id": "aced729f-d594-457e-b7d2-a4eb08deafdf",
                 "resourcePath": "objects\\obj_item_ancient_coin\\obj_item_ancient_coin.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "605a4bb8-9644-43d1-8aef-a3c88908b8e0",
+            "Value": {
+                "id": "5faef9d4-d670-42cf-8527-16a094063a04",
+                "resourcePath": "sprites\\spr_ww_ablands_stairs_collision_mask\\spr_ww_ablands_stairs_collision_mask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -22191,6 +22223,14 @@
             }
         },
         {
+            "Key": "a7229c64-5d89-4031-b2c0-fdbe4d1cc58f",
+            "Value": {
+                "id": "cf2b3121-ab0a-4e9e-8bd4-50e20e5d557c",
+                "resourcePath": "objects\\obj_ww_ablands_stairs_collision_mask\\obj_ww_ablands_stairs_collision_mask.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a7241d45-b484-487f-83cc-3e7d7b3f90c0",
             "Value": {
                 "id": "7e956bce-ae66-494c-ba3c-c9e9d16c0958",
@@ -23635,6 +23675,14 @@
             "Value": {
                 "id": "42fc06be-d233-4183-8341-7bf6d186de52",
                 "resourcePath": "objects\\obj_attack_lighteater_breath_1_1\\obj_attack_lighteater_breath_1_1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "b069a063-391b-4fc7-b3af-331fc6eda855",
+            "Value": {
+                "id": "2b28f598-52f6-4c91-92ff-9fa44dfb754f",
+                "resourcePath": "objects\\obj_ww_icecrystals_glowing\\obj_ww_icecrystals_glowing.yy",
                 "resourceType": "GMObject"
             }
         },

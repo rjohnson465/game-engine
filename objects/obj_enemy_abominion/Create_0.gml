@@ -68,8 +68,10 @@ meleeAttacks = [c0, c1, c2, c3];
 
 // ranged attacks info
 var crystalshot = makeEnemyAttackObj(obj_attack_abominion_crystalshot_1_1);
+var frostburst = makeEnemyAttackObj(obj_attack_abominion_frostburst_1_1_ranged);
 var c0 = [crystalshot];
-rangedAttacks = [c0];
+var c1 = [frostburst];
+rangedAttacks = [c0, c1];
 
 
 hp = 200;

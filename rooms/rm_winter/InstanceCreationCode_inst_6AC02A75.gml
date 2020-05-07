@@ -1,5 +1,5 @@
 nextRoom = rm_abominable_lands;
-nextRoomX = 1800; 
+nextRoomX = 2838; 
 nextRoomY = 150;
 nextRoomLayer = "instances_floor_2";
-nextRoomName = getRoomName(nextRoom);
+nextRoomName = getRoomName(nextRoom); 

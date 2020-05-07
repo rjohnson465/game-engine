@@ -16,7 +16,7 @@ lingerZoneSoundInit = snd_hit_ice_3;
 
 hitSound = snd_hit1;
 
-minRange = 100;
+minRange = 250;
 
 
 hasLingerZone = true;

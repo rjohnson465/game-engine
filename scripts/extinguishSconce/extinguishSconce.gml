@@ -9,7 +9,7 @@ if argument_count > 0 {
 }
 
 isLit = false;
-if object_index == obj_sconce || object_is_ancestor(object_index, obj_sconce) {
+if object_index == obj_sconce || object_index == obj_sconce_icy || object_is_ancestor(object_index, obj_sconce) {
 	audio_emitter_gain(soundEmitter,0);
 	audio_stop_sound(torchSound); torchSound = noone;
 }

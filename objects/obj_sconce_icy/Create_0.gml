@@ -56,8 +56,8 @@ particle3 = smoke;
 
 floorNum = getLayerFloorNumber(layer);
 
-var xx = x+(.5*sprite_width); var yy = y+(.5*sprite_height);
-part_emitter_region(system, emitter, xx-10, xx+10, yy-10, yy+10, ps_shape_diamond, ps_distr_gaussian);
+var xx = x+ lengthdir_x(.5*sprite_width*image_xscale, image_angle); var yy = y+ lengthdir_y(.5*sprite_height*image_yscale, image_angle);
+part_emitter_region(system, emitter, x-10, x+10, y-10, y+10, ps_shape_diamond, ps_distr_gaussian);
 
 soundEmitter = audio_emitter_create();
 audio_emitter_position(soundEmitter,x,y,layer_get_depth(layer));
