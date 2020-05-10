@@ -1,2 +1,2 @@
 goalX = x+72;
-goalY = y;
+goalY = y+72;

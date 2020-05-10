@@ -48,4 +48,7 @@ switch ri {
 	case rm_abominable_lands: {
 		return "The Abominable Lands"; break;
 	}
+	case rm_abominable_snowman: {
+		return "The Snowman's Lair"; break;
+	}
 }

@@ -863,6 +863,14 @@
             }
         },
         {
+            "Key": "06569228-a96f-488c-b1c9-53626cae9a4b",
+            "Value": {
+                "id": "e16de1ce-706f-47fc-afc1-f3f1cca33d0b",
+                "resourcePath": "objects\\obj_ww_ablands_stairs_partial_collision_mask1\\obj_ww_ablands_stairs_partial_collision_mask1.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "068f1e52-c544-4014-94ca-014b5dbf91ce",
             "Value": {
                 "id": "1e5e0ffe-142f-4896-b62c-80154c9a8ee4",
@@ -8972,6 +8980,14 @@
                 "id": "c370b58f-f2a8-47c6-94b8-943ee39faeab",
                 "resourcePath": "sounds\\snd_conv_casinoguard_intro_gary_1\\snd_conv_casinoguard_intro_gary_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "41b42152-ebe9-41ec-a49c-c3f232748350",
+            "Value": {
+                "id": "53d9a4a5-63e8-48d3-badb-8ed2f712694a",
+                "resourcePath": "sprites\\spr_ww_ablands_stairs_partial\\spr_ww_ablands_stairs_partial.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -24748,6 +24764,14 @@
                 "id": "01fc6357-42b4-4469-a11c-98c6023fb47d",
                 "resourcePath": "objects\\obj_attack_unfairy_spear_1_2\\obj_attack_unfairy_spear_1_2.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "b8c56ae5-6821-4108-8dde-d82482aa010b",
+            "Value": {
+                "id": "d1a97c01-aead-48ff-8009-3291e9dbccf1",
+                "resourcePath": "sprites\\spr_ww_ablands_stairs_partial_collision_mask\\spr_ww_ablands_stairs_partial_collision_mask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

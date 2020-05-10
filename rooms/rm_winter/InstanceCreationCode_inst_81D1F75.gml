@@ -3,6 +3,7 @@ if in > 0 exit;
 
 scr_test_build_swordsman_ww();
 
+/*
 var sth = instance_nearest(x, y, obj_quest_savingtheholidays);
 if (instance_exists(sth)) {
 	var q0 = ds_list_find_value(sth.questSteps, 0);

@@ -1,5 +1,5 @@
-nextRoom = rm_clayfields;
-nextRoomX = 3350; 
-nextRoomY = 2490;
+nextRoom = rm_abominable_lands;
+nextRoomX = 775; 
+nextRoomY = 325;
 nextRoomLayer = "instances_floor_1";
 nextRoomName = getRoomName(nextRoom);

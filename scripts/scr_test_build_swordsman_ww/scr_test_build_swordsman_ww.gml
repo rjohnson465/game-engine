@@ -54,16 +54,17 @@ fillHealthFlask();
 
 var ls = instance_create_depth(x, y, depth, obj_hand_item_longsword);
 ls.numberOfSockets = 2;
-insertGemIntoItem(makeGem(obj_gem_hematite, CRACKED), ls);
+// insertGemIntoItem(makeGem(obj_gem_hematite, CRACKED), ls);
 addItemToInventory(ls);
 equipItem(ls, EquipmentSlots.LeftHand1);
-var ws = instance_create_depth(x, y, depth, obj_hand_item_woodshield);
+var ws = instance_create_depth(x, y, depth, obj_hand_item_kiteshield);
 addItemToInventory(ws);
 
 var bow = instance_create_depth(x, y, depth, obj_hand_item_shortbow);
 var torch = instance_create_depth(x, y, depth, obj_hand_item_torch);
 var wand = instance_create_depth(x, y, depth, obj_hand_item_wand);
 addItemToInventory(bow);
+addItemToInventory(instance_create_depth(x, y, 1, obj_hand_item_thrownknife));
 addItemToInventory(torch);
 addItemToInventory(wand);
 
@@ -71,7 +72,29 @@ equipItem(ws, EquipmentSlots.RightHand1);
 var rc = instance_create_depth(x, y, depth, obj_hat_ringed_coif);
 addItemToInventory(rc);
 equipItem(rc, EquipmentSlots.Head);
+
+addItemToInventory(instance_create_depth(x, y, 1, obj_hat_construction_hat));
+addItemToInventory(instance_create_depth(x, y, 1, obj_hat_bike_helmet));
+addItemToInventory(instance_create_depth(x, y, 1, obj_hat_leathercap));
+addItemToInventory(instance_create_depth(x, y, 1, obj_hat_plated_cap));
+
 var ring = instance_create_depth(x,y,1,obj_item_ring);
 addItemProperty(ring, ModifiableProperties.HpRegen, 1);
 addItemToInventory(ring);
 equipItem(ring, EquipmentSlots.LeftRing1);
+
+addItemToInventory(makeGem(obj_gem_hematite, CRACKED));
+addItemToInventory(makeGem(obj_gem_ruby, CRACKED));
+addItemToInventory(makeGem(obj_gem_aquamarine, CRACKED));
+
+var peppers = instance_create_depth(x, y, 1, obj_item_jalapeno);
+peppers.count = 3;
+addItemToInventory(peppers);
+var blessings = instance_create_depth(x, y, 1, obj_item_blessing);
+blessings.count = 3;
+addItemToInventory(blessings);
+addItemToInventory(instance_create_depth(x, y, 1, obj_hat_plated_cap));
+addItemToInventory(makeGemPieces(obj_gempieces_ruby, GRAINS));
+addItemToInventory(makeGemPieces(obj_gempieces_amethyst, GRAINS));
+
+addItemToInventory(makeGold(2500));
