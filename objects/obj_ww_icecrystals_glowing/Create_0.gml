@@ -6,11 +6,8 @@ origLayer = layer;
 isObstacleLayerless = false;
 neverDeactivate = false;
 
-depth += 1; // hands appear over flower
-stopsAttacks = false;
+depth -= 2; // hands appear under
+// stopsAttacks = false;
 
-
-randomize();
-floatingFrame = random_range(0, 119);
 
 event_inherited();

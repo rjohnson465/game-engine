@@ -45,6 +45,7 @@ mustVocalizeAttack = false;
 mustVocalizePrep = false;
 attackSoundsVocals = [];
 prepSoundsVocals = [];
+prepSoundsUninterruptible = [];
 
 attackStartX = noone;
 attackStartY = noone;

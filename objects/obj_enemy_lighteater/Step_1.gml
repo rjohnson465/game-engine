@@ -36,11 +36,14 @@ if hp < 1 && isAlive && !isDying {
 	
 	if !isBossKilledBefore {
 		doTriggerTonyIntro = true;
+		// do not let player die
+		with obj_player {
+			cureAllConditions();
+			hp = maxHp;
+		}
 	}
 	
-	with obj_player {
-		cureAllConditions();
-	}
+	
 }
 
 // Inherit the parent event

@@ -1,4 +1,8 @@
-/*
+/*if ds_exists(planchettesDraggingMap, ds_type_map) {
+	ds_map_destroy(planchettesDraggingMap); planchettesDraggingMap = -1;
+}
+
+
 if ds_exists(optionsMapDisplay, ds_type_map) {
 	ds_map_destroy(optionsMapDisplay); optionsMapDisplay = -1;
 }

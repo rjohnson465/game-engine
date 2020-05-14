@@ -27,16 +27,12 @@ for (var i = 0; i < array_length_1d(layers); i++) {
 			layer_set_visible(l,false);
 			// also don't show fountains or sconces with depth near depth of this layer
 			with obj_fountain {
-				var lDepth = layer_get_depth(l);
-				var diff = abs(lDepth - depth);
-				if diff < 5 {
+				if origLayer == l {
 					visible = false;
 				}
 			}
 			with obj_sconce {
-				var lDepth = layer_get_depth(l);
-				var diff = abs(lDepth - depth);
-				if diff < 5 {
+				if origLayer == l {
 					visible = false;
 				}
 			}

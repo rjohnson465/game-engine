@@ -55,6 +55,14 @@ for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
 			audio_emitter_gain(attackPrepSoundEmitter, 1);
 			audio_play_sound_on(attackPrepSoundEmitter,prepSoundVocal,0,1);
 		}
+		
+		// prep sounds that are not interrupted by attacking
+		if array_length_1d(attackData.prepSoundsUninterruptible) > 0 {
+			for(var i = 0; i < array_length_1d(attackData.prepSoundsUninterruptible); i++) {
+				var snd = attackData.prepSoundsUninterruptible[i];
+				audio_play_sound_at(snd, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0, 1);
+			}
+		}
 	}
 	
 	// stop preparing, begin attacking

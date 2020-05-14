@@ -23,6 +23,9 @@ if	p.currentInteractableObject == id &&
 
 if isActive && (x != goalX || y != goalY) {
 	move_towards_point(goalX, goalY, 8);
+	if distance_to_point(goalX, goalY) < 10 {
+		x = goalX; y = goalY;
+	}
 }
 
 // burst particles, play sound, turn into bridge

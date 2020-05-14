@@ -10,7 +10,9 @@ staminaCost = 10;
 staggerDuration = 5;
 type = AttackTypes.UnderPlayer;
 
-prepSound = snd_magic_ice_loop;
+prepSound = snd_thrust_attack_1;
+prepSoundsUninterruptible = [snd_abominion_incantation];
+mustVocalizePrep = true;
 underPlayerAttackSound = snd_snow_crunch;
 underPlayerPrepDuration = 60;
 lingerZoneSoundInit = snd_hit_ice_3;

@@ -11,6 +11,7 @@ if instance_exists(global.player.lockOnTarget) {
 	}
 } else global.player.lockOnTarget = noone;
 
+
 var pad = global.player.gamePadIndex;
 var p = global.player;
 
@@ -155,13 +156,21 @@ if doDrawPoise {
 
 // xp bar
 var xpPercent = (global.player.xp / global.player.xpToNextLevel)*100;
-draw_healthbar(0,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpPercent,c_black,C_HANDLES,C_HANDLES,0,true,true);
+var xpBarWidth = view_get_wport(view_camera[0])-2;
+var xpBarHeight = 9;
+var xpBarTopLeftX = 0; var xpBarTopLeftY = view_get_hport(view_camera[0])-10;
+var xpBarBottomRightX = xpBarTopLeftX+xpBarWidth; var xpBarBottomRightY = xpBarTopLeftY + xpBarHeight;
+
+draw_healthbar(xpBarTopLeftX,xpBarTopLeftY,xpBarBottomRightX,xpBarBottomRightY,xpPercent,c_black,C_HANDLES,C_HANDLES,0,true,true);
 var xpBarRightX = (xpPercent/100)*view_get_wport(view_camera[0]);
 var xpTemp = global.player.xpTemp;
 var xpTempTotal = global.player.xpToNextLevel-global.player.xp;
 var xpTempPercent = (xpTemp/xpTempTotal)*100;
-draw_healthbar(xpBarRightX,view_get_hport(view_camera[0])-5,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),xpTempPercent,c_black,c_aqua,c_aqua,0,1,1);
-
+draw_healthbar(xpBarRightX,xpBarTopLeftY,xpBarBottomRightX,xpBarBottomRightY,xpTempPercent,c_black,c_aqua,c_aqua,0,1,1);
+// xp outline
+draw_set_color(c_white);
+draw_rectangle(xpBarTopLeftX, xpBarTopLeftY, xpBarBottomRightX, xpBarBottomRightY, 1);
+// xp mouseover
 var x1 = 10;
 var y1 = 20;
 var x2 = 210;
@@ -185,48 +194,62 @@ var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
 var rightHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
 var isDrawingAttunements = rightHandItem.chargesMax > 0 || leftHandItem.chargesMax > 0;
 
-// left hand
 var vh = view_get_hport(view_camera[0]);
-draw_sprite_ext(spr_item_slot,1,10,vh-70,1,1,0,c_white,.5);
+var itemSpritesTopLeftY = vh - 80;
+
+// charges Y values
+var itemSpritesChargesBarHeight = 3;
+var itemSpritesChargesBarTopLeftY = itemSpritesTopLeftY + 58;
+var itemSpritesChargesBarBottomRightY = itemSpritesChargesBarTopLeftY + itemSpritesChargesBarHeight;
+
+// resource (durability or ammo) Y values
+var itemSpritesResourceBarHeight = 3;
+var itemSpritesResourceBarTopLeftY = itemSpritesTopLeftY + 61;
+var itemSpritesResourceBarBottomRightY = itemSpritesResourceBarTopLeftY + itemSpritesResourceBarHeight;
+
+// left hand
+draw_sprite_ext(spr_item_slot,1,10,itemSpritesTopLeftY,1,1,0,c_white,.5);
 if leftHandItem.spriteName != "unarmed" {
-	drawItem(leftHandItem, 10, vh-70, false, 1, 1, false);
+	drawItem(leftHandItem, 10, itemSpritesTopLeftY, false, 1, 1, false);
 	if leftHandItem.chargesMax != 0 {
 		var chargesPercent = (leftHandItem.charges / leftHandItem.chargesMax)*100;
-		draw_healthbar(10,vh-12,71,vh-9,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);
+		draw_healthbar(10,itemSpritesChargesBarTopLeftY,71,itemSpritesChargesBarBottomRightY,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);
 	}
 	// ammo bar
 	if leftHandItem.isRanged {
 		var ammoPercent = (leftHandItem.ammo / leftHandItem.ammoMax)*100;
-		draw_healthbar(10,vh-9,71,vh-6,ammoPercent,c_black,c_green,c_lime,0,1,0);
+		draw_healthbar(10,itemSpritesResourceBarTopLeftY,71,itemSpritesResourceBarBottomRightY,ammoPercent,c_black,c_green,c_lime,0,1,0);
 	}
 	// durability bar
 	else {
 		var durabilityPercent = (leftHandItem.durability / leftHandItem.durabilityMax)*100;
-		draw_healthbar(10,vh-9,71,vh-6,durabilityPercent,c_black,c_maroon,c_red,0,1,0);
+		draw_healthbar(10,itemSpritesResourceBarTopLeftY,71,itemSpritesResourceBarBottomRightY,durabilityPercent,c_black,c_maroon,c_red,0,1,0);
 	}
 }
 // left hand prompts
+var swapPromptTopLeftY = itemSpritesTopLeftY + 35;
 if (gamepad_is_connected(pad)) {
-	draw_sprite_ext(spr_prompt_xbox_lb,1,10,vh-70, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_xbox_lb,1,10,itemSpritesTopLeftY, .2, .2, 0, c_white, .6);
 	if !p.isHoldingAttunemntSwapMode {
-		draw_sprite_ext(spr_prompt_xbox_pad_l,1,10, vh-35, .2, .2, 0, c_white, .6);
+		draw_sprite_ext(spr_prompt_xbox_pad_l,1,10, swapPromptTopLeftY, .2, .2, 0, c_white, .6);
 	}
 } else {
-	draw_sprite_ext(spr_prompt_mk_lb,1,10,vh-70, .2, .2, 0, c_white, .6);
-	draw_sprite_ext(spr_prompt_mk_q,1,10, vh-35, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_mk_lb,1,10,itemSpritesTopLeftY, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_mk_q,1,10, swapPromptTopLeftY, .2, .2, 0, c_white, .6);
 }
 
 // middle button (spell if m/k, item if controller)
-draw_sprite_ext(spr_item_slot,1,80,vh-70,1,1,0,c_white,.5);
+var middleSwapPromptTopLeftY = itemSpritesTopLeftY+44;
+draw_sprite_ext(spr_item_slot,1,80,itemSpritesTopLeftY,1,1,0,c_white,.5);
 if gamepad_is_connected(pad) {
 	// draw the current belt item
 	var beltItemCurrent = p.beltItems[p.currentBeltItemIndex];
 	if beltItemCurrent != noone && beltItemCurrent != undefined && instance_exists(beltItemCurrent) {
-		drawItem(beltItemCurrent, 80, vh-70, 0, 1, 1, 0);
+		drawItem(beltItemCurrent, 80, itemSpritesTopLeftY, 0, 1, 1, 0);
 	}
-	draw_sprite_ext(spr_prompt_xbox_x,1,125,vh-70, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_xbox_x,1,125,itemSpritesTopLeftY, .2, .2, 0, c_white, .6);
 	if !p.isHoldingAttunemntSwapMode {
-		draw_sprite_ext(spr_prompt_xbox_pad_ud,1, 100, vh-26, .2, .2, 0, c_white, .6);
+		draw_sprite_ext(spr_prompt_xbox_pad_ud,1, 100, middleSwapPromptTopLeftY, .2, .2, 0, c_white, .6);
 	}
 }
 // m/k middle slot
@@ -234,61 +257,60 @@ else if isDrawingAttunements {
 
 	var spell = asset_get_index("spr_item_"+global.player.currentSpell+"_"+global.player.currentSpellAttunement);
 	if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
-		draw_sprite(spell,1,80,vh-70);
+		draw_sprite(spell,1,80,itemSpritesTopLeftY);
 	} else {
-		draw_sprite_ext(spell,1,80,vh-70,1,1,0,c_gray,.75);
+		draw_sprite_ext(spell,1,80,itemSpritesTopLeftY,1,1,0,c_gray,.75);
 	}
 	// spell prompt
 	if (gamepad_is_connected(pad) && (rightHandItem.charges != 0 || leftHandItem.charges != 0)) {
-		draw_sprite_ext(spr_prompt_xbox_lt,1,80,vh-70, .2, .2, 0, c_white, .6);
+		draw_sprite_ext(spr_prompt_xbox_lt,1,80,itemSpritesTopLeftY, .2, .2, 0, c_white, .6);
 		if !p.isHoldingAttunemntSwapMode {
-			draw_sprite_ext(spr_prompt_xbox_pad_ud,1, 100, vh-26, .2, .2, 0, c_white, .6);
+			draw_sprite_ext(spr_prompt_xbox_pad_ud,1, 100, middleSwapPromptTopLeftY, .2, .2, 0, c_white, .6);
 		}
 	} else if rightHandItem.charges != 0 || leftHandItem.charges != 0 {
-		draw_sprite_ext(spr_prompt_mk_mb,1,80,vh-70, .2, .2, 0, c_white, .6);
+		draw_sprite_ext(spr_prompt_mk_mb,1,80,itemSpritesTopLeftY, .2, .2, 0, c_white, .6);
 	}
 }
 
 // right hand
-draw_sprite_ext(spr_item_slot,1,150,vh-70,1,1,0,c_white,.5);
+draw_sprite_ext(spr_item_slot,1,150,itemSpritesTopLeftY,1,1,0,c_white,.5);
 if rightHandItem.spriteName != "unarmed" {
 	var rightHandItemSprite = asset_get_index("spr_item_"+rightHandItem.spriteName);
-	// draw_sprite(rightHandItemSprite,1,150,vh-70);
-	drawItem(rightHandItem, 150, vh-70, false, 1, 1, 0);
+	drawItem(rightHandItem, 150, itemSpritesTopLeftY, false, 1, 1, 0);
 	if rightHandItem.chargesMax != 0 {
 		var chargesPercent = (rightHandItem.charges / rightHandItem.chargesMax)*100;
-		draw_healthbar(150,vh-12,211,vh-9,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);
+		draw_healthbar(150,itemSpritesChargesBarTopLeftY,211,itemSpritesChargesBarBottomRightY,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);
 	}
 	// ammo bar
 	if rightHandItem.isRanged {
 		var ammoPercent = (rightHandItem.ammo / rightHandItem.ammoMax)*100;
-		draw_healthbar(150,vh-9,211,vh-6,ammoPercent,c_black,c_green,c_lime,0,1,0);
+		draw_healthbar(150,itemSpritesResourceBarTopLeftY,211,itemSpritesResourceBarBottomRightY,ammoPercent,c_black,c_green,c_lime,0,1,0);
 	} else {
 		// durability bar
 		var durabilityPercent = (rightHandItem.durability / rightHandItem.durabilityMax)*100;
-		draw_healthbar(150,vh-9,211,vh-6,durabilityPercent,c_black,c_maroon,c_red,0,1,0);
+		draw_healthbar(150,itemSpritesResourceBarTopLeftY,211,itemSpritesResourceBarBottomRightY,durabilityPercent,c_black,c_maroon,c_red,0,1,0);
 	}
 }
 
 // two handed, show right hand with grayed out left hand equip
 if leftHandItem.isTwoHanded {
 	var rightHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
-	draw_sprite_ext(rightHandItemSprite,1,150,vh-70,1,1,1,c_black,.75);
+	draw_sprite_ext(rightHandItemSprite,1,150,itemSpritesTopLeftY,1,1,1,c_black,.75);
 }
 
 // right hand prompts
 if (gamepad_is_connected(pad)) {
 	var promptWidth = sprite_get_width(spr_prompt_xbox_rb) * .2;
 	var px = (150 + slotWidth) - promptWidth;
-	draw_sprite_ext(spr_prompt_xbox_rb,1,px,vh-70, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_xbox_rb,1,px,itemSpritesTopLeftY, .2, .2, 0, c_white, .6);
 	if !p.isHoldingAttunemntSwapMode {
-		draw_sprite_ext(spr_prompt_xbox_pad_r,1,px, vh-35, .2, .2, 0, c_white, .6);
+		draw_sprite_ext(spr_prompt_xbox_pad_r,1,px, swapPromptTopLeftY, .2, .2, 0, c_white, .6);
 	}
 } else {
 	var promptWidth = sprite_get_width(spr_prompt_xbox_rb) * .2;
 	var px = (150 + slotWidth) - promptWidth;
-	draw_sprite_ext(spr_prompt_mk_rb,1,px,vh-70, .2, .2, 0, c_white, .6);
-	draw_sprite_ext(spr_prompt_mk_e,1,px, vh-35, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_mk_rb,1,px,itemSpritesTopLeftY, .2, .2, 0, c_white, .6);
+	draw_sprite_ext(spr_prompt_mk_e,1,px, swapPromptTopLeftY, .2, .2, 0, c_white, .6);
 }
 
 
@@ -299,11 +321,11 @@ if (gamepad_is_connected(pad)) {
 var bScale = .625; // draw items at .625 scale, so they line up with attunements
 var bSlotWidth = slotWidth * bScale;
 global.gameManager.isMouseOverBelt = false;
-var attunementsY = gamepad_is_connected(pad) ? vh - 108 : vh - 108 - bSlotWidth;
+var attunementsY = gamepad_is_connected(pad) ? itemSpritesTopLeftY - 38 : itemSpritesTopLeftY - 38 - bSlotWidth;
 
 if !gamepad_is_connected(pad) {
 	
-	var y1 = vh - 108;
+	var y1 = itemSpritesTopLeftY - 38;
 	var initX = 12;
 
 	for (var i = 0; i < array_length_1d(p.beltItems); i++) {
@@ -388,7 +410,7 @@ if isDrawingAttunements {
 	
 	// draw an outline if holding rt (in attunement swap mode)
 	if global.player.isHoldingAttunemntSwapMode {
-		var yyy = vh-108; var yyy2 = yyy + sprite_get_height(spr_attunement_fire);
+		var yyy = attunementsY; var yyy2 = yyy + sprite_get_height(spr_attunement_fire);
 		draw_set_color(c_white);
 		draw_rectangle(init_x, attunementsY, final_x, yyy2, 1);
 		

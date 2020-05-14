@@ -26,6 +26,7 @@ if isRunning && audio_emitter_get_gain(fountainRunningSoundEmitter) == 0 /*|| (g
 	}
 }
 
+visible = true;
 /*
 if isRunning {
 	audio_emitter_gain(fountainRunningSoundEmitter,1);

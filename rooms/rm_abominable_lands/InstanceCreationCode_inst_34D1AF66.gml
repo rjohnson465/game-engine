@@ -1,0 +1,1 @@
+lightAlpha = 1;

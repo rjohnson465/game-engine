@@ -1,5 +1,8 @@
-/// drawOptionsDisplay()
+/// drawOptionsDisplay(startY)
+/// @param startY
 // must be called from options obj
+// return bottomY 
+
 var p = global.gamePadIndex;
 var sh = string_height("s");
 
@@ -17,17 +20,33 @@ if !gamepad_is_connected(p) {
 }
 
 var startY = MENUS_TOPLEFT_Y+ui.menusHandleHeight+ui.menuTabsHeight+sh;
+if argument_count > 0 {
+	startY = argument[0];
+}
 
+var bottomY = startY;
 for (var i = 0; i < array_length_1d(displayOptionsArr); i++) {
 			
 	var str = displayOptionsArr[i];
+	if is_array(str) {
+		str = str[0];
+	}
 	var sh = string_height(str); var sw = string_width(str);
 	var optVal = ds_map_find_value(optionsMapDisplay, str);
 	
-	// make sure selected option is in the possible options for this submenu
-	if !arrayIncludes(currentOptionsArr, selectedOption) {
-		selectedOption = noone;
+	if str == OPT_D_FULLSCREEN && window_get_fullscreen() && !optVal {
+		optVal = true;
+		ds_map_replace(optionsMapDisplay,OPT_D_FULLSCREEN,optVal)
 	}
+	if str == OPT_D_FULLSCREEN && !window_get_fullscreen() && optVal {
+		optVal = false;
+		ds_map_replace(optionsMapDisplay,OPT_D_FULLSCREEN,optVal)
+	}
+	
+	// make sure selected option is in the possible options for this submenu
+	//if !arrayIncludes(currentOptionsArr, selectedOption) {
+	//	selectedOption = noone;
+	//}
 	if selectedOption == noone && gamepad_is_connected(p) {
 		selectedOption = str;
 	} else if !gamepad_is_connected(p) {
@@ -43,6 +62,15 @@ for (var i = 0; i < array_length_1d(displayOptionsArr); i++) {
 	} else draw_set_color(c_ltgray);
 			
 	draw_text(xx,yy,str);
+	
+	// flash overlay
+	if mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == str {
+		draw_set_alpha(global.gameManager.selectedItemFilterAlpha);
+		draw_set_color(c_orange);
+		draw_text(xx,yy,str);
+		draw_set_alpha(1);
+	}
+	
 	
 	// in addition to text, we must draw some widget to change the option
 	
@@ -64,6 +92,8 @@ for (var i = 0; i < array_length_1d(displayOptionsArr); i++) {
 	if mouseOverGuiRect(x1, y1, x2, y2) {
 		selectedOption = str;
 	}
+	
+	bottomY = yy;
 	
 	// click handler for displayOptions
 	if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_pressed(mb_left) {
@@ -116,3 +146,5 @@ if gamepad_is_connected(p) {
 		}
 	}
 }
+
+return bottomY + sh;

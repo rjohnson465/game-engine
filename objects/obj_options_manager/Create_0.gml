@@ -19,16 +19,22 @@ subMenu = SM_MAIN;
 #macro NAV_GAMEPLAY "Gameplay"
 
 navOptionsArr = [
-	NAV_SOUND,
-	NAV_DISPLAY,
-	NAV_GAMEPLAY,
+	//NAV_SOUND,
+	//NAV_DISPLAY,
+	//NAV_GAMEPLAY,
 	NAV_SAVEEXIT
 ];
-selectedOption = noone;
+selectedOption = OPT_D_ENEMYPOISE;
 
 fade = noone;
 
 #macro OPT_BACK "Back"
+
+#macro OPT_S_BGM "Background Music Volume"
+
+soundOptionsArr = [
+	OPT_S_BGM
+];
 
 #macro OPT_D_ENEMYPOISE "Show Enemy Poise"
 #macro OPT_D_PLAYERPOISE "Show Player Poise"
@@ -44,8 +50,10 @@ displayOptionsArr = [
 	OPT_D_SMALLHEALTHBARS,
 	OPT_D_TUTORIALS,
 	OPT_D_FULLSCREEN,
-	OPT_BACK
+	// OPT_BACK
 ];
+
+optionsMapOfSubOptsArrays = ds_map_create();
 
 optionsMapDisplay = ds_map_create();
 ds_map_replace(optionsMapDisplay, OPT_D_ENEMYPOISE, true);
@@ -57,10 +65,17 @@ ds_map_replace(optionsMapDisplay, OPT_D_FULLSCREEN, window_get_fullscreen());
 
 optionsMapSound = ds_map_create();
 
+difficultyOptionsArr = [
+	OPT_DIFF_EASIEST,
+	OPT_DIFF_EASY,
+	OPT_DIFF_NORMAL,
+	OPT_DIFF_HARD,
+	OPT_DIFF_HARDEST
+];
 #macro OPT_G_DIFFICULTY "Difficulty"
 gameplayOptionsArr = [
-	OPT_G_DIFFICULTY,
-	OPT_BACK
+	OPT_G_DIFFICULTY
+	// OPT_BACK
 ];
 
 #macro OPT_DIFF_EASIEST "Daddy Can I Play?"
@@ -69,13 +84,7 @@ gameplayOptionsArr = [
 #macro OPT_DIFF_HARD "Unfairy"
 #macro OPT_DIFF_HARDEST "Legenfairy"
 
-difficultyOptionsArr = [
-	OPT_DIFF_EASIEST,
-	OPT_DIFF_EASY,
-	OPT_DIFF_NORMAL,
-	OPT_DIFF_HARD,
-	OPT_DIFF_HARDEST
-];
+
 
 difficultyOptionsMap = ds_map_create();
 ds_map_replace(difficultyOptionsMap, OPT_DIFF_EASIEST, "0x damage received, you goddamn child");
@@ -86,5 +95,14 @@ ds_map_replace(difficultyOptionsMap, OPT_DIFF_HARDEST, "2x damage received, you 
 
 optionsMapGameplay = ds_map_create();
 ds_map_replace(optionsMapGameplay, OPT_G_DIFFICULTY, OPT_DIFF_NORMAL);
+
+planchettesDraggingMap = ds_map_create();
+
+optionsMapOfSubOptsArrays = [
+	[SM_DISPLAY, displayOptionsArr],
+	[SM_GAMEPLAY, gameplayOptionsArr],
+	[SM_SOUND, soundOptionsArr],
+	["", navOptionsArr] // save / exit
+];
 
 currentOptionsArr = navOptionsArr;

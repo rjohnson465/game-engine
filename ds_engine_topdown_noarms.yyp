@@ -3055,6 +3055,14 @@
             }
         },
         {
+            "Key": "155fd995-b436-467f-8266-16dfb74d7d3c",
+            "Value": {
+                "id": "ef6859ff-d81e-4a12-b4f5-56f26e152f10",
+                "resourcePath": "scripts\\ei_abominion_champion\\ei_abominion_champion.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "156414c0-f7f2-4190-bc6e-6e45204cdc7b",
             "Value": {
                 "id": "7c051334-6559-467f-9961-e905bf6ac7a7",
@@ -9103,6 +9111,14 @@
             }
         },
         {
+            "Key": "42e94ab0-6676-4144-9f90-527a52c7ae07",
+            "Value": {
+                "id": "389dcab8-de80-46da-8381-240a9b82ae75",
+                "resourcePath": "views\\42e94ab0-6676-4144-9f90-527a52c7ae07.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "42f7d583-80ff-434f-b039-095f848a0283",
             "Value": {
                 "id": "d5b2710e-8d51-4353-b551-9056aa0b620a",
@@ -11183,6 +11199,14 @@
             }
         },
         {
+            "Key": "51a7ec80-07d2-4472-ac38-8d829509d3a0",
+            "Value": {
+                "id": "4c6eaba0-6ede-4712-aacd-33569f3451f9",
+                "resourcePath": "sprites\\spr_ww_snowy_edge_1\\spr_ww_snowy_edge_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "51b1e4b3-c816-4166-873c-05a25c903488",
             "Value": {
                 "id": "86649363-49d5-4f9b-8b5b-1d1ad8242b67",
@@ -11644,6 +11668,14 @@
                 "id": "6a2d3faf-cf16-4d32-b4e3-63731e1ea834",
                 "resourcePath": "sprites\\spr_enemy_unfairy_dagger_prep_1_3\\spr_enemy_unfairy_dagger_prep_1_3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "55852b43-2ab7-425c-8468-9d1b42834eea",
+            "Value": {
+                "id": "177c7c79-8036-446d-bef7-c3ffdd92726c",
+                "resourcePath": "scripts\\drawOptionsSound\\drawOptionsSound.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -25711,6 +25743,14 @@
             }
         },
         {
+            "Key": "bfcbbb99-f63a-4bd7-8226-86f90bef0fa8",
+            "Value": {
+                "id": "d2b9ce86-b5ae-4136-b54a-2796b1f1ee4b",
+                "resourcePath": "scripts\\scr_test_build_swordsman_ablands\\scr_test_build_swordsman_ablands.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "bfcd3510-260e-484f-a7e4-37de361b1fd5",
             "Value": {
                 "id": "dec254ca-758c-4945-b168-e765b1104972",
@@ -26044,6 +26084,14 @@
                 "id": "70292f49-3176-4267-8d49-28f1767b6339",
                 "resourcePath": "views\\c25d6432-ea55-432e-88e1-2dc97ab8ba19.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c25dc6dc-ebb9-4720-903d-346e7bc55077",
+            "Value": {
+                "id": "398be062-0d7c-4333-8d2c-a72f566bdd06",
+                "resourcePath": "sounds\\snd_abominion_incantation\\snd_abominion_incantation.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -26716,6 +26764,14 @@
                 "id": "02c921f6-b20c-48aa-aa01-6b7519236c53",
                 "resourcePath": "objects\\obj_ww_claycolumn_base\\obj_ww_claycolumn_base.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c6e547cc-312b-45ea-ad2a-224769a6dc2d",
+            "Value": {
+                "id": "5f6a8c34-1d14-4477-a8ff-e6fe65607d66",
+                "resourcePath": "views\\c6e547cc-312b-45ea-ad2a-224769a6dc2d.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -31615,6 +31671,14 @@
             }
         },
         {
+            "Key": "ec292e97-29e0-46ca-94f8-730ac2d8f2c0",
+            "Value": {
+                "id": "a2ceb370-8068-44bb-910e-d5bca987a361",
+                "resourcePath": "scripts\\scr_ablandsgate_roomstart_check\\scr_ablandsgate_roomstart_check.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ec462f34-0172-423c-9dbb-db8ad4f99d84",
             "Value": {
                 "id": "40fdf939-d706-4462-b430-995d135795aa",
@@ -34370,6 +34434,7 @@
         "55bc8f4f-0a80-44c1-bf9b-f7f6bbab4cbc",
         "99194b0a-4705-43b4-b1dd-db0fec55d860",
         "8e9e6482-4018-4ff2-a34e-be43de0d5a73",
+        "155fd995-b436-467f-8266-16dfb74d7d3c",
         "5c9aaef7-f68e-42f1-9739-0b16c9ed1e7e",
         "0408fe46-3bbc-4854-a606-bc45c081ca57",
         "566e567f-06b1-4a92-9cea-84bc4525cdf8",
@@ -34478,6 +34543,7 @@
         "46342df6-81f2-451c-8940-4a469aed9140",
         "68adc7e2-23fc-4de5-b0bc-ccf0d70cf550",
         "a2b49c3d-85e9-4317-a94d-050e5e4b4f1a",
+        "55852b43-2ab7-425c-8468-9d1b42834eea",
         "eb411dc6-4632-4893-b97a-fba1d1293c90",
         "3ff4bd00-272d-445c-8c81-022e874bb1f2",
         "4a35dfe2-c1b4-4880-a68e-5b0e182571ea",
@@ -34738,8 +34804,9 @@
         "089b3309-61f4-411d-9b3a-687901b57a3c",
         "229f7b87-dd3f-4ceb-b9a4-c463918f538f",
         "99f1d271-0177-478a-9f5a-0e38eb2070b2",
-        "61e4b22a-4fad-4113-a319-ffd044b6ecd4",
         "60019f43-cc1f-4d7a-924a-c01bfff38038",
+        "61e4b22a-4fad-4113-a319-ffd044b6ecd4",
+        "bfcbbb99-f63a-4bd7-8226-86f90bef0fa8",
         "f9efede9-4639-4a87-ad20-def8f1d3f3c8",
         "5a0bbf2f-2777-42fd-86d5-0a96d9e4f2dc",
         "f7537df8-b0ce-4e92-9abd-293c792efe28",
@@ -34754,6 +34821,7 @@
         "21002d2d-8351-4b35-9450-2e68026c393c",
         "91df2d6d-8414-4357-b8a7-216e86dbeec3",
         "688b743c-1601-4a1f-8337-321a51fa7b6f",
+        "ec292e97-29e0-46ca-94f8-730ac2d8f2c0",
         "500d8af6-3ebe-4c49-ac86-094ff60c7e6c"
     ],
     "tutorial": ""

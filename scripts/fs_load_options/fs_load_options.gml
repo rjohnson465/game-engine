@@ -19,6 +19,15 @@ for (var j = 0; j < ds_map_size(sd_options); j++) {
 			case NAV_SOUND: {
 				oldMap = optionsMapSound;
 				optionsMapSound = ds_map_deep_clone(sd_optMap);
+				
+				var curBgmGain = ds_map_find_value(optionsMapSound, OPT_S_BGM);
+				if !is_undefined(curBgmGain) {
+					with obj_bgm_manager {
+						bgmEmitterGain = curBgmGain;
+						audio_emitter_gain(bgmEmitter, curBgmGain);
+					}
+				}
+				
 				break;
 			}
 			case NAV_GAMEPLAY: {

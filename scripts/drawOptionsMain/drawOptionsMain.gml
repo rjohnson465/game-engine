@@ -1,4 +1,5 @@
-/// drawOptionsMain()
+/// drawOptionsMain(startY)
+/// @param startY
 /// draw the main options menu
 
 // must be called from options obj
@@ -11,15 +12,21 @@ if !gamepad_is_connected(p) {
 }
 
 var startY = MENUS_TOPLEFT_Y+ui.menusHandleHeight+ui.menuTabsHeight+sh;
+if argument_count > 0 {
+	startY = argument[0];
+}
+
+var bottomY = startY;
+
 for (var i = 0; i < array_length_1d(navOptionsArr); i++) {
 			
 	var str = navOptionsArr[i];
 	var sh = string_height(str); var sw = string_width(str);
 			
 	// make sure selected option is in the possible options for this submenu
-	if !arrayIncludes(currentOptionsArr, selectedOption) {
-		selectedOption = noone;
-	}
+	//if !arrayIncludes(currentOptionsArr, selectedOption) {
+	//	selectedOption = noone;
+	//}
 	if selectedOption == noone && gamepad_is_connected(p) {
 		selectedOption = str;
 	} else if !gamepad_is_connected(p) {
@@ -27,15 +34,32 @@ for (var i = 0; i < array_length_1d(navOptionsArr); i++) {
 	}
 			
 	var xx = MENUS_TOPLEFT_X+(width/2); var yy = startY+(i*sh);
-	var x1 = xx-(.5*sw); var y1 = yy-(.5*sh);
-	var x2 = xx+(.5*sw); var y2 = yy+(.5*sh);
+	var x1 = xx-(.5*sw) - 15; var y1 = yy-(.5*sh) - 15;
+	var x2 = xx+(.5*sw) + 15; var y2 = yy+(.5*sh) + 15;
 			
+	
+			
+	// draw button around text
+	draw_set_color(C_HANDLES);
+	draw_rectangle(x1, y1, x2, y2, false);
+	// flashing overlay
+	if mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == str { 
+		draw_set_alpha(global.gameManager.selectedItemFilterAlpha);
+		draw_set_color(c_orange);
+		draw_rectangle(x1, y1, x2, y2, false);
+	}
+	// border
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_rectangle(x1-1, y1-1, x2, y2, true);
+	// text
 	if mouseOverGuiRect(x1,y1,x2,y2) || selectedOption == str {
 		draw_set_color(c_white);
 		selectedOption = str;
 	} else draw_set_color(c_ltgray);
-			
 	draw_text(xx,yy,str);
+	
+	bottomY = yy;
 			
 	// click handler for main navOptionsArr
 	if mouseOverGuiRect(x1,y1,x2,y2) && mouse_check_button_pressed(mb_left) {
@@ -89,3 +113,5 @@ if gamepad_is_connected(p) {
 		}
 	}
 }
+
+return bottomY;

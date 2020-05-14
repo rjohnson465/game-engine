@@ -39,18 +39,14 @@ if limbItem.baseName == "Torch" {
 }
 
 
-if fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && owner.state != CombatantStates.Dodging && owner.state != CombatantStates.Healing {
+if layer_get_depth(owner.layer) >= layer_get_depth(global.player.layer) &&
+	fireOffsetX != noone && owner.isAlive && owner.currentUsingSpell == noone && owner.state != CombatantStates.Dodging && owner.state != CombatantStates.Healing {
 	var lr = noone;
 	with obj_light_radius {
 		if owner == other lr = id;
 	}
 	
-	
-	/*
-	if lr != noone {
-		// update torch light layer
-		updateLightLayer2(lr);
-	} */
+
 	
 	audio_emitter_gain(torchAudioEmitter,.4);
 	// destroy torch parts, emitters, and systems to avoid mem leak

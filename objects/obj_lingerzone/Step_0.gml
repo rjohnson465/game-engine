@@ -1,4 +1,4 @@
-if is_array(lingerZonePartTypes) && !hasSetAlarm {
+if is_array(lingerZonePartTypes) && !hasSetAlarm && layer >= global.player.layer {
 	for (var i = 0; i < array_length_1d(lingerZonePartTypes); i++) {
 		var part = lingerZonePartTypes[i];
 		var partNum = 2;

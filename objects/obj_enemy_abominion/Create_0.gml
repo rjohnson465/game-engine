@@ -44,7 +44,7 @@ cannotStagger = true;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 meleeRangeArray=[];
 
-xpReward = 125;
+xpReward = 200;
 
 // ATTACKS
 
@@ -74,13 +74,9 @@ var c1 = [frostburst];
 rangedAttacks = [c0, c1];
 
 
-hp = 200;
-maxHp = 200;
+hp = 150;
+maxHp = 150;
 hpRegen = 0;
-
-stamina = 60;
-maxStamina = 60;
-staminaRegen = 10;
 
 beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
@@ -99,8 +95,7 @@ soundsWhenHitVocals = [snd_vox_grunt_1, snd_vox_grunt_2];
 soundsWhenDie = [snd_enemy_unfairy_die];
 soundsWhenHit = [snd_hit_ice_1, snd_hit_ice_2, snd_hit_ice_3, snd_hit_ice_4];
 
-chanceToDropHealthOrb = .3;
-
+chanceToDropHealthOrb = 1;
 
 // constant emitter / ps for "spore" trails
 sporeSystem = part_system_create();

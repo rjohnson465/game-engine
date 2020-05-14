@@ -67,3 +67,4 @@ postX = x; postY = y;
 eventListeners = ds_map_create();
 
 roomStartScript = noone;
+alarm[0] = 15; // "room start" is 5 frames from room start, to allow for respawns

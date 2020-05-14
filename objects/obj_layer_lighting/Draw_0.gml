@@ -12,7 +12,7 @@ if room == rm_factory && abs(floorNum - pFloorNum) > 1 {
 	exit;
 }
 
-if (room == rm_tundra || room == rm_clayfields) && floorNum == 1 {
+if (room == rm_tundra || room == rm_clayfields || room == rm_abominable_lands) && floorNum == 1 {
 	if pFloorNum == 2 {
 		lightColor = c_dkgray;
 	} else {
@@ -26,9 +26,9 @@ var pDepth = layer_get_depth(pLayer);
 
 // some cases in which you should not draw light layer
 // if this layer is an "underground" layer, only draw it if player is on that layer
-if room == rm_winter && floorNum == 0 && pFloorNum != 0 {
-	isActive = false; exit;
-}
+//if room == rm_winter && floorNum == 0 && pFloorNum != 0 {
+//	isActive = false; exit;
+//}
 if room == rm_clayfields && floorNum == 0 && pFloorNum != 0 {
 	isActive = false; exit;
 }

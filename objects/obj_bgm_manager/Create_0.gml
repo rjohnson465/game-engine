@@ -1,3 +1,4 @@
+global.bgmManager = id;
 bgmEmitter = audio_emitter_create();
 bgmEmitterGain = .5;
 
