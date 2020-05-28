@@ -174,7 +174,8 @@ switch(state) {
 						actingPostX = tempPostX;
 						actingPostY = tempPostY;
 					}
-					if distance_to_point(actingPostX,actingPostY) >= farthestAllowedFromPost {
+					// only leash if player is not close to enemy? i.e. player is probably fleeing
+					if distance_to_point(actingPostX,actingPostY) >= farthestAllowedFromPost && distance_to_object(lockOnTarget) > 200 {
 						state = CombatantStates.Moving;
 						substate = CombatantMoveSubstates.ReturningToPost;
 						break;
@@ -299,12 +300,12 @@ switch(state) {
 					if distance_to_point(actingPostX,actingPostY) > 2 {
 						mp_grid_path(personalGrid,path,x,y,actingPostX,actingPostY,0);
 						path_start(path,functionalSpeed,path_action_stop,false);
-					
-						/*var cs = canSeeLockOnTarget();
-						// can aggro while returning to post ??
-						if (distance_to_point(actingPostX,actingPostY) < (.5*farthestAllowedFromPost) && canSeeLockOnTarget()) {
-							if maybeAggro() break;
-						}*/
+						
+						// can aggro if player gets too close or is hit
+						if distance_to_object(lockOnTargetType) < meleeAggroRange {
+							maybeAggro();
+						}
+						
 					} else {
 						facingDirection = postDir;
 						state = CombatantStates.Idle;
@@ -650,13 +651,40 @@ with obj_bridge_parent {
 
 if !isOnBridge && place_meeting(x, y, obj_fallzone) { 
 	with obj_fallzone {
-		var d = point_in_rectangle(other.bbox_left+10,other.bbox_top+10,bbox_left,bbox_top,bbox_right,bbox_bottom);
-		var e = point_in_rectangle(other.bbox_right-10,other.bbox_bottom-10,bbox_left,bbox_top,bbox_right,bbox_bottom);
+		
+		var d, e, a, b;
+		
+		if object_index == obj_fallzone_precise {
+			var sw = sprite_get_width(sprite_index);
+			var sh = sprite_get_height(sprite_index);
+			var w = sw * image_xscale;
+			var h = sh * image_yscale;
+			var diagonalLength = sqrt(sqr(w) + sqr(h));
+			var sinA = h / diagonalLength;
+			var a = image_angle - radtodeg(arcsin(sinA));
+			var p1x = x; var p1y = y;
+			var p2x = x + lengthdir_x(w, image_angle); var p2y = y + lengthdir_y(w, image_angle);
+			var p3x = x + lengthdir_x(diagonalLength, a); var p3y = y + lengthdir_y(diagonalLength, a);
+			var p4x = x + lengthdir_x(h, image_angle - 90); var p4y = y + lengthdir_y(h, image_angle - 90);
+		
+			//d = pointInPolygon([other.x,other.y],[[p1x, p1y], [p2x, p2y], [p3x, p3y], [p4x, p4y]]);
+			d = pointInPolygon([other.bbox_left+10,other.bbox_top+10],[[p1x, p1y], [p2x, p2y], [p3x, p3y], [p4x, p4y]]);
+			e = pointInPolygon([other.bbox_right-10,other.bbox_bottom-10],[[p1x, p1y], [p2x, p2y], [p3x, p3y], [p4x, p4y]]);
+			//e = d;
+			
+			a = pointInPolygon([other.bbox_left,other.bbox_top],[[p1x, p1y], [p2x, p2y], [p3x, p3y], [p4x, p4y]]);
+			b = pointInPolygon([other.bbox_right,other.bbox_bottom],[[p1x, p1y], [p2x, p2y], [p3x, p3y], [p4x, p4y]]);
+		} else {
+			d = point_in_rectangle(other.bbox_left+10,other.bbox_top+10,bbox_left,bbox_top,bbox_right,bbox_bottom);
+			e = point_in_rectangle(other.bbox_right-10,other.bbox_bottom-10,bbox_left,bbox_top,bbox_right,bbox_bottom);
 	
-		var a = point_in_rectangle(other.bbox_left,other.bbox_top,bbox_left,bbox_top,bbox_right,bbox_bottom);
-		var b = point_in_rectangle(other.bbox_right,other.bbox_bottom,bbox_left,bbox_top,bbox_right,bbox_bottom);
+			a = point_in_rectangle(other.bbox_left,other.bbox_top,bbox_left,bbox_top,bbox_right,bbox_bottom);
+			b = point_in_rectangle(other.bbox_right,other.bbox_bottom,bbox_left,bbox_top,bbox_right,bbox_bottom);
+		}
+		
 	
 		if	d && e && layer == other.layer {
+			image_blend = c_red;
 			isFalling = true;
 			other.fallFrame = 0;
 			other.floorsFallen = 1;

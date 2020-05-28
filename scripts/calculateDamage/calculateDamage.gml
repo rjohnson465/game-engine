@@ -64,6 +64,11 @@ if	state != CombatantStates.Dodging &&
 	if !attackObj.combatantsHit || !ds_exists(attackObj.combatantsHit, ds_type_list) {
 		attackObj.combatantsHit = ds_list_create();
 	}
+	
+	// if this is an enemy that was just hit and it is not aggressive, maybe become aggressive
+	if !instance_exists(lockOnTarget) && type == CombatantTypes.Enemy {
+		maybeAggro();
+	}
 		
 	ds_list_add(attackObj.combatantsHit,id);
 	if type == CombatantTypes.Player && (object_is_ancestor(attackObj, obj_attack_aoe) || attackObj.object_index == obj_attack_aoe) {

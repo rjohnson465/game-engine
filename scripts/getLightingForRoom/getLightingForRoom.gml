@@ -26,7 +26,7 @@ switch rm {
 		return [c, c];
 	}
 	case rm_abominable_lands: {
-		var c = make_color_rgb(52, 66, 105);
+		var c = make_color_rgb(22, 46, 85);
 		return [c, c, c];
 	}
 	case rm_clayfields: {

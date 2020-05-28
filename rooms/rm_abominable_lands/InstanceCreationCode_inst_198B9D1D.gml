@@ -1,0 +1,1 @@
+hearingDistance = 15; 

@@ -1,0 +1,1 @@
+ds_list_add(items, makeGemPieces(obj_gempieces_lapis, GRAINS));

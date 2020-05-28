@@ -90,6 +90,7 @@ var torch = instance_create_depth(x, y, depth, obj_hand_item_torch);
 var wand = instance_create_depth(x, y, depth, obj_hand_item_wand);
 addItemToInventory(bow);
 addItemToInventory(instance_create_depth(x, y, 1, obj_hand_item_thrownknife));
+addItemToInventory(instance_create_depth(x, y, 1, obj_hand_item_dagger));
 addItemToInventory(torch);
 addItemToInventory(wand);
 

@@ -1,5 +1,5 @@
-nextRoom = rm_golemking;
-nextRoomX = 215; 
-nextRoomY = 1675; 
-nextRoomLayer = "instances_floor_1";
+nextRoom = rm_abominable_lands;
+nextRoomX = 4850; 
+nextRoomY = 3320; 
+nextRoomLayer = "instances_floor_2";
 nextRoomName = getRoomName(nextRoom);

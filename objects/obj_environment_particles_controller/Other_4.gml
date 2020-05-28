@@ -140,6 +140,7 @@ switch room {
 		part_type_life(crystal,250,500);
 		makeEnvironmentParticles(dust,crystal,"instances_floor_1",1,-2);
 		makeEnvironmentParticles(dust,crystal,"instances_floor_2",1,-2);
+		makeEnvironmentParticles(dust,crystal,"instances_floor_3",1,-2);
 		break;
 	}
 	case rm_xmas_town: {

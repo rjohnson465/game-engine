@@ -13,7 +13,7 @@ if room == rm_factory && abs(floorNum - pFloorNum) > 1 {
 }
 
 if (room == rm_tundra || room == rm_clayfields || room == rm_abominable_lands) && floorNum == 1 {
-	if pFloorNum == 2 {
+	if pFloorNum >= 2 {
 		lightColor = c_dkgray;
 	} else {
 		var lightLayerMap = ds_map_find_value(global._light_layers,floorNum);

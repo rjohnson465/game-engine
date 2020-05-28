@@ -2959,6 +2959,14 @@
             }
         },
         {
+            "Key": "14995159-ea79-499c-b245-70245a9e6a55",
+            "Value": {
+                "id": "ca49a2fa-90e4-4a44-be13-4fa0a9f4e8d0",
+                "resourcePath": "scripts\\pointInRect\\pointInRect.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "14a6d6ec-3540-499c-b74c-b9d28aa20558",
             "Value": {
                 "id": "e1e9548b-59f4-40cc-8de1-7c3ab10a5d30",
@@ -5652,6 +5660,14 @@
                 "id": "7545b4f8-a113-4d4b-97f4-a9ba033b2f11",
                 "resourcePath": "sounds\\snd_enemy_golem_attack_1\\snd_enemy_golem_attack_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "290cd64e-35ab-4dba-ab9d-eb5e5c7a4c5f",
+            "Value": {
+                "id": "7befcc48-7b03-4b44-8c31-386915c69173",
+                "resourcePath": "objects\\obj_fallzone_precise\\obj_fallzone_precise.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -23279,6 +23295,14 @@
             }
         },
         {
+            "Key": "ace5a53f-3f0c-435d-98be-9a49fc5f1c07",
+            "Value": {
+                "id": "136e9374-1430-452f-bb28-95648a892915",
+                "resourcePath": "sprites\\spr_block_blue_precise\\spr_block_blue_precise.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ace7e303-9a92-4e44-8c4e-6e22d82f713f",
             "Value": {
                 "id": "fc8fe0b9-0677-4d27-9790-88534bf0ee2b",
@@ -34373,6 +34397,7 @@
         "3f77021c-2809-4850-a356-bc689a273815",
         "dcdebbfc-09a8-4ae9-b454-26d9ae1b5469",
         "7cc552f2-09e8-4acc-8c10-e34125f92564",
+        "14995159-ea79-499c-b245-70245a9e6a55",
         "c5540e26-1311-40df-9df4-99f1c2e4a4f9",
         "89e792c3-5306-41a1-8e55-479f0f2db5de",
         "295e5a03-8983-4afd-bdb3-14c23bed2058",
