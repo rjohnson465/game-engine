@@ -260,8 +260,8 @@ var sprStr = ""; var maskString = "";
 if owner.type == CombatantTypes.Player {
 	sprStr = "spr_"+owner.spriteString+attackItemSprite+"_attack_"+string(attackNumber);
 	maskString = sprStr + "_mask";
-	visible = true;
-	// visible = false;
+	// visible = true;
+	visible = false;
 } else {
 	//sprStr = "_"+string(owner.attackNumberInChain);
 	sprStr = attackData.spriteName + "_attack_" + string(attackData.spriteAttackNumber) + "_" + string(attackData.spriteAttackNumberInChain);

@@ -131,6 +131,10 @@ if selectedItemFilterAlphaFrame <= 0 {
 	selectedItemFilterAlphaFrame = 60;
 }
 
+
+// handles roomStartScript for all objects
+alarm[6] = 15; // "room start" is 5 frames from room start, to allow for respawns
+
 /*
 var vx = camera_get_view_x(view_camera[0]); var vy = camera_get_view_y(view_camera[0]);
 var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(view_camera[0]);

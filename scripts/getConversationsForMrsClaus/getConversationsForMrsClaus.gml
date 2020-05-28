@@ -13,7 +13,7 @@ if !instance_exists(sh) {
 }
 
 // mid step of sh quest (repeatable dialogue)
-if (instance_exists(sh) && !sh.isFinished && sh.currentQuestStepIndex == 1) {
+if (instance_exists(sh) && !sh.isFinished && sh.currentQuestStepIndex <= 1) {
 	ds_list_add(conversationsList, scr_conv_mrsclaus_shm());
 }
 

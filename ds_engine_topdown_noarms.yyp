@@ -9031,6 +9031,14 @@
             }
         },
         {
+            "Key": "41c7bc13-2a18-4670-b1b9-9df59aca5dd7",
+            "Value": {
+                "id": "12cc0a8b-29be-49cb-8ca2-cdbf901cf150",
+                "resourcePath": "sprites\\spr_ww_iceledge_4\\spr_ww_iceledge_4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "41dfd2d1-3f37-4bbe-8baa-6145c89f3e3f",
             "Value": {
                 "id": "921bc19b-b2fb-4bbf-95e8-f73ed1faf3b8",
@@ -10635,6 +10643,14 @@
             "Value": {
                 "id": "1481abad-3734-429e-9a6e-b69cbb58df37",
                 "resourcePath": "sprites\\spr_skill_assassinmastery\\spr_skill_assassinmastery.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4dc81eae-d73e-4bb4-9984-900d8cd57734",
+            "Value": {
+                "id": "b1f49833-0cf2-45e1-8531-51aa5afe7893",
+                "resourcePath": "sprites\\spr_ww_iceledge_1\\spr_ww_iceledge_1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -21839,6 +21855,14 @@
             }
         },
         {
+            "Key": "a2f44e80-f4a2-4888-9b69-e085f86fc026",
+            "Value": {
+                "id": "ed6febbd-9451-42eb-9774-9d691b59a422",
+                "resourcePath": "sprites\\spr_ww_iceledge_3\\spr_ww_iceledge_3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a2febf5c-9d5f-42dc-97ae-d8278e215e82",
             "Value": {
                 "id": "02caa42d-aa42-4db5-baa4-24e09d5cb310",
@@ -25356,6 +25380,14 @@
                 "id": "f0d276ca-c63d-4bd9-9146-c3fc8dfefd7d",
                 "resourcePath": "scripts\\inventoryContainsItem\\inventoryContainsItem.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "bcc264cb-cef5-47f2-8229-6ce312956bbd",
+            "Value": {
+                "id": "e7ef360f-2c53-4340-ad33-fccff63c71a5",
+                "resourcePath": "sprites\\spr_player_longsword_attack_3_mask\\spr_player_longsword_attack_3_mask.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -32915,6 +32947,14 @@
             "Value": {
                 "id": "65397e18-2bac-4610-8d8f-f7fbc5ba98fa",
                 "resourcePath": "sprites\\spr_particle_fire\\spr_particle_fire.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f616bf61-1a82-4b87-a584-4e6bde6cf573",
+            "Value": {
+                "id": "1e7ad64a-65e2-43dd-b744-ff991dcd9bc0",
+                "resourcePath": "sprites\\spr_ww_iceledge_2\\spr_ww_iceledge_2.yy",
                 "resourceType": "GMSprite"
             }
         },
