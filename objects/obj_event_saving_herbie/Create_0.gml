@@ -21,7 +21,8 @@ associatedWallKeys = [
 	"herbie_wall_13",
 	"herbie_wall_14",
 	"herbie_wall_15",
-	"herbie_wall_16"
+	"herbie_wall_16",
+	"herbie_wall_17"
 ];
 
 global.event = id;

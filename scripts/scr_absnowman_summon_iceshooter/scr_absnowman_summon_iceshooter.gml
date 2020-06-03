@@ -21,7 +21,8 @@ with obj_teleport_point {
 */
 
 var numShooters = instance_number(obj_enemy_iceshooter);
-if numShooters >= 3 exit;
+// max num shooters
+if numShooters >= 2 exit;
 
 var iceshooter = instance_create_layer(x, y, global.player.layer, obj_enemy_iceshooter);
 iceshooter.isMinion = true;

@@ -86,7 +86,7 @@ soundsWhenHit = [snd_hit_ice_2, snd_hit_ice_3, snd_hit_ice_4];
 soundsWhenHitVocals = [snd_hit_rocky_1];
 soundsWhenDie = [];
 
-chanceToDropHealthOrb = .2;
+chanceToDropHealthOrb = 1;
 
 // constant emitter / ps for "spore" trails
 sporeSystem = part_system_create();

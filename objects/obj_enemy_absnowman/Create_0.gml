@@ -108,8 +108,8 @@ var r1 = [sb21r];
 var r2 = [iceshooter];
 rangedAttacks = [r0, r1, r2];
 
-hp = 600;
-maxHp = 600;
+hp = 525;
+maxHp = 525;
 hpRegen = 0;
 
 stamina = 60;
@@ -120,13 +120,13 @@ beenHit = false; // hit during an attack animation
 showHp = false; // hit at all (flag for showing health bar)
 
 ds_map_replace(defenses, MAGIC, 15);
-ds_map_replace(defenses, ICE, 100);
+ds_map_replace(defenses, ICE, 90);
 ds_map_replace(defenses, FIRE, -50);
 ds_map_replace(defenses, LIGHTNING, -25);
 ds_map_replace(defenses, POISON, 0);
-ds_map_replace(defenses, SLASH, 45);
-ds_map_replace(defenses, PIERCE, 25);
-ds_map_replace(defenses, CRUSH, 35);
+ds_map_replace(defenses, SLASH, 15);
+ds_map_replace(defenses, PIERCE, 5);
+ds_map_replace(defenses, CRUSH, 10);
 
 // dodge stuff
 agility = 0; // 0 - 100% chance to try a dodge

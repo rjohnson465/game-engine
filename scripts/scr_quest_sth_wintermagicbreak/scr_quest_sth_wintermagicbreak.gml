@@ -17,3 +17,9 @@ part_emitter_burst(system, emitter, part, 7);
 
 part_emitter_region(system, emitter, david.x, david.x+1, david.y, david.y + 1, ps_shape_rectangle, ps_distr_gaussian);
 part_emitter_burst(system, emitter, part, 7);
+
+with obj_event_wall {
+	if variable_instance_exists(id, "eventKey") && eventKey == "ablands_maingate" {
+		isUntraversable = false;
+	}
+}

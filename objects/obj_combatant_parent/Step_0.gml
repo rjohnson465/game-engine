@@ -455,6 +455,33 @@ switch(state) {
 					ds_map_replace(prepFrameTotals,lk,sprite_get_number(prepSprite));
 					ds_map_replace(prepFrames,lk,-1);
 					
+					// prep sound stuff
+					if attackData.prepSound != noone {
+						if audio_emitter_exists(attackPrepSoundEmitter) { 
+							audio_emitter_free(attackPrepSoundEmitter); attackPrepSoundEmitter = -1;
+						}
+				
+						attackPrepSoundEmitter = audio_emitter_create();
+						audio_emitter_falloff(attackPrepSoundEmitter, 50, AUDIO_MAX_FALLOFF_DIST, .1);
+						audio_emitter_gain(attackPrepSoundEmitter, 1);
+						audio_play_sound_on(attackPrepSoundEmitter,attackData.prepSound,0,1);
+					}
+					
+					// prep sound vox
+					if array_length_1d(attackData.prepSoundsVocals) > 0 {
+						randomize();
+						var rand = floor(random_range(0, array_length_1d(attackData.prepSoundsVocals)));
+						var prepSoundVocal = attackData.prepSoundsVocals[rand];
+				
+						if (!audio_emitter_exists(attackPrepSoundEmitter)) {
+							attackPrepSoundEmitter = audio_emitter_create();
+							audio_emitter_falloff(attackPrepSoundEmitter, 50, AUDIO_MAX_FALLOFF_DIST, .1);
+							audio_emitter_gain(attackPrepSoundEmitter, 1);
+						}
+						audio_emitter_gain(attackPrepSoundEmitter, 1);
+						audio_play_sound_on(attackPrepSoundEmitter,prepSoundVocal,0,1);
+					}
+					
 					// if this same hand was recovering before, stop that
 					if ds_map_find_value(recoveringLimbs,lk) != undefined {
 						ds_map_delete(recoveringLimbs,lk);
@@ -688,8 +715,13 @@ if !isOnBridge && place_meeting(x, y, obj_fallzone) {
 			isFalling = true;
 			other.fallFrame = 0;
 			other.floorsFallen = 1;
-		} else if (a || b) && layer == other.layer && other.type == CombatantTypes.Enemy {
-		
+		} else if other.type != CombatantTypes.Player && layer == other.layer && other.state == CombatantStates.Idle && !other.isFlinching && (d || e || a || b) {
+			// if you're touching a fallzone but not falling yet...
+			with other {
+				if instance_exists(lockOnTarget) {
+					mp_potential_step(lockOnTarget.x, lockOnTarget.y, functionalSpeed, false);
+				}
+			}
 		}
 	}
 }

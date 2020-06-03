@@ -9,6 +9,8 @@ if victim == id {
 	isAggroed = true;
 	// will deaggro in x seconds
 	var evstep = instance_nearest(x, y, obj_evstep_saving_hershel_1);
-	alarm[3] = evstep.GHOST_TIME_TO_DEAGGRO;
-	hasSetUnaggroAlarm = true;
+	if instance_exists(evstep) {
+		alarm[3] = evstep.GHOST_TIME_TO_DEAGGRO;
+		hasSetUnaggroAlarm = true;
+	}
 }

@@ -3,6 +3,9 @@ if room != game_menu {
 	global.isPopulatingGrids = true;
 	alarm[5] = 10;
 	populateGrids();
+	
+	// handles roomStartScript for all objects
+	alarm[6] = 15; // "room start" is 5 frames from room start, to allow for respawns
 }
 
 // stop all looping sfx

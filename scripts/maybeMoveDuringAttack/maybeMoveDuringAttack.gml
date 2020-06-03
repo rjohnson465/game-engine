@@ -30,3 +30,7 @@ if ds_map_size(attackingLimbs) != 0 {
 		speed = 0;
 	}
 }
+
+if place_meeting_layer(x, y, obj_player) {
+	jumpToNearestFreePoint(true, true);
+}

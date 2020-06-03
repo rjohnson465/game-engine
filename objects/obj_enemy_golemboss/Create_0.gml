@@ -90,8 +90,8 @@ meleeAttacks = [c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c14];
 // currently chosen ranged attack
 rangedAttacks = [];
 
-hp = 400;
-maxHp = 400;
+hp = 350;
+maxHp = 350;
 hpRegen = 0;
 
 stamina = 60;
@@ -106,9 +106,9 @@ ds_map_replace(defenses, ICE, -25);
 ds_map_replace(defenses, FIRE, 50);
 ds_map_replace(defenses, LIGHTNING, -25);
 ds_map_replace(defenses, POISON, 100);
-ds_map_replace(defenses, SLASH, 25);
+ds_map_replace(defenses, SLASH, 15);
 ds_map_replace(defenses, PIERCE, 5);
-ds_map_replace(defenses, CRUSH, 45);
+ds_map_replace(defenses, CRUSH, 20);
 
 // dodge stuff
 agility = 0; // 0 - 100% chance to try a dodge

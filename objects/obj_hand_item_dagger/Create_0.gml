@@ -9,7 +9,7 @@ baseValue = 200;
 
 range = 20;
 
-ds_map_set(damages,SLASH,[10,10,10,10,10,12,12,12]);
+ds_map_set(damages,SLASH,[7,7,7,7,9,9,10,10]);
 ds_map_set(damages,PIERCE,[0,0,0,0,0,0,0,0]);
 ds_map_set(damages,CRUSH,[0,0,0,0,0,0,0,0]);
 staminaCostArray=[6,6,8,10];

@@ -10,6 +10,9 @@ scr_test_build_swordsman_ww();
 
 questStart(obj_quest_savingherbie);
 
+maxHp = 500;
+hp = 500;
+hpRegen = 500;
 
 /*
 var sh = instance_nearest(x, y, obj_quest_savingherbie);

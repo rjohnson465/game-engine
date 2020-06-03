@@ -77,7 +77,7 @@ rangedAttacks = [c0];
 
 hp = 75;
 maxHp = 75;
-hpRegen = 1;
+hpRegen = 0;
 
 stamina = 60;
 maxStamina = 60;
@@ -88,9 +88,9 @@ showHp = false; // hit at all (flag for showing health bar)
 
 
 
-ds_map_replace(defenses, SLASH, 25);
-ds_map_replace(defenses, PIERCE, 25);
-ds_map_replace(defenses, CRUSH, 25);
+ds_map_replace(defenses, SLASH, 10);
+ds_map_replace(defenses, PIERCE, 10);
+ds_map_replace(defenses, CRUSH, 10);
 
 ds_map_replace(defenses, MAGIC, -50);
 
