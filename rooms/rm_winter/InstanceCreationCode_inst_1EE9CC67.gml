@@ -1,4 +1,3 @@
-opensFrom = "a";
 spriteTurnsWhenOpen = true;
-isOneSided = true
-oneSidedDoorText = "Cannot enter casino without being vouched for";
+keyRequired = "Casino Voucher";
+keyRequiredText = "Cannot enter The Olive Branch Casino without being vouched for";

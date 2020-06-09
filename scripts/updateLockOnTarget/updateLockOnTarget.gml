@@ -15,6 +15,29 @@ if lockOnInputReceived || lockOnInputChangeReceived {
 	// always refresh lockOnList (enemies could have left radius or entered
 	lockOnList = scr_collision_circle_list_layer(x,y,LOCK_ON_DISTANCE,obj_enemy_parent, true, true);
 	
+	
+	// filter out lock on list to not include non-hostile, offscreen targets
+	var targetsToRemove = ds_list_create();
+	for (var i = 0; i < ds_list_size(lockOnList); i++) {
+		var targ = ds_list_find_value(lockOnList, i);
+		var vx = camera_get_view_x(view_camera[0]); var vy = camera_get_view_y(view_camera[0]);
+		var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(view_camera[0]);
+		if	!instance_exists(targ.lockOnTarget) &&
+			!point_in_rectangle(targ.x, targ.y, vx, vy, vx + vw, vy + vh) {
+				ds_list_add(targetsToRemove, targ);
+			}
+	}
+	
+	// remove non-hostile, offscreen targets
+	for (var i = 0; i < ds_list_size(targetsToRemove); i++) {
+		var targ = ds_list_find_value(targetsToRemove, i);
+		var index = ds_list_find_index(lockOnList, targ);
+		ds_list_delete(lockOnList, index);
+	}
+	
+	ds_list_destroy(targetsToRemove); targetsToRemove = -1;
+	
+	
 	if lockOnList != noone {
 		// disinclude enemies that are non-hostile and off-screen
 		var targetsToRemove = ds_list_create();

@@ -46,7 +46,7 @@ cautiousness = 0;
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)
 meleeRangeArray=[];
 
-xpReward = 3000;
+xpReward = 5000;
 
 // ATTACKS
 
@@ -92,7 +92,7 @@ var c12 = [swing21];
 var c13 = [iceblade];
 var c14 = [swing11, swing12, swing21];
 
-meleeAttacks = [c0, c1, c2, c4, c5, c6, c7, c8, c9, c10, c12, c13, c14, ];
+meleeAttacks = [c0, c1, c4, c5, c6, c7, c8, c9, c10, c12, c14 ];
 // meleeAttacks = [c15];
 
 // ranged attacks info
@@ -108,8 +108,8 @@ var r1 = [sb21r];
 var r2 = [iceshooter];
 rangedAttacks = [r0, r1, r2];
 
-hp = 525;
-maxHp = 525;
+hp = 500;
+maxHp = 500;
 hpRegen = 0;
 
 stamina = 60;

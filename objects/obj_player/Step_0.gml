@@ -160,4 +160,10 @@ if interactableResetFrame > 0 {
 
 if dodgeRestFrame > 0 {
 	dodgeRestFrame--;
+	if dodgeRestFrame == 0 && dodgeAgain {
+		dodgeAgain = false;
+		if state != CombatantStates.Attacking && state != CombatantStates.Staggering {
+			performDodge();
+		}
+	}
 }

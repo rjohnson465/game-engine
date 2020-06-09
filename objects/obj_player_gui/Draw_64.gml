@@ -9,6 +9,63 @@ if instance_exists(global.player.lockOnTarget) {
 		var rot = (alarm[0]/60)*360;
 		draw_sprite_ext(spr_lockon,1,global.player.lockOnTarget.x-vx, global.player.lockOnTarget.y-vy,1,1,rot,c_white,1);
 	}
+	
+	// if player's lock on target is not on screen, show an indicator at screen edge where the target is
+	var p = global.player;
+	var targ = p.lockOnTarget;
+	var vx = camera_get_view_x(view_camera[0]); var vy = camera_get_view_y(view_camera[0]);
+	var vw = camera_get_view_width(view_camera[0]); var vh = camera_get_view_height(view_camera[0]);
+	
+	// maybe be less strict about what counts as being in view? 
+	
+	if !point_in_rectangle(targ.x, targ.y, vx, vy, vx + vw, vy + vh) {
+		var intersectionsList = calcLineRectIntersection(vx, vy, vx + vw, vy + vh, p.x, p.y, targ.x, targ.y);
+		
+		if ds_exists(intersectionsList, ds_type_list) {
+			
+			var rectPt = ds_list_find_value(intersectionsList, 0);
+			var rx = rectPt[0]; var ry = rectPt[1];
+			// angle from target to player (used to offset lockon indicator on screen edge)
+			var ang = point_direction(targ.x, targ.y, p.x, p.y);
+			var xx = rx + lengthdir_x(32, ang); var yy = ry + lengthdir_y(32, ang);
+			xx -= vx; yy -= vy; // we're in a GUI event
+			
+			//draw_set_color(c_ltgray);
+			//draw_circle(xx, yy, 16, false);
+			//draw_set_color(c_black);
+			//draw_circle(xx, yy, 16, true);
+			var rot = (alarm[0]/60)*360;
+			draw_sprite_ext(spr_lockon,1,xx, yy,1,1,rot,c_white,1);
+			
+			// draw arrow
+			var a1x = rx + lengthdir_x(15, ang - 15); var a1y = ry + lengthdir_y(15, ang - 15);
+			a1x -= vx; a1y -= vy;
+			var a2x = rx + lengthdir_x(15, ang + 15); var a2y = ry + lengthdir_y(15, ang + 15);
+			a2x -= vx; a2y -= vy;
+			
+
+			rx -= vx; ry -= vy;
+			
+			//draw_set_color(c_aqua);
+			//draw_circle(rx, ry, 5, false);
+			
+			//draw_set_color(c_lime);
+			//draw_circle(a1x, a1y, 5, false);
+			
+			//draw_set_color(c_red);
+			//draw_circle(a2x, a2y, 5, false);
+			
+			
+			draw_set_color(c_ltgray);
+			draw_triangle(rx, ry, a1x, a1y, a2x, a2y, false);
+			draw_set_color(c_black);
+			draw_triangle(rx, ry, a1x, a1y, a2x, a2y, true);
+			
+			ds_list_destroy(intersectionsList); intersectionsList = -1;
+		}
+	}
+	
+	
 } else global.player.lockOnTarget = noone;
 
 

@@ -12,4 +12,4 @@ global.quest = id;
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_krampus_1));
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_krampus_2));
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_krampus_3));
-xpReward = 500;
+xpReward = 1200;

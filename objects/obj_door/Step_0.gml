@@ -46,7 +46,8 @@ if	// isCurrentInteractableObject &&
 	} else hasKey = true;
 	
 	if !hasKey {
-		alert(keyRequired + " required to open this door", c_red); exit;
+		var s = keyRequiredText != noone ? keyRequiredText : string(keyRequired) + " required to open this door";
+		alert(s, c_red); exit;
 	}
 	
 	var canOpen = canOpenFromThisSide && hasKey;

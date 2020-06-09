@@ -22,3 +22,7 @@ if part_system_exists(sporeSystem) {
 if instance_exists(beamLight) {
 	instance_destroy(beamLight); beamLight = -1;
 }
+
+if variable_instance_exists(id, "beamSoundLoopIndex") && beamSoundLoopIndex >= 0 {
+	audio_stop_sound(beamSoundLoopIndex); beamSoundLoopIndex = -1;
+}

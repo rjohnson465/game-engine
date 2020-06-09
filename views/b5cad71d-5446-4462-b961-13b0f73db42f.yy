@@ -10,7 +10,9 @@
         "d4c1a115-eaf3-477d-ad18-df976d95021d",
         "99f2d08c-236f-41be-b74d-0070d2622203",
         "66870242-4a61-4056-bbe4-c304bde1db54",
-        "46411adf-728c-4ebb-94b8-3aa6dc1e0a7f"
+        "46411adf-728c-4ebb-94b8-3aa6dc1e0a7f",
+        "615272b9-bc39-42b8-8e2d-9f8b9ad045f9",
+        "9c6c4819-b855-450a-bd70-eda9b6573aa4"
     ],
     "filterType": "GMScript",
     "folderName": "savingtheholidays",

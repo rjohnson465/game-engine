@@ -28,6 +28,16 @@ if (instance_exists(sth) && sth.currentQuestStepIndex == 3) {
 	ds_list_add(conversationsList, scr_conv_santa_sths());
 }
 
+// absnowman has been killed
+if (instance_exists(sth) && sth.currentQuestStepIndex == 7) && room == rm_winter {
+	ds_list_add(conversationsList, scr_conv_santa_sthv());
+}
+
+// wwhero
+if (instance_exists(sth) && (sth.currentQuestStepIndex >= 7 || sth.isFinished)) {
+	ds_list_add(conversationsList, scr_conv_santa_wwhero());
+}
+
 
 // Kill krampus quest, if not active yet
 var kQuest = instance_nearest(x, y, obj_quest_krampus); 

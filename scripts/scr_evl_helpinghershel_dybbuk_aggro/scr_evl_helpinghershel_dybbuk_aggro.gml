@@ -12,5 +12,12 @@ if victim == id {
 	if instance_exists(evstep) {
 		alarm[3] = evstep.GHOST_TIME_TO_DEAGGRO;
 		hasSetUnaggroAlarm = true;
+		
+		if variable_instance_exists(id, "beamSoundLoopIndex") && beamSoundLoopIndex >= 0 {
+			audio_stop_sound(beamSoundLoopIndex); beamSoundLoopIndex = -1;
+		}
+		
+		jumpToNearestFreePoint(true, true);
 	}
+	
 }

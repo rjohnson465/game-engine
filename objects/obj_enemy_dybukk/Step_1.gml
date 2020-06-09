@@ -3,6 +3,11 @@
 
 // always decide drops on death
 if hp < 1 && isAlive && !isDying {
+	
+	if variable_instance_exists(id, "beamSoundLoopIndex") && beamSoundLoopIndex >= 0 {
+		audio_stop_sound(beamSoundLoopIndex); beamSoundLoopIndex = -1;
+	}
+	
 	// items
 	var rmap = ds_map_create();
 	ds_map_replace(rmap,ItemRarities.Normal,85);

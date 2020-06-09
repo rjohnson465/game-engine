@@ -16,6 +16,8 @@ chargeSpeed = 20;
 turnSpeed = 90;
 movesDuringPrep = false;
 
+isBlockable = false;
+
 staggersAgainstBlocks = false;
 
 attackSound = snd_axe2h_attack_1;

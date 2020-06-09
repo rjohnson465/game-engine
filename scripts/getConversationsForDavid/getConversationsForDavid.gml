@@ -33,6 +33,11 @@ if (instance_exists(sth) && sth.currentQuestStepIndex == 4) && room == rm_winter
 	ds_list_add(conversationsList, scr_conv_david_sthg());
 }
 
+// wwhero
+if (instance_exists(sth) && (sth.currentQuestStepIndex > 7 || sth.isFinished)) {
+	ds_list_add(conversationsList, scr_conv_david_wwhero());
+}
+
 
 // Kill amir quest, if not active yet
 var kQuest = instance_nearest(x, y, obj_quest_smashingpottery); 

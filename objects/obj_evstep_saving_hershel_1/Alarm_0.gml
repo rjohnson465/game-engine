@@ -37,6 +37,9 @@ with dybukk {
 	beamSoundLoopIndex = noone;
 	eventListeners = ds_map_create();
 	ds_map_replace(eventListeners, EV_DAMAGE_TAKEN, scr_evl_helpinghershel_dybbuk_aggro);
+	
+	audio_stop_sound(beamSoundLoopIndex);
+	beamSoundLoopIndex = audio_play_sound_at(snd_magic_magic_loop, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 1, 1);
 		
 	var lr = noone;
 	with obj_light_radius {

@@ -1479,6 +1479,14 @@
             }
         },
         {
+            "Key": "0a97b656-d748-490d-90ea-db56a4d43002",
+            "Value": {
+                "id": "19fe7188-e7b5-494c-934d-f68017b9a32f",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_santa_1\\snd_conv_santa_sthv_santa_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "0aa36b5b-7047-4003-ad3c-c1e1740f9d0d",
             "Value": {
                 "id": "18f11d15-a1bc-4bbd-8da6-df4a9ce33a6f",
@@ -2596,6 +2604,14 @@
                 "id": "3568f74c-d7be-4ce6-b241-63143825029c",
                 "resourcePath": "objects\\obj_elevator_barrier\\obj_elevator_barrier.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "11c1a635-7f48-453f-b321-860d307b4165",
+            "Value": {
+                "id": "6cd5c82e-ae42-4a02-ac0d-f79758b1b80c",
+                "resourcePath": "sounds\\snd_conv_santa_wwhero_santa_1\\snd_conv_santa_wwhero_santa_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -4439,6 +4455,14 @@
             }
         },
         {
+            "Key": "20290ad7-6543-4ab9-9c90-948fd2f774d9",
+            "Value": {
+                "id": "660602f5-bc41-4cdc-a5a0-93b4bd486a82",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_gary_3\\snd_conv_santa_sthv_gary_3.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "202e53e0-f477-427c-bf8e-ade5b969de31",
             "Value": {
                 "id": "adb012fe-7b84-47a0-b20b-b83823d7e60d",
@@ -5567,6 +5591,14 @@
             }
         },
         {
+            "Key": "2829ede9-3cb6-4341-8663-6c099a0d3f42",
+            "Value": {
+                "id": "3f7820e8-8d25-4041-a836-2bade4c165a6",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_gary_2\\snd_conv_santa_sthv_gary_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "284e9743-5f29-461d-b444-e1dd07ca7616",
             "Value": {
                 "id": "c9f9fec4-7227-4394-9104-9876e82c6a52",
@@ -5620,6 +5652,14 @@
                 "id": "2fc136a7-132b-4104-8178-a75bc29bc30f",
                 "resourcePath": "sprites\\spr_factory_splatter_3\\spr_factory_splatter_3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "289fbb01-c963-4ff2-9355-e390772fb2b5",
+            "Value": {
+                "id": "2481ebd7-23ab-4cf6-95cd-1ba02860b80e",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_david_2\\snd_conv_santa_sthv_david_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -7324,6 +7364,14 @@
                 "id": "b226b6d2-8696-49aa-9703-3871554f5d5a",
                 "resourcePath": "scripts\\calculateLightRadiusAlpha\\calculateLightRadiusAlpha.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "35c8f9e4-0adb-4233-866a-e68fa93eceb5",
+            "Value": {
+                "id": "c8e3a511-1e50-4b2c-9af8-2fe8c3deac44",
+                "resourcePath": "views\\35c8f9e4-0adb-4233-866a-e68fa93eceb5.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -13263,6 +13311,14 @@
             }
         },
         {
+            "Key": "615272b9-bc39-42b8-8e2d-9f8b9ad045f9",
+            "Value": {
+                "id": "53c52750-308b-48b4-9573-e885b2aa712c",
+                "resourcePath": "scripts\\scr_evl_absnowman_killed\\scr_evl_absnowman_killed.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "6154f427-cbfa-40f1-95a0-49fb3766fec9",
             "Value": {
                 "id": "6b71841a-2314-427b-8d12-5137106ef1c3",
@@ -13444,6 +13500,14 @@
                 "id": "536b81b6-8420-4a85-b4dd-4cc8f4876e72",
                 "resourcePath": "scripts\\getItemFilterType\\getItemFilterType.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "6281d292-2966-447b-b0f0-18bd977d0a28",
+            "Value": {
+                "id": "05c56242-804c-4c52-ae93-0088fbefd911",
+                "resourcePath": "sprites\\spr_item_casino_voucher\\spr_item_casino_voucher.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -13772,6 +13836,14 @@
                 "id": "7e2217bb-7a59-4382-8a5a-7396088f213f",
                 "resourcePath": "sprites\\spr_npc_ht4\\spr_npc_ht4.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6501a456-0a7d-441c-8cb4-7346ce937ff6",
+            "Value": {
+                "id": "045dd52b-6a2f-49cd-8e95-cdb2149d047b",
+                "resourcePath": "sounds\\snd_conv_david_wwhero_david_1\\snd_conv_david_wwhero_david_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -14124,6 +14196,14 @@
                 "id": "78b5e350-d232-4754-8973-48bcd87ddb62",
                 "resourcePath": "views\\67b2ee8b-97da-488d-b0bb-f6081ce1b693.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "67c95f2e-dd40-4d1c-8c6a-4a341d920ebe",
+            "Value": {
+                "id": "0f959200-8e9e-4d51-be2c-b23ebfa9036d",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_david_4\\snd_conv_santa_sthv_david_4.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -14751,6 +14831,14 @@
             }
         },
         {
+            "Key": "6dee3070-dfec-4fe5-8542-0525100436ab",
+            "Value": {
+                "id": "56c4151b-2995-4198-9009-469bf8aac8e7",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_santa_5\\snd_conv_santa_sthv_santa_5.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "6e2012bf-0819-4f6c-a1fa-92c836e928dc",
             "Value": {
                 "id": "e783117f-9055-4a0b-a6c7-fd50edfd7e25",
@@ -14859,6 +14947,14 @@
             "Value": {
                 "id": "696044fc-076f-4aff-bff2-da7804373d96",
                 "resourcePath": "views\\6ecf75db-4873-4da4-81c4-596ff6bc66e5.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6efd14e2-1ada-47fa-83b7-e5cd93656e35",
+            "Value": {
+                "id": "e9f76d0f-e5b0-43d6-aa1b-0d847c7c7e6a",
+                "resourcePath": "views\\6efd14e2-1ada-47fa-83b7-e5cd93656e35.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -15627,6 +15723,14 @@
             "Value": {
                 "id": "e60fd084-7087-43a1-a40b-405f7735359c",
                 "resourcePath": "sounds\\snd_conv_rob_lamplights_rob_2\\snd_conv_rob_lamplights_rob_2.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "7406c33f-a24d-47f0-8428-62c96ab13851",
+            "Value": {
+                "id": "f1620c55-c1ff-4372-9b8e-73fa1dc4650f",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_david_1\\snd_conv_santa_sthv_david_1.yy",
                 "resourceType": "GMSound"
             }
         },
@@ -16404,6 +16508,14 @@
                 "id": "95cd6d69-aa77-49d7-bf82-6a23e458d899",
                 "resourcePath": "objects\\obj_light\\obj_light.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "794f7236-ebbc-4b79-bf0a-a1b1234b349d",
+            "Value": {
+                "id": "387ec310-645d-430b-aa79-a2ad6c3118d5",
+                "resourcePath": "scripts\\scr_conv_david_wwhero\\scr_conv_david_wwhero.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -18455,6 +18567,14 @@
             }
         },
         {
+            "Key": "8949e871-1600-49c2-b777-a1dee2a5cf9f",
+            "Value": {
+                "id": "e626a60d-2ff7-479f-9bb3-c2500e09529e",
+                "resourcePath": "objects\\obj_queststep_savingtheholidays_8\\obj_queststep_savingtheholidays_8.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "89564559-c232-4939-a8d2-6c55d2db6b19",
             "Value": {
                 "id": "2305c758-bc3d-4a81-9ded-5f33b2829380",
@@ -18708,6 +18828,14 @@
                 "id": "ef08054a-c1f2-43cf-a8cf-13971ac6fb34",
                 "resourcePath": "sprites\\spr_npc_ht2\\spr_npc_ht2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8b062443-030a-4a33-9bcb-1d200d77c2d6",
+            "Value": {
+                "id": "7587072e-eb3c-413e-a71c-4c8affaa66d8",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_gary_1\\snd_conv_santa_sthv_gary_1.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -19095,6 +19223,14 @@
             }
         },
         {
+            "Key": "8e434d3c-7a41-483d-b41d-a268d19195b9",
+            "Value": {
+                "id": "f1581c6a-3585-4b44-b0e2-c93998135206",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_david_3\\snd_conv_santa_sthv_david_3.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "8e60d0a8-b77f-427e-aaeb-36e56cc4fd12",
             "Value": {
                 "id": "163d6684-44e1-4f1f-b443-1fb174506d75",
@@ -19300,6 +19436,14 @@
                 "id": "d18396ed-fb45-445c-bd65-4595b50227a2",
                 "resourcePath": "sprites\\spr_enemy_robot_arms_attack_scratch\\spr_enemy_robot_arms_attack_scratch.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "9011b375-5cfb-49d7-b6ff-456f2dee763f",
+            "Value": {
+                "id": "1386c6c7-5543-4e1a-95c7-2df5aa3f49b9",
+                "resourcePath": "scripts\\scr_absnowmangate_roomstart_check\\scr_absnowmangate_roomstart_check.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -20927,6 +21071,14 @@
             }
         },
         {
+            "Key": "9c6c4819-b855-450a-bd70-eda9b6573aa4",
+            "Value": {
+                "id": "b6aa097c-a053-4475-8c93-af45e159c6ad",
+                "resourcePath": "scripts\\scr_quest_sth_getvoucher\\scr_quest_sth_getvoucher.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "9c88da99-283a-4f04-ad69-9a023046fca3",
             "Value": {
                 "id": "339ed41d-5126-442f-9c18-97bf659b3a2b",
@@ -21831,6 +21983,14 @@
             }
         },
         {
+            "Key": "a2adc4ae-7611-4ee7-a6d9-b5a7d265e793",
+            "Value": {
+                "id": "8b5e00bd-eafd-48c2-a95e-c54e424c97f0",
+                "resourcePath": "scripts\\scr_conv_santa_wwhero\\scr_conv_santa_wwhero.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a2b323c6-3130-4863-8698-3707db4aaf2a",
             "Value": {
                 "id": "fd2f31ff-e8c7-4f49-8193-c6f34d57db3f",
@@ -21964,6 +22124,14 @@
                 "id": "5ac0b612-1fa9-4616-83c2-30422f3ff6f9",
                 "resourcePath": "scripts\\maybeMakeItem\\maybeMakeItem.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a3fcc488-3387-49d5-9831-48a0ef1e2abe",
+            "Value": {
+                "id": "18992c47-fc6a-4205-9692-192b8bccd9fc",
+                "resourcePath": "sounds\\snd_conv_santa_wwhero_santa_2\\snd_conv_santa_wwhero_santa_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -25511,6 +25679,14 @@
             }
         },
         {
+            "Key": "bd827b23-56fe-407e-b447-16ef1f55191c",
+            "Value": {
+                "id": "6cb71ac9-a625-4b79-bb51-6cf19a0ebf7f",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_santa_3\\snd_conv_santa_sthv_santa_3.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "bd8c2feb-0f41-472e-93e3-f68245c67329",
             "Value": {
                 "id": "012407bf-bd4f-4676-ad1c-cf1ee11806d8",
@@ -25908,6 +26084,14 @@
                 "id": "25714697-b11b-4910-855f-44167342d552",
                 "resourcePath": "sounds\\snd_conv_ari_gka_ari_1\\snd_conv_ari_gka_ari_1.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "c04fa746-c3fa-40c7-814d-fc8b674ff3f8",
+            "Value": {
+                "id": "4d98fe14-4cf8-46a3-9aaf-045a457e30fb",
+                "resourcePath": "scripts\\scr_conv_santa_sthv\\scr_conv_santa_sthv.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -26860,6 +27044,14 @@
                 "id": "4966fbcb-27e8-49ba-9850-1e4dea846d95",
                 "resourcePath": "objects\\obj_tutorial_exercise_beltitems\\obj_tutorial_exercise_beltitems.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c759dbab-47db-4401-9bc7-394e138b8066",
+            "Value": {
+                "id": "38f34647-d9d8-4af4-bff7-dfdfdc46acac",
+                "resourcePath": "sounds\\snd_conv_david_wwhero_david_2\\snd_conv_david_wwhero_david_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -28327,6 +28519,14 @@
             }
         },
         {
+            "Key": "d282d490-564e-40d1-adb4-31734ae9ee88",
+            "Value": {
+                "id": "37a58272-0e1c-4eb7-b913-78e39de5e11e",
+                "resourcePath": "views\\d282d490-564e-40d1-adb4-31734ae9ee88.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "d284f20c-ca9d-4f89-b8eb-95fd396d4d0e",
             "Value": {
                 "id": "fff07055-992f-4459-b221-620f937173de",
@@ -28340,6 +28540,14 @@
                 "id": "8c965c93-1cd5-48fc-8c43-db3ae5c67f3d",
                 "resourcePath": "sprites\\spr_player_iceshield_block\\spr_player_iceshield_block.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d293cd17-bf8a-4839-b419-29cfbe923364",
+            "Value": {
+                "id": "71801d41-11c3-4a93-bc9d-3348b558825b",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_santa_2\\snd_conv_santa_sthv_santa_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -29447,6 +29655,14 @@
             }
         },
         {
+            "Key": "db57ca54-7dac-4bc0-8b19-4b2a9a21ac07",
+            "Value": {
+                "id": "b6b19c22-6df3-46b1-bfaa-db9615d8523a",
+                "resourcePath": "objects\\obj_item_casino_voucher\\obj_item_casino_voucher.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "db645882-c998-436d-ab7a-f6c3554223fd",
             "Value": {
                 "id": "cc99cfcb-7905-402a-be65-0c9f5a79e2c6",
@@ -30019,6 +30235,14 @@
             "Value": {
                 "id": "dd214dbd-58cf-4eac-b991-25f3748de933",
                 "resourcePath": "sounds\\snd_enemy_mushroom_spore_crunch\\snd_enemy_mushroom_spore_crunch.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "df59a462-99ee-4e0c-9b78-455555d50774",
+            "Value": {
+                "id": "c522aef6-d01f-4cc5-9d8d-7958638e956e",
+                "resourcePath": "sounds\\snd_conv_santa_sthv_santa_4\\snd_conv_santa_sthv_santa_4.yy",
                 "resourceType": "GMSound"
             }
         },
@@ -34725,8 +34949,10 @@
         "1c9a9a83-32b2-4d9f-b6dc-626aad5aef18",
         "0f955000-2468-44aa-850c-43e388747b67",
         "19adc1e8-9a2a-4549-ac24-d8c5a35332cb",
+        "c04fa746-c3fa-40c7-814d-fc8b674ff3f8",
         "f6c29205-a5e9-4ff7-ab80-9d04a55dd16b",
         "29ba5599-9a37-4fe0-80e5-d1131a25cbb0",
+        "a2adc4ae-7611-4ee7-a6d9-b5a7d265e793",
         "2d3dc682-1482-4b86-bcd6-3db40d17002b",
         "9d8554f0-9972-44d8-98e7-8a927ed08e20",
         "30995769-90f0-4513-9c19-bec62d137ff9",
@@ -34735,6 +34961,7 @@
         "bfb2ab88-4ede-4534-b1a7-fa8327e8b106",
         "58986c63-9cdf-4f22-862b-d8eae4ba304b",
         "b94c36e9-287c-4d58-91f8-238b4c83115e",
+        "794f7236-ebbc-4b79-bf0a-a1b1234b349d",
         "68c3dcef-a235-4363-8133-d2225ae6a711",
         "3ad7a10a-bf69-46aa-8f8f-22d0f26b54cd",
         "916643bc-2748-407c-b3f6-3b1f3581caf3",
@@ -34797,6 +35024,8 @@
         "99f2d08c-236f-41be-b74d-0070d2622203",
         "66870242-4a61-4056-bbe4-c304bde1db54",
         "46411adf-728c-4ebb-94b8-3aa6dc1e0a7f",
+        "615272b9-bc39-42b8-8e2d-9f8b9ad045f9",
+        "9c6c4819-b855-450a-bd70-eda9b6573aa4",
         "0e53416f-4e8d-43ea-9b1f-c072e4912c76",
         "33e3ee94-3c4d-4069-af73-a7e0eb792b46",
         "bbe2215e-2f23-4f28-b4c7-dc574a1c6695",
@@ -34887,6 +35116,7 @@
         "91df2d6d-8414-4357-b8a7-216e86dbeec3",
         "688b743c-1601-4a1f-8337-321a51fa7b6f",
         "ec292e97-29e0-46ca-94f8-730ac2d8f2c0",
+        "9011b375-5cfb-49d7-b6ff-456f2dee763f",
         "500d8af6-3ebe-4c49-ac86-094ff60c7e6c"
     ],
     "tutorial": ""

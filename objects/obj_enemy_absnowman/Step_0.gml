@@ -2,7 +2,7 @@ if phaseChangeFrame < 0 {
 	event_inherited();
 }
 
-if hp < (.5*maxHp) && phase == 0 && state != CombatantStates.Attacking {
+if hp < (.5*maxHp) && phase == 0 && state != CombatantStates.Attacking && hp > 0 {
 
 	stopAllAttacks();
 	state = CombatantStates.AggroMelee;
@@ -63,22 +63,18 @@ if hp < (.5*maxHp) && phase == 0 && state != CombatantStates.Attacking {
 	var charge = makeEnemyAttackObj(obj_attack_absnowman_charge_1_1);
 	var charge12 = makeEnemyAttackObj(obj_attack_absnowman_charge_1_2);
 
-	var iceblade = makeEnemyAttackObj(obj_attack_absnowman_iceblade_1_1);
 	var iceshooter = makeEnemyAttackObj(obj_attack_absnowman_iceshooter_1_1_melee);
 
 	var c0 = [sb11, sb12, sb11];
 	var c1 = [sb21, sb11, sb12];
 	var c3 = [charge, charge12, charge12];
-	var c8 = [swing11, swing12, slam11];
-	var c9 = [slam11, swing12, fallAttack];
+	// var c8 = [swing11, swing12, slam11];
+	var c9 = [slam11, swing12, fallAttack, charge12];
 	var c10 = [sb11, sb12, sb21];
-	var c11 = [sb21, fallAttack, charge12];
-	var c12 = [swing21, iceshooter];
-	var c13 = [iceblade, swing21];
-	var c4 = [iceblade, iceblade];
+	// var c12 = [swing21, iceshooter];
 	var c14 = [swing11, swing12, swing21];
 	var c15 = [iceshooter];
-	meleeAttacks = [c0, c1, c3, c8, c9, c10, c11, c12, c13, c14, c15];
+	meleeAttacks = [c0, c1, c3, c9, c10, c14, c15];
 	
 	// currently chosen ranged attack
 	var sb11r = makeEnemyAttackObj(obj_attack_absnowman_snowball_1_1);

@@ -15,6 +15,8 @@ minRange = 70;
 chargeSpeed = 20;
 turnSpeed = 90;
 
+isBlockable = false;
+
 movesDuringPrep = false;
 
 staggersAgainstBlocks = false;

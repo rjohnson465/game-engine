@@ -12,7 +12,7 @@ global.quest = id;
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_helpinghershel_1));
 ds_list_add(questSteps,instance_create_depth(x,y,1,obj_queststep_helpinghershel_2));
 
-xpReward = 500;
+xpReward = 2000;
 
 var ring = instance_create_depth(x,y,1,obj_item_ring_clayring);
 ds_list_add(rewardItems,ring);

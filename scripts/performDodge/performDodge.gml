@@ -1,5 +1,10 @@
 /// performDodge
-if dodgeRestFrame > 0 exit;
+if dodgeRestFrame > 0 {
+	if state != CombatantStates.Dodging {
+		dodgeAgain = true;
+	}
+	exit;
+}
 
 if global.isWishing exit;
 if global.isTrading exit;

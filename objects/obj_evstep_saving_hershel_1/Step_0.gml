@@ -37,9 +37,7 @@ if ds_exists(ghostsSpawnedList, ds_type_list) {
 		
 		
 		with g {
-			
-			show_debug_message(alarm[3]);
-			
+					
 			// if ghost is aggroed, alarm3 tracks how long its been since aggro
 			if isAggroed && !hasSetUnaggroAlarm {
 				// dybukks de-aggro every 5 seconds not hit
@@ -52,6 +50,7 @@ if ds_exists(ghostsSpawnedList, ds_type_list) {
 			if alarm[3] <= 0 && hasSetUnaggroAlarm {
 				hasSetUnaggroAlarm = false;
 				isAggroed = false;
+				audio_stop_sound(beamSoundLoopIndex);
 				beamSoundShootIndex = audio_play_sound_at(snd_magic_magic_shoot, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 0 , 1);
 				beamSoundLoopIndex = audio_play_sound_at(snd_magic_magic_loop, x, y, depth, 50, AUDIO_MAX_FALLOFF_DIST, 1, 1, 1);
 			}
