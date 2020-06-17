@@ -4,6 +4,23 @@ if phaseChangeFrame < 0 {
 
 if hp < (.5*maxHp) && phase == 0 && state != CombatantStates.Attacking && hp > 0 {
 
+	with global.gameManager.bgmManager {
+		startBgm(snd_bgm_absnowman_2, true);
+	}
+	
+	lightRadiusAlpha = .95;
+	var lr = noone;
+	with obj_light_radius {
+		if owner == other {
+			lr = id;
+		}
+	}
+	if instance_exists(lr) {
+		with lr {
+			light_set_alpha(other.lightRadiusAlpha);
+		}
+	}
+
 	stopAllAttacks();
 	state = CombatantStates.AggroMelee;
 	audio_emitter_gain(walkingEmitter, 0);
@@ -81,11 +98,15 @@ if hp < (.5*maxHp) && phase == 0 && state != CombatantStates.Attacking && hp > 0
 	var sb12r = makeEnemyAttackObj(obj_attack_absnowman_snowball_1_2);
 	var sb21r = makeEnemyAttackObj(obj_attack_absnowman_snowball_2_1);
 	var iceshooter = makeEnemyAttackObj(obj_attack_absnowman_iceshooter_1_1);
+	var charge_r = makeEnemyAttackObj(obj_attack_absnowman_charge_1_1);
+	var charge12_r = makeEnemyAttackObj(obj_attack_absnowman_charge_1_2);
+	var r3 = [charge_r];
+	var r4 = [charge_r, charge12_r, charge12_r];
 
 	var r0 = [sb11r, sb12r, sb11r];
 	var r1 = [sb21r, sb11r];
 	var r2 = [iceshooter];
-	rangedAttacks = [r0, r1, r2];
+	rangedAttacks = [r0, r1, r2, r3, r4];
 	
 }
 
@@ -103,5 +124,13 @@ if phase == 1 && phaseChangeFrame < 0 {
 		var y1 = bbox_top; var y2 = bbox_bottom;
 		part_emitter_region(sporeSystem,sporeEmitter,x1,x2,y1,y2,ps_shape_ellipse,ps_distr_gaussian);
 		part_emitter_burst(sporeSystem,sporeEmitter,sporeParticle, 3);
+	}
+	
+	if layer >= global.player.layer {
+		part_system_depth(rageSystem, layer_get_depth(layer)-1);
+		var x1 = bbox_left - 15; var x2 = bbox_right + 15;
+		var y1 = bbox_top - 15; var y2 = bbox_bottom + 15;
+		part_emitter_region(rageSystem,rageEmitter,x1,x2,y1,y2,ps_shape_ellipse,ps_distr_gaussian);
+		part_emitter_burst(rageSystem,rageEmitter,rageParticle, 7);
 	}
 }

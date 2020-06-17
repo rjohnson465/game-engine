@@ -1391,6 +1391,14 @@
             }
         },
         {
+            "Key": "09def025-bab5-44fe-abc1-630c0c9d560c",
+            "Value": {
+                "id": "4b2c3cb1-97d6-41e1-b0c5-68f63601d657",
+                "resourcePath": "objects\\obj_attack_absnowman_charge_1_1_range\\obj_attack_absnowman_charge_1_1_range.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "09ebd977-678e-467d-9bb6-d371b9833e87",
             "Value": {
                 "id": "44044d17-182c-4a73-94ee-9aaa26d484a1",
@@ -4823,6 +4831,14 @@
             }
         },
         {
+            "Key": "2232e863-4f37-4103-af50-93d4275a58cb",
+            "Value": {
+                "id": "791bcffc-abe7-44dc-8568-91e65886f863",
+                "resourcePath": "sounds\\snd_bgm_absnowman_1\\snd_bgm_absnowman_1.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "22395a49-5c5c-437b-999d-f415805ab29b",
             "Value": {
                 "id": "a1bb49da-778c-42cb-8a94-8c7ca99848d4",
@@ -7978,7 +7994,7 @@
             "Key": "3a218b2e-dd95-40e8-9359-a8e2c2029c07",
             "Value": {
                 "id": "ac04b9a0-e6ce-4087-8322-541f073c3eea",
-                "resourcePath": "sprites\\spr_enemy_absnowman_slam_1_1_zone\\spr_enemy_absnowman_slam_1_1_zone.yy",
+                "resourcePath": "sprites\\spr_enemy_absnowman_slam_1_1_zone_old\\spr_enemy_absnowman_slam_1_1_zone_old.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -8587,14 +8603,6 @@
             "Value": {
                 "id": "78098ed5-2c65-491a-b22d-10eea93a3c37",
                 "resourcePath": "sprites\\spr_enemy_krampus_move\\spr_enemy_krampus_move.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "3e2fdcd4-5f41-433a-97da-a08c06eda944",
-            "Value": {
-                "id": "7c9387a8-a220-41f5-a3df-2807e6d705ce",
-                "resourcePath": "sprites\\spr_enemy_absnowman_slam_1_2_zone\\spr_enemy_absnowman_slam_1_2_zone.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -14604,6 +14612,14 @@
                 "id": "24c44040-3f2a-43db-8dd6-f0f4b18050e7",
                 "resourcePath": "sprites\\spr_gem_lapis_cracked\\spr_gem_lapis_cracked.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "6c151281-2674-4442-a655-44a5482fde0e",
+            "Value": {
+                "id": "521deb80-86e1-452d-9e20-0d10cebffd04",
+                "resourcePath": "objects\\obj_attack_absnowman_charge_1_2_range\\obj_attack_absnowman_charge_1_2_range.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -23023,6 +23039,14 @@
             }
         },
         {
+            "Key": "a9d8f224-9045-4dbd-afe3-f43b96eb992a",
+            "Value": {
+                "id": "c5b3f8c6-95b1-45ed-98e1-93e380445c50",
+                "resourcePath": "sprites\\spr_enemy_absnowman_slam_1_1_zone\\spr_enemy_absnowman_slam_1_1_zone.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a9df1787-6a36-4249-9f1f-6ccb994655b5",
             "Value": {
                 "id": "0d40923b-eb41-4b3b-96d1-230b955adbfd",
@@ -23787,6 +23811,14 @@
             "Value": {
                 "id": "2451ec68-33d5-49e4-8425-2293c027eb2f",
                 "resourcePath": "sprites\\spr_enemy_krampusmage_limb_wand_prep_2_1\\spr_enemy_krampusmage_limb_wand_prep_2_1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "af023b6d-d347-418e-b6d3-9d16e3d37dc3",
+            "Value": {
+                "id": "17ef991b-ec9e-4cb8-bb45-5c5e91ba4241",
+                "resourcePath": "sprites\\spr_enemy_absnowman_slam_1_2_zone\\spr_enemy_absnowman_slam_1_2_zone.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -32420,6 +32452,14 @@
                 "id": "3967453b-1ee6-4ce9-9acc-393d2db59ec4",
                 "resourcePath": "sprites\\spr_enemy_icewyrm_snowball_recover_1_1\\spr_enemy_icewyrm_snowball_recover_1_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "efcecba3-8c4d-4a05-b710-813592b60bcf",
+            "Value": {
+                "id": "db70379a-0087-4871-841e-20614f444e56",
+                "resourcePath": "sounds\\snd_bgm_absnowman_2\\snd_bgm_absnowman_2.yy",
+                "resourceType": "GMSound"
             }
         },
         {

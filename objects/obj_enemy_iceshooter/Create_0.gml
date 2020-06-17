@@ -8,6 +8,8 @@ spriteString = "enemy_iceshooter";
 isFairy = false;
 isFloating = true;
 
+doesEnemyRespawn = false;
+
 functionalSpeed = 0;
 normalSpeed = 0;
 turnSpeed = 0;

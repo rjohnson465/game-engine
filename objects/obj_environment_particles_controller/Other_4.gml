@@ -143,6 +143,30 @@ switch room {
 		makeEnvironmentParticles(dust,crystal,"instances_floor_3",1,-2);
 		break;
 	}
+	case rm_abominable_snowman: {
+		var dust = part_type_create();
+		part_type_shape(dust, pt_shape_sphere);
+		part_type_alpha2(dust,.8,0);
+		part_type_color2(dust,c_aqua,c_silver);
+		part_type_orientation(dust,0,0,0,15,1);
+		part_type_size(dust,0,0.15,0,.01);
+		part_type_speed(dust,.3,1,0,0);
+		part_type_direction(dust,0,360,0,4);
+		part_type_life(dust,250,500);
+		
+		var crystal = part_type_create();
+		part_type_sprite(crystal, spr_part_icecrystal, true, false, true);
+		part_type_alpha2(crystal,.7,0);
+		part_type_color2(crystal,c_white,c_olive);
+		part_type_orientation(crystal,0,359,1,1,1);
+		part_type_size(crystal,.3,.4,0,.03);
+		part_type_speed(crystal,.3,1,0,0);
+		part_type_direction(crystal,0,360,0,0);
+		part_type_life(crystal,250,500);
+		makeEnvironmentParticles(dust,crystal,"instances_floor_0",1,-2);
+		makeEnvironmentParticles(dust,crystal,"instances_floor_1",1,-2);
+		break;
+	}
 	case rm_xmas_town: {
 		var snowflake1 = part_type_create();
 		part_type_shape(snowflake1, pt_shape_snow);

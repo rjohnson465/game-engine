@@ -12,6 +12,8 @@ limbKey = noone;
 type = AttackTypes.Zone;
 minRange = 65;
 
+zoneCanHitShield = true;
+
 staggersAgainstBlocks = false;
 
 attackSound = snd_crunchy_thud;

@@ -40,7 +40,7 @@ switch rm {
 	}
 	case rm_abominable_snowman: {
 		var c = make_color_rgb(42, 56, 95);
-		return [c, c];
+		return [c_dkgray, c];
 	}
 	case rm_golemking: {
 		var c = make_color_rgb(52, 66, 105);

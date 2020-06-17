@@ -58,7 +58,7 @@ switch rm {
 		break;
 	}
 	case rm_abominable_snowman: {
-		return [noone];
+		return [snd_bgm_absnowman_1];
 		break;
 	}
 	case rm_abominable_lands: {

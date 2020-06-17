@@ -22,6 +22,8 @@ prepSound = snd_thrust_attack_1;
 attackSoundsVocals = [snd_enemy_troll_roar_2];
 prepSoundsVocals = [snd_enemy_troll_roar_3];
 
+zoneCanHitShield = true;
+
 
 // ice cloud
 var smoke = part_type_create();

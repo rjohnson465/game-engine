@@ -103,10 +103,15 @@ var sb12r = makeEnemyAttackObj(obj_attack_absnowman_snowball_1_2);
 var sb21r = makeEnemyAttackObj(obj_attack_absnowman_snowball_2_1);
 var iceshooter = makeEnemyAttackObj(obj_attack_absnowman_iceshooter_1_1);
 
+var charge_r = makeEnemyAttackObj(obj_attack_absnowman_charge_1_1);
+var charge12_r = makeEnemyAttackObj(obj_attack_absnowman_charge_1_2);
+var r3 = [charge_r];
+
 var r0 = [sb11r, sb12r];
 var r1 = [sb21r];
 var r2 = [iceshooter];
-rangedAttacks = [r0, r1, r2];
+
+rangedAttacks = [r0, r1, r2, r3];
 
 hp = 500;
 maxHp = 500;
@@ -158,3 +163,26 @@ part_type_direction(smoke,0,360,0,4);
 part_type_life(smoke,10,15 );
 sporeParticle = smoke;
 part_system_depth(sporeSystem, layer_get_depth(layer)+1);
+
+rageSystem = part_system_create();
+rageEmitter = part_emitter_create(rageSystem);
+// rage particle (ice sphere, indicates phase 2)
+var smoke = part_type_create();
+part_type_shape(smoke, pt_shape_sphere);
+part_type_color2(smoke,c_purple,c_white);
+part_type_orientation(smoke,0,0,0,15,1);
+part_type_alpha3(smoke, .75, .5, .25);
+part_type_size(smoke,.05,.15,0,0);
+part_type_speed(smoke,.4,2,0,0);
+part_type_direction(smoke,0,360,0,4);
+part_type_life(smoke,10,15 );
+rageParticle = smoke;
+part_system_depth(rageSystem, layer_get_depth(layer)-1);
+
+// light radius (phase 2 only)
+isLightRadiusAlwaysOn = true;
+lightRadiusAlpha = 0;
+//lightRadiusColor = make_color_rgb(33,180,154);
+lightRadiusColor = c_white;
+calculatesLightRadiusOnRoomStart = false;
+isLightRadiusAlphaFixed = true;

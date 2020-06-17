@@ -80,6 +80,8 @@ part2Num = noone;
 
 damageType = "Block"; // Block (sparks) or Dust (for when attack hits walls)
 
+zoneCanHitShield = false;
+
 conditionsChances = ds_map_create();
 doesNotStagger = false; // attacks normally have a chance to stagger opponents. Some (like zones) may not
 

@@ -13,7 +13,15 @@ if object_is_ancestor(object_index, obj_npc_parent) {
 var lName = layer_get_name(l);
 var pLayerName = layer_get_name(p.layer);
 
-if l != p.layer exit;
+var listIndex = ds_list_find_index(p.interactableObjects, id);
+
+if l != p.layer {
+	// remove from interactable list if in interactables list and not on player layer anymore
+	if listIndex != -1 {
+		ds_list_delete(p.interactableObjects, listIndex);
+	}
+	exit;
+}
 
 // no interaction allowed in certain states
 if global.isReadingTutorial || global.isInteractingWithNpc || global.isLooting || global.isTrading || global.isWishing || p.interactableResetFrame > 0 {
@@ -22,7 +30,7 @@ if global.isReadingTutorial || global.isInteractingWithNpc || global.isLooting |
 }
 
 
-var listIndex = ds_list_find_index(p.interactableObjects, id);
+
 var interactDistance = variable_instance_exists(id, "INTERACT_DISTANCE") ? INTERACT_DISTANCE : 20;
 if argument_count > 0 {
 	interactDistance = argument[0];

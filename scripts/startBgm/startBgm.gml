@@ -45,12 +45,12 @@ if bgmPossibilities != noone {
 	with obj_enemy_parent {
 		if isBoss {
 			other.bossExists = true;
-			if isAlive {
+			if isAlive && hp > 0 {
 				bossAlive = true;
 			}
 		}
 	}
-	
+	 
 	// if this is a boss room but the boss is dead, keep playing the same old song
 	if (bossExists && !bossAlive) {
 		exit;

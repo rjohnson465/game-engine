@@ -14,3 +14,14 @@ if part_system_exists(sporeSystem) && part_emitter_exists(sporeSystem, sporeEmit
 if part_system_exists(sporeSystem) {
 	part_system_destroy(sporeSystem); sporeSystem = -1;
 }
+
+if part_type_exists(rageParticle) {
+	part_type_destroy(rageParticle); rageParticle = -1;
+}
+
+if part_system_exists(rageSystem) && part_emitter_exists(rageSystem, rageEmitter) {
+	part_emitter_destroy(rageSystem, rageEmitter); rageEmitter = -1;
+}
+if part_system_exists(rageSystem) {
+	part_system_destroy(rageSystem); rageSystem = -1;
+}

@@ -16,7 +16,7 @@ for (var i = 0; i < ds_map_size(global._light_layers); i++) {
 	
 	var floorIndex = i;
 	// account for 0-indexed floors
-	if room == rm_factory || room == rm_clayfields || room == rm_winter {
+	if room == rm_factory || room == rm_clayfields || room == rm_winter || room == rm_abominable_snowman {
 		floorIndex -= 1;
 	}
 	
