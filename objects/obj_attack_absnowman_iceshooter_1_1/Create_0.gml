@@ -59,7 +59,7 @@ part1  = [[p1, 3], [p2, 3], [smoke, 5]];
 prepPart1 = smoke;
 prepPartBoundingBox = [35, -0, 85, -100];
 
-prepSoundsVocals = [snd_enemy_troll_roar_2];
+prepSoundsVocals = [snd_abominion_incantation];
 
 mrOffset = 100; // random projectiles within n px of target
 mrPrepDuration = 35; // how long each projectile charges

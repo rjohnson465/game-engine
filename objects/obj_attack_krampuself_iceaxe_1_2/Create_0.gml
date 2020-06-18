@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "spr_enemy_krampuself_iceaxe";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 2;
-limbKey = "l"; // default value
+limbKey = "r"; // default value
 ds_map_add(damages,SLASH,[18,22]);
 ds_map_add(damages, ICE, [10, 10]);
 isRanged = false;

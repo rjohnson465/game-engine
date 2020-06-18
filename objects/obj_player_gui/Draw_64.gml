@@ -268,6 +268,7 @@ var itemSpritesResourceBarBottomRightY = itemSpritesResourceBarTopLeftY + itemSp
 draw_sprite_ext(spr_item_slot,1,10,itemSpritesTopLeftY,1,1,0,c_white,.5);
 if leftHandItem.spriteName != "unarmed" {
 	drawItem(leftHandItem, 10, itemSpritesTopLeftY, false, 1, 1, false);
+	
 	if leftHandItem.chargesMax != 0 {
 		var chargesPercent = (leftHandItem.charges / leftHandItem.chargesMax)*100;
 		draw_healthbar(10,itemSpritesChargesBarTopLeftY,71,itemSpritesChargesBarBottomRightY,chargesPercent,c_black,C_HANDLES,c_aqua,0,1,0);
@@ -282,6 +283,14 @@ if leftHandItem.spriteName != "unarmed" {
 		var durabilityPercent = (leftHandItem.durability / leftHandItem.durabilityMax)*100;
 		draw_healthbar(10,itemSpritesResourceBarTopLeftY,71,itemSpritesResourceBarBottomRightY,durabilityPercent,c_black,c_maroon,c_red,0,1,0);
 	}
+} else {
+
+	// two handed, show left hand with grayed out right hand equip
+	if rightHandItem.isTwoHanded {
+		var leftHandItemSprite = asset_get_index("spr_item_"+rightHandItem.spriteName);
+		draw_sprite_ext(leftHandItemSprite,1,10,itemSpritesTopLeftY,1,1,1,c_black,.75);
+	}
+
 }
 // left hand prompts
 var swapPromptTopLeftY = itemSpritesTopLeftY + 35;
@@ -347,12 +356,6 @@ if rightHandItem.spriteName != "unarmed" {
 		var durabilityPercent = (rightHandItem.durability / rightHandItem.durabilityMax)*100;
 		draw_healthbar(150,itemSpritesResourceBarTopLeftY,211,itemSpritesResourceBarBottomRightY,durabilityPercent,c_black,c_maroon,c_red,0,1,0);
 	}
-}
-
-// two handed, show right hand with grayed out left hand equip
-if leftHandItem.isTwoHanded {
-	var rightHandItemSprite = asset_get_index("spr_item_"+leftHandItem.spriteName);
-	draw_sprite_ext(rightHandItemSprite,1,150,itemSpritesTopLeftY,1,1,1,c_black,.75);
 }
 
 // right hand prompts

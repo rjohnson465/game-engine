@@ -1,6 +1,6 @@
 event_inherited();
 spriteName = "spr_enemy_unfairy_longsword";
-limbKey = "l"; // default value
+limbKey = "r"; // default value
 spriteAttackNumber = 2;
 spriteAttackNumberInChain = 1;
 ds_map_add(damages,PIERCE,[12,20]);

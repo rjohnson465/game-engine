@@ -35,9 +35,9 @@ with obj_player {
 	}
 	
 	// also do temp damages (from gempieces)
-	var leftWeapon = ds_map_find_value(global.player.equippedLimbItems, "l");
-	if instance_exists(leftWeapon) && ds_list_size(leftWeapon.temporaryDamages) > 0 {
-		var tempDamages = leftWeapon.temporaryDamages;
+	var mainWeapon = ds_map_find_value(global.player.equippedLimbItems, "r");
+	if instance_exists(mainWeapon) && ds_list_size(mainWeapon.temporaryDamages) > 0 {
+		var tempDamages = mainWeapon.temporaryDamages;
 		for (var i = 0; i < ds_list_size(tempDamages); i++) {
 			var tempDamageEntry = ds_list_find_value(tempDamages, i);
 			if tempDamageEntry != undefined && is_array(tempDamageEntry) {

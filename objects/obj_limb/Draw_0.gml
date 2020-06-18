@@ -8,26 +8,26 @@ if !owner.isBeingHit {
 	var uPOSITION = shader_get_uniform(sh_red, "Position");
 	shader_set_uniform_f(uPOSITION,owner.alarm[5]/5);
 }
-var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
+var rightHandItem = ds_map_find_value(owner.equippedLimbItems,"r");
 // draw based on state
-if limbKey == "r" {
-	var leftHand = noone;
+if limbKey == "l" {
+	var rightHand = noone;
 	var oId = owner;
 	with obj_limb {
-		if owner == oId && limbKey == "l" {
-			leftHand = id;
+		if owner == oId && limbKey == "r" {
+			rightHand = id;
 		}
 	}
-	if leftHand {
+	if rightHand {
 		
-		if (leftHandItem.isTwoHanded || owner.state == CombatantStates.Healing) && owner.currentUsingSpell == noone {
+		if (rightHandItem.isTwoHanded || owner.state == CombatantStates.Healing) && owner.currentUsingSpell == noone {
 			shader_reset();
 			exit;
 		}
 	}
 }
 
-var ys = (limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded)) ? 1 : -1;
+var ys = (limbKey == "r" || (rightHandItem.isRanged && rightHandItem.isTwoHanded)) ? 1 : -1;
 if limbKey == "l" && owner.currentUsingSpell != noone ys = -1;
 var rot = owner.facingDirection;
 //if limbItem.subType == HandItemTypes.Shield && owner.isShielding rot+=90;

@@ -1,14 +1,12 @@
 /// ei_unfairy_warhammer
-/// initialize this unfairy to have a warhammer and no ranged
+/// initialize this unfairy to have a greatsword and no ranged
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var greatsword = makeEnemyWeapon(obj_hand_item_greatsword);
-ds_map_replace(handItems,"lm1",greatsword);
-ds_map_replace(handItems,"rm1",unarmed);
-ds_map_replace(handItems,"lr1",noone);
-ds_map_replace(handItems,"rr1",noone);
+ds_map_replace(handItems,"lm1",unarmed);
+ds_map_replace(handItems,"rm1",greatsword);
 rangedRangeArray = []; rangedAttacks = [];
-ds_map_replace(equippedLimbItems,"l",greatsword);
-ds_map_replace(equippedLimbItems,"r",unarmed);
+ds_map_replace(equippedLimbItems,"l",unarmed);
+ds_map_replace(equippedLimbItems,"r",greatsword);
 
 var gs11 = makeEnemyAttackObj(obj_attack_unfairy_greatsword_1_1);
 var gs12 = makeEnemyAttackObj(obj_attack_unfairy_greatsword_1_2);

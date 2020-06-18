@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "spr_enemy_funfairy_toyhammer";
 spriteAttackNumber = 2;
 spriteAttackNumberInChain = 1;
-limbKey = "l"; // default value
+limbKey = "r"; // default value
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
 ds_map_add(damages,CRUSH,[15,20]);
 ds_map_add(damages,MAGIC,[1,3]);

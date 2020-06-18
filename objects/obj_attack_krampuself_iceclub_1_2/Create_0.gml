@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "spr_enemy_krampuself_iceclub";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 2;
-limbKey = "l"; // default value
+limbKey = "r"; // default value
 ds_map_add(damages,CRUSH,[25,25]);
 ds_map_add(damages, ICE, [10, 10]);
 isRanged = false;

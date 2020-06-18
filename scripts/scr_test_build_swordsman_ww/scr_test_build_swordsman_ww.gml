@@ -56,9 +56,10 @@ var ls = instance_create_depth(x, y, depth, obj_hand_item_longsword);
 ls.numberOfSockets = 2;
 // insertGemIntoItem(makeGem(obj_gem_hematite, CRACKED), ls);
 addItemToInventory(ls);
-equipItem(ls, EquipmentSlots.LeftHand1);
-var ws = instance_create_depth(x, y, depth, obj_hand_item_kiteshield);
-addItemToInventory(ws);
+equipItem(ls, EquipmentSlots.RightHand1);
+var ks = instance_create_depth(x, y, depth, obj_hand_item_kiteshield);
+addItemToInventory(ks);
+equipItem(ks, EquipmentSlots.LeftHand1);
 
 var bow = instance_create_depth(x, y, depth, obj_hand_item_shortbow);
 var torch = instance_create_depth(x, y, depth, obj_hand_item_torch);
@@ -67,8 +68,9 @@ addItemToInventory(bow);
 addItemToInventory(instance_create_depth(x, y, 1, obj_hand_item_thrownknife));
 addItemToInventory(torch);
 addItemToInventory(wand);
+addItemToInventory(instance_create_depth(x, y, depth, obj_hand_item_battleaxe));
 
-equipItem(ws, EquipmentSlots.RightHand1);
+
 var rc = instance_create_depth(x, y, depth, obj_hat_ringed_coif);
 addItemToInventory(rc);
 equipItem(rc, EquipmentSlots.Head);

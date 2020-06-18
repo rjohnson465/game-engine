@@ -71,7 +71,7 @@ for (var i = 0; i < size; i++) {
 	}
 	
 	// off hand weapons deal less damage
-	if attackObj.owner.type == CombatantTypes.Player && attackObj.limbKey == "r" {
+	if attackObj.owner.type == CombatantTypes.Player && attackObj.limbKey == "l" {
 		if !attackObj.isSpell {
 			if attackObj.weapon.weaponType != UNARMED {
 				var modifier = attackObj.owner.offHandDamagePercent/100;

@@ -12,7 +12,7 @@ staggerDuration = 45;
 limbKey = noone;
 type = AttackTypes.Charge;
 minRange = 800;
-chargeSpeed = 20;
+chargeSpeed = 25;
 turnSpeed = 90;
 movesDuringPrep = false;
 
@@ -20,7 +20,7 @@ isBlockable = false;
 
 staggersAgainstBlocks = false;
 
-attackSound = snd_axe2h_attack_1;
+attackSound = snd_enemy_absnowman_trample;
 prepSound = snd_thrust_attack_1;
 
 attackSoundsVocals = [snd_enemy_troll_roar_1];

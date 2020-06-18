@@ -75,9 +75,9 @@ if drawBlack {
 
 
 // draw slot type sprite
-if slot == EquipmentSlots.LeftHand1 || slot == EquipmentSlots.LeftHand2 {
+if slot == EquipmentSlots.RightHand1 || slot == EquipmentSlots.RightHand2 {
 	draw_sprite_ext(spr_slot_main_hand,1,xx,yy,1,1,0,c_white,.1);
-} else if slot == EquipmentSlots.RightHand1 || slot == EquipmentSlots.RightHand2 {
+} else if slot == EquipmentSlots.LeftHand1 || slot == EquipmentSlots.LeftHand2 {
 	draw_sprite_ext(spr_slot_off_hand,1,xx,yy,1,1,0,c_white,.1);
 } else	if slot == EquipmentSlots.LeftRing1 || slot == EquipmentSlots.LeftRing2 
 		|| slot == EquipmentSlots.RightRing1 || slot == EquipmentSlots.RightRing2 {

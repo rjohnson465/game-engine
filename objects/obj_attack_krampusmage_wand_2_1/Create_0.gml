@@ -3,7 +3,7 @@ spriteName = "spr_enemy_krampusmage_wand";
 spriteAttackNumber = 2;
 spriteAttackNumberInChain = 1;
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
-limbKey = "l";
+limbKey = "r";
 ds_map_replace(damages,ICE,[8,10]);
 ds_map_replace(damages,PIERCE, [33,33]);
 // ds_map_replace(conditionsChances, POISON, .8); // 100% chance a hit will poison someone

@@ -38,6 +38,21 @@ ds_map_replace(recoverOffsets,5,[30, -30]);
 ds_map_replace(recoverOffsets,6,[40, -15]);
 ds_map_replace(recoverOffsets,7,[50, 0]);
 
+var maps = [prepOffsets, attackOffsets, recoverOffsets];
+
+for(var i = 0; i < array_length_1d(maps); i++) {
+	var m = maps[i];
+	var ck = ds_map_find_first(m);
+	for (var j = 0; j < ds_map_size(m); j++) {
+		var pt = ds_map_find_value(m, ck);
+		// var newpt = rotateAndTranslatePoint(pt[0], pt[1], 32, 32, owner.facingDirection);
+		var newpt = [pt[0], pt[1]*-1];
+		ds_map_replace(m, ck, newpt);
+		ck = ds_map_find_next(m, ck);
+	}
+}
+	
+
 var xOff = 35; var yOff = 0; // default, idle offsets
 var map = noone;
 switch state {

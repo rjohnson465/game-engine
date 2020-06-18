@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "spr_enemy_unfairy_spear";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 2;
-limbKey = "l";
+limbKey = "r";
 ds_map_add(damages,PIERCE,[15,25]);
 isRanged = false;
 staminaCost = 20;

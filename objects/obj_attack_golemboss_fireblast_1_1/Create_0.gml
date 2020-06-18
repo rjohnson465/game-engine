@@ -56,4 +56,16 @@ attackSound = snd_magic_fire_shoot;
 attackSoundLoop = snd_magic_fire_loop;
 
 turnSpeed = 10;
-// attackSoundsVocals = [noone, snd_enemy_icewyrm_attack_1];
+
+hasLightRadius = true;
+lightRadiusScale = .25;
+lightRadiusSprite = spr_light_point_midleft;
+lightRadiusOffsetX = 25;
+lightRadiusOffsetY = 5;
+lightRadiusScalesByFrame = [
+	[.2, .2], [.3, .2], [.4, .25], [.5, .25], [.6, .25],
+	[.7, .3], [.8, .3], [.85, .3], [.92, .3], [1, .3]
+	// stay at [.6,2] until end
+];
+lightRadiusColor = C_FIRELIGHT;
+lightRadiusAlpha = .8;

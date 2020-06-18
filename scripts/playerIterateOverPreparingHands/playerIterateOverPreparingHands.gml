@@ -1,6 +1,10 @@
 // iterate over preparing hands 
 // if they just started preparing, need to assign prepare frames / total frames
 // if they are finishing preparing, need to create attack objects
+
+var offHandItem = ds_map_find_value(equippedLimbItems,"l");
+var mainHandItem = ds_map_find_value(equippedLimbItems,"r");
+
 if ds_map_size(preparingLimbs) != 0 {
 	var hand = ds_map_find_first(preparingLimbs);
 	for (var i = 0; i < ds_map_size(preparingLimbs); i++) {
@@ -19,7 +23,7 @@ if ds_map_size(preparingLimbs) != 0 {
 		}
 		// if at the end of attack preparation, we need to create an attack object (slightly different process for ranged vs melee) 
 		else if prepFrame >= prepFrameTotal-1 {
-			if ( !(weapon.subType == HandItemTypes.Ranged && leftHandItem.isTwoHanded)) {
+			if ( !(weapon.subType == HandItemTypes.Ranged && rightHandItem.isTwoHanded)) {
 				speed = 0;
 				ds_map_replace(prepFrames,hand,-1);
 				ds_map_replace(prepFrameTotals,hand,0);

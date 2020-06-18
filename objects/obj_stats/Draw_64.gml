@@ -77,11 +77,11 @@ line++;
 // draw_text(goldBoxBottomRightX - 5, mean(goldBoxTopLeftY, goldBoxBottomRightY), getGoldCount());
 
 // main hand weapon
-drawWeaponStats(leftHandItem,topLeftY+(line*20));
+drawWeaponStats(rightHandItem,topLeftY+(line*20));
 line += 6;
 
-if !leftHandItem.isTwoHanded && rightHandItem.subType != HandItemTypes.Shield {
-	drawWeaponStats(rightHandItem,topLeftY+(line*20),true);
+if !rightHandItem.isTwoHanded && leftHandItem.subType != HandItemTypes.Shield {
+	drawWeaponStats(leftHandItem,topLeftY+(line*20),true);
 	line+=6;
 }
 

@@ -15,11 +15,11 @@ var isCriticalHit = argument[4];
 var itemHitWith = argument[5];
 var attackData = argument[6];
 
-var shield = ds_map_find_value(equippedLimbItems, "r");
+var shield = ds_map_find_value(equippedLimbItems, "l");
 if shield.subType != HandItemTypes.Shield {
-	shield = ds_map_find_value(equippedLimbItems, "l");
+	shield = ds_map_find_value(equippedLimbItems, "r");
 }
-if !object_is_ancestor(shield.object_index,obj_shield_parent) shield = ds_map_find_value(equippedLimbItems, "r");
+if !object_is_ancestor(shield.object_index,obj_shield_parent) shield = ds_map_find_value(equippedLimbItems, "l");
 var dt = shield.material == WOOD ? "Dust" : "Block";
 global.damageType = dt;
 global.x1 = __x;

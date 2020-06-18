@@ -26,7 +26,7 @@ if	(state == CombatantStates.Idle || state == CombatantStates.Moving)  {
 	comboHitsToNextLevel = ds_map_find_value(comboHitsToNextLevelMap,leftHandItem.weaponType);
 	
 	// base case: current left hand item is one handed and backup left hand item is one handed
-	if !leftHandItem.isTwoHanded && !leftHandItem2.isTwoHanded {
+	if !rightHandItem.isTwoHanded && !rightHandItem.isTwoHanded {
 		ds_map_replace(equippedLimbItems,"l",leftHandItem2);
 		ds_map_replace(equippedLimbItems,"l2",leftHandItem);
 		if leftHandItem unequipItem(leftHandItem);
@@ -37,7 +37,7 @@ if	(state == CombatantStates.Idle || state == CombatantStates.Moving)  {
 	
 	
 	// case: left hand item is 2h
-	if leftHandItem.isTwoHanded || leftHandItem2.isTwoHanded {
+	if rightHandItem.isTwoHanded || rightHandItem2.isTwoHanded {
 		ds_map_replace(equippedLimbItems,"r",rightHandItem2);
 		ds_map_replace(equippedLimbItems,"r2",rightHandItem);
 		ds_map_replace(equippedLimbItems,"l",leftHandItem2);

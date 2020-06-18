@@ -3,12 +3,12 @@
 var hatchet = makeEnemyWeapon(obj_hand_item_hatchet);
 var baxe = makeEnemyWeapon(obj_hand_item_baxe);
 
-ds_map_replace(handItems,"lm1",baxe);
-ds_map_replace(handItems,"rm1",hatchet);
+ds_map_replace(handItems,"lm1",hatchet);
+ds_map_replace(handItems,"rm1",baxe);
 
 rangedRangeArray = []; rangedAttacks = [];
-ds_map_replace(equippedLimbItems,"l",baxe);
-ds_map_replace(equippedLimbItems,"r",hatchet);
+ds_map_replace(equippedLimbItems,"l",hatchet);
+ds_map_replace(equippedLimbItems,"r",baxe);
 
 var baxe1 = makeEnemyAttackObj(obj_attack_icecursedfairy_baxe_1_1);
 var baxe2 = makeEnemyAttackObj(obj_attack_icecursedfairy_baxe_1_2);

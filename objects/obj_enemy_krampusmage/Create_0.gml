@@ -27,10 +27,10 @@ var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var iceshield = makeEnemyWeapon(obj_hand_item_iceshield);
 var icewand = makeEnemyWeapon(obj_hand_item_wand_km, true);
 
-ds_map_add(handItems,"lm1",icewand);
-ds_map_add(handItems,"rm1",iceshield);
-ds_map_add(handItems,"lr1",icewand);
-ds_map_add(handItems,"rr1",iceshield);
+ds_map_add(handItems,"lm1",iceshield);
+ds_map_add(handItems,"rm1",icewand);
+ds_map_add(handItems,"lr1",iceshield);
+ds_map_add(handItems,"rr1",icewand);
 
 ds_map_replace(equippedLimbItems,"l",iceshield);
 ds_map_replace(equippedLimbItems,"r",icewand);

@@ -9,9 +9,9 @@ if description == "Sample description" {
 // Inherit the parent event
 
 // do not allow usage if no weapon in left hand
-var leftHandItem = getItemInEquipmentSlot(EquipmentSlots.LeftHand1);
+var mainHandItem = getItemInEquipmentSlot(EquipmentSlots.RightHand1);
 if isInUse {
-	if leftHandItem.object_index == obj_hand_item_unarmed {
+	if mainHandItem.object_index == obj_hand_item_unarmed {
 		alert("No left hand weapon equipped",c_red);
 		isInUse = false;
 		exit;
@@ -19,7 +19,7 @@ if isInUse {
 }
 
 // also, only allow one bonus at a time
-if isInUse && ds_list_size(leftHandItem.temporaryDamages) == 1 {
+if isInUse && ds_list_size(mainHandItem.temporaryDamages) == 1 {
 	alert("Only one gem piece bonus can be applied at once", c_red); 
 	isInUse = false;
 	exit;
@@ -29,6 +29,6 @@ event_inherited();
 
 if isInUse {
 	var entry = [element, duration, [gemWeaponBonusMin, gemWeaponBonusMax], duration, itemSprite];
-	applyTemporaryDamageBonus(leftHandItem, entry);
+	applyTemporaryDamageBonus(mainHandItem, entry);
 	isInUse = false;
 }

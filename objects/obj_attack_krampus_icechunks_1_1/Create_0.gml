@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "spr_enemy_krampus_staff";
 spriteAttackNumber = 4;
 spriteAttackNumberInChain = 1;
-limbKey = "l";
+limbKey = "r"; // default value
 ds_map_add(damages,ICE,[10,10]);
 ds_map_add(damages,PIERCE,[12,12]);
 isRanged = false;

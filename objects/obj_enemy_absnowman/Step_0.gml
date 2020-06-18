@@ -4,8 +4,10 @@ if phaseChangeFrame < 0 {
 
 if hp < (.5*maxHp) && phase == 0 && state != CombatantStates.Attacking && hp > 0 {
 
-	with global.gameManager.bgmManager {
-		startBgm(snd_bgm_absnowman_2, true);
+	if room == rm_abominable_snowman {
+		with global.gameManager.bgmManager {
+			startBgm(snd_bgm_absnowman_2, true);
+		}
 	}
 	
 	lightRadiusAlpha = .95;
@@ -92,6 +94,7 @@ if hp < (.5*maxHp) && phase == 0 && state != CombatantStates.Attacking && hp > 0
 	var c14 = [swing11, swing12, swing21];
 	var c15 = [iceshooter];
 	meleeAttacks = [c0, c1, c3, c9, c10, c14, c15];
+	// meleeAttacks = [c3];
 	
 	// currently chosen ranged attack
 	var sb11r = makeEnemyAttackObj(obj_attack_absnowman_snowball_1_1);

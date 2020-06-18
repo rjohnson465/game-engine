@@ -5455,6 +5455,14 @@
             }
         },
         {
+            "Key": "26dab422-9003-46a3-aaf6-cd6102d0963a",
+            "Value": {
+                "id": "ec670612-5eb4-473f-85f2-646c0951e1e0",
+                "resourcePath": "sounds\\snd_enemy_absnowman_trample\\snd_enemy_absnowman_trample.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "26e48bbd-a7bf-49d1-b5d6-84adafb655f1",
             "Value": {
                 "id": "4e7f0f89-f573-44f4-bc98-23fcb44c5ebd",
@@ -14959,6 +14967,14 @@
             }
         },
         {
+            "Key": "6e916593-b416-4792-a64e-1a056d662c42",
+            "Value": {
+                "id": "2f45dbb1-9e79-467e-9462-d9895413457f",
+                "resourcePath": "sounds\\snd_enemy_absnowman_vox_chargeprep\\snd_enemy_absnowman_vox_chargeprep.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "6ecf75db-4873-4da4-81c4-596ff6bc66e5",
             "Value": {
                 "id": "696044fc-076f-4aff-bff2-da7804373d96",
@@ -19356,6 +19372,14 @@
                 "id": "85f2c527-bea2-4b3c-92ed-10b30b2be570",
                 "resourcePath": "objects\\obj_attack_krampuself_icespear_2_1\\obj_attack_krampuself_icespear_2_1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "8f45c3ee-d3b5-4d54-bfbc-4c7d6bcf8e81",
+            "Value": {
+                "id": "00774016-2e06-4244-9cc6-d505c602d98c",
+                "resourcePath": "sounds\\snd_enemy_absnowman_vox_chargeattack\\snd_enemy_absnowman_vox_chargeattack.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -29119,6 +29143,14 @@
             }
         },
         {
+            "Key": "d71f2856-ac13-40bb-adc1-68dd72dd837e",
+            "Value": {
+                "id": "8d84b389-4652-4572-b08a-069bd2a48623",
+                "resourcePath": "sounds\\snd_enemy_absnowman_vox_fall\\snd_enemy_absnowman_vox_fall.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "d7610202-6648-4002-9031-4371d5202a79",
             "Value": {
                 "id": "e7215a99-9974-42d0-b686-741a833d7196",
@@ -30764,6 +30796,14 @@
                 "id": "3170b85f-394a-41c6-b1dd-0117dabc14c9",
                 "resourcePath": "sprites\\spr_enemy_absnowman_charge_attack_1_2\\spr_enemy_absnowman_charge_attack_1_2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e2d1408b-04e6-4cb7-b3e3-75deed0b32c9",
+            "Value": {
+                "id": "01329ee7-4a46-4917-bf76-023fb140c132",
+                "resourcePath": "views\\e2d1408b-04e6-4cb7-b3e3-75deed0b32c9.yy",
+                "resourceType": "GMFolder"
             }
         },
         {

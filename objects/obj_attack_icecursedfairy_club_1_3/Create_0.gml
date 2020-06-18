@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "spr_enemy_icecursedfairy_club";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 3;
-limbKey = "l"; 
+limbKey = "r"; 
 ds_map_add(damages,CRUSH,[20,20]);
 isRanged = false;
 staminaCost = 10;

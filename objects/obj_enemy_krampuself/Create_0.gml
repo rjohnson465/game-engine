@@ -27,8 +27,8 @@ var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var iceshield = makeEnemyWeapon(obj_hand_item_iceshield);
 var icespear = makeEnemyWeapon(obj_hand_item_icespear, true);
 
-ds_map_add(handItems,"lm1",icespear);
-ds_map_add(handItems,"rm1",iceshield);
+ds_map_add(handItems,"lm1",iceshield);
+ds_map_add(handItems,"rm1",icespear);
 
 ds_map_replace(equippedLimbItems,"l",iceshield);
 ds_map_replace(equippedLimbItems,"r",icespear);

@@ -3,7 +3,7 @@ spriteName = "spr_enemy_krampusmage_wand";
 spriteAttackNumber = 3;
 spriteAttackNumberInChain = 1;
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
-limbKey = "l";
+limbKey = "r";
 ds_map_replace(damages,ICE,[10,10]);
 ds_map_replace(damages,PIERCE,[30,35]);
 isRanged = false;

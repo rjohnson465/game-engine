@@ -44,12 +44,13 @@ fillHealthFlask();
 
 var ls = instance_create_depth(x, y, depth, obj_hand_item_longsword);
 ls.numberOfSockets = 2;
-insertGemIntoItem(makeGem(obj_gem_lapis, CRACKED), ls);
+// insertGemIntoItem(makeGem(obj_gem_hematite, CRACKED), ls);
 addItemToInventory(ls);
-equipItem(ls, EquipmentSlots.LeftHand1);
-var ws = instance_create_depth(x, y, depth, obj_hand_item_woodshield);
-addItemToInventory(ws);
-equipItem(ws, EquipmentSlots.RightHand1);
+equipItem(ls, EquipmentSlots.RightHand1);
+var ks = instance_create_depth(x, y, depth, obj_hand_item_kiteshield);
+addItemToInventory(ks);
+equipItem(ks, EquipmentSlots.LeftHand1);
+
 var rc = instance_create_depth(x, y, depth, obj_hat_ringed_coif);
 addItemToInventory(rc);
 equipItem(rc, EquipmentSlots.Head);

@@ -24,7 +24,7 @@ if droppedItem.type == ItemTypes.HandItem {
 	}
 }
 
-if droppedItem.baseName == "Torch" && (slotObj.slot != EquipmentSlots.RightHand1 && slotObj.slot != EquipmentSlots.RightHand2) {
+if droppedItem.baseName == "Torch" && (slotObj.slot != EquipmentSlots.LeftHand1 && slotObj.slot != EquipmentSlots.LeftHand2) {
 	alert("Torches must be equipped in offhand",c_red); exit;
 }
 
@@ -52,7 +52,7 @@ with slotObj {
 		
 		// there are some special cases for hand items 
 		// 1) 2H items take up both slots for a weapon set
-		// 2) Shields must always be in the left slot of a weapon set
+		// 2) Shields must always be in the offhand slot of a weapon set
 		// 3) If a hand item is dropped into a set w/ a 2h item, unequip that 2h item
 		if droppedItem.type == ItemTypes.HandItem {
 			
@@ -79,12 +79,12 @@ with slotObj {
 			// 1)
 			if droppedItem.isTwoHanded {
 				switch (slot) {
-					case EquipmentSlots.RightHand1: {
-						actualSlot = EquipmentSlots.LeftHand1;
+					case EquipmentSlots.LeftHand1: {
+						actualSlot = EquipmentSlots.RightHand1;
 						break;
 					}
-					case EquipmentSlots.RightHand2: {
-						actualSlot = EquipmentSlots.LeftHand2;
+					case EquipmentSlots.LeftHand2: {
+						actualSlot = EquipmentSlots.RightHand2;
 						break;
 					}
 				}
@@ -101,10 +101,10 @@ with slotObj {
 			}
 			// 2) 
 			else if droppedItem.subType == HandItemTypes.Shield {
-				if slot == EquipmentSlots.LeftHand1 {
-					actualSlot = EquipmentSlots.RightHand1;
-				} else if slot == EquipmentSlots.LeftHand2 {
-					actualSlot = EquipmentSlots.RightHand2;
+				if slot == EquipmentSlots.RightHand1 {
+					actualSlot = EquipmentSlots.LeftHand1;
+				} else if slot == EquipmentSlots.RightHand2 {
+					actualSlot = EquipmentSlots.LeftHand2;
 				}
 				// if there's something equipped in actualSlot, unequip that
 				var alreadyEquippedItem = getItemInEquipmentSlot(actualSlot);

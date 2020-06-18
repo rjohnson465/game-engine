@@ -12,7 +12,7 @@ staggerDuration = 45;
 limbKey = noone;
 type = AttackTypes.Charge;
 minRange = 70;
-chargeSpeed = 20;
+chargeSpeed = 25;
 turnSpeed = 90;
 
 isBlockable = false;
@@ -21,11 +21,13 @@ movesDuringPrep = false;
 
 staggersAgainstBlocks = false;
 
-attackSound = snd_axe2h_attack_1;
+attackSound = snd_enemy_absnowman_trample;
 prepSound = snd_thrust_attack_1;
 
-attackSoundsVocals = [snd_enemy_troll_roar_1];
-prepSoundsVocals = [snd_enemy_troll_roar_3];
+attackSoundsVocals = [snd_enemy_absnowman_vox_chargeattack];
+prepSoundsVocals = [snd_enemy_absnowman_vox_chargeprep];
+mustVocalizeAttack = true;
+prepSoundsUninterruptible = true;
 
 // ice cloud
 var smoke = part_type_create();

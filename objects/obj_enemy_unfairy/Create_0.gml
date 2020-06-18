@@ -26,10 +26,10 @@ var woodshield = makeEnemyWeapon(obj_hand_item_woodshield);
 var longsword = makeEnemyWeapon(obj_hand_item_longsword, true);
 var shortbow = makeEnemyWeapon(obj_hand_item_shortbow);
 
-ds_map_add(handItems,"lm1",longsword);
-ds_map_add(handItems,"rm1",woodshield);
-ds_map_add(handItems, "lr1",shortbow);
-ds_map_add(handItems, "rr1", unarmed);
+ds_map_add(handItems,"lm1",woodshield);
+ds_map_add(handItems,"rm1",longsword);
+ds_map_add(handItems, "lr1",unarmed);
+ds_map_add(handItems, "rr1", shortbow);
 
 ds_map_replace(equippedLimbItems,"l",woodshield);
 ds_map_replace(equippedLimbItems,"r",longsword);

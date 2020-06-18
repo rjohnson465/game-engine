@@ -20,19 +20,19 @@ currentAttackingHand = noone; // hide current attack hand default image when att
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var toyhammer = makeEnemyWeapon(obj_hand_item_toyhammer);
 var pie = makeEnemyWeapon(obj_hand_item_pie);
-ds_map_replace(handItems,"lm1",toyhammer);
-ds_map_replace(handItems,"rm1",unarmed);
-ds_map_replace(handItems,"lm2",pie);
-ds_map_replace(handItems,"rm2",unarmed);
+ds_map_replace(handItems,"lm1",unarmed);
+ds_map_replace(handItems,"rm1",toyhammer);
+ds_map_replace(handItems,"lm2",unarmed);
+ds_map_replace(handItems,"rm2",pie);
 ds_map_replace(handItems,"lr1",noone);
 ds_map_replace(handItems,"rr1",noone);
 rangedRangeArray = []; rangedAttacks = [];
-ds_map_replace(equippedLimbItems,"l",toyhammer);
-ds_map_replace(equippedLimbItems,"r",unarmed);
-
-
 ds_map_replace(equippedLimbItems,"l",unarmed);
 ds_map_replace(equippedLimbItems,"r",toyhammer);
+
+
+//ds_map_replace(equippedLimbItems,"l",unarmed);
+//ds_map_replace(equippedLimbItems,"r",toyhammer);
 var rightHand = makeLimb(id,"r");
 var leftHand = makeLimb(id,"l");
 
@@ -86,7 +86,7 @@ var c6 = [pieThrow, hammerSwing];
 var c7 = [hammerCharge];
 var c8 = [hammerSwing, hammerCharge];
 meleeAttacks = [c0, c1, c2, c3, c3, c4, c5, c6, c7, c8];
-//meleeAttacks = [c7];
+// meleeAttacks = [c4];
 // ranged attacks info
 
 // currently chosen ranged attack

@@ -15,7 +15,8 @@ for (var i = 0; i < ds_map_size(handItems); i++) {
 	var hi = ds_map_find_value(handItems, ck); 
 	if hi != noone && hi != undefined && hi > 0 && instance_exists(hi) {
 		if hi.object_index == wr {
-			ds_map_replace(equippedLimbItems, "l", hi);
+			var lk = is_string(attackData.limbKey) ? attackData.limbKey : "l";
+			ds_map_replace(equippedLimbItems, lk, hi);
 		}
 	}
 

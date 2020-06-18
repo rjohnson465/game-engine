@@ -1,6 +1,6 @@
 event_inherited();
 var p = global.player;
-if p.rightHandItem.object_index != obj_hand_item_torch && !isLit {
+if !(isItemEquipped(obj_hand_item_torch)) && !isLit {
 	// maybeRemoveObjectFromInteractionList(id);
 	removeFromInteractablesList();
 	exit;
@@ -29,7 +29,7 @@ if	isFacing &&
 	// distance_to_object(obj_player) < 20 && 
 	p.currentInteractableObject == id &&
 	origLayer == p.layer && interactInputReceived && p.isAlive && !global.isLooting && !isInConvo {
-	if !isLit && p.rightHandItem.object_index == obj_hand_item_torch {
+	if !isLit && isItemEquipped(obj_hand_item_torch) {
 		lightSconce();
 	}
 	// extinguish flame

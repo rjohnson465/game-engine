@@ -8,10 +8,10 @@ var iceclub = makeEnemyWeapon(obj_hand_item_iceclub);
 ds_map_replace(iceclub.damages,ICE,[1,2]);
 
 var iceshield = makeEnemyWeapon(obj_hand_item_iceshield);
-ds_map_replace(handItems,"lm1",iceclub);
-ds_map_replace(handItems,"rm1",iceshield);
-ds_map_replace(equippedLimbItems,"l",iceclub);
-ds_map_replace(equippedLimbItems,"r",iceshield);
+ds_map_replace(handItems,"lm1",iceshield);
+ds_map_replace(handItems,"rm1",iceclub);
+ds_map_replace(equippedLimbItems,"l",iceshield);
+ds_map_replace(equippedLimbItems,"r",iceclub);
 
 
 

@@ -63,10 +63,16 @@ if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 		performRightHandReleaseAction();
 	}
 	
-	if gamepad_button_check_released(gamePadIndex,gp_shoulderr) {
-		if object_is_ancestor(rightHandItem.object_index, obj_shield_parent)
-		|| (leftHandItem.isRanged && leftHandItem.isTwoHanded)
+	if gamepad_button_check_released(gamePadIndex,gp_shoulderl) {
+		if object_is_ancestor(leftHandItem.object_index, obj_shield_parent)
+		// || (rightHandItem.isRanged && rightHandItem.isTwoHanded)
 		{
+			performLeftHandReleaseAction();
+		}
+	}
+	
+	if gamepad_button_check_released(gamePadIndex,gp_shoulderr) {
+		if rightHandItem.isRanged && rightHandItem.isTwoHanded {
 			performRightHandReleaseAction();
 		}
 	}
@@ -77,10 +83,10 @@ if gamepad_is_connected(gamePadIndex) && state != CombatantStates.Healing {
 	if gamepad_button_check_pressed(gamePadIndex,gp_shoulderr) {
 		performRightHandDownAction();
 	}
-	if gamepad_button_check(gamePadIndex, gp_shoulderr) && object_is_ancestor(rightHandItem.object_index, obj_shield_parent) {
-		performRightHandDownAction();
+	if gamepad_button_check(gamePadIndex, gp_shoulderl) && object_is_ancestor(leftHandItem.object_index, obj_shield_parent) {
+		performLeftHandDownAction();
 	}
-	if leftHandItem.isTwoHanded && leftHandItem.isRanged && gamepad_button_check(gamePadIndex, gp_shoulderr) {
+	if rightHandItem.isTwoHanded && rightHandItem.isRanged && gamepad_button_check(gamePadIndex, gp_shoulderr) {
 		performRightHandDownAction();
 	}
 	

@@ -8,7 +8,7 @@ if in > 0 exit;
 
 scr_test_build_swordsman_ww();
 
-questStart(obj_quest_savingherbie);
+// questStart(obj_quest_savingherbie);
 
 maxHp = 500;
 hp = 500;

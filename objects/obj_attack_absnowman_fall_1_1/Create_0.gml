@@ -17,8 +17,8 @@ staggersAgainstBlocks = false;
 attackSound = snd_crunchy_thud;
 prepSound = snd_thrust_attack_1;
 
-attackSoundsVocals = [snd_enemy_troll_roar_2];
-prepSoundsVocals = [snd_enemy_troll_roar_3];
+attackSoundsVocals = [];
+prepSoundsVocals = [snd_enemy_absnowman_vox_fall];
 
 zoneCanHitShield = true;
 

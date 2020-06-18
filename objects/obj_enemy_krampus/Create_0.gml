@@ -25,12 +25,12 @@ dyingParticleColor1 = [make_color_rgb(36,129,92), c_red];
 // all weapons / shields enemy can use
 var unarmed = makeEnemyWeapon(obj_hand_item_unarmed);
 var kstaff = makeEnemyWeapon(obj_hand_item_krampusstaff);
-ds_map_replace(handItems,"lm1",kstaff);
+ds_map_replace(handItems,"lm1",unarmed);
 ds_map_replace(handItems,"rm1",kstaff);
 // ds_map_replace(handItems,"lm2",unarmed);
 // ds_map_replace(handItems,"rm2",unarmed);
-ds_map_replace(handItems,"lr1",kstaff);
-ds_map_replace(handItems,"rr1",unarmed);
+ds_map_replace(handItems,"lr1",unarmed);
+ds_map_replace(handItems,"rr1",kstaff);
 rangedRangeArray = []; rangedAttacks = [];
 ds_map_replace(equippedLimbItems,"l",kstaff);
 ds_map_replace(equippedLimbItems,"r",kstaff);

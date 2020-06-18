@@ -39,9 +39,9 @@ cautiousness = 50;
 
 sightAngleDelta = 360;
 
-poiseCurrent = 50;
-poiseMax = 50;
-poiseRegen = 3;
+poiseCurrent = 35;
+poiseMax = 35;
+poiseRegen = 2;
 
 // melee attacks info
 // the minimum range for each melee attack chain (index 0 refers to attack chain 1, index 1 refers to attack chain 2...)

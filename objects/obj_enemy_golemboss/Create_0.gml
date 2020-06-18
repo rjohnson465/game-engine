@@ -83,7 +83,7 @@ var c9 = [dybbuk];
 // var c13 = [swing, fireblast];
 var c14 = [stab, fireblast];
 meleeAttacks = [c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c14];
-// meleeAttacks = [c3];
+//meleeAttacks = [c0];
 
 // ranged attacks info
 

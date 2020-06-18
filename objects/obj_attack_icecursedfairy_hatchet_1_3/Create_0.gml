@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "spr_enemy_icecursedfairy_hatchet";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 3;
-limbKey = "l"; 
+limbKey = "r"; 
 ds_map_add(damages,CRUSH,[10,10]);
 isRanged = false;
 staminaCost = 10;

@@ -18,22 +18,22 @@ if limbKey == "l" && leftHandItem.weaponType == THROWN && leftHandItem.ammo == 0
 
 if sprite_index < 0 exit;
 
-if limbKey == "r" {
-	var leftHand = noone;
+if limbKey == "l" {
+	var rightHand = noone;
 	var oId = owner;
 	with obj_limb {
-		if owner == oId && limbKey == "l" {
-			leftHand = id;
+		if owner == oId && limbKey == "r" {
+			rightHand = id;
 		}
 	}
-	if leftHand {
-		var leftHandItem = ds_map_find_value(owner.equippedLimbItems,"l");
-		if leftHandItem.isTwoHanded exit;
+	if rightHand {
+		var rightHandItem = ds_map_find_value(owner.equippedLimbItems,"r");
+		if rightHandItem.isTwoHanded exit;
 	}
 }
 
 // draw based on state
-var ys = (limbKey == "r" || (leftHandItem.isRanged && leftHandItem.isTwoHanded)) ? 1 : -1;
+var ys = (limbKey == "r" || (rightHandItem.isRanged && rightHandItem.isTwoHanded)) ? 1 : -1;
 var rot = owner.facingDirection;
 var frame = 0; var sprite = asset_get_index(spriteString);
 // preparing limb

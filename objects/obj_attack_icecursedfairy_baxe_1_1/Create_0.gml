@@ -2,7 +2,7 @@ event_inherited();
 spriteName = "spr_enemy_icecursedfairy_baxe";
 spriteAttackNumber = 1;
 spriteAttackNumberInChain = 1;
-limbKey = "l"; // default value
+limbKey = "r"; // default value
 //hand = owner.leftHandItem.type == HandItemTypes.Shield ? "r" : "e"; // l | r | s | e | o
 ds_map_add(damages,CRUSH,[25,28]);
 isRanged = false;

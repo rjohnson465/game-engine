@@ -93,7 +93,7 @@ var c13 = [iceblade];
 var c14 = [swing11, swing12, swing21];
 
 meleeAttacks = [c0, c1, c4, c5, c6, c7, c8, c9, c10, c12, c14 ];
-// meleeAttacks = [c15];
+meleeAttacks = [c5];
 
 // ranged attacks info
 

@@ -38,3 +38,8 @@ part1Num = 8;
 prepPart1 = part1;
 prepPart1Num = 2;
 prepPart1BelowOwner = true;
+
+hasLightRadius = true;
+lightRadiusScale = .15;
+lightRadiusAlpha = noone;
+lightRadiusColor = c_white;
